@@ -64,16 +64,13 @@
 	<form class="form--cardDesign">
 	<fieldset>
 		<legend>Player Information</legend>
-		<label>
-		Player Name: <small>(will persist via localStorage)</small>
+		<label>Player Name: <small>(will persist via localStorage)</small>
 		<input v-model="playerName" type="text" placeholder maxlength="48">
 		</label>
-		<label>
-		Team Name:
+		<label>Team Name:
 		<input v-model="teamName" type="text" placeholder maxlength="42">
 		</label>
-		<label>
-		Position:
+		<label>Position:
 		<input v-model="playerPosition" type="text" placeholder maxlength="48">
 		</label>
 
@@ -372,19 +369,20 @@ body {
 
 fieldset {
 	margin-bottom: 1.6rem;
+	padding: 1rem 1rem 0 1rem;
 }
 legend {
-	//fake a darker color without having to use
-	font-weight: bold;
+	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', 'Helvetica', Arial, sans-serif;
+	//font-weight: bold;
 	text-align: center;
 	padding: 0 .4rem;
 	font-size: 1.6rem;
 }
 label {
 	display: block;
+	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', 'Helvetica', Arial, sans-serif;
+	font-weight: bold;
 	margin-bottom: 1.6rem;
-	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', 'Helvetica', Arial,
-		sans-serif;
 	// &.label--half {
 	// 	display: inline-block;
 	// 	width: calc(50% - 1rem);
