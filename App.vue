@@ -75,12 +75,10 @@
 		</label>
 
 		<div class="row">
-			<label>
-				Player Image (URL):
+			<label>Player Image (URL):
 				<input v-model="playerImageURL" type="text" placeholder>
 				</label>
-				<label>
-				Team Logo Image (URL):
+				<label>Team Logo Image (URL):
 				<input v-model="teamLogoURL" type="url " placeholder>
 				</label>
 		</div>
@@ -111,8 +109,7 @@
 			<label>Border
 				<input v-model="cardBorderColor" type="color"/>
 			</label>
-			<label>
-				Corner Curve
+			<label>Corner Curve
 				<input v-model="cardBorderCurve" type="range" min="0" max="24">
 			</label>
 			
@@ -120,16 +117,13 @@
 		
 		<div class="row">
 			
-			<label>
-			Brightness
+			<label>Brightness
 			<input v-model="cardBrightness" type="range" min="1" max="1.3" step="0.01">
 			</label>
-			<label>
-			Sepia
+			<label>Sepia
 			<input v-model="cardSepia" type="range" min="0" max="50">
 			</label>
-			<label>
-			Greyscale
+			<label>Greyscale
 			<input v-model="cardGrayScale" type="range" min="0" max="100">
 			</label>
 		</div>
