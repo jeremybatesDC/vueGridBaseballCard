@@ -188,43 +188,10 @@ export default {
 		}
 	},
 	mounted: function(){
-		
 		//highly imperative for now until can implement object-level local storage (not rocket science but a pain that some vue libraries alleviate)
 		if (localStorage.playerName) {this.playerName = localStorage.playerName;}
 		if (localStorage.teamName) {this.teamName = localStorage.teamName;}
 		if (localStorage.playerPosition) {this.playerPosition = localStorage.playerPosition;}
-
-		async function getConcerts() {
-			let theURL = 'https://rest.bandsintown.com/artists/infected%2520mushroom/events?app_id=jshp.json'
-			let dataToWaitFor = await fetch(theURL);
-			let dataToSend = await dataToWaitFor.json()
-			return dataToSend;
-		}
-
-		getConcerts()
-		.then(
-			(data) => {
-				function isUS(concert){
-					if(concert.venue.country === "United States"){
-						return true
-					}
-				}
-				let USevents = data.filter(isUS);
-				const headerToAdd = document.createElement('h3');
-				headerToAdd.innerHTML = 'Upcoming US Concerts';
-				
-				var listToCreate = document.createElement('ul');
-				for(let concert of USevents){
-					let listItemToCreate = document.createElement('li');
-					listItemToCreate.innerHTML = concert.venue.city;
-					
-					listToCreate.appendChild(listItemToCreate);
-				}
-				document.body.appendChild(headerToAdd)
-				document.body.appendChild(listToCreate);
-			}
-		)
-		;
 	},
 	watch: {
 		//this is for localStorage
