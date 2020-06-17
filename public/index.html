@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <!-- <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" /> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Baseball Card Creator" />
+    <title>Baseball Card Creator</title>
+  </head>
+  <body>
+    <svg class="hidden">
+      <defs>
+        <filter id="filterpaper" opacity=".5">
+          <feTurbulence
+            type="fractalNoise"
+            baseFrequency=".5"
+            numOctaves="1"
+            result="noise"
+          />
+          <feDiffuseLighting
+            lighting-color="white"
+            diffuseConstant="1"
+            surfaceScale="0.5"
+            result="diffLight"
+          >
+            <feDistantLight azimuth="100" elevation="55" />
+          </feDiffuseLighting>
+        </filter>
+        <filter id="filternoise">
+          <feTurbulence
+            type="fractalNoise"
+            baseFrequency=".3333"
+            numOctaves="1"
+            stitchTiles="stitch"
+          />
+        </filter>
+        <filter id="filterfabric">
+          <feTurbulence
+            type="turbulence"
+            baseFrequency="999"
+            numOctaves="10"
+            result="turbulence"
+          />
+        </filter>
+      </defs>
+    </svg>
+    <div id="app"></div>
+    <script type="module" src="/_dist_/index.js"></script>
+    <!--
+      This HTML file is a template.
+      If you open it directly in the browser, you will see an empty page.
+
+      You can add webfonts, meta tags, or analytics to this file.
+      The build step will place the bundled scripts into the <body> tag.
+
+      To begin the development, run `npm start` or `yarn start`.
+      To create a production bundle, use `npm run build` or `yarn build`.
+    -->
+  </body>
+</html>
