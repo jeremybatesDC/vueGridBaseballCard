@@ -1,10 +1,21 @@
 {
-  "name": "Baseball Card Maker",
-  "short_name": "Baseball Card Maker",
-  "description": "Baseball Card Maker",
+  "name": "Baseball Card Creator",
+  "short_name": "Baseball Card Creator",
+  "description": "Baseball Card Creator",
   "lang": "en-US",
   "start_url": "/",
   "display": "standalone",
   "theme_color": "#321987",
-  "icons":[{"src":"/android-chrome-192x192.png","sizes":"192x192","type":"image/png"},{"src":"/android-chrome-512x512.png","sizes":"512x512","type":"image/png"}]
+  "icons": [
+    {
+      "src": "/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
 }

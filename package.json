@@ -1,25 +1,16 @@
 {
-  "name": "@snowpack/app-template-vue",
-  "version": "1.2.0",
-  "license": "MIT",
-  "keywords": [
-    "csa-template"
-  ],
-  "publishConfig": {
-    "access": "public"
-  },
+  "name": "baseballcardapp2020",
+  "version": "0.0.0",
   "scripts": {
-    "start": "snowpack dev",
-    "build": "snowpack build",
-    "test": "echo \"Vue 3.0 test support is still in progress.\" && exit 1"
+    "dev": "vite",
+    "build": "vite build"
   },
   "dependencies": {
-    "vue": "^3.0.0-0"
+    "vue": "^3.0.0-beta.14"
   },
   "devDependencies": {
-    "@snowpack/app-scripts-vue": "^1.1.4",
+    "@vue/compiler-sfc": "^3.0.0-beta.14",
     "sass": "^1.26.8",
-    "snowpack": "^2.5.0"
-  },
-  "gitHead": "795f4311d79a70cc9f19f21b512b7f8675d73f17"
+    "vite": "^1.0.0-beta.4"
+  }
 }

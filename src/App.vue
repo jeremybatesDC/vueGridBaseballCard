@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import CardFront from "./components/card-front.vue";
+import CardFront from "./components/CardFront.vue";
 
 export default {
   components: {
@@ -20,10 +20,10 @@ export default {
 @font-face {
   font-family: "AmstelvarAlpha";
   //font-display: swap;
-  src: url("./AmstelvarAlpha-VF.ttf");
+  src: url("./assets/AmstelvarAlpha-VF.ttf");
 }
 
-:root {
+html {
   box-sizing: border-box;
   font-size: 10px;
   //--cardbackgroundcolor: #000;

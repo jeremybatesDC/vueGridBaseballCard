@@ -2,32 +2,7 @@
   <main id="vueCardApp" class="baseballCard__wrapper" :style="cssProps">
     <!-- this instant prototype feature of vue cli is meant to require no cofig -->
     <!-- odd then that viewport isn't in default -- putting it here -->
-    <svg class="hidden">
-      <defs>
-        <filter id="filterpaper" opacity=".5">
-          <feTurbulence type="fractalNoise" baseFrequency=".5" numOctaves="1" result="noise" />
-          <feDiffuseLighting
-            lighting-color="white"
-            diffuseConstant="1"
-            surfaceScale="0.5"
-            result="diffLight"
-          >
-            <feDistantLight azimuth="100" elevation="55" />
-          </feDiffuseLighting>
-        </filter>
-        <filter id="filternoise">
-          <feTurbulence
-            type="fractalNoise"
-            baseFrequency=".3333"
-            numOctaves="1"
-            stitchTiles="stitch"
-          />
-        </filter>
-        <filter id="filterfabric">
-          <feTurbulence type="turbulence" baseFrequency="999" numOctaves="10" result="turbulence" />
-        </filter>
-      </defs>
-    </svg>
+
     <div class="baseballCard__wrapper--inner">
       <article class="gridParent">
         <aside class="corner--top--left"></aside>
@@ -73,13 +48,13 @@
         <section class="footer--teamLogo">
           <img loading="lazy" class="image--teamLogo" :src="teamLogoURL" :alt="teamLogoAltText" />
 
-          <input
+          <!-- <input
             class="fileInput--fullContainerSize"
             type="file"
             id="logoFileInput"
             name="logoFileInput"
             accept="image/png, image/jpeg"
-          />
+          />-->
         </section>
         <aside class="corner--bottom--right"></aside>
 
@@ -98,71 +73,18 @@
     </div>
     <form class="form--cardDesign">
       <fieldset>
+        <legend>Card Images</legend>
         <label>
           Player Image (URL):
           <input v-model="playerImageURL" type="text" placeholder />
-          <input
+          <!-- <input
             type="file"
+            class="fileInput--fullContainerSize"
             id="playerImageFileInput"
             name="playerImageFileInput"
             accept="image/png, image/jpeg"
-          />
+          />-->
         </label>
-        <label>
-          Team Logo Image (URL):
-          <input v-model="teamLogoURL" type="url " placeholder />
-          <input type="file" id="logoFileInput" name="logoFileInput" accept="image/png, image/jpeg" />
-        </label>
-      </fieldset>
-      <fieldset>
-        <legend>Card Design</legend>
-        <div class="row">
-          <label>
-            Font Weight
-            <input v-model="cardTextFontWeight" type="range" min="100" max="900" />
-          </label>
-          <!-- <label>
-            Font Width
-            <input v-model="cardTextFontWidth" type="range" min="75" max="100" />
-          </label>-->
-          <label>
-            Font Optical Size (inverse)
-            <input
-              v-model="cardTextFontOptSize"
-              type="range"
-              min="10"
-              max="72"
-            />
-          </label>
-
-          <label>
-            Card Texture
-            <select v-model="cardBackgroundTexture">
-              <option>no texture</option>
-              <option value="filterfabric">Fabric</option>
-              <option value="filterpaper">Paper</option>
-              <option value="filternoise">Noise</option>
-            </select>
-          </label>
-        </div>
-        <div class="row">
-          <label>
-            Background
-            <input v-model="cardBackgroundColor" type="color" />
-          </label>
-          <label>
-            Text
-            <input v-model="cardTextColor" type="color" />
-          </label>
-          <label>
-            Border
-            <input v-model="cardBorderColor" type="color" />
-          </label>
-          <label>
-            Corner Curve
-            <input v-model="cardBorderCurve" type="range" min="0" max="24" />
-          </label>
-        </div>
 
         <div class="row">
           <label>
@@ -178,15 +100,74 @@
             <input v-model="cardGrayScale" type="range" min="0" max="100" />
           </label>
         </div>
+        <label>
+          Team Logo Image (URL):
+          <input v-model="teamLogoURL" type="url " placeholder />
+          <!-- <input type="file" id="logoFileInput" name="logoFileInput" accept="image/png, image/jpeg" /> -->
+        </label>
+      </fieldset>
+      <fieldset>
+        <legend>Card Typography</legend>
+        <div class="row">
+          <label>
+            Font Weight
+            <input v-model="cardTextFontWeight" type="range" min="100" max="900" />
+          </label>
+          <label>
+            Font Width
+            <input v-model="cardTextFontWidth" type="range" min="75" max="100" />
+          </label>
+          <label>
+            Font Optical Size (inverse)
+            <input
+              v-model="cardTextFontOptSize"
+              type="range"
+              min="10"
+              max="72"
+            />
+          </label>
+          <label>
+            Text Color
+            <input v-model="cardTextColor" type="color" />
+          </label>
+        </div>
+      </fieldset>
+      <fieldset>
+        <legend>Design</legend>
+        <div class="row">
+          <label>
+            Background
+            <input v-model="cardBackgroundColor" type="color" />
+          </label>
+          <label>
+            Texture
+            <select v-model="cardBackgroundTexture">
+              <option>no texture</option>
+              <option value="filterfabric">Fabric</option>
+              <option value="filterpaper">Paper</option>
+              <option value="filternoise">Noise</option>
+            </select>
+          </label>
+          <label>
+            Border
+            <input v-model="cardBorderColor" type="color" />
+          </label>
+          <label>
+            Corner Curve
+            <input v-model="cardBorderCurve" type="range" min="0" max="24" />
+          </label>
+        </div>
       </fieldset>
       <!-- mmust be type button so it doesn't fight with submit-->
-      <button type="button" @click="clickHandler">Submit Design</button>
+      <button type="button" @click="saveHandler">Save</button>
+      <button type="button" @click="submitHandler">Submit</button>
     </form>
   </main>
 </template>
 
-<!-- setting lang here to ts doesnT really seem to work. Yes, I can bring in TS from other sources -->
-<script>
+<script lang="ts">
+// typescript working out of box in vite
+
 export default {
   setup: function() {
     const endpointURL = "https://reqres.in/api/users";
@@ -204,7 +185,7 @@ export default {
       });
       return response.json(); // parses JSON response into native JavaScript objects
     }
-    function clickHandler() {
+    function submitHandler() {
       // using THIS sends whole data object (saves a bunch of imperative code)
       postData(endpointURL, this)
         .then(data => {
@@ -213,6 +194,9 @@ export default {
         .catch(error => {
           console.error("DOH! ", error);
         });
+    }
+    function saveHandler() {
+      console.log("this should force a save to localstorage");
     }
     function setFromLocalStorage() {
       for (let key in localStorage) {
@@ -228,7 +212,8 @@ export default {
     return {
       endpointURL,
       postData,
-      clickHandler,
+      submitHandler,
+      saveHandler,
       setFromLocalStorage
       //updateLocalStorage
     };
@@ -256,13 +241,13 @@ export default {
       cardGrayScale: "0"
     };
   },
-  methods: {
+  /*methods: {
     // i am starting to see why folks like jake archibald have wrapped this
     // persist() {
     // 	localStorage.playerName = this.playerName;
     // 	localStorage.teamName = this.teamName;
     // }
-  },
+  },*/
   computed: {
     cssProps() {
       return {
@@ -283,8 +268,11 @@ export default {
     this.setFromLocalStorage();
   },
   // watch stuff and updatefor localStorage
+
   watch: {
-    // CURRENTLY FIRING ON EVERY KEYSTROKE :/
+    // CURRENTLY FIRING ON EVERY KEYSTROKE
+    // put this in an async function so it can save to localstorage when the call stack is for sure clear
+    // or throttle/debounce
     playerName(newPlayerName) {
       localStorage.playerName = newPlayerName;
     },
