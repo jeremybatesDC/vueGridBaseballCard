@@ -1,8 +1,6 @@
 <template>
   <main id="vueCardApp" class="baseballCard__wrapper" :style="cssProps">
-    <!-- this instant prototype feature of vue cli is meant to require no cofig -->
-    <!-- odd then that viewport isn't in default -- putting it here -->
-
+    <!-- would like to use async and suspense if beneficial -->
     <div class="baseballCard__wrapper--inner">
       <article class="gridParent">
         <aside class="corner--top--left"></aside>
@@ -23,13 +21,6 @@
             class="image--player"
             :src="playerImageURL"
             :alt="playerName + ' being awesome'"
-          />
-          <input
-            class="fileInput--fullContainerSize"
-            type="file"
-            id="playerImageFileInput"
-            name="playerImageFileInput"
-            accept="image/png, image/jpeg"
           />
         </section>
         <aside class="sidebar--right"></aside>
@@ -53,7 +44,7 @@
             type="file"
             id="logoFileInput"
             name="logoFileInput"
-            accept="image/png, image/jpeg"
+            accept="image/*"
           />-->
         </section>
         <aside class="corner--bottom--right"></aside>
@@ -77,13 +68,16 @@
         <label>
           Player Image (URL):
           <input v-model="playerImageURL" type="text" placeholder />
-          <!-- <input
+          <br />
+          <input
+            class
             type="file"
-            class="fileInput--fullContainerSize"
             id="playerImageFileInput"
+            ref="playerImageFileInput"
             name="playerImageFileInput"
-            accept="image/png, image/jpeg"
-          />-->
+            accept="image/*"
+            @input="showImage"
+          />
         </label>
 
         <div class="row">
@@ -103,7 +97,7 @@
         <label>
           Team Logo Image (URL):
           <input v-model="teamLogoURL" type="url " placeholder />
-          <!-- <input type="file" id="logoFileInput" name="logoFileInput" accept="image/png, image/jpeg" /> -->
+          <!-- <input type="file" id="logoFileInput" name="logoFileInput" accept="image/*" /> -->
         </label>
       </fieldset>
       <fieldset>
@@ -162,6 +156,11 @@
       <button type="button" @click="saveHandler">Save</button>
       <button type="button" @click="submitHandler">Submit</button>
     </form>
+
+    <figure v-if="playerImagePreview">
+      <figcaption>Need to provide either/or URL or upload</figcaption>
+      <img :src="playerImagePreview" />
+    </figure>
   </main>
 </template>
 
@@ -205,6 +204,22 @@ export default {
         }
       }
     }
+
+    // can constrain the ACCEPT attribute  https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file
+
+    function showImage() {
+      console.log(event);
+      let filesProp = this.$refs.playerImageFileInput.files;
+      let file = filesProp[0];
+      if (filesProp && file) {
+        let reader = new FileReader();
+        reader.onload = e => {
+          this.playerImagePreview = e.target.result;
+        };
+        reader.readAsDataURL(file);
+        this.$emit("input", file);
+      }
+    }
     // function updateLocalStorage(fieldname, newPlayerName) {
     //   localStorage[fieldname] = newPlayerName;
     // }
@@ -214,12 +229,14 @@ export default {
       postData,
       submitHandler,
       saveHandler,
-      setFromLocalStorage
+      setFromLocalStorage,
+      showImage
       //updateLocalStorage
     };
   },
   data: function() {
     return {
+      playerImagePreview: null,
       playerImageURL:
         "https://securea.mlb.com/mlb/images/players/head_shot/543685.jpg",
       playerName: "Anthony Rendon",
@@ -261,6 +278,8 @@ export default {
         "--cardsepia": `${this.cardSepia}%`,
         "--cardbrightness": this.cardBrightness,
         "--cardgrayscale": `${this.cardGrayScale}%`
+        //donT put encoded image in here. But this could/sjhould be a property somewhere
+        // "--playerimageencoded": `${this.playerImagePreview}%`
       };
     }
   },
