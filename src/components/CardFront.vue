@@ -17,9 +17,11 @@
           <!-- Edit this and the preview will update automatically. -->
 
           <img
+            width="272"
+            height="320"
             loading="lazy"
             class="image--player"
-            :src="playerImageURL"
+            :src="playerImageURLorDataString"
             :alt="playerName + ' being awesome'"
           />
         </section>
@@ -66,8 +68,12 @@
       <fieldset>
         <legend>Card Images</legend>
         <label>
-          Player Image (URL):
-          <input v-model="playerImageURL" type="text" placeholder />
+          Player Image (URL or upload):
+          <input
+            v-model="playerImageURLorDataString"
+            type="text"
+            placeholder
+          />
           <br />
           <input
             class
@@ -76,7 +82,7 @@
             ref="playerImageFileInput"
             name="playerImageFileInput"
             accept="image/*"
-            @input="showImage"
+            @input="encodeImage"
           />
         </label>
 
@@ -156,16 +162,14 @@
       <button type="button" @click="saveHandler">Save</button>
       <button type="button" @click="submitHandler">Submit</button>
     </form>
-
-    <figure v-if="playerImagePreview">
-      <figcaption>Need to provide either/or URL or upload</figcaption>
-      <img :src="playerImagePreview" />
-    </figure>
   </main>
 </template>
 
 <script lang="ts">
 // typescript working out of box in vite
+
+// can we make this import ASYNC?
+import placeholderEncodedImage from "../json/placeholder-image.json";
 
 export default {
   setup: function() {
@@ -207,14 +211,14 @@ export default {
 
     // can constrain the ACCEPT attribute  https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file
 
-    function showImage() {
+    function encodeImage() {
       console.log(event);
       let filesProp = this.$refs.playerImageFileInput.files;
       let file = filesProp[0];
       if (filesProp && file) {
         let reader = new FileReader();
         reader.onload = e => {
-          this.playerImagePreview = e.target.result;
+          this.playerImageURLorDataString = e.target.result;
         };
         reader.readAsDataURL(file);
         this.$emit("input", file);
@@ -230,15 +234,14 @@ export default {
       submitHandler,
       saveHandler,
       setFromLocalStorage,
-      showImage
+      encodeImage
       //updateLocalStorage
     };
   },
   data: function() {
     return {
-      playerImagePreview: null,
-      playerImageURL:
-        "https://securea.mlb.com/mlb/images/players/head_shot/543685.jpg",
+      playerImageURLorDataString:
+        placeholderEncodedImage.endcodedimagedatastring,
       playerName: "Anthony Rendon",
       playerPosition: "Third Base",
       teamLogoAltText: "Nats Curley W Logo",
@@ -301,8 +304,8 @@ export default {
     playerPosition(newPlayerPosition) {
       localStorage.playerPosition = newPlayerPosition;
     },
-    playerImageURL(newPlayerImageURL) {
-      localStorage.playerImageURL = newPlayerImageURL;
+    playerImageURLorDataString(newplayerImageURLorDataString) {
+      localStorage.playerImageURLorDataString = newplayerImageURLorDataString;
     },
     teamLogoURL(newteamLogoURL) {
       localStorage.teamLogoURL = newteamLogoURL;
