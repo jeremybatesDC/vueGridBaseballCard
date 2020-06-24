@@ -211,17 +211,29 @@ export default {
 
     // can constrain the ACCEPT attribute  https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file
 
+    function validateImage(imageFileToValidate) {
+      const maxFileSize = 1;
+      if (imageFileToValidate.size < maxFileSize) {
+        console.log("okay go ahead");
+      } else {
+        console.log("too heavy");
+      }
+    }
+
     function encodeImage() {
-      console.log(event);
       let filesProp = this.$refs.playerImageFileInput.files;
-      let file = filesProp[0];
-      if (filesProp && file) {
+      let usrfile = filesProp[0];
+
+      validateImage(usrfile);
+
+      if (filesProp && usrfile) {
+        console.log(usrfile.size);
         let reader = new FileReader();
         reader.onload = e => {
           this.playerImageURLorDataString = e.target.result;
         };
-        reader.readAsDataURL(file);
-        this.$emit("input", file);
+        reader.readAsDataURL(usrfile);
+        this.$emit("input", usrfile);
       }
     }
     // function updateLocalStorage(fieldname, newPlayerName) {
@@ -234,7 +246,8 @@ export default {
       submitHandler,
       saveHandler,
       setFromLocalStorage,
-      encodeImage
+      encodeImage,
+      validateImage
       //updateLocalStorage
     };
   },
