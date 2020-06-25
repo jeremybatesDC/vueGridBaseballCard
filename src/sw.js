@@ -3,13 +3,15 @@ const RUNTIME = "runtime";
 
 // A list of local resources we always want to be cached.
 const PRECACHE_URLS = [
-  //'index.html',
+  "index.html",
   "./", // Alias for index.html
   //'./fonts/SourceSerifVariable-Roman.ca59c9a0.ttf'
   //'styles.css',
   //'../../styles/main.css',
   //'demo.js'
 ];
+
+console.log("from service worker");
 
 // The install handler takes care of precaching the resources we always need.
 self.addEventListener("install", (event) => {

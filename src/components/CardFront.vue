@@ -169,7 +169,7 @@
 // typescript working out of box in vite
 
 // can we make this import ASYNC?
-import placeholderEncodedImage from "../json/placeholder-image.json";
+//import placeholderEncodedImage from "../json/placeholder-image.json";
 
 export default {
   setup: function() {
@@ -221,6 +221,8 @@ export default {
     }
 
     function encodeImage() {
+      console.log(event);
+
       let filesProp = this.$refs.playerImageFileInput.files;
       let usrfile = filesProp[0];
 
@@ -253,8 +255,10 @@ export default {
   },
   data: function() {
     return {
+      // playerImageURLorDataString:
+      //   placeholderEncodedImage.endcodedimagedatastring,
       playerImageURLorDataString:
-        placeholderEncodedImage.endcodedimagedatastring,
+        "https://securea.mlb.com/mlb/images/players/head_shot/543685.jpg",
       playerName: "Anthony Rendon",
       playerPosition: "Third Base",
       teamLogoAltText: "Nats Curley W Logo",
