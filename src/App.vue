@@ -99,55 +99,8 @@ h3 {
   // i really don't understand at all why wdth is not working
   font-variation-settings: "wght" var(--cardtextfontweight),
     "wdth" var(--cardtextfontwidth), "opsz" var(--cardtextfontoptsize);
+  margin-bottom: 7.2rem;
 }
-
-// .gridParent {
-//   display: grid;
-//   grid-template-columns: 2.4rem 1fr 1fr 1fr 1fr 2.4rem;
-//   grid-template-rows: 4.8rem 1fr 7.2rem;
-//   grid-column-gap: 0px;
-//   grid-row-gap: 0px;
-//   height: 100%;
-// }
-// .corner--top--left {
-//   grid-area: 1 / 1 / 2 / 2;
-// }
-// .masthead--center {
-//   grid-area: 1 / 2 / 2 / 6;
-// }
-// .corner--top--right {
-//   grid-area: 1 / 6 / 2 / 7;
-// }
-// .sidebar--left {
-//   grid-area: 2 / 1 / 3 / 2;
-// }
-// .image__container {
-//   grid-area: 2 / 2 / 3 / 6;
-// }
-// .sidebar--right {
-//   grid-area: 2 / 6 / 3 / 7;
-// }
-// .corner--bottom--left {
-//   grid-area: 3 / 1 / 4 / 2;
-// }
-// .footer--playerName {
-//   grid-area: 3 / 2 / 4 / 5;
-// }
-// .footer--playerPosition {
-//   grid-area: 3 / 5 / 4 / 6;
-// }
-// .footer--teamLogo {
-//   /*overlap*/
-//   grid-area: 2 / 5 / 3 / 6;
-//   text-align: right;
-//   position: relative;
-// }
-// .corner--bottom--right {
-//   grid-area: 3 / 6 / 4 / 7;
-// }
-// .svg--textureOverlay {
-//   grid-area: 1 / 1 / 4 / 7;
-// }
 
 // there are some hard to iron out differences between filters when they are overtop of images
 .svg--textureOverlay {
@@ -175,11 +128,12 @@ h3 {
   justify-content: flex-end;
 }
 .image--teamLogo {
-  // object-fit: cover;
-  width: 4.8rem;
+  object-fit: cover;
+  width: 7.2rem;
+  height: 7.2rem;
   border-radius: 50%;
-  align-self: flex-end;
-  justify-self: flex-end;
+  align-self: var(--logoPosition);
+  //justify-self: flex-end;
   z-index: 1;
 }
 

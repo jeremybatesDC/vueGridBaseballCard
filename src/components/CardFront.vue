@@ -39,7 +39,14 @@
           </h3>
         </section>
         <section class="footer--teamLogo">
-          <img loading="lazy" class="image--teamLogo" :src="teamLogoURL" :alt="teamLogoAltText" />
+          <img
+            width="72"
+            height="72"
+            loading="lazy"
+            class="image--teamLogo {{logoPosition}}"
+            :src="teamLogoURL"
+            :alt="teamLogoAltText"
+          />
 
           <!-- <input
             class="fileInput--fullContainerSize"
@@ -104,6 +111,13 @@
           Team Logo Image (URL):
           <input v-model="teamLogoURL" type="url " placeholder />
           <!-- <input type="file" id="logoFileInput" name="logoFileInput" accept="image/*" /> -->
+        </label>
+        <label>
+          Logo Position
+          <select v-model="logoPosition">
+            <option value="flex-end">Bottom Right</option>
+            <option value="flex-start">Top Right</option>
+          </select>
         </label>
       </fieldset>
       <fieldset>
@@ -278,7 +292,8 @@ export default {
       cardTextFontWidth: defaultSettings.cardTextFontWidth,
       cardTextFontOptSize: defaultSettings.cardTextFontOptSize,
       cardSepia: defaultSettings.cardSepia,
-      cardGrayScale: defaultSettings.cardGrayScale
+      cardGrayScale: defaultSettings.cardGrayScale,
+      logoPosition: defaultSettings.logoPosition
     };
   },
   /*methods: {
@@ -300,7 +315,8 @@ export default {
         "--cardtextfontoptsize": this.cardTextFontOptSize,
         "--cardsepia": `${this.cardSepia}%`,
         "--cardbrightness": this.cardBrightness,
-        "--cardgrayscale": `${this.cardGrayScale}%`
+        "--cardgrayscale": `${this.cardGrayScale}%`,
+        "--logoPosition": this.logoPosition
         //donT put encoded image in here. But this could/sjhould be a property somewhere
         // "--playerimageencoded": `${this.playerImagePreview}%`
       };

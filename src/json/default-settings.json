@@ -15,5 +15,6 @@
   "cardTextFontWidth": "90",
   "cardTextFontOptSize": "25",
   "cardSepia": "0",
-  "cardGrayScale": "0"
+  "cardGrayScale": "0",
+  "logoPosition": "flex-end"
 }
