@@ -17,8 +17,8 @@
           <!-- Edit this and the preview will update automatically. -->
 
           <img
-            width="272"
-            height="320"
+            width="312"
+            height="384"
             loading="lazy"
             class="image--player"
             :src="playerImageURLorDataString"
@@ -158,6 +158,9 @@
           </label>
         </div>
       </fieldset>
+      <fieldset>
+        <legend>Gum Stains</legend>
+      </fieldset>
       <!-- mmust be type button so it doesn't fight with submit-->
       <button type="button" @click="saveHandler">Save</button>
       <button type="button" @click="submitHandler">Submit</button>
@@ -170,6 +173,7 @@
 
 // can we make this import ASYNC?
 //import placeholderEncodedImage from "../json/placeholder-image.json";
+import defaultSettings from "../json/default-settings.json";
 
 export default {
   setup: function() {
@@ -188,7 +192,7 @@ export default {
       });
       return response.json(); // parses JSON response into native JavaScript objects
     }
-    function submitHandler() {
+    async function submitHandler() {
       // using THIS sends whole data object (saves a bunch of imperative code)
       postData(endpointURL, this)
         .then(data => {
@@ -198,7 +202,7 @@ export default {
           console.error("DOH! ", error);
         });
     }
-    function saveHandler() {
+    async function saveHandler() {
       console.log("this should force a save to localstorage");
     }
     function setFromLocalStorage() {
@@ -211,7 +215,7 @@ export default {
 
     // can constrain the ACCEPT attribute  https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file
 
-    function validateImage(imageFileToValidate) {
+    async function validateImage(imageFileToValidate) {
       const maxFileSize = 1;
       if (imageFileToValidate.size < maxFileSize) {
         console.log("okay go ahead");
@@ -220,12 +224,13 @@ export default {
       }
     }
 
-    function encodeImage() {
+    async function encodeImage() {
       console.log(event);
 
       let filesProp = this.$refs.playerImageFileInput.files;
       let usrfile = filesProp[0];
 
+      //async await
       validateImage(usrfile);
 
       if (filesProp && usrfile) {
@@ -257,25 +262,23 @@ export default {
     return {
       // playerImageURLorDataString:
       //   placeholderEncodedImage.endcodedimagedatastring,
-      playerImageURLorDataString:
-        "https://securea.mlb.com/mlb/images/players/head_shot/543685.jpg",
-      playerName: "Anthony Rendon",
-      playerPosition: "Third Base",
-      teamLogoAltText: "Nats Curley W Logo",
-      teamLogoURL:
-        "http://content.sportslogos.net/logos/54/578/full/rcehah9k0kekjkgzm077fflws.png",
-      teamName: "Washington Nationals",
-      cardBackgroundColor: "#eee",
-      cardBackgroundTexture: "filterfabric",
-      cardBorderColor: "#000",
-      cardBorderCurve: "0",
-      cardBrightness: "1",
-      cardTextColor: "#000",
-      cardTextFontWeight: "400",
-      cardTextFontWidth: "90",
-      cardTextFontOptSize: "25",
-      cardSepia: "0",
-      cardGrayScale: "0"
+      playerImageURLorDataString: defaultSettings.playerImageURLorDataString,
+      playerName: defaultSettings.playerName,
+      playerPosition: defaultSettings.playerPosition,
+      teamLogoAltText: defaultSettings.teamLogoAltText,
+      teamLogoURL: defaultSettings.teamLogoURL,
+      teamName: defaultSettings.teamName,
+      cardBackgroundColor: defaultSettings.cardBackgroundColor,
+      cardBackgroundTexture: defaultSettings.cardBackgroundTexture,
+      cardBorderColor: defaultSettings.cardBorderColor,
+      cardBorderCurve: defaultSettings.cardBorderCurve,
+      cardBrightness: defaultSettings.cardBrightness,
+      cardTextColor: defaultSettings.cardTextColor,
+      cardTextFontWeight: defaultSettings.cardTextFontWeight,
+      cardTextFontWidth: defaultSettings.cardTextFontWidth,
+      cardTextFontOptSize: defaultSettings.cardTextFontOptSize,
+      cardSepia: defaultSettings.cardSepia,
+      cardGrayScale: defaultSettings.cardGrayScale
     };
   },
   /*methods: {

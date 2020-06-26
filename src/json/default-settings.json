@@ -1,0 +1,19 @@
+{
+  "playerImageURLorDataString": "https://securea.mlb.com/mlb/images/players/head_shot/543685.jpg",
+  "playerName": "Anthony Rendon",
+  "playerPosition": "Third Base",
+  "teamLogoAltText": "Nats Curley W Logo",
+  "teamLogoURL": "http://content.sportslogos.net/logos/54/578/full/rcehah9k0kekjkgzm077fflws.png",
+  "teamName": "Washington Nationals",
+  "cardBackgroundColor": "#eee",
+  "cardBackgroundTexture": "filterfabric",
+  "cardBorderColor": "#000",
+  "cardBorderCurve": "0",
+  "cardBrightness": "1",
+  "cardTextColor": "#000",
+  "cardTextFontWeight": "400",
+  "cardTextFontWidth": "90",
+  "cardTextFontOptSize": "25",
+  "cardSepia": "0",
+  "cardGrayScale": "0"
+}

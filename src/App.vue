@@ -1,13 +1,16 @@
 <template>
+  <!-- <CardGrid /> -->
   <CardFront />
 </template>
 
 <script>
 import CardFront from "./components/CardFront.vue";
+//import CardGrid from "./components/CardGrid.vue";
 
 export default {
   components: {
     CardFront
+    //CardGrid
   }
 };
 </script>
@@ -74,7 +77,7 @@ h3 {
 }
 
 .baseballCard__wrapper {
-  padding: 3.2rem;
+  //padding: 3.2rem;
 }
 
 .fileInput--fullContainerSize {
@@ -88,9 +91,9 @@ h3 {
 
 .baseballCard__wrapper--inner {
   display: inline-block;
-  width: 32rem;
+  width: 36rem;
   //yes, hard height here because
-  height: 44.8rem;
+  height: 50.4rem;
   background-color: var(--cardbackgroundcolor, #eee);
   color: var(--cardtextcolor, #000);
   // i really don't understand at all why wdth is not working
@@ -98,53 +101,53 @@ h3 {
     "wdth" var(--cardtextfontwidth), "opsz" var(--cardtextfontoptsize);
 }
 
-.gridParent {
-  display: grid;
-  grid-template-columns: 2.4rem 1fr 1fr 1fr 1fr 2.4rem;
-  grid-template-rows: 4.8rem 1fr 7.2rem;
-  grid-column-gap: 0px;
-  grid-row-gap: 0px;
-  height: 100%;
-}
-.corner--top--left {
-  grid-area: 1 / 1 / 2 / 2;
-}
-.masthead--center {
-  grid-area: 1 / 2 / 2 / 6;
-}
-.corner--top--right {
-  grid-area: 1 / 6 / 2 / 7;
-}
-.sidebar--left {
-  grid-area: 2 / 1 / 3 / 2;
-}
-.image__container {
-  grid-area: 2 / 2 / 3 / 6;
-}
-.sidebar--right {
-  grid-area: 2 / 6 / 3 / 7;
-}
-.corner--bottom--left {
-  grid-area: 3 / 1 / 4 / 2;
-}
-.footer--playerName {
-  grid-area: 3 / 2 / 4 / 5;
-}
-.footer--playerPosition {
-  grid-area: 3 / 5 / 4 / 6;
-}
-.footer--teamLogo {
-  /*overlap*/
-  grid-area: 2 / 5 / 3 / 6;
-  text-align: right;
-  position: relative;
-}
-.corner--bottom--right {
-  grid-area: 3 / 6 / 4 / 7;
-}
-.svg--textureOverlay {
-  grid-area: 1 / 1 / 4 / 7;
-}
+// .gridParent {
+//   display: grid;
+//   grid-template-columns: 2.4rem 1fr 1fr 1fr 1fr 2.4rem;
+//   grid-template-rows: 4.8rem 1fr 7.2rem;
+//   grid-column-gap: 0px;
+//   grid-row-gap: 0px;
+//   height: 100%;
+// }
+// .corner--top--left {
+//   grid-area: 1 / 1 / 2 / 2;
+// }
+// .masthead--center {
+//   grid-area: 1 / 2 / 2 / 6;
+// }
+// .corner--top--right {
+//   grid-area: 1 / 6 / 2 / 7;
+// }
+// .sidebar--left {
+//   grid-area: 2 / 1 / 3 / 2;
+// }
+// .image__container {
+//   grid-area: 2 / 2 / 3 / 6;
+// }
+// .sidebar--right {
+//   grid-area: 2 / 6 / 3 / 7;
+// }
+// .corner--bottom--left {
+//   grid-area: 3 / 1 / 4 / 2;
+// }
+// .footer--playerName {
+//   grid-area: 3 / 2 / 4 / 5;
+// }
+// .footer--playerPosition {
+//   grid-area: 3 / 5 / 4 / 6;
+// }
+// .footer--teamLogo {
+//   /*overlap*/
+//   grid-area: 2 / 5 / 3 / 6;
+//   text-align: right;
+//   position: relative;
+// }
+// .corner--bottom--right {
+//   grid-area: 3 / 6 / 4 / 7;
+// }
+// .svg--textureOverlay {
+//   grid-area: 1 / 1 / 4 / 7;
+// }
 
 // there are some hard to iron out differences between filters when they are overtop of images
 .svg--textureOverlay {
@@ -183,9 +186,9 @@ h3 {
 .image--player {
   object-fit: cover;
   object-position: 0 50%;
-  width: 100%;
-  height: auto;
-  max-height: 32rem;
+  //width: 100%;
+  //height: auto;
+  //max-height: 38.4rem;
   border: 3px solid var(--cardbordercolor, #000);
   border-radius: var(--cardbordercurve, 0);
   filter: #{"grayscale(var(--cardgrayscale, 0))"} brightness(
