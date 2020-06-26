@@ -191,6 +191,8 @@ import defaultSettings from "../json/default-settings.json";
 
 export default {
   setup: function() {
+    var webWorker = new Worker("./web-worker.js");
+
     const endpointURL = "https://reqres.in/api/users";
     async function postData(url = "", data = {}) {
       const response = await fetch(url, {
@@ -229,32 +231,36 @@ export default {
 
     // can constrain the ACCEPT attribute  https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file
 
-    async function validateImage(imageFileToValidate) {
-      const maxFileSize = 1;
-      if (imageFileToValidate.size < maxFileSize) {
-        console.log("okay go ahead");
-      } else {
-        console.log("too heavy");
-      }
-    }
+    // async function validateImage(imageFileToValidate) {
+    //   const maxFileSize = 1;
+    //   if (imageFileToValidate.size < maxFileSize) {
+    //     console.log("okay go ahead");
+    //   } else {
+    //     console.log("too heavy");
+    //   }
+    // }
 
     async function encodeImage() {
-      console.log(event);
-
       let filesProp = this.$refs.playerImageFileInput.files;
       let usrfile = filesProp[0];
 
       //async await
-      validateImage(usrfile);
+
+      //validateImage();
 
       if (filesProp && usrfile) {
-        console.log(usrfile.size);
-        let reader = new FileReader();
-        reader.onload = e => {
-          this.playerImageURLorDataString = e.target.result;
-        };
-        reader.readAsDataURL(usrfile);
-        this.$emit("input", usrfile);
+        webWorker.postMessage(usrfile);
+
+        // how does this flow of control work here?
+
+        // console.log(usrfile.size);
+        // let reader = new FileReader();
+        // reader.onload = e => {
+        //   this.playerImageURLorDataString = e.target.result;
+        // };
+        // reader.readAsDataURL(usrfile);
+
+        // this.$emit("input", usrfile);
       }
     }
     // function updateLocalStorage(fieldname, newPlayerName) {
@@ -267,8 +273,8 @@ export default {
       submitHandler,
       saveHandler,
       setFromLocalStorage,
-      encodeImage,
-      validateImage
+      encodeImage
+      //validateImage
       //updateLocalStorage
     };
   },
