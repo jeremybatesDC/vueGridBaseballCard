@@ -191,6 +191,7 @@ import defaultSettings from "../json/default-settings.json";
 
 export default {
   setup: function() {
+    // any reason not to fire up web worker at the beginning?
     var webWorker = new Worker("./web-worker.js");
 
     const endpointURL = "https://reqres.in/api/users";
@@ -249,20 +250,25 @@ export default {
       //validateImage();
 
       if (filesProp && usrfile) {
+        let theThis = this;
         webWorker.postMessage(usrfile);
+        theThis.$emit("input", usrfile);
 
-        // how does this flow of control work here?
+        // 'this' gets changed
 
-        // console.log(usrfile.size);
-        // let reader = new FileReader();
-        // reader.onload = e => {
-        //   this.playerImageURLorDataString = e.target.result;
-        // };
-        // reader.readAsDataURL(usrfile);
-
-        // this.$emit("input", usrfile);
+        function testFunction(strng) {
+          theThis.playerImageURLorDataString = strng;
+        }
+        webWorker.onmessage = function(event) {
+          console.log("received message here");
+          //this.playerImageURLorDataString = event.data;
+          //
+          testFunction(event.data);
+        };
       }
     }
+
+    function receivedWorkerMessage(event) {}
     // function updateLocalStorage(fieldname, newPlayerName) {
     //   localStorage[fieldname] = newPlayerName;
     // }
@@ -274,6 +280,7 @@ export default {
       saveHandler,
       setFromLocalStorage,
       encodeImage
+      //receivedWorkerMessage
       //validateImage
       //updateLocalStorage
     };

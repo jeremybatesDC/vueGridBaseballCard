@@ -4,6 +4,8 @@
 </template>
 
 <script>
+//navigator.serviceWorker.register("./sw.js");
+
 import CardFront from "./components/CardFront.vue";
 //import CardGrid from "./components/CardGrid.vue";
 
