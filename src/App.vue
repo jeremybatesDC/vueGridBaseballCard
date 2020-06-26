@@ -121,7 +121,11 @@ h3 {
 }
 .footer--playerPosition {
   align-self: center;
-  text-align: right;
+
+  h3,
+  input {
+    text-align: right;
+  }
 }
 .footer--teamLogo {
   display: flex;
@@ -178,14 +182,18 @@ label {
   font-weight: bold;
   margin-bottom: 1.6rem;
 
-  input,
-  select {
+  input {
     display: block;
     font-family: inherit;
     font-size: 1.2rem;
     &:not([type="color"]) {
       width: 100%;
     }
+  }
+  select {
+    display: block;
+    font-family: inherit;
+    font-size: 1.6rem;
   }
 }
 
