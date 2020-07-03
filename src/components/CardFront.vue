@@ -173,7 +173,7 @@
         </div>
       </fieldset>
       <fieldset>
-        <legend>Gum Stains</legend>
+        <legend>Imperfections</legend>
       </fieldset>
       <!-- mmust be type button so it doesn't fight with submit-->
       <button type="button" @click="saveHandler">Save</button>
@@ -190,7 +190,7 @@
 import defaultSettings from "../json/default-settings.json";
 
 export default {
-  setup: function() {
+  setup: () => {
     // any reason not to fire up web worker at the beginning?
     var webWorker = new Worker("./web-worker.js");
 

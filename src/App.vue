@@ -1,18 +1,24 @@
 <template>
-  <!-- <CardGrid /> -->
   <CardFront />
 </template>
 
 <script>
-//navigator.serviceWorker.register("./sw.js");
-
 import CardFront from "./components/CardFront.vue";
-//import CardGrid from "./components/CardGrid.vue";
 
+// this register call wasn't working inside of setup.
+// consider moving this into main.ts where an envar is more appropriate
+async function registerServiceWorker() {
+  navigator.serviceWorker.register("./sw.js");
+}
 export default {
+  setup: () => {
+    return { registerServiceWorker };
+  },
   components: {
     CardFront
-    //CardGrid
+  },
+  mounted: () => {
+    registerServiceWorker();
   }
 };
 </script>
