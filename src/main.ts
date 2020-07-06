@@ -5,8 +5,11 @@ import { createApp } from "vue";
 import App from "./App.vue";
 
 async function registerServiceWorker() {
+  // check if already registered?
   navigator.serviceWorker.register("./sw.js");
 }
-document.addEventListener("DOMContentLoaded", registerServiceWorker);
+
+// i dont want to register every page load right? When?
+//document.addEventListener("DOMContentLoaded", registerServiceWorker);
 
 createApp(App).mount("#app");

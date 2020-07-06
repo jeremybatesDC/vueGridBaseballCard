@@ -5,21 +5,16 @@
 <script>
 import CardFront from "./components/CardFront.vue";
 
-// this register call wasn't working inside of setup.
-// consider moving this into main.ts where an envar is more appropriate
-async function registerServiceWorker() {
-  navigator.serviceWorker.register("./sw.js");
-}
 export default {
   setup: () => {
-    return { registerServiceWorker };
+    //return { registerServiceWorker };
   },
   components: {
-    CardFront
+    CardFront,
   },
   mounted: () => {
-    registerServiceWorker();
-  }
+    //registerServiceWorker();
+  },
 };
 </script>
 
