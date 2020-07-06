@@ -23,12 +23,17 @@ export default {
 //so either put those in sep style tag above, and leave below scoped
 //or just be clear donT use it
 
+// also look at dunbar and decorvar
+
 @font-face {
   font-family: "VariableFontSerif";
   //font-display: swap;
-  src: url("./assets/AmstelvarAlpha-VF.ttf");
-  //src: url("./assets/DensoVar.woff2");
-  //src: url("./assets/ForedayVar.woff2");
+  //src: url("./assets/AmstelvarAlpha-VF.ttf");
+  //src: url("./assets/SourceSerifVariable-Roman.ttf");
+  //src: url("./assets/RobotoDelta-VF.ttf");
+  src: url("./assets/RobotoDeltaMoreAxes-VF.ttf");
+  // RobotoDeltaMoreAxes Has ALL parametric axis: XTRA, XOPQ, YOPQ, YTLC, YTUC, YTAS, YTDE, YTAD, YTDD, UDLN, PWGT, PWDT, POPS, GRAD, YTRA, wght, wdth, opsz.
+  //src: url("./assets/RobotoFlex-VF.ttf");
 }
 
 html {
@@ -102,9 +107,22 @@ h3 {
   background-color: var(--cardbackgroundcolor, #eee);
   color: var(--cardtextcolor, #000);
   // i really don't understand at all why wdth is not working
-  font-variation-settings: "wght" var(--cardtextfontweight),
-    "wdth" var(--cardtextfontwidth), "opsz" var(--cardtextfontoptsize);
   margin-bottom: 7.2rem;
+  font-variation-settings: "wght" var(--cardtextfontweight),
+    "wdth" var(--cardtextfontwidth), "opsz" var(--cardtextfontoptsize),
+    "YTSE" var(--cardtextfontserifheight);
+
+  /* "YTSE" 39.25;
+   check out ascender styles too -- there are like 6 or 8 axes that will help (there are like 17 total -- maybe I can subset ))
+     https://github.com/TypeNetwork/Amstelvar
+     https://play.typedetail.com/
+
+Axes
+wght, wdth, opsz, GRAD, ital
+XTRA, YTRA, XOPQ, YOPQ
+YTLC, YTUC, YTFG, YTAS, YTDE
+YTOS, YTUS, YTAD, YTDD, XTAB, YTSE, VUID, VOTF, YTCH, XTCH, POPS, PWTH, PWHT, UDLN 
+*/
 }
 
 // there are some hard to iron out differences between filters when they are overtop of images

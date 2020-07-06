@@ -14,6 +14,7 @@
   "cardTextFontWeight": "400",
   "cardTextFontWidth": "90",
   "cardTextFontOptSize": "25",
+  "cardTextFontSerifHeight": "0",
   "cardSepia": "0",
   "cardGrayScale": "0",
   "logoPosition": "flex-end"
