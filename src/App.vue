@@ -24,18 +24,20 @@ export default {
 //or just be clear donT use it
 
 @font-face {
-  font-family: "AmstelvarAlpha";
+  font-family: "VariableFontSerif";
   //font-display: swap;
   src: url("./assets/AmstelvarAlpha-VF.ttf");
+  //src: url("./assets/DensoVar.woff2");
+  //src: url("./assets/ForedayVar.woff2");
 }
 
 html {
   box-sizing: border-box;
   font-size: 10px;
   //--cardbackgroundcolor: #000;
-  font-family: "AmstelvarAlpha", -apple-system, BlinkMacSystemFont, "Segoe UI",
-    Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", "Helvetica", Arial,
-    sans-serif;
+  font-family: "VariableFontSerif", -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue",
+    "Helvetica", Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
