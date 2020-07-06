@@ -163,13 +163,12 @@
             />
           </label>
           <label>
-            Font Serif Height
-            <input
-              v-model="cardTextFontSerifHeight"
-              type="range"
-              min="0"
-              max="48"
-            />
+            Font Grade
+            <input v-model="cardTextFontGrade" type="range" min="0" max="48" />
+          </label>
+          <label>
+            Font Slant
+            <input v-model="cardTextFontSlant" type="range" min="-10" max="0" />
           </label>
           <label>
             Text Color
@@ -335,7 +334,8 @@ export default {
       cardTextFontWeight: defaultSettings.cardTextFontWeight,
       cardTextFontWidth: defaultSettings.cardTextFontWidth,
       cardTextFontOptSize: defaultSettings.cardTextFontOptSize,
-      cardTextFontSerifHeight: defaultSettings.cardTextFontSerifHeight,
+      cardTextFontGrade: defaultSettings.cardTextFontGrade,
+      cardTextFontSlant: defaultSettings.cardTextFontSlant,
       cardSepia: defaultSettings.cardSepia,
       cardGrayScale: defaultSettings.cardGrayScale,
       logoPosition: defaultSettings.logoPosition,
@@ -358,7 +358,8 @@ export default {
         "--cardtextfontweight": this.cardTextFontWeight,
         "--cardtextfontwidth": this.cardTextFontWidth,
         "--cardtextfontoptsize": this.cardTextFontOptSize,
-        "--cardtextfontserifheight": this.cardTextFontSerifHeight,
+        "--cardtextfontgrade": this.cardTextFontGrade,
+        "--cardtextfontslant": this.cardTextFontSlant,
         "--cardsepia": `${this.cardSepia}%`,
         "--cardbrightness": this.cardBrightness,
         "--cardgrayscale": `${this.cardGrayScale}%`,

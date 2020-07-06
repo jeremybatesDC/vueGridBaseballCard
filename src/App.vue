@@ -31,9 +31,12 @@ export default {
   //src: url("./assets/AmstelvarAlpha-VF.ttf");
   //src: url("./assets/SourceSerifVariable-Roman.ttf");
   //src: url("./assets/RobotoDelta-VF.ttf");
-  src: url("./assets/RobotoDeltaMoreAxes-VF.ttf");
+  //src: url("./assets/RobotoDeltaMoreAxes-VF.ttf");
   // RobotoDeltaMoreAxes Has ALL parametric axis: XTRA, XOPQ, YOPQ, YTLC, YTUC, YTAS, YTDE, YTAD, YTDD, UDLN, PWGT, PWDT, POPS, GRAD, YTRA, wght, wdth, opsz.
-  //src: url("./assets/RobotoFlex-VF.ttf");
+  // RobotoFlex includes RobotoDelta
+
+  // robotoFlex is HUGE. Delta has a bunch but not slnt.
+  src: url("./assets/RobotoFlex-VF.ttf");
 }
 
 html {
@@ -110,19 +113,15 @@ h3 {
   margin-bottom: 7.2rem;
   font-variation-settings: "wght" var(--cardtextfontweight),
     "wdth" var(--cardtextfontwidth), "opsz" var(--cardtextfontoptsize),
-    "YTSE" var(--cardtextfontserifheight);
+    "GRAD" var(--cardtextfontgrade), "slnt" var(--cardtextfontslant);
 
-  /* "YTSE" 39.25;
-   check out ascender styles too -- there are like 6 or 8 axes that will help (there are like 17 total -- maybe I can subset ))
-     https://github.com/TypeNetwork/Amstelvar
-     https://play.typedetail.com/
+  // slnt
+  // some x / y height stuff
+  // consider PRESETS
 
-Axes
-wght, wdth, opsz, GRAD, ital
-XTRA, YTRA, XOPQ, YOPQ
-YTLC, YTUC, YTFG, YTAS, YTDE
-YTOS, YTUS, YTAD, YTDD, XTAB, YTSE, VUID, VOTF, YTCH, XTCH, POPS, PWTH, PWHT, UDLN 
-*/
+  //https://typetools.typenetwork.com/
+
+  //  "slnt" 0,"XTRA" 468, "XOPQ" 151, "YOPQ" 47, "YTLC" 514, "YTUC" 712, "YTAS" 750, "YTDE" -203, "YTFI" 738;
 }
 
 // there are some hard to iron out differences between filters when they are overtop of images
