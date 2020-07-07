@@ -83,127 +83,168 @@
     </div>
     <form class="form--cardDesign">
       <fieldset>
-        <legend>Card Images</legend>
-        <label>
-          Player Image (URL or upload):
-          <input v-model="playerImageURLorDataString" type="text" placeholder />
-          <br />
-          <input
-            class
-            type="file"
-            id="playerImageFileInput"
-            ref="playerImageFileInput"
-            name="playerImageFileInput"
-            accept="image/*"
-            @input="encodeImage"
-          />
-        </label>
+        <details open>
+          <summary> <legend>Layout</legend></summary>
+          <div>Use subgrid</div>
+        </details>
+      </fieldset>
+      <fieldset>
+        <details open>
+          <summary> <legend>Card Images</legend></summary>
+          <div>
+            <label>
+              Player Image (URL or upload):
+              <input
+                v-model="playerImageURLorDataString"
+                type="text"
+                placeholder
+              />
+              <br />
+              <input
+                class
+                type="file"
+                id="playerImageFileInput"
+                ref="playerImageFileInput"
+                name="playerImageFileInput"
+                accept="image/*"
+                @input="encodeImage"
+              />
+            </label>
 
-        <div class="row">
-          <label>
-            Brightness
-            <input
-              v-model="cardBrightness"
-              type="range"
-              min="1"
-              max="1.3"
-              step="0.01"
-            />
-          </label>
-          <label>
-            Sepia
-            <input v-model="cardSepia" type="range" min="0" max="50" />
-          </label>
-          <label>
-            Greyscale
-            <input v-model="cardGrayScale" type="range" min="0" max="100" />
-          </label>
-        </div>
-        <label>
-          Team Logo Image (URL):
-          <input v-model="teamLogoURL" type="url " placeholder />
-          <!-- <input type="file" id="logoFileInput" name="logoFileInput" accept="image/*" /> -->
-        </label>
-        <label>
-          Logo Position
-          <select v-model="logoPosition">
-            <option value="flex-end">Bottom Right</option>
-            <option value="flex-start">Top Right</option>
-          </select>
-        </label>
+            <div class="row">
+              <label>
+                Brightness
+                <input
+                  v-model="cardBrightness"
+                  type="range"
+                  min="1"
+                  max="1.3"
+                  step="0.01"
+                />
+              </label>
+              <label>
+                Sepia
+                <input v-model="cardSepia" type="range" min="0" max="50" />
+              </label>
+              <label>
+                Greyscale
+                <input v-model="cardGrayScale" type="range" min="0" max="100" />
+              </label>
+            </div>
+            <label>
+              Team Logo Image (URL):
+              <input v-model="teamLogoURL" type="url " placeholder />
+              <!-- <input type="file" id="logoFileInput" name="logoFileInput" accept="image/*" /> -->
+            </label>
+            <label>
+              Logo Position
+              <select v-model="logoPosition">
+                <option value="flex-end">Bottom Right</option>
+                <option value="flex-start">Top Right</option>
+              </select>
+            </label>
+          </div>
+        </details>
       </fieldset>
       <fieldset>
-        <legend>Card Typography</legend>
-        <div class="row">
-          <label>
-            Font Weight
-            <input
-              v-model="cardTextFontWeight"
-              type="range"
-              min="100"
-              max="900"
-            />
-          </label>
-          <label>
-            Font Width
-            <input
-              v-model="cardTextFontWidth"
-              type="range"
-              min="35"
-              max="100"
-            />
-          </label>
-          <label>
-            Font Optical Size (inverse)
-            <input
-              v-model="cardTextFontOptSize"
-              type="range"
-              min="10"
-              max="72"
-            />
-          </label>
-          <label>
-            Font Grade
-            <input v-model="cardTextFontGrade" type="range" min="0" max="48" />
-          </label>
-          <label>
-            Font Slant
-            <input v-model="cardTextFontSlant" type="range" min="-10" max="0" />
-          </label>
-          <label>
-            Text Color
-            <input v-model="cardTextColor" type="color" />
-          </label>
-        </div>
+        <details open>
+          <summary> <legend>Typography</legend></summary>
+          <div class="row">
+            <label>
+              Text Color
+              <input v-model="cardTextColor" type="color" />
+            </label>
+            <label>
+              Font Weight
+              <input
+                v-model="cardTextFontWeight"
+                type="range"
+                min="100"
+                max="900"
+              />
+            </label>
+            <label>
+              Font Width
+              <input
+                v-model="cardTextFontWidth"
+                type="range"
+                min="35"
+                max="100"
+              />
+            </label>
+          </div>
+          <div class="row">
+            <label>
+              Font Slant
+              <input
+                v-model="cardTextFontSlant"
+                type="range"
+                min="-10"
+                max="0"
+              />
+            </label>
+            <label>
+              Font Optical Size (inverse)
+              <input
+                v-model="cardTextFontOptSize"
+                type="range"
+                min="10"
+                max="72"
+              />
+            </label>
+            <label>
+              Font Grade
+              <input
+                v-model="cardTextFontGrade"
+                type="range"
+                min="0"
+                max="48"
+              />
+            </label>
+          </div>
+        </details>
       </fieldset>
       <fieldset>
-        <legend>Design</legend>
-        <div class="row">
-          <label>
-            Background
-            <input v-model="cardBackgroundColor" type="color" />
-          </label>
-          <label>
-            Texture
-            <select v-model="cardBackgroundTexture">
-              <option>no texture</option>
-              <option value="filterfabric">Fabric</option>
-              <option value="filterpaper">Paper</option>
-              <option value="filternoise">Noise</option>
-            </select>
-          </label>
-          <label>
-            Border
-            <input v-model="cardBorderColor" type="color" />
-          </label>
-          <label>
-            Corner Curve
-            <input v-model="cardBorderCurve" type="range" min="0" max="24" />
-          </label>
-        </div>
+        <details open>
+          <summary> <legend>Design</legend></summary>
+          <div class="row">
+            <label>
+              Background
+              <input v-model="cardBackgroundColor" type="color" />
+            </label>
+            <label>
+              Texture
+              <select v-model="cardBackgroundTexture">
+                <option>no texture</option>
+                <option value="filterfabric">Fabric</option>
+                <option value="filterpaper">Paper</option>
+                <option value="filternoise">Noise</option>
+              </select>
+            </label>
+          </div>
+        </details>
+      </fieldset>
+
+      <fieldset>
+        <details open>
+          <summary> <legend>Border Styles</legend></summary>
+          <div class="row">
+            <label>
+              Border Color
+              <input v-model="cardBorderColor" type="color" />
+            </label>
+            <label>
+              Border Curve
+              <input v-model="cardBorderCurve" type="range" min="0" max="24" />
+            </label>
+          </div>
+        </details>
       </fieldset>
       <fieldset>
-        <legend>Imperfections</legend>
+        <details open>
+          <summary> <legend>Imperfections</legend></summary>
+          <div>Creases</div>
+        </details>
       </fieldset>
       <!-- mmust be type button so it doesn't fight with submit-->
       <button type="button" @click="saveHandler">Save</button>

@@ -1,9 +1,11 @@
 <template>
+  <CardBack />
   <CardFront />
 </template>
 
 <script>
 import CardFront from "./components/CardFront.vue";
+import CardBack from "./components/CardBack.vue";
 
 export default {
   setup: () => {
@@ -11,6 +13,7 @@ export default {
   },
   components: {
     CardFront,
+    CardBack,
   },
   mounted: () => {
     //registerServiceWorker();
@@ -182,10 +185,15 @@ h3 {
   width: 32rem;
   padding-left: 3.2rem;
 }
-
+details {
+  padding: 1rem;
+}
+summary {
+  display: flex;
+}
 fieldset {
+  padding: 0;
   margin-bottom: 1.6rem;
-  padding: 1rem 1rem 0 1rem;
 }
 legend {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
