@@ -18,6 +18,8 @@ export default {
   mounted: () => {
     //registerServiceWorker();
   },
+  //data
+  //should i move data into parent component? Yes, I think so.
 };
 </script>
 
