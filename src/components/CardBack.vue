@@ -109,6 +109,7 @@ table {
   //max-width: 32rem;
   margin: 0 auto;
   font-size: 1.2rem;
+  line-height: 1;
   font-variant-numeric: lining-nums tabular-nums;
   border: 1px solid #000000;
 }
