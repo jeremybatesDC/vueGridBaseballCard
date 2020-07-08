@@ -112,10 +112,15 @@ table {
   font-variant-numeric: lining-nums tabular-nums;
   border: 1px solid #000000;
 }
+caption {
+  background: #1a5c9f;
+  text-align: left;
+}
 
 thead {
   box-shadow: 0 1px #000000;
   font-variation-settings: "wght" 150, "wdth" 35, "opsz" 10, "GRAD" 48, "slnt" 0;
+  background: rgba(0, 0, 0, 0.05);
 }
 th {
   text-align: left;
@@ -127,6 +132,7 @@ tbody {
 }
 tfoot {
   font-variation-settings: "wght" 150, "wdth" 0, "opsz" 0, "GRAD" 48, "slnt" 0;
+  background: rgba(0, 0, 0, 0.05);
   //box-shadow: 0 1px #000000;
 }
 
