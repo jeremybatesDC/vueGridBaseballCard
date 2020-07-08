@@ -13,9 +13,7 @@
       <!-- columns: min 2, max 6? -->
       <!-- tbody rows: min 0 (leaving only tfoot totals), max 10? -->
       <table>
-        <caption>
-          Career Stats
-        </caption>
+        <caption>Career Stats</caption>
         <thead>
           <tr>
             <th scope="col">Year</th>
@@ -110,11 +108,14 @@ table {
   width: 100%;
   //max-width: 32rem;
   margin: 0 auto;
+  font-size: 1.2rem;
+  font-variant-numeric: lining-nums tabular-nums;
   border: 1px solid #000000;
 }
 
 thead {
   box-shadow: 0 1px #000000;
+  font-variation-settings: "wght" 150, "wdth" 35, "opsz" 10, "GRAD" 48, "slnt" 0;
 }
 th {
   text-align: left;
@@ -122,8 +123,10 @@ th {
 
 tbody {
   box-shadow: 0 1px #000000;
+  font-variation-settings: "wght" 100, "wdth" 0, "opsz" 0, "GRAD" 48, "slnt" 0;
 }
 tfoot {
+  font-variation-settings: "wght" 150, "wdth" 0, "opsz" 0, "GRAD" 48, "slnt" 0;
   //box-shadow: 0 1px #000000;
 }
 
