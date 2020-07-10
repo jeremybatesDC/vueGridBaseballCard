@@ -1,0 +1,12 @@
+{
+  "years": {
+    "1985": {
+      "homeCity": "Gotham",
+      "racesCycled": 11
+    },
+    "1986": {
+      "homeCity": "Metropolis",
+      "racesCycled": 32
+    }
+  }
+}

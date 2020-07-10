@@ -1,12 +1,21 @@
 <template>
   <article>
+    <!-- <p v-for="year in stats" :key="year.homeCity">{{year.homeCity}}</p> -->
     <header>
       <h1 v-if="playerName">{{ playerName }}</h1>
-      <h1 v-else>Your mom</h1>
+      <h1 v-else>YOUR MOTHER</h1>
+      <ul>
+        <li>jeremy.bates@gmail.com</li>
+        <li>(301) 678-3467</li>
+      </ul>
+      <ul>
+        <li>University of Maryland, College Park, 2002</li>
+      </ul>
       <ul>
         <li>First Base</li>
         <li>Born 1/2/33</li>
-        <li>Other fields from front like teamname</li>
+        <li>Bats Left</li>
+        <li>Throws Right</li>
       </ul>
     </header>
     <section>
@@ -57,7 +66,9 @@
           </tr>
         </tfoot>
       </table>
-      <aside>This div can be aside table in horz and below in vert</aside>
+      <aside>
+        <p>This div can be aside table in horz and above/below in vert</p>
+      </aside>
     </section>
 
     <footer>
@@ -71,11 +82,15 @@
 </template>
 
 <script lang="ts">
+import stats from "../json/stats.json";
+console.log(stats.years);
 export default {};
 </script>
 
 <style scoped lang="scss">
 // if can keep square stats table, will allow switch between vert and horz
+
+// color contast functions: https://css-tricks.com/switch-font-color-for-different-backgrounds-with-css/
 
 article {
   display: flex;
@@ -84,17 +99,21 @@ article {
   background: #9a8b7c;
   max-width: 50.4rem;
   height: 36rem;
-  margin-bottom: 1.6rem;
-  padding: 1.6rem;
+  margin-bottom: 2.4rem;
+  padding: 2.4rem;
 }
 
 header {
   ul {
+    display: flex;
     list-style: none;
     margin: 0;
-    padding: 0;
+    padding: 0 0 0.5em 0;
+    justify-content: space-between;
     li {
-      display: inline;
+      display: inline-flex;
+      font-size: 1.2rem;
+      line-height: 1;
     }
   }
 }
@@ -105,45 +124,65 @@ section {
   display: flex;
 }
 table {
-  width: 100%;
-  //max-width: 32rem;
+  width: 32rem;
   margin: 0 auto;
   font-size: 1.2rem;
   line-height: 1;
   font-variant-numeric: lining-nums tabular-nums;
+
   border: 1px solid #000000;
+  border-radius: 1rem;
 }
 caption {
-  background: #1a5c9f;
-  text-align: left;
+  background: rgba(#3c5c9f, 0.25);
+  //text-align: left;
+  // learned something new
+  //caption-side: bottom;
 }
 
 thead {
   box-shadow: 0 1px #000000;
-  font-variation-settings: "wght" 150, "wdth" 35, "opsz" 10, "GRAD" 48, "slnt" 0;
+  font-variation-settings: "wght" 150, "wdth" 35, "opsz" 0, "GRAD" 48, "slnt" 0;
   background: rgba(0, 0, 0, 0.05);
 }
 th {
   text-align: left;
+  vertical-align: bottom;
 }
 
 tbody {
   box-shadow: 0 1px #000000;
-  font-variation-settings: "wght" 100, "wdth" 0, "opsz" 0, "GRAD" 48, "slnt" 0;
+  font-variation-settings: "wght" 100, "wdth" 0, "opsz" 20, "GRAD" 48, "slnt" 0;
+  background: rgba(255, 255, 255, 0.1);
+  td {
+    box-shadow: 0 1px rgba(0, 0, 0, 0.25);
+  }
 }
 tfoot {
-  font-variation-settings: "wght" 150, "wdth" 0, "opsz" 0, "GRAD" 48, "slnt" 0;
+  font-variation-settings: "wght" 400, "wdth" 0, "opsz" 20, "GRAD" 48, "slnt" 0;
   background: rgba(0, 0, 0, 0.05);
   //box-shadow: 0 1px #000000;
 }
 
+// rather imperative here, but having table as child of flex element was kinda odd... ooooh
 aside {
-  background: #1a5c9f;
+  background: rgba(#9c2c1a, 0.25);
   padding: 1.6rem;
+  max-width: calc(100% - 32rem);
 }
 
 footer {
-  background: #7a8b5a;
+  background: rgba(#7a8b5a, 0.5);
   padding: 1.6rem;
+}
+
+h1 {
+  font-size: 2.4rem;
+  box-shadow: inset 0 -1px rgba(0, 0, 0, 0.5);
+  padding-bottom: 0;
+  margin-bottom: 1rem;
+}
+p {
+  font-size: 1.4rem;
 }
 </style>

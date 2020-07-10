@@ -1,4 +1,6 @@
 //typescript works in here out of the box
+import "./reset.scss";
+
 import "./grid.scss";
 
 import { createApp } from "vue";

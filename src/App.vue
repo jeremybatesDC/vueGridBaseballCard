@@ -13,11 +13,11 @@ export default {
   },
   components: {
     CardFront,
-    CardBack,
+    CardBack
   },
   mounted: () => {
     //registerServiceWorker();
-  },
+  }
   //data
   //should i move data into parent component? Yes, I think so.
 };
@@ -45,8 +45,6 @@ export default {
 }
 
 html {
-  box-sizing: border-box;
-  font-size: 10px;
   //--cardbackgroundcolor: #000;
   font-family: "VariableFontSerif", -apple-system, BlinkMacSystemFont,
     "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue",
@@ -54,31 +52,6 @@ html {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
-*,
-*:before,
-*:after {
-  box-sizing: inherit;
-}
-
-body {
-  margin: 0;
-  padding: 0;
-}
-
-.hidden {
-  position: absolute;
-  top: -9999px;
-  left: -9999px;
-  width: 1px;
-  height: 1px;
-  overflow: hidden;
-  opacity: 0;
-}
-
-//root and body styles canT go in scoped
-//so either put those in sep style tag above, and leave below scoped
-//or just be clear donT use it
 
 h1,
 h2,
