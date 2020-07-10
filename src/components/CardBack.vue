@@ -1,6 +1,5 @@
 <template>
   <article>
-    <!-- <p v-for="year in stats" :key="year.homeCity">{{year.homeCity}}</p> -->
     <header>
       <h1 v-if="playerName">{{ playerName }}</h1>
       <h1 v-else>YOUR MOTHER</h1>
@@ -35,23 +34,14 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>1999</td>
-            <td>Toledo</td>
-            <td>10</td>
-            <td>100</td>
-            <td>33</td>
-            <td>0</td>
-            <td>99</td>
-          </tr>
-          <tr>
-            <td>2019</td>
-            <td>NYC</td>
-            <td>22</td>
-            <td>330</td>
-            <td>39</td>
-            <td>2</td>
-            <td>98</td>
+          <tr v-for="year in stats.years" :key="year">
+            <td>{{year.year}}</td>
+            <td>{{year.homeCity}}</td>
+            <td>{{year.racesCycled}}</td>
+            <td>{{year.milesCycled}}</td>
+            <td>{{year.avgSpeed}}</td>
+            <td>{{year.falls}}</td>
+            <td>{{year.beersTasted}}</td>
           </tr>
         </tbody>
         <tfoot>
@@ -67,7 +57,9 @@
         </tfoot>
       </table>
       <aside>
-        <p>This div can be aside table in horz and above/below in vert</p>
+        <blockquote>
+          <p>This div can be aside table in horz and above/below in vert</p>
+        </blockquote>
       </aside>
     </section>
 
@@ -84,7 +76,13 @@
 <script lang="ts">
 import stats from "../json/stats.json";
 console.log(stats.years);
-export default {};
+export default {
+  data: function() {
+    return {
+      stats
+    };
+  }
+};
 </script>
 
 <style scoped lang="scss">
@@ -129,13 +127,13 @@ table {
   font-size: 1.2rem;
   line-height: 1;
   font-variant-numeric: lining-nums tabular-nums;
-
+  text-align: right;
   border: 1px solid #000000;
   border-radius: 1rem;
 }
 caption {
   background: rgba(#3c5c9f, 0.25);
-  //text-align: left;
+  text-align: left;
   // learned something new
   //caption-side: bottom;
 }
@@ -144,10 +142,12 @@ thead {
   box-shadow: 0 1px #000000;
   font-variation-settings: "wght" 150, "wdth" 35, "opsz" 0, "GRAD" 48, "slnt" 0;
   background: rgba(0, 0, 0, 0.05);
+  //text-align: inherit;
 }
 th {
-  text-align: left;
+  //text-align: left;
   vertical-align: bottom;
+  padding: 0.2rem 0.4rem;
 }
 
 tbody {
@@ -155,9 +155,11 @@ tbody {
   font-variation-settings: "wght" 100, "wdth" 0, "opsz" 20, "GRAD" 48, "slnt" 0;
   background: rgba(255, 255, 255, 0.1);
   td {
+    padding: 0.2rem 0.4rem;
     box-shadow: 0 1px rgba(0, 0, 0, 0.25);
   }
 }
+
 tfoot {
   font-variation-settings: "wght" 400, "wdth" 0, "opsz" 20, "GRAD" 48, "slnt" 0;
   background: rgba(0, 0, 0, 0.05);
@@ -166,9 +168,23 @@ tfoot {
 
 // rather imperative here, but having table as child of flex element was kinda odd... ooooh
 aside {
-  background: rgba(#9c2c1a, 0.25);
-  padding: 1.6rem;
+  padding-left: 1.6rem;
+  display: flex;
   max-width: calc(100% - 32rem);
+  p {
+    font-size: 1.2rem;
+  }
+}
+
+blockquote {
+  display: flex;
+  padding: 0;
+  margin: 0;
+  background: rgba(#9c2c1a, 0.25);
+  align-items: center;
+  p {
+    padding: 1rem;
+  }
 }
 
 footer {
