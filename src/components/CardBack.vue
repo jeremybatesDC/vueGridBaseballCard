@@ -93,17 +93,24 @@ article {
 }
 
 header {
+  background: rgba(#9c2c1a, 0.25);
+  padding: 1rem;
   ul {
     display: flex;
     list-style: none;
     margin: 0;
     padding: 0 0 0.5em 0;
     justify-content: space-between;
+
     &:first-of-type {
-      padding: 0.4rem;
+      padding: 0.4rem 0;
       margin-bottom: 0.4rem;
       background: #000;
       color: #9a8b7c;
+      box-shadow: 1rem 0 #000, -1rem 0 #000;
+    }
+    &:last-of-type {
+      padding-bottom: 0;
     }
     li {
       display: inline-flex;
@@ -117,6 +124,8 @@ header {
 section {
   // if this part is restricted to vert width, then it'll definitely fit on horz
   display: flex;
+  padding-left: 1rem;
+  background: rgba(#9c2c1a, 0.25);
 }
 table {
   width: 32rem;
@@ -129,9 +138,9 @@ table {
   border-radius: 1rem;
 }
 caption {
-  background: rgba(#3c5c9f, 0.25);
+  background: rgba(#9c2c1a, 0.25);
   text-align: left;
-  padding: 0.4rem 1rem;
+  padding: 0.4rem;
   // learned something new
   //caption-side: bottom;
 }
@@ -143,9 +152,12 @@ thead {
   //text-align: inherit;
 }
 th {
-  //text-align: left;
   vertical-align: bottom;
   padding: 0.2rem 0.4rem;
+  &:first-of-type,
+  &:nth-of-type(2) {
+    text-align: left;
+  }
 }
 
 tbody {
@@ -155,18 +167,24 @@ tbody {
   td {
     padding: 0.2rem 0.4rem;
     box-shadow: 0 1px rgba(0, 0, 0, 0.25);
+    &:first-child,
+    &:nth-child(2) {
+      text-align: left;
+    }
   }
 }
 
 tfoot {
   font-variation-settings: "wght" 400, "wdth" 0, "opsz" 20, "GRAD" 48, "slnt" 0;
   background: rgba(0, 0, 0, 0.05);
+  td {
+    padding: 0.4rem;
+  }
   //box-shadow: 0 1px #000;
 }
 
 // rather imperative here, but having table as child of flex element was kinda odd... ooooh
 aside {
-  padding-left: 1.6rem;
   display: flex;
   max-width: calc(100% - 32rem);
 }
@@ -184,8 +202,8 @@ blockquote {
 }
 
 footer {
-  background: rgba(#7a8b5a, 0.5);
-  padding: 1.6rem;
+  background: rgba(#9c2c1a, 0.25);
+  padding: 1rem;
 }
 
 h1 {
