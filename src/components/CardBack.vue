@@ -22,26 +22,16 @@
       <!-- tbody rows: min 0 (leaving only tfoot totals), max 10? -->
       <table>
         <caption>Career Stats</caption>
+
         <thead>
           <tr>
-            <th scope="col">Year</th>
-            <th scope="col">Home City</th>
-            <th scope="col">Races Cycled</th>
-            <th scope="col">Miles Cycled</th>
-            <th scope="col">Avg Speed</th>
-            <th scope="col">Falls</th>
-            <th scope="col">Beers Tasted</th>
+            <th v-for="field in stats.fields" :key="field" scope="col">{{field}}</th>
           </tr>
         </thead>
         <tbody>
           <tr v-for="year in stats.years" :key="year">
-            <td>{{year.year}}</td>
-            <td>{{year.homeCity}}</td>
-            <td>{{year.racesCycled}}</td>
-            <td>{{year.milesCycled}}</td>
-            <td>{{year.avgSpeed}}</td>
-            <td>{{year.falls}}</td>
-            <td>{{year.beersTasted}}</td>
+            <!-- i really don't want to do a loop in a loop, do I? Space/time complexity wise, it's better to loop twice -->
+            <td v-for="thing in year" :key="thing">{{thing}}</td>
           </tr>
         </tbody>
         <tfoot>
@@ -99,6 +89,7 @@ article {
   height: 36rem;
   margin-bottom: 2.4rem;
   padding: 2.4rem;
+  overflow: hidden;
 }
 
 header {
@@ -108,6 +99,12 @@ header {
     margin: 0;
     padding: 0 0 0.5em 0;
     justify-content: space-between;
+    &:first-of-type {
+      padding: 0.4rem;
+      margin-bottom: 0.4rem;
+      background: #000;
+      color: #9a8b7c;
+    }
     li {
       display: inline-flex;
       font-size: 1.2rem;
@@ -128,20 +125,21 @@ table {
   line-height: 1;
   font-variant-numeric: lining-nums tabular-nums;
   text-align: right;
-  border: 1px solid #000000;
+  border: 1px solid #000;
   border-radius: 1rem;
 }
 caption {
   background: rgba(#3c5c9f, 0.25);
   text-align: left;
+  padding: 0.4rem 1rem;
   // learned something new
   //caption-side: bottom;
 }
 
 thead {
-  box-shadow: 0 1px #000000;
   font-variation-settings: "wght" 150, "wdth" 35, "opsz" 0, "GRAD" 48, "slnt" 0;
   background: rgba(0, 0, 0, 0.05);
+  box-shadow: 0 1px #000;
   //text-align: inherit;
 }
 th {
@@ -151,7 +149,7 @@ th {
 }
 
 tbody {
-  box-shadow: 0 1px #000000;
+  box-shadow: 0 1px #000;
   font-variation-settings: "wght" 100, "wdth" 0, "opsz" 20, "GRAD" 48, "slnt" 0;
   background: rgba(255, 255, 255, 0.1);
   td {
@@ -163,7 +161,7 @@ tbody {
 tfoot {
   font-variation-settings: "wght" 400, "wdth" 0, "opsz" 20, "GRAD" 48, "slnt" 0;
   background: rgba(0, 0, 0, 0.05);
-  //box-shadow: 0 1px #000000;
+  //box-shadow: 0 1px #000;
 }
 
 // rather imperative here, but having table as child of flex element was kinda odd... ooooh
@@ -171,9 +169,6 @@ aside {
   padding-left: 1.6rem;
   display: flex;
   max-width: calc(100% - 32rem);
-  p {
-    font-size: 1.2rem;
-  }
 }
 
 blockquote {
@@ -183,7 +178,8 @@ blockquote {
   background: rgba(#9c2c1a, 0.25);
   align-items: center;
   p {
-    padding: 1rem;
+    font-size: 1.2rem;
+    padding: 1.6rem;
   }
 }
 
@@ -194,11 +190,11 @@ footer {
 
 h1 {
   font-size: 2.4rem;
-  box-shadow: inset 0 -1px rgba(0, 0, 0, 0.5);
+  //box-shadow: inset 0 -1px rgba(0, 0, 0, 0.5);
   padding-bottom: 0;
-  margin-bottom: 1rem;
+  //margin-bottom: 1rem;
 }
 p {
-  font-size: 1.4rem;
+  font-size: 1.2rem;
 }
 </style>

@@ -1,4 +1,13 @@
 {
+  "fields": {
+    "year": "Year",
+    "homeCity": "Home City",
+    "racesCycled": "Races Cycled",
+    "milesCycled": "Miles Cycled",
+    "avgSpeed": "Avg Speed",
+    "falls": "Falls",
+    "beersTasted": "Beers Tasted"
+  },
   "years": [
     {
       "year": "1985",
