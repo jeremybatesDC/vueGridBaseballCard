@@ -1,66 +1,67 @@
 <template>
-  <article>
-    <header>
-      <h1 v-if="playerName">{{ playerName }}</h1>
-      <h1 v-else>YOUR MOTHER</h1>
-      <ul>
-        <li>jeremy.bates@gmail.com</li>
-        <li>(301) 678-3467</li>
-      </ul>
-      <ul>
-        <li>University of Maryland, College Park, 2002</li>
-      </ul>
-      <ul>
-        <li>First Base</li>
-        <li>Born 1/2/33</li>
-        <li>Bats Left</li>
-        <li>Throws Right</li>
-      </ul>
-    </header>
-    <section>
-      <!-- columns: min 2, max 6? -->
-      <!-- tbody rows: min 0 (leaving only tfoot totals), max 10? -->
-      <table>
-        <caption>Career Stats</caption>
+  <div class="wrapper">
+    <article>
+      <header>
+        <h1 v-if="playerName">{{ playerName }}</h1>
+        <h1 v-else>YOUR MOTHER</h1>
+        <!-- hard to loop since distinct lists may help... Although... -->
+        <ul>
+          <li>{{stats.info.info_0}}</li>
+          <li>{{stats.info.info_1}}</li>
+        </ul>
+        <ul>
+          <li>{{stats.info.info_2}}</li>
+          <li>{{stats.info.info_3}}</li>
+          <li>{{stats.info.info_4}}</li>
+          <li>{{stats.info.info_5}}</li>
+          <li>{{stats.info.info_6}}</li>
+        </ul>
+      </header>
+      <section>
+        <!-- columns: min 2, max 6? -->
+        <!-- tbody rows: min 0 (leaving only tfoot totals), max 10? -->
+        <table>
+          <!--<caption>Career Stats</caption>-->
 
-        <thead>
-          <tr>
-            <th v-for="field in stats.fields" :key="field" scope="col">{{field}}</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr v-for="year in stats.years" :key="year">
-            <!-- i really don't want to do a loop in a loop, do I? Space/time complexity wise, it's better to loop twice -->
-            <td v-for="thing in year" :key="thing">{{thing}}</td>
-          </tr>
-        </tbody>
-        <tfoot>
-          <tr>
-            <td>CAREER</td>
-            <td></td>
-            <td>SUM</td>
-            <td>SUM</td>
-            <td>AVG</td>
-            <td>SUM</td>
-            <td>AVG</td>
-          </tr>
-        </tfoot>
-      </table>
-      <aside>
-        <blockquote>
-          <p>This div can be aside table in horz and above/below in vert</p>
-        </blockquote>
-      </aside>
-    </section>
+          <thead>
+            <tr>
+              <th v-for="field in stats.fields" :key="field" scope="col">{{field}}</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr v-for="year in stats.years" :key="year">
+              <!-- i really don't want to do a loop in a loop, do I? Space/time complexity wise, it's better to loop twice -->
+              <td v-for="thing in year" :key="thing">{{thing}}</td>
+            </tr>
+          </tbody>
+          <tfoot>
+            <tr>
+              <td>CAREER</td>
+              <td></td>
+              <td>SUM</td>
+              <td>SUM</td>
+              <td>AVG</td>
+              <td>SUM</td>
+              <td>AVG</td>
+            </tr>
+          </tfoot>
+        </table>
+        <aside>
+          <blockquote>
+            <p>This div can be aside table in horz and above/below in vert</p>
+          </blockquote>
+        </aside>
+      </section>
 
-    <footer>
-      <h2>Did you know?</h2>
-      <p>
-        Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo
-        ligula eget dolor. Aenean massa.
-      </p>
-    </footer>
-  </article>
+      <footer>
+        <h2>Did you know?</h2>
+        <p>
+          Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo
+          ligula eget dolor. Aenean massa.
+        </p>
+      </footer>
+    </article>
+  </div>
 </template>
 
 <script lang="ts">
@@ -80,35 +81,57 @@ export default {
 
 // color contast functions: https://css-tricks.com/switch-font-color-for-different-backgrounds-with-css/
 
-article {
+.wrapper {
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  //flex-direction: column;
+
   background: #9a8b7c;
   max-width: 50.4rem;
   height: 36rem;
   margin-bottom: 2.4rem;
-  padding: 2.4rem;
+  padding: 1.6rem;
   overflow: hidden;
 }
 
-header {
+article {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   background: rgba(#9c2c1a, 0.25);
-  padding: 1rem;
+}
+
+header {
+  display: flex;
+  flex-direction: column;
+
+  padding: 1rem 1.6rem;
   ul {
     display: flex;
+    flex-wrap: wrap;
     list-style: none;
     margin: 0;
-    padding: 0 0 0.5em 0;
+    padding: 0 0 1rem 0;
     justify-content: space-between;
 
     &:first-of-type {
-      padding: 0.4rem 0;
-      margin-bottom: 0.4rem;
+      padding: 0.5rem 0;
+
+      // TEMPORARY FAUX-BOLD
+      font-weight: bold;
+
       background: #000;
       color: #9a8b7c;
-      box-shadow: 1rem 0 #000, -1rem 0 #000;
+      box-shadow: 1.6rem 0 #000, -1.6rem 0 #000;
     }
+    &:nth-of-type(2) {
+      li {
+        &:first-of-type {
+          width: 100%;
+          padding: 0.6rem 0;
+        }
+      }
+    }
+
     &:last-of-type {
       padding-bottom: 0;
     }
@@ -120,12 +143,26 @@ header {
   }
 }
 
+h1 {
+  font-size: 2.4rem;
+  line-height: 1;
+  //box-shadow: inset 0 -1px rgba(0, 0, 0, 0.5);
+  padding-bottom: 0.4rem;
+  //margin-bottom: 1rem;
+}
+
+h2 {
+  font-size: 1.4rem;
+  line-height: 1;
+  padding-bottom: 0.5rem;
+}
+
 // set EXPLICIT font variation settings for the table
 section {
   // if this part is restricted to vert width, then it'll definitely fit on horz
   display: flex;
-  padding-left: 1rem;
-  background: rgba(#9c2c1a, 0.25);
+  padding: 0 1.6rem 1.6rem 1.6rem;
+  //background: rgba(#9c2c1a, 0.1);
 }
 table {
   width: 32rem;
@@ -138,9 +175,9 @@ table {
   border-radius: 1rem;
 }
 caption {
-  background: rgba(#9c2c1a, 0.25);
+  //background: rgba(#9c2c1a, 0.25);
   text-align: left;
-  padding: 0.4rem;
+  padding: 0.5rem;
   // learned something new
   //caption-side: bottom;
 }
@@ -196,23 +233,18 @@ blockquote {
   background: rgba(#9c2c1a, 0.25);
   align-items: center;
   p {
-    font-size: 1.2rem;
-    padding: 1.6rem;
+    padding: 1rem 1.6rem;
   }
 }
 
 footer {
-  background: rgba(#9c2c1a, 0.25);
-  padding: 1rem;
+  display: flex;
+  //background: rgba(#9c2c1a, 0.25);
+  padding: 0 1.6rem 1rem 1.6rem;
 }
 
-h1 {
-  font-size: 2.4rem;
-  //box-shadow: inset 0 -1px rgba(0, 0, 0, 0.5);
-  padding-bottom: 0;
-  //margin-bottom: 1rem;
-}
 p {
   font-size: 1.2rem;
+  line-height: 1;
 }
 </style>

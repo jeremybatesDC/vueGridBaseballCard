@@ -54,5 +54,14 @@
       "falls": 0,
       "beersTasted": 27
     }
-  ]
+  ],
+  "info": {
+    "info_0": "jeremy.bates@gmail.com",
+    "info_1": "301-678-3467",
+    "info_2": "University of Maryland, College Park, 2002",
+    "info_3": "Father, Pitcher",
+    "info_4": "Bats Right",
+    "info_5": "Throws Right",
+    "info_6": "Votes Left"
+  }
 }
