@@ -10,6 +10,7 @@
           <li>{{stats.info.info_1}}</li>
         </ul>
         <ul>
+          <!-- loop these-->
           <li>{{stats.info.info_2}}</li>
           <li>{{stats.info.info_3}}</li>
           <li>{{stats.info.info_4}}</li>
@@ -25,7 +26,9 @@
 
           <thead>
             <tr>
-              <th v-for="field in stats.fields" :key="field" scope="col">{{field}}</th>
+              <th v-for="field in stats.fields" :key="field" scope="col">
+                <span>{{field}}</span>
+              </th>
             </tr>
           </thead>
           <tbody>
@@ -48,17 +51,15 @@
         </table>
         <aside>
           <blockquote>
-            <p>This div can be aside table in horz and above/below in vert</p>
+            <h6>{{stats.info.facts[0].headline}}</h6>
+            <p>{{stats.info.facts[0].text}}</p>
           </blockquote>
         </aside>
       </section>
 
       <footer>
-        <h2>Did you know?</h2>
-        <p>
-          Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo
-          ligula eget dolor. Aenean massa.
-        </p>
+        <h2>{{stats.info.facts[1].headline}}</h2>
+        <p>{{stats.info.facts[1].text}}</p>
       </footer>
     </article>
   </div>
@@ -85,7 +86,7 @@ export default {
   display: flex;
   //flex-direction: column;
 
-  background: #9a8b7c;
+  background-color: #9a8b7c;
   max-width: 50.4rem;
   height: 36rem;
   margin-bottom: 2.4rem;
@@ -97,7 +98,7 @@ article {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  background: rgba(#9c2c1a, 0.25);
+  background-color: rgba(#9c2c1a, 0.25);
 }
 
 header {
@@ -171,8 +172,8 @@ table {
   line-height: 1;
   font-variant-numeric: lining-nums tabular-nums;
   text-align: right;
-  border: 1px solid #000;
-  border-radius: 1rem;
+  // border: 1px solid #000;
+  // border-radius: 1rem;
 }
 caption {
   //background: rgba(#9c2c1a, 0.25);
@@ -189,11 +190,24 @@ thead {
   //text-align: inherit;
 }
 th {
-  vertical-align: bottom;
-  padding: 0.2rem 0.4rem;
-  &:first-of-type,
-  &:nth-of-type(2) {
+  vertical-align: top;
+  //padding-left: 1rem;
+  text-align: center;
+  transform: rotate(-45deg);
+  //transform-origin: 50% 50%;
+  // &:first-of-type,
+  // &:nth-of-type(2) {
+  //   text-align: left;
+  // }
+  &::first-line {
     text-align: left;
+    padding-left: 0;
+    margin-left: -1rem;
+  }
+  // // transform doesnT seem to want to apply to the nested span
+  span {
+    padding-left: 0.5rem;
+    margin-right: -1rem;
   }
 }
 
@@ -204,6 +218,7 @@ tbody {
   td {
     padding: 0.2rem 0.4rem;
     box-shadow: 0 1px rgba(0, 0, 0, 0.25);
+    //text-align: left;
     &:first-child,
     &:nth-child(2) {
       text-align: left;
@@ -228,6 +243,7 @@ aside {
 
 blockquote {
   display: flex;
+  flex-direction: column;
   padding: 0;
   margin: 0;
   background: rgba(#9c2c1a, 0.25);
@@ -239,6 +255,7 @@ blockquote {
 
 footer {
   display: flex;
+  flex-direction: column;
   //background: rgba(#9c2c1a, 0.25);
   padding: 0 1.6rem 1rem 1.6rem;
 }

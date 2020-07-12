@@ -62,6 +62,16 @@
     "info_3": "Father, Pitcher",
     "info_4": "Bats Right",
     "info_5": "Throws Right",
-    "info_6": "Votes Left"
+    "info_6": "Votes Left",
+    "facts": [
+      {
+        "headline": "Career Highlights",
+        "text": "This div can be aside table in horz and above/below in vert"
+      },
+      {
+        "headline": "Did you know?",
+        "text": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa."
+      }
+    ]
   }
 }
