@@ -63,7 +63,11 @@
           <textarea spellcheck="false">
               {{stats.info.facts[1].text}}
           </textarea>
-          <div data-show-only-on-interaction>Text Controls</div>
+          <!-- this tabindex makes this whole panel focusable -->
+          <div tabindex="0" data-show-only-on-interaction>
+            Text Options
+            <input type="color" />
+          </div>
         </fieldset>
       </footer>
     </article>
@@ -274,6 +278,7 @@ p {
 
 [data-show-only-on-interaction] {
   position: absolute;
+  width: 100%;
   opacity: 0;
   overflow: visible;
   fieldset:focus-within & {
@@ -286,5 +291,7 @@ fieldset {
   position: relative;
   border: none;
   box-shadow: none;
+  padding: 0;
+  margin: 0;
 }
 </style>
