@@ -59,7 +59,12 @@
 
       <footer>
         <h2>{{stats.info.facts[1].headline}}</h2>
-        <p>{{stats.info.facts[1].text}}</p>
+        <fieldset>
+          <textarea spellcheck="false">
+              {{stats.info.facts[1].text}}
+          </textarea>
+          <div data-show-only-on-interaction>Text Controls</div>
+        </fieldset>
       </footer>
     </article>
   </div>
@@ -256,12 +261,30 @@ blockquote {
 footer {
   display: flex;
   flex-direction: column;
-  //background: rgba(#9c2c1a, 0.25);
+  position: relative;
+  font-size: 1.2rem;
+  line-height: 1;
   padding: 0 1.6rem 1rem 1.6rem;
 }
 
 p {
   font-size: 1.2rem;
   line-height: 1;
+}
+
+[data-show-only-on-interaction] {
+  position: absolute;
+  opacity: 0;
+  overflow: visible;
+  fieldset:focus-within & {
+    height: auto;
+    opacity: 1;
+  }
+}
+
+fieldset {
+  position: relative;
+  border: none;
+  box-shadow: none;
 }
 </style>

@@ -1,7 +1,9 @@
 //typescript works in here out of the box
-import "./reset.scss";
+import "./globalStyles/reset.scss";
 
-import "./grid.scss";
+import "./globalStyles/grid.scss";
+
+import "./globalStyles/inputs.scss";
 
 import { createApp } from "vue";
 import App from "./App.vue";
