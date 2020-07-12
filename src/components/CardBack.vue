@@ -278,7 +278,7 @@ p {
 
 [data-show-only-on-interaction] {
   position: absolute;
-  width: 100%;
+  //width: 100%;
   opacity: 0;
   overflow: visible;
   fieldset:focus-within & {
