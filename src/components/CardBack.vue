@@ -190,7 +190,7 @@ thead {
   //text-align: inherit;
 }
 th {
-  vertical-align: top;
+  //vertical-align: top;
   //padding-left: 1rem;
   text-align: center;
   transform: rotate(-45deg);
@@ -206,7 +206,7 @@ th {
   }
   // // transform doesnT seem to want to apply to the nested span
   span {
-    padding-left: 0.5rem;
+    //padding-left: 1rem;
     margin-right: -1rem;
   }
 }
