@@ -160,7 +160,7 @@ export default {
   //flex-direction: column;
 
   background-color: #9a8b7c;
-  max-width: 50.4rem;
+  width: 50.4rem;
   height: 36rem;
   margin-bottom: 2.4rem;
   padding: 1.6rem;
@@ -313,7 +313,7 @@ tfoot {
 // rather imperative here, but having table as child of flex element was kinda odd... ooooh
 aside {
   display: flex;
-  max-width: calc(100% - 32rem);
+  width: calc(100% - 32rem);
   fieldset {
     display: flex;
   }
@@ -334,12 +334,12 @@ blockquote {
   textarea {
     display: flex;
     flex-grow: 1;
-    font-size: 1.2rem;
+    font-size: 1.4rem;
     line-height: 1;
     font-variation-settings: "wght" var(--asidefactfontweight),
-      "wdth" var(--asidefactfontwidth), "opsz" 0,
+      "wdth" var(--asidefactfontwidth), "opsz" 10,
       "GRAD" var(--asidefactfontgrade), "slnt" var(--asidefactfontslant);
-    //padding: 1rem 1.6rem;
+    padding: 0.5rem 1rem;
   }
 }
 
@@ -365,23 +365,28 @@ p {
 [data-show-only-on-interaction] {
   display: flex;
   position: absolute;
-  background: rgba(0, 0, 0, 0.1);
+  background: rgba(225, 225, 225, 0.5);
   //width: 100%;
   padding: 0.5rem;
   opacity: 0;
   overflow: visible;
-  fieldset:focus-within &,
-  aside:focus-within & {
+  z-index: 1;
+  fieldset:focus-within & {
+    top: 100%;
     height: auto;
     opacity: 1;
   }
   aside:focus-within & {
     right: 0;
     top: 100%;
-    width: 100vw;
+    //width: 100vw;
+    height: auto;
+    opacity: 1;
   }
   label {
-    //display: inline-flex;
+    // aside:focus-within & {
+    //   width: 50%;
+    // }
   }
 }
 
