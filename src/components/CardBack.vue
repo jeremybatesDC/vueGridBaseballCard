@@ -57,19 +57,19 @@
               <div tabindex="0" data-show-only-on-interaction>
                 <label>
                   Font Weight
-                  <input v-model="asideFactFontWeight" type="range" min="100" max="900" />
+                  <input v-model="aside.fontWeight" type="range" min="100" max="900" />
                 </label>
                 <label>
                   Font Width
-                  <input v-model="asideFactFontWidth" type="range" min="35" max="100" />
+                  <input v-model="aside.fontWidth" type="range" min="35" max="100" />
                 </label>
                 <label>
                   Font Slant
-                  <input v-model="asideFactFontSlant" type="range" min="-10" max="0" />
+                  <input v-model="aside.fontSlant" type="range" min="-10" max="0" />
                 </label>
                 <label>
                   Font Grade
-                  <input v-model="asideFactFontGrade" type="range" min="0" max="48" />
+                  <input v-model="aside.fontGrade" type="range" min="0" max="48" />
                 </label>
               </div>
             </blockquote>
@@ -91,19 +91,19 @@
             </label>-->
             <label>
               Font Weight
-              <input v-model="footerFactFontWeight" type="range" min="100" max="900" />
+              <input v-model="footer.fontWeight" type="range" min="100" max="900" />
             </label>
             <label>
               Font Width
-              <input v-model="footerFactFontWidth" type="range" min="35" max="100" />
+              <input v-model="footer.fontWidth" type="range" min="35" max="100" />
             </label>
             <label>
               Font Slant
-              <input v-model="footerFactFontSlant" type="range" min="-10" max="0" />
+              <input v-model="footer.fontSlant" type="range" min="-10" max="0" />
             </label>
             <label>
               Font Grade
-              <input v-model="footerFactFontGrade" type="range" min="0" max="48" />
+              <input v-model="footer.fontGrade" type="range" min="0" max="48" />
             </label>
           </div>
         </fieldset>
@@ -119,31 +119,42 @@ export default {
   data: function() {
     return {
       stats,
-      footerFactFontWeight: 200,
+      // CONTINUE TO NEST THESE PROPERTIES
       footerFactFontWidth: 100,
       footerFactFontSlant: 5,
       footerFactFontGrade: 48,
-      asideFactFontWeight: 200,
       asideFactFontWidth: 100,
       asideFactFontSlant: 5,
-      asideFactFontGrade: 24
+      asideFactFontGrade: 24,
+      footer: {
+        fontWeight: 400,
+        fontWidth: 100,
+        fontSlant: 5,
+        fontGrade: 24
+      },
+      aside: {
+        fontWeight: 400,
+        fontWidth: 100,
+        fontSlant: 5,
+        fontGrade: 24
+      }
     };
   },
   computed: {
     cssFooterProps() {
       return {
-        "--footerfactfontweight": this.footerFactFontWeight,
-        "--footerfactfontwidth": this.footerFactFontWidth,
-        "--footerfactfontslant": this.footerFactFontSlant,
-        "--footerfactfontgrade": this.footerFactFontGrade
+        "--fontweight": this.footer.fontWeight,
+        "--fontwidth": this.footer.fontWidth,
+        "--fontslant": this.footer.fontSlant,
+        "--fontgrade": this.footer.fontGrade
       };
     },
     cssAsideProps() {
       return {
-        "--asidefactfontweight": this.asideFactFontWeight,
-        "--asidefactfontwidth": this.asideFactFontWidth,
-        "--asidefactfontslant": this.asideFactFontSlant,
-        "--asidefactfontgrade": this.asideFactFontGrade
+        "--fontweight": this.aside.fontWeight,
+        "--fontwidth": this.aside.fontWidth,
+        "--fontslant": this.aside.fontSlant,
+        "--fontgrade": this.aside.fontGrade
       };
     }
   }
@@ -336,9 +347,8 @@ blockquote {
     flex-grow: 1;
     font-size: 1.4rem;
     line-height: 1;
-    font-variation-settings: "wght" var(--asidefactfontweight),
-      "wdth" var(--asidefactfontwidth), "opsz" 10,
-      "GRAD" var(--asidefactfontgrade), "slnt" var(--asidefactfontslant);
+    font-variation-settings: "wght" var(--fontweight), "wdth" var(--fontwidth),
+      "opsz" 10, "GRAD" var(--fontgrade), "slnt" var(--fontslant);
     padding: 0.5rem 1rem;
   }
 }
@@ -351,9 +361,8 @@ footer {
   line-height: 1;
   padding: 0 1.6rem 1rem 1.6rem;
   textarea {
-    font-variation-settings: "wght" var(--footerfactfontweight),
-      "wdth" var(--footerfactfontwidth), "opsz" 0,
-      "GRAD" var(--footerfactfontgrade), "slnt" var(--footerfactfontslant);
+    font-variation-settings: "wght" var(--fontweight), "wdth" var(--fontwidth),
+      "opsz" 0, "GRAD" var(--fontgrade), "slnt" var(--fontslant);
   }
 }
 
