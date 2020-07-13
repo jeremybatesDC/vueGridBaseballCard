@@ -1,5 +1,5 @@
 <template>
-  <main id="vueCardApp" class="baseballCard__wrapper" :style="cssProps">
+  <div id="vueCardApp" class="baseballCard__wrapper" :style="cssProps">
     <!-- would like to use async and suspense if beneficial -->
     <div class="baseballCard__wrapper--inner">
       <article class="gridParent">
@@ -30,22 +30,12 @@
         <aside class="corner--bottom--left"></aside>
         <section class="footer--playerName">
           <h1>
-            <input
-              v-model="playerName"
-              type="text"
-              placeholder
-              maxlength="48"
-            />
+            <input v-model="playerName" type="text" placeholder maxlength="48" />
           </h1>
         </section>
         <section class="footer--playerPosition">
           <h3>
-            <input
-              v-model="playerPosition"
-              type="text"
-              placeholder
-              maxlength="48"
-            />
+            <input v-model="playerPosition" type="text" placeholder maxlength="48" />
           </h3>
         </section>
         <section class="footer--teamLogo">
@@ -84,13 +74,17 @@
     <form class="form--cardDesign">
       <fieldset>
         <details open>
-          <summary> <legend>Layout</legend></summary>
+          <summary>
+            <legend>Layout</legend>
+          </summary>
           <div>Use subgrid</div>
         </details>
       </fieldset>
       <fieldset>
         <details open>
-          <summary> <legend>Card Images</legend></summary>
+          <summary>
+            <legend>Card Images</legend>
+          </summary>
           <div>
             <label>
               Player Image (URL or upload):
@@ -148,7 +142,9 @@
       </fieldset>
       <fieldset>
         <details open>
-          <summary> <legend>Typography</legend></summary>
+          <summary>
+            <legend>Typography</legend>
+          </summary>
           <div class="row">
             <label>
               Text Color
@@ -156,34 +152,23 @@
             </label>
             <label>
               Font Weight
-              <input
-                v-model="cardTextFontWeight"
-                type="range"
-                min="100"
-                max="900"
-              />
+              <input v-model="cardTextFontWeight" type="range" min="100" max="900" />
             </label>
             <label>
               Font Width
-              <input
-                v-model="cardTextFontWidth"
-                type="range"
-                min="35"
-                max="100"
-              />
+              <input v-model="cardTextFontWidth" type="range" min="35" max="100" />
             </label>
           </div>
           <div class="row">
             <label>
               Font Slant
-              <input
-                v-model="cardTextFontSlant"
-                type="range"
-                min="-10"
-                max="0"
-              />
+              <input v-model="cardTextFontSlant" type="range" min="-10" max="0" />
             </label>
             <label>
+              Font Grade
+              <input v-model="cardTextFontGrade" type="range" min="0" max="48" />
+            </label>
+            <!-- <label>
               Font Optical Size (inverse)
               <input
                 v-model="cardTextFontOptSize"
@@ -191,22 +176,15 @@
                 min="10"
                 max="72"
               />
-            </label>
-            <label>
-              Font Grade
-              <input
-                v-model="cardTextFontGrade"
-                type="range"
-                min="0"
-                max="48"
-              />
-            </label>
+            </label>-->
           </div>
         </details>
       </fieldset>
       <fieldset>
         <details open>
-          <summary> <legend>Design</legend></summary>
+          <summary>
+            <legend>Design</legend>
+          </summary>
           <div class="row">
             <label>
               Background
@@ -227,7 +205,9 @@
 
       <fieldset>
         <details open>
-          <summary> <legend>Border Styles</legend></summary>
+          <summary>
+            <legend>Border Styles</legend>
+          </summary>
           <div class="row">
             <label>
               Border Color
@@ -242,7 +222,9 @@
       </fieldset>
       <fieldset>
         <details open>
-          <summary> <legend>Imperfections</legend></summary>
+          <summary>
+            <legend>Imperfections</legend>
+          </summary>
           <div>Creases</div>
         </details>
       </fieldset>
@@ -250,7 +232,7 @@
       <button type="button" @click="saveHandler">Save</button>
       <button type="button" @click="submitHandler">Submit</button>
     </form>
-  </main>
+  </div>
 </template>
 
 <script lang="ts">
@@ -270,9 +252,9 @@ export default {
       const response = await fetch(url, {
         method: "POST",
         headers: {
-          "Content-type": "application/json",
+          "Content-type": "application/json"
         },
-        body: JSON.stringify(data),
+        body: JSON.stringify(data)
         // learn these other options
         // cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
         //redirect: "follow", // manual, *follow, error
@@ -283,10 +265,10 @@ export default {
     async function submitHandler() {
       // using THIS sends whole data object (saves a bunch of imperative code)
       postData(endpointURL, this)
-        .then((data) => {
+        .then(data => {
           console.log(data);
         })
-        .catch((error) => {
+        .catch(error => {
           console.error("DOH! ", error);
         });
     }
@@ -330,7 +312,7 @@ export default {
         function testFunction(strng) {
           theThis.playerImageURLorDataString = strng;
         }
-        webWorker.onmessage = function (event) {
+        webWorker.onmessage = function(event) {
           console.log("received message here");
           //this.playerImageURLorDataString = event.data;
           //
@@ -350,13 +332,13 @@ export default {
       submitHandler,
       saveHandler,
       setFromLocalStorage,
-      encodeImage,
+      encodeImage
       //receivedWorkerMessage
       //validateImage
       //updateLocalStorage
     };
   },
-  data: function () {
+  data: function() {
     return {
       // playerImageURLorDataString:
       //   placeholderEncodedImage.endcodedimagedatastring,
@@ -379,7 +361,7 @@ export default {
       cardTextFontSlant: defaultSettings.cardTextFontSlant,
       cardSepia: defaultSettings.cardSepia,
       cardGrayScale: defaultSettings.cardGrayScale,
-      logoPosition: defaultSettings.logoPosition,
+      logoPosition: defaultSettings.logoPosition
     };
   },
   /*methods: {
@@ -404,13 +386,13 @@ export default {
         "--cardsepia": `${this.cardSepia}%`,
         "--cardbrightness": this.cardBrightness,
         "--cardgrayscale": `${this.cardGrayScale}%`,
-        "--logoPosition": this.logoPosition,
+        "--logoPosition": this.logoPosition
         //donT put encoded image in here. But this could/sjhould be a property somewhere
         // "--playerimageencoded": `${this.playerImagePreview}%`
       };
-    },
+    }
   },
-  mounted: function () {
+  mounted: function() {
     this.setFromLocalStorage();
   },
   // watch stuff and updatefor localStorage
@@ -433,7 +415,7 @@ export default {
     },
     teamLogoURL(newteamLogoURL) {
       localStorage.teamLogoURL = newteamLogoURL;
-    },
-  },
+    }
+  }
 };
 </script>

@@ -1,6 +1,8 @@
 <template>
-  <CardBack />
-  <CardFront />
+  <main>
+    <CardBack />
+    <CardFront />
+  </main>
 </template>
 
 <script>
@@ -185,7 +187,6 @@ label {
     Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", "Helvetica", Arial,
     sans-serif;
   font-weight: bold;
-  margin-bottom: 1.6rem;
 
   input {
     display: block;
@@ -199,6 +200,9 @@ label {
     display: block;
     font-family: inherit;
     font-size: 1.6rem;
+  }
+  .baseballCard__wrapper & {
+    margin-bottom: 1.6rem;
   }
 }
 

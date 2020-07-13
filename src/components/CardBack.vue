@@ -60,13 +60,31 @@
       <footer>
         <h2>{{stats.info.facts[1].headline}}</h2>
         <fieldset>
-          <textarea spellcheck="false">
+          <textarea spellcheck="false" :style="cssFooterProps">
               {{stats.info.facts[1].text}}
           </textarea>
           <!-- this tabindex makes this whole panel focusable -->
           <div tabindex="0" data-show-only-on-interaction>
-            Text Options
-            <input type="color" />
+            <!-- <label>
+              Text Color
+              <input type="color" />
+            </label>-->
+            <label>
+              Font Weight
+              <input v-model="footerFactFontWeight" type="range" min="100" max="900" />
+            </label>
+            <label>
+              Font Width
+              <input v-model="footerFactFontWidth" type="range" min="35" max="100" />
+            </label>
+            <label>
+              Font Slant
+              <input v-model="footerFactFontSlant" type="range" min="-10" max="0" />
+            </label>
+            <label>
+              Font Grade
+              <input v-model="footerFactFontGrade" type="range" min="0" max="48" />
+            </label>
           </div>
         </fieldset>
       </footer>
@@ -80,8 +98,22 @@ console.log(stats.years);
 export default {
   data: function() {
     return {
-      stats
+      stats,
+      footerFactFontWeight: 200,
+      footerFactFontWidth: 100,
+      footerFactFontSlant: 5,
+      footerFactFontGrade: 48
     };
+  },
+  computed: {
+    cssFooterProps() {
+      return {
+        "--footerfactfontweight": this.footerFactFontWeight,
+        "--footerfactfontwidth": this.footerFactFontWidth,
+        "--footerfactfontslant": this.footerFactFontSlant,
+        "--footerfactfontgrade": this.footerFactFontGrade
+      };
+    }
   }
 };
 </script>
@@ -100,7 +132,7 @@ export default {
   height: 36rem;
   margin-bottom: 2.4rem;
   padding: 1.6rem;
-  overflow: hidden;
+  //overflow: hidden;
 }
 
 article {
@@ -165,6 +197,7 @@ h2 {
   font-size: 1.4rem;
   line-height: 1;
   padding-bottom: 0.5rem;
+  font-variation-settings: "slnt" -10;
 }
 
 // set EXPLICIT font variation settings for the table
@@ -200,23 +233,24 @@ thead {
 }
 th {
   //vertical-align: top;
-  //padding-left: 1rem;
-  text-align: center;
+
+  text-align: right;
   transform: rotate(-45deg);
-  //transform-origin: 50% 50%;
+  transform-origin: 0 0;
+  text-transform: uppercase;
+  vertical-align: top;
   // &:first-of-type,
   // &:nth-of-type(2) {
   //   text-align: left;
   // }
   &::first-line {
+    //display: block;
     text-align: left;
-    padding-left: 0;
-    margin-left: -1rem;
   }
-  // // transform doesnT seem to want to apply to the nested span
   span {
-    //padding-left: 1rem;
-    margin-right: -1rem;
+    display: inline-block;
+    //margin-left: -2rem;
+    //margin-left: -0.1rem;
   }
 }
 
@@ -257,6 +291,7 @@ blockquote {
   margin: 0;
   background: rgba(#9c2c1a, 0.25);
   align-items: center;
+  justify-content: center;
   p {
     padding: 1rem 1.6rem;
   }
@@ -269,6 +304,11 @@ footer {
   font-size: 1.2rem;
   line-height: 1;
   padding: 0 1.6rem 1rem 1.6rem;
+  textarea {
+    font-variation-settings: "wght" var(--footerfactfontweight),
+      "wdth" var(--footerfactfontwidth), "opsz" 0,
+      "GRAD" var(--footerfactfontgrade), "slnt" var(--footerfactfontslant);
+  }
 }
 
 p {
@@ -277,13 +317,19 @@ p {
 }
 
 [data-show-only-on-interaction] {
+  display: flex;
   position: absolute;
+  background: rgba(0, 0, 0, 0.1);
   //width: 100%;
+  padding: 0.5rem;
   opacity: 0;
   overflow: visible;
   fieldset:focus-within & {
     height: auto;
     opacity: 1;
+  }
+  label {
+    //display: inline-flex;
   }
 }
 
