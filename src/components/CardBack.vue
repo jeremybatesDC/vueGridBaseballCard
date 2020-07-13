@@ -50,10 +50,30 @@
           </tfoot>
         </table>
         <aside>
-          <blockquote>
-            <h6>{{stats.info.facts[0].headline}}</h6>
-            <p>{{stats.info.facts[0].text}}</p>
-          </blockquote>
+          <fieldset>
+            <blockquote>
+              <h6>{{stats.info.facts[0].headline}}</h6>
+              <textarea :style="cssAsideProps">{{stats.info.facts[0].text}}</textarea>
+              <div tabindex="0" data-show-only-on-interaction>
+                <label>
+                  Font Weight
+                  <input v-model="asideFactFontWeight" type="range" min="100" max="900" />
+                </label>
+                <label>
+                  Font Width
+                  <input v-model="asideFactFontWidth" type="range" min="35" max="100" />
+                </label>
+                <label>
+                  Font Slant
+                  <input v-model="asideFactFontSlant" type="range" min="-10" max="0" />
+                </label>
+                <label>
+                  Font Grade
+                  <input v-model="asideFactFontGrade" type="range" min="0" max="48" />
+                </label>
+              </div>
+            </blockquote>
+          </fieldset>
         </aside>
       </section>
 
@@ -102,7 +122,11 @@ export default {
       footerFactFontWeight: 200,
       footerFactFontWidth: 100,
       footerFactFontSlant: 5,
-      footerFactFontGrade: 48
+      footerFactFontGrade: 48,
+      asideFactFontWeight: 200,
+      asideFactFontWidth: 100,
+      asideFactFontSlant: 5,
+      asideFactFontGrade: 24
     };
   },
   computed: {
@@ -112,6 +136,14 @@ export default {
         "--footerfactfontwidth": this.footerFactFontWidth,
         "--footerfactfontslant": this.footerFactFontSlant,
         "--footerfactfontgrade": this.footerFactFontGrade
+      };
+    },
+    cssAsideProps() {
+      return {
+        "--asidefactfontweight": this.asideFactFontWeight,
+        "--asidefactfontwidth": this.asideFactFontWidth,
+        "--asidefactfontslant": this.asideFactFontSlant,
+        "--asidefactfontgrade": this.asideFactFontGrade
       };
     }
   }
@@ -235,7 +267,7 @@ th {
   //vertical-align: top;
 
   text-align: right;
-  transform: rotate(-45deg);
+  transform: rotate(-45deg) translate(-0.5rem, 100%);
   transform-origin: 0 0;
   text-transform: uppercase;
   vertical-align: top;
@@ -248,7 +280,7 @@ th {
     text-align: left;
   }
   span {
-    display: inline-block;
+    display: flex;
     //margin-left: -2rem;
     //margin-left: -0.1rem;
   }
@@ -282,18 +314,32 @@ tfoot {
 aside {
   display: flex;
   max-width: calc(100% - 32rem);
+  fieldset {
+    display: flex;
+  }
 }
 
 blockquote {
   display: flex;
   flex-direction: column;
-  padding: 0;
+  // hmmm
+  //flex-grow: 1;
+  height: 100%;
+  padding: 0.4rem;
   margin: 0;
   background: rgba(#9c2c1a, 0.25);
   align-items: center;
   justify-content: center;
-  p {
-    padding: 1rem 1.6rem;
+  p,
+  textarea {
+    display: flex;
+    flex-grow: 1;
+    font-size: 1.2rem;
+    line-height: 1;
+    font-variation-settings: "wght" var(--asidefactfontweight),
+      "wdth" var(--asidefactfontwidth), "opsz" 0,
+      "GRAD" var(--asidefactfontgrade), "slnt" var(--asidefactfontslant);
+    //padding: 1rem 1.6rem;
   }
 }
 
@@ -324,9 +370,15 @@ p {
   padding: 0.5rem;
   opacity: 0;
   overflow: visible;
-  fieldset:focus-within & {
+  fieldset:focus-within &,
+  aside:focus-within & {
     height: auto;
     opacity: 1;
+  }
+  aside:focus-within & {
+    right: 0;
+    top: 100%;
+    width: 100vw;
   }
   label {
     //display: inline-flex;
