@@ -27,7 +27,9 @@
           <thead>
             <tr>
               <th v-for="field in stats.fields" :key="field" scope="col">
-                <span>{{field}}</span>
+                <span>
+                  <textarea spellcheck="false" :value="field"></textarea>
+                </span>
               </th>
             </tr>
           </thead>
@@ -119,13 +121,6 @@ export default {
   data: function() {
     return {
       stats,
-      // CONTINUE TO NEST THESE PROPERTIES
-      footerFactFontWidth: 100,
-      footerFactFontSlant: 5,
-      footerFactFontGrade: 48,
-      asideFactFontWidth: 100,
-      asideFactFontSlant: 5,
-      asideFactFontGrade: 24,
       footer: {
         fontWeight: 400,
         fontWidth: 100,
@@ -277,8 +272,8 @@ thead {
 th {
   //vertical-align: top;
 
-  text-align: right;
-  transform: rotate(-45deg) translate(-0.5rem, 100%);
+  //text-align: right;
+  transform: rotate(-45deg);
   transform-origin: 0 0;
   text-transform: uppercase;
   vertical-align: top;
@@ -286,12 +281,25 @@ th {
   // &:nth-of-type(2) {
   //   text-align: left;
   // }
-  &::first-line {
-    //display: block;
-    text-align: left;
-  }
+
   span {
-    display: flex;
+    display: inline;
+    padding-left: 1rem;
+    textarea {
+      display: inline;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 3.6rem;
+      //min-width: 3rem;
+      white-space: pre-wrap;
+      text-align: left;
+      // safari mobile seems to struggle with first-line
+      // &::first-line {
+      //   color: red;
+      // }
+    }
+    //display: flex;
     //margin-left: -2rem;
     //margin-left: -0.1rem;
   }
