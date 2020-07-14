@@ -264,7 +264,6 @@ caption {
 }
 
 thead {
-  font-variation-settings: "wght" 150, "wdth" 35, "opsz" 0, "GRAD" 48, "slnt" 0;
   background: rgba(0, 0, 0, 0.05);
   box-shadow: 0 1px #000;
   //text-align: inherit;
@@ -275,7 +274,7 @@ th {
   //text-align: right;
   transform: rotate(-45deg);
   transform-origin: 0 0;
-  text-transform: uppercase;
+
   vertical-align: top;
   // &:first-of-type,
   // &:nth-of-type(2) {
@@ -284,16 +283,19 @@ th {
 
   span {
     display: inline;
-    padding-left: 1rem;
+    //padding-left: 1rem;
     textarea {
+      font-variation-settings: "wght" 150, "wdth" 35, "opsz" 0, "GRAD" 48,
+        "slnt" 0;
       display: inline;
       position: absolute;
       top: 0;
       left: 0;
-      width: 3.6rem;
+      width: 4.8rem;
       //min-width: 3rem;
       white-space: pre-wrap;
       text-align: left;
+      text-transform: uppercase;
       // safari mobile seems to struggle with first-line
       // &::first-line {
       //   color: red;
