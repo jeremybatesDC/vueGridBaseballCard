@@ -5,6 +5,13 @@ import "./globalStyles/grid.scss";
 
 import "./globalStyles/inputs.scss";
 
+import { openDB, deleteDB, wrap, unwrap } from "./assets/idb.js";
+async function doDatabaseStuff() {
+  const db = await openDB();
+  console.log(db);
+}
+console.log(openDB, deleteDB, wrap, unwrap);
+
 import { createApp } from "vue";
 import App from "./App.vue";
 
