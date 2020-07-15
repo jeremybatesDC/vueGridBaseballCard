@@ -8,11 +8,6 @@ import "./globalStyles/inputs.scss";
 let dateTest = new Date().getFullYear();
 console.log(dateTest);
 
-import { set } from "idb-keyval";
-set("hello", "world")
-  .then(() => console.log("It worked!"))
-  .catch((err) => console.log("It failed!", err));
-
 import { createApp } from "vue";
 import App from "./App.vue";
 

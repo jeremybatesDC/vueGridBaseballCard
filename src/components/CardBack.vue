@@ -6,16 +6,16 @@
         <h1 v-else>YOUR MOTHER</h1>
         <!-- hard to loop since distinct lists may help... Although... -->
         <ul>
-          <li>{{stats.info.info_0}}</li>
-          <li>{{stats.info.info_1}}</li>
+          <li>{{ stats.info.info_0 }}</li>
+          <li>{{ stats.info.info_1 }}</li>
         </ul>
         <ul>
           <!-- loop these-->
-          <li>{{stats.info.info_2}}</li>
-          <li>{{stats.info.info_3}}</li>
-          <li>{{stats.info.info_4}}</li>
-          <li>{{stats.info.info_5}}</li>
-          <li>{{stats.info.info_6}}</li>
+          <li>{{ stats.info.info_2 }}</li>
+          <li>{{ stats.info.info_3 }}</li>
+          <li>{{ stats.info.info_4 }}</li>
+          <li>{{ stats.info.info_5 }}</li>
+          <li>{{ stats.info.info_6 }}</li>
         </ul>
       </header>
       <section>
@@ -36,7 +36,7 @@
           <tbody>
             <tr v-for="year in stats.years" :key="year">
               <!-- i really don't want to do a loop in a loop, do I? Space/time complexity wise, it's better to loop twice -->
-              <td v-for="thing in year" :key="thing">{{thing}}</td>
+              <td v-for="thing in year" :key="thing">{{ thing }}</td>
             </tr>
           </tbody>
           <tfoot>
@@ -54,24 +54,46 @@
         <aside>
           <fieldset>
             <blockquote>
-              <h6>{{stats.info.facts[0].headline}}</h6>
-              <textarea :style="cssAsideProps">{{stats.info.facts[0].text}}</textarea>
+              <h6>{{ stats.info.facts[0].headline }}</h6>
+              <textarea :style="cssAsideProps">{{
+                stats.info.facts[0].text
+              }}</textarea>
               <div tabindex="0" data-show-only-on-interaction>
                 <label>
                   Font Weight
-                  <input v-model="aside.fontWeight" type="range" min="100" max="900" />
+                  <input
+                    v-model="aside.fontWeight"
+                    type="range"
+                    min="100"
+                    max="900"
+                  />
                 </label>
                 <label>
                   Font Width
-                  <input v-model="aside.fontWidth" type="range" min="35" max="100" />
+                  <input
+                    v-model="aside.fontWidth"
+                    type="range"
+                    min="35"
+                    max="100"
+                  />
                 </label>
                 <label>
                   Font Slant
-                  <input v-model="aside.fontSlant" type="range" min="-10" max="0" />
+                  <input
+                    v-model="aside.fontSlant"
+                    type="range"
+                    min="-10"
+                    max="0"
+                  />
                 </label>
                 <label>
                   Font Grade
-                  <input v-model="aside.fontGrade" type="range" min="0" max="48" />
+                  <input
+                    v-model="aside.fontGrade"
+                    type="range"
+                    min="0"
+                    max="48"
+                  />
                 </label>
               </div>
             </blockquote>
@@ -80,10 +102,10 @@
       </section>
 
       <footer>
-        <h2>{{stats.info.facts[1].headline}}</h2>
+        <h2>{{ stats.info.facts[1].headline }}</h2>
         <fieldset>
           <textarea spellcheck="false" :style="cssFooterProps">
-              {{stats.info.facts[1].text}}
+              {{ stats.info.facts[1].text }}
           </textarea>
           <!-- this tabindex makes this whole panel focusable -->
           <div tabindex="0" data-show-only-on-interaction>
@@ -93,15 +115,30 @@
             </label>-->
             <label>
               Font Weight
-              <input v-model="footer.fontWeight" type="range" min="100" max="900" />
+              <input
+                v-model="footer.fontWeight"
+                type="range"
+                min="100"
+                max="900"
+              />
             </label>
             <label>
               Font Width
-              <input v-model="footer.fontWidth" type="range" min="35" max="100" />
+              <input
+                v-model="footer.fontWidth"
+                type="range"
+                min="35"
+                max="100"
+              />
             </label>
             <label>
               Font Slant
-              <input v-model="footer.fontSlant" type="range" min="-10" max="0" />
+              <input
+                v-model="footer.fontSlant"
+                type="range"
+                min="-10"
+                max="0"
+              />
             </label>
             <label>
               Font Grade
@@ -116,24 +153,39 @@
 
 <script lang="ts">
 import stats from "../json/stats.json";
-console.log(stats.years);
+import { set } from "idb-keyval";
+
 export default {
-  data: function() {
+  // intentionally avoiding arrow functions here
+  setup: function () {
+    async function setFunc() {
+      set("footerFontWeight", this.footer.fontWeight)
+        .then(() => console.log("woohoo!"))
+        .catch((err) => console.log("doh!", err));
+    }
+
+    return { setFunc };
+  },
+
+  data: function () {
     return {
       stats,
       footer: {
         fontWeight: 400,
         fontWidth: 100,
         fontSlant: 5,
-        fontGrade: 24
+        fontGrade: 24,
       },
       aside: {
         fontWeight: 400,
         fontWidth: 100,
         fontSlant: 5,
-        fontGrade: 24
-      }
+        fontGrade: 24,
+      },
     };
+  },
+  mounted: function () {
+    this.setFunc();
   },
   computed: {
     cssFooterProps() {
@@ -141,7 +193,7 @@ export default {
         "--fontweight": this.footer.fontWeight,
         "--fontwidth": this.footer.fontWidth,
         "--fontslant": this.footer.fontSlant,
-        "--fontgrade": this.footer.fontGrade
+        "--fontgrade": this.footer.fontGrade,
       };
     },
     cssAsideProps() {
@@ -149,10 +201,10 @@ export default {
         "--fontweight": this.aside.fontWeight,
         "--fontwidth": this.aside.fontWidth,
         "--fontslant": this.aside.fontSlant,
-        "--fontgrade": this.aside.fontGrade
+        "--fontgrade": this.aside.fontGrade,
       };
-    }
-  }
+    },
+  },
 };
 </script>
 
