@@ -1,9 +1,9 @@
 {
-  "playerImageURLorDataString": "https://securea.mlb.com/mlb/images/players/head_shot/543685.jpg",
+  "playerImageURLorDataString": "./src/assets/honusWagnerCard.webp",
   "playerName": "Anthony Rendon",
   "playerPosition": "Third Base",
   "teamLogoAltText": "Nats Curley W Logo",
-  "teamLogoURL": "http://content.sportslogos.net/logos/54/578/full/rcehah9k0kekjkgzm077fflws.png",
+  "teamLogoURL": "./src/assets/natsLogo150x150at55percent.webp",
   "teamName": "Washington Nationals",
   "cardBackgroundColor": "#eeeeee",
   "cardBackgroundTexture": "filterfabric",

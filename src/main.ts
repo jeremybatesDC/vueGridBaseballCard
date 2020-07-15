@@ -12,6 +12,9 @@ async function doDatabaseStuff() {
 }
 console.log(openDB, deleteDB, wrap, unwrap);
 
+let dateTest = new Date().getFullYear();
+console.log(dateTest);
+
 import { createApp } from "vue";
 import App from "./App.vue";
 
