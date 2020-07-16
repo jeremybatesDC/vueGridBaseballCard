@@ -125,7 +125,7 @@ export default {
 
     async function setFunc() {
       // loop here over keys
-      webWorkerCardBack.postMessage("meow");
+      webWorkerCardBack.postMessage(this.aside.fontGrade);
       webWorkerCardBack.onmessage = function(event) {
         console.log("received message here is ", event.data);
       };
