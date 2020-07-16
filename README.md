@@ -2,6 +2,7 @@
 
 ## To Do
 
+- Move the POST to a worker
 - Establish flow:
 - User shouldn't have to save anything manually (although a button to force it to happen on request can be reassuring). So when do we save to indexedDB?
 

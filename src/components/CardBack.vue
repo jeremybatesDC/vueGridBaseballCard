@@ -6,16 +6,16 @@
         <h1 v-else>YOUR MOTHER</h1>
         <!-- hard to loop since distinct lists may help... Although... -->
         <ul>
-          <li>{{ stats.info.info_0 }}</li>
-          <li>{{ stats.info.info_1 }}</li>
+          <li>{{ defaultStats.info.info_0 }}</li>
+          <li>{{ defaultStats.info.info_1 }}</li>
         </ul>
         <ul>
           <!-- loop these-->
-          <li>{{ stats.info.info_2 }}</li>
-          <li>{{ stats.info.info_3 }}</li>
-          <li>{{ stats.info.info_4 }}</li>
-          <li>{{ stats.info.info_5 }}</li>
-          <li>{{ stats.info.info_6 }}</li>
+          <li>{{ defaultStats.info.info_2 }}</li>
+          <li>{{ defaultStats.info.info_3 }}</li>
+          <li>{{ defaultStats.info.info_4 }}</li>
+          <li>{{ defaultStats.info.info_5 }}</li>
+          <li>{{ defaultStats.info.info_6 }}</li>
         </ul>
       </header>
       <section>
@@ -26,7 +26,7 @@
 
           <thead>
             <tr>
-              <th v-for="field in stats.fields" :key="field" scope="col">
+              <th v-for="field in defaultStats.fields" :key="field" scope="col">
                 <span>
                   <textarea spellcheck="false" :value="field"></textarea>
                 </span>
@@ -34,7 +34,7 @@
             </tr>
           </thead>
           <tbody>
-            <tr v-for="year in stats.years" :key="year">
+            <tr v-for="year in defaultStats.years" :key="year">
               <!-- i really don't want to do a loop in a loop, do I? Space/time complexity wise, it's better to loop twice -->
               <td v-for="thing in year" :key="thing">{{ thing }}</td>
             </tr>
@@ -54,8 +54,8 @@
         <aside>
           <fieldset>
             <blockquote>
-              <h6>{{ stats.info.facts[0].headline }}</h6>
-              <textarea v-model="stats.info.facts[0].text" :style="cssAsideProps"></textarea>
+              <h6>{{ defaultStats.info.facts[0].headline }}</h6>
+              <textarea v-model="defaultStats.info.facts[0].text" :style="cssAsideProps"></textarea>
               <div tabindex="0" data-show-only-on-interaction>
                 <label>
                   Font Weight
@@ -80,9 +80,13 @@
       </section>
 
       <footer>
-        <h2>{{ stats.info.facts[1].headline }}</h2>
+        <h2>{{ defaultStats.info.facts[1].headline }}</h2>
         <fieldset>
-          <textarea spellcheck="false" :style="cssFooterProps" v-model="stats.info.facts[1].text"></textarea>
+          <textarea
+            spellcheck="false"
+            :style="cssFooterProps"
+            v-model="defaultStats.info.facts[1].text"
+          ></textarea>
           <!-- this tabindex makes this whole panel focusable -->
           <div tabindex="0" data-show-only-on-interaction>
             <!-- <label>
@@ -113,7 +117,7 @@
 </template>
 
 <script lang="ts">
-import stats from "../json/stats.json";
+import defaultStats from "../json/default-stats.json";
 import { set } from "idb-keyval";
 
 export default {
@@ -140,7 +144,8 @@ export default {
 
   data: function() {
     return {
-      stats,
+      defaultStats,
+      // would love to be equally declarative with footer and aside stuff too...
       footer: {
         fontWeight: 400,
         fontWidth: 100,

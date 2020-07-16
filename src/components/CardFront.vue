@@ -30,22 +30,12 @@
         <aside class="corner--bottom--left"></aside>
         <section class="footer--playerName">
           <h1>
-            <input
-              v-model="playerName"
-              type="text"
-              placeholder
-              maxlength="48"
-            />
+            <input v-model="playerName" type="text" placeholder maxlength="48" />
           </h1>
         </section>
         <section class="footer--playerPosition">
           <h3>
-            <input
-              v-model="playerPosition"
-              type="text"
-              placeholder
-              maxlength="48"
-            />
+            <input v-model="playerPosition" type="text" placeholder maxlength="48" />
           </h3>
         </section>
         <section class="footer--teamLogo">
@@ -162,41 +152,21 @@
             </label>
             <label>
               Font Weight
-              <input
-                v-model="cardTextFontWeight"
-                type="range"
-                min="100"
-                max="900"
-              />
+              <input v-model="cardTextFontWeight" type="range" min="100" max="900" />
             </label>
             <label>
               Font Width
-              <input
-                v-model="cardTextFontWidth"
-                type="range"
-                min="35"
-                max="100"
-              />
+              <input v-model="cardTextFontWidth" type="range" min="35" max="100" />
             </label>
           </div>
           <div class="row">
             <label>
               Font Slant
-              <input
-                v-model="cardTextFontSlant"
-                type="range"
-                min="-10"
-                max="0"
-              />
+              <input v-model="cardTextFontSlant" type="range" min="-10" max="0" />
             </label>
             <label>
               Font Grade
-              <input
-                v-model="cardTextFontGrade"
-                type="range"
-                min="0"
-                max="48"
-              />
+              <input v-model="cardTextFontGrade" type="range" min="0" max="48" />
             </label>
             <!-- <label>
               Font Optical Size (inverse)
@@ -275,16 +245,21 @@ import defaultSettings from "../json/default-settings.json";
 export default {
   setup: () => {
     // any reason not to fire up web worker at the beginning?
-    var webWorker = new Worker("./web-worker.js");
+    var webWorker = new Worker("./web-worker.js", {
+      type: "module"
+    });
 
     const endpointURL = "https://reqres.in/api/users";
+
+    // ideally the post could be done with a worker
+
     async function postData(url = "", data = {}) {
       const response = await fetch(url, {
         method: "POST",
         headers: {
-          "Content-type": "application/json",
+          "Content-type": "application/json"
         },
-        body: JSON.stringify(data),
+        body: JSON.stringify(data)
         // learn these other options
         // cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
         //redirect: "follow", // manual, *follow, error
@@ -295,10 +270,10 @@ export default {
     async function submitHandler() {
       // using THIS sends whole data object (saves a bunch of imperative code)
       postData(endpointURL, this)
-        .then((data) => {
+        .then(data => {
           console.log(data);
         })
-        .catch((error) => {
+        .catch(error => {
           console.error("DOH! ", error);
         });
     }
@@ -342,7 +317,7 @@ export default {
         function testFunction(strng) {
           theThis.playerImageURLorDataString = strng;
         }
-        webWorker.onmessage = function (event) {
+        webWorker.onmessage = function(event) {
           console.log("received message here");
           //this.playerImageURLorDataString = event.data;
           //
@@ -362,13 +337,13 @@ export default {
       submitHandler,
       saveHandler,
       setFromLocalStorage,
-      encodeImage,
+      encodeImage
       //receivedWorkerMessage
       //validateImage
       //updateLocalStorage
     };
   },
-  data: function () {
+  data: function() {
     return {
       // playerImageURLorDataString:
       //   placeholderEncodedImage.endcodedimagedatastring,
@@ -391,7 +366,7 @@ export default {
       cardTextFontSlant: defaultSettings.cardTextFontSlant,
       cardSepia: defaultSettings.cardSepia,
       cardGrayScale: defaultSettings.cardGrayScale,
-      logoPosition: defaultSettings.logoPosition,
+      logoPosition: defaultSettings.logoPosition
     };
   },
   /*methods: {
@@ -416,13 +391,13 @@ export default {
         "--cardsepia": `${this.cardSepia}%`,
         "--cardbrightness": this.cardBrightness,
         "--cardgrayscale": `${this.cardGrayScale}%`,
-        "--logoPosition": this.logoPosition,
+        "--logoPosition": this.logoPosition
         //donT put encoded image in here. But this could/sjhould be a property somewhere
         // "--playerimageencoded": `${this.playerImagePreview}%`
       };
-    },
+    }
   },
-  mounted: function () {
+  mounted: function() {
     this.setFromLocalStorage();
   },
   // watch stuff and updatefor localStorage
@@ -445,7 +420,7 @@ export default {
     },
     teamLogoURL(newteamLogoURL) {
       localStorage.teamLogoURL = newteamLogoURL;
-    },
-  },
+    }
+  }
 };
 </script>
