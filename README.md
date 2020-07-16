@@ -2,7 +2,14 @@
 
 ## To Do
 
-- So that we can use web worker whenever we want/need, switch to indexdb. Consider Jake Archibald's 1kb wrapper that "mostly mirrors the IndexedDB API, but adds" promises and "small improvements that make a big difference to usability": https://github.com/jakearchibald/idb OR https://github.com/jakearchibald/idb-keyval
+- Establish flow:
+- User shouldn't have to save anything manually (although a button to force it to happen on request can be reassuring). So when do we save to indexedDB?
+
+1.  If a value for a given field in indexedDB is null or doesn't exist, then grab the json default data for that field
+
+2.  On X event(s) or at Y time(s), save fields that user changes to IDB. Do this async and, if it makes sense, have a WORKER do this to keep the UI thread free (maybe for a dostracting animation)
+
+---
 
 - Add Examples (start with JSON)  
   -- github cards

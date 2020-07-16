@@ -1,5 +1,5 @@
 <template>
-  <div class="wrapper">
+  <div class="card-back">
     <article>
       <header>
         <h1 v-if="playerName">{{ playerName }}</h1>
@@ -55,45 +55,23 @@
           <fieldset>
             <blockquote>
               <h6>{{ stats.info.facts[0].headline }}</h6>
-              <textarea :style="cssAsideProps">{{
-                stats.info.facts[0].text
-              }}</textarea>
+              <textarea v-model="stats.info.facts[0].text" :style="cssAsideProps"></textarea>
               <div tabindex="0" data-show-only-on-interaction>
                 <label>
                   Font Weight
-                  <input
-                    v-model="aside.fontWeight"
-                    type="range"
-                    min="100"
-                    max="900"
-                  />
+                  <input v-model="aside.fontWeight" type="range" min="100" max="900" />
                 </label>
                 <label>
                   Font Width
-                  <input
-                    v-model="aside.fontWidth"
-                    type="range"
-                    min="35"
-                    max="100"
-                  />
+                  <input v-model="aside.fontWidth" type="range" min="35" max="100" />
                 </label>
                 <label>
                   Font Slant
-                  <input
-                    v-model="aside.fontSlant"
-                    type="range"
-                    min="-10"
-                    max="0"
-                  />
+                  <input v-model="aside.fontSlant" type="range" min="-10" max="0" />
                 </label>
                 <label>
                   Font Grade
-                  <input
-                    v-model="aside.fontGrade"
-                    type="range"
-                    min="0"
-                    max="48"
-                  />
+                  <input v-model="aside.fontGrade" type="range" min="0" max="48" />
                 </label>
               </div>
             </blockquote>
@@ -104,9 +82,7 @@
       <footer>
         <h2>{{ stats.info.facts[1].headline }}</h2>
         <fieldset>
-          <textarea spellcheck="false" :style="cssFooterProps">
-              {{ stats.info.facts[1].text }}
-          </textarea>
+          <textarea spellcheck="false" :style="cssFooterProps" v-model="stats.info.facts[1].text"></textarea>
           <!-- this tabindex makes this whole panel focusable -->
           <div tabindex="0" data-show-only-on-interaction>
             <!-- <label>
@@ -115,30 +91,15 @@
             </label>-->
             <label>
               Font Weight
-              <input
-                v-model="footer.fontWeight"
-                type="range"
-                min="100"
-                max="900"
-              />
+              <input v-model="footer.fontWeight" type="range" min="100" max="900" />
             </label>
             <label>
               Font Width
-              <input
-                v-model="footer.fontWidth"
-                type="range"
-                min="35"
-                max="100"
-              />
+              <input v-model="footer.fontWidth" type="range" min="35" max="100" />
             </label>
             <label>
               Font Slant
-              <input
-                v-model="footer.fontSlant"
-                type="range"
-                min="-10"
-                max="0"
-              />
+              <input v-model="footer.fontSlant" type="range" min="-10" max="0" />
             </label>
             <label>
               Font Grade
@@ -157,34 +118,42 @@ import { set } from "idb-keyval";
 
 export default {
   // intentionally avoiding arrow functions here
-  setup: function () {
+  setup: function() {
+    const webWorkerCardBack = new Worker("./web-worker-cardBack.js");
+
     async function setFunc() {
+      // loop here over keys
+      webWorkerCardBack.postMessage("meow");
+      webWorkerCardBack.onmessage = function(event) {
+        console.log("received message here is ", event.data);
+      };
+
       set("footerFontWeight", this.footer.fontWeight)
         .then(() => console.log("woohoo!"))
-        .catch((err) => console.log("doh!", err));
+        .catch(err => console.log("doh!", err));
     }
 
     return { setFunc };
   },
 
-  data: function () {
+  data: function() {
     return {
       stats,
       footer: {
         fontWeight: 400,
         fontWidth: 100,
         fontSlant: 5,
-        fontGrade: 24,
+        fontGrade: 24
       },
       aside: {
         fontWeight: 400,
         fontWidth: 100,
         fontSlant: 5,
-        fontGrade: 24,
-      },
+        fontGrade: 24
+      }
     };
   },
-  mounted: function () {
+  mounted: function() {
     this.setFunc();
   },
   computed: {
@@ -193,7 +162,7 @@ export default {
         "--fontweight": this.footer.fontWeight,
         "--fontwidth": this.footer.fontWidth,
         "--fontslant": this.footer.fontSlant,
-        "--fontgrade": this.footer.fontGrade,
+        "--fontgrade": this.footer.fontGrade
       };
     },
     cssAsideProps() {
@@ -201,10 +170,10 @@ export default {
         "--fontweight": this.aside.fontWeight,
         "--fontwidth": this.aside.fontWidth,
         "--fontslant": this.aside.fontSlant,
-        "--fontgrade": this.aside.fontGrade,
+        "--fontgrade": this.aside.fontGrade
       };
-    },
-  },
+    }
+  }
 };
 </script>
 
@@ -213,12 +182,13 @@ export default {
 
 // color contast functions: https://css-tricks.com/switch-font-color-for-different-backgrounds-with-css/
 
-.wrapper {
+.card-back {
   display: flex;
   //flex-direction: column;
 
   background-color: #9a8b7c;
-  width: 50.4rem;
+  width: 100%;
+  max-width: 50.4rem;
   height: 36rem;
   margin-bottom: 2.4rem;
   padding: 1.6rem;
@@ -298,7 +268,8 @@ section {
   //background: rgba(#9c2c1a, 0.1);
 }
 table {
-  width: 32rem;
+  width: 100%;
+  max-width: 32rem;
   margin: 0 auto;
   font-size: 1.2rem;
   line-height: 1;
@@ -343,7 +314,8 @@ th {
       position: absolute;
       top: 0;
       left: 0;
-      width: 4.8rem;
+      width: 100%;
+      max-width: 4.8rem;
       //min-width: 3rem;
       white-space: pre-wrap;
       text-align: left;
@@ -353,9 +325,6 @@ th {
       //   color: red;
       // }
     }
-    //display: flex;
-    //margin-left: -2rem;
-    //margin-left: -0.1rem;
   }
 }
 
@@ -384,11 +353,23 @@ tfoot {
 }
 
 // rather imperative here, but having table as child of flex element was kinda odd... ooooh
+
+//
 aside {
   display: flex;
-  width: calc(100% - 32rem);
+  width: auto;
   fieldset {
     display: flex;
+  }
+}
+
+aside,
+footer {
+  &:focus-within {
+    textarea {
+      //transform: scale(2);
+      background-color: #fff;
+    }
   }
 }
 
