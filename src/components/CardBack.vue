@@ -119,7 +119,9 @@ import { set } from "idb-keyval";
 export default {
   // intentionally avoiding arrow functions here
   setup: function() {
-    const webWorkerCardBack = new Worker("./web-worker-cardBack.js");
+    const webWorkerCardBack = new Worker("./web-worker-cardBack.js", {
+      type: "module"
+    });
 
     async function setFunc() {
       // loop here over keys
