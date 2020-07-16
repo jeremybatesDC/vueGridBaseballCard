@@ -245,37 +245,22 @@ import defaultSettings from "../json/default-settings.json";
 export default {
   setup: () => {
     // any reason not to fire up web worker at the beginning?
-    var webWorker = new Worker("./web-worker.js", {
+    var webWorkerEncode = new Worker("../src/workers/web-worker-encode.ts", {
+      type: "module"
+    });
+    var webWorkerFetch = new Worker("../src/workers/web-worker-fetch.ts", {
       type: "module"
     });
 
-    const endpointURL = "https://reqres.in/api/users";
-
-    // ideally the post could be done with a worker
-
-    async function postData(url = "", data = {}) {
-      const response = await fetch(url, {
-        method: "POST",
-        headers: {
-          "Content-type": "application/json"
-        },
-        body: JSON.stringify(data)
-        // learn these other options
-        // cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
-        //redirect: "follow", // manual, *follow, error
-        //referrerPolicy: "no-referrer", (see more)
-      });
-      return response.json(); // parses JSON response into native JavaScript objects
-    }
     async function submitHandler() {
-      // using THIS sends whole data object (saves a bunch of imperative code)
-      postData(endpointURL, this)
-        .then(data => {
-          console.log(data);
-        })
-        .catch(error => {
-          console.error("DOH! ", error);
-        });
+      console.log(event);
+      webWorkerFetch.postMessage(defaultSettings);
+      webWorkerFetch.onmessage = function(event) {
+        console.log(
+          event.data,
+          "card front here thanking web worker fetch for its help"
+        );
+      };
     }
     async function saveHandler() {
       console.log("this should force a save to localstorage");
@@ -309,7 +294,7 @@ export default {
 
       if (filesProp && usrfile) {
         let theThis = this;
-        webWorker.postMessage(usrfile);
+        webWorkerEncode.postMessage(usrfile);
         theThis.$emit("input", usrfile);
 
         // 'this' gets changed
@@ -317,7 +302,7 @@ export default {
         function testFunction(strng) {
           theThis.playerImageURLorDataString = strng;
         }
-        webWorker.onmessage = function(event) {
+        webWorkerEncode.onmessage = function(event) {
           console.log("received message here");
           //this.playerImageURLorDataString = event.data;
           //
@@ -332,8 +317,8 @@ export default {
     // }
 
     return {
-      endpointURL,
-      postData,
+      //endpointURL,
+      //postData,
       submitHandler,
       saveHandler,
       setFromLocalStorage,
