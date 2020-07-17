@@ -29,7 +29,7 @@
               <tr>
                 <th v-for="field in defaultStats.fields" :key="field" scope="col">
                   <span>
-                    <textarea spellcheck="false" :value="field"></textarea>
+                    <textarea rows="1" spellcheck="false" :value="field"></textarea>
                   </span>
                 </th>
               </tr>
@@ -306,36 +306,35 @@ caption {
 thead {
   background: rgba(0, 0, 0, 0.05);
   box-shadow: 0 1px #000;
-  //text-align: inherit;
 }
 th {
   //vertical-align: top;
 
-  //text-align: right;
-  transform: rotate(-45deg);
-  transform-origin: 0 0;
+  text-align: right;
 
-  vertical-align: top;
+  vertical-align: middle;
   // &:first-of-type,
   // &:nth-of-type(2) {
-  //   text-align: left;
+  //   vertical-align: top;
   // }
 
   span {
-    display: inline;
+    display: block;
     //padding-left: 1rem;
+    transform: rotate(-45deg);
+    transform-origin: 0 0;
     textarea {
       font-variation-settings: "wght" 150, "wdth" 35, "opsz" 0, "GRAD" 48,
         "slnt" 0;
-      display: inline;
+      display: block;
       position: absolute;
       top: 0;
       left: 0;
       width: 100%;
-      max-width: 4.8rem;
+      min-width: 6.4rem;
       //min-width: 3rem;
       white-space: pre-wrap;
-      text-align: left;
+      //text-align: left;
       text-transform: uppercase;
       // safari mobile seems to struggle with first-line
       // &::first-line {
@@ -349,6 +348,13 @@ tbody {
   box-shadow: 0 1px #000;
   font-variation-settings: "wght" 100, "wdth" 0, "opsz" 20, "GRAD" 48, "slnt" 0;
   background: rgba(255, 255, 255, 0.1);
+  tr {
+    &:first-child {
+      td {
+        padding-top: 1rem;
+      }
+    }
+  }
   td {
     padding: 0.2rem 0.4rem;
     box-shadow: 0 1px rgba(0, 0, 0, 0.25);
@@ -365,6 +371,9 @@ tfoot {
   background: rgba(0, 0, 0, 0.05);
   td {
     padding: 0.4rem;
+    &:first-child {
+      text-align: left;
+    }
   }
   //box-shadow: 0 1px #000;
 }
