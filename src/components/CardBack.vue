@@ -21,36 +21,39 @@
       <section>
         <!-- columns: min 2, max 6? -->
         <!-- tbody rows: min 0 (leaving only tfoot totals), max 10? -->
-        <table>
-          <!--<caption>Career Stats</caption>-->
+        <div class="table__wrapper--outer">
+          <table>
+            <!--<caption>Career Stats</caption>-->
 
-          <thead>
-            <tr>
-              <th v-for="field in defaultStats.fields" :key="field" scope="col">
-                <span>
-                  <textarea spellcheck="false" :value="field"></textarea>
-                </span>
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr v-for="year in defaultStats.years" :key="year">
-              <!-- i really don't want to do a loop in a loop, do I? Space/time complexity wise, it's better to loop twice -->
-              <td v-for="thing in year" :key="thing">{{ thing }}</td>
-            </tr>
-          </tbody>
-          <tfoot>
-            <tr>
-              <td>CAREER</td>
-              <td></td>
-              <td>SUM</td>
-              <td>SUM</td>
-              <td>AVG</td>
-              <td>SUM</td>
-              <td>AVG</td>
-            </tr>
-          </tfoot>
-        </table>
+            <thead>
+              <tr>
+                <th v-for="field in defaultStats.fields" :key="field" scope="col">
+                  <span>
+                    <textarea spellcheck="false" :value="field"></textarea>
+                  </span>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr v-for="year in defaultStats.years" :key="year">
+                <!-- i really don't want to do a loop in a loop, do I? Space/time complexity wise, it's better to loop twice -->
+                <td v-for="thing in year" :key="thing">{{ thing }}</td>
+              </tr>
+            </tbody>
+            <tfoot>
+              <tr>
+                <td>CAREER</td>
+                <td></td>
+                <td>SUM</td>
+                <td>SUM</td>
+                <td>AVG</td>
+                <td>SUM</td>
+                <td>AVG</td>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+
         <aside>
           <fieldset>
             <blockquote>
@@ -271,8 +274,15 @@ h2 {
 section {
   // if this part is restricted to vert width, then it'll definitely fit on horz
   display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
   padding: 0 1.6rem 1.6rem 1.6rem;
   //background: rgba(#9c2c1a, 0.1);
+}
+
+.table__wrapper--outer {
+  display: flex;
+  flex-grow: 1;
 }
 table {
   width: 100%;
@@ -364,13 +374,31 @@ tfoot {
 //
 aside {
   display: flex;
+  flex-grow: 1;
   width: auto;
+  &:focus-within {
+    blockquote {
+      font-size: 1.6rem;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 50vh;
+      // background-color: red;
+    }
+    // this indeed seems to help prevent iOS zoom
+    textarea {
+      font-size: 1.6rem;
+      background-color: #fff;
+      max-height: 12rem;
+    }
+  }
   fieldset {
     display: flex;
+    flex-grow: 1;
   }
 }
 
-aside,
 footer {
   &:focus-within {
     textarea {
@@ -383,6 +411,7 @@ footer {
 blockquote {
   display: flex;
   flex-direction: column;
+  flex-grow: 1;
   // hmmm
   //flex-grow: 1;
   height: 100%;
