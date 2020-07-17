@@ -245,23 +245,23 @@ import defaultSettings from "../json/default-settings.json";
 export default {
   setup: () => {
     // any reason not to fire up web worker at the beginning?
-    var webWorkerEncode = new Worker("../src/workers/web-worker-encode.ts", {
+    var webWorkerEncode = new Worker("./workers/web-worker-encode.js", {
       type: "module"
     });
-    var webWorkerFetch = new Worker("../src/workers/web-worker-fetch.ts", {
+    var webWorkerFetch = new Worker("./workers/web-worker-fetch.js", {
       type: "module"
     });
 
-    async function submitHandler() {
-      console.log(event);
-      webWorkerFetch.postMessage(defaultSettings);
-      webWorkerFetch.onmessage = function(event) {
-        console.log(
-          event.data,
-          "card front here thanking web worker fetch for its help"
-        );
-      };
-    }
+    // async function submitHandler() {
+    //   console.log(event);
+    //   webWorkerFetch.postMessage(defaultSettings, this.data);
+    //   webWorkerFetch.onmessage = function(event) {
+    //     console.log(
+    //       event.data,
+    //       "card front here thanking web worker fetch for its help"
+    //     );
+    //   };
+    // }
     async function saveHandler() {
       console.log("this should force a save to localstorage");
     }
@@ -319,10 +319,11 @@ export default {
     return {
       //endpointURL,
       //postData,
-      submitHandler,
       saveHandler,
       setFromLocalStorage,
-      encodeImage
+      encodeImage,
+      webWorkerEncode,
+      webWorkerFetch
       //receivedWorkerMessage
       //validateImage
       //updateLocalStorage
@@ -354,13 +355,25 @@ export default {
       logoPosition: defaultSettings.logoPosition
     };
   },
-  /*methods: {
-    // i am starting to see why folks like jake archibald have wrapped this
-    // persist() {
-    // 	localStorage.playerName = this.playerName;
-    // 	localStorage.teamName = this.teamName;
-    // }
-  },*/
+  methods: {
+    submitHandler: async function(event) {
+      console.log(this);
+
+      // note the $
+      this.webWorkerFetch.postMessage(JSON.stringify(this.$data));
+
+      this.webWorkerFetch.onmessage = function(event) {
+        console.log(
+          event.data,
+          "card front here thanking web worker fetch for its help"
+        );
+      };
+      // gives proper access to THIS i believe
+      // persist() {
+      // 	localStorage.playerName = this.playerName;
+      // 	localStorage.teamName = this.teamName;
+    }
+  },
   computed: {
     cssProps() {
       return {

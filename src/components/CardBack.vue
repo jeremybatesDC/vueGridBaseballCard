@@ -126,7 +126,7 @@ import { set } from "idb-keyval";
 export default {
   // intentionally avoiding arrow functions here
   setup: function() {
-    const webWorkerCardBack = new Worker("../src/workers/web-worker-idb.ts", {
+    const webWorkerCardBack = new Worker("./workers/web-worker-idb.js", {
       type: "module"
     });
 
