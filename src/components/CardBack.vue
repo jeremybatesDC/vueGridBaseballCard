@@ -6,7 +6,9 @@
         <h1 v-else>YOUR MOTHER</h1>
         <!-- hard to loop since distinct lists may help... Although... -->
         <ul>
-          <li>{{ defaultStats.info.info_0 }}</li>
+          <li>
+            <input type="email" v-model="defaultStats.info.info_0" />
+          </li>
           <li>{{ defaultStats.info.info_1 }}</li>
         </ul>
         <ul>
@@ -57,7 +59,7 @@
         <aside>
           <fieldset>
             <blockquote>
-              <h6>{{ defaultStats.info.facts[0].headline }}</h6>
+              <h6 class="aside__headline">{{ defaultStats.info.facts[0].headline }}</h6>
               <textarea v-model="defaultStats.info.facts[0].text" :style="cssAsideProps"></textarea>
               <div tabindex="0" data-show-only-on-interaction>
                 <label>
@@ -237,6 +239,9 @@ header {
       background: #000;
       color: #9a8b7c;
       box-shadow: 1.6rem 0 #000, -1.6rem 0 #000;
+      [type="email"] {
+        color: inherit;
+      }
     }
     &:nth-of-type(2) {
       li {
@@ -420,7 +425,10 @@ aside {
     flex-grow: 1;
   }
   .aside__headline {
+    // this is acting weird
     display: flex;
+    width: 100%;
+    text-align: justify;
   }
 }
 
