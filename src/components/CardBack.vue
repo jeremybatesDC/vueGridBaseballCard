@@ -404,6 +404,16 @@ aside {
       background-color: #fff;
       max-height: 12rem;
     }
+    &:before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      //z-index: 1;
+    }
   }
   fieldset {
     display: flex;
@@ -419,6 +429,16 @@ footer {
     textarea {
       //transform: scale(2);
       background-color: #fff;
+    }
+    &:before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      //z-index: 1;
     }
   }
 }
