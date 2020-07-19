@@ -228,6 +228,15 @@
           <div>Creases</div>
         </details>
       </fieldset>
+      <fieldset>
+        <details open>
+          <summary>
+            <legend>Superlatives</legend>
+          </summary>
+          <div>All Star</div>
+        </details>
+      </fieldset>
+
       <!-- mmust be type button so it doesn't fight with submit-->
       <button type="button" @click="saveHandler">Save</button>
       <button type="button" @click="submitHandler">Submit</button>

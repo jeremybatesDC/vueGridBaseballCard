@@ -90,12 +90,7 @@
             :style="cssFooterProps"
             v-model="defaultStats.info.facts[1].text"
           ></textarea>
-          <!-- this tabindex makes this whole panel focusable -->
           <div tabindex="0" data-show-only-on-interaction>
-            <!-- <label>
-              Text Color
-              <input type="color" />
-            </label>-->
             <label>
               Font Weight
               <input v-model="footer.fontWeight" type="range" min="100" max="900" />
@@ -113,6 +108,8 @@
               <input v-model="footer.fontGrade" type="range" min="0" max="48" />
             </label>
           </div>
+          <!-- for this to work, will also have to pass-in a css prop/value for the show/hide -->
+          <!--<TextSlider footerFontweight="footer.fontWeight" />-->
         </fieldset>
       </footer>
     </article>
@@ -122,6 +119,7 @@
 <script lang="ts">
 import defaultStats from "../json/default-stats.json";
 import { set } from "idb-keyval";
+//import TextSlider from "./InputChildComponents/TextSlider.vue";
 
 export default {
   // intentionally avoiding arrow functions here
@@ -143,6 +141,11 @@ export default {
     }
 
     return { setFunc };
+  },
+
+  // do I nest props to send to child components in here?
+  components: {
+    //TextSlider
   },
 
   data: function() {
@@ -405,6 +408,9 @@ aside {
   fieldset {
     display: flex;
     flex-grow: 1;
+  }
+  .aside__headline {
+    display: flex;
   }
 }
 
