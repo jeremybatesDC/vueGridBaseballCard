@@ -2,8 +2,13 @@
   <div class="card-back">
     <article>
       <header>
-        <h1 v-if="playerName">{{ playerName }}</h1>
-        <h1 v-else>YOUR MOTHER</h1>
+        <label class="fui__wrap">
+          <h1 class="fui__mid">
+            <input type="text" class="fui__formElem" value="YOUR MOTHER" />
+            <TextSlider />
+          </h1>
+        </label>
+
         <!-- hard to loop since distinct lists may help... Although... -->
         <ul>
           <li>
@@ -137,7 +142,7 @@
 <script lang="ts">
 import defaultStats from "../json/default-stats.json";
 import { set } from "idb-keyval";
-//import TextSlider from "./InputChildComponents/TextSlider.vue";
+import TextSlider from "./InputChildComponents/TextSlider.vue";
 
 export default {
   // intentionally avoiding arrow functions here
@@ -163,7 +168,7 @@ export default {
 
   // do I nest props to send to child components in here?
   components: {
-    //TextSlider
+    TextSlider
   },
 
   data: function() {
@@ -432,7 +437,7 @@ aside {
       left: 0;
       width: 100%;
       height: 100%;
-      background-color: rgba(0, 0, 0, 0.5);
+      background-color: rgba(0, 0, 0, 0.75);
       //z-index: 1;
     }
   }

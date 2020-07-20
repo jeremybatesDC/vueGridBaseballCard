@@ -2,6 +2,9 @@
 
 ## To Do
 
+--> Consider a focus-within component, or at least a class-based wrapping:
+UI called Focus UI (FUI)
+
 --> The build task adds Unique IDs that on the last build were wrong. Once I adjusted paths manually in the dist folder, it worked on Netlify as intended. But don't want to have to keep doing that. Rather than removing useful hashing, I'd like to get that working
 
 - Load font aysnc
