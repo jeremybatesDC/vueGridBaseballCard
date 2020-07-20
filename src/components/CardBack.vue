@@ -62,22 +62,26 @@
               <h6 class="aside__headline">{{ defaultStats.info.facts[0].headline }}</h6>
               <textarea v-model="defaultStats.info.facts[0].text" :style="cssAsideProps"></textarea>
               <div tabindex="0" data-show-only-on-interaction>
-                <label>
-                  Font Weight
-                  <input v-model="aside.fontWeight" type="range" min="100" max="900" />
-                </label>
-                <label>
-                  Font Width
-                  <input v-model="aside.fontWidth" type="range" min="35" max="100" />
-                </label>
-                <label>
-                  Font Slant
-                  <input v-model="aside.fontSlant" type="range" min="-10" max="0" />
-                </label>
-                <label>
-                  Font Grade
-                  <input v-model="aside.fontGrade" type="range" min="0" max="48" />
-                </label>
+                <div class="row">
+                  <label>
+                    Font Weight
+                    <input v-model="aside.fontWeight" type="range" min="100" max="900" />
+                  </label>
+                  <label>
+                    Font Width
+                    <input v-model="aside.fontWidth" type="range" min="35" max="100" />
+                  </label>
+                </div>
+                <div class="row">
+                  <label>
+                    Font Slant
+                    <input v-model="aside.fontSlant" type="range" min="-10" max="0" />
+                  </label>
+                  <label>
+                    Font Grade
+                    <input v-model="aside.fontGrade" type="range" min="0" max="48" />
+                  </label>
+                </div>
               </div>
             </blockquote>
           </fieldset>
@@ -95,12 +99,24 @@
           <div tabindex="0" data-show-only-on-interaction>
             <label>
               Font Weight
-              <input v-model="footer.fontWeight" type="range" min="100" max="900" />
+              <input
+                v-model="footer.fontWeight"
+                type="range"
+                min="100"
+                max="900"
+                list="fontweightdatalist"
+              />
+              <datalist id="fontweightdatalist">
+                <option value="100"></option>
+                <option value="900"></option>
+              </datalist>
             </label>
+
             <label>
               Font Width
               <input v-model="footer.fontWidth" type="range" min="35" max="100" />
             </label>
+            <br />
             <label>
               Font Slant
               <input v-model="footer.fontSlant" type="range" min="-10" max="0" />
@@ -400,7 +416,7 @@ aside {
       top: 0;
       left: 0;
       width: 100%;
-      height: 50vh;
+      height: auto;
       // background-color: red;
     }
     // this indeed seems to help prevent iOS zoom
@@ -491,34 +507,6 @@ footer {
 p {
   font-size: 1.2rem;
   line-height: 1;
-}
-
-[data-show-only-on-interaction] {
-  display: flex;
-  position: absolute;
-  background: rgba(225, 225, 225, 0.5);
-  //width: 100%;
-  padding: 0.5rem;
-  opacity: 0;
-  overflow: visible;
-  z-index: 1;
-  fieldset:focus-within & {
-    top: 100%;
-    height: auto;
-    opacity: 1;
-  }
-  aside:focus-within & {
-    right: 0;
-    top: 100%;
-    //width: 100vw;
-    height: auto;
-    opacity: 1;
-  }
-  label {
-    // aside:focus-within & {
-    //   width: 50%;
-    // }
-  }
 }
 
 fieldset {

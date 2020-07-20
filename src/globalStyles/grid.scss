@@ -1,3 +1,8 @@
+.row {
+  display: flex;
+  //justify-content: space-evenly;
+}
+
 .gridParent {
   display: grid;
   grid-template-columns: 2.4rem 1fr 1fr 1fr 1fr 2.4rem;

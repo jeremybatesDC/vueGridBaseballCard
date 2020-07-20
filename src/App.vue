@@ -205,13 +205,4 @@ label {
     margin-bottom: 1.6rem;
   }
 }
-
-.row {
-  display: flex;
-  label {
-    + label {
-      margin-left: 1rem;
-    }
-  }
-}
 </style>
