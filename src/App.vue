@@ -59,7 +59,10 @@ h1,
 h2,
 h3 {
   input {
-    font: inherit;
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+
     color: inherit;
     display: inherit;
     width: 100%;
@@ -191,7 +194,7 @@ label {
   input {
     display: block;
     font-family: inherit;
-    font-size: 1.2rem;
+    font-size: inherit;
     &:not([type="color"]) {
       width: 100%;
     }

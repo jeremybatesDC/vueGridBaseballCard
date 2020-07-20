@@ -4,7 +4,12 @@
       <header>
         <label class="fui__wrap">
           <h1 class="fui__mid">
-            <input type="text" class="fui__formElem" value="YOUR MOTHER" />
+            <input
+              type="text"
+              class="fui__formElem"
+              value="YOUR MOTHER"
+              placeholder="Firstname Lastname"
+            />
             <TextSlider />
           </h1>
         </label>
@@ -66,7 +71,7 @@
             <blockquote>
               <h6 class="aside__headline">{{ defaultStats.info.facts[0].headline }}</h6>
               <textarea v-model="defaultStats.info.facts[0].text" :style="cssAsideProps"></textarea>
-              <div tabindex="0" data-show-only-on-interaction>
+              <!--<div tabindex="0" data-show-only-on-interaction>
                 <div class="row">
                   <label>
                     Font Weight
@@ -87,7 +92,7 @@
                     <input v-model="aside.fontGrade" type="range" min="0" max="48" />
                   </label>
                 </div>
-              </div>
+              </div>-->
             </blockquote>
           </fieldset>
         </aside>
@@ -101,7 +106,7 @@
             :style="cssFooterProps"
             v-model="defaultStats.info.facts[1].text"
           ></textarea>
-          <div tabindex="0" data-show-only-on-interaction>
+          <!--<div tabindex="0" data-show-only-on-interaction>
             <label>
               Font Weight
               <input
@@ -130,7 +135,7 @@
               Font Grade
               <input v-model="footer.fontGrade" type="range" min="0" max="48" />
             </label>
-          </div>
+          </div>-->
           <!-- for this to work, will also have to pass-in a css prop/value for the show/hide -->
           <!--<TextSlider footerFontweight="footer.fontWeight" />-->
         </fieldset>
