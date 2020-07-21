@@ -49,7 +49,9 @@
             <tbody>
               <tr v-for="year in defaultStats.years" :key="year">
                 <!-- i really don't want to do a loop in a loop, do I? Space/time complexity wise, it's better to loop twice -->
-                <td v-for="thing in year" :key="thing">{{ thing }}</td>
+                <td v-for="thing in year" :key="thing">
+                  <input type="text" :value="thing" size="4" />
+                </td>
               </tr>
             </tbody>
             <tfoot>
@@ -316,11 +318,13 @@ section {
 
 .table__wrapper--outer {
   display: flex;
-  flex-grow: 1;
+  flex-grow: 2;
+  // this needs to be put in a variable duh
+  max-width: 30rem;
 }
 table {
   width: 100%;
-  max-width: 32rem;
+  //max-width: 32rem;
   margin: 0 auto;
   font-size: 1.2rem;
   line-height: 1;
@@ -390,12 +394,17 @@ tbody {
     }
   }
   td {
-    padding: 0.2rem 0.4rem;
+    padding: 0.2rem 0 0.2rem 0.2rem;
     box-shadow: 0 1px rgba(0, 0, 0, 0.25);
     //text-align: left;
     &:first-child,
     &:nth-child(2) {
       text-align: left;
+    }
+    input {
+      display: block;
+      padding: 0;
+      //width: 4ch;
     }
   }
 }
@@ -418,7 +427,7 @@ tfoot {
 aside {
   display: flex;
   flex-grow: 1;
-  width: auto;
+  //width: auto;
   &:focus-within {
     blockquote {
       font-size: 1.6rem;

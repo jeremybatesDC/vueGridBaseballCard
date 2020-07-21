@@ -176,9 +176,7 @@ fieldset {
   margin-bottom: 1.6rem;
 }
 legend {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", "Helvetica", Arial,
-    sans-serif;
+  font-family: inherit;
   //font-weight: bold;
   text-align: center;
   padding: 0 0.4rem;
@@ -186,10 +184,7 @@ legend {
 }
 label {
   display: block;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", "Helvetica", Arial,
-    sans-serif;
-  font-weight: bold;
+  font-family: inherit;
 
   input {
     display: block;

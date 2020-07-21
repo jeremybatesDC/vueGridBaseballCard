@@ -2,6 +2,9 @@
 
 ## To Do
 
+need a close button for the focus UI.
+What if it were a label that brought focus back up one landmark level?
+
 --> Consider a focus-within component, or at least a class-based wrapping:
 UI called Focus UI (FUI)
 

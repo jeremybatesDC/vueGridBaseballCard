@@ -1,19 +1,19 @@
 [type="text"],
 [type="email"],
-[type="tel"] {
+[type="tel"],
+textarea {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+
   background: transparent;
   box-shadow: none;
   border: none;
 }
 
 textarea {
-  font-family: inherit;
-  font-size: inherit;
-  line-height: inherit;
-  background: transparent;
   resize: none;
-  border: none;
-  box-shadow: none;
+
   width: 100%;
   margin: 0;
   padding: 0;
@@ -29,18 +29,11 @@ textarea {
   left: 0;
   //background: rgba(0, 0, 0, 0.5);
   //width: 100%;
-  padding: 1.6rem;
-  opacity: 0;
+  padding: 1.6rem 0;
+  visibility: hidden;
   overflow: visible;
   z-index: 2;
 
-  fieldset:focus-within & {
-    opacity: 1;
-  }
-
-  aside:focus-within & {
-    opacity: 1;
-  }
   // this should NOT have to be explicit -- missing a rul somewhere
   label {
     display: flex;
@@ -56,6 +49,9 @@ textarea {
 // card back element is an example
 
 .fui__wrap {
+  font-family: "VariableFontSerif", -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue",
+    "Helvetica", Arial, sans-serif;
   &:focus-within {
     position: fixed;
     top: 0;
@@ -63,7 +59,7 @@ textarea {
     width: 100%;
     height: 100%;
     padding: 1.6rem;
-    background-color: rgba(0, 0, 0, 0.6666);
+    background-color: rgba(0, 0, 0, 0.75);
 
     z-index: 1;
     .fui__mid {
@@ -73,11 +69,12 @@ textarea {
     .fui__formElem {
       //position: absolute;
       // MIN font-size SHOULD BE 1.6rem;
-      padding: 1em;
+      font-family: inherit;
+      padding: 0.8rem;
       background: #fff;
     }
     [data-show-only-on-interaction] {
-      opacity: 1;
+      visibility: visible;
     }
   }
 }
