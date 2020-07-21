@@ -2,13 +2,18 @@
 
 ## To Do
 
+--> better highlightthe active table cell you're editing beucase otherwise it's disorientating
+
+--> in addition to preventing jumps by taking up space (the focus UI needs this), CONSIDER a simple ANIMATION to show that a field is opening up to be edited and then is closing back down.
+
 need a close button for the focus UI.
 What if it were a label that brought focus back up one landmark level?
 
---> "Rookie" or "Single Year" option
+--> Previous 5 years
+(offer previous 10 years but no fact footer)
+(offer 10 categories, but no career highlights section)
 
---> Consider a focus-within component, or at least a class-based wrapping:
-UI called Focus UI (FUI)
+--> "Rookie" or "Single Year" option
 
 --> The build task adds Unique IDs that on the last build were wrong. Once I adjusted paths manually in the dist folder, it worked on Netlify as intended. But don't want to have to keep doing that. Rather than removing useful hashing, I'd like to get that working
 
