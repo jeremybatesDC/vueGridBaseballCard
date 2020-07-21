@@ -6,6 +6,7 @@
   "start_url": "/",
   "display": "standalone",
   "theme_color": "#321987",
+  "orientation": "portrait",
   "commented_icons": [
     {
       "src": "icons/icon-72x72.png",

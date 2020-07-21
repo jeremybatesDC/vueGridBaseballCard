@@ -33,8 +33,8 @@
       <section>
         <!-- columns: min 2, max 6? -->
         <!-- tbody rows: min 0 (leaving only tfoot totals), max 10? -->
-        <div class="table__wrapper--outer">
-          <table>
+        <div class="fui__wrap table__wrapper--outer">
+          <table class="fui__mid">
             <!--<caption>Career Stats</caption>-->
 
             <thead>
@@ -50,7 +50,7 @@
               <tr v-for="year in defaultStats.years" :key="year">
                 <!-- i really don't want to do a loop in a loop, do I? Space/time complexity wise, it's better to loop twice -->
                 <td v-for="thing in year" :key="thing">
-                  <input type="tel" :value="thing" size="4" />
+                  <input class="fui__formElem" type="tel" :value="thing" size="5" maxlength="5" />
                 </td>
               </tr>
             </tbody>
@@ -339,6 +339,22 @@ table {
   text-align: right;
   // border: 1px solid #000;
   // border-radius: 1rem;
+  &:focus-within {
+    input[type="tel"],
+    input[type="text"],
+    textarea {
+      font-size: 1.8rem;
+    }
+    th {
+      span {
+        //transform: none;
+        textarea {
+          //position: initial;
+          color: #fff;
+        }
+      }
+    }
+  }
 }
 caption {
   //background: rgba(#9c2c1a, 0.25);

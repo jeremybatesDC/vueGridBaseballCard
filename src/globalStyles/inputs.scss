@@ -57,6 +57,10 @@ textarea {
     top: 0;
     left: 0;
     width: 100%;
+
+    // because of a scoped class elesewhere oof
+    max-width: none !important;
+
     height: 100%;
     padding: 1.6rem;
     background-color: rgba(0, 0, 0, 0.75);
@@ -70,11 +74,16 @@ textarea {
       //position: absolute;
       // MIN font-size SHOULD BE 1.6rem;
       font-family: inherit;
-      padding: 0.8rem;
+      padding: 0.4rem;
       background: #fff;
     }
     [data-show-only-on-interaction] {
       visibility: visible;
     }
+
+    // consider a backdrop
+    // &:before {
+
+    // }
   }
 }
