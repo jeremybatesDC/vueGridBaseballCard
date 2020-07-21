@@ -50,7 +50,7 @@
               <tr v-for="year in defaultStats.years" :key="year">
                 <!-- i really don't want to do a loop in a loop, do I? Space/time complexity wise, it's better to loop twice -->
                 <td v-for="thing in year" :key="thing">
-                  <input type="text" :value="thing" size="4" />
+                  <input type="tel" :value="thing" size="4" />
                 </td>
               </tr>
             </tbody>
@@ -267,8 +267,14 @@ header {
       background: #000;
       color: #9a8b7c;
       box-shadow: 1.6rem 0 #000, -1.6rem 0 #000;
+      li {
+        &:first-child {
+          flex-grow: 1;
+        }
+      }
       [type="email"] {
         color: inherit;
+        width: 100%;
       }
     }
     &:nth-of-type(2) {
@@ -328,6 +334,7 @@ table {
   margin: 0 auto;
   font-size: 1.2rem;
   line-height: 1;
+  font-family: inherit;
   font-variant-numeric: lining-nums tabular-nums;
   text-align: right;
   // border: 1px solid #000;
@@ -399,12 +406,14 @@ tbody {
     //text-align: left;
     &:first-child,
     &:nth-child(2) {
-      text-align: left;
+      input {
+        text-align: left;
+      }
     }
     input {
       display: block;
       padding: 0;
-      //width: 4ch;
+      text-align: right;
     }
   }
 }
@@ -413,7 +422,7 @@ tfoot {
   font-variation-settings: "wght" 400, "wdth" 0, "opsz" 20, "GRAD" 48, "slnt" 0;
   background: rgba(0, 0, 0, 0.05);
   td {
-    padding: 0.4rem;
+    padding: 0.4rem 0.2rem;
     &:first-child {
       text-align: left;
     }
