@@ -43,7 +43,7 @@
               <tr>
                 <th v-for="field in defaultStats.fields" :key="field" scope="col">
                   <span>
-                    <textarea rows="1" spellcheck="false" :value="field"></textarea>
+                    <textarea wrap="hard" rows="2" spellcheck="false" :value="field"></textarea>
                   </span>
                 </th>
               </tr>
@@ -229,7 +229,7 @@ header {
   display: flex;
   flex-direction: column;
 
-  padding: 1rem 1.6rem;
+  padding: 0.8rem 1.6rem 0 1.6rem;
   ul {
     display: flex;
     flex-wrap: wrap;
@@ -285,9 +285,10 @@ header {
 h1 {
   font-size: 2.4rem;
   line-height: 1;
-  //box-shadow: inset 0 -1px rgba(0, 0, 0, 0.5);
   padding-bottom: 0.4rem;
-  //margin-bottom: 1rem;
+  input {
+    padding: 0;
+  }
 }
 
 h2 {
@@ -303,7 +304,7 @@ section {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  padding: 0 1.6rem 1.6rem 1.6rem;
+  padding: 0 1.6rem;
   //background: rgba(#9c2c1a, 0.1);
 }
 
@@ -380,7 +381,7 @@ th {
       top: 0;
       left: 0;
       width: 100%;
-      min-width: 6.4rem;
+      min-width: 0.4rem;
       //min-width: 3rem;
       white-space: pre-wrap;
       //text-align: left;
@@ -394,7 +395,7 @@ th {
 }
 
 tbody {
-  box-shadow: 0 1px #000;
+  //box-shadow: 0 1px #000;
   font-variation-settings: "wght" 100, "wdth" 0, "opsz" 20, "GRAD" 48, "slnt" 0;
   background: rgba(255, 255, 255, 0.1);
   tr {
@@ -425,6 +426,7 @@ tbody {
 tfoot {
   font-variation-settings: "wght" 400, "wdth" 0, "opsz" 20, "GRAD" 48, "slnt" 0;
   background: rgba(0, 0, 0, 0.05);
+  //box-shadow: 0 1px #000, 1px 0 #000, -1px 0 #000;
   td {
     padding: 0.4rem 0.2rem;
     &:first-child {
@@ -473,10 +475,7 @@ aside {
     flex-grow: 1;
   }
   .aside__headline {
-    // this is acting weird
-    display: flex;
-    width: 100%;
-    text-align: justify;
+    text-align: center;
   }
 }
 
@@ -506,7 +505,7 @@ blockquote {
   // hmmm
   //flex-grow: 1;
   height: 100%;
-  padding: 0.4rem;
+  //padding: 0.4rem;
   margin: 0;
   background: rgba(#9c2c1a, 0.25);
   align-items: center;
@@ -519,7 +518,7 @@ blockquote {
     line-height: 1;
     font-variation-settings: "wght" var(--fontweight), "wdth" var(--fontwidth),
       "opsz" 10, "GRAD" var(--fontgrade), "slnt" var(--fontslant);
-    padding: 0.5rem 1rem;
+    //padding: 0.5rem 1rem;
   }
 }
 
@@ -529,7 +528,7 @@ footer {
   position: relative;
   font-size: 1.2rem;
   line-height: 1;
-  padding: 0 1.6rem 1rem 1.6rem;
+  padding: 0 1.6rem 0.8rem 1.6rem;
   textarea {
     font-variation-settings: "wght" var(--fontweight), "wdth" var(--fontwidth),
       "opsz" 0, "GRAD" var(--fontgrade), "slnt" var(--fontslant);

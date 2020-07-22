@@ -2,6 +2,7 @@
 
 ## To Do
 
+--> factor out card table
 --> better highlightthe active table cell you're editing beucase otherwise it's disorientating
 
 --> in addition to preventing jumps by taking up space (the focus UI needs this), CONSIDER a simple ANIMATION to show that a field is opening up to be edited and then is closing back down.
