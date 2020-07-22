@@ -19,7 +19,9 @@
           <li>
             <input type="email" v-model="defaultStats.info.info_0" />
           </li>
-          <li>{{ defaultStats.info.info_1 }}</li>
+          <li>
+            <input type="text" v-model="defaultStats.info.info_1" />
+          </li>
         </ul>
         <ul>
           <!-- loop these-->
@@ -72,29 +74,7 @@
           <fieldset>
             <blockquote>
               <h6 class="aside__headline">{{ defaultStats.info.facts[0].headline }}</h6>
-              <textarea v-model="defaultStats.info.facts[0].text" :style="cssAsideProps"></textarea>
-              <!--<div tabindex="0" data-show-only-on-interaction>
-                <div class="row">
-                  <label>
-                    Font Weight
-                    <input v-model="aside.fontWeight" type="range" min="100" max="900" />
-                  </label>
-                  <label>
-                    Font Width
-                    <input v-model="aside.fontWidth" type="range" min="35" max="100" />
-                  </label>
-                </div>
-                <div class="row">
-                  <label>
-                    Font Slant
-                    <input v-model="aside.fontSlant" type="range" min="-10" max="0" />
-                  </label>
-                  <label>
-                    Font Grade
-                    <input v-model="aside.fontGrade" type="range" min="0" max="48" />
-                  </label>
-                </div>
-              </div>-->
+              <!-- <textarea v-model="defaultStats.info.facts[0].text" :style="cssAsideProps"></textarea> -->
             </blockquote>
           </fieldset>
         </aside>
@@ -271,6 +251,11 @@ header {
         &:first-child {
           flex-grow: 1;
         }
+        &:nth-child(2) {
+          input {
+            text-align: right;
+          }
+        }
       }
       [type="email"] {
         color: inherit;
@@ -324,9 +309,12 @@ section {
 
 .table__wrapper--outer {
   display: flex;
-  flex-grow: 2;
+  flex-grow: 1;
   // this needs to be put in a variable duh
-  max-width: 30rem;
+  //width: 30rem;
+  min-width: 30rem;
+  max-width: 32rem;
+  //padding-right: 1.6rem;
 }
 table {
   width: 100%;

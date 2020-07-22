@@ -183,16 +183,16 @@ legend {
   font-size: 1.6rem;
 }
 label {
-  display: block;
+  //display: block;
   font-family: inherit;
 
   input {
-    display: block;
+    //display: block;
     font-family: inherit;
     font-size: inherit;
-    &:not([type="color"]) {
-      width: 100%;
-    }
+    // &:not([type="color"]) {
+    //   width: 100%;
+    // }
   }
   select {
     display: block;
