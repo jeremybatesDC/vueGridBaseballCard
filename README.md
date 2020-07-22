@@ -9,6 +9,8 @@
 need a close button for the focus UI.
 What if it were a label that brought focus back up one landmark level?
 
+--> Use Vue3 async components and suspense API
+
 --> Previous 5 years
 (offer previous 10 years but no fact footer)
 (offer 10 categories, but no career highlights section)
