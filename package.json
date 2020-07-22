@@ -1,6 +1,7 @@
 {
-  "name": "baseballcardapp2020",
-  "version": "0.0.0",
+  "name": "baseballcardcreator",
+  "version": "3.0.0",
+  "license": "MIT",
   "scripts": {
     "dev": "vite",
     "build": "vite build"
