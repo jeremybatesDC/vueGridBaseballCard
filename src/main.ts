@@ -12,13 +12,3 @@ import { createApp } from "vue";
 import App from "./App.vue";
 
 createApp(App).mount("#app");
-
-/* How Best to Register Service Worker?*/
-
-async function registerServiceWorker() {
-  // check if already registered?
-  navigator.serviceWorker.register("/public/sw.js");
-}
-
-// i dont want to register every page load right? When?
-document.addEventListener("DOMContentLoaded", registerServiceWorker);
