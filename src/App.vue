@@ -15,11 +15,11 @@ export default {
   },
   components: {
     CardFront,
-    CardBack
+    CardBack,
   },
   mounted: () => {
     //registerServiceWorker();
-  }
+  },
   //data
   //should i move data into parent component? Yes, I think so.
 };
@@ -33,7 +33,7 @@ export default {
 // also look at dunbar and decorvar
 
 @font-face {
-  font-family: "VariableFontSerif";
+  font-family: "VariableFont";
   //font-display: swap;
   //src: url("./assets/AmstelvarAlpha-VF.ttf");
   //src: url("./assets/SourceSerifVariable-Roman.ttf");
@@ -48,9 +48,10 @@ export default {
 
 html {
   //--cardbackgroundcolor: #000;
-  font-family: "VariableFontSerif", -apple-system, BlinkMacSystemFont,
-    "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue",
-    "Helvetica", Arial, sans-serif;
+  font-family: "VariableFont", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", "Helvetica", Arial,
+    sans-serif;
+  font-display: fallback;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

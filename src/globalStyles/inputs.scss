@@ -49,9 +49,9 @@ textarea {
 // card back element is an example
 
 .fui__wrap {
-  font-family: "VariableFontSerif", -apple-system, BlinkMacSystemFont,
-    "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue",
-    "Helvetica", Arial, sans-serif;
+  font-family: "VariableFont", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", "Helvetica", Arial,
+    sans-serif;
   &:focus-within {
     position: fixed;
     top: 0;

@@ -35,28 +35,51 @@
       <section>
         <!-- columns: min 2, max 6? -->
         <!-- tbody rows: min 0 (leaving only tfoot totals), max 10? -->
-        <div class="fui__wrap table__wrapper--outer">
-          <table class="fui__mid">
+        <div class="fui__wrap stats-table__wrapper--outer">
+          <table class="stats-table fui__mid">
             <!--<caption>Career Stats</caption>-->
 
-            <thead>
+            <thead class="stats-table__thead">
               <tr>
-                <th v-for="field in defaultStats.fields" :key="field" scope="col">
+                <th
+                  v-for="field in defaultStats.fields"
+                  :key="field"
+                  scope="col"
+                >
                   <span>
-                    <textarea wrap="hard" rows="2" spellcheck="false" :value="field"></textarea>
+                    <textarea
+                      wrap="hard"
+                      rows="2"
+                      spellcheck="false"
+                      :value="field"
+                    ></textarea>
                   </span>
                 </th>
               </tr>
             </thead>
-            <tbody>
-              <tr v-for="year in defaultStats.years" :key="year">
+            <tbody class="stats-table__tbody">
+              <tr
+                class="stats-table__tbody__tr"
+                v-for="year in defaultStats.years"
+                :key="year"
+              >
                 <!-- i really don't want to do a loop in a loop, do I? Space/time complexity wise, it's better to loop twice -->
-                <td v-for="thing in year" :key="thing">
-                  <input class="fui__formElem" type="tel" :value="thing" size="5" maxlength="5" />
+                <td
+                  class="stats-table__tbody__td"
+                  v-for="thing in year"
+                  :key="thing"
+                >
+                  <input
+                    class="stats-table__tbody__input fui__formElem"
+                    type="tel"
+                    :value="thing"
+                    size="5"
+                    maxlength="5"
+                  />
                 </td>
               </tr>
             </tbody>
-            <tfoot>
+            <tfoot class="stats-table__tfoot">
               <tr>
                 <td>CAREER</td>
                 <td></td>
@@ -70,10 +93,12 @@
           </table>
         </div>
 
-        <aside>
+        <aside class="stats__aside">
           <fieldset>
             <blockquote>
-              <h6 class="aside__headline">{{ defaultStats.info.facts[0].headline }}</h6>
+              <h6 class="stats__aside__headline">
+                {{ defaultStats.info.facts[0].headline }}
+              </h6>
               <!-- <textarea v-model="defaultStats.info.facts[0].text" :style="cssAsideProps"></textarea> -->
             </blockquote>
           </fieldset>
@@ -133,21 +158,21 @@ import TextSlider from "./InputChildComponents/TextSlider.vue";
 
 export default {
   // intentionally avoiding arrow functions here
-  setup: function() {
+  setup: function () {
     const webWorkerCardBack = new Worker("./workers/web-worker-idb.js", {
-      type: "module"
+      type: "module",
     });
 
     async function setFunc() {
       // loop here over keys
       webWorkerCardBack.postMessage(this.aside.fontGrade);
-      webWorkerCardBack.onmessage = function(event) {
+      webWorkerCardBack.onmessage = function (event) {
         console.log("received message here is ", event.data);
       };
 
       set("footerFontWeight", this.footer.fontWeight)
         .then(() => console.log("woohoo!"))
-        .catch(err => console.log("doh!", err));
+        .catch((err) => console.log("doh!", err));
     }
 
     return { setFunc };
@@ -155,10 +180,10 @@ export default {
 
   // do I nest props to send to child components in here?
   components: {
-    TextSlider
+    TextSlider,
   },
 
-  data: function() {
+  data: function () {
     return {
       defaultStats,
       // would love to be equally declarative with footer and aside stuff too...
@@ -166,17 +191,17 @@ export default {
         fontWeight: 400,
         fontWidth: 100,
         fontSlant: 5,
-        fontGrade: 24
+        fontGrade: 24,
       },
       aside: {
         fontWeight: 400,
         fontWidth: 100,
         fontSlant: 5,
-        fontGrade: 24
-      }
+        fontGrade: 24,
+      },
     };
   },
-  mounted: function() {
+  mounted: function () {
     this.setFunc();
   },
   computed: {
@@ -185,7 +210,7 @@ export default {
         "--fontweight": this.footer.fontWeight,
         "--fontwidth": this.footer.fontWidth,
         "--fontslant": this.footer.fontSlant,
-        "--fontgrade": this.footer.fontGrade
+        "--fontgrade": this.footer.fontGrade,
       };
     },
     cssAsideProps() {
@@ -193,10 +218,10 @@ export default {
         "--fontweight": this.aside.fontWeight,
         "--fontwidth": this.aside.fontWidth,
         "--fontslant": this.aside.fontSlant,
-        "--fontgrade": this.aside.fontGrade
+        "--fontgrade": this.aside.fontGrade,
       };
-    }
-  }
+    },
+  },
 };
 </script>
 
@@ -308,7 +333,7 @@ section {
   //background: rgba(#9c2c1a, 0.1);
 }
 
-.table__wrapper--outer {
+.stats-table__wrapper--outer {
   display: flex;
   flex-grow: 1;
   // this needs to be put in a variable duh
@@ -474,7 +499,7 @@ aside {
     display: flex;
     flex-grow: 1;
   }
-  .aside__headline {
+  .stats__aside__headline {
     text-align: center;
   }
 }
