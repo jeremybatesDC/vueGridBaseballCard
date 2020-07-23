@@ -2,6 +2,10 @@
 
 ## To Do
 
+- CACHE the font
+- Load font aysnc
+- build a subsetted version of the font without the undesired axes (is that even a thing?)
+
 --> factor out card table
 --> better highlightthe active table cell you're editing beucase otherwise it's disorientating
 
@@ -18,10 +22,6 @@ What if it were a label that brought focus back up one landmark level?
 
 --> "Rookie" or "Single Year" option
 
---> The build task adds Unique IDs that on the last build were wrong. Once I adjusted paths manually in the dist folder, it worked on Netlify as intended. But don't want to have to keep doing that. Rather than removing useful hashing, I'd like to get that working
-
-- Load font aysnc
-- build a subsetted version of the font without the undesired axes (is that even a thing?)
 - Establish flow:
 - User shouldn't have to save anything manually (although a button to force it to happen on request can be reassuring). So when do we save to indexedDB?
 

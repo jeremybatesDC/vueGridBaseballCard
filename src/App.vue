@@ -32,30 +32,6 @@ export default {
 
 // also look at dunbar and decorvar
 
-@font-face {
-  font-family: "VariableFont";
-  //font-display: swap;
-  //src: url("./assets/AmstelvarAlpha-VF.ttf");
-  //src: url("./assets/SourceSerifVariable-Roman.ttf");
-  //src: url("./assets/RobotoDelta-VF.ttf");
-  //src: url("./assets/RobotoDeltaMoreAxes-VF.ttf");
-  // RobotoDeltaMoreAxes Has ALL parametric axis: XTRA, XOPQ, YOPQ, YTLC, YTUC, YTAS, YTDE, YTAD, YTDD, UDLN, PWGT, PWDT, POPS, GRAD, YTRA, wght, wdth, opsz.
-  // RobotoFlex includes RobotoDelta
-
-  // robotoFlex is HUGE. Delta has a bunch but not slnt.
-  src: url("./assets/RobotoFlex-VF.ttf");
-}
-
-html {
-  //--cardbackgroundcolor: #000;
-  font-family: "VariableFont", -apple-system, BlinkMacSystemFont, "Segoe UI",
-    Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", "Helvetica", Arial,
-    sans-serif;
-  font-display: fallback;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
 h1,
 h2,
 h3 {
