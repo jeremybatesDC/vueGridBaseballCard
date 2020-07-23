@@ -1,6 +1,6 @@
 # Baseball Card Creator
 
-## To Do
+## To Do!
 
 - see Lighthouse audit for PWA steps (although ugh)
 - CLS is being cuased by at lease these, so think man, think:
