@@ -2,11 +2,21 @@
 
 ## To Do
 
-- CACHE the font
-- Load font aysnc
-- build a subsetted version of the font without the undesired axes (is that even a thing?)
+- see Lighthouse audit for PWA steps (although ugh)
+- CLS is being cuased by at lease these, so think man, think:
+  (if initial font is better sized to match loaded font, then won't flex... Obvi caching is the way, but first load... )
+  tr
+  tr.stats-table t-body-tr
+  td.stats-table-t-body-td
+  blockquote
+  --> factor out card table (and use SUSPENSE if needed)
 
---> factor out card table
+* make service worker effective... tests aren't working
+  (can a web worker register a service worker? seems like might be odd unless there is a King Worker)
+
+* CACHE the font, initial starting image
+* build a subsetted version of the font without the undesired axes (is that even a thing?)
+
 --> better highlightthe active table cell you're editing beucase otherwise it's disorientating
 
 --> in addition to preventing jumps by taking up space (the focus UI needs this), CONSIDER a simple ANIMATION to show that a field is opening up to be edited and then is closing back down.
