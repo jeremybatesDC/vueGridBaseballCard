@@ -5,7 +5,8 @@ const RUNTIME = "runtime";
 const PRECACHE_URLS = [
   "/",
   "/fonts/RobotoFlex-VF.ttf",
-  //'styles.css',
+  "/favicon.ico",
+  "/manifest.json",
 ];
 
 // The install handler takes care of precaching the resources we always need.
