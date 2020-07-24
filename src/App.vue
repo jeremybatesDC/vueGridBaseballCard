@@ -10,15 +10,18 @@ import CardFront from "./components/CardFront.vue";
 import CardBack from "./components/CardBack.vue";
 
 export default {
-  setup: () => {
-    //return { registerServiceWorker };
+  setup: function () {
+    async function registerServiceWorker() {
+      navigator.serviceWorker.register("/sw.js");
+    }
+    return { registerServiceWorker };
   },
   components: {
     CardFront,
     CardBack,
   },
-  mounted: () => {
-    //registerServiceWorker();
+  mounted: function () {
+    this.registerServiceWorker();
   },
   //data
   //should i move data into parent component? Yes, I think so.
@@ -139,8 +142,10 @@ h3 {
 .form--cardDesign {
   display: inline-block;
   vertical-align: top;
-  width: 32rem;
-  padding-left: 3.2rem;
+  // temporary arbitrary value
+  max-width: 12rem;
+  padding-left: 1rem;
+  overflow: hidden;
 }
 details {
   padding: 1rem;

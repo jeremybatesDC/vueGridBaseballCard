@@ -99,7 +99,10 @@
               <h6 class="stats__aside__headline">
                 {{ defaultStats.info.facts[0].headline }}
               </h6>
-              <!-- <textarea v-model="defaultStats.info.facts[0].text" :style="cssAsideProps"></textarea> -->
+              <textarea
+                v-model="defaultStats.info.facts[0].text"
+                :style="cssAsideProps"
+              ></textarea>
             </blockquote>
           </fieldset>
         </aside>
@@ -152,7 +155,7 @@
 </template>
 
 <script lang="ts">
-import defaultStats from "../json/default-stats.json";
+import defaultStats from "/json/default-stats.json";
 import { set } from "idb-keyval";
 import TextSlider from "./InputChildComponents/TextSlider.vue";
 
@@ -380,9 +383,10 @@ caption {
 
 thead {
   background: rgba(0, 0, 0, 0.05);
-  box-shadow: 0 1px #000;
+  //box-shadow: 0 1px #000;
 }
 th {
+  padding-top: 3.2rem;
   //vertical-align: top;
 
   text-align: right;
@@ -396,8 +400,8 @@ th {
   span {
     display: block;
     //padding-left: 1rem;
-    transform: rotate(-45deg);
-    transform-origin: 0 0;
+    transform: rotate(-27.5deg) translateY(-2.4rem);
+    //transform-origin: 0 0;
     textarea {
       font-variation-settings: "wght" 150, "wdth" 35, "opsz" 0, "GRAD" 48,
         "slnt" 0;
@@ -537,9 +541,10 @@ blockquote {
   justify-content: center;
   p,
   textarea {
-    display: flex;
-    flex-grow: 1;
-    font-size: 1.4rem;
+    //display: flex;
+    //flex-grow: 1;
+    // MAKING SMALL NOW BECAUSE I NEED TO FIGURE OUT WHICH RULES/LACK OF RULES ARE MAKING THE TEXT AREA EXPLAND TO WIDTH OF CONTENT
+    font-size: 1.2rem;
     line-height: 1;
     font-variation-settings: "wght" var(--fontweight), "wdth" var(--fontwidth),
       "opsz" 10, "GRAD" var(--fontgrade), "slnt" var(--fontslant);
