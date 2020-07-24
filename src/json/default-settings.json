@@ -1,9 +1,9 @@
 {
-  "playerImageURLorDataString": "./src/assets/honusWagnerCard.webp",
+  "playerImageURLorDataString": "/images/honusWagnerCard.webp",
   "playerName": "Anthony Rendon",
   "playerPosition": "Third Base",
   "teamLogoAltText": "Nats Curley W Logo",
-  "teamLogoURL": "./src/assets/natsLogo150x150at55percent.webp",
+  "teamLogoURL": "/images/natsLogo150x150at55percent.webp",
   "teamName": "Washington Nationals",
   "cardBackgroundColor": "#eeeeee",
   "cardBackgroundTexture": "filterfabric",
