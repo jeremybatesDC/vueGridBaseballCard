@@ -7,12 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Baseball Card Creator</title>
     <script>
-      async function registerServiceWorker() {
-        // check if already registered?
+      (async function registerServiceWorker() {
         navigator.serviceWorker.register("/sw.js");
-      }
-      // i dont want to register every page load right? When?
-      document.addEventListener("DOMContentLoaded", registerServiceWorker);
+      })();
     </script>
   </head>
   <body>

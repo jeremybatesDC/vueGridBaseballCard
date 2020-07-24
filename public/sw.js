@@ -2,11 +2,15 @@ const PRECACHE = "precache-v1";
 const RUNTIME = "runtime";
 
 // A list of local resources we always want to be cached.
+// going to need an envar
 const PRECACHE_URLS = [
   "/",
   "/fonts/RobotoFlex-VF.ttf",
   "/favicon.ico",
   "/manifest.json",
+  "/workers/web-worker-encode.js",
+  "/workers/web-worker-fetch.js",
+  "/workers/web-worker-idb.js",
 ];
 
 // The install handler takes care of precaching the resources we always need.
