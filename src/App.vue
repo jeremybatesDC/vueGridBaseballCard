@@ -29,12 +29,6 @@ export default {
 </script>
 
 <style lang="scss">
-//root and body styles canT go in scoped
-//so either put those in sep style tag above, and leave below scoped
-//or just be clear donT use it
-
-// also look at dunbar and decorvar
-
 h1,
 h2,
 h3 {

@@ -12,8 +12,8 @@ const PRECACHE_URLS = [
   "/workers/web-worker-idb.js",
   "/json/default-settings.json",
   "/json/default-stats.json",
-
-  //"/images/honusWagnerCard.webp",
+  "/images/honusWagnerCard.jpg",
+  "/images/logoDefault.jpg",
 ];
 
 // The install handler takes care of precaching the resources we always need.
