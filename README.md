@@ -2,8 +2,8 @@
 
 ## To Do
 
-- see Lighthouse audit for PWA steps (although ugh)
-- CLS is being cuased by at lease these, so think man, think:
+- consider PWA -- why is dev tools showing installation probs related to icons? They are there... Path issue? Prob not issue with actual file but can check
+- CLS is being caused by at lease these, so think man, think:
   (if initial font is better sized to match loaded font, then won't flex... Obvi caching is the way, but first load... )
   tr
   tr.stats-table t-body-tr
@@ -11,10 +11,6 @@
   blockquote
   --> factor out card table (and use SUSPENSE if needed)
 
-* make service worker effective... tests aren't working
-  (can a web worker register a service worker? seems like might be odd unless there is a King Worker)
-
-* CACHE the font, initial starting image
 * build a subsetted version of the font without the undesired axes (is that even a thing?)
 
 --> better highlightthe active table cell you're editing beucase otherwise it's disorientating
@@ -26,7 +22,7 @@ What if it were a label that brought focus back up one landmark level?
 
 --> Use Vue3 async components and suspense API
 
---> Previous 5 years
+--> stats: Previous 5 years
 (offer previous 10 years but no fact footer)
 (offer 10 categories, but no career highlights section)
 

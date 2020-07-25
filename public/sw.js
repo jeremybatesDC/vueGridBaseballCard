@@ -12,7 +12,7 @@ const PRECACHE_URLS = [
   "/workers/web-worker-idb.js",
   "/json/default-settings.json",
   "/json/default-stats.json",
-  "/images/honusWagnerCard.jpg",
+  "/images/playerDefault.jpg",
   "/images/logoDefault.jpg",
 ];
 
