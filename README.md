@@ -41,8 +41,10 @@ What if it were a label that brought focus back up one landmark level?
 ---
 
 - Add Examples (start with JSON)  
+  -- untappt cards
   -- github cards
   -- genealogy cards
+  -- politicians
   -- baseball current example
 
 - Years: Default to 2019, working backwards X (5) years. Could offer another "start year." Will have to think of easy way to give non-contiguous years without making it too easy for user to make typo... (they could default, and then each be over-rideable via a select menu or data-list or whatever)
