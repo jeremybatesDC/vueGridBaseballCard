@@ -83,11 +83,13 @@
               <tr>
                 <td>CAREER</td>
                 <td></td>
-                <td>SUM</td>
-                <td>SUM</td>
-                <td>AVG</td>
-                <td>SUM</td>
-                <td>AVG</td>
+                <td>
+                  <output class="tfoot__output--totals">SUM</output>
+                </td>
+                <td><output class="tfoot__output--totals">SUM</output></td>
+                <td><output class="tfoot__output--totals">AVG</output></td>
+                <td><output class="tfoot__output--totals">SUM</output></td>
+                <td><output class="tfoot__output--totals">AVG</output></td>
               </tr>
             </tfoot>
           </table>
@@ -276,8 +278,13 @@ header {
       color: #9a8b7c;
       box-shadow: 1.6rem 0 #000, -1.6rem 0 #000;
       li {
+        input {
+          padding-right: 0;
+          padding-left: 0;
+        }
         &:first-child {
           flex-grow: 1;
+          // why does safari mobile need this input padding to be explicit?
         }
         &:nth-child(2) {
           input {
@@ -387,34 +394,34 @@ thead {
 }
 th {
   padding-top: 3.2rem;
-  //vertical-align: top;
 
   text-align: right;
 
-  vertical-align: middle;
   // &:first-of-type,
   // &:nth-of-type(2) {
   //   vertical-align: top;
   // }
 
   span {
-    display: block;
+    display: flex;
     //padding-left: 1rem;
-    transform: rotate(-27.5deg) translateY(-2.4rem);
+    transform: rotate(-45deg) translate(1rem, -2rem);
     //transform-origin: 0 0;
     textarea {
       font-variation-settings: "wght" 150, "wdth" 35, "opsz" 0, "GRAD" 48,
         "slnt" 0;
-      display: block;
+      display: flex;
       position: absolute;
       top: 0;
       left: 0;
-      width: 100%;
+      //width: 100%;
       min-width: 0.4rem;
       //min-width: 3rem;
       white-space: pre-wrap;
-      //text-align: left;
+      text-align: center;
       text-transform: uppercase;
+      text-indent: -1.6rem;
+      padding-left: 1rem;
       // safari mobile seems to struggle with first-line
       // &::first-line {
       //   color: red;
@@ -427,15 +434,14 @@ tbody {
   //box-shadow: 0 1px #000;
   font-variation-settings: "wght" 100, "wdth" 0, "opsz" 20, "GRAD" 48, "slnt" 0;
   background: rgba(255, 255, 255, 0.1);
-  tr {
-    &:first-child {
-      td {
-        padding-top: 1rem;
-      }
-    }
-  }
+  // tr {
+  //   &:first-child {
+  //     td {
+  //     }
+  //   }
+  // }
   td {
-    padding: 0.2rem 0 0.2rem 0.2rem;
+    padding: 0.1rem 0 0.1rem 0.1rem;
     box-shadow: 0 1px rgba(0, 0, 0, 0.25);
     //text-align: left;
     &:first-child,
@@ -457,7 +463,7 @@ tfoot {
   background: rgba(0, 0, 0, 0.05);
   //box-shadow: 0 1px #000, 1px 0 #000, -1px 0 #000;
   td {
-    padding: 0.4rem 0.2rem;
+    padding: 0.4rem;
     &:first-child {
       text-align: left;
     }

@@ -2,6 +2,9 @@
 
 ## To Do
 
+-- might actually not be that hard to allow landscape front
+
+- actually use Typescript :-)
 - consider PWA -- why is dev tools showing installation probs related to icons? They are there... Path issue? Prob not issue with actual file but can check
 - CLS is being caused by at lease these, so think man, think:
   (if initial font is better sized to match loaded font, then won't flex... Obvi caching is the way, but first load... )
