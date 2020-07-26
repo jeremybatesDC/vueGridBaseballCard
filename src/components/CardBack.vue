@@ -410,6 +410,7 @@ th {
     textarea {
       font-variation-settings: "wght" 150, "wdth" 35, "opsz" 0, "GRAD" 48,
         "slnt" 0;
+      line-height: 0.9em;
       display: flex;
       position: absolute;
       top: 0;
@@ -418,9 +419,9 @@ th {
       min-width: 0.4rem;
       //min-width: 3rem;
       white-space: pre-wrap;
-      text-align: center;
+      text-align: left;
       text-transform: uppercase;
-      text-indent: -1.6rem;
+      text-indent: -1rem;
       padding-left: 1rem;
       // safari mobile seems to struggle with first-line
       // &::first-line {
