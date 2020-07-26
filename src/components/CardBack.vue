@@ -405,10 +405,10 @@ th {
   span {
     display: flex;
     //padding-left: 1rem;
-    transform: rotate(-45deg) translate(1rem, -2rem);
+    transform: rotate(-37.5deg) translate(1rem, -2rem);
     //transform-origin: 0 0;
     textarea {
-      font-variation-settings: "wght" 150, "wdth" 35, "opsz" 0, "GRAD" 48,
+      font-variation-settings: "wght" 100, "wdth" 35, "opsz" 20, "GRAD" 48,
         "slnt" 0;
       line-height: 0.9em;
       display: flex;
@@ -416,13 +416,15 @@ th {
       top: 0;
       left: 0;
       //width: 100%;
-      min-width: 0.4rem;
-      //min-width: 3rem;
+      //min-width: 0.4rem;
+      min-width: 4.8rem;
       white-space: pre-wrap;
       text-align: left;
       text-transform: uppercase;
-      text-indent: -1rem;
+      text-indent: -0.8rem;
       padding-left: 1rem;
+      margin-right: -0.8rem;
+      margin-left: -0.8rem;
       // safari mobile seems to struggle with first-line
       // &::first-line {
       //   color: red;
