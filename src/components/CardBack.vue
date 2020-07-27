@@ -44,10 +44,10 @@
               <h6 class="stats__aside__headline">
                 {{ defaultFacts.info.facts[0].headline }}
               </h6>
-              <textarea
+              <!--<textarea
                 v-model="defaultFacts.info.facts[0].text"
                 :style="cssAsideProps"
-              ></textarea>
+              ></textarea>-->
             </blockquote>
           </fieldset>
         </aside>
@@ -185,6 +185,7 @@ export default {
   //flex-direction: column;
 
   background-color: #9a8b7c;
+  flex-basis: 100%;
   width: 100%;
   max-width: 50.4rem;
   height: 36rem;

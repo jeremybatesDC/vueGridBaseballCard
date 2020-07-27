@@ -36,7 +36,7 @@
       </tbody>
       <tfoot>
         <tr>
-          <td>CAREER</td>
+          <td>TOT</td>
           <td></td>
           <td>
             <output class="tfoot__output--totals">SUM</output>
@@ -70,22 +70,23 @@ export default {
   flex-grow: 1;
   // this needs to be put in a variable duh
   //width: 30rem;
-  min-width: 30rem;
-  max-width: 32rem;
+  //min-width: 30rem;
+
   //padding-right: 1.6rem;
 }
 
 table {
   width: 100%;
-  //max-width: 32rem;
+  max-width: calc(100vw - 6.4rem);
   margin: 0 auto;
   font-size: 1.6rem;
   line-height: 1;
   font-family: inherit;
   font-variant-numeric: lining-nums tabular-nums;
   text-align: right;
-  // border: 1px solid #000;
-  // border-radius: 1rem;
+
+  // need to address making this fit on portrait
+  overflow: hidden;
   &:focus-within {
     input[type="tel"],
     input[type="text"],
@@ -115,25 +116,20 @@ thead {
   //box-shadow: 0 1px #000;
 }
 th {
-  padding-top: 3.2rem;
+  padding: 3.2rem 0 0 0;
 
   text-align: right;
-
-  // &:first-of-type,
-  // &:nth-of-type(2) {
-  //   vertical-align: top;
-  // }
 
   span {
     display: flex;
     //padding-left: 1rem;
     transform: rotate(-32.5deg);
     //transform-origin: 0 0;
-    margin-top: -2.2rem;
-    //margin-left: -1rem;
+    margin-top: -2.4rem;
+    margin-left: 1rem;
     //margin-right: 1rem;
     textarea {
-      font-variation-settings: "wght" 150, "wdth" 25, "opsz" 25, "GRAD" 48,
+      font-variation-settings: "wght" 150, "wdth" 25, "opsz" 25, "GRAD" 1,
         "slnt" 0;
       line-height: 0.85;
       display: flex;
@@ -157,23 +153,33 @@ th {
       // }
     }
   }
+  &:first-child,
+  &:nth-child(2) {
+    span {
+      margin-left: 0;
+    }
+  }
 }
 tbody {
   //box-shadow: 0 1px #000;
-  font-variation-settings: "wght" 100, "wdth" 25, "opsz" 30, "GRAD" 48, "slnt" 0,
-    "XTRA" 500, "YTLC" 700, "YTUC" 700, "YTFI" 700;
+  font-variation-settings: "wght" 100, "wdth" 25, "opsz" 30, "GRAD" 0.5,
+    "slnt" 0, "XTRA" 500, "YTLC" 700, "YTUC" 700, "YTFI" 700;
   background: rgba(255, 255, 255, 0.1);
 
   td {
-    padding: 0.1rem 0 0.1rem 0.1rem;
+    padding: 0.1rem 0 0.1rem 0;
     box-shadow: 0 1px rgba(0, 0, 0, 0.25);
-    //text-align: left;
+    width: auto;
+
     &:first-child,
     &:nth-child(2) {
+      max-width: 0.1px;
+      white-space: nowrap;
       input {
         text-align: left;
       }
     }
+
     input {
       display: block;
       padding: 0;
@@ -182,11 +188,12 @@ tbody {
   }
 }
 tfoot {
-  font-variation-settings: "wght" 400, "wdth" 0, "opsz" 20, "GRAD" 48, "slnt" 0;
+  font-variation-settings: "wght" 100, "wdth" 25, "opsz" 30, "GRAD" 1, "slnt" 0,
+    "XTRA" 700, "YTLC" 700, "YTUC" 700, "YTFI" 700;
   background: rgba(0, 0, 0, 0.05);
   //box-shadow: 0 1px #000, 1px 0 #000, -1px 0 #000;
   td {
-    padding: 0.4rem;
+    padding: 0.1rem 0 0.1rem 0.1rem;
     &:first-child {
       text-align: left;
     }
