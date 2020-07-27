@@ -2,6 +2,8 @@
 
 ## To Do
 
+-- not sure if this would be considered a hack that might be prevented in future iOS updates, but setting font-size to 16px and then using font-variation settings to achieve desired visual size works at present and avoids the zoom plague
+
 -- might actually not be that hard to allow landscape front
 
 - actually use Typescript :-)

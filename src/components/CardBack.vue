@@ -7,7 +7,7 @@
             <input
               type="text"
               class="fui__formElem"
-              value="YOUR MOTHER"
+              value="WONDER WOMAN"
               placeholder="Firstname Lastname"
             />
             <TextSlider />
@@ -259,7 +259,7 @@ header {
   display: flex;
   flex-direction: column;
 
-  padding: 0.8rem 1.6rem 0 1.6rem;
+  padding: 0 1.6rem 0 1.6rem;
   ul {
     display: flex;
     flex-wrap: wrap;
@@ -269,7 +269,7 @@ header {
     justify-content: space-between;
 
     &:first-of-type {
-      padding: 0.5rem 0;
+      padding: 0.2rem 0;
 
       // TEMPORARY FAUX-BOLD
       font-weight: bold;
@@ -284,6 +284,7 @@ header {
         }
         &:first-child {
           flex-grow: 1;
+          flex-basis: 50%;
           // why does safari mobile need this input padding to be explicit?
         }
         &:nth-child(2) {
@@ -295,13 +296,20 @@ header {
       [type="email"] {
         color: inherit;
         width: 100%;
+        // can prevent iOS zoom with 16px or higher PRE-FOCUS
+        font-size: 1.6rem;
+        // as of july 27, 2020, font-variation settings can be used to achieve desired smaller appearance
+        font-variation-settings: "wght" 400, "wdth" 25, "opsz" 50, "GRAD" 48,
+          "slnt" 0, "YTLC" 200, "YTUC" 200, "YTAS" 700;
+        &:focus {
+        }
       }
     }
     &:nth-of-type(2) {
       li {
         &:first-of-type {
           width: 100%;
-          padding: 0.6rem 0;
+          padding: 0.6rem 0 0.8rem 0;
         }
       }
     }
@@ -320,8 +328,11 @@ header {
 h1 {
   font-size: 2.4rem;
   line-height: 1;
-  padding-bottom: 0.4rem;
-  input {
+  padding-bottom: 0;
+  font-variation-settings: "wght" 700, "wdth" 25, "opsz" 25, "GRAD" 48, "slnt" 0,
+    "YTLC" 500, "YTUC" 500;
+  input[type="text"] {
+    font-variation-settings: inherit;
     padding: 0;
   }
 }
@@ -337,6 +348,8 @@ h2 {
 section {
   // if this part is restricted to vert width, then it'll definitely fit on horz
   display: flex;
+  flex-grow: 1;
+  align-items: center;
   flex-direction: row;
   flex-wrap: wrap;
   padding: 0 1.6rem;
@@ -411,7 +424,7 @@ th {
     //margin-left: -1rem;
     //margin-right: 1rem;
     textarea {
-      font-variation-settings: "wght" 200, "wdth" 35, "opsz" 20, "GRAD" 48,
+      font-variation-settings: "wght" 150, "wdth" 25, "opsz" 25, "GRAD" 48,
         "slnt" 0;
       line-height: 0.85;
       display: flex;
@@ -427,6 +440,7 @@ th {
       text-transform: uppercase;
       text-indent: -1rem;
       padding-left: 1rem;
+      //z-index: 1;
 
       // safari mobile seems to struggle with first-line
       // &::first-line {

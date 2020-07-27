@@ -21,7 +21,10 @@ export default {
     CardBack,
   },
   mounted: function () {
-    this.registerServiceWorker();
+    //this.registerServiceWorker();
+    console.log(
+      "remember to uncomment this service worker. Also, work on an envar"
+    );
   },
   //data
   //should i move data into parent component? Yes, I think so.
