@@ -17,92 +17,35 @@
         <!-- hard to loop since distinct lists may help... Although... -->
         <ul>
           <li>
-            <input type="email" v-model="defaultStats.info.info_0" />
+            <input type="email" v-model="defaultFacts.info.info_0" />
           </li>
           <li>
-            <input type="text" v-model="defaultStats.info.info_1" />
+            <input type="text" v-model="defaultFacts.info.info_1" />
           </li>
         </ul>
         <ul>
           <!-- loop these-->
-          <li>{{ defaultStats.info.info_2 }}</li>
-          <li>{{ defaultStats.info.info_3 }}</li>
-          <li>{{ defaultStats.info.info_4 }}</li>
-          <li>{{ defaultStats.info.info_5 }}</li>
-          <li>{{ defaultStats.info.info_6 }}</li>
+          <li>{{ defaultFacts.info.info_2 }}</li>
+          <li>{{ defaultFacts.info.info_3 }}</li>
+          <li>{{ defaultFacts.info.info_4 }}</li>
+          <li>{{ defaultFacts.info.info_5 }}</li>
+          <li>{{ defaultFacts.info.info_6 }}</li>
         </ul>
       </header>
       <section>
         <!-- columns: min 2, max 6? -->
         <!-- tbody rows: min 0 (leaving only tfoot totals), max 10? -->
-        <div class="fui__wrap stats-table__wrapper--outer">
-          <table class="stats-table fui__mid">
-            <!--<caption>Career Stats</caption>-->
 
-            <thead class="stats-table__thead">
-              <tr>
-                <th
-                  v-for="field in defaultStats.fields"
-                  :key="field"
-                  scope="col"
-                >
-                  <span>
-                    <textarea
-                      wrap="hard"
-                      rows="2"
-                      spellcheck="false"
-                      :value="field"
-                    ></textarea>
-                  </span>
-                </th>
-              </tr>
-            </thead>
-            <tbody class="stats-table__tbody">
-              <tr
-                class="stats-table__tbody__tr"
-                v-for="year in defaultStats.years"
-                :key="year"
-              >
-                <!-- i really don't want to do a loop in a loop, do I? Space/time complexity wise, it's better to loop twice -->
-                <td
-                  class="stats-table__tbody__td"
-                  v-for="thing in year"
-                  :key="thing"
-                >
-                  <input
-                    class="stats-table__tbody__input fui__formElem"
-                    type="tel"
-                    :value="thing"
-                    size="5"
-                    maxlength="5"
-                  />
-                </td>
-              </tr>
-            </tbody>
-            <tfoot class="stats-table__tfoot">
-              <tr>
-                <td>CAREER</td>
-                <td></td>
-                <td>
-                  <output class="tfoot__output--totals">SUM</output>
-                </td>
-                <td><output class="tfoot__output--totals">SUM</output></td>
-                <td><output class="tfoot__output--totals">AVG</output></td>
-                <td><output class="tfoot__output--totals">SUM</output></td>
-                <td><output class="tfoot__output--totals">AVG</output></td>
-              </tr>
-            </tfoot>
-          </table>
-        </div>
+        <TableStats />
 
         <aside class="stats__aside">
           <fieldset>
             <blockquote>
               <h6 class="stats__aside__headline">
-                {{ defaultStats.info.facts[0].headline }}
+                {{ defaultFacts.info.facts[0].headline }}
               </h6>
               <textarea
-                v-model="defaultStats.info.facts[0].text"
+                v-model="defaultFacts.info.facts[0].text"
                 :style="cssAsideProps"
               ></textarea>
             </blockquote>
@@ -111,12 +54,12 @@
       </section>
 
       <footer>
-        <h2>{{ defaultStats.info.facts[1].headline }}</h2>
+        <h2>{{ defaultFacts.info.facts[1].headline }}</h2>
         <fieldset>
           <textarea
             spellcheck="false"
             :style="cssFooterProps"
-            v-model="defaultStats.info.facts[1].text"
+            v-model="defaultFacts.info.facts[1].text"
           ></textarea>
           <!--<div tabindex="0" data-show-only-on-interaction>
             <label>
@@ -157,9 +100,10 @@
 </template>
 
 <script lang="ts">
-import defaultStats from "/json/default-stats.json";
+import defaultFacts from "/json/default-facts.json";
 import { set } from "idb-keyval";
 import TextSlider from "./InputChildComponents/TextSlider.vue";
+import TableStats from "./InputChildComponents/TableStats.vue";
 
 export default {
   // intentionally avoiding arrow functions here
@@ -186,11 +130,12 @@ export default {
   // do I nest props to send to child components in here?
   components: {
     TextSlider,
+    TableStats,
   },
 
   data: function () {
     return {
-      defaultStats,
+      defaultFacts,
       // would love to be equally declarative with footer and aside stuff too...
       footer: {
         fontWeight: 400,
@@ -354,141 +299,6 @@ section {
   flex-wrap: wrap;
   padding: 0 1.6rem;
   //background: rgba(#9c2c1a, 0.1);
-}
-
-.stats-table__wrapper--outer {
-  display: flex;
-  flex-grow: 1;
-  // this needs to be put in a variable duh
-  //width: 30rem;
-  min-width: 30rem;
-  max-width: 32rem;
-  //padding-right: 1.6rem;
-}
-table {
-  width: 100%;
-  //max-width: 32rem;
-  margin: 0 auto;
-  font-size: 1.2rem;
-  line-height: 1;
-  font-family: inherit;
-  font-variant-numeric: lining-nums tabular-nums;
-  text-align: right;
-  // border: 1px solid #000;
-  // border-radius: 1rem;
-  &:focus-within {
-    input[type="tel"],
-    input[type="text"],
-    textarea {
-      font-size: 1.8rem;
-    }
-    th {
-      span {
-        //transform: none;
-        textarea {
-          //position: initial;
-          color: #fff;
-        }
-      }
-    }
-  }
-}
-caption {
-  //background: rgba(#9c2c1a, 0.25);
-  text-align: left;
-  padding: 0.5rem;
-  // learned something new
-  //caption-side: bottom;
-}
-
-thead {
-  background: rgba(0, 0, 0, 0.05);
-  //box-shadow: 0 1px #000;
-}
-th {
-  padding-top: 3.2rem;
-
-  text-align: right;
-
-  // &:first-of-type,
-  // &:nth-of-type(2) {
-  //   vertical-align: top;
-  // }
-
-  span {
-    display: flex;
-    //padding-left: 1rem;
-    transform: rotate(-32.5deg);
-    //transform-origin: 0 0;
-    margin-top: -2.2rem;
-    //margin-left: -1rem;
-    //margin-right: 1rem;
-    textarea {
-      font-variation-settings: "wght" 150, "wdth" 25, "opsz" 25, "GRAD" 48,
-        "slnt" 0;
-      line-height: 0.85;
-      display: flex;
-      position: absolute;
-      top: 0;
-      left: 0;
-      //width: 100%;
-      //min-width: 0.4rem;
-      min-width: 4.2rem;
-      white-space: pre-wrap;
-      word-break: break-word;
-      text-align: left;
-      text-transform: uppercase;
-      text-indent: -1rem;
-      padding-left: 1rem;
-      //z-index: 1;
-
-      // safari mobile seems to struggle with first-line
-      // &::first-line {
-      //   color: red;
-      // }
-    }
-  }
-}
-
-tbody {
-  //box-shadow: 0 1px #000;
-  font-variation-settings: "wght" 100, "wdth" 0, "opsz" 20, "GRAD" 48, "slnt" 0;
-  background: rgba(255, 255, 255, 0.1);
-  // tr {
-  //   &:first-child {
-  //     td {
-  //     }
-  //   }
-  // }
-  td {
-    padding: 0.1rem 0 0.1rem 0.1rem;
-    box-shadow: 0 1px rgba(0, 0, 0, 0.25);
-    //text-align: left;
-    &:first-child,
-    &:nth-child(2) {
-      input {
-        text-align: left;
-      }
-    }
-    input {
-      display: block;
-      padding: 0;
-      text-align: right;
-    }
-  }
-}
-
-tfoot {
-  font-variation-settings: "wght" 400, "wdth" 0, "opsz" 20, "GRAD" 48, "slnt" 0;
-  background: rgba(0, 0, 0, 0.05);
-  //box-shadow: 0 1px #000, 1px 0 #000, -1px 0 #000;
-  td {
-    padding: 0.4rem;
-    &:first-child {
-      text-align: left;
-    }
-  }
-  //box-shadow: 0 1px #000;
 }
 
 // rather imperative here, but having table as child of flex element was kinda odd... ooooh

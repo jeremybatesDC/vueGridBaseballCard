@@ -2,6 +2,8 @@
 
 ## To Do
 
+-- use placeholders and style them exaclty if possible -- makes it easier for user to to type from scratch.
+-- Name on back could inherit AS A PLACEHOLDER the value of name on front, so it can be its own field that could be edited on its own without affecting the field on the front. Better and simpler than having user select whether to inherit or not. I'll find an issue maybe, but i like the idea
 -- not sure if this would be considered a hack that might be prevented in future iOS updates, but setting font-size to 16px and then using font-variation settings to achieve desired visual size works at present and avoids the zoom plague
 
 -- might actually not be that hard to allow landscape front
