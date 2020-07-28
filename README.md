@@ -2,7 +2,8 @@
 
 ## To Do
 
--- min touch target 48px wherever possible
+-- refactor card header
+-- min touch target 48px wherever possible (playing numerologist right now 44, 45, 46, 48)
 -- don't bikeshed too much on table width styles right now
 -- use placeholders and style them exaclty if possible -- makes it easier for user to to type from scratch.
 -- Name on back could inherit AS A PLACEHOLDER the value of name on front, so it can be its own field that could be edited on its own without affecting the field on the front. Better and simpler than having user select whether to inherit or not. I'll find an issue maybe, but i like the idea

@@ -116,6 +116,7 @@ thead {
   //box-shadow: 0 1px #000;
 }
 th {
+  position: relative;
   padding: 3.2rem 0 0 0;
 
   text-align: right;
