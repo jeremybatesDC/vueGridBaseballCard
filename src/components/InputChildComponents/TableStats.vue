@@ -169,19 +169,20 @@ tbody {
   td {
     padding: 0.1rem 0 0.1rem 0;
     box-shadow: 0 1px rgba(0, 0, 0, 0.25);
-    width: auto;
-
+    width: 0.1px;
+    max-width: 0.1px;
+    white-space: nowrap;
     &:first-child,
     &:nth-child(2) {
-      max-width: 0.1px;
-      white-space: nowrap;
+      text-align: left;
+
       input {
         text-align: left;
       }
     }
 
     input {
-      display: block;
+      //display: block;
       padding: 0;
       text-align: right;
     }
