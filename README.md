@@ -2,6 +2,8 @@
 
 ## To Do
 
+-- min touch target 48px wherever possible
+-- don't bikeshed too much on table width styles right now
 -- use placeholders and style them exaclty if possible -- makes it easier for user to to type from scratch.
 -- Name on back could inherit AS A PLACEHOLDER the value of name on front, so it can be its own field that could be edited on its own without affecting the field on the front. Better and simpler than having user select whether to inherit or not. I'll find an issue maybe, but i like the idea
 -- not sure if this would be considered a hack that might be prevented in future iOS updates, but setting font-size to 16px and then using font-variation settings to achieve desired visual size works at present and avoids the zoom plague
@@ -37,10 +39,11 @@ What if it were a label that brought focus back up one landmark level?
 
 - Establish flow:
 - User shouldn't have to save anything manually (although a button to force it to happen on request can be reassuring). So when do we save to indexedDB?
+  -- use blur event and see whther placeholder is showing (can select that in JS)
 
 1.  If a value for a given field in indexedDB is null or doesn't exist, then grab the json default data for that field
 
-2.  On X event(s) or at Y time(s), save fields that user changes to IDB. Do this async and, if it makes sense, have a WORKER do this to keep the UI thread free (maybe for a dostracting animation)
+2.  On X event(s) [blur with placeholder not showing] and/or at Y time(s), save fields that user changes to IDB. Do this async and, if it makes sense, have a WORKER do this to keep the UI thread free (maybe for a dostracting animation)
 
 ---
 

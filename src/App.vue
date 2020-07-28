@@ -32,6 +32,12 @@ export default {
 </script>
 
 <style lang="scss">
+:root {
+  // having trouble this morning with calc and scss math with variable and didn't want to get too stuck
+  --min-touch-target-height: 4.4rem;
+  --min-touch-target-height-half: 2.2rem;
+}
+
 h1,
 h2,
 h3 {
@@ -39,7 +45,6 @@ h3 {
     font-family: inherit;
     font-size: inherit;
     line-height: inherit;
-
     color: inherit;
     display: inherit;
     width: 100%;

@@ -54,45 +54,15 @@
       </section>
 
       <footer>
-        <h2>{{ defaultFacts.info.facts[1].headline }}</h2>
         <fieldset>
+          <h2>
+            <input type="text" v-model="defaultFacts.info.facts[1].headline" />
+          </h2>
           <textarea
             spellcheck="false"
             :style="cssFooterProps"
             v-model="defaultFacts.info.facts[1].text"
           ></textarea>
-          <!--<div tabindex="0" data-show-only-on-interaction>
-            <label>
-              Font Weight
-              <input
-                v-model="footer.fontWeight"
-                type="range"
-                min="100"
-                max="900"
-                list="fontweightdatalist"
-              />
-              <datalist id="fontweightdatalist">
-                <option value="100"></option>
-                <option value="900"></option>
-              </datalist>
-            </label>
-
-            <label>
-              Font Width
-              <input v-model="footer.fontWidth" type="range" min="35" max="100" />
-            </label>
-            <br />
-            <label>
-              Font Slant
-              <input v-model="footer.fontSlant" type="range" min="-10" max="0" />
-            </label>
-            <label>
-              Font Grade
-              <input v-model="footer.fontGrade" type="range" min="0" max="48" />
-            </label>
-          </div>-->
-          <!-- for this to work, will also have to pass-in a css prop/value for the show/hide -->
-          <!--<TextSlider footerFontweight="footer.fontWeight" />-->
         </fieldset>
       </footer>
     </article>
@@ -215,8 +185,8 @@ header {
     justify-content: space-between;
 
     &:first-of-type {
-      padding: 0.2rem 0;
-
+      padding: 0;
+      flex-wrap: nowrap;
       // TEMPORARY FAUX-BOLD
       font-weight: bold;
 
@@ -239,11 +209,12 @@ header {
           }
         }
       }
-      [type="email"] {
+      input {
         color: inherit;
         width: 100%;
         // can prevent iOS zoom with 16px or higher PRE-FOCUS
         font-size: 1.6rem;
+        padding: 0;
         // as of july 27, 2020, font-variation settings can be used to achieve desired smaller appearance
         font-variation-settings: "wght" 400, "wdth" 25, "opsz" 50, "GRAD" 48,
           "slnt" 0, "YTLC" 200, "YTUC" 200, "YTAS" 700;
@@ -253,9 +224,10 @@ header {
     }
     &:nth-of-type(2) {
       li {
+        line-height: var(--min-touch-target-height-half);
         &:first-of-type {
           width: 100%;
-          padding: 0.6rem 0 0.8rem 0;
+          padding: 0;
         }
       }
     }
@@ -265,15 +237,15 @@ header {
     }
     li {
       display: inline-flex;
-      font-size: 1.2rem;
-      line-height: 1;
+      font-size: 1.6rem;
+      line-height: var(--min-touch-target-height);
     }
   }
 }
 
 h1 {
   font-size: 2.4rem;
-  line-height: 1;
+  line-height: var(--min-touch-target-height);
   padding-bottom: 0;
   font-variation-settings: "wght" 700, "wdth" 25, "opsz" 25, "GRAD" 48, "slnt" 0,
     "YTLC" 500, "YTUC" 500;
@@ -284,9 +256,9 @@ h1 {
 }
 
 h2 {
-  font-size: 1.4rem;
-  line-height: 1;
-  padding-bottom: 0.5rem;
+  font-size: 1.6rem;
+  line-height: var(--min-touch-target-height);
+  padding-bottom: 0;
   font-variation-settings: "slnt" -10;
 }
 
@@ -381,8 +353,8 @@ blockquote {
     //display: flex;
     //flex-grow: 1;
     // MAKING SMALL NOW BECAUSE I NEED TO FIGURE OUT WHICH RULES/LACK OF RULES ARE MAKING THE TEXT AREA EXPLAND TO WIDTH OF CONTENT
-    font-size: 1.2rem;
-    line-height: 1;
+    font-size: 1.6rem;
+    line-height: var(--min-touch-target-height);
     font-variation-settings: "wght" var(--fontweight), "wdth" var(--fontwidth),
       "opsz" 10, "GRAD" var(--fontgrade), "slnt" var(--fontslant);
     //padding: 0.5rem 1rem;
@@ -393,17 +365,25 @@ footer {
   display: flex;
   flex-direction: column;
   position: relative;
-  font-size: 1.2rem;
-  line-height: 1;
-  padding: 0 1.6rem 0.8rem 1.6rem;
+  font-size: 1.6rem;
+
+  padding: 0 1.6rem;
+  fieldset {
+    display: flex;
+    flex-direction: column;
+  }
+  input[type="text"] {
+    padding: 0;
+  }
   textarea {
     font-variation-settings: "wght" var(--fontweight), "wdth" var(--fontwidth),
       "opsz" 0, "GRAD" var(--fontgrade), "slnt" var(--fontslant);
+    min-height: var(--min-touch-target-height);
   }
 }
 
 p {
-  font-size: 1.2rem;
+  font-size: 1.6rem;
   line-height: 1;
 }
 

@@ -86,7 +86,7 @@ table {
   text-align: right;
 
   // need to address making this fit on portrait
-  overflow: hidden;
+  //overflow: hidden;
   &:focus-within {
     input[type="tel"],
     input[type="text"],
