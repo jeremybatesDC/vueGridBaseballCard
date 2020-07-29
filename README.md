@@ -2,13 +2,19 @@
 
 ## To Do
 
--- reduce visible size of borders for 320px devices so hopefully rest of content can give adequate touch targets in real world measurements (7-12mm)
--- consider microformats
--- move position/title on back to top right, beside name
+-- prob should be only 1 text slider (teleport might be needed)
+-- text slider styles shouldnT inherit from parent (except for maybe positioning in some cases )
 -- refactor card header
+-- refactor input styling -- too much redundancy. See header.
+-- save font-variation-settings to CSS vars to can easily reuse somethin like "tallest thinnest"
+-- factor out options API stuff
+-- reduce visible size of borders for 320px devices so hopefully rest of content can give adequate touch targets in real world measurements (7-12mm) (maybe using min-max clamps?)
 -- min touch target 48px wherever possible (playing numerologist right now 44, 45, 46, 48)
+
+-- consider microformats
+
 -- don't bikeshed too much on table width styles right now
--- use placeholders and style them exaclty if possible -- makes it easier for user to to type from scratch.
+-- consider using placeholders and style them exaclty if possible -- makes it easier for user to to type from scratch.
 -- Name on back could inherit AS A PLACEHOLDER the value of name on front, so it can be its own field that could be edited on its own without affecting the field on the front. Better and simpler than having user select whether to inherit or not. I'll find an issue maybe, but i like the idea
 
 - actually use Typescript :-)
@@ -36,6 +42,10 @@ What if it were a label that brought focus back up one landmark level?
 (offer previous 10 years but no fact footer)
 (offer 10 categories, but no career highlights section)
 
+- Years: Default to 2019, working backwards X (5) years. Could offer another "start year." Will have to think of easy way to give non-contiguous years without making it too easy for user to make typo... (they could default, and then each be over-rideable via a select menu or data-list or whatever)
+
+- Calculations and column stat type -- have user define what kind of stat it is (to make calculation in footer proedictable and logical -- if user wants to add up all the miles per hour, fine, but that can be an override of a sensible defualt)
+
 --> "Rookie" or "Single Year" option
 
 - Establish flow:
@@ -54,10 +64,6 @@ What if it were a label that brought focus back up one landmark level?
   -- genealogy cards
   -- politicians
   -- baseball current example
-
-- Years: Default to 2019, working backwards X (5) years. Could offer another "start year." Will have to think of easy way to give non-contiguous years without making it too easy for user to make typo... (they could default, and then each be over-rideable via a select menu or data-list or whatever)
-
-- Header -- have user define what kind of stat it is (to make calculation in footer proedictable and logical -- if user wants to add up all the miles per hour, fine, but that can be an override of a sensible defualt)
 
 ### Notes
 

@@ -57,17 +57,19 @@ textarea {
     top: 0;
     left: 0;
     width: 100%;
-
+    align-items: flex-start !important;
     // because of a scoped class elesewhere oof
     max-width: none !important;
 
     height: 100%;
+    // but this should be no taller than max card height right?
     padding: 1.6rem;
     background-color: rgba(0, 0, 0, 0.75);
 
     z-index: 1;
     .fui__mid {
       position: relative;
+      width: 100%;
     }
     // [type="text"], textarea,
     .fui__formElem {
