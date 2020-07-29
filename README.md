@@ -2,6 +2,7 @@
 
 ## To Do
 
+-- reduce visible size of borders for 320px devices so hopefully rest of content can give adequate touch targets in real world measurements (7-12mm)
 -- consider microformats
 -- move position/title on back to top right, beside name
 -- refactor card header
@@ -9,9 +10,6 @@
 -- don't bikeshed too much on table width styles right now
 -- use placeholders and style them exaclty if possible -- makes it easier for user to to type from scratch.
 -- Name on back could inherit AS A PLACEHOLDER the value of name on front, so it can be its own field that could be edited on its own without affecting the field on the front. Better and simpler than having user select whether to inherit or not. I'll find an issue maybe, but i like the idea
--- not sure if this would be considered a hack that might be prevented in future iOS updates, but setting font-size to 16px and then using font-variation settings to achieve desired visual size works at present and avoids the zoom plague
-
--- might actually not be that hard to allow landscape front
 
 - actually use Typescript :-)
 - consider PWA -- why is dev tools showing installation probs related to icons? They are there... Path issue? Prob not issue with actual file but can check
@@ -32,7 +30,7 @@
 need a close button for the focus UI.
 What if it were a label that brought focus back up one landmark level?
 
---> Use Vue3 async components and suspense API
+--> Use Vue3 async components and suspense API -- and what is the new one called? Teleport. https://medium.com/@patelvivek2530/teleport-vue-3s-new-feature-a887fe05fd87 -- feature used to be palled portal
 
 --> stats: Previous 5 years
 (offer previous 10 years but no fact footer)
@@ -60,6 +58,12 @@ What if it were a label that brought focus back up one landmark level?
 - Years: Default to 2019, working backwards X (5) years. Could offer another "start year." Will have to think of easy way to give non-contiguous years without making it too easy for user to make typo... (they could default, and then each be over-rideable via a select menu or data-list or whatever)
 
 - Header -- have user define what kind of stat it is (to make calculation in footer proedictable and logical -- if user wants to add up all the miles per hour, fine, but that can be an override of a sensible defualt)
+
+### Notes
+
+-- might actually not be that hard to allow landscape front
+
+-- not sure if this would be considered a hack that might be prevented in future iOS updates, but setting font-size to 16px and then using font-variation settings to achieve desired visual size works at present and avoids the zoom plague
 
 ### Built with
 
