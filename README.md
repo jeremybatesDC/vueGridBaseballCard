@@ -2,6 +2,8 @@
 
 ## To Do
 
+-- consider microformats
+-- move position/title on back to top right, beside name
 -- refactor card header
 -- min touch target 48px wherever possible (playing numerologist right now 44, 45, 46, 48)
 -- don't bikeshed too much on table width styles right now
