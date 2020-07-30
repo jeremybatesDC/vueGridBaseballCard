@@ -6,12 +6,7 @@
         <tr>
           <th v-for="field in defaultStats.fields" :key="field" scope="col">
             <span>
-              <textarea
-                wrap="hard"
-                rows="2"
-                spellcheck="false"
-                :value="field"
-              ></textarea>
+              <textarea wrap="hard" rows="2" spellcheck="false" :value="field"></textarea>
             </span>
           </th>
         </tr>
@@ -19,11 +14,19 @@
       <tbody>
         <tr
           class="stats-table__tbody__tr"
-          v-for="year in defaultStats.years"
+          v-for="(year, index) in defaultStats.years"
           :key="year"
+          :data-index="index"
         >
           <!-- i really don't want to do a loop in a loop, do I? Space/time complexity wise, it's better to loop twice -->
-          <td class="stats-table__tbody__td" v-for="thing in year" :key="thing">
+          <!-- this one doesnT expect index until 3rd argument. Is that because itS nested? Maybe itS the kind of object -->
+          <td
+            class="stats-table__tbody__td"
+            v-for="(thing, thing2, index) in year"
+            :key="thing"
+            :data-thingy="thing2"
+            :data-index="index"
+          >
             <input
               class="stats-table__tbody__input fui__formElem"
               type="tel"
@@ -36,15 +39,33 @@
       </tbody>
       <tfoot>
         <tr>
-          <td>TOT</td>
-          <td></td>
-          <td>
-            <output class="tfoot__output--totals">SUM</output>
+          <th scope="col">TOT</th>
+          <td scope="col"></td>
+          <td scope="col">
+            <label>
+              <output class="tfoot__output--totals">SUM</output>
+            </label>
           </td>
-          <td><output class="tfoot__output--totals">SUM</output></td>
-          <td><output class="tfoot__output--totals">AVG</output></td>
-          <td><output class="tfoot__output--totals">SUM</output></td>
-          <td><output class="tfoot__output--totals">AVG</output></td>
+          <td scope="col">
+            <label>
+              <output class="tfoot__output--totals">SUM</output>
+            </label>
+          </td>
+          <td scope="col">
+            <label>
+              <output class="tfoot__output--totals">AVG</output>
+            </label>
+          </td>
+          <td scope="col">
+            <label>
+              <output class="tfoot__output--totals">SUM</output>
+            </label>
+          </td>
+          <td scope="col">
+            <label>
+              <output class="tfoot__output--totals">AVG</output>
+            </label>
+          </td>
         </tr>
       </tfoot>
     </table>
@@ -163,12 +184,12 @@ th {
 }
 tbody {
   //box-shadow: 0 1px #000;
-  font-variation-settings: "wght" 100, "wdth" 25, "opsz" 30, "GRAD" 0.5,
-    "slnt" 0, "XTRA" 500, "YTLC" 700, "YTUC" 700, "YTFI" 700;
+  font-variation-settings: "wght" 100, "wdth" 25, "opsz" 35, "GRAD" 0.5,
+    "slnt" 0, "XTRA" 500, "YTLC" 500, "YTUC" 500, "YTFI" 500;
   background: rgba(255, 255, 255, 0.1);
 
   td {
-    padding: 0.1rem 0 0.1rem 0;
+    padding: 0;
     box-shadow: 0 1px rgba(0, 0, 0, 0.25);
     width: 0.1px;
     max-width: 0.1px;

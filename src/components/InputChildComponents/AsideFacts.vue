@@ -57,13 +57,15 @@ aside {
       //z-index: 1;
     }
   }
-  fieldset {
-    display: flex;
-    flex-grow: 1;
-  }
-  .stats__aside__headline {
-    text-align: center;
-  }
+}
+
+fieldset {
+  display: flex;
+  flex-grow: 1;
+  border: none;
+}
+.stats__aside__headline {
+  text-align: center;
 }
 
 blockquote {
@@ -78,16 +80,17 @@ blockquote {
   background: rgba(#9c2c1a, 0.25);
   align-items: center;
   justify-content: center;
-  p,
-  textarea {
-    //display: flex;
-    //flex-grow: 1;
-    // MAKING SMALL NOW BECAUSE I NEED TO FIGURE OUT WHICH RULES/LACK OF RULES ARE MAKING THE TEXT AREA EXPLAND TO WIDTH OF CONTENT
-    font-size: 1.6rem;
-    line-height: var(--min-touch-target-height);
-    font-variation-settings: "wght" var(--fontweight), "wdth" var(--fontwidth),
-      "opsz" 10, "GRAD" var(--fontgrade), "slnt" var(--fontslant);
-    //padding: 0.5rem 1rem;
-  }
+}
+
+p,
+textarea {
+  //display: flex;
+  //flex-grow: 1;
+  // MAKING SMALL NOW BECAUSE I NEED TO FIGURE OUT WHICH RULES/LACK OF RULES ARE MAKING THE TEXT AREA EXPLAND TO WIDTH OF CONTENT
+  font-size: 1.6rem;
+  line-height: var(--min-touch-target-height);
+  font-variation-settings: "wght" var(--fontweight), "wdth" var(--fontwidth),
+    "opsz" 10, "GRAD" var(--fontgrade), "slnt" var(--fontslant);
+  //padding: 0.5rem 1rem;
 }
 </style>

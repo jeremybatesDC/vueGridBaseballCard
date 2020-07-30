@@ -2,6 +2,11 @@
 
 ## To Do
 
+might not need a table plugin. If I can properly tag columns then doing math on them shouldnT take any special code really. It would just be a formula, and probably use the Computed method
+
+need a close button for the focus UI.
+What if it were a label that brought focus back up one landmark level?
+
 -- prob should be only 1 text slider (teleport might be needed)
 -- text slider styles shouldnT inherit from parent (except for maybe positioning in some cases )
 -- refactor card header
@@ -33,9 +38,6 @@
 
 --> in addition to preventing jumps by taking up space (the focus UI needs this), CONSIDER a simple ANIMATION to show that a field is opening up to be edited and then is closing back down.
 
-need a close button for the focus UI.
-What if it were a label that brought focus back up one landmark level?
-
 --> Use Vue3 async components and suspense API -- and what is the new one called? Teleport. https://medium.com/@patelvivek2530/teleport-vue-3s-new-feature-a887fe05fd87 -- feature used to be palled portal
 
 --> stats: Previous 5 years
@@ -49,6 +51,8 @@ What if it were a label that brought focus back up one landmark level?
 --> "Rookie" or "Single Year" option
 
 - Establish flow:
+  -- share state?
+
 - User shouldn't have to save anything manually (although a button to force it to happen on request can be reassuring). So when do we save to indexedDB?
   -- use blur event and see whther placeholder is showing (can select that in JS)
 
