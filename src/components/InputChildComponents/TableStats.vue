@@ -22,10 +22,10 @@
           <!-- this one doesnT expect index until 3rd argument. Is that because itS nested? Maybe itS the kind of object -->
           <td
             class="stats-table__tbody__td"
-            v-for="(thing, thing2, index) in year"
-            :key="thing"
-            :data-thingy="thing2"
-            :data-index="index"
+            v-for="(value, name, index) in year"
+            :key="value"
+            :data-column-name="name"
+            :data-column-index="index"
           >
             <input
               class="stats-table__tbody__input fui__formElem"
@@ -33,37 +33,20 @@
               :value="thing"
               size="5"
               maxlength="5"
+              :data-column-name="name"
+              :data-column-index="index"
             />
           </td>
         </tr>
       </tbody>
       <tfoot>
         <tr>
-          <th scope="col">TOT</th>
-          <td scope="col"></td>
-          <td scope="col">
+          <th scope="row">TOT</th>
+          <td></td>
+          <!-- a bit too imperative -->
+          <td v-for="x in 5" :key="x" scope="col" :data-total-for-column-index="x+1">
             <label>
-              <output class="tfoot__output--totals">SUM</output>
-            </label>
-          </td>
-          <td scope="col">
-            <label>
-              <output class="tfoot__output--totals">SUM</output>
-            </label>
-          </td>
-          <td scope="col">
-            <label>
-              <output class="tfoot__output--totals">AVG</output>
-            </label>
-          </td>
-          <td scope="col">
-            <label>
-              <output class="tfoot__output--totals">SUM</output>
-            </label>
-          </td>
-          <td scope="col">
-            <label>
-              <output class="tfoot__output--totals">AVG</output>
+              <output class="tfoot__output--totals" :data-total-for-column-index="x+1">SUM</output>
             </label>
           </td>
         </tr>
