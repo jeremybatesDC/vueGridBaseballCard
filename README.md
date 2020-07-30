@@ -2,8 +2,7 @@
 
 ## To Do
 
-consider v-mask
-
+the way to make a mask is via computed and watchers, set/get
 after considering it, i donT think i need a table plugin. If I can properly tag columns then doing math on them shouldnT take any special code really. It would just be a formula, and probably use the Computed method
 
 need a close button for the focus UI.

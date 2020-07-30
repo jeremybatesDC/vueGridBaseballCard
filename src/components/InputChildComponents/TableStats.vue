@@ -6,7 +6,12 @@
         <tr>
           <th v-for="field in defaultStats.fields" :key="field" scope="col">
             <span>
-              <textarea wrap="hard" rows="2" spellcheck="false" :value="field"></textarea>
+              <textarea
+                wrap="hard"
+                rows="2"
+                spellcheck="false"
+                :value="field"
+              ></textarea>
             </span>
           </th>
         </tr>
@@ -30,7 +35,7 @@
             <input
               class="stats-table__tbody__input fui__formElem"
               type="tel"
-              :value="thing"
+              :value="value"
               size="5"
               maxlength="5"
               :data-column-name="name"
@@ -43,10 +48,19 @@
         <tr>
           <th scope="row">TOT</th>
           <td></td>
-          <!-- a bit too imperative -->
-          <td v-for="x in 5" :key="x" scope="col" :data-total-for-column-index="x+1">
+          <!-- a bit too imperative but it is good that we are not doing a v-if in a v-for-->
+          <td
+            v-for="x in 5"
+            :key="x"
+            scope="col"
+            :data-total-for-column-index="x + 1"
+          >
             <label>
-              <output class="tfoot__output--totals" :data-total-for-column-index="x+1">SUM</output>
+              <output
+                class="tfoot__output--totals"
+                :data-total-for-column-index="x + 1"
+                >SUM</output
+              >
             </label>
           </td>
         </tr>
@@ -58,6 +72,8 @@
 // THIS COMPONENT SHOULD RECEIVE STATS AS PROPS
 // SLOTS MAY ALSO HELP HERE
 import defaultStats from "/json/default-stats.json";
+
+// can use COMPUTED to "filter" or "mask" out unwanted valuesbundleRenderer.renderToStreamhttps://v3.https://www.vuemastery.com/conferences/vueconf-us-2019/building-fast-and-semantic-input-masks-in-vuejs/
 
 export default {
   data: function () {
