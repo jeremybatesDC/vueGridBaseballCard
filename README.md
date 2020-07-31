@@ -2,8 +2,7 @@
 
 ## To Do
 
-consider putting Year (and Maybe the City) in TH scope row
-
+indicate whether a field can have its font manipulated
 math: computed. Grab an array by refs if necessary and tally those bitches. Can we have only a column recalcute as opposed to the whole table? Yes the watch could be scoped to a an array of only that column's cells
 
 the way to make a mask is via computed and watchers, set/get

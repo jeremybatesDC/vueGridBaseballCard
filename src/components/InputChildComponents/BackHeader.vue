@@ -1,6 +1,6 @@
 <template>
   <header>
-    <div class="row">
+    <div class="row row--topmost">
       <!-- i dont think label is necessarily correct here -->
       <label class="fui__wrap">
         <h1 class="fui__mid">
@@ -15,7 +15,11 @@
       </label>
       <label class="fui__wrap">
         <span class="fui__mid">
-          <input type="text" class="fui__formElem" v-model="defaultFacts.info.info_3" />
+          <input
+            type="text"
+            class="fui__formElem"
+            v-model="defaultFacts.info.info_3"
+          />
           <TextSlider />
         </span>
       </label>
@@ -100,15 +104,26 @@ header {
   padding: 0 1.5rem;
 }
 
+.row--topmost {
+  label {
+    &:first-of-type {
+      flex-grow: 1;
+      width: 100%;
+    }
+  }
+}
+
 h1 {
   font-size: 2.4rem;
   padding-bottom: 0;
   font-variation-settings: "wght" 700, "wdth" 25, "opsz" 25, "GRAD" 48, "slnt" 0,
     "YTLC" 500, "YTUC" 500;
+  width: 100%;
   input[type="text"] {
     height: var(--min-touch-target-height);
     font-variation-settings: inherit;
     padding: 0;
+    width: 100%;
   }
 }
 

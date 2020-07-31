@@ -80,8 +80,8 @@
       </tbody>
       <tfoot>
         <tr>
-          <th scope="row">TOT</th>
-          <td></td>
+          <th scope="row" :data-col="0">TOT</th>
+          <td :data-col="1"></td>
           <!-- a bit too imperative but it is good that we are not doing a v-if in a v-for-->
           <td
             v-for="x in 5"
