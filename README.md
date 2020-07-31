@@ -2,6 +2,10 @@
 
 ## To Do
 
+consider putting Year (and Maybe the City) in TH scope row
+
+math: computed. Grab an array by refs if necessary and tally those bitches. Can we have only a column recalcute as opposed to the whole table? Yes the watch could be scoped to a an array of only that column's cells
+
 the way to make a mask is via computed and watchers, set/get
 after considering it, i donT think i need a table plugin. If I can properly tag columns then doing math on them shouldnT take any special code really. It would just be a formula, and probably use the Computed method
 
@@ -32,8 +36,6 @@ What if it were a label that brought focus back up one landmark level?
   td.stats-table-t-body-td
   blockquote
   --> factor out card table (and use SUSPENSE if needed)
-
-* build a subsetted version of the font without the undesired axes (is that even a thing?)
 
 --> better highlightthe active table cell you're editing beucase otherwise it's disorientating
 
@@ -75,6 +77,8 @@ What if it were a label that brought focus back up one landmark level?
 -- might actually not be that hard to allow landscape front
 
 -- not sure if this would be considered a hack that might be prevented in future iOS updates, but setting font-size to 16px and then using font-variation settings to achieve desired visual size works at present and avoids the zoom plague
+
+- build a subsetted version of the font without the undesired axes (is that even a thing?)
 
 ### Built with
 

@@ -8,51 +8,61 @@
     "falls": "Falls",
     "beersTasted": "Beers Tasted"
   },
-  "years": [
+  "seasons": [
     {
-      "year": "1985",
+      "year": "2015",
       "homeCity": "DC",
-      "racesCycled": "15",
-      "milesCycled": "905",
-      "avgSpeed": "29",
-      "falls": 12,
-      "beersTasted": 112
+      "numericStats": {
+        "racesCycled": "15",
+        "milesCycled": "905",
+        "avgSpeed": "29",
+        "falls": 12,
+        "beersTasted": 112
+      }
     },
     {
-      "year": "1986",
+      "year": "2016",
       "homeCity": "NYC",
-      "racesCycled": "25",
-      "milesCycled": "1005",
-      "avgSpeed": "28.5",
-      "falls": 6,
-      "beersTasted": 118
+      "numericStats": {
+        "racesCycled": "25",
+        "milesCycled": "1005",
+        "avgSpeed": "28.5",
+        "falls": 6,
+        "beersTasted": 118
+      }
     },
     {
-      "year": "1987",
+      "year": "2017",
       "homeCity": "SF",
-      "racesCycled": "0",
-      "milesCycled": "0",
-      "avgSpeed": "0",
-      "falls": 1,
-      "beersTasted": 398
+      "numericStats": {
+        "racesCycled": "0",
+        "milesCycled": "0",
+        "avgSpeed": "0",
+        "falls": 1,
+        "beersTasted": 398
+      }
     },
     {
-      "year": "1988",
+      "year": "2018",
       "homeCity": "SF",
-      "racesCycled": "102",
-      "milesCycled": "9876",
-      "avgSpeed": "42",
-      "falls": 11,
-      "beersTasted": 77
+      "numericStats": {
+        "racesCycled": "102",
+        "milesCycled": "9876",
+        "avgSpeed": "42",
+        "falls": 11,
+        "beersTasted": 77
+      }
     },
     {
-      "year": "1989",
+      "year": "2019",
       "homeCity": "LA",
-      "racesCycled": "29",
-      "milesCycled": "3201",
-      "avgSpeed": "101",
-      "falls": 0,
-      "beersTasted": 27
+      "numericStats": {
+        "racesCycled": "29",
+        "milesCycled": "3201",
+        "avgSpeed": "101",
+        "falls": 0,
+        "beersTasted": 27
+      }
     }
   ]
 }

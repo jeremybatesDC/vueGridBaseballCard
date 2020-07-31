@@ -19,18 +19,51 @@
       <tbody>
         <tr
           class="stats-table__tbody__tr"
-          v-for="(year, index) in defaultStats.years"
-          :key="year"
-          :data-index="index"
+          v-for="(season, index) in defaultStats.seasons"
+          :key="season"
+          :data-row="index"
         >
           <!-- i really don't want to do a loop in a loop, do I? Space/time complexity wise, it's better to loop twice -->
           <!-- this one doesnT expect index until 3rd argument. Is that because itS nested? Maybe itS the kind of object -->
+
+          <!-- making first col a TH scope row -->
+          <th
+            scope="row"
+            class="stats-table__tbody__th"
+            :data-col="0"
+            :data-row="index"
+          >
+            <input
+              class="stats-table__tbody__input fui__formElem"
+              type="tel"
+              :value="season.year"
+              size="4"
+              maxlength="4"
+              :data-column-name="name"
+              :data-col="0"
+              :data-row="index"
+            />
+          </th>
+          <td class="stats-table__tbody__td" :data-col="1" :data-row="index">
+            <input
+              class="stats-table__tbody__input fui__formElem"
+              type="tel"
+              :value="season.homeCity"
+              size="4"
+              maxlength="4"
+              :data-column-name="name"
+              :data-col="1"
+              :data-row="index"
+            />
+          </td>
+
           <td
             class="stats-table__tbody__td"
-            v-for="(value, name, index) in year"
+            v-for="(value, name, index) in season.numericStats"
             :key="value"
             :data-column-name="name"
-            :data-column-index="index"
+            :data-col="index + 2"
+            :data-row="index"
           >
             <input
               class="stats-table__tbody__input fui__formElem"
@@ -39,7 +72,8 @@
               size="5"
               maxlength="5"
               :data-column-name="name"
-              :data-column-index="index"
+              :data-col="index + 2"
+              :data-row="index"
             />
           </td>
         </tr>
@@ -187,7 +221,8 @@ tbody {
     "slnt" 0, "XTRA" 500, "YTLC" 500, "YTUC" 500, "YTFI" 500;
   background: rgba(255, 255, 255, 0.1);
 
-  td {
+  td,
+  th {
     padding: 0;
     box-shadow: 0 1px rgba(0, 0, 0, 0.25);
     width: 0.1px;
@@ -214,7 +249,8 @@ tfoot {
     "XTRA" 700, "YTLC" 700, "YTUC" 700, "YTFI" 700;
   background: rgba(0, 0, 0, 0.05);
   //box-shadow: 0 1px #000, 1px 0 #000, -1px 0 #000;
-  td {
+  td,
+  th {
     padding: 0.1rem 0 0.1rem 0.1rem;
     &:first-child {
       text-align: left;
