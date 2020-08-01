@@ -4,13 +4,18 @@
       <!--<caption>Career Stats</caption>-->
       <thead>
         <tr>
-          <th v-for="field in defaultStats.fields" :key="field" scope="col">
+          <th
+            v-for="(value, name, index) in defaultStats.fields"
+            :key="value"
+            scope="col"
+            :data-col="index"
+          >
             <span>
               <textarea
                 wrap="hard"
                 rows="2"
                 spellcheck="false"
-                :value="field"
+                :value="value"
               ></textarea>
             </span>
           </th>
@@ -124,8 +129,7 @@ export default {
   flex-grow: 1;
   // this needs to be put in a variable duh
   //width: 30rem;
-  //min-width: 30rem;
-
+  min-width: 30rem;
   //padding-right: 1.6rem;
 }
 
@@ -168,35 +172,44 @@ caption {
 thead {
   background: rgba(0, 0, 0, 0.05);
   //box-shadow: 0 1px #000;
+  th {
+    position: relative;
+    height: 3.2rem;
+    span {
+      margin-left: 3.2rem;
+      //height: inherit;
+      //position: relative;
+    }
+  }
 }
 th {
-  position: relative;
-  padding: 3.2rem 0 0 0;
+  //padding: 3.2rem 0 0 0;
 
-  text-align: right;
+  //text-align: right;
 
   span {
     display: flex;
     //padding-left: 1rem;
     transform: rotate(-32.5deg);
     //transform-origin: 0 0;
-    margin-top: -2.4rem;
-    margin-left: 1rem;
+    //margin-top: -2.4rem;
+    //margin-left: 1rem;
     //margin-right: 1rem;
     textarea {
-      font-variation-settings: "wght" 150, "wdth" 25, "opsz" 25, "GRAD" 1,
-        "slnt" 0;
-      line-height: 0.85;
+      font-variation-settings: "wght" 150, "wdth" 25, "opsz" 35, "GRAD" 1,
+        "slnt" 0, "YTLC" 500, "YTUC" 500, "YTFI" 500;
+      line-height: 0.6666;
       display: flex;
       position: absolute;
       top: 0;
       left: 0;
-      //width: 100%;
+      width: 100%;
+      //height: 100%;
       //min-width: 0.4rem;
-      min-width: 4.2rem;
+      min-width: 4.4rem;
       white-space: pre-wrap;
       word-break: break-word;
-      text-align: left;
+      //text-align: left;
       text-transform: uppercase;
       text-indent: -1rem;
       padding-left: 1rem;
@@ -225,8 +238,8 @@ tbody {
   th {
     padding: 0;
     box-shadow: 0 1px rgba(0, 0, 0, 0.25);
-    width: 0.1px;
-    max-width: 0.1px;
+    //width: 0.1px;
+    //max-width: 0.1px;
     white-space: nowrap;
     &:first-child,
     &:nth-child(2) {
@@ -245,8 +258,8 @@ tbody {
   }
 }
 tfoot {
-  font-variation-settings: "wght" 100, "wdth" 25, "opsz" 30, "GRAD" 1, "slnt" 0,
-    "XTRA" 700, "YTLC" 700, "YTUC" 700, "YTFI" 700;
+  font-variation-settings: "wght" 150, "wdth" 25, "opsz" 30, "GRAD" 1, "slnt" 0,
+    "YTLC" 500, "YTUC" 500, "YTFI" 500;
   background: rgba(0, 0, 0, 0.05);
   //box-shadow: 0 1px #000, 1px 0 #000, -1px 0 #000;
   td,
@@ -257,5 +270,11 @@ tfoot {
     }
   }
   //box-shadow: 0 1px #000;
+}
+
+[data-col="1"] {
+  width: 3ch;
+  white-space: nowrap;
+  overflow: visible;
 }
 </style>

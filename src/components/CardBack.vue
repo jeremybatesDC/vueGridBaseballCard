@@ -11,19 +11,7 @@
 
         <AsideFacts />
       </section>
-
-      <footer>
-        <fieldset>
-          <!-- <h2>
-            <input type="text" v-model="defaultFacts.info.facts[1].headline" />
-          </h2>-->
-          <textarea
-            spellcheck="false"
-            :style="cssFooterProps"
-            v-model="defaultFacts.info.facts[1].text"
-          ></textarea>
-        </fieldset>
-      </footer>
+      <BackFooter />
     </article>
   </div>
 </template>
@@ -34,6 +22,7 @@ import { set } from "idb-keyval";
 //import TextSlider from "./InputChildComponents/TextSlider.vue";
 import TableStats from "./InputChildComponents/TableStats.vue";
 import BackHeader from "./InputChildComponents/BackHeader.vue";
+import BackFooter from "./InputChildComponents/BackFooter.vue";
 import AsideFacts from "./InputChildComponents/AsideFacts.vue";
 
 export default {
@@ -63,6 +52,7 @@ export default {
     //TextSlider,
     TableStats,
     BackHeader,
+    BackFooter,
     AsideFacts,
   },
 
@@ -157,52 +147,4 @@ section {
 // rather imperative here, but having table as child of flex element was kinda odd... ooooh
 
 //
-
-footer {
-  display: flex;
-  flex-direction: column;
-  position: relative;
-  font-size: 1.6rem;
-  padding: 0 1.5rem;
-  fieldset {
-    display: flex;
-    flex-direction: column;
-  }
-  input[type="text"] {
-    padding: 0;
-  }
-  textarea {
-    font-variation-settings: "wght" 400, "wdth" 25, "opsz" 50, "GRAD" 48,
-      "slnt" 0, "YTLC" 200, "YTUC" 200, "YTAS" 700;
-  }
-  &:focus-within {
-    textarea {
-      //transform: scale(2);
-      background-color: #fff;
-    }
-    &:before {
-      content: "";
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0, 0, 0, 0.5);
-      //z-index: 1;
-    }
-  }
-}
-
-p {
-  font-size: 1.6rem;
-  line-height: 1;
-}
-
-fieldset {
-  position: relative;
-  border: none;
-  box-shadow: none;
-  padding: 0;
-  margin: 0;
-}
 </style>

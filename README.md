@@ -2,6 +2,10 @@
 
 ## To Do
 
+stick to cm/mm even if it's off by 1mm. Much more sensible. Aim for 1cm touch targets. PLus math is so clean. But, the 3.5" x 2.5" aspect ratio is a cleaner 1.4 (rather than 1.39) -- but does that matter?
+
+can i offer a 48px touch target (off to the side perhaps) while maintaining tight vertical content like cards actually have?
+
 indicate whether a field can have its font manipulated
 math: computed. Grab an array by refs if necessary and tally those bitches. Can we have only a column recalcute as opposed to the whole table? Yes the watch could be scoped to a an array of only that column's cells
 

@@ -13,39 +13,59 @@
           <TextSlider />
         </h1>
       </label>
-      <label class="fui__wrap">
-        <span class="fui__mid">
-          <input
-            type="text"
-            class="fui__formElem"
-            v-model="defaultFacts.info.info_3"
-          />
+      <label>
+        <span>
+          <input type="text" class="" v-model="defaultFacts.info.info_3" />
           <TextSlider />
         </span>
       </label>
     </div>
 
     <!-- hard to loop since distinct lists may help... Although... -->
-    <div class="row stripe--dark">
-      <label>
-        <input type="email" v-model="defaultFacts.info.info_0" />
-      </label>
+    <span class="fui__wrap">
+      <span class="fui__mid">
+        <div class="row stripe--dark">
+          <label>
+            <input
+              class="fui__formElem"
+              type="email"
+              v-model="defaultFacts.info.info_0"
+            />
+          </label>
 
-      <label>
-        <input type="text" v-model="defaultFacts.info.info_1" />
-      </label>
-    </div>
-    <div class="row">
-      <label>
-        <input type="text" v-model="defaultFacts.info.info_4" />
-      </label>
-      <label>
-        <input type="text" v-model="defaultFacts.info.info_5" />
-      </label>
-      <label>
-        <input type="text" v-model="defaultFacts.info.info_6" />
-      </label>
-    </div>
+          <label>
+            <input
+              class="fui__formElem"
+              type="text"
+              v-model="defaultFacts.info.info_1"
+            />
+          </label>
+        </div>
+        <div class="row">
+          <label>
+            <input
+              class="fui__formElem"
+              type="text"
+              v-model="defaultFacts.info.info_4"
+            />
+          </label>
+          <label>
+            <input
+              class="fui__formElem"
+              type="text"
+              v-model="defaultFacts.info.info_5"
+            />
+          </label>
+          <label>
+            <input
+              class="fui__formElem"
+              type="text"
+              v-model="defaultFacts.info.info_6"
+            />
+          </label>
+        </div>
+      </span>
+    </span>
   </header>
 </template>
 
@@ -68,19 +88,19 @@ export default {
 .stripe--dark {
   padding: 0;
   flex-wrap: nowrap;
-  height: var(--min-touch-target-height);
+  //height: var(--min-touch-target-height);
   // iOS wants min height hmmmm
-  min-height: var(--min-touch-target-height);
+  //min-height: var(--min-touch-target-height);
   background: #000;
   color: #9a8b7c;
   box-shadow: 1.5rem 0 #000, -1.5rem 0 #000;
 
   label {
-    height: var(--min-touch-target-height);
+    //height: var(--min-touch-target-height);
     // iOS wants this explicit
     align-items: center;
     input {
-      height: var(--min-touch-target-height);
+      //height: var(--min-touch-target-height);
       padding-right: 0;
       padding-left: 0;
     }
@@ -164,9 +184,9 @@ h1 {
     }
   }
   &:nth-of-type(3) {
-    min-height: var(--min-touch-target-height);
+    //min-height: var(--min-touch-target-height);
     label {
-      min-height: var(--min-touch-target-height);
+      //min-height: var(--min-touch-target-height);
       display: inline-flex;
       &:nth-child(2) {
         text-align: center;
