@@ -127,6 +127,7 @@ export default {
 .stats__wrapper--outer {
   display: flex;
   flex-grow: 1;
+  align-items: center;
   // this needs to be put in a variable duh
   //width: 30rem;
   min-width: 30rem;
@@ -196,9 +197,9 @@ th {
     //margin-left: 1rem;
     //margin-right: 1rem;
     textarea {
-      font-variation-settings: "wght" 150, "wdth" 25, "opsz" 35, "GRAD" 1,
+      font-variation-settings: "wght" 175, "wdth" 25, "opsz" 35, "GRAD" 1,
         "slnt" 0, "YTLC" 500, "YTUC" 500, "YTFI" 500;
-      line-height: 0.6666;
+      line-height: 0.65;
       display: flex;
       position: absolute;
       top: 0;
@@ -258,7 +259,7 @@ tbody {
   }
 }
 tfoot {
-  font-variation-settings: "wght" 150, "wdth" 25, "opsz" 30, "GRAD" 1, "slnt" 0,
+  font-variation-settings: "wght" 200, "wdth" 25, "opsz" 30, "GRAD" 1, "slnt" 0,
     "YTLC" 500, "YTUC" 500, "YTFI" 500;
   background: rgba(0, 0, 0, 0.05);
   //box-shadow: 0 1px #000, 1px 0 #000, -1px 0 #000;

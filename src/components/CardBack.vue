@@ -137,11 +137,11 @@ section {
   // if this part is restricted to vert width, then it'll definitely fit on horz
   display: flex;
   flex-grow: 1;
-  align-items: center;
+  align-items: stretch;
   flex-direction: row;
   flex-wrap: wrap;
   padding: 0 1.5rem;
-  //background: rgba(#9c2c1a, 0.1);
+  background: rgba(0, 0, 0, 0.1);
 }
 
 // rather imperative here, but having table as child of flex element was kinda odd... ooooh
