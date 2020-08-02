@@ -4,7 +4,7 @@
       <span>
         <!-- this input is preserving the space that the textarea cannot -->
         <!-- refactor flex in here -->
-        <input type="text" v-model="defaultFacts.info.facts[0].headline" />
+        <input type="text" value />
         <textarea v-model="defaultFacts.info.facts[0].text" :style="cssAsideProps"></textarea>
       </span>
     </blockquote>
@@ -88,6 +88,10 @@ span {
   width: 100%;
 }
 
+input[type="text"] {
+  width: 100%;
+}
+
 // absolute needs to be on the text-area element to keep it from growing I have found
 textarea {
   position: absolute;
@@ -106,5 +110,6 @@ textarea {
     "YTLC" 400, "YTUC" 400, "YTAS" 400;
   line-height: 0.9;
   padding: 1.6rem;
+  word-break: break-all;
 }
 </style>

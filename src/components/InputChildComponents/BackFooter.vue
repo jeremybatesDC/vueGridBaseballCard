@@ -35,19 +35,7 @@ footer {
   position: relative;
   font-size: 1.6rem;
   padding: 0 1.6rem;
-  fieldset {
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    border: none;
-    box-shadow: none;
-    padding: 0;
-    margin: 0;
-    p {
-      font-size: 1.6rem;
-      line-height: 1;
-    }
-  }
+
   input[type="text"] {
     padding: 0;
   }
@@ -71,5 +59,15 @@ footer {
       //z-index: 1;
     }
   }
+}
+
+fieldset {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  border: none;
+  box-shadow: none;
+  padding: 1.6rem 0 0 0;
+  margin: 0;
 }
 </style>
