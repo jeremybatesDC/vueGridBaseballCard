@@ -112,8 +112,9 @@ export default {
   width: 100%;
   max-width: 50.4rem;
   height: 36rem;
-  margin-bottom: 2.4rem;
-  padding: 1.6rem;
+  // i detest top margins but
+  margin: 3.2rem auto;
+  //padding: 1.6rem;
   //overflow: hidden;
 }
 
@@ -123,6 +124,8 @@ article {
   flex-direction: column;
   justify-content: space-between;
   background-color: rgba(#9c2c1a, 0.25);
+  // using outline here so that it'll just be clipped on small devices automatically
+  outline: 1.6rem solid #9a8b7c;
 }
 
 h2 {

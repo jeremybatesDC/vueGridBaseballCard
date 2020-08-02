@@ -2,7 +2,13 @@
 
 ## To Do
 
-consider box-shadow and outline for the card borders. That way, if they don't take up sapce in DOM, they might automatically clipped on iphone5, thus escaping media queries yet again
+because it may not be feasible to vertically center the aside and footer textareas, consider adding a visual florish / bottom box shadow that would be obscured by the text (maybe with a text background color or something) if there was a 2nd line of text, but visible if there is only 1 line. I think that is doable.
+
+need a close button for the focus UI.
+What if it were a label that brought focus back up one landmark level?
+
+-- prob should be only 1 text slider (teleport might be needed)
+-- text slider styles shouldnT inherit from parent (except for maybe positioning in some cases )
 
 stick to cm/mm even if it's off by 1mm. Much more sensible. Aim for 1cm touch targets. PLus math is so clean. But, the 3.5" x 2.5" aspect ratio is a cleaner 1.4 (rather than 1.39) -- but does that matter?
 
@@ -13,14 +19,9 @@ can i offer a 48px touch target (off to the side perhaps) while maintaining tigh
 indicate whether a field can have its font manipulated
 math: computed. Grab an array by refs if necessary and tally those bitches. Can we have only a column recalcute as opposed to the whole table? Yes the watch could be scoped to a an array of only that column's cells
 
-the way to make a mask is via computed and watchers, set/get
-after considering it, i donT think i need a table plugin. If I can properly tag columns then doing math on them shouldnT take any special code really. It would just be a formula, and probably use the Computed method
+the way to make a mask is via computed and watchers, set/get. No need for a mask plugin.
+and, after considering it, i donT think i need a table plugin. If I can properly tag columns then doing math on them shouldnT take any special code really. It would just be a formula, and probably use the Computed method
 
-need a close button for the focus UI.
-What if it were a label that brought focus back up one landmark level?
-
--- prob should be only 1 text slider (teleport might be needed)
--- text slider styles shouldnT inherit from parent (except for maybe positioning in some cases )
 -- refactor card header
 -- refactor input styling -- too much redundancy. See header.
 -- save font-variation-settings to CSS vars to can easily reuse somethin like "tallest thinnest"
