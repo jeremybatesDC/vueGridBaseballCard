@@ -34,8 +34,8 @@ export default {
 <style lang="scss">
 :root {
   // having trouble this morning with calc and scss math with variable and didn't want to get too stuck
-  --min-touch-target-height: 4.4rem;
-  --min-touch-target-height-half: 2.2rem;
+  --min-touch-target-height: 4.8rem;
+  --min-touch-target-height-half: 2.4rem;
 }
 
 h1,
@@ -71,7 +71,7 @@ h3 {
   display: inline-block;
   width: 36rem;
   //yes, hard height here because
-  height: 50.4rem;
+  //height: 50.4rem;
   background-color: var(--cardbackgroundcolor, #eee);
   color: var(--cardtextcolor, #000);
   // i really don't understand at all why wdth is not working

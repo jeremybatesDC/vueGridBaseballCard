@@ -2,7 +2,11 @@
 
 ## To Do
 
+consider box-shadow and outline for the card borders. That way, if they don't take up sapce in DOM, they might automatically clipped on iphone5, thus escaping media queries yet again
+
 stick to cm/mm even if it's off by 1mm. Much more sensible. Aim for 1cm touch targets. PLus math is so clean. But, the 3.5" x 2.5" aspect ratio is a cleaner 1.4 (rather than 1.39) -- but does that matter?
+
+consider 44px 22px 11px -- certainly unconventional but could work
 
 can i offer a 48px touch target (off to the side perhaps) while maintaining tight vertical content like cards actually have?
 

@@ -15,7 +15,7 @@
       </label>
       <label>
         <span>
-          <input type="text" class="" v-model="defaultFacts.info.info_3" />
+          <input type="text" class v-model="defaultFacts.info.info_3" />
           <TextSlider />
         </span>
       </label>
@@ -26,42 +26,22 @@
       <span class="fui__mid">
         <div class="row stripe--dark">
           <label>
-            <input
-              class="fui__formElem"
-              type="email"
-              v-model="defaultFacts.info.info_0"
-            />
+            <input class="fui__formElem" type="email" v-model="defaultFacts.info.info_0" />
           </label>
 
           <label>
-            <input
-              class="fui__formElem"
-              type="text"
-              v-model="defaultFacts.info.info_1"
-            />
+            <input class="fui__formElem" type="text" v-model="defaultFacts.info.info_1" />
           </label>
         </div>
         <div class="row">
           <label>
-            <input
-              class="fui__formElem"
-              type="text"
-              v-model="defaultFacts.info.info_4"
-            />
+            <input class="fui__formElem" type="text" v-model="defaultFacts.info.info_4" />
           </label>
           <label>
-            <input
-              class="fui__formElem"
-              type="text"
-              v-model="defaultFacts.info.info_5"
-            />
+            <input class="fui__formElem" type="text" v-model="defaultFacts.info.info_5" />
           </label>
           <label>
-            <input
-              class="fui__formElem"
-              type="text"
-              v-model="defaultFacts.info.info_6"
-            />
+            <input class="fui__formElem" type="text" v-model="defaultFacts.info.info_6" />
           </label>
         </div>
       </span>
@@ -93,7 +73,7 @@ export default {
   //min-height: var(--min-touch-target-height);
   background: #000;
   color: #9a8b7c;
-  box-shadow: 1.5rem 0 #000, -1.5rem 0 #000;
+  box-shadow: 1.6rem 0 #000, -1.6rem 0 #000;
 
   label {
     //height: var(--min-touch-target-height);
@@ -121,7 +101,7 @@ header {
   display: flex;
   flex-direction: column;
 
-  padding: 0 1.5rem;
+  padding: 0 1.6rem;
 }
 
 .row--topmost {
@@ -136,8 +116,8 @@ header {
 h1 {
   font-size: 2.4rem;
   padding-bottom: 0;
-  font-variation-settings: "wght" 700, "wdth" 25, "opsz" 25, "GRAD" 48, "slnt" 0,
-    "YTLC" 500, "YTUC" 500;
+  font-variation-settings: "wght" 900, "wdth" 50, "opsz" 25, "GRAD" 1,
+    "slnt" -10, "YTLC" 800, "YTUC" 800, "YTAS" 800;
   width: 100%;
   input[type="text"] {
     height: var(--min-touch-target-height);
@@ -174,6 +154,7 @@ h1 {
       color: inherit;
       width: 100%;
       // can prevent iOS zoom with 16px or higher PRE-FOCUS
+      height: var(--min-touch-target-height-half);
       font-size: 1.6rem;
       padding: 0;
       // as of july 27, 2020, font-variation settings can be used to achieve desired smaller appearance
@@ -197,6 +178,8 @@ h1 {
     }
     input[type="text"] {
       width: 100%;
+      height: var(--min-touch-target-height-half);
+
       display: inline-flex;
       min-height: inherit;
     }

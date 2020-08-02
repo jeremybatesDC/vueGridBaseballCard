@@ -1,13 +1,12 @@
 <template>
   <aside class="stats__aside">
     <blockquote>
-      {{ defaultFacts.info.facts[0].headline }}
-      <!-- <small>{{defaultFacts.info.info_2}}</small> -->
-      <!-- <p>{{defaultFacts.info.info_2}}</p> -->
-      <textarea
-        v-model="defaultFacts.info.facts[0].text"
-        :style="cssAsideProps"
-      ></textarea>
+      <span>
+        <!-- this input is preserving the space that the textarea cannot -->
+        <!-- refactor flex in here -->
+        <input type="text" v-model="defaultFacts.info.facts[0].headline" />
+        <textarea v-model="defaultFacts.info.facts[0].text" :style="cssAsideProps"></textarea>
+      </span>
     </blockquote>
   </aside>
 </template>
@@ -67,7 +66,7 @@ blockquote {
   display: flex;
   flex-direction: column;
   flex-grow: 1;
-  position: relative;
+
   //max-width: 90%;
   // hmmm
   //flex-grow: 1;
@@ -81,6 +80,15 @@ blockquote {
   overflow: hidden;
 }
 
+span {
+  display: flex;
+  position: relative;
+  height: 100%;
+  min-height: var(--min-touch-target-height);
+  width: 100%;
+}
+
+// absolute needs to be on the text-area element to keep it from growing I have found
 textarea {
   position: absolute;
   top: 0;
@@ -94,9 +102,9 @@ textarea {
   //flex-grow: 1;
   // MAKING SMALL NOW BECAUSE I NEED TO FIGURE OUT WHICH RULES/LACK OF RULES ARE MAKING THE TEXT AREA EXPLAND TO WIDTH OF CONTENT
   font-size: 1.6rem;
-  line-height: var(--min-touch-target-height);
-  font-variation-settings: "wght" 400, "wdth" 25, "opsz" 50, "GRAD" 48, "slnt" 0,
-    "YTLC" 200, "YTUC" 200, "YTAS" 700;
-  //padding: 0.5rem 1rem;
+  font-variation-settings: "wght" 100, "wdth" 50, "opsz" 25, "GRAD" 1, "slnt" 0,
+    "YTLC" 400, "YTUC" 400, "YTAS" 400;
+  line-height: 0.9;
+  padding: 1.6rem;
 }
 </style>

@@ -113,7 +113,7 @@ export default {
   max-width: 50.4rem;
   height: 36rem;
   margin-bottom: 2.4rem;
-  padding: 1.5rem;
+  padding: 1.6rem;
   //overflow: hidden;
 }
 
@@ -140,7 +140,7 @@ section {
   align-items: stretch;
   flex-direction: row;
   flex-wrap: wrap;
-  padding: 0 1.5rem;
+  padding: 0 1.6rem;
   background: rgba(0, 0, 0, 0.1);
 }
 

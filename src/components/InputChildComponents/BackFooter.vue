@@ -3,7 +3,7 @@
     <fieldset class="fui__mid">
       <!-- <h2>
             <input type="text" v-model="defaultFacts.info.facts[1].headline" />
-          </h2>-->
+      </h2>-->
       <textarea
         class="fui__formElem"
         spellcheck="false"
@@ -34,7 +34,7 @@ footer {
   flex-direction: column;
   position: relative;
   font-size: 1.6rem;
-  padding: 0 1.5rem;
+  padding: 0 1.6rem;
   fieldset {
     display: flex;
     flex-direction: column;
