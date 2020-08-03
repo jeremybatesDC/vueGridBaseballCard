@@ -15,15 +15,16 @@
       </label>
       <label>
         <span>
-          <input type="text" class v-model="defaultFacts.info.info_3" />
+          <input type="text" v-model="defaultFacts.info.info_3" />
           <TextSlider />
         </span>
       </label>
     </div>
 
     <!-- hard to loop since distinct lists may help... Although... -->
-    <span class="fui__wrap">
+    <div class="row fui__wrap">
       <span class="fui__mid">
+        <!-- nested row -->
         <div class="row stripe--dark">
           <label>
             <input class="fui__formElem" type="email" v-model="defaultFacts.info.info_0" />
@@ -45,7 +46,7 @@
           </label>
         </div>
       </span>
-    </span>
+    </div>
   </header>
 </template>
 
@@ -65,6 +66,122 @@ export default {
 
 <style lang="scss" scoped>
 // consider moving this
+
+header {
+  display: flex;
+  flex-direction: column;
+
+  padding: 0 1.6rem;
+}
+
+h1 {
+  display: flex;
+  flex-grow: 1;
+  font-size: 2.4rem;
+  padding-bottom: 0;
+  font-variation-settings: "wght" 900, "wdth" 50, "opsz" 25, "GRAD" 1,
+    "slnt" -10, "YTLC" 800, "YTUC" 800, "YTAS" 800;
+  width: 100%;
+  input[type="text"] {
+    height: var(--min-touch-target-height);
+    font-variation-settings: inherit;
+    padding: 0;
+    width: 100%;
+  }
+}
+
+.row {
+  justify-content: space-between;
+  label {
+    display: flex;
+    flex-direction: column;
+    font-size: 1.6rem;
+    font-variation-settings: "wght" 400, "wdth" 25, "opsz" 50, "GRAD" 48,
+      "slnt" 0, "YTLC" 200, "YTUC" 200, "YTAS" 700;
+    align-items: center;
+    justify-content: center;
+    &:last-child {
+      align-items: flex-end;
+      input[type="text"] {
+        text-align: right;
+        padding-right: 0;
+      }
+    }
+  }
+  &:first-child {
+    label {
+      &:first-child {
+        flex-grow: 1;
+        h1,
+        input {
+          display: flex;
+          flex-grow: 1;
+        }
+      }
+      &:last-child {
+        //flex-grow: 0;
+        //flex-shrink: 1;
+        flex-basis: 25%;
+        span {
+          display: flex;
+        }
+        input {
+          display: flex;
+          max-width: 100px;
+          //flex-grow: 0;
+          //flex-shrink: 1;
+        }
+      }
+    }
+  }
+  &:nth-child(2) {
+    span {
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+    label {
+      &:first-child {
+        flex-grow: 1;
+      }
+    }
+
+    input {
+      color: inherit;
+      width: 100%;
+      // can prevent iOS zoom with 16px or higher PRE-FOCUS
+      height: calc(var(--min-touch-target-height-half) + 0.8rem);
+      font-size: 1.6rem;
+      padding: 0;
+      // as of july 27, 2020, font-variation settings can be used to achieve desired smaller appearance
+      font-variation-settings: "wght" 400, "wdth" 25, "opsz" 50, "GRAD" 48,
+        "slnt" 0, "YTLC" 200, "YTUC" 200, "YTAS" 700;
+      &:focus {
+      }
+    }
+  }
+  // &:nth-of-type(3) {
+  //   //min-height: var(--min-touch-target-height);
+  //   label {
+  //     //min-height: var(--min-touch-target-height);
+  //     display: inline-flex;
+  //     &:nth-child(2) {
+  //       text-align: center;
+  //       input[type="text"] {
+  //         text-align: inherit;
+  //       }
+  //     }
+  //   }
+  //   input[type="text"] {
+  //     width: 100%;
+  //     height: var(--min-touch-target-height-half);
+
+  //     display: inline-flex;
+  //     min-height: inherit;
+  //   }
+  // }
+}
+
 .stripe--dark {
   padding: 0;
   flex-wrap: nowrap;
@@ -94,95 +211,6 @@ export default {
       input {
         text-align: right;
       }
-    }
-  }
-}
-
-header {
-  display: flex;
-  flex-direction: column;
-
-  padding: 0 1.6rem;
-}
-
-.row--topmost {
-  label {
-    &:first-of-type {
-      flex-grow: 1;
-      width: 100%;
-    }
-  }
-}
-
-h1 {
-  font-size: 2.4rem;
-  padding-bottom: 0;
-  font-variation-settings: "wght" 900, "wdth" 50, "opsz" 25, "GRAD" 1,
-    "slnt" -10, "YTLC" 800, "YTUC" 800, "YTAS" 800;
-  width: 100%;
-  input[type="text"] {
-    height: var(--min-touch-target-height);
-    font-variation-settings: inherit;
-    padding: 0;
-    width: 100%;
-  }
-}
-
-.row {
-  justify-content: space-between;
-  label {
-    display: flex;
-    font-size: 1.6rem;
-    font-variation-settings: "wght" 400, "wdth" 25, "opsz" 50, "GRAD" 48,
-      "slnt" 0, "YTLC" 200, "YTUC" 200, "YTAS" 700;
-    align-items: center;
-
-    &:last-child {
-      input[type="text"] {
-        text-align: right;
-        padding-right: 0;
-      }
-    }
-  }
-  &:nth-of-type(2) {
-    label {
-      &:first-child {
-        flex-grow: 1;
-      }
-    }
-
-    input {
-      color: inherit;
-      width: 100%;
-      // can prevent iOS zoom with 16px or higher PRE-FOCUS
-      height: calc(var(--min-touch-target-height-half) + 0.8rem);
-      font-size: 1.6rem;
-      padding: 0;
-      // as of july 27, 2020, font-variation settings can be used to achieve desired smaller appearance
-      font-variation-settings: "wght" 400, "wdth" 25, "opsz" 50, "GRAD" 48,
-        "slnt" 0, "YTLC" 200, "YTUC" 200, "YTAS" 700;
-      &:focus {
-      }
-    }
-  }
-  &:nth-of-type(3) {
-    //min-height: var(--min-touch-target-height);
-    label {
-      //min-height: var(--min-touch-target-height);
-      display: inline-flex;
-      &:nth-child(2) {
-        text-align: center;
-        input[type="text"] {
-          text-align: inherit;
-        }
-      }
-    }
-    input[type="text"] {
-      width: 100%;
-      height: var(--min-touch-target-height-half);
-
-      display: inline-flex;
-      min-height: inherit;
     }
   }
 }

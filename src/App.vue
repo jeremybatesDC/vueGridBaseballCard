@@ -34,8 +34,10 @@ export default {
 <style lang="scss">
 :root {
   // having trouble this morning with calc and scss math with variable and didn't want to get too stuck
+  // wtaf ?
   --min-touch-target-height: 4.4rem;
   --min-touch-target-height-half: 2.2rem;
+  --min-touch-target-height-double: 8.8rem;
 }
 
 h1,

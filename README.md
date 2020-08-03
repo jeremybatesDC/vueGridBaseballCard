@@ -2,6 +2,10 @@
 
 ## To Do
 
+i think putting a table next to a textarea, even though they are both inside flex columns inside a flex-row, is asking a lot and requiring maybe too much time/code
+
+discovered a bug on iOS safari -- after interacting with the textarea, it shrinks -- doesn't recoever it's previous size. I \*think that will be fixed by the PFUI space-preserver feature
+
 replace calcs w/ scss vars for pre-compilation
 
 refactor resets and global inputs
