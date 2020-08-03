@@ -69,7 +69,7 @@ blockquote {
   display: block;
   width: 100%;
   height: auto;
-  padding: 0 1.6rem;
+  padding: 1.6rem 1.6rem 0 1.6rem;
   margin: 0;
   background: rgba(#9c2c1a, 0.25);
 }
@@ -84,11 +84,13 @@ span {
 
 label {
   display: block;
+  min-height: var(--min-touch-target-height);
   //padding: 1.6rem 0;
 }
 
 input[type="text"] {
   width: 100%;
+
   text-align: center;
 }
 
@@ -99,9 +101,11 @@ textarea {
   left: 0;
   width: 100%;
   height: auto;
+  min-height: var(--min-touch-target-height);
   transform: translateY(-50%);
   // padding here based on width helps avoid media queries
-  padding: 25% 0;
+  // can i do a min-max CLAMP here somewhere?
+  padding: 2.4rem 0 6vw 0;
   overflow: hidden;
   text-overflow: ellipsis;
   font-size: 1.6rem;
