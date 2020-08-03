@@ -6,6 +6,8 @@ replace calcs w/ scss vars for pre-compilation
 
 refactor resets and global inputs
 
+ensure offline mode tells user they are offline
+
 because it may not be feasible to alwasy vertically center the aside and footer textareas without ever clipping text, consider adding a visual florish / bottom box shadow that would be obscured by the text (maybe with a text background color or something) if there was a 2nd line of text, but visible if there is only 1 line. I think that is doable. A char max-length could help too. YES. A char counter will help some fields (thinking textareas in particular)
 
 need a close button for the focus UI.
