@@ -4,7 +4,9 @@
 
 replace calcs w/ scss vars for pre-compilation
 
-because it may not be feasible to vertically center the aside and footer textareas, consider adding a visual florish / bottom box shadow that would be obscured by the text (maybe with a text background color or something) if there was a 2nd line of text, but visible if there is only 1 line. I think that is doable.
+refactor resets and global inputs
+
+because it may not be feasible to alwasy vertically center the aside and footer textareas without ever clipping text, consider adding a visual florish / bottom box shadow that would be obscured by the text (maybe with a text background color or something) if there was a 2nd line of text, but visible if there is only 1 line. I think that is doable. A char max-length could help too. YES. A char counter will help some fields (thinking textareas in particular)
 
 need a close button for the focus UI.
 What if it were a label that brought focus back up one landmark level?
@@ -89,6 +91,8 @@ and, after considering it, i donT think i need a table plugin. If I can properly
 -- not sure if this would be considered a hack that might be prevented in future iOS updates, but setting font-size to 16px and then using font-variation settings to achieve desired visual size works at present and avoids the zoom plague
 
 - build a subsetted version of the font without the undesired axes (is that even a thing?)
+
+- consider ridiculing IE11.
 
 ### Built with
 
