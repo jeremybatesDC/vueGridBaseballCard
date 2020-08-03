@@ -80,7 +80,8 @@ export default {
     // iOS wants this explicit
     align-items: center;
     input {
-      //height: var(--min-touch-target-height);
+      height: calc(var(--min-touch-target-height-half) + 0.8rem);
+      width: 100%;
       padding-right: 0;
       padding-left: 0;
     }
@@ -154,7 +155,7 @@ h1 {
       color: inherit;
       width: 100%;
       // can prevent iOS zoom with 16px or higher PRE-FOCUS
-      height: var(--min-touch-target-height-half);
+      height: calc(var(--min-touch-target-height-half) + 0.8rem);
       font-size: 1.6rem;
       padding: 0;
       // as of july 27, 2020, font-variation settings can be used to achieve desired smaller appearance

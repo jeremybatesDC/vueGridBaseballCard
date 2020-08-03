@@ -2,6 +2,8 @@
 
 ## To Do
 
+replace calcs w/ scss vars for pre-compilation
+
 because it may not be feasible to vertically center the aside and footer textareas, consider adding a visual florish / bottom box shadow that would be obscured by the text (maybe with a text background color or something) if there was a 2nd line of text, but visible if there is only 1 line. I think that is doable.
 
 need a close button for the focus UI.

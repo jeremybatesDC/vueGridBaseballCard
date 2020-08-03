@@ -117,7 +117,7 @@ export default {
 
 table {
   width: 100%;
-  max-width: calc(100vw - 6.4rem);
+  max-width: calc(100vw - 3.2rem);
   margin: 0 auto;
   font-size: 1.6rem;
   line-height: 1;

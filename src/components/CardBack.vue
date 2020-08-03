@@ -143,7 +143,7 @@ section {
   align-items: stretch;
   flex-direction: row;
   flex-wrap: wrap;
-  padding: 0 1.6rem;
+  padding: 0;
   background: rgba(0, 0, 0, 0.1);
 }
 
