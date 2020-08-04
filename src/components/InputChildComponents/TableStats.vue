@@ -158,13 +158,15 @@ thead {
   th {
     position: relative;
     height: 3.2rem;
+    vertical-align: middle;
     span {
       margin-left: 3.2rem;
-      //height: inherit;
-      //position: relative;
+      //height: 100%;
+      position: relative;
     }
   }
 }
+// some ths are in tbody and tfoot
 th {
   //padding: 3.2rem 0 0 0;
 
@@ -199,15 +201,17 @@ th {
       //z-index: 1;
 
       // safari mobile seems to struggle with first-line
-      // &::first-line {
-      //   color: red;
-      // }
     }
   }
   &:first-child,
   &:nth-child(2) {
     span {
-      margin-left: 0;
+      vertical-align: top;
+      margin-left: -1.6rem;
+      textarea {
+        text-indent: -0.4rem;
+        padding-left: 2rem;
+      }
     }
   }
 }
