@@ -4,9 +4,9 @@
       <span>
         <!-- this input is preserving the space that the textarea cannot -->
         <!-- refactor flex in here -->
-        <label>
+        <h3>
           <input type="text" v-model="defaultFacts.info.facts[0].headline" />
-        </label>
+        </h3>
         <!-- no need here it seems to add a 'wrap' attr -->
         <textarea v-model="defaultFacts.info.facts[0].text" :style="cssAsideProps"></textarea>
       </span>
@@ -28,10 +28,11 @@ export default {
 aside {
   display: flex;
   flex-grow: 1;
+  flex-basis: 25%;
   //width: auto;
   //height: 100%;
   //background: rgba(0, 0, 0, 0.05);
-
+  min-height: calc(var(--min-touch-target-height) + 3.2rem);
   &:focus-within {
     blockquote {
       font-size: 1.6rem;
@@ -61,17 +62,13 @@ aside {
   }
 }
 
-.stats__aside__headline {
-  text-align: center;
-}
-
 blockquote {
   display: block;
   width: 100%;
   height: auto;
-  padding: 1.6rem 1.6rem 0 1.6rem;
+  padding: 0.4rem 1.6rem 0 1.6rem;
   margin: 0;
-  background: rgba(#9c2c1a, 0.25);
+  background-color: rgba(#9c2c1a, 0.25);
 }
 
 span {
@@ -82,16 +79,22 @@ span {
   width: 100%;
 }
 
-label {
+h3 {
+  position: absolute;
+  top: 0;
+  left: 0;
   display: block;
-  min-height: var(--min-touch-target-height);
-  //padding: 1.6rem 0;
+  width: 100%;
+  //height: var(--min-touch-target-height);
+  padding: 0;
 }
 
 input[type="text"] {
-  width: 100%;
-
-  text-align: center;
+  display: block;
+  font-size: 1.6rem;
+  //width: 100%;
+  //text-align: center;
+  font-variation-settings: var(--text-short-wide);
 }
 
 // absolute needs to be on the text-area element to keep it from growing I have found
@@ -111,6 +114,6 @@ textarea {
   font-size: 1.6rem;
   font-variation-settings: "wght" 100, "wdth" 50, "opsz" 25, "GRAD" 1, "slnt" 0,
     "YTLC" 400, "YTUC" 400, "YTAS" 400;
-  line-height: 0.9;
+  line-height: 0.8;
 }
 </style>

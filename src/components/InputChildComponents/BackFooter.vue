@@ -5,6 +5,7 @@
             <input type="text" v-model="defaultFacts.info.facts[1].headline" />
       </h2>-->
       <textarea
+        rows="2"
         class="fui__formElem"
         spellcheck="false"
         :style="cssFooterProps"
@@ -35,13 +36,17 @@ footer {
   position: relative;
   font-size: 1.6rem;
   padding: 0 1.6rem;
+  background-color: rgba(#9c2c1a, 0.25);
 
   input[type="text"] {
     padding: 0;
   }
   textarea {
-    font-variation-settings: "wght" 400, "wdth" 25, "opsz" 50, "GRAD" 48,
-      "slnt" 0, "YTLC" 200, "YTUC" 200, "YTAS" 700;
+    min-height: var(--min-touch-target-height);
+    font-variation-settings: "wght" 333, "wdth" 33, "opsz" 33, "GRAD" 1,
+      "slnt" -5, "YTLC" 500, "YTUC" 500, "YTAS" 500;
+    line-height: 0.8;
+    padding-top: 0.4rem;
   }
   &:focus-within {
     textarea {
@@ -67,7 +72,7 @@ fieldset {
   position: relative;
   border: none;
   box-shadow: none;
-  padding: 1.6rem 0 0 0;
+  padding: 0.8rem 0 0 0;
   margin: 0;
 }
 </style>

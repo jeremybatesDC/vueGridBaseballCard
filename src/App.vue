@@ -38,6 +38,8 @@ export default {
   --min-touch-target-height: 4.4rem;
   --min-touch-target-height-half: 2.2rem;
   --min-touch-target-height-double: 8.8rem;
+  --text-short-wide: "wght" 400, "wdth" 25, "opsz" 25, "GRAD" 1, "slnt" 0,
+    "YTLC" 400, "YTUC" 400, "YTFI" 400;
 }
 
 h1,
