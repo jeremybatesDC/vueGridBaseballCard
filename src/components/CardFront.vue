@@ -208,7 +208,7 @@
           <summary>
             <legend>Imperfections</legend>
           </summary>
-          <div>CMYK misrpint, fuzzy corners, Creases/Dog-ears, Gum</div>
+          <div>Gum, CMYK misprint, fuzzy/dogeared corners, other creases</div>
         </details>
       </fieldset>
       <fieldset>
@@ -216,7 +216,11 @@
           <summary>
             <legend>Superlatives</legend>
           </summary>
-          <div>All Star</div>
+          <div>
+            <p>All Star, Rookie of the Year, MVP, Arbitrary</p>
+            <p>circle border or open (maybe no circle border since it would look maybe ugh)</p>
+            <p>img for superlative? Or just pizzaz (star, trophy, banner, (other?) none)</p>
+          </div>
         </details>
       </fieldset>
 
