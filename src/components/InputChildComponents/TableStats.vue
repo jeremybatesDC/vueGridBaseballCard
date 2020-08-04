@@ -179,7 +179,7 @@ th {
     //margin-left: 1rem;
     //margin-right: 1rem;
     textarea {
-      font-variation-settings: "wght" 175, "wdth" 25, "opsz" 35, "GRAD" 1,
+      font-variation-settings: "wght" 300, "wdth" 25, "opsz" 35, "GRAD" 1,
         "slnt" 0, "YTLC" 500, "YTUC" 500, "YTFI" 500;
       line-height: 0.65;
       display: flex;
