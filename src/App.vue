@@ -40,6 +40,7 @@ export default {
   --min-touch-target-height-double: 8.8rem;
   --text-short-wide: "wght" 400, "wdth" 25, "opsz" 25, "GRAD" 1, "slnt" 0,
     "YTLC" 400, "YTUC" 400, "YTFI" 400;
+  --cmyk-misalign: 1px 0 0 cyan, -1px 0 0 magenta, 0 1px 0 yellow;
 }
 
 h1,
@@ -58,9 +59,8 @@ h3 {
   }
 }
 
-.baseballCard__wrapper {
-  //padding: 3.2rem;
-}
+// .baseballCard__wrapper {
+// }
 
 .fileInput--fullContainerSize {
   position: absolute;
@@ -73,6 +73,7 @@ h3 {
 
 .baseballCard__wrapper--inner {
   display: inline-block;
+  position: relative;
   width: 36rem;
   //yes, hard height here because
   //height: 50.4rem;
@@ -83,6 +84,7 @@ h3 {
   font-variation-settings: "wght" var(--cardtextfontweight),
     "wdth" var(--cardtextfontwidth), "opsz" var(--cardtextfontoptsize),
     "GRAD" var(--cardtextfontgrade), "slnt" var(--cardtextfontslant);
+  overflow: hidden;
 
   // slnt
   // some x / y height stuff
@@ -91,6 +93,47 @@ h3 {
   //https://typetools.typenetwork.com/
 
   //  "slnt" 0,"XTRA" 468, "XOPQ" 151, "YOPQ" 47, "YTLC" 514, "YTUC" 712, "YTAS" 750, "YTDE" -203, "YTFI" 738;
+
+  &.has-misalign {
+  }
+  &.has-gum {
+  }
+  &.has-crease {
+  }
+  // mislaign
+  * {
+    text-shadow: var(--cmyk-misalign);
+  }
+  //crease
+  &:before {
+    // svg crease image maybe
+    content: "";
+    position: absolute;
+    top: 0;
+    right: -100px;
+    height: 2px;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.25);
+    transform: rotate(33deg) scaleX(2);
+    //transform-origin: center top;
+    z-index: 1;
+    //tfoutline: 1px dashed rgba(0, 0, 0, 0.25);
+    box-shadow: 1px 0 rgba(0, 0, 0, 1);
+    //border-image:url();
+  }
+  //gum
+  &:after {
+    // svg gum image maybe
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 10rem;
+    height: 30rem;
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 3px 4px 5px 6px;
+    transform: rotate(18deg) translateX(100%) translateY(20%);
+  }
 }
 
 // there are some hard to iron out differences between filters when they are overtop of images

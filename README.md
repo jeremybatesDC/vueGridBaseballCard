@@ -2,6 +2,12 @@
 
 ## To Do
 
+what elements would be subject to CMYK misalign? Back is duotone by design so I guess only the front.
+
+can i write a grid that wraps and uses min max and clamp maybe? Hmmm. Worth a try, although I do need to pivot back to programming
+
+can i write a test for zoom? i'd like to be able to make adjustments and not necessarily have to test manually each time on iphone... i can imagine a scenario i nqhich i get kinda far down the road re formatting and have to back out because iOS zoom
+
 i think putting a table next to a textarea, even though they are both inside flex columns inside a flex-row, is asking a lot and requiring maybe too much time/code
 
 discovered a bug on iOS safari -- after interacting with the textarea, it shrinks -- doesn't recoever it's previous size. I \*think that will be fixed by the PFUI space-preserver feature

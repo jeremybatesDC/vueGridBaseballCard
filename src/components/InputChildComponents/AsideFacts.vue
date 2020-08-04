@@ -93,7 +93,7 @@ input[type="text"] {
   display: block;
   font-size: 1.6rem;
   //width: 100%;
-  //text-align: center;
+  text-align: center;
   font-variation-settings: var(--text-short-wide);
 }
 

@@ -30,22 +30,12 @@
         <aside class="corner--bottom--left"></aside>
         <section class="footer--playerName">
           <h1>
-            <input
-              v-model="playerName"
-              type="text"
-              placeholder
-              maxlength="48"
-            />
+            <input v-model="playerName" type="text" placeholder maxlength="48" />
           </h1>
         </section>
         <section class="footer--playerPosition">
           <h3>
-            <input
-              v-model="playerPosition"
-              type="text"
-              placeholder
-              maxlength="48"
-            />
+            <input v-model="playerPosition" type="text" placeholder maxlength="48" />
           </h3>
         </section>
         <section class="footer--teamLogo">
@@ -116,13 +106,7 @@
 
           <label>
             Brightness
-            <input
-              v-model="cardBrightness"
-              type="range"
-              min="1"
-              max="1.3"
-              step="0.01"
-            />
+            <input v-model="cardBrightness" type="range" min="1" max="1.3" step="0.01" />
           </label>
           <label>
             Sepia
@@ -157,21 +141,11 @@
           </label>
           <label>
             Font Weight
-            <input
-              v-model="cardTextFontWeight"
-              type="range"
-              min="100"
-              max="900"
-            />
+            <input v-model="cardTextFontWeight" type="range" min="100" max="900" />
           </label>
           <label>
             Font Width
-            <input
-              v-model="cardTextFontWidth"
-              type="range"
-              min="35"
-              max="100"
-            />
+            <input v-model="cardTextFontWidth" type="range" min="35" max="100" />
           </label>
 
           <label>
@@ -190,7 +164,7 @@
                 min="10"
                 max="72"
               />
-            </label>-->
+          </label>-->
         </details>
       </fieldset>
       <fieldset>
@@ -234,7 +208,7 @@
           <summary>
             <legend>Imperfections</legend>
           </summary>
-          <div>Creases</div>
+          <div>CMYK misrpint, fuzzy corners, Creases/Dog-ears, Gum</div>
         </details>
       </fieldset>
       <fieldset>
