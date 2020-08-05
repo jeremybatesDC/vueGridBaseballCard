@@ -73,11 +73,32 @@
     </div>
     <form class="form--cardDesign">
       <fieldset>
-        <details>
+        <details open>
           <summary>
             <legend>Layout</legend>
           </summary>
-          <div>2up 0 bottom, 1-and-1, 0up 2button</div>
+          <div>
+            <label>
+              <input type="radio" name="layout" value="layoutA" />
+              2-0
+            </label>
+            <label>
+              <input type="radio" name="layout" value="layoutB" />
+              1-1
+            </label>
+            <label>
+              <input type="radio" name="layout" value="layoutC" />
+              0-2
+            </label>
+            <label>
+              <input type="radio" name="layout" value="layoutD" />
+              Diag 1
+            </label>
+            <label>
+              <input type="radio" name="layout" value="layoutE" />
+              Diag 2
+            </label>
+          </div>
         </details>
       </fieldset>
       <fieldset>
@@ -201,6 +222,10 @@
             Border Curve
             <input v-model="cardBorderCurve" type="range" min="0" max="24" />
           </label>
+          <label>
+            Border Width
+            <input type="range" min="0" max="5" />
+          </label>
         </details>
       </fieldset>
       <fieldset>
@@ -227,8 +252,8 @@
             </label>
 
             <label>
-              <input type="tel" value="-18.5" />
               Gum angle
+              <input type="range" value />
             </label>
             <label>
               Gum placement horz
@@ -256,6 +281,10 @@
               <input type="checkbox" />
               CMYK print misalignment
             </label>
+            <label>
+              Misalignment Degree
+              <input type="range" />
+            </label>
           </details>
 
           <!-- corners -->
@@ -271,6 +300,7 @@
                 <option>bottom right</option>
               </select>
             </label>
+
             <label>
               Fuzzy Corner
               <select>
@@ -280,6 +310,10 @@
                 <option>bottom left</option>
                 <option>bottom right</option>
               </select>
+            </label>
+            <label>
+              Fuzziness Degree
+              <input type="range" />
             </label>
           </details>
 
@@ -297,13 +331,9 @@
               </select>
             </label>
             <label>
-              Crease Severity (if selected)
+              Crease/Fuzziness Severity (if selected)
               <!-- make these visible radios -->
-              <select>
-                <option>low</option>
-                <option>med</option>
-                <option>high</option>
-              </select>
+              <input type="range" />
             </label>
           </details>
         </details>

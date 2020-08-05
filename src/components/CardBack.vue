@@ -142,12 +142,12 @@ article {
     // svg crease image maybe
     content: "";
     position: absolute;
-    top: 0;
-    right: -200px;
+    bottom: 0;
+    left: -200px;
     height: 2px;
     width: 100%;
     background-color: rgba(0, 0, 0, 0.25);
-    transform: rotate(33deg) scaleX(2);
+    transform: rotate(45deg) scaleX(2);
     //transform-origin: center top;
     z-index: 1;
     //tfoutline: 1px dashed rgba(0, 0, 0, 0.25);
@@ -165,7 +165,7 @@ article {
     height: 30rem;
     background-color: rgba(0, 0, 0, 0.1);
     border-radius: 3px 5px 7px 9px;
-    transform: rotate(-33deg) translateX(-6rem) translateY(-6rem);
+    transform: rotate(-33deg) translateX(-8rem) translateY(-4rem);
     mix-blend-mode: darken;
     filter: blur(2px);
   }

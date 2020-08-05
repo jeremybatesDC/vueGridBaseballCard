@@ -114,7 +114,7 @@ h3 {
     height: 2px;
     width: 100%;
     background-color: rgba(0, 0, 0, 0.25);
-    transform: rotate(33deg) scaleX(2);
+    transform: rotate(45deg) scaleX(2);
     //transform-origin: center top;
     z-index: 1;
     //tfoutline: 1px dashed rgba(0, 0, 0, 0.25);
@@ -193,7 +193,7 @@ h3 {
   display: inline-block;
   vertical-align: top;
   // temporary arbitrary value
-  //max-width: 12rem;
+  max-width: 18rem;
   padding-left: 1rem;
   overflow: hidden;
 }
