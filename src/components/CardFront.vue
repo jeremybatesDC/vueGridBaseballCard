@@ -208,7 +208,104 @@
           <summary>
             <legend>Imperfections</legend>
           </summary>
-          <div>Gum (radio: front, back, none -- but also where -- angle and placement), CMYK misprint, fuzzy/dogeared corners, other creases</div>
+
+          <!-- nested accordion here -->
+          <!-- gum -->
+          <details>
+            <summary>Gum</summary>
+            <label>
+              <input type="radio" name="gumradio" value="nogum" />
+              No gum
+            </label>
+            <label>
+              <input type="radio" name="gumradio" value="gum front" />
+              Gum front
+            </label>
+            <label>
+              <input type="radio" name="gumradio" value="gum back" />
+              Gum back
+            </label>
+
+            <label>
+              <input type="tel" value="-18.5" />
+              Gum angle
+            </label>
+            <label>
+              Gum placement horz
+              <select>
+                <option>left</option>
+                <option>center</option>
+                <option>right</option>
+              </select>
+            </label>
+
+            <label>
+              Gum placement vert
+              <select>
+                <option>top</option>
+                <option>middle</option>
+                <option>bottom</option>
+              </select>
+            </label>
+          </details>
+
+          <!-- cmyk -->
+          <details>
+            <summary>Print Defects</summary>
+            <label>
+              <input type="checkbox" />
+              CMYK print misalignment
+            </label>
+          </details>
+
+          <!-- corners -->
+          <details>
+            <summary>Dog ear</summary>
+            <label>
+              Dog-Eared Corner
+              <select>
+                <option>none</option>
+                <option>top left</option>
+                <option>top right</option>
+                <option>bottom left</option>
+                <option>bottom right</option>
+              </select>
+            </label>
+            <label>
+              Fuzzy Corner
+              <select>
+                <option>none</option>
+                <option>top left</option>
+                <option>top right</option>
+                <option>bottom left</option>
+                <option>bottom right</option>
+              </select>
+            </label>
+          </details>
+
+          <details>
+            <summary>Other Creases</summary>
+            <label>
+              Crease Location
+              <!-- make these visible radios -->
+              <select>
+                <option>none</option>
+                <option>top left</option>
+                <option>top right</option>
+                <option>bottom left</option>
+                <option>bottom right</option>
+              </select>
+            </label>
+            <label>
+              Crease Severity (if selected)
+              <!-- make these visible radios -->
+              <select>
+                <option>low</option>
+                <option>med</option>
+                <option>high</option>
+              </select>
+            </label>
+          </details>
         </details>
       </fieldset>
       <fieldset>
@@ -216,6 +313,7 @@
           <summary>
             <legend>Superlatives</legend>
           </summary>
+
           <div>
             <p>All Star, Rookie of the Year, MVP, Arbitrary</p>
             <p>circle border or open (maybe no circle border since it would look maybe ugh)</p>

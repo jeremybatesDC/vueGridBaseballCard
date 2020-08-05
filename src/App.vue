@@ -193,7 +193,7 @@ h3 {
   display: inline-block;
   vertical-align: top;
   // temporary arbitrary value
-  max-width: 12rem;
+  //max-width: 12rem;
   padding-left: 1rem;
   overflow: hidden;
 }
