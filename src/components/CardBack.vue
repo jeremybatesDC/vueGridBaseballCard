@@ -106,7 +106,7 @@ export default {
 .card-back {
   display: flex;
   //flex-direction: column;
-
+  position: relative;
   background-color: #9a8b7c;
   flex-basis: 100%;
   width: 100%;
@@ -115,6 +115,7 @@ export default {
   // i detest top margins but
   margin: 3.2rem auto;
   //padding: 1.6rem;
+  // cannot do overflow hidden here because it chops the outline
   //overflow: hidden;
 }
 
@@ -123,9 +124,51 @@ article {
   flex-grow: 1;
   flex-direction: column;
   justify-content: space-between;
+  position: relative;
   background-color: rgba(#9c2c1a, 0.25);
   // using outline here so that it'll just be clipped on small devices automatically
   outline: 1.6rem solid #9a8b7c;
+  overflow: hidden;
+
+  // need to figure this out -- prob need another wrapper
+
+  &.has-gum {
+  }
+  &.has-crease {
+  }
+
+  //crease
+  &:before {
+    // svg crease image maybe
+    content: "";
+    position: absolute;
+    top: 0;
+    right: -200px;
+    height: 2px;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.25);
+    transform: rotate(33deg) scaleX(2);
+    //transform-origin: center top;
+    z-index: 1;
+    //tfoutline: 1px dashed rgba(0, 0, 0, 0.25);
+    box-shadow: 1px 0 rgba(0, 0, 0, 1);
+    //border-image:url();
+  }
+  //gum
+  &:after {
+    // svg gum image maybe
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 10rem;
+    height: 30rem;
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 3px 5px 7px 9px;
+    transform: rotate(-33deg) translateX(-6rem) translateY(-6rem);
+    mix-blend-mode: darken;
+    filter: blur(2px);
+  }
 }
 
 h2 {

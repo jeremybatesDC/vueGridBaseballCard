@@ -133,6 +133,7 @@ h3 {
     background-color: rgba(0, 0, 0, 0.1);
     border-radius: 3px 4px 5px 6px;
     transform: rotate(18deg) translateX(100%) translateY(20%);
+    mix-blend-mode: darken;
   }
 }
 

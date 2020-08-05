@@ -208,7 +208,7 @@
           <summary>
             <legend>Imperfections</legend>
           </summary>
-          <div>Gum, CMYK misprint, fuzzy/dogeared corners, other creases</div>
+          <div>Gum (radio: front, back, none -- but also where -- angle and placement), CMYK misprint, fuzzy/dogeared corners, other creases</div>
         </details>
       </fieldset>
       <fieldset>
