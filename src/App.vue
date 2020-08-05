@@ -1,7 +1,21 @@
 <template>
   <main>
-    <CardBack />
-    <CardFront />
+    <ul class="tablist">
+      <label>
+        <input type="radio" v-model="frontshowing" :value="true" />Front
+      </label>
+      <label>
+        <input type="radio" v-model="frontshowing" :value="false" />Back
+      </label>
+    </ul>
+    <div>
+      <div role="tabpanel" v-show="frontshowing">
+        <CardFront />
+      </div>
+      <div role="tabpanel" v-show="!frontshowing">
+        <CardBack />
+      </div>
+    </div>
   </main>
 </template>
 
@@ -25,6 +39,11 @@ export default {
     console.log(
       "remember to uncomment this service worker. Also, work on an envar"
     );
+  },
+  data: function () {
+    return {
+      frontshowing: true,
+    };
   },
   //data
   //should i move data into parent component? Yes, I think so.
@@ -122,19 +141,19 @@ h3 {
     //border-image:url();
   }
   //gum
-  &:after {
-    // svg gum image maybe
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 10rem;
-    height: 30rem;
-    background-color: rgba(0, 0, 0, 0.1);
-    border-radius: 3px 4px 5px 6px;
-    transform: rotate(18deg) translateX(100%) translateY(20%);
-    mix-blend-mode: darken;
-  }
+  // svg gum image maybe
+  // &:after {
+  //   content: "";
+  //   position: absolute;
+  //   top: 0;
+  //   left: 0;
+  //   width: 10rem;
+  //   height: 30rem;
+  //   background-color: rgba(0, 0, 0, 0.1);
+  //   border-radius: 3px 4px 5px 6px;
+  //   transform: rotate(18deg) translateX(100%) translateY(20%);
+  //   mix-blend-mode: darken;
+  // }
 }
 
 // there are some hard to iron out differences between filters when they are overtop of images

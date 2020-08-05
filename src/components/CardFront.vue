@@ -289,7 +289,7 @@
 
           <!-- corners -->
           <details>
-            <summary>Dog ear</summary>
+            <summary>Corner Fuziness/Dogears</summary>
             <label>
               Dog-Eared Corner
               <select>
