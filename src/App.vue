@@ -22,6 +22,8 @@
 </template>
 
 <script>
+// learning about async components...
+// import { defineAsyncComponent } from "vue";
 import CardFront from "./components/CardFront.vue";
 import CardBack from "./components/CardBack.vue";
 
@@ -277,8 +279,9 @@ label {
   display: flex;
   flex-grow: 1;
   align-items: center;
+  justify-content: center;
   min-height: var(--min-touch-target-height);
-  padding: 0 1.6rem;
+  padding: 0.2rem 1.6rem;
   // in case ever have more than just 2 tabs
   &:not(:first-child) {
     box-shadow: -1px 0 #000;

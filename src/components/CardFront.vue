@@ -25,6 +25,15 @@
               :src="playerImageURLorDataString"
               :alt="playerName + ' being awesome'"
             />
+            <input
+              class="fileInput--fullContainerSize"
+              type="file"
+              id="playerImageFileInput"
+              ref="playerImageFileInput"
+              name="playerImageFileInput"
+              accept="image/*"
+              @input="encodeImage"
+            />
           </section>
           <aside class="sidebar--right"></aside>
 
@@ -49,13 +58,14 @@
               :alt="teamLogoAltText"
             />
 
-            <!-- <input
-            class="fileInput--fullContainerSize"
-            type="file"
-            id="logoFileInput"
-            name="logoFileInput"
-            accept="image/*"
-            />-->
+            <input
+              class="fileInput--fullContainerSize"
+              type="file"
+              id="logoFileInput"
+              name="logoFileInput"
+              accept="image/*"
+              @input="encodeImage"
+            />
           </section>
           <aside class="corner--bottom--right"></aside>
 
@@ -116,15 +126,6 @@
               placeholder
             />
             <br />
-            <input
-              class
-              type="file"
-              id="playerImageFileInput"
-              ref="playerImageFileInput"
-              name="playerImageFileInput"
-              accept="image/*"
-              @input="encodeImage"
-            />
           </label>
 
           <label>
@@ -410,6 +411,7 @@ export default {
     //   }
     // }
 
+    // need this to encode whatever image is passed to it right?
     async function encodeImage() {
       let filesProp = this.$refs.playerImageFileInput.files;
       let usrfile = filesProp[0];

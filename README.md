@@ -2,29 +2,36 @@
 
 ## To Do
 
-- restore clicking on images to upload/capture new image
+FOCUS UI STUFF
+-> a focus UI for images is needed:
 
-what elements would be subject to CMYK misalign? Back is duotone by design so I guess only the front. How can i get an image trace of some kind? With canvas?
+- option to upload new image
+- image sliders shown here sepia greyscale etc
+- this would be where object-fit options could live
 
-- can a worker send the actual image file somewhere, but give back a filename string or something so we can match them up later?
+-> need a close button for the focus UI.
+-> What if it were a label that brought focus back up one landmark level?
 
-* on back gum and crease need to reach edge of card -- either neg margins or translate or absolute who cares one of those
+- click logo image: 1) refactor encode script to accept either image -- should be doable even just with some attributes
 
-ensure offline mode tells user they are offline
+- helper text explaining image specs
 
-- de-hackify tab accessibilty markup
+* can a worker send the actual image file somewhere, but give back a filename string or something so we can match them up later?
 
-replace calcs w/ scss vars for pre-compilation (might mean putting variables that aren't meant to be user-controllable into SCSS variables. )
+- on back gum and crease need to reach edge of card -- either neg margins or translate or absolute who cares one of those
 
-refactor resets and global inputs
+* replace calcs w/ scss vars for pre-compilation (might mean putting variables that aren't meant to be user-controllable into SCSS variables. )
 
-because it may not be feasible to alwasy vertically center the aside and footer textareas without ever clipping text, consider adding a visual florish / bottom box shadow that would be obscured by the text (maybe with a text background color or something) if there was a 2nd line of text, but visible if there is only 1 line. I think that is doable. A char max-length could help too. YES. A char counter will help some fields (thinking textareas in particular)
+* ensure offline mode tells user they are offline
 
-need a close button for the focus UI.
-What if it were a label that brought focus back up one landmark level?
+* de-hackify tab accessibilty markup (maybe use hidden and then put click handlers that toggle aria stuff. Pretty simple)
 
--- prob should be only 1 text slider (teleport might be needed)
--- text slider styles shouldnT inherit from parent (except for maybe positioning in some cases )
+* refactor resets and global inputs
+
+-- should be only 1 text slider (teleport might be needed): Teleport. https://medium.com/@patelvivek2530/teleport-vue-3s-new-feature-a887fe05fd87 -- feature used to be palled portal
+
+-- text slider styles shouldnT inherit from parent (except for maybe positioning in some cases
+)
 
 indicate whether a field can have its font manipulated
 
@@ -54,7 +61,11 @@ and, after considering it, i donT think i need a table plugin. If I can properly
 
 --> in addition to preventing jumps by taking up space (the focus UI needs this), CONSIDER a simple ANIMATION to show that a field is opening up to be edited and then is closing back down.
 
---> Use Vue3 async components and suspense API -- and what is the new one called? Teleport. https://medium.com/@patelvivek2530/teleport-vue-3s-new-feature-a887fe05fd87 -- feature used to be palled portal
+- TABS: on screens that are wide enough, consider splitting front/back buttons to sides ( for thumbs holding a phone in landscape, for instance). Goal here is to have user se 100% all content needed without having to scroll
+  --> make sure tab state is saved locally
+  --> use hashes so BACK works as user expects
+
+because it may not be feasible to alwasy vertically center the aside and footer textareas without ever clipping text, consider adding a visual florish / bottom box shadow that would be obscured by the text (maybe with a text background color or something) if there was a 2nd line of text, but visible if there is only 1 line. I think that is doable. A char max-length could help too. YES. A char counter will help some fields (thinking textareas in particular)
 
 --> stats: Previous 5 years
 (offer previous 10 years but no fact footer)
@@ -97,6 +108,14 @@ can i offer a 48px touch target (off to the side perhaps) while maintaining tigh
 
 ### 2nd release
 
+--> do we need compiler/full build on prod? i don't think so. I think we only need runtime. So make sure we're not loading more code than we need.
+
+--> Use Vue3 async components and suspense API
+
+--> css content visibilty new chromium property. Could help in chrome even though safari doesnT seem to want it.
+
+- CMYK misalign elements? How can i get an image trace of some kind? With canvas?
+- img crop/centering options
 - consider building a subsetted version of the font without the undesired axes (is that even a thing?) -- or even offering more than 1 parametric font (in performannt way) -- like a SERIF
 
 - for uploading photo could offer a choice: choose photo OR takeUserFacing. Otherwise I can't seem to express "go to photo roll, but IF user opens camera, have it facing front"
