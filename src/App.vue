@@ -1,18 +1,20 @@
 <template>
   <main>
-    <ul class="tablist">
-      <label>
-        <input type="radio" v-model="frontshowing" :value="true" />Front
+    <div role="tablist">
+      <label role="tab" aria-selected aria-controls id>
+        <input type="radio" v-model="frontshowing" :value="true" />
+        <span>FRONT</span>
       </label>
-      <label>
-        <input type="radio" v-model="frontshowing" :value="false" />Back
+      <label role="tab" aria-selected aria-controls id>
+        <input type="radio" v-model="frontshowing" :value="false" />
+        <span>BACK</span>
       </label>
-    </ul>
+    </div>
     <div>
-      <div role="tabpanel" v-show="frontshowing">
+      <div role="tabpanel" id aria-labelledby v-show="frontshowing">
         <CardFront />
       </div>
-      <div role="tabpanel" v-show="!frontshowing">
+      <div role="tabpanel" id aria-labelledby v-show="!frontshowing">
         <CardBack />
       </div>
     </div>
@@ -55,6 +57,7 @@ export default {
   // having trouble this morning with calc and scss math with variable and didn't want to get too stuck
   // wtaf ?
   --min-touch-target-height: 4.4rem;
+  --min-touch-target-width: var(--min-touch-target-height);
   --min-touch-target-height-half: 2.2rem;
   --min-touch-target-height-double: 8.8rem;
   --text-short-wide: "wght" 400, "wdth" 25, "opsz" 25, "GRAD" 1, "slnt" 0,
@@ -88,6 +91,11 @@ h3 {
   height: 100%;
   width: 100%;
   opacity: 0;
+}
+
+.baseballCard__wrapper--mid {
+  display: flex;
+  justify-content: center;
 }
 
 .baseballCard__wrapper--inner {
@@ -180,6 +188,9 @@ h3 {
   input {
     text-align: right;
   }
+  input {
+    font-size: 1.6rem;
+  }
 }
 .footer--teamLogo {
   display: flex;
@@ -252,6 +263,30 @@ label {
   }
   .baseballCard__wrapper & {
     margin-bottom: 1.6rem;
+  }
+}
+
+[role="tablist"] {
+  display: flex;
+  margin-bottom: 1.6rem;
+  background: rgba(0, 0, 0, 0.1);
+}
+
+[role="tab"] {
+  font-size: 1.8rem;
+  display: flex;
+  flex-grow: 1;
+  align-items: center;
+  min-height: var(--min-touch-target-height);
+  padding: 0 1.6rem;
+  // in case ever have more than just 2 tabs
+  &:not(:first-child) {
+    box-shadow: -1px 0 #000;
+  }
+  [type="radio"] {
+    min-height: inherit;
+    min-width: var(--min-touch-target-width);
+    margin-right: 1.6rem;
   }
 }
 </style>

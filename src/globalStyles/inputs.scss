@@ -21,6 +21,11 @@ textarea {
   word-break: break-word;
 }
 
+[type="radio"] {
+  margin: 0;
+  padding: 0;
+}
+
 [data-show-only-on-interaction] {
   position: absolute;
   display: flex;

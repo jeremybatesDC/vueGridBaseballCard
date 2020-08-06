@@ -2,23 +2,21 @@
 
 ## To Do
 
-uneven light fading would be cool
+- restore clicking on images to upload/capture new image
 
-thumbtack hole?
+what elements would be subject to CMYK misalign? Back is duotone by design so I guess only the front. How can i get an image trace of some kind? With canvas?
 
-what elements would be subject to CMYK misalign? Back is duotone by design so I guess only the front.
+- can a worker send the actual image file somewhere, but give back a filename string or something so we can match them up later?
 
-can i write a css native grid that wraps and uses min max and clamp maybe? Hmmm. Worth a try, although I do need to pivot back to programming
-
-can i write a test for ios zoom on input? i'd like to be able to make adjustments and not necessarily have to test manually each time on iphone... i can imagine a scenario i nqhich i get kinda far down the road re formatting and have to back out because iOS zoom
-
-i think putting a table next to a textarea, even though they are both inside flex columns inside a flex-row, is asking a lot and requiring maybe too much time/code
-
-replace calcs w/ scss vars for pre-compilation
-
-refactor resets and global inputs
+* on back gum and crease need to reach edge of card -- either neg margins or translate or absolute who cares one of those
 
 ensure offline mode tells user they are offline
+
+- de-hackify tab accessibilty markup
+
+replace calcs w/ scss vars for pre-compilation (might mean putting variables that aren't meant to be user-controllable into SCSS variables. )
+
+refactor resets and global inputs
 
 because it may not be feasible to alwasy vertically center the aside and footer textareas without ever clipping text, consider adding a visual florish / bottom box shadow that would be obscured by the text (maybe with a text background color or something) if there was a 2nd line of text, but visible if there is only 1 line. I think that is doable. A char max-length could help too. YES. A char counter will help some fields (thinking textareas in particular)
 
@@ -28,40 +26,29 @@ What if it were a label that brought focus back up one landmark level?
 -- prob should be only 1 text slider (teleport might be needed)
 -- text slider styles shouldnT inherit from parent (except for maybe positioning in some cases )
 
-stick to cm/mm even if it's off by 1mm. Much more sensible. Aim for 1cm touch targets. PLus math is so clean. But, the 3.5" x 2.5" aspect ratio is a cleaner 1.4 (rather than 1.39) -- but does that matter?
-
-consider 44px 22px 11px -- certainly unconventional but could work
-
-can i offer a 48px touch target (off to the side perhaps) while maintaining tight vertical content like cards actually have?
-
 indicate whether a field can have its font manipulated
+
 math: computed. Grab an array by refs if necessary and tally those bitches. Can we have only a column recalcute as opposed to the whole table? Yes the watch could be scoped to a an array of only that column's cells
 
 the way to make a mask is via computed and watchers, set/get. No need for a mask plugin.
 and, after considering it, i donT think i need a table plugin. If I can properly tag columns then doing math on them shouldnT take any special code really. It would just be a formula, and probably use the Computed method
 
+- Add Examples (start with JSON)  
+  -- untappt cards
+  -- github cards
+  -- genealogy cards
+  -- politicians
+  -- baseball current example
+
 -- refactor card header
 -- refactor input styling -- too much redundancy. See header.
 -- save font-variation-settings to CSS vars to can easily reuse somethin like "tallest thinnest"
 -- factor out options API stuff
--- reduce visible size of borders for 320px devices so hopefully rest of content can give adequate touch targets in real world measurements (7-12mm) (maybe using min-max clamps?)
+
+-- (further?) reduce visible size of borders for 320px devices so hopefully rest of content can give adequate touch targets in real world measurements (7-12mm) (maybe using min-max clamps?)
 -- min touch target 48px wherever possible (playing numerologist right now 44, 45, 46, 48)
 
--- consider microformats
-
--- don't bikeshed too much on table width styles right now
--- consider using placeholders and style them exaclty if possible -- makes it easier for user to to type from scratch.
--- Name on back could inherit AS A PLACEHOLDER the value of name on front, so it can be its own field that could be edited on its own without affecting the field on the front. Better and simpler than having user select whether to inherit or not. I'll find an issue maybe, but i like the idea
-
-- actually use Typescript :-)
 - consider PWA -- why is dev tools showing installation probs related to icons? They are there... Path issue? Prob not issue with actual file but can check
-- CLS is being caused by at lease these, so think man, think:
-  (if initial font is better sized to match loaded font, then won't flex... Obvi caching is the way, but first load... )
-  tr
-  tr.stats-table t-body-tr
-  td.stats-table-t-body-td
-  blockquote
-  --> factor out card table (and use SUSPENSE if needed)
 
 --> better highlightthe active table cell you're editing beucase otherwise it's disorientating
 
@@ -89,24 +76,45 @@ and, after considering it, i donT think i need a table plugin. If I can properly
 
 2.  On X event(s) [blur with placeholder not showing] and/or at Y time(s), save fields that user changes to IDB. Do this async and, if it makes sense, have a WORKER do this to keep the UI thread free (maybe for a dostracting animation)
 
----
+- CLS is being caused by at lease these, so think man, think:
+  (if initial font is better sized to match loaded font, then won't flex... Obvi caching is the way, but first load... )
+  tr
+  tr.stats-table t-body-tr
+  td.stats-table-t-body-td
+  blockquote
 
-- Add Examples (start with JSON)  
-  -- untappt cards
-  -- github cards
-  -- genealogy cards
-  -- politicians
-  -- baseball current example
+---
 
 ### Notes
 
--- might actually not be that hard to allow landscape front
-
 -- not sure if this would be considered a hack that might be prevented in future iOS updates, but setting font-size to 16px and then using font-variation settings to achieve desired visual size works at present and avoids the zoom plague
 
-- build a subsetted version of the font without the undesired axes (is that even a thing?)
+stick to cm/mm even if it's off by 1mm. Much more sensible. Aim for 1cm touch targets. PLus math is so clean. But, the 3.5" x 2.5" aspect ratio is a cleaner 1.4 (rather than 1.39) -- but does that matter?
 
+consider 44px 22px 11px -- certainly unconventional but could work
+
+can i offer a 48px touch target (off to the side perhaps) while maintaining tight vertical content like cards actually have?
+
+### 2nd release
+
+- consider building a subsetted version of the font without the undesired axes (is that even a thing?) -- or even offering more than 1 parametric font (in performannt way) -- like a SERIF
+
+- for uploading photo could offer a choice: choose photo OR takeUserFacing. Otherwise I can't seem to express "go to photo roll, but IF user opens camera, have it facing front"
+- actually use Typescript :-)
+- write a test to ensure focusing an input doesn't cause zoom (doing this with viewport tag not ok and iOS will be ignoring it). can i write a test for ios zoom on input? i'd like to be able to make adjustments and not necessarily have to test manually each time on iphone... i can imagine a scenario i nqhich i get kinda far down the road re formatting and have to back out because iOS zoom
+
+- maybe card flip
+- baseball images in tabs radio buttons
+- uneven light fading would be cool
+  -- might actually not be that hard to allow landscape front
 - consider ridiculing IE11.
+  -- consider microformats
+  -- can i write a css native grid that wraps and uses min max and clamp maybe? Hmmm. Worth a try, although I do need to pivot back to programming
+- if continue to wrestle with layout, i think putting a table next to a textarea, even though they are both inside flex columns inside a flex-row, is asking a lot and requiring maybe too much time/code
+- flex-order on back of card? Works like a charm and, on mobile (future portrait back option) it looks nicer. But, on desktop, I don't like how it looks at all. Do we give user that option? Can it look good? Well, big problem is the diagonal overflow of labels. That's not a simple sand-down
+
+-- consider using placeholders and style them exaclty if possible -- makes it easier for user to to type from scratch.
+-- Name on back could inherit AS A PLACEHOLDER the value of name on front, so it can be its own field that could be edited on its own without affecting the field on the front. Better and simpler than having user select whether to inherit or not. I'll find an issue maybe, but i like the idea
 
 ### Built with
 

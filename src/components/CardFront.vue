@@ -1,75 +1,77 @@
 <template>
   <div id="vueCardApp" class="baseballCard__wrapper" :style="cssProps">
     <!-- would like to use async and suspense if beneficial -->
-    <div class="baseballCard__wrapper--inner">
-      <article class="gridParent">
-        <aside class="corner--top--left"></aside>
-        <header class="masthead--center">
-          <h2>
-            <input v-model="teamName" type="text" placeholder maxlength="42" />
-            <!-- {{ teamName }} -->
-          </h2>
-        </header>
-        <aside class="corner--top--right"></aside>
+    <div class="baseballCard__wrapper--mid">
+      <div class="baseballCard__wrapper--inner">
+        <article class="gridParent">
+          <aside class="corner--top--left"></aside>
+          <header class="masthead--center">
+            <h2>
+              <input v-model="teamName" type="text" placeholder maxlength="42" />
+              <!-- {{ teamName }} -->
+            </h2>
+          </header>
+          <aside class="corner--top--right"></aside>
 
-        <aside class="sidebar--left"></aside>
-        <section class="image__container">
-          <!-- Edit this and the preview will update automatically. -->
+          <aside class="sidebar--left"></aside>
+          <section class="image__container">
+            <!-- Edit this and the preview will update automatically. -->
 
-          <img
-            width="312"
-            height="384"
-            loading="lazy"
-            class="image--player"
-            :src="playerImageURLorDataString"
-            :alt="playerName + ' being awesome'"
-          />
-        </section>
-        <aside class="sidebar--right"></aside>
+            <img
+              width="312"
+              height="384"
+              loading="lazy"
+              class="image--player"
+              :src="playerImageURLorDataString"
+              :alt="playerName + ' being awesome'"
+            />
+          </section>
+          <aside class="sidebar--right"></aside>
 
-        <aside class="corner--bottom--left"></aside>
-        <section class="footer--playerName">
-          <h1>
-            <input v-model="playerName" type="text" placeholder maxlength="48" />
-          </h1>
-        </section>
-        <section class="footer--playerPosition">
-          <h3>
-            <input v-model="playerPosition" type="text" placeholder maxlength="48" />
-          </h3>
-        </section>
-        <section class="footer--teamLogo">
-          <img
-            width="72"
-            height="72"
-            loading="lazy"
-            class="image--teamLogo {{logoPosition}}"
-            :src="teamLogoURL"
-            :alt="teamLogoAltText"
-          />
+          <aside class="corner--bottom--left"></aside>
+          <section class="footer--playerName">
+            <h1>
+              <input v-model="playerName" type="text" placeholder maxlength="48" />
+            </h1>
+          </section>
+          <section class="footer--playerPosition">
+            <h3>
+              <input v-model="playerPosition" type="text" placeholder maxlength="48" />
+            </h3>
+          </section>
+          <section class="footer--teamLogo">
+            <img
+              width="72"
+              height="72"
+              loading="lazy"
+              class="image--teamLogo {{logoPosition}}"
+              :src="teamLogoURL"
+              :alt="teamLogoAltText"
+            />
 
-          <!-- <input
+            <!-- <input
             class="fileInput--fullContainerSize"
             type="file"
             id="logoFileInput"
             name="logoFileInput"
             accept="image/*"
-          />-->
-        </section>
-        <aside class="corner--bottom--right"></aside>
+            />-->
+          </section>
+          <aside class="corner--bottom--right"></aside>
 
-        <svg class="svg--textureOverlay" width="320" height="448">
-          <g>
-            <rect
-              width="320"
-              height="448"
-              :filter="`url(#${cardBackgroundTexture})`"
-              :fill="`url(#${cardBackgroundTexture})`"
-              opacity="1"
-            />
-          </g>
-        </svg>
-      </article>
+          <svg class="svg--textureOverlay" width="320" height="448">
+            <g>
+              <rect
+                width="320"
+                height="448"
+                :filter="`url(#${cardBackgroundTexture})`"
+                :fill="`url(#${cardBackgroundTexture})`"
+                opacity="1"
+              />
+            </g>
+          </svg>
+        </article>
+      </div>
     </div>
     <form class="form--cardDesign">
       <fieldset>
