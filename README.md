@@ -4,6 +4,7 @@
 
 Labor Day launch?
 
+--> for backgroud color of grid areas, make an rgba slider if possible so user can set opacity value of background color
 --> continue to re-layout cardfront grid. Need borders on the appropriate element.
 --> Get elements in cells to take full size
 --> Should full bleed be considered a separate layout? Might help user with art direction. Also might be too complex to do that pre launch
