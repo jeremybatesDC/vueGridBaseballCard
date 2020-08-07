@@ -105,8 +105,8 @@ h3 {
   position: relative;
   width: 36rem;
   //yes, hard height here because
-  //height: 50.4rem;
-  background-color: var(--cardbackgroundcolor, #eee);
+  height: 50.4rem;
+  //background-color: var(--cardbackgroundcolor, #eee);
   color: var(--cardtextcolor, #000);
   // i really don't understand at all why wdth is not working
   margin-bottom: 7.2rem;
@@ -130,9 +130,9 @@ h3 {
   &.has-crease {
   }
   // mislaign
-  * {
-    text-shadow: var(--cmyk-misalign);
-  }
+  // * {
+  //   text-shadow: var(--cmyk-misalign);
+  // }
   //crease
   &:before {
     // svg crease image maybe
@@ -195,8 +195,11 @@ h3 {
   }
 }
 .footer--teamLogo {
-  display: flex;
-  justify-content: flex-end;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  // display: flex;
+  // justify-content: flex-end;
 }
 .image--teamLogo {
   object-fit: cover;
@@ -209,6 +212,11 @@ h3 {
 }
 
 .image--player {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
   object-position: 0 50%;
   //width: 100%;
@@ -219,6 +227,7 @@ h3 {
   filter: #{"grayscale(var(--cardgrayscale, 0))"} brightness(
       var(--cardbrightness, 1)
     ) sepia(var(--cardsepia, 0));
+  z-index: -1;
 }
 
 .form--cardDesign {

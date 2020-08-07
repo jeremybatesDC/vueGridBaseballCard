@@ -2,6 +2,12 @@
 
 ## To Do
 
+Labor Day launch?
+
+--> continue to re-layout cardfront grid. Need borders on the appropriate element.
+--> Get elements in cells to take full size
+--> Should full bleed be considered a separate layout? Might help user with art direction. Also might be too complex to do that pre launch
+
 FOCUS UI STUFF
 -> a focus UI for images is needed:
 
@@ -114,7 +120,7 @@ can i offer a 48px touch target (off to the side perhaps) while maintaining tigh
 
 --> css content visibilty new chromium property. Could help in chrome even though safari doesnT seem to want it.
 
-- CMYK misalign elements? How can i get an image trace of some kind? With canvas?
+- CMYK misalign elements? How can i get an image trace of some kind? With canvas? A worker can indeed use canvas, but not in safari :(
 - img crop/centering options
 - consider building a subsetted version of the font without the undesired axes (is that even a thing?) -- or even offering more than 1 parametric font (in performannt way) -- like a SERIF
 
