@@ -62,6 +62,7 @@ export default {
   --min-touch-target-width: var(--min-touch-target-height);
   --min-touch-target-height-half: 2.2rem;
   --min-touch-target-height-double: 8.8rem;
+  --touch-target-spacing: 3.2rem;
   --text-short-wide: "wght" 400, "wdth" 25, "opsz" 25, "GRAD" 1, "slnt" 0,
     "YTLC" 400, "YTUC" 400, "YTFI" 400;
   --cmyk-misalign: 1px 0 0 cyan, -1px 0 0 magenta, 0 1px 0 yellow;

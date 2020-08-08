@@ -595,5 +595,6 @@ h1 {
 
 .grid__parentElem {
   display: grid;
+  margin-bottom: var(--touch-target-spacing);
 }
 </style>
