@@ -4,6 +4,10 @@
 
 Labor Day launch?
 
+--> the same inputs exist and its a matter of which grid area theyRe assigned to. CSS variable
+
+- could still use V-if of course, but itS more like "v-where" ...
+
 --> for backgroud color of grid areas, make an rgba slider if possible so user can set opacity value of background color
 --> continue to re-layout cardfront grid. Need borders on the appropriate element.
 --> Get elements in cells to take full size

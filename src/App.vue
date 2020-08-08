@@ -67,6 +67,15 @@ export default {
   --cmyk-misalign: 1px 0 0 cyan, -1px 0 0 magenta, 0 1px 0 yellow;
 }
 
+.gridArea {
+  align-items: stretch;
+  &:not(.image__container) {
+    background-color: var(--cardbackgroundcolor, #eee);
+    // is there a grid way to do this?
+    height: 100%;
+  }
+}
+
 h1,
 h2,
 h3 {
@@ -106,7 +115,7 @@ h3 {
   width: 36rem;
   //yes, hard height here because
   height: 50.4rem;
-  //background-color: var(--cardbackgroundcolor, #eee);
+
   color: var(--cardtextcolor, #000);
   // i really don't understand at all why wdth is not working
   margin-bottom: 7.2rem;
@@ -178,6 +187,8 @@ h3 {
 .image__container {
   display: flex;
   position: relative;
+  border: 3px solid var(--cardbordercolor, #000);
+  border-radius: var(--cardbordercurve, 0);
 }
 .footer--playerName {
   font-size: 1.6rem;
@@ -211,23 +222,27 @@ h3 {
   z-index: 1;
 }
 
-.image--player {
+.figure--player {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
+
+  overflow: hidden;
+  z-index: -1;
+}
+
+.image--player {
   object-fit: cover;
   object-position: 0 50%;
-  //width: 100%;
-  //height: auto;
+  width: 100%;
+  height: 100%;
   //max-height: 38.4rem;
-  border: 3px solid var(--cardbordercolor, #000);
-  border-radius: var(--cardbordercurve, 0);
+
   filter: #{"grayscale(var(--cardgrayscale, 0))"} brightness(
       var(--cardbrightness, 1)
     ) sepia(var(--cardsepia, 0));
-  z-index: -1;
 }
 
 .form--cardDesign {

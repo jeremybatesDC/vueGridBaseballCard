@@ -5,11 +5,12 @@
 
 .gridParent {
   display: grid;
-  grid-template-columns: 2.4rem 1fr 1fr 1fr 1fr 2.4rem;
-  grid-template-rows: 4.8rem 1fr 7.2rem;
+  grid-template-columns: 1.6rem 1fr 1fr 1fr 1fr 1.6rem;
+  grid-template-rows: min-content 1fr min-content;
   grid-column-gap: 0px;
   grid-row-gap: 0px;
   height: 100%;
+  position: relative;
 }
 .corner--top--left {
   grid-area: 1 / 1 / 2 / 2;
@@ -38,12 +39,12 @@
 .footer--playerPosition {
   grid-area: 3 / 5 / 4 / 6;
 }
-.footer--teamLogo {
-  /*overlap*/
-  grid-area: 2 / 5 / 3 / 6;
-  text-align: right;
-  position: relative;
-}
+/*overlap*/
+/* .footer--teamLogo {
+  //grid-area: 2 / 5 / 3 / 6;
+  //text-align: right;
+  //position: relative;
+}*/
 .corner--bottom--right {
   grid-area: 3 / 6 / 4 / 7;
 }

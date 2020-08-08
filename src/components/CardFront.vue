@@ -1,30 +1,54 @@
 <template>
   <div id="vueCardApp" class="baseballCard__wrapper" :style="cssProps">
-    <!-- would like to use async and suspense if beneficial -->
+    <fieldset>
+      <legend>Layout</legend>
+      <label>
+        <input type="radio" v-model="cardLayout" value="1-1" />
+        <span>1-1</span>
+      </label>
+      <label>
+        <input type="radio" v-model="cardLayout" value="0-2" />
+        <span>0-2</span>
+      </label>
+      <label>
+        <input type="radio" v-model="cardLayout" value="2-0" />
+        <span>2-0</span>
+      </label>
+    </fieldset>
+
+    <!-- revised grid -->
+    <div class="grid__parentElem">
+      <div v-if="cardLayout != '0-2'">should show top here unless layout is 0-2</div>
+      <div v-if="cardLayout != '2-0'">should show bottom here unless layout is 2-0</div>
+    </div>
+
+    <!-- end revised grid -->
+
     <div class="baseballCard__wrapper--mid">
       <div class="baseballCard__wrapper--inner">
-        <article class="gridParent">
-          <aside class="corner--top--left"></aside>
-          <header class="masthead--center">
-            <h2>
-              <input v-model="teamName" type="text" placeholder maxlength="42" />
-              <!-- {{ teamName }} -->
-            </h2>
-          </header>
-          <aside class="corner--top--right"></aside>
-
-          <aside class="sidebar--left"></aside>
-          <section class="image__container">
-            <!-- Edit this and the preview will update automatically. -->
-
+        <article class="gridParent article--cardFront">
+          <figure class="figure--player">
             <img
-              width="312"
-              height="384"
               loading="lazy"
               class="image--player"
               :src="playerImageURLorDataString"
               :alt="playerName + ' being awesome'"
             />
+          </figure>
+          <aside class="corner--top--left gridArea"></aside>
+          <header class="masthead--center gridArea">
+            <div class="row">
+              <h2>
+                <input v-model="teamName" type="text" placeholder maxlength="42" />
+              </h2>
+            </div>
+          </header>
+          <aside class="corner--top--right gridArea"></aside>
+
+          <aside class="sidebar--left gridArea"></aside>
+          <section class="image__container gridArea">
+            <!-- Edit this and the preview will update automatically. -->
+
             <input
               class="fileInput--fullContainerSize"
               type="file"
@@ -34,52 +58,43 @@
               accept="image/*"
               @input="encodeImage"
             />
-          </section>
-          <aside class="sidebar--right"></aside>
+            <section class="footer--teamLogo">
+              <img
+                width="72"
+                height="72"
+                loading="lazy"
+                class="image--teamLogo {{logoPosition}}"
+                :src="teamLogoURL"
+                :alt="teamLogoAltText"
+              />
 
-          <aside class="corner--bottom--left"></aside>
-          <section class="footer--playerName">
-            <h1>
-              <input v-model="playerName" type="text" placeholder maxlength="48" />
-            </h1>
+              <input
+                class="fileInput--fullContainerSize"
+                type="file"
+                id="logoFileInput"
+                name="logoFileInput"
+                accept="image/*"
+                @input="encodeImage"
+              />
+            </section>
           </section>
-          <section class="footer--playerPosition">
+          <aside class="sidebar--right gridArea"></aside>
+
+          <aside class="corner--bottom--left gridArea"></aside>
+          <section class="footer--playerName gridArea">
+            <div class="row">
+              <h1>
+                <input v-model="playerName" type="text" placeholder maxlength="48" />
+              </h1>
+            </div>
+          </section>
+          <section class="footer--playerPosition gridArea">
             <h3>
               <input v-model="playerPosition" type="text" placeholder maxlength="48" />
             </h3>
           </section>
-          <section class="footer--teamLogo">
-            <img
-              width="72"
-              height="72"
-              loading="lazy"
-              class="image--teamLogo {{logoPosition}}"
-              :src="teamLogoURL"
-              :alt="teamLogoAltText"
-            />
 
-            <input
-              class="fileInput--fullContainerSize"
-              type="file"
-              id="logoFileInput"
-              name="logoFileInput"
-              accept="image/*"
-              @input="encodeImage"
-            />
-          </section>
-          <aside class="corner--bottom--right"></aside>
-
-          <svg class="svg--textureOverlay" width="320" height="448">
-            <g>
-              <rect
-                width="320"
-                height="448"
-                :filter="`url(#${cardBackgroundTexture})`"
-                :fill="`url(#${cardBackgroundTexture})`"
-                opacity="1"
-              />
-            </g>
-          </svg>
+          <aside class="corner--bottom--right gridArea"></aside>
         </article>
       </div>
     </div>
@@ -278,7 +293,7 @@
           </details>
 
           <!-- cmyk -->
-          <details>
+          <!-- <details>
             <summary>Print Defects</summary>
             <label>
               <input type="checkbox" />
@@ -288,7 +303,7 @@
               Misalignment Degree
               <input type="range" />
             </label>
-          </details>
+          </details>-->
 
           <!-- corners -->
           <details>
@@ -320,11 +335,10 @@
             </label>
           </details>
 
-          <details>
+          <!-- <details>
             <summary>Other Creases</summary>
             <label>
               Crease Location
-              <!-- make these visible radios -->
               <select>
                 <option>none</option>
                 <option>top left</option>
@@ -335,10 +349,9 @@
             </label>
             <label>
               Crease/Fuzziness Severity (if selected)
-              <!-- make these visible radios -->
               <input type="range" />
             </label>
-          </details>
+          </details>-->
         </details>
       </fieldset>
       <fieldset>
@@ -359,6 +372,18 @@
       <button type="button" @click="saveHandler">Save</button>
       <button type="button" @click="submitHandler">Submit</button>
     </form>
+    <!-- would like to use async and suspense if beneficial -->
+    <!-- <svg class="svg--textureOverlay" width="320" height="448">
+            <g>
+              <rect
+                width="320"
+                height="448"
+                :filter="`url(#${cardBackgroundTexture})`"
+                :fill="`url(#${cardBackgroundTexture})`"
+                opacity="1"
+              />
+            </g>
+    </svg>-->
   </div>
 </template>
 
@@ -459,6 +484,7 @@ export default {
   },
   data: function () {
     return {
+      cardLayout: defaultSettings.cardLayout,
       // need to loop through these instead of listing them
       playerImageURLorDataString: defaultSettings.playerImageURLorDataString,
       playerName: defaultSettings.playerName,
@@ -505,6 +531,7 @@ export default {
     cssProps() {
       return {
         // loop through if possible
+        "--cardlayout": this.cardLayout,
         "--cardbackgroundcolor": this.cardBackgroundColor,
         "--cardtextcolor": this.cardTextColor,
         "--cardbordercolor": this.cardBorderColor,
@@ -550,3 +577,23 @@ export default {
   },
 };
 </script>
+
+
+<style scoped lang="scss">
+input {
+  &[type="text"] {
+    min-height: var(--min-touch-target-height);
+  }
+}
+
+h1 {
+  height: 100%;
+  input[type="text"] {
+    height: 100%;
+  }
+}
+
+.grid__parentElem {
+  display: grid;
+}
+</style>

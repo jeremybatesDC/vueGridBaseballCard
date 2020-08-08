@@ -18,5 +18,6 @@
   "cardTextFontSlant": "0",
   "cardSepia": "0",
   "cardGrayScale": "0",
-  "logoPosition": "flex-end"
+  "logoPosition": "flex-end",
+  "cardLayout": "1-1"
 }
