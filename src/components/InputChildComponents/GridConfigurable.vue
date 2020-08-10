@@ -18,6 +18,7 @@
 
     <div class="card__container--front">
       <div class="grid__parentElem">
+        <!-- <div class="gta--fullSize">image Container</div> -->
         <div class="row1col1 gta">row1col1</div>
         <!-- if a min-content grid cell is empty it appears to indeed correctly not appear -->
         <div class="row1col2 gta"></div>
@@ -58,6 +59,7 @@
     "row4col1 row4col2"
     "row5col1 row5col2";
   display: grid;
+  /*  is it better to use flex within a row here to more easily adapt to an unknown number of children?*/
   grid-template-columns: auto min-content;
   grid-template-rows: min-content min-content auto min-content min-content;
   grid-column-gap: 0px;
@@ -67,9 +69,17 @@
 }
 
 .gta {
-  background: blue;
+  &:not(.row3colOnly) {
+    background-color: blue;
+  }
   &:empty {
     //display: none;
+  }
+  &--fullSize {
+    grid-column-start: 1;
+    grid-column-end: span 5;
+    grid-row-start: 1;
+    grid-row-end: span 5;
   }
 }
 
