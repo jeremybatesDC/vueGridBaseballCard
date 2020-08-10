@@ -68,6 +68,10 @@ export default {
   --cmyk-misalign: 1px 0 0 cyan, -1px 0 0 magenta, 0 1px 0 yellow;
 }
 
+body {
+  background-color: #eee;
+}
+
 .gridArea {
   align-items: stretch;
   &:not(.image__container) {

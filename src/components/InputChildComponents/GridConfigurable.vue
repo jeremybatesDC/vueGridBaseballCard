@@ -85,7 +85,7 @@
 
 .row1col2 {
   background-color: red;
-  width: max-content;
+  width: min-content;
 }
 
 .row3colOnly {

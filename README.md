@@ -4,6 +4,10 @@
 
 Labor Day launch?
 
+--> okay need to simplify. use GRID for rows that user can assign to top or bottom grid areas. BUT, for the wdth of content in those rows/number of elements, flexbox is really what i need. Make that so.
+
+--> need to find that blog post about auto-sizing grid when cells unused
+
 --> the same inputs exist and its a matter of which grid area theyRe assigned to. CSS variable
 
 - could still use V-if of course, but itS more like "v-where" ...
