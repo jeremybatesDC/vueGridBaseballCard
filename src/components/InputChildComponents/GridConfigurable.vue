@@ -3,33 +3,22 @@
     <fieldset>
       <legend>Layout</legend>
       <label>
-        <input type="radio" v-model="cardLayout" value="1-1" />
+        <input type="radio" v-model="cardLayout" value="space-between" />
         <span>1-1</span>
       </label>
       <label>
-        <input type="radio" v-model="cardLayout" value="0-2" />
+        <input type="radio" v-model="cardLayout" value="flex-end" />
         <span>0-2</span>
       </label>
       <label>
-        <input type="radio" v-model="cardLayout" value="2-0" />
+        <input type="radio" v-model="cardLayout" value="flex-start" />
         <span>2-0</span>
       </label>
     </fieldset>
 
-    <div class="card__container--front">
-      <div class="grid__parentElem">
-        <!-- <div class="gta--fullSize">image Container</div> -->
-        <div class="row1col1 gta">row1col1</div>
-        <!-- if a min-content grid cell is empty it appears to indeed correctly not appear -->
-        <div class="row1col2 gta"></div>
-        <div class="row2col1 gta"></div>
-        <div class="row2col2 gta"></div>
-        <div class="row3colOnly gta">row3colOnly</div>
-        <div class="row4col1 gta"></div>
-        <div class="row4col2 gta"></div>
-        <div class="row5col1 gta">row5col1</div>
-        <div class="row5col2 gta">row5col2</div>
-      </div>
+    <div class="card__container--front" :style="cssProps">
+      <div class="text__line--primary row">Name Usually</div>
+      <div class="text__line--secondary row">Team, Position</div>
     </div>
 
     <!-- revised grid -->
@@ -45,56 +34,21 @@
 
 <style scoped lang="scss">
 .card__container--front {
+  display: flex;
+  flex-direction: column;
   width: 36rem;
   //yes, hard height here because
   height: 50.4rem;
   margin: 0 auto;
   outline: 1.6rem solid rebeccapurple;
-}
-.grid__parentElem {
-  grid-template-areas:
-    "row1col1 row1col2"
-    "row2col1 row2col2"
-    "row3colOnly row3colOnly"
-    "row4col1 row4col2"
-    "row5col1 row5col2";
-  display: grid;
-  /*  is it better to use flex within a row here to more easily adapt to an unknown number of children?*/
-  grid-template-columns: auto min-content;
-  grid-template-rows: min-content min-content auto min-content min-content;
-  grid-column-gap: 0px;
-  grid-row-gap: 0px;
-  height: 100%;
-  margin-bottom: var(--touch-target-spacing);
-}
+  // 2-0
+  //justify-content: flex-start;
+  // 1-1
+  justify-content: var(--cardlayout);
+  // 0-2
+  //justify-content: flex-end;
 
-.gta {
-  &:not(.row3colOnly) {
-    background-color: blue;
-  }
-  &:empty {
-    //display: none;
-  }
-  &--fullSize {
-    grid-column-start: 1;
-    grid-column-end: span 5;
-    grid-row-start: 1;
-    grid-row-end: span 5;
-  }
-}
-
-.row1col2 {
-  background-color: red;
-  width: min-content;
-}
-
-.row3colOnly {
-  grid-area: row3colOnly;
-}
-
-.grid__TEST {
-  display: grid;
-  margin-bottom: var(--touch-target-spacing);
+  // layout is as easy as justify-content
 }
 </style>
 
@@ -107,6 +61,13 @@ export default {
     return {
       cardLayout: defaultSettings.cardLayout,
     };
+  },
+  computed: {
+    cssProps() {
+      return {
+        "--cardlayout": this.cardLayout,
+      };
+    },
   },
 };
 </script>

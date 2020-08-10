@@ -19,5 +19,5 @@
   "cardSepia": "0",
   "cardGrayScale": "0",
   "logoPosition": "flex-end",
-  "cardLayout": "1-1"
+  "cardLayout": "space-between"
 }
