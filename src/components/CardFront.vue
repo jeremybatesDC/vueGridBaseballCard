@@ -1,28 +1,6 @@
 <template>
   <div id="vueCardApp" class="baseballCard__wrapper" :style="cssProps">
-    <fieldset>
-      <legend>Layout</legend>
-      <label>
-        <input type="radio" v-model="cardLayout" value="1-1" />
-        <span>1-1</span>
-      </label>
-      <label>
-        <input type="radio" v-model="cardLayout" value="0-2" />
-        <span>0-2</span>
-      </label>
-      <label>
-        <input type="radio" v-model="cardLayout" value="2-0" />
-        <span>2-0</span>
-      </label>
-    </fieldset>
-
-    <!-- revised grid -->
-    <div class="grid__parentElem">
-      <div v-if="cardLayout != '0-2'">should show top here unless layout is 0-2</div>
-      <div v-if="cardLayout != '2-0'">should show bottom here unless layout is 2-0</div>
-    </div>
-
-    <!-- end revised grid -->
+    <GridConfigurable />
 
     <div class="baseballCard__wrapper--mid">
       <div class="baseballCard__wrapper--inner">
@@ -393,6 +371,7 @@
 // can we make this import ASYNC?
 //import placeholderEncodedImage from "/json/placeholder-image.json";
 import defaultSettings from "/json/default-settings.json";
+import GridConfigurable from "./InputChildComponents/GridConfigurable.vue";
 
 export default {
   setup: () => {
@@ -527,6 +506,9 @@ export default {
       // 	localStorage.teamName = this.teamName;
     },
   },
+  components: {
+    GridConfigurable,
+  },
   computed: {
     cssProps() {
       return {
@@ -591,10 +573,5 @@ h1 {
   input[type="text"] {
     height: 100%;
   }
-}
-
-.grid__parentElem {
-  display: grid;
-  margin-bottom: var(--touch-target-spacing);
 }
 </style>
