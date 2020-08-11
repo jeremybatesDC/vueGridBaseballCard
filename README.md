@@ -4,6 +4,8 @@
 
 Labor Day launch?
 
+--> since full bleed can clip, offer user zoom via transform: scale(var(--somethingSomething)) and placement (maybe via transform origin)
+
 --> icons for layout options
 
 --> text options include color per field (defaults to currentColor), text-align

@@ -26,7 +26,7 @@
           <input v-model="teamName" type="text" placeholder maxlength="42" />
         </h2>
       </div>
-      <div class="row--middle--forDesign">designBox</div>
+      <div class="row--middle--forDesign row">designBox</div>
       <div class="text__line--primary row">
         <h1>
           <input v-model="playerName" type="text" placeholder maxlength="48" />
@@ -77,6 +77,7 @@ export default {
   height: 50.4rem;
   margin: 0 auto 10rem auto;
   padding: 1.6rem;
+  overflow: hidden;
   &:focus-within {
     &:before {
       content: "edit mode";
@@ -109,6 +110,16 @@ export default {
 .row--middle--forDesign {
   flex-grow: 1;
   border: 1px solid blue;
+}
+
+h2 {
+  input[type="text"] {
+    color: rgba(0, 0, 0, 0.8);
+    // still mulling this over
+    text-shadow: 1px 0 0 rgba(black, 0.5), 1px 0 0 rgba(cyan, 0.8),
+      1px 0 0 rgba(magenta, 0.8), 1px 0 0 rgba(yellow, 0.8);
+    //filter: drop-shadow(1px 1px 1px 1px cyan),drop-shadow(1px 1px 1px 1px magenta), drop-shadow(1px 1px 1px 1px yellow);
+  }
 }
 
 .image__line {
