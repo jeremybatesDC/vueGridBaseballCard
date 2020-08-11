@@ -4,6 +4,14 @@
 
 Labor Day launch?
 
+--> keeping factoring code over from card front into cardfront configurable (eventually it should go back up to parent level i think but i can keep refactoring now where it is)
+
+--> combine logo position chooser into a 4 square
+
+--> simpler: via radio button, user chooses non-full-bleed and the image is placed in the middle div as opposed to outside of it.
+
+Though it could always be inside and then just parent be relative or unset...
+
 --> since full bleed can clip, offer user zoom via transform: scale(var(--somethingSomething)) and placement (maybe via transform origin)
 
 --> icons for layout options

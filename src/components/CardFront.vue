@@ -1,6 +1,6 @@
 <template>
   <div id="vueCardApp" class="baseballCard__wrapper" :style="cssProps">
-    <GridConfigurable />
+    <CardFrontConfigurable />
 
     <div class="baseballCard__wrapper--mid">
       <div class="baseballCard__wrapper--inner">
@@ -77,35 +77,6 @@
       </div>
     </div>
     <form class="form--cardDesign">
-      <fieldset>
-        <details open>
-          <summary>
-            <legend>Layout</legend>
-          </summary>
-          <div>
-            <label>
-              <input type="radio" name="layout" value="layoutA" />
-              2-0
-            </label>
-            <label>
-              <input type="radio" name="layout" value="layoutB" />
-              1-1
-            </label>
-            <label>
-              <input type="radio" name="layout" value="layoutC" />
-              0-2
-            </label>
-            <label>
-              <input type="radio" name="layout" value="layoutD" />
-              Diag 1
-            </label>
-            <label>
-              <input type="radio" name="layout" value="layoutE" />
-              Diag 2
-            </label>
-          </div>
-        </details>
-      </fieldset>
       <fieldset>
         <details>
           <summary>
@@ -371,7 +342,7 @@
 // can we make this import ASYNC?
 //import placeholderEncodedImage from "/json/placeholder-image.json";
 import defaultSettings from "/json/default-settings.json";
-import GridConfigurable from "./InputChildComponents/GridConfigurable.vue";
+import CardFrontConfigurable from "./InputChildComponents/CardFrontConfigurable.vue";
 
 export default {
   setup: () => {
@@ -506,7 +477,7 @@ export default {
     },
   },
   components: {
-    GridConfigurable,
+    CardFrontConfigurable,
   },
   computed: {
     cssProps() {

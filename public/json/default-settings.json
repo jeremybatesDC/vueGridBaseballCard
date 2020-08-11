@@ -1,5 +1,6 @@
 {
   "playerImageURLorDataString": "/images/playerDefault.jpg",
+  "playerImageBleedOrBoxed": "relative",
   "playerName": "Anthony Rendon",
   "playerPosition": "Third Base",
   "teamLogoAltText": "Nats Curley W Logo",
@@ -19,5 +20,6 @@
   "cardSepia": "0",
   "cardGrayScale": "0",
   "logoPosition": "flex-end",
+  "logoPositionVertical": "flex-end",
   "cardLayout": "one-one"
 }

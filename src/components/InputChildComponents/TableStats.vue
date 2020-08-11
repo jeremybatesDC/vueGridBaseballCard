@@ -60,9 +60,11 @@
             :data-col="index + 2"
             :data-row="index"
           >
+            <!-- type number continues to be annoying AF. Trying to move down a cell with an arrow key shouldn't accidentally alter the stats -->
             <input
               class="stats-table__tbody__input fui__formElem"
               type="tel"
+              inputmode="decimal"
               :value="value"
               size="5"
               maxlength="5"

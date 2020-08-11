@@ -16,17 +16,58 @@
         <span>2-0</span>
       </label>
     </fieldset>
+    <fieldset>
+      <legend>Player Image Bleed or Boxed</legend>
+      <label>
+        <input type="radio" v-model="playerImageBleedOrBoxed" value="relative" />
+        <span>Boxed</span>
+      </label>
+      <label>
+        <input type="radio" v-model="playerImageBleedOrBoxed" value="static" />
+        <span>Full Bleed</span>
+      </label>
+    </fieldset>
+    <fieldset>
+      <legend>Logo Position</legend>
+      <div class="row">
+        <label>
+          <input type="radio" v-model="logoPosition" value="flex-start" />
+          <span>Left</span>
+        </label>
+        <label>
+          <input type="radio" v-model="logoPosition" value="flex-end" />
+          <span>Right</span>
+        </label>
+      </div>
+      <div class="row">
+        <label>
+          <input type="radio" v-model="logoPositionVertical" value="flex-start" />
+          <span>Top</span>
+        </label>
+        <label>
+          <input type="radio" v-model="logoPositionVertical" value="flex-end" />
+          <span>Bottom</span>
+        </label>
+      </div>
+    </fieldset>
 
     <div class="card__container--front" :class="cardLayout" :style="cssProps">
-      <div class="image__line">
-        <img loading="lazy" class="image--player" :src="playerImageURLorDataString" alt />
-      </div>
       <div class="text__line--secondary row">
         <h2>
           <input v-model="teamName" type="text" placeholder maxlength="42" />
         </h2>
       </div>
-      <div class="row--middle--forDesign row">designBox</div>
+      <div class="row--middle--forDesign row">
+        <figure class="figure--player">
+          <img loading="lazy" class="image--player" :src="playerImageURLorDataString" alt />
+        </figure>
+
+        <!-- make rounded corner optional -->
+        <!-- using css filter drop shadow could work -->
+        <figure class="figure--logo">
+          <img loading="lazy" class="image--logo" :src="teamLogoURL" alt width="72" height="72" />
+        </figure>
+      </div>
       <div class="text__line--primary row">
         <h1>
           <input v-model="playerName" type="text" placeholder maxlength="48" />
@@ -49,17 +90,27 @@ import defaultSettings from "/json/default-settings.json";
 export default {
   data: function () {
     return {
+      cardBackgroundColor: defaultSettings.cardBackgroundColor,
       cardLayout: defaultSettings.cardLayout,
+      logoPosition: defaultSettings.logoPosition,
+      logoPositionVertical: defaultSettings.logoPositionVertical,
+      teamLogoURL: defaultSettings.teamLogoURL,
       playerImageURLorDataString: defaultSettings.playerImageURLorDataString,
+      playerImageBleedOrBoxed: defaultSettings.playerImageBleedOrBoxed,
       playerName: defaultSettings.playerName,
       playerPosition: defaultSettings.playerPosition,
+
       teamName: defaultSettings.teamName,
     };
   },
   computed: {
     cssProps() {
       return {
+        "--cardbackgroundcolor": this.cardBackgroundColor,
         "--cardlayout": this.cardLayout,
+        "--logoposition": this.logoPosition,
+        "--logopositionvertical": this.logoPositionVertical,
+        "--playerimagebleedorboxed": this.playerImageBleedOrBoxed,
       };
     },
   },
@@ -78,6 +129,12 @@ export default {
   margin: 0 auto 10rem auto;
   padding: 1.6rem;
   overflow: hidden;
+
+  // probs with z-index -- better to color in backgrounds and use outline oooh
+  //background-color: var(--cardbackgroundcolor);
+
+  border: 1px solid rgba(0, 0, 0, 0.3333);
+
   &:focus-within {
     &:before {
       content: "edit mode";
@@ -108,8 +165,12 @@ export default {
 }
 
 .row--middle--forDesign {
+  position: var(--playerimagebleedorboxed);
   flex-grow: 1;
   border: 1px solid blue;
+  // make configurable
+  justify-content: var(--logoposition);
+  align-items: var(--logopositionvertical);
 }
 
 h2 {
@@ -122,13 +183,35 @@ h2 {
   }
 }
 
-.image__line {
+h3 {
+  text-align: right;
+
+  input {
+    text-align: inherit;
+  }
+}
+
+.figure--player {
   position: absolute;
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
+  display: flex;
   background-color: var(--cardbackgroundcolor);
   z-index: -1;
+}
+
+.figure--logo {
+  position: absolute;
+  display: flex;
+  //top: auto;
+  //right: 1.6rem;
+  //bottom: auto;
+  //left: auto;
+}
+
+.image--logo {
+  border-radius: 50%;
 }
 </style>
