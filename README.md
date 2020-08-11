@@ -4,6 +4,8 @@
 
 Labor Day launch?
 
+--> icons for layout options
+
 --> text options include color per field (defaults to currentColor), text-align
 
 --> okay need to simplify. use GRID for rows that user can assign to top or bottom grid areas. BUT, for the wdth of content in those rows/number of elements, flexbox is really what i need. Make that so.

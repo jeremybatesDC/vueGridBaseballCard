@@ -18,15 +18,15 @@
     </fieldset>
 
     <div class="card__container--front" :class="cardLayout" :style="cssProps">
+      <div class="image__line">
+        <img loading="lazy" class="image--player" :src="playerImageURLorDataString" alt />
+      </div>
       <div class="text__line--secondary row">
         <h2>
           <input v-model="teamName" type="text" placeholder maxlength="42" />
         </h2>
       </div>
-      <div class="image__line">
-        <img loading="lazy" class="image--player" :src="playerImageURLorDataString" alt />
-      </div>
-
+      <div class="row--middle--forDesign">designBox</div>
       <div class="text__line--primary row">
         <h1>
           <input v-model="playerName" type="text" placeholder maxlength="48" />
@@ -77,25 +77,38 @@ export default {
   height: 50.4rem;
   margin: 0 auto 10rem auto;
   padding: 1.6rem;
+  &:focus-within {
+    &:before {
+      content: "edit mode";
+      position: fixed;
+      top: 0;
+      right: 0;
+    }
+  }
 }
 
 .one-one {
   justify-content: space-between;
-  .image__line {
+  .row--middle--forDesign {
     order: 0;
   }
 }
 .zero-two {
   justify-content: flex-end;
-  .image__line {
+  .row--middle--forDesign {
     order: -1;
   }
 }
 .two-zero {
   justify-content: flex-start;
-  .image__line {
+  .row--middle--forDesign {
     order: 1;
   }
+}
+
+.row--middle--forDesign {
+  flex-grow: 1;
+  border: 1px solid blue;
 }
 
 .image__line {
