@@ -5,7 +5,7 @@
   "teamLogoAltText": "Nats Curley W Logo",
   "teamLogoURL": "/images/logoDefault.jpg",
   "teamName": "Washington Nationals",
-  "cardBackgroundColor": "#eeeeee",
+  "cardBackgroundColor": "#9a8b7c",
   "cardBackgroundTexture": "filterfabric",
   "cardBorderColor": "#000000",
   "cardBorderCurve": "0",
@@ -19,5 +19,5 @@
   "cardSepia": "0",
   "cardGrayScale": "0",
   "logoPosition": "flex-end",
-  "cardLayout": "space-between"
+  "cardLayout": "one-one"
 }

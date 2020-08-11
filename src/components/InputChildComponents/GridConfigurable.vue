@@ -2,55 +2,45 @@
   <div>
     <fieldset>
       <legend>Layout</legend>
+      <!-- try just by ordering image -->
       <label>
-        <input type="radio" v-model="cardLayout" value="space-between" />
+        <input type="radio" v-model="cardLayout" value="one-one" />
         <span>1-1</span>
       </label>
       <label>
-        <input type="radio" v-model="cardLayout" value="flex-end" />
+        <input type="radio" v-model="cardLayout" value="zero-two" />
         <span>0-2</span>
       </label>
       <label>
-        <input type="radio" v-model="cardLayout" value="flex-start" />
+        <input type="radio" v-model="cardLayout" value="two-zero" />
         <span>2-0</span>
       </label>
     </fieldset>
 
-    <div class="card__container--front" :style="cssProps">
-      <div class="text__line--primary row">Name Usually</div>
-      <div class="text__line--secondary row">Team, Position</div>
-    </div>
+    <div class="card__container--front" :class="cardLayout" :style="cssProps">
+      <div class="text__line--secondary row">
+        <h2>
+          <input v-model="teamName" type="text" placeholder maxlength="42" />
+        </h2>
+      </div>
+      <div class="image__line">
+        <img loading="lazy" class="image--player" :src="playerImageURLorDataString" alt />
+      </div>
 
-    <!-- revised grid -->
-    <div class="grid__TEST">
-      <div v-if="cardLayout != '0-2'">should show top here unless layout is 0-2</div>
-      <div v-if="cardLayout != '2-0'">should show bottom here unless layout is 2-0</div>
+      <div class="text__line--primary row">
+        <h1>
+          <input v-model="playerName" type="text" placeholder maxlength="48" />
+        </h1>
+        <h3>
+          <input v-model="playerPosition" type="text" placeholder maxlength="48" />
+        </h3>
+      </div>
     </div>
-
-    <!-- end revised grid -->
   </div>
 </template>
 
 
-<style scoped lang="scss">
-.card__container--front {
-  display: flex;
-  flex-direction: column;
-  width: 36rem;
-  //yes, hard height here because
-  height: 50.4rem;
-  margin: 0 auto;
-  outline: 1.6rem solid rebeccapurple;
-  // 2-0
-  //justify-content: flex-start;
-  // 1-1
-  justify-content: var(--cardlayout);
-  // 0-2
-  //justify-content: flex-end;
 
-  // layout is as easy as justify-content
-}
-</style>
 
 
 <script>
@@ -60,6 +50,10 @@ export default {
   data: function () {
     return {
       cardLayout: defaultSettings.cardLayout,
+      playerImageURLorDataString: defaultSettings.playerImageURLorDataString,
+      playerName: defaultSettings.playerName,
+      playerPosition: defaultSettings.playerPosition,
+      teamName: defaultSettings.teamName,
     };
   },
   computed: {
@@ -71,3 +65,46 @@ export default {
   },
 };
 </script>
+
+
+<style scoped lang="scss">
+.card__container--front {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 36rem;
+  //yes, hard height here because
+  height: 50.4rem;
+  margin: 0 auto 10rem auto;
+  padding: 1.6rem;
+}
+
+.one-one {
+  justify-content: space-between;
+  .image__line {
+    order: 0;
+  }
+}
+.zero-two {
+  justify-content: flex-end;
+  .image__line {
+    order: -1;
+  }
+}
+.two-zero {
+  justify-content: flex-start;
+  .image__line {
+    order: 1;
+  }
+}
+
+.image__line {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: var(--cardbackgroundcolor);
+  z-index: -1;
+}
+</style>

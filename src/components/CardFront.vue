@@ -463,7 +463,6 @@ export default {
   },
   data: function () {
     return {
-      cardLayout: defaultSettings.cardLayout,
       // need to loop through these instead of listing them
       playerImageURLorDataString: defaultSettings.playerImageURLorDataString,
       playerName: defaultSettings.playerName,
@@ -513,7 +512,6 @@ export default {
     cssProps() {
       return {
         // loop through if possible
-        "--cardlayout": this.cardLayout,
         "--cardbackgroundcolor": this.cardBackgroundColor,
         "--cardtextcolor": this.cardTextColor,
         "--cardbordercolor": this.cardBorderColor,
