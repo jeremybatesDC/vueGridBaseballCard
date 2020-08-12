@@ -50,8 +50,26 @@
         </label>
       </div>
     </fieldset>
-
-    <div class="card__container--front" :class="cardLayout" :style="cssProps">
+    <fieldset>
+      <legend>Border Styles</legend>
+      <label>
+        Border Color
+        <input v-model="cardBorderColor" type="color" />
+      </label>
+      <label>
+        Border Curve
+        <input v-model="cardBorderCurve" type="range" min="0" max="24" />
+      </label>
+      <label>
+        Border Width
+        <input type="range" min="0" max="5" />
+      </label>
+    </fieldset>
+    <div
+      class="card__container--front"
+      :class="[cardLayout, playerImageBleedOrBoxed]"
+      :style="cssProps"
+    >
       <div class="text__line--secondary row">
         <h2>
           <input v-model="teamName" type="text" placeholder maxlength="42" />
@@ -91,6 +109,8 @@ export default {
   data: function () {
     return {
       cardBackgroundColor: defaultSettings.cardBackgroundColor,
+      cardBorderColor: defaultSettings.cardBorderColor,
+      cardBorderCurve: defaultSettings.cardBorderCurve,
       cardLayout: defaultSettings.cardLayout,
       logoPosition: defaultSettings.logoPosition,
       logoPositionVertical: defaultSettings.logoPositionVertical,
@@ -107,6 +127,8 @@ export default {
     cssProps() {
       return {
         "--cardbackgroundcolor": this.cardBackgroundColor,
+        "--cardbordercolor": this.cardBorderColor,
+        "--cardbordercurve": `${this.cardBorderCurve}px`,
         "--cardlayout": this.cardLayout,
         "--logoposition": this.logoPosition,
         "--logopositionvertical": this.logoPositionVertical,
@@ -167,10 +189,15 @@ export default {
 .row--middle--forDesign {
   position: var(--playerimagebleedorboxed);
   flex-grow: 1;
-  border: 1px solid blue;
+  //border: 1px solid blue;
   // make configurable
+  border-width: 3px;
+  border-style: solid;
+  border-color: var(--cardbordercolor);
+  border-radius: var(--cardbordercurve);
   justify-content: var(--logoposition);
   align-items: var(--logopositionvertical);
+  // imperative way of handling full bleed
 }
 
 h2 {
@@ -198,8 +225,17 @@ h3 {
   bottom: 0;
   left: 0;
   display: flex;
-  background-color: var(--cardbackgroundcolor);
+  //background-color: var(--cardbackgroundcolor);
+  border-radius: var(--cardbordercurve);
+  // donT override all the other filters here
+  //filter: drop-shadow(10px 10px red);
+  .static & {
+    border-radius: 0;
+  }
   z-index: -1;
+}
+
+.image--player {
 }
 
 .figure--logo {

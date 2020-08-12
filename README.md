@@ -4,15 +4,18 @@
 
 Labor Day launch?
 
---> keeping factoring code over from card front into cardfront configurable (eventually it should go back up to parent level i think but i can keep refactoring now where it is)
+--> there is a small gap presently with border-radius boxed prob because multiple elems are involved.
 
+--> using filter drop shadow mutliple syntax could help here. Just not sure exactly when
+
+--> ok now just saying when not full bleed then donT radius -- but HIDE disabled controls from user
+
+LOGO IMAGE:
 --> combine logo position chooser into a 4 square
+--> logo image -- offer round or square radio button
+--> make optional
 
---> simpler: via radio button, user chooses non-full-bleed and the image is placed in the middle div as opposed to outside of it.
-
-Though it could always be inside and then just parent be relative or unset...
-
---> since full bleed can clip, offer user zoom via transform: scale(var(--somethingSomething)) and placement (maybe via transform origin)
+--> keeping factoring code over from card front into cardfront configurable (eventually it should go back up to parent level i think but i can keep refactoring now where it is)
 
 --> icons for layout options
 
