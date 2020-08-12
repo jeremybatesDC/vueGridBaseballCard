@@ -4,8 +4,6 @@
 
 Labor Day launch?
 
---> there is a small gap presently with border-radius boxed prob because multiple elems are involved.
-
 --> using filter drop shadow mutliple syntax could help here. Just not sure exactly when
 
 --> ok now just saying when not full bleed then donT radius -- but HIDE disabled controls from user

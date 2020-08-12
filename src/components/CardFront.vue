@@ -3,6 +3,200 @@
     <CardFrontConfigurable />
 
     <div class="baseballCard__wrapper--mid">
+      <form class="form--cardDesign">
+        <fieldset>
+          <details>
+            <summary>
+              <legend>Card Images</legend>
+            </summary>
+            <label>
+              Player Image (URL or upload):
+              <input
+                v-model="playerImageURLorDataString"
+                type="text"
+                placeholder
+              />
+              <br />
+            </label>
+
+            <label>
+              Team Logo Image (URL):
+              <input v-model="teamLogoURL" type="url " placeholder />
+              <!-- <input type="file" id="logoFileInput" name="logoFileInput" accept="image/*" /> -->
+            </label>
+          </details>
+        </fieldset>
+        <fieldset>
+          <details>
+            <summary>
+              <legend>Typography</legend>
+            </summary>
+            <label>
+              Text Color
+              <input v-model="cardTextColor" type="color" />
+            </label>
+            <label>
+              Font Weight
+              <input v-model="cardTextFontWeight" type="range" min="100" max="900" />
+            </label>
+            <label>
+              Font Width
+              <input v-model="cardTextFontWidth" type="range" min="35" max="100" />
+            </label>
+
+            <label>
+              Font Slant
+              <input v-model="cardTextFontSlant" type="range" min="-10" max="0" />
+            </label>
+            <label>
+              Font Grade
+              <input v-model="cardTextFontGrade" type="range" min="0" max="48" />
+            </label>
+            <!-- <label>
+              Font Optical Size (inverse)
+              <input
+                v-model="cardTextFontOptSize"
+                type="range"
+                min="10"
+                max="72"
+              />
+            </label>-->
+          </details>
+        </fieldset>
+        <fieldset>
+          <details>
+            <summary>
+              <legend>Design</legend>
+            </summary>
+            <label>
+              Background
+              <input v-model="cardBackgroundColor" type="color" />
+            </label>
+            <label>
+              Texture
+              <select v-model="cardBackgroundTexture">
+                <option>no texture</option>
+                <option value="filterfabric">Fabric</option>
+                <option value="filterpaper">Paper</option>
+                <option value="filternoise">Noise</option>
+              </select>
+            </label>
+          </details>
+        </fieldset>
+
+        <fieldset>
+          <details>
+            <summary>
+              <legend>Imperfections</legend>
+            </summary>
+
+            <!-- nested accordion here -->
+            <!-- gum -->
+            <details>
+              <summary>Gum</summary>
+              <label>
+                <input type="radio" name="gumradio" value="nogum" />
+                No gum
+              </label>
+              <label>
+                <input type="radio" name="gumradio" value="gum front" />
+                Gum front
+              </label>
+              <label>
+                <input type="radio" name="gumradio" value="gum back" />
+                Gum back
+              </label>
+
+              <label>
+                Gum angle
+                <input type="range" value />
+              </label>
+              <label>
+                Gum placement horz
+                <select>
+                  <option>left</option>
+                  <option>center</option>
+                  <option>right</option>
+                </select>
+              </label>
+
+              <label>
+                Gum placement vert
+                <select>
+                  <option>top</option>
+                  <option>middle</option>
+                  <option>bottom</option>
+                </select>
+              </label>
+            </details>
+
+            <!-- cmyk -->
+            <!-- <details>
+            <summary>Print Defects</summary>
+            <label>
+              <input type="checkbox" />
+              CMYK print misalignment
+            </label>
+            <label>
+              Misalignment Degree
+              <input type="range" />
+            </label>
+            </details>-->
+
+            <!-- corners -->
+            <details>
+              <summary>Corner Fuziness/Dogears</summary>
+              <label>
+                Dog-Eared Corner
+                <select>
+                  <option>none</option>
+                  <option>top left</option>
+                  <option>top right</option>
+                  <option>bottom left</option>
+                  <option>bottom right</option>
+                </select>
+              </label>
+
+              <label>
+                Fuzzy Corner
+                <select>
+                  <option>none</option>
+                  <option>top left</option>
+                  <option>top right</option>
+                  <option>bottom left</option>
+                  <option>bottom right</option>
+                </select>
+              </label>
+              <label>
+                Fuzziness Degree
+                <input type="range" />
+              </label>
+            </details>
+
+            <!-- <details>
+            <summary>Other Creases</summary>
+            <label>
+              Crease Location
+              <select>
+                <option>none</option>
+                <option>top left</option>
+                <option>top right</option>
+                <option>bottom left</option>
+                <option>bottom right</option>
+              </select>
+            </label>
+            <label>
+              Crease/Fuzziness Severity (if selected)
+              <input type="range" />
+            </label>
+            </details>-->
+          </details>
+        </fieldset>
+
+        <!-- mmust be type button so it doesn't fight with submit-->
+        <button type="button" @click="saveHandler">Save</button>
+        <button type="button" @click="submitHandler">Submit</button>
+      </form>
       <div class="baseballCard__wrapper--inner">
         <article class="gridParent article--cardFront">
           <figure class="figure--player">
@@ -13,7 +207,6 @@
               :alt="playerName + ' being awesome'"
             />
           </figure>
-          <aside class="corner--top--left gridArea"></aside>
           <header class="masthead--center gridArea">
             <div class="row">
               <h2>
@@ -21,9 +214,7 @@
               </h2>
             </div>
           </header>
-          <aside class="corner--top--right gridArea"></aside>
 
-          <aside class="sidebar--left gridArea"></aside>
           <section class="image__container gridArea">
             <!-- Edit this and the preview will update automatically. -->
 
@@ -56,9 +247,7 @@
               />
             </section>
           </section>
-          <aside class="sidebar--right gridArea"></aside>
 
-          <aside class="corner--bottom--left gridArea"></aside>
           <section class="footer--playerName gridArea">
             <div class="row">
               <h1>
@@ -71,256 +260,10 @@
               <input v-model="playerPosition" type="text" placeholder maxlength="48" />
             </h3>
           </section>
-
-          <aside class="corner--bottom--right gridArea"></aside>
         </article>
       </div>
     </div>
-    <form class="form--cardDesign">
-      <fieldset>
-        <details>
-          <summary>
-            <legend>Card Images</legend>
-          </summary>
-          <label>
-            Player Image (URL or upload):
-            <input
-              v-model="playerImageURLorDataString"
-              type="text"
-              placeholder
-            />
-            <br />
-          </label>
 
-          <label>
-            Brightness
-            <input v-model="cardBrightness" type="range" min="1" max="1.3" step="0.01" />
-          </label>
-          <label>
-            Sepia
-            <input v-model="cardSepia" type="range" min="0" max="50" />
-          </label>
-          <label>
-            Greyscale
-            <input v-model="cardGrayScale" type="range" min="0" max="100" />
-          </label>
-          <label>
-            Team Logo Image (URL):
-            <input v-model="teamLogoURL" type="url " placeholder />
-            <!-- <input type="file" id="logoFileInput" name="logoFileInput" accept="image/*" /> -->
-          </label>
-          <label>
-            Logo Position
-            <select v-model="logoPosition">
-              <option value="flex-end">Bottom Right</option>
-              <option value="flex-start">Top Right</option>
-            </select>
-          </label>
-        </details>
-      </fieldset>
-      <fieldset>
-        <details>
-          <summary>
-            <legend>Typography</legend>
-          </summary>
-          <label>
-            Text Color
-            <input v-model="cardTextColor" type="color" />
-          </label>
-          <label>
-            Font Weight
-            <input v-model="cardTextFontWeight" type="range" min="100" max="900" />
-          </label>
-          <label>
-            Font Width
-            <input v-model="cardTextFontWidth" type="range" min="35" max="100" />
-          </label>
-
-          <label>
-            Font Slant
-            <input v-model="cardTextFontSlant" type="range" min="-10" max="0" />
-          </label>
-          <label>
-            Font Grade
-            <input v-model="cardTextFontGrade" type="range" min="0" max="48" />
-          </label>
-          <!-- <label>
-              Font Optical Size (inverse)
-              <input
-                v-model="cardTextFontOptSize"
-                type="range"
-                min="10"
-                max="72"
-              />
-          </label>-->
-        </details>
-      </fieldset>
-      <fieldset>
-        <details>
-          <summary>
-            <legend>Design</legend>
-          </summary>
-          <label>
-            Background
-            <input v-model="cardBackgroundColor" type="color" />
-          </label>
-          <label>
-            Texture
-            <select v-model="cardBackgroundTexture">
-              <option>no texture</option>
-              <option value="filterfabric">Fabric</option>
-              <option value="filterpaper">Paper</option>
-              <option value="filternoise">Noise</option>
-            </select>
-          </label>
-        </details>
-      </fieldset>
-
-      <fieldset>
-        <details>
-          <summary>
-            <legend>Border Styles</legend>
-          </summary>
-          <label>
-            Border Color
-            <input v-model="cardBorderColor" type="color" />
-          </label>
-          <label>
-            Border Curve
-            <input v-model="cardBorderCurve" type="range" min="0" max="24" />
-          </label>
-          <label>
-            Border Width
-            <input type="range" min="0" max="5" />
-          </label>
-        </details>
-      </fieldset>
-      <fieldset>
-        <details>
-          <summary>
-            <legend>Imperfections</legend>
-          </summary>
-
-          <!-- nested accordion here -->
-          <!-- gum -->
-          <details>
-            <summary>Gum</summary>
-            <label>
-              <input type="radio" name="gumradio" value="nogum" />
-              No gum
-            </label>
-            <label>
-              <input type="radio" name="gumradio" value="gum front" />
-              Gum front
-            </label>
-            <label>
-              <input type="radio" name="gumradio" value="gum back" />
-              Gum back
-            </label>
-
-            <label>
-              Gum angle
-              <input type="range" value />
-            </label>
-            <label>
-              Gum placement horz
-              <select>
-                <option>left</option>
-                <option>center</option>
-                <option>right</option>
-              </select>
-            </label>
-
-            <label>
-              Gum placement vert
-              <select>
-                <option>top</option>
-                <option>middle</option>
-                <option>bottom</option>
-              </select>
-            </label>
-          </details>
-
-          <!-- cmyk -->
-          <!-- <details>
-            <summary>Print Defects</summary>
-            <label>
-              <input type="checkbox" />
-              CMYK print misalignment
-            </label>
-            <label>
-              Misalignment Degree
-              <input type="range" />
-            </label>
-          </details>-->
-
-          <!-- corners -->
-          <details>
-            <summary>Corner Fuziness/Dogears</summary>
-            <label>
-              Dog-Eared Corner
-              <select>
-                <option>none</option>
-                <option>top left</option>
-                <option>top right</option>
-                <option>bottom left</option>
-                <option>bottom right</option>
-              </select>
-            </label>
-
-            <label>
-              Fuzzy Corner
-              <select>
-                <option>none</option>
-                <option>top left</option>
-                <option>top right</option>
-                <option>bottom left</option>
-                <option>bottom right</option>
-              </select>
-            </label>
-            <label>
-              Fuzziness Degree
-              <input type="range" />
-            </label>
-          </details>
-
-          <!-- <details>
-            <summary>Other Creases</summary>
-            <label>
-              Crease Location
-              <select>
-                <option>none</option>
-                <option>top left</option>
-                <option>top right</option>
-                <option>bottom left</option>
-                <option>bottom right</option>
-              </select>
-            </label>
-            <label>
-              Crease/Fuzziness Severity (if selected)
-              <input type="range" />
-            </label>
-          </details>-->
-        </details>
-      </fieldset>
-      <fieldset>
-        <details>
-          <summary>
-            <legend>Superlatives</legend>
-          </summary>
-
-          <div>
-            <p>All Star, Rookie of the Year, MVP, Arbitrary</p>
-            <p>circle border or open (maybe no circle border since it would look maybe ugh)</p>
-            <p>img for superlative? Or just pizzaz (star, trophy, banner, (other?) none)</p>
-          </div>
-        </details>
-      </fieldset>
-
-      <!-- mmust be type button so it doesn't fight with submit-->
-      <button type="button" @click="saveHandler">Save</button>
-      <button type="button" @click="submitHandler">Submit</button>
-    </form>
     <!-- would like to use async and suspense if beneficial -->
     <!-- <svg class="svg--textureOverlay" width="320" height="448">
             <g>

@@ -1,70 +1,133 @@
 <template>
   <div>
-    <fieldset>
-      <legend>Layout</legend>
-      <!-- try just by ordering image -->
-      <label>
-        <input type="radio" v-model="cardLayout" value="one-one" />
-        <span>1-1</span>
-      </label>
-      <label>
-        <input type="radio" v-model="cardLayout" value="zero-two" />
-        <span>0-2</span>
-      </label>
-      <label>
-        <input type="radio" v-model="cardLayout" value="two-zero" />
-        <span>2-0</span>
-      </label>
-    </fieldset>
-    <fieldset>
-      <legend>Player Image Bleed or Boxed</legend>
-      <label>
-        <input type="radio" v-model="playerImageBleedOrBoxed" value="relative" />
-        <span>Boxed</span>
-      </label>
-      <label>
-        <input type="radio" v-model="playerImageBleedOrBoxed" value="static" />
-        <span>Full Bleed</span>
-      </label>
-    </fieldset>
-    <fieldset>
-      <legend>Logo Position</legend>
-      <div class="row">
-        <label>
-          <input type="radio" v-model="logoPosition" value="flex-start" />
-          <span>Left</span>
-        </label>
-        <label>
-          <input type="radio" v-model="logoPosition" value="flex-end" />
-          <span>Right</span>
-        </label>
-      </div>
-      <div class="row">
-        <label>
-          <input type="radio" v-model="logoPositionVertical" value="flex-start" />
-          <span>Top</span>
-        </label>
-        <label>
-          <input type="radio" v-model="logoPositionVertical" value="flex-end" />
-          <span>Bottom</span>
-        </label>
-      </div>
-    </fieldset>
-    <fieldset>
-      <legend>Border Styles</legend>
-      <label>
-        Border Color
-        <input v-model="cardBorderColor" type="color" />
-      </label>
-      <label>
-        Border Curve
-        <input v-model="cardBorderCurve" type="range" min="0" max="24" />
-      </label>
-      <label>
-        Border Width
-        <input type="range" min="0" max="5" />
-      </label>
-    </fieldset>
+    <details class="controls">
+      <summary>Controls</summary>
+      <fieldset>
+        <details>
+          <summary>
+            <legend>Layout</legend>
+          </summary>
+          <!-- try just by ordering image -->
+          <label>
+            <input type="radio" v-model="cardLayout" value="one-one" />
+            <span>1-1</span>
+          </label>
+          <label>
+            <input type="radio" v-model="cardLayout" value="zero-two" />
+            <span>0-2</span>
+          </label>
+          <label>
+            <input type="radio" v-model="cardLayout" value="two-zero" />
+            <span>2-0</span>
+          </label>
+        </details>
+      </fieldset>
+
+      <fieldset>
+        <details>
+          <summary>
+            <legend>Bleed or Border</legend>
+          </summary>
+          <label>
+            <input type="radio" v-model="playerImageBleedOrBoxed" value="relative" />
+            <span>Border</span>
+          </label>
+          <label>
+            <input type="radio" v-model="playerImageBleedOrBoxed" value="static" />
+            <span>Full Bleed</span>
+          </label>
+        </details>
+      </fieldset>
+      <fieldset>
+        <details>
+          <summary>
+            <legend>Logo (make Optional and add options for round and border)</legend>
+          </summary>
+          <div class="row">
+            <label>
+              <input type="radio" v-model="logoPosition" value="flex-start" />
+              <span>Left</span>
+            </label>
+            <label>
+              <input type="radio" v-model="logoPosition" value="flex-end" />
+              <span>Right</span>
+            </label>
+          </div>
+          <div class="row">
+            <label>
+              <input type="radio" v-model="logoPositionVertical" value="flex-start" />
+              <span>Top</span>
+            </label>
+            <label>
+              <input type="radio" v-model="logoPositionVertical" value="flex-end" />
+              <span>Bottom</span>
+            </label>
+          </div>
+        </details>
+      </fieldset>
+      <fieldset>
+        <details>
+          <summary>
+            <legend>Border (make Optional)</legend>
+          </summary>
+          <label>
+            Border Color
+            <input v-model="cardBorderColor" type="color" />
+          </label>
+          <label>
+            Border Curve
+            <input v-model="cardBorderCurve" type="range" min="0" max="24" />
+          </label>
+          <label>
+            Border Width
+            <input type="range" min="0" max="5" />
+          </label>
+
+          <label>
+            Border Styles: NONE, (Double? Or better to use outline or FILTER drop shadow for 2nd element?)
+            <input
+              type="range"
+              min="0"
+              max="5"
+            />
+          </label>
+        </details>
+      </fieldset>
+
+      <fieldset>
+        <details>
+          <summary>
+            <legend>Image Filters</legend>
+          </summary>
+          <label>
+            Brightness
+            <input v-model="cardBrightness" type="range" min="1" max="1.3" step="0.01" />
+          </label>
+          <label>
+            Sepia
+            <input v-model="cardSepia" type="range" min="0" max="50" />
+          </label>
+          <label>
+            Greyscale
+            <input v-model="cardGrayScale" type="range" min="0" max="100" />
+          </label>
+        </details>
+      </fieldset>
+      <fieldset>
+        <details>
+          <summary>
+            <legend>Superlatives</legend>
+          </summary>
+
+          <div>
+            <p>All Star, Rookie of the Year, MVP, Arbitrary</p>
+            <p>circle border or open (maybe no circle border since it would look maybe ugh)</p>
+            <p>img for superlative? Or just pizzaz (star, trophy, banner, (other?) none)</p>
+          </div>
+        </details>
+      </fieldset>
+    </details>
+    <!-- end controls-->
     <div
       class="card__container--front"
       :class="[cardLayout, playerImageBleedOrBoxed]"
@@ -111,6 +174,9 @@ export default {
       cardBackgroundColor: defaultSettings.cardBackgroundColor,
       cardBorderColor: defaultSettings.cardBorderColor,
       cardBorderCurve: defaultSettings.cardBorderCurve,
+      cardBrightness: defaultSettings.cardBrightness,
+      cardSepia: defaultSettings.cardSepia,
+      cardGrayScale: defaultSettings.cardGrayScale,
       cardLayout: defaultSettings.cardLayout,
       logoPosition: defaultSettings.logoPosition,
       logoPositionVertical: defaultSettings.logoPositionVertical,
@@ -129,6 +195,9 @@ export default {
         "--cardbackgroundcolor": this.cardBackgroundColor,
         "--cardbordercolor": this.cardBorderColor,
         "--cardbordercurve": `${this.cardBorderCurve}px`,
+        "--cardsepia": `${this.cardSepia}%`,
+        "--cardbrightness": this.cardBrightness,
+        "--cardgrayscale": `${this.cardGrayScale}%`,
         "--cardlayout": this.cardLayout,
         "--logoposition": this.logoPosition,
         "--logopositionvertical": this.logoPositionVertical,
@@ -150,12 +219,12 @@ export default {
   height: 50.4rem;
   margin: 0 auto 10rem auto;
   padding: 1.6rem;
-  overflow: hidden;
-
-  // probs with z-index -- better to color in backgrounds and use outline oooh
-  //background-color: var(--cardbackgroundcolor);
+  background-color: var(--cardbackgroundcolor);
 
   border: 1px solid rgba(0, 0, 0, 0.3333);
+  overflow: hidden;
+
+  z-index: 0;
 
   &:focus-within {
     &:before {
@@ -197,7 +266,9 @@ export default {
   border-radius: var(--cardbordercurve);
   justify-content: var(--logoposition);
   align-items: var(--logopositionvertical);
+  overflow: hidden;
   // imperative way of handling full bleed
+  //filter: drop-shadow(10px 10px red) sepia(100) grayscale(100);
 }
 
 h2 {
@@ -228,23 +299,28 @@ h3 {
   //background-color: var(--cardbackgroundcolor);
   border-radius: var(--cardbordercurve);
   // donT override all the other filters here
-  //filter: drop-shadow(10px 10px red);
+  filter: #{"grayscale(var(--cardgrayscale))"} brightness(var(--cardbrightness))
+    sepia(var(--cardsepia));
+
   .static & {
     border-radius: 0;
+    z-index: -1;
   }
-  z-index: -1;
 }
 
 .image--player {
+  // depending on layout might want to make object-position managable yarh
+  object-position: 0 50%;
+  width: 100%;
+  // donT think i need this height value but
+  height: 100%;
 }
 
 .figure--logo {
   position: absolute;
   display: flex;
-  //top: auto;
-  //right: 1.6rem;
-  //bottom: auto;
-  //left: auto;
+  filter: #{"grayscale(var(--cardgrayscale))"} brightness(var(--cardbrightness))
+    sepia(var(--cardsepia));
 }
 
 .image--logo {

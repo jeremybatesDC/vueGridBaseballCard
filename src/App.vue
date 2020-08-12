@@ -164,25 +164,11 @@ h3 {
     box-shadow: 1px 0 rgba(0, 0, 0, 1);
     //border-image:url();
   }
-  //gum
-  // svg gum image maybe
-  // &:after {
-  //   content: "";
-  //   position: absolute;
-  //   top: 0;
-  //   left: 0;
-  //   width: 10rem;
-  //   height: 30rem;
-  //   background-color: rgba(0, 0, 0, 0.1);
-  //   border-radius: 3px 4px 5px 6px;
-  //   transform: rotate(18deg) translateX(100%) translateY(20%);
-  //   mix-blend-mode: darken;
-  // }
 }
 
 // there are some hard to iron out differences between filters when they are overtop of images
 .svg--textureOverlay {
-  z-index: -1;
+  //z-index: -1;
 }
 
 .masthead--center {
@@ -209,45 +195,6 @@ h3 {
   input {
     font-size: 1.6rem;
   }
-}
-.footer--teamLogo {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  // display: flex;
-  // justify-content: flex-end;
-}
-.image--teamLogo {
-  object-fit: cover;
-  width: 7.2rem;
-  height: 7.2rem;
-  border-radius: 50%;
-  align-self: var(--logoPosition);
-  //justify-self: flex-end;
-  z-index: 1;
-}
-
-.figure--player {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-
-  overflow: hidden;
-  z-index: -1;
-}
-
-.image--player {
-  object-fit: cover;
-  object-position: 0 50%;
-  width: 100%;
-  height: 100%;
-  //max-height: 38.4rem;
-
-  filter: #{"grayscale(var(--cardgrayscale, 0))"} brightness(
-      var(--cardbrightness, 1)
-    ) sepia(var(--cardsepia, 0));
 }
 
 .form--cardDesign {

@@ -200,7 +200,6 @@ th {
       text-transform: uppercase;
       text-indent: -1rem;
       padding-left: 1rem;
-      //z-index: 1;
 
       // safari mobile seems to struggle with first-line
     }
