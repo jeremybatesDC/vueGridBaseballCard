@@ -197,71 +197,6 @@
         <button type="button" @click="saveHandler">Save</button>
         <button type="button" @click="submitHandler">Submit</button>
       </form>
-      <div class="baseballCard__wrapper--inner">
-        <article class="gridParent article--cardFront">
-          <figure class="figure--player">
-            <img
-              loading="lazy"
-              class="image--player"
-              :src="playerImageURLorDataString"
-              :alt="playerName + ' being awesome'"
-            />
-          </figure>
-          <header class="masthead--center gridArea">
-            <div class="row">
-              <h2>
-                <input v-model="teamName" type="text" placeholder maxlength="42" />
-              </h2>
-            </div>
-          </header>
-
-          <section class="image__container gridArea">
-            <!-- Edit this and the preview will update automatically. -->
-
-            <input
-              class="fileInput--fullContainerSize"
-              type="file"
-              id="playerImageFileInput"
-              ref="playerImageFileInput"
-              name="playerImageFileInput"
-              accept="image/*"
-              @input="encodeImage"
-            />
-            <section class="footer--teamLogo">
-              <img
-                width="72"
-                height="72"
-                loading="lazy"
-                class="image--teamLogo {{logoPosition}}"
-                :src="teamLogoURL"
-                :alt="teamLogoAltText"
-              />
-
-              <input
-                class="fileInput--fullContainerSize"
-                type="file"
-                id="logoFileInput"
-                name="logoFileInput"
-                accept="image/*"
-                @input="encodeImage"
-              />
-            </section>
-          </section>
-
-          <section class="footer--playerName gridArea">
-            <div class="row">
-              <h1>
-                <input v-model="playerName" type="text" placeholder maxlength="48" />
-              </h1>
-            </div>
-          </section>
-          <section class="footer--playerPosition gridArea">
-            <h3>
-              <input v-model="playerPosition" type="text" placeholder maxlength="48" />
-            </h3>
-          </section>
-        </article>
-      </div>
     </div>
 
     <!-- would like to use async and suspense if beneficial -->
@@ -378,26 +313,13 @@ export default {
   data: function () {
     return {
       // need to loop through these instead of listing them
+      // DESTRUCTURE
       playerImageURLorDataString: defaultSettings.playerImageURLorDataString,
       playerName: defaultSettings.playerName,
       playerPosition: defaultSettings.playerPosition,
       teamLogoAltText: defaultSettings.teamLogoAltText,
       teamLogoURL: defaultSettings.teamLogoURL,
       teamName: defaultSettings.teamName,
-      cardBackgroundColor: defaultSettings.cardBackgroundColor,
-      cardBackgroundTexture: defaultSettings.cardBackgroundTexture,
-      cardBorderColor: defaultSettings.cardBorderColor,
-      cardBorderCurve: defaultSettings.cardBorderCurve,
-      cardBrightness: defaultSettings.cardBrightness,
-      cardTextColor: defaultSettings.cardTextColor,
-      cardTextFontWeight: defaultSettings.cardTextFontWeight,
-      cardTextFontWidth: defaultSettings.cardTextFontWidth,
-      cardTextFontOptSize: defaultSettings.cardTextFontOptSize,
-      cardTextFontGrade: defaultSettings.cardTextFontGrade,
-      cardTextFontSlant: defaultSettings.cardTextFontSlant,
-      cardSepia: defaultSettings.cardSepia,
-      cardGrayScale: defaultSettings.cardGrayScale,
-      logoPosition: defaultSettings.logoPosition,
     };
   },
   methods: {
@@ -426,19 +348,6 @@ export default {
     cssProps() {
       return {
         // loop through if possible
-        "--cardbackgroundcolor": this.cardBackgroundColor,
-        "--cardtextcolor": this.cardTextColor,
-        "--cardbordercolor": this.cardBorderColor,
-        "--cardbordercurve": `${this.cardBorderCurve}px`,
-        "--cardtextfontweight": this.cardTextFontWeight,
-        "--cardtextfontwidth": this.cardTextFontWidth,
-        "--cardtextfontoptsize": this.cardTextFontOptSize,
-        "--cardtextfontgrade": this.cardTextFontGrade,
-        "--cardtextfontslant": this.cardTextFontSlant,
-        "--cardsepia": `${this.cardSepia}%`,
-        "--cardbrightness": this.cardBrightness,
-        "--cardgrayscale": `${this.cardGrayScale}%`,
-        "--logoPosition": this.logoPosition,
         //donT put encoded image in here. But this could/sjhould be a property somewhere
         // "--playerimageencoded": `${this.playerImagePreview}%`
       };

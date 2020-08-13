@@ -131,10 +131,10 @@
     <div
       class="card__container--front"
       :class="[cardLayout, playerImageBleedOrBoxed]"
-      :style="cssProps"
+      :style="cssCardDesignProps"
     >
-      <div class="text__line--secondary row">
-        <h2>
+      <div class="text__line--first row">
+        <h2 :style="cssTextLine1Props">
           <input v-model="teamName" type="text" placeholder maxlength="42" />
         </h2>
       </div>
@@ -149,8 +149,8 @@
           <img loading="lazy" class="image--logo" :src="teamLogoURL" alt width="72" height="72" />
         </figure>
       </div>
-      <div class="text__line--primary row">
-        <h1>
+      <div class="text__line--second row">
+        <h1 :style="cssTextLine2Props">
           <input v-model="playerName" type="text" placeholder maxlength="48" />
         </h1>
         <h3>
@@ -185,12 +185,26 @@ export default {
       playerImageBleedOrBoxed: defaultSettings.playerImageBleedOrBoxed,
       playerName: defaultSettings.playerName,
       playerPosition: defaultSettings.playerPosition,
-
       teamName: defaultSettings.teamName,
+
+      textLine1: {
+        fontWeight: defaultSettings.textLine1.fontWeight,
+        fontWidth: defaultSettings.textLine1.fontWidth,
+        color: defaultSettings.textLine1.color,
+        fontGrade: defaultSettings.textLine1.fontGrade,
+        fontSlant: defaultSettings.textLine1.fontSlant,
+      },
+      textLine2: {
+        fontWeight: defaultSettings.textLine2.fontWeight,
+        fontWidth: defaultSettings.textLine2.fontWidth,
+        color: defaultSettings.textLine2.color,
+        fontGrade: defaultSettings.textLine2.fontGrade,
+        fontSlant: defaultSettings.textLine2.fontSlant,
+      },
     };
   },
   computed: {
-    cssProps() {
+    cssCardDesignProps() {
       return {
         "--cardbackgroundcolor": this.cardBackgroundColor,
         "--cardbordercolor": this.cardBorderColor,
@@ -202,6 +216,24 @@ export default {
         "--logoposition": this.logoPosition,
         "--logopositionvertical": this.logoPositionVertical,
         "--playerimagebleedorboxed": this.playerImageBleedOrBoxed,
+      };
+    },
+    cssTextLine1Props() {
+      return {
+        "--color": this.textLine1.color,
+        "--fontweight": this.textLine1.fontWeight,
+        "--fontwidth": this.textLine1.fontWidth,
+        "--fontgrade": this.textLine1.fontGrade,
+        "--fontslant": this.textLine1.fontSlant,
+      };
+    },
+    cssTextLine2Props() {
+      return {
+        "--color": this.textLine2.color,
+        "--fontweight": this.textLine2.fontWeight,
+        "--fontwidth": this.textLine2.fontWidth,
+        "--fontgrade": this.textLine2.fontGrade,
+        "--fontslant": this.textLine2.fontSlant,
       };
     },
   },
@@ -271,12 +303,29 @@ export default {
   //filter: drop-shadow(10px 10px red) sepia(100) grayscale(100);
 }
 
+.text__line--second {
+  justify-content: space-between;
+  align-items: center;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--color);
+  font-variation-settings: "wght" var(--fontweight), "wdth" var(--fontwidth),
+    "GRAD" var(--fontgrade), "slnt" var(--fontslant);
+}
+
 h2 {
+  font-size: 1.8rem;
   input[type="text"] {
-    color: rgba(0, 0, 0, 0.8);
     // still mulling this over
-    text-shadow: 1px 0 0 rgba(black, 0.5), 1px 0 0 rgba(cyan, 0.8),
-      1px 0 0 rgba(magenta, 0.8), 1px 0 0 rgba(yellow, 0.8);
+    //text-shadow: 1px 0 0 rgba(black, 0.5), 1px 0 0 rgba(cyan, 0.8),
+    //1px 0 0 rgba(magenta, 0.8), 1px 0 0 rgba(yellow, 0.8);
+
     //filter: drop-shadow(1px 1px 1px 1px cyan),drop-shadow(1px 1px 1px 1px magenta), drop-shadow(1px 1px 1px 1px yellow);
   }
 }

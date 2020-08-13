@@ -12,6 +12,7 @@
   "cardBorderCurve": "0",
   "cardBrightness": "1",
   "cardTextColor": "#000000",
+
   "cardTextFontWeight": "400",
   "cardTextFontWidth": "90",
   "cardTextFontOptSize": "25",
@@ -21,5 +22,20 @@
   "cardGrayScale": "0",
   "logoPosition": "flex-end",
   "logoPositionVertical": "flex-end",
-  "cardLayout": "one-one"
+  "cardLayout": "one-one",
+
+  "textLine1": {
+    "color": "#123456",
+    "fontWeight": "900",
+    "fontWidth": "90",
+    "fontGrade": "1",
+    "fontSlant": "0"
+  },
+  "textLine2": {
+    "color": "#345abc",
+    "fontWeight": "100",
+    "fontWidth": "50",
+    "fontGrade": "0",
+    "fontSlant": "-5"
+  }
 }
