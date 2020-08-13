@@ -1,4 +1,9 @@
 <template>
+  <details class="controls">
+    <summary>Back Controls</summary>
+    <fieldset>hey</fieldset>
+  </details>
+
   <div class="card-back">
     <article>
       <BackHeader />

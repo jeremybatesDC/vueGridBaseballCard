@@ -1,7 +1,7 @@
 <template>
   <div>
     <details class="controls">
-      <summary>Controls</summary>
+      <summary>Front Controls</summary>
       <fieldset>
         <details>
           <summary>
