@@ -113,8 +113,8 @@ h3 {
 }
 
 .baseballCard__wrapper--mid {
-  display: flex;
-  justify-content: center;
+  // display: flex;
+  // justify-content: center;
 }
 
 .baseballCard__wrapper--inner {
@@ -201,12 +201,6 @@ h3 {
 }
 
 .form--cardDesign {
-  display: inline-block;
-  vertical-align: top;
-  // temporary arbitrary value
-  //max-width: 18rem;
-  padding: 0 1rem;
-  overflow: hidden;
 }
 details {
   padding: 1rem;

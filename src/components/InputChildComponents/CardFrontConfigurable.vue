@@ -3,8 +3,8 @@
     <details class="controls">
       <summary>Front Controls</summary>
       <div class="row row--wrap">
-        <fieldset>
-          <details>
+        <form>
+          <details open>
             <summary>
               <legend>Layout</legend>
             </summary>
@@ -22,10 +22,10 @@
               <span>2-0</span>
             </label>
           </details>
-        </fieldset>
+        </form>
 
-        <fieldset>
-          <details>
+        <form>
+          <details open>
             <summary>
               <legend>Bleed or Outer Border</legend>
             </summary>
@@ -39,44 +39,109 @@
             </label>
             <label>
               <input type="radio" v-model="playerImageBleedOrBoxed" value="static" />
-              <span>IF Full Bleed, outer border opacity option</span>
+              <p>IF Full Bleed, outer border opacity option</p>
             </label>
           </details>
-        </fieldset>
-        <fieldset>
+        </form>
+        <form>
           <details>
             <summary>
-              <legend>
-                Logo
-                <small>(optional, round/square, border)</small>
-              </legend>
+              <legend>Player Image</legend>
+            </summary>
+
+            <label>
+              Player Image (URL or upload):
+              <input
+                v-model="playerImageURLorDataString"
+                type="text"
+                placeholder
+              />
+              <br />
+            </label>
+
+            <label>
+              Take Selfie on Mobile
+              <input type="file" capture="user" />
+            </label>
+
+            <label>
+              Take Pic on Mobile
+              <input type="file" capture="environment" />
+            </label>
+
+            <label>
+              <button type="reset">Delete image</button>
+            </label>
+
+            <fieldset>
+              <label>
+                Brightness
+                <input
+                  v-model="cardBrightness"
+                  type="range"
+                  min="1"
+                  max="1.3"
+                  step="0.01"
+                />
+              </label>
+              <label>
+                Sepia
+                <input v-model="cardSepia" type="range" min="0" max="50" />
+              </label>
+              <label>
+                Greyscale
+                <input v-model="cardGrayScale" type="range" min="0" max="100" />
+              </label>
+            </fieldset>
+          </details>
+        </form>
+        <form>
+          <details>
+            <summary>
+              <legend>Logo Image</legend>
             </summary>
             <div class="row">
-              <label>
-                <input type="radio" v-model="logoPosition" value="flex-start" />
-                <span>Left</span>
-              </label>
-              <label>
-                <input type="radio" v-model="logoPosition" value="flex-end" />
-                <span>Right</span>
-              </label>
+              <p>(optional, round/square, border)</p>
             </div>
             <div class="row">
               <label>
-                <input type="radio" v-model="logoPositionVertical" value="flex-start" />
-                <span>Top</span>
-              </label>
-              <label>
-                <input type="radio" v-model="logoPositionVertical" value="flex-end" />
-                <span>Bottom</span>
+                Team Logo Image (URL):
+                <input v-model="teamLogoURL" type="url " placeholder />
+                <!-- <input type="file" id="logoFileInput" name="logoFileInput" accept="image/*" /> -->
               </label>
             </div>
+            <div class="row">
+              <fieldset>
+                <div class="row">
+                  <label>
+                    <input type="radio" v-model="logoPositionVertical" value="flex-start" />
+                    <span>Top</span>
+                  </label>
+                </div>
+                <div class="row">
+                  <label>
+                    <input type="radio" v-model="logoPosition" value="flex-start" />
+                    <span>Left</span>
+                  </label>
+                  <label>
+                    <input type="radio" v-model="logoPosition" value="flex-end" />
+                    <span>Right</span>
+                  </label>
+                </div>
+                <div class="row">
+                  <label>
+                    <input type="radio" v-model="logoPositionVertical" value="flex-end" />
+                    <span>Bottom</span>
+                  </label>
+                </div>
+              </fieldset>
+            </div>
           </details>
-        </fieldset>
-        <fieldset>
+        </form>
+        <form>
           <details>
             <summary>
-              <legend>Border (make Optional)</legend>
+              <legend>Inner Border</legend>
             </summary>
             <label>
               Border Color
@@ -91,37 +156,11 @@
               <input type="range" min="0" max="5" />
             </label>
 
-            <label>
-              Border Styles: NONE, (Double? Or better to use outline or FILTER drop shadow for 2nd element?)
-              <input
-                type="range"
-                min="0"
-                max="5"
-              />
-            </label>
+            <p>(make Optional). Border Styles: NONE, (Double? Or better to use outline or FILTER drop shadow for 2nd element?)</p>
           </details>
-        </fieldset>
+        </form>
 
-        <fieldset>
-          <details>
-            <summary>
-              <legend>Image Filters</legend>
-            </summary>
-            <label>
-              Brightness
-              <input v-model="cardBrightness" type="range" min="1" max="1.3" step="0.01" />
-            </label>
-            <label>
-              Sepia
-              <input v-model="cardSepia" type="range" min="0" max="50" />
-            </label>
-            <label>
-              Greyscale
-              <input v-model="cardGrayScale" type="range" min="0" max="100" />
-            </label>
-          </details>
-        </fieldset>
-        <fieldset>
+        <form>
           <details>
             <summary>
               <legend>Superlatives</legend>
@@ -133,7 +172,7 @@
               <p>img for superlative? Or just pizzaz (star, trophy, banner, (other?) none)</p>
             </div>
           </details>
-        </fieldset>
+        </form>
       </div>
     </details>
     <!-- end controls-->
