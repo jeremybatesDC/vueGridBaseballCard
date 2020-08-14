@@ -204,8 +204,8 @@ h3 {
   display: inline-block;
   vertical-align: top;
   // temporary arbitrary value
-  max-width: 18rem;
-  padding-left: 1rem;
+  //max-width: 18rem;
+  padding: 0 1rem;
   overflow: hidden;
 }
 details {

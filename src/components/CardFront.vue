@@ -7,8 +7,9 @@
         <fieldset>
           <details>
             <summary>
-              <legend>Card Images</legend>
+              <legend>Player Image</legend>
             </summary>
+
             <label>
               Player Image (URL or upload):
               <input
@@ -20,12 +21,28 @@
             </label>
 
             <label>
+              Take Selfie on Mobile
+              <input type="file" capture="user" />
+            </label>
+
+            <label>
+              Take Pic on Mobile
+              <input type="file" capture="environment" />
+            </label>
+
+            <label>
+              <button type="reset">Delete image</button>
+            </label>
+
+            <label>
               Team Logo Image (URL):
               <input v-model="teamLogoURL" type="url " placeholder />
               <!-- <input type="file" id="logoFileInput" name="logoFileInput" accept="image/*" /> -->
             </label>
           </details>
         </fieldset>
+      </form>
+      <form>
         <fieldset>
           <details>
             <summary>

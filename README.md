@@ -23,6 +23,8 @@ LOGO IMAGE:
   https://dev.to/dailydevtips1/css-flip-cards-3flc
   --> keeping factoring code over from card front into cardfront configurable (eventually it should go back up to parent level i think but i can keep refactoring now where it is)
 
+--> consider using requestSubmit()
+
 --> icons for layout options
 
 --> text options include color per field (defaults to currentColor), text-align

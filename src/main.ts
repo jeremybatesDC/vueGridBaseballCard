@@ -5,6 +5,8 @@ import "./globalStyles/grid.scss";
 
 import "./globalStyles/inputs.scss";
 
+import "./globalStyles/animation.scss";
+
 let dateTest = new Date().getFullYear();
 console.log(dateTest);
 
