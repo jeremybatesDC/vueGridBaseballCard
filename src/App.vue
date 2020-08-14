@@ -27,11 +27,12 @@
 import CardFront from "./components/CardFront.vue";
 import CardBack from "./components/CardBack.vue";
 
+async function registerServiceWorker() {
+  navigator.serviceWorker.register("/sw.js");
+}
+
 export default {
   setup: function () {
-    async function registerServiceWorker() {
-      navigator.serviceWorker.register("/sw.js");
-    }
     return { registerServiceWorker };
   },
   components: {
@@ -39,7 +40,7 @@ export default {
     CardBack,
   },
   mounted: function () {
-    //this.registerServiceWorker();
+    //registerServiceWorker();
     console.log(
       "remember to uncomment this service worker. Also, work on an envar"
     );
@@ -55,6 +56,8 @@ export default {
 </script>
 
 <style lang="scss">
+//not working as expected
+$minTouchTargetHeight: 4.4rem;
 :root {
   // having trouble this morning with calc and scss math with variable and didn't want to get too stuck
   // wtaf ?

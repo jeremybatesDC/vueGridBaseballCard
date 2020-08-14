@@ -2,130 +2,139 @@
   <div>
     <details class="controls">
       <summary>Front Controls</summary>
-      <fieldset>
-        <details>
-          <summary>
-            <legend>Layout</legend>
-          </summary>
-          <!-- try just by ordering image -->
-          <label>
-            <input type="radio" v-model="cardLayout" value="one-one" />
-            <span>1-1</span>
-          </label>
-          <label>
-            <input type="radio" v-model="cardLayout" value="zero-two" />
-            <span>0-2</span>
-          </label>
-          <label>
-            <input type="radio" v-model="cardLayout" value="two-zero" />
-            <span>2-0</span>
-          </label>
-        </details>
-      </fieldset>
-
-      <fieldset>
-        <details>
-          <summary>
-            <legend>Bleed or Border</legend>
-          </summary>
-          <label>
-            <input type="radio" v-model="playerImageBleedOrBoxed" value="relative" />
-            <span>Border</span>
-          </label>
-          <label>
-            <input type="radio" v-model="playerImageBleedOrBoxed" value="static" />
-            <span>Full Bleed</span>
-          </label>
-        </details>
-      </fieldset>
-      <fieldset>
-        <details>
-          <summary>
-            <legend>Logo (make Optional and add options for round and border)</legend>
-          </summary>
-          <div class="row">
+      <div class="row row--wrap">
+        <fieldset>
+          <details>
+            <summary>
+              <legend>Layout</legend>
+            </summary>
+            <!-- try just by ordering image -->
             <label>
-              <input type="radio" v-model="logoPosition" value="flex-start" />
-              <span>Left</span>
+              <input type="radio" v-model="cardLayout" value="one-one" />
+              <span>1-1</span>
             </label>
             <label>
-              <input type="radio" v-model="logoPosition" value="flex-end" />
-              <span>Right</span>
-            </label>
-          </div>
-          <div class="row">
-            <label>
-              <input type="radio" v-model="logoPositionVertical" value="flex-start" />
-              <span>Top</span>
+              <input type="radio" v-model="cardLayout" value="zero-two" />
+              <span>0-2</span>
             </label>
             <label>
-              <input type="radio" v-model="logoPositionVertical" value="flex-end" />
-              <span>Bottom</span>
+              <input type="radio" v-model="cardLayout" value="two-zero" />
+              <span>2-0</span>
             </label>
-          </div>
-        </details>
-      </fieldset>
-      <fieldset>
-        <details>
-          <summary>
-            <legend>Border (make Optional)</legend>
-          </summary>
-          <label>
-            Border Color
-            <input v-model="cardBorderColor" type="color" />
-          </label>
-          <label>
-            Border Curve
-            <input v-model="cardBorderCurve" type="range" min="0" max="24" />
-          </label>
-          <label>
-            Border Width
-            <input type="range" min="0" max="5" />
-          </label>
+          </details>
+        </fieldset>
 
-          <label>
-            Border Styles: NONE, (Double? Or better to use outline or FILTER drop shadow for 2nd element?)
-            <input
-              type="range"
-              min="0"
-              max="5"
-            />
-          </label>
-        </details>
-      </fieldset>
+        <fieldset>
+          <details>
+            <summary>
+              <legend>Bleed or Outer Border</legend>
+            </summary>
+            <label>
+              <input type="radio" v-model="playerImageBleedOrBoxed" value="relative" />
+              <span>Outer Border</span>
+            </label>
+            <label>
+              <input type="radio" v-model="playerImageBleedOrBoxed" value="static" />
+              <span>Full Bleed</span>
+            </label>
+            <label>
+              <input type="radio" v-model="playerImageBleedOrBoxed" value="static" />
+              <span>IF Full Bleed, outer border opacity option</span>
+            </label>
+          </details>
+        </fieldset>
+        <fieldset>
+          <details>
+            <summary>
+              <legend>
+                Logo
+                <small>(optional, round/square, border)</small>
+              </legend>
+            </summary>
+            <div class="row">
+              <label>
+                <input type="radio" v-model="logoPosition" value="flex-start" />
+                <span>Left</span>
+              </label>
+              <label>
+                <input type="radio" v-model="logoPosition" value="flex-end" />
+                <span>Right</span>
+              </label>
+            </div>
+            <div class="row">
+              <label>
+                <input type="radio" v-model="logoPositionVertical" value="flex-start" />
+                <span>Top</span>
+              </label>
+              <label>
+                <input type="radio" v-model="logoPositionVertical" value="flex-end" />
+                <span>Bottom</span>
+              </label>
+            </div>
+          </details>
+        </fieldset>
+        <fieldset>
+          <details>
+            <summary>
+              <legend>Border (make Optional)</legend>
+            </summary>
+            <label>
+              Border Color
+              <input v-model="cardBorderColor" type="color" />
+            </label>
+            <label>
+              Border Curve
+              <input v-model="cardBorderCurve" type="range" min="0" max="24" />
+            </label>
+            <label>
+              Border Width
+              <input type="range" min="0" max="5" />
+            </label>
 
-      <fieldset>
-        <details>
-          <summary>
-            <legend>Image Filters</legend>
-          </summary>
-          <label>
-            Brightness
-            <input v-model="cardBrightness" type="range" min="1" max="1.3" step="0.01" />
-          </label>
-          <label>
-            Sepia
-            <input v-model="cardSepia" type="range" min="0" max="50" />
-          </label>
-          <label>
-            Greyscale
-            <input v-model="cardGrayScale" type="range" min="0" max="100" />
-          </label>
-        </details>
-      </fieldset>
-      <fieldset>
-        <details>
-          <summary>
-            <legend>Superlatives</legend>
-          </summary>
+            <label>
+              Border Styles: NONE, (Double? Or better to use outline or FILTER drop shadow for 2nd element?)
+              <input
+                type="range"
+                min="0"
+                max="5"
+              />
+            </label>
+          </details>
+        </fieldset>
 
-          <div>
-            <p>All Star, Rookie of the Year, MVP, Arbitrary</p>
-            <p>circle border or open (maybe no circle border since it would look maybe ugh)</p>
-            <p>img for superlative? Or just pizzaz (star, trophy, banner, (other?) none)</p>
-          </div>
-        </details>
-      </fieldset>
+        <fieldset>
+          <details>
+            <summary>
+              <legend>Image Filters</legend>
+            </summary>
+            <label>
+              Brightness
+              <input v-model="cardBrightness" type="range" min="1" max="1.3" step="0.01" />
+            </label>
+            <label>
+              Sepia
+              <input v-model="cardSepia" type="range" min="0" max="50" />
+            </label>
+            <label>
+              Greyscale
+              <input v-model="cardGrayScale" type="range" min="0" max="100" />
+            </label>
+          </details>
+        </fieldset>
+        <fieldset>
+          <details>
+            <summary>
+              <legend>Superlatives</legend>
+            </summary>
+
+            <div>
+              <p>All Star, Rookie of the Year, MVP, Arbitrary</p>
+              <p>circle border or open (maybe no circle border since it would look maybe ugh)</p>
+              <p>img for superlative? Or just pizzaz (star, trophy, banner, (other?) none)</p>
+            </div>
+          </details>
+        </fieldset>
+      </div>
     </details>
     <!-- end controls-->
     <div
@@ -250,7 +259,7 @@ export default {
   //yes, hard height here because
   height: 50.4rem;
   margin: 0 auto 10rem auto;
-  padding: 1.6rem;
+  padding: 0 1.6rem;
   background-color: var(--cardbackgroundcolor);
 
   border: 1px solid rgba(0, 0, 0, 0.3333);
@@ -276,14 +285,45 @@ export default {
 }
 .zero-two {
   justify-content: flex-end;
+  padding-top: 1.6rem;
+  padding-bottom: 0;
   .row--middle--forDesign {
     order: -1;
+  }
+  .text__line--first {
+    padding-top: 0.8rem;
+  }
+  .text__line--second {
+    padding-bottom: 0.8rem;
   }
 }
 .two-zero {
   justify-content: flex-start;
+  padding-top: 0;
+  padding-bottom: 1.6rem;
   .row--middle--forDesign {
     order: 1;
+  }
+  .text__line--first {
+    padding-top: 0.8rem;
+  }
+  .text__line--second {
+    padding-bottom: 0.8rem;
+  }
+}
+
+input {
+  &[type="text"] {
+    .one-one & {
+      height: var(--min-touch-target-height);
+    }
+    //reason that iM ok here with less than 44px is that when they are next to each other, focus UI makes it less of a huge deal if user taps the adjascent box. Not ideal but also still clickable
+    .two-zero & {
+      height: 2.4rem;
+    }
+    .zero-two & {
+      height: 2.4rem;
+    }
   }
 }
 

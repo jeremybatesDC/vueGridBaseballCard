@@ -30,25 +30,25 @@ import BackHeader from "./InputChildComponents/BackHeader.vue";
 import BackFooter from "./InputChildComponents/BackFooter.vue";
 import AsideFacts from "./InputChildComponents/AsideFacts.vue";
 
+const webWorkerCardBack = new Worker("./workers/web-worker-idb.js", {
+  type: "module",
+});
+
+async function setFunc() {
+  // loop here over keys
+  webWorkerCardBack.postMessage(this.aside.fontGrade);
+  webWorkerCardBack.onmessage = function (event) {
+    console.log("received message here is ", event.data);
+  };
+
+  set("footerFontWeight", this.footer.fontWeight)
+    .then(() => console.log("woohoo!"))
+    .catch((err) => console.log("doh!", err));
+}
+
 export default {
   // intentionally avoiding arrow functions here
   setup: function () {
-    const webWorkerCardBack = new Worker("./workers/web-worker-idb.js", {
-      type: "module",
-    });
-
-    async function setFunc() {
-      // loop here over keys
-      webWorkerCardBack.postMessage(this.aside.fontGrade);
-      webWorkerCardBack.onmessage = function (event) {
-        console.log("received message here is ", event.data);
-      };
-
-      set("footerFontWeight", this.footer.fontWeight)
-        .then(() => console.log("woohoo!"))
-        .catch((err) => console.log("doh!", err));
-    }
-
     return { setFunc };
   },
 
@@ -65,6 +65,7 @@ export default {
     return {
       defaultFacts,
       // would love to be equally declarative with footer and aside stuff too...
+      // move these footer defaults to json
       footer: {
         fontWeight: 400,
         fontWidth: 100,

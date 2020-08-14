@@ -123,7 +123,9 @@ table {
   max-width: calc(100vw - 3.2rem);
   margin: 0 auto;
   font-size: 1.6rem;
-  line-height: 1;
+  // i just learned that line-height of exactly 1 gets rejected by brower on inputs and then falls back on a larger value of normal (1.2 i think)
+  // so, a value of 1.1 actually results in a shorter line height than 1
+  line-height: 1.1;
   font-family: inherit;
   font-variant-numeric: lining-nums tabular-nums;
   text-align: right;

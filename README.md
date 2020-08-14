@@ -8,18 +8,24 @@ Labor Day launch?
 
 --> ok now just saying when not full bleed then donT radius -- but HIDE disabled controls from user
 
+--> For lines with 2 text inputs, consider not allowing width adjustments (maybe just color, grade, slant)
+
+--> might be good to show all font adjustment buttons for each text input, but not all buttons would be enabled for all fields. That way user won't wonder "what happened to width option?" but will be shown it just can't be applied here (may need clear helper text about limitations)
+
 LOGO IMAGE:
 --> combine logo position chooser into a 4 square
 --> logo image -- offer round or square radio button
 --> make optional
 
---> keeping factoring code over from card front into cardfront configurable (eventually it should go back up to parent level i think but i can keep refactoring now where it is)
+- card flip on tab change:
+  https://v3.vuejs.org/guide/transitions-overview.html#class-based-animations-transitions
+  https://www.smashingmagazine.com/2020/02/magic-flip-cards-common-sizing-problem/
+  https://dev.to/dailydevtips1/css-flip-cards-3flc
+  --> keeping factoring code over from card front into cardfront configurable (eventually it should go back up to parent level i think but i can keep refactoring now where it is)
 
 --> icons for layout options
 
 --> text options include color per field (defaults to currentColor), text-align
-
---> okay need to simplify. use GRID for rows that user can assign to top or bottom grid areas. BUT, for the wdth of content in those rows/number of elements, flexbox is really what i need. Make that so.
 
 --> absolutlely cannot find that blog post about auto-sizing grid when cells unused
 
@@ -28,14 +34,17 @@ LOGO IMAGE:
 - could still use V-if of course, but itS more like "v-where" ...
 
 --> for backgroud color of grid areas, make an rgba slider if possible so user can set opacity value of background color
---> continue to re-layout cardfront grid. Need borders on the appropriate element.
+
+(that still might have been a better way to offer full bleed... but users would have been frustrated)
+
 --> Get elements in cells to take full size
---> Should full bleed be considered a separate layout? Might help user with art direction. Also might be too complex to do that pre launch
+--> Should full bleed be considered a separate layout? Might help user with art direction.
 
 FOCUS UI STUFF
 -> a focus UI for images is needed:
 
-- option to upload new image
+- option to upload new image (clearing it should put back the OG placeholder image).
+
 - image sliders shown here sepia greyscale etc
 - this would be where object-fit options could live
 
@@ -50,13 +59,15 @@ FOCUS UI STUFF
 
 - on back gum and crease need to reach edge of card -- either neg margins or translate or absolute who cares one of those
 
-* replace calcs w/ scss vars for pre-compilation (might mean putting variables that aren't meant to be user-controllable into SCSS variables. )
+VITE doesn't want to do this by default... SCSS variables declared in app in non-global style tag aren't avail by default
 
-* ensure offline mode tells user they are offline
+- replace calcs w/ scss vars for pre-compilation (might mean putting variables that aren't meant to be user-controllable into SCSS variables. )
 
-* de-hackify tab accessibilty markup (maybe use hidden and then put click handlers that toggle aria stuff. Pretty simple)
+- ensure offline mode tells user they are offline
 
-* refactor resets and global inputs
+- de-hackify tab accessibilty markup (maybe use hidden and then put click handlers that toggle aria stuff. Pretty simple)
+
+- refactor resets and global inputs
 
 -- should be only 1 text slider (teleport might be needed): Teleport. https://medium.com/@patelvivek2530/teleport-vue-3s-new-feature-a887fe05fd87 -- feature used to be palled portal
 
@@ -74,8 +85,10 @@ and, after considering it, i donT think i need a table plugin. If I can properly
   -- untappt cards
   -- github cards
   -- genealogy cards
-  -- politicians
+  -- PRESIDENTS & politicians
   -- baseball current example
+
+  group/team bulk stats upload
 
 -- refactor card header
 -- refactor input styling -- too much redundancy. See header.
@@ -152,15 +165,14 @@ can i offer a 48px touch target (off to the side perhaps) while maintaining tigh
 - actually use Typescript :-)
 - write a test to ensure focusing an input doesn't cause zoom (doing this with viewport tag not ok and iOS will be ignoring it). can i write a test for ios zoom on input? i'd like to be able to make adjustments and not necessarily have to test manually each time on iphone... i can imagine a scenario i nqhich i get kinda far down the road re formatting and have to back out because iOS zoom
 
-- maybe card flip
-- baseball images in tabs radio buttons
-- uneven light fading would be cool
+* baseball images in tabs radio buttons
+* uneven light fading would be cool
   -- might actually not be that hard to allow landscape front
-- consider ridiculing IE11.
+* consider ridiculing IE11.
   -- consider microformats
   -- can i write a css native grid that wraps and uses min max and clamp maybe? Hmmm. Worth a try, although I do need to pivot back to programming
-- if continue to wrestle with layout, i think putting a table next to a textarea, even though they are both inside flex columns inside a flex-row, is asking a lot and requiring maybe too much time/code
-- flex-order on back of card? Works like a charm and, on mobile (future portrait back option) it looks nicer. But, on desktop, I don't like how it looks at all. Do we give user that option? Can it look good? Well, big problem is the diagonal overflow of labels. That's not a simple sand-down
+* if continue to wrestle with layout, i think putting a table next to a textarea, even though they are both inside flex columns inside a flex-row, is asking a lot and requiring maybe too much time/code
+* flex-order on back of card? Works like a charm and, on mobile (future portrait back option) it looks nicer. But, on desktop, I don't like how it looks at all. Do we give user that option? Can it look good? Well, big problem is the diagonal overflow of labels. That's not a simple sand-down
 
 -- consider using placeholders and style them exaclty if possible -- makes it easier for user to to type from scratch.
 -- Name on back could inherit AS A PLACEHOLDER the value of name on front, so it can be its own field that could be edited on its own without affecting the field on the front. Better and simpler than having user select whether to inherit or not. I'll find an issue maybe, but i like the idea
