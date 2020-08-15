@@ -17,7 +17,6 @@ Labor Day launch?
 LOGO IMAGE:
 --> combine logo position chooser into a 4 square
 --> logo image -- offer round or square radio button
---> make optional
 
 - card flip on tab change:
   https://v3.vuejs.org/guide/transitions-overview.html#class-based-animations-transitions
@@ -63,15 +62,11 @@ FOCUS UI STUFF
 
 - on back gum and crease need to reach edge of card -- either neg margins or translate or absolute who cares one of those
 
-VITE doesn't want to do this by default... SCSS variables declared in app in non-global style tag aren't avail by default
+* ensure offline mode tells user they are offline
 
-- replace calcs w/ scss vars for pre-compilation (might mean putting variables that aren't meant to be user-controllable into SCSS variables. )
+* de-hackify tab accessibilty markup (maybe use hidden and then put click handlers that toggle aria stuff. Pretty simple)
 
-- ensure offline mode tells user they are offline
-
-- de-hackify tab accessibilty markup (maybe use hidden and then put click handlers that toggle aria stuff. Pretty simple)
-
-- refactor resets and global inputs
+* refactor resets and global inputs: -- refactor input styling -- too much redundancy. See header.
 
 -- should be only 1 text slider (teleport might be needed): Teleport. https://medium.com/@patelvivek2530/teleport-vue-3s-new-feature-a887fe05fd87 -- feature used to be palled portal
 
@@ -91,11 +86,11 @@ and, after considering it, i donT think i need a table plugin. If I can properly
   -- genealogy cards
   -- PRESIDENTS & politicians
   -- baseball current example
+  -- school photo option ( cash money )
 
-  group/team bulk stats upload
+- group/team bulk stats upload
 
 -- refactor card header
--- refactor input styling -- too much redundancy. See header.
 -- save font-variation-settings to CSS vars to can easily reuse somethin like "tallest thinnest"
 -- factor out options API stuff
 
@@ -154,6 +149,8 @@ consider 44px 22px 11px -- certainly unconventional but could work
 can i offer a 48px touch target (off to the side perhaps) while maintaining tight vertical content like cards actually have?
 
 ### 2nd release
+
+--> validate years in pre-flight
 
 --> do we need compiler/full build on prod? i don't think so. I think we only need runtime. So make sure we're not loading more code than we need.
 

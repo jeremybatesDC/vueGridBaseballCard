@@ -23,7 +23,10 @@
   "logoPosition": "flex-end",
   "logoPositionVertical": "flex-end",
   "cardLayout": "one-one",
-
+  "logo": {
+    "hide": "false",
+    "borderRadius": "50"
+  },
   "textLine1": {
     "color": "#123456",
     "fontWeight": "900",

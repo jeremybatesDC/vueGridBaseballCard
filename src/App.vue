@@ -71,6 +71,7 @@ export default {
   --touch-target-spacing: 3.2rem;
   --text-short-wide: "wght" 400, "wdth" 25, "opsz" 25, "GRAD" 1, "slnt" 0,
     "YTLC" 400, "YTUC" 400, "YTFI" 400;
+  --logoborderradius: "50%";
   //--cmyk-misalign: 1px 0 0 cyan, -1px 0 0 magenta, 0 1px 0 yellow;
 }
 

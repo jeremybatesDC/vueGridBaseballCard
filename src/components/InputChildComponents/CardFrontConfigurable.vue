@@ -8,7 +8,6 @@
             <summary>
               <legend>Layout</legend>
             </summary>
-            <!-- try just by ordering image -->
             <label>
               <input type="radio" v-model="cardLayout" value="one-one" />
               <span>1-1</span>
@@ -30,15 +29,27 @@
               <legend>Bleed or Outer Border</legend>
             </summary>
             <label>
-              <input type="radio" v-model="playerImageBleedOrBoxed" value="relative" />
+              <input
+                type="radio"
+                v-model="playerImageBleedOrBoxed"
+                value="relative"
+              />
               <span>Outer Border</span>
             </label>
             <label>
-              <input type="radio" v-model="playerImageBleedOrBoxed" value="static" />
+              <input
+                type="radio"
+                v-model="playerImageBleedOrBoxed"
+                value="static"
+              />
               <span>Full Bleed</span>
             </label>
             <label>
-              <input type="radio" v-model="playerImageBleedOrBoxed" value="static" />
+              <input
+                type="radio"
+                v-model="playerImageBleedOrBoxed"
+                value="static"
+              />
               <p>IF Full Bleed, outer border opacity option</p>
             </label>
           </details>
@@ -101,45 +112,83 @@
               <legend>Logo Image</legend>
             </summary>
             <div class="row">
-              <p>(optional, round/square, border)</p>
+              <p>round/square, border)</p>
             </div>
             <div class="row">
               <label>
-                Team Logo Image (URL):
-                <input v-model="teamLogoURL" type="url " placeholder />
-                <!-- <input type="file" id="logoFileInput" name="logoFileInput" accept="image/*" /> -->
+                <input type="checkbox" v-model="logo.hide" />
+                <span>No Logo</span>
               </label>
             </div>
+
             <div class="row">
               <fieldset>
-                <div class="row">
-                  <label>
-                    <input type="radio" v-model="logoPosition" value />
-                    <span>None</span>
-                  </label>
-                </div>
-
                 <!-- use vue hide/show prob is all thatS needed -->
-                <div class="row">
-                  <label>
-                    <input type="radio" v-model="logoPosition" value="flex-start" />
-                    <span>Top Left</span>
-                  </label>
-                  <label>
-                    <input type="radio" v-model="logoPosition" value="flex-end" />
-                    <span>Top Right</span>
-                  </label>
-                </div>
-                <div class="row">
-                  <label>
-                    <input type="radio" v-model="logoPosition" value="middle" />
-                    <span>Bottom Left</span>
-                  </label>
-                  <label>
-                    <input type="radio" v-model="logoPosition" value="center" />
-                    <span>Bottom</span>
-                  </label>
-                </div>
+                <span v-show="!logo.hide">
+                  <div class="row">
+                    <label>
+                      Team Logo Image (URL):
+                      <input v-model="teamLogoURL" type="url " placeholder />
+                      <!-- <input type="file" id="logoFileInput" name="logoFileInput" accept="image/*" /> -->
+                    </label>
+                  </div>
+
+                  <div class="row">
+                    <label>
+                      <input
+                        type="radio"
+                        v-model="logo.borderRadius"
+                        value="50"
+                      />
+                      <span>Round</span>
+                    </label>
+                    <label>
+                      <input
+                        type="radio"
+                        v-model="logo.borderRadius"
+                        value="0"
+                      />
+                      <span>Square</span>
+                    </label>
+                  </div>
+
+                  <div class="row">
+                    <label>
+                      <input
+                        type="radio"
+                        v-model="logoPosition"
+                        value="flex-start"
+                      />
+                      <span>Top Left</span>
+                    </label>
+                    <label>
+                      <input
+                        type="radio"
+                        v-model="logoPosition"
+                        value="flex-end"
+                      />
+                      <span>Top Right</span>
+                    </label>
+                  </div>
+                  <div class="row">
+                    <label>
+                      <input
+                        type="radio"
+                        v-model="logoPosition"
+                        value="middle"
+                      />
+                      <span>Bottom Left</span>
+                    </label>
+                    <label>
+                      <input
+                        type="radio"
+                        v-model="logoPosition"
+                        value="center"
+                      />
+                      <span>Bottom</span>
+                    </label>
+                  </div>
+                </span>
               </fieldset>
             </div>
           </details>
@@ -162,7 +211,10 @@
               <input type="range" min="0" max="5" />
             </label>
 
-            <p>(make Optional). Border Styles: NONE, (Double? Or better to use outline or FILTER drop shadow for 2nd element?)</p>
+            <p>
+              (make Optional). Border Styles: NONE, (Double? Or better to use
+              outline or FILTER drop shadow for 2nd element?)
+            </p>
           </details>
         </form>
 
@@ -174,8 +226,14 @@
 
             <div>
               <p>All Star, Rookie of the Year, MVP, Arbitrary</p>
-              <p>circle border or open (maybe no circle border since it would look maybe ugh)</p>
-              <p>img for superlative? Or just pizzaz (star, trophy, banner, (other?) none)</p>
+              <p>
+                circle border or open (maybe no circle border since it would
+                look maybe ugh)
+              </p>
+              <p>
+                img for superlative? Or just pizzaz (star, trophy, banner,
+                (other?) none)
+              </p>
             </div>
           </details>
         </form>
@@ -194,13 +252,25 @@
       </div>
       <div class="row--middle--forDesign row">
         <figure class="figure--player">
-          <img loading="lazy" class="image--player" :src="playerImageURLorDataString" alt />
+          <img
+            loading="lazy"
+            class="image--player"
+            :src="playerImageURLorDataString"
+            alt
+          />
         </figure>
 
         <!-- make rounded corner optional -->
         <!-- using css filter drop shadow could work -->
-        <figure class="figure--logo">
-          <img loading="lazy" class="image--logo" :src="teamLogoURL" alt width="72" height="72" />
+        <figure class="figure--logo" v-show="!logo.hide" :style="cssLogoProps">
+          <img
+            loading="lazy"
+            class="image--logo"
+            :src="teamLogoURL"
+            alt
+            width="72"
+            height="72"
+          />
         </figure>
       </div>
       <div class="text__line--second row">
@@ -208,7 +278,12 @@
           <input v-model="playerName" type="text" placeholder maxlength="48" />
         </h1>
         <h3>
-          <input v-model="playerPosition" type="text" placeholder maxlength="48" />
+          <input
+            v-model="playerPosition"
+            type="text"
+            placeholder
+            maxlength="48"
+          />
         </h3>
       </div>
     </div>
@@ -240,7 +315,10 @@ export default {
       playerName: defaultSettings.playerName,
       playerPosition: defaultSettings.playerPosition,
       teamName: defaultSettings.teamName,
-
+      logo: {
+        show: defaultSettings.logo.show,
+        borderRadius: defaultSettings.logo.borderRadius,
+      },
       textLine1: {
         fontWeight: defaultSettings.textLine1.fontWeight,
         fontWidth: defaultSettings.textLine1.fontWidth,
@@ -288,6 +366,11 @@ export default {
         "--fontwidth": this.textLine2.fontWidth,
         "--fontgrade": this.textLine2.fontGrade,
         "--fontslant": this.textLine2.fontSlant,
+      };
+    },
+    cssLogoProps() {
+      return {
+        "--logoborderradius": `${this.logo.borderRadius}%`,
       };
     },
   },
@@ -458,6 +541,6 @@ h3 {
 }
 
 .image--logo {
-  border-radius: 50%;
+  border-radius: var(--logoborderradius);
 }
 </style>
