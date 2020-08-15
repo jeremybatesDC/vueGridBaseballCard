@@ -6,6 +6,8 @@ Labor Day launch?
 
 --> using filter drop shadow mutliple syntax could help here. Just not sure exactly when
 
+--> un-nest scss
+
 --> ok now just saying when not full bleed then donT radius -- but HIDE disabled controls from user
 
 --> For lines with 2 text inputs, consider not allowing width adjustments (maybe just color, grade, slant)

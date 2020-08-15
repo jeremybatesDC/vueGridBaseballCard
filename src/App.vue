@@ -57,10 +57,13 @@ export default {
 
 <style lang="scss">
 //not working as expected
-$minTouchTargetHeight: 4.4rem;
+//$minTouchTargetHeight: 4.4rem;
+// vite is really setup to use CSS custom props instead of CSS vars
+
 :root {
   // having trouble this morning with calc and scss math with variable and didn't want to get too stuck
   // wtaf ?
+  --unit: 1.6rem;
   --min-touch-target-height: 4.4rem;
   --min-touch-target-width: var(--min-touch-target-height);
   --min-touch-target-height-half: 2.2rem;
@@ -68,20 +71,11 @@ $minTouchTargetHeight: 4.4rem;
   --touch-target-spacing: 3.2rem;
   --text-short-wide: "wght" 400, "wdth" 25, "opsz" 25, "GRAD" 1, "slnt" 0,
     "YTLC" 400, "YTUC" 400, "YTFI" 400;
-  --cmyk-misalign: 1px 0 0 cyan, -1px 0 0 magenta, 0 1px 0 yellow;
+  //--cmyk-misalign: 1px 0 0 cyan, -1px 0 0 magenta, 0 1px 0 yellow;
 }
 
 body {
   background-color: #eee;
-}
-
-.gridArea {
-  align-items: stretch;
-  &:not(.image__container) {
-    background-color: var(--cardbackgroundcolor, #eee);
-    // is there a grid way to do this?
-    height: 100%;
-  }
 }
 
 h1,
@@ -115,58 +109,6 @@ h3 {
 .baseballCard__wrapper--mid {
   // display: flex;
   // justify-content: center;
-}
-
-.baseballCard__wrapper--inner {
-  display: inline-block;
-  position: relative;
-  width: 36rem;
-  //yes, hard height here because
-  height: 50.4rem;
-
-  color: var(--cardtextcolor, #000);
-  // i really don't understand at all why wdth is not working
-  margin-bottom: 7.2rem;
-  font-variation-settings: "wght" var(--cardtextfontweight),
-    "wdth" var(--cardtextfontwidth), "opsz" var(--cardtextfontoptsize),
-    "GRAD" var(--cardtextfontgrade), "slnt" var(--cardtextfontslant);
-  overflow: hidden;
-
-  // slnt
-  // some x / y height stuff
-  // consider PRESETS
-
-  //https://typetools.typenetwork.com/
-
-  //  "slnt" 0,"XTRA" 468, "XOPQ" 151, "YOPQ" 47, "YTLC" 514, "YTUC" 712, "YTAS" 750, "YTDE" -203, "YTFI" 738;
-
-  &.has-misalign {
-  }
-  &.has-gum {
-  }
-  &.has-crease {
-  }
-  // mislaign
-  // * {
-  //   text-shadow: var(--cmyk-misalign);
-  // }
-  //crease
-  &:before {
-    // svg crease image maybe
-    content: "";
-    position: absolute;
-    top: 0;
-    right: -100px;
-    height: 2px;
-    width: 100%;
-    background-color: rgba(0, 0, 0, 0.25);
-    transform: rotate(45deg) scaleX(2);
-    //transform-origin: center top;
-    z-index: 1;
-    //tfoutline: 1px dashed rgba(0, 0, 0, 0.25);
-    box-shadow: 1px 0 rgba(0, 0, 0, 1);
-    //border-image:url();
-  }
 }
 
 // there are some hard to iron out differences between filters when they are overtop of images

@@ -114,23 +114,29 @@
               <fieldset>
                 <div class="row">
                   <label>
-                    <input type="radio" v-model="logoPositionVertical" value="flex-start" />
-                    <span>Top</span>
+                    <input type="radio" v-model="logoPosition" value />
+                    <span>None</span>
                   </label>
                 </div>
+
+                <!-- use vue hide/show prob is all thatS needed -->
                 <div class="row">
                   <label>
                     <input type="radio" v-model="logoPosition" value="flex-start" />
-                    <span>Left</span>
+                    <span>Top Left</span>
                   </label>
                   <label>
                     <input type="radio" v-model="logoPosition" value="flex-end" />
-                    <span>Right</span>
+                    <span>Top Right</span>
                   </label>
                 </div>
                 <div class="row">
                   <label>
-                    <input type="radio" v-model="logoPositionVertical" value="flex-end" />
+                    <input type="radio" v-model="logoPosition" value="middle" />
+                    <span>Bottom Left</span>
+                  </label>
+                  <label>
+                    <input type="radio" v-model="logoPosition" value="center" />
                     <span>Bottom</span>
                   </label>
                 </div>
