@@ -68,7 +68,10 @@ export default {
   --min-touch-target-width: var(--min-touch-target-height);
   --min-touch-target-height-half: 2.2rem;
   --min-touch-target-height-double: 8.8rem;
+  --touch-target-48: 4.8rem;
+  --touch-target-large: 6.4rem;
   --touch-target-spacing: 3.2rem;
+  --touch-target-spacing-small: 2.4rem;
   --text-short-wide: "wght" 400, "wdth" 25, "opsz" 25, "GRAD" 1, "slnt" 0,
     "YTLC" 400, "YTUC" 400, "YTFI" 400;
   --logoborderradius: "50%";
@@ -180,7 +183,7 @@ label {
     font-size: 1.6rem;
   }
   .baseballCard__wrapper & {
-    margin-bottom: 1.6rem;
+    //margin-bottom: 1.6rem;
   }
 }
 

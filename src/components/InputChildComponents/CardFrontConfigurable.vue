@@ -152,41 +152,47 @@
                     </label>
                   </div>
 
-                  <div class="row">
-                    <label>
-                      <input
-                        type="radio"
-                        v-model="logo.position"
-                        value="topLeft"
-                      />
-                      <span>Top Left</span>
-                    </label>
-                    <label>
-                      <input
-                        type="radio"
-                        v-model="logo.position"
-                        value="topRight"
-                      />
-                      <span>Top Right</span>
-                    </label>
-                  </div>
-                  <div class="row">
-                    <label>
-                      <input
-                        type="radio"
-                        v-model="logo.position"
-                        value="bottomLeft"
-                      />
-                      <span>Bottom Left</span>
-                    </label>
-                    <label>
-                      <input
-                        type="radio"
-                        v-model="logo.position"
-                        value="bottomRight"
-                      />
-                      <span>Bottom Right</span>
-                    </label>
+                  <div class="control--fourSquare">
+                    <div class="row">
+                      <div class="col">
+                        <input
+                          id="logoPostTL"
+                          type="radio"
+                          v-model="logo.position"
+                          value="topLeft"
+                        />
+                        <label for="logoPostTL">Top Left</label>
+                      </div>
+                      <div class="col">
+                        <input
+                          id="logoPostTR"
+                          type="radio"
+                          v-model="logo.position"
+                          value="topRight"
+                        />
+                        <label for="logoPostTR">Top Right</label>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col">
+                        <input
+                          id="logoPostBL"
+                          type="radio"
+                          v-model="logo.position"
+                          value="bottomLeft"
+                        />
+                        <label for="logoPostBL">Bottom Left</label>
+                      </div>
+                      <div class="col">
+                        <input
+                          id="logoPostBR"
+                          type="radio"
+                          v-model="logo.position"
+                          value="bottomRight"
+                        />
+                        <label for="logoPostBR">Bottom Right</label>
+                      </div>
+                    </div>
                   </div>
                 </span>
               </fieldset>
@@ -563,5 +569,65 @@ h3 {
 
 .image--logo {
   border-radius: var(--logoborderradius);
+}
+
+.control {
+  &--fourSquare {
+    // width should be touch targets with adequate space
+    width: fit-content;
+    border: 1px solid blue;
+    .row {
+      justify-content: space-between;
+      padding: var(--unit);
+      &:first-child {
+        padding-bottom: 0.8rem;
+      }
+      &:last-child {
+        padding-top: 0.8rem;
+        label {
+          //justify-content: flex-end;
+        }
+      }
+    }
+    .col {
+      width: min-content;
+      &:not(:first-child) {
+        margin-left: var(--touch-target-spacing);
+        //text-align: right;
+      }
+      // in case i ever add more
+      &:last-child {
+        align-items: flex-end;
+      }
+    }
+    label {
+      //display: flex;
+      //flex-direction: column;
+      position: relative;
+      //width: var(--touch-target-large);
+      //height: var(--touch-target-large);
+      //border: 1px solid blue;
+      // in case i ever add more
+    }
+    input {
+      &[type="radio"],
+      &[type="checkmark"] {
+        //position: absolute;
+        //top: 50%;
+        width: var(--min-touch-target-width);
+        height: var(--min-touch-target-height);
+        //left: 50%;
+        //transform: translateY(-50%);
+        display: flex;
+        align-self: center;
+        justify-self: center;
+        &:checked {
+          + label {
+            background-color: pink;
+          }
+        }
+      }
+    }
+  }
 }
 </style>

@@ -87,6 +87,7 @@ and, after considering it, i donT think i need a table plugin. If I can properly
   -- PRESIDENTS & politicians
   -- baseball current example
   -- school photo option ( cash money )
+  -- birth announcements
 
 - group/team bulk stats upload
 
