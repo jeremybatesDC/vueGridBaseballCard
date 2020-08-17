@@ -1,6 +1,6 @@
 <template>
   <div>
-    <details class="controls">
+    <details class="controls" open>
       <summary>Front Controls</summary>
       <div class="row row--wrap">
         <form>
@@ -156,16 +156,16 @@
                     <label>
                       <input
                         type="radio"
-                        v-model="logoPosition"
-                        value="flex-start"
+                        v-model="logo.position"
+                        value="topLeft"
                       />
                       <span>Top Left</span>
                     </label>
                     <label>
                       <input
                         type="radio"
-                        v-model="logoPosition"
-                        value="flex-end"
+                        v-model="logo.position"
+                        value="topRight"
                       />
                       <span>Top Right</span>
                     </label>
@@ -174,18 +174,18 @@
                     <label>
                       <input
                         type="radio"
-                        v-model="logoPosition"
-                        value="middle"
+                        v-model="logo.position"
+                        value="bottomLeft"
                       />
                       <span>Bottom Left</span>
                     </label>
                     <label>
                       <input
                         type="radio"
-                        v-model="logoPosition"
-                        value="center"
+                        v-model="logo.position"
+                        value="bottomRight"
                       />
-                      <span>Bottom</span>
+                      <span>Bottom Right</span>
                     </label>
                   </div>
                 </span>
@@ -250,7 +250,10 @@
           <input v-model="teamName" type="text" placeholder maxlength="42" />
         </h2>
       </div>
-      <div class="row--middle--forDesign row">
+      <div
+        :class="`${logo.position} row--middle--forDesign row`"
+        :style="cssLogoProps"
+      >
         <figure class="figure--player">
           <img
             loading="lazy"
@@ -262,7 +265,7 @@
 
         <!-- make rounded corner optional -->
         <!-- using css filter drop shadow could work -->
-        <figure class="figure--logo" v-show="!logo.hide" :style="cssLogoProps">
+        <figure class="figure--logo" v-show="!logo.hide">
           <img
             loading="lazy"
             class="image--logo"
@@ -307,8 +310,6 @@ export default {
       cardSepia: defaultSettings.cardSepia,
       cardGrayScale: defaultSettings.cardGrayScale,
       cardLayout: defaultSettings.cardLayout,
-      logoPosition: defaultSettings.logoPosition,
-      logoPositionVertical: defaultSettings.logoPositionVertical,
       teamLogoURL: defaultSettings.teamLogoURL,
       playerImageURLorDataString: defaultSettings.playerImageURLorDataString,
       playerImageBleedOrBoxed: defaultSettings.playerImageBleedOrBoxed,
@@ -318,6 +319,7 @@ export default {
       logo: {
         show: defaultSettings.logo.show,
         borderRadius: defaultSettings.logo.borderRadius,
+        position: defaultSettings.logo.position,
       },
       textLine1: {
         fontWeight: defaultSettings.textLine1.fontWeight,
@@ -345,8 +347,6 @@ export default {
         "--cardbrightness": this.cardBrightness,
         "--cardgrayscale": `${this.cardGrayScale}%`,
         "--cardlayout": this.cardLayout,
-        "--logoposition": this.logoPosition,
-        "--logopositionvertical": this.logoPositionVertical,
         "--playerimagebleedorboxed": this.playerImageBleedOrBoxed,
       };
     },
@@ -370,6 +370,8 @@ export default {
     },
     cssLogoProps() {
       return {
+        "--logoposition": this.logo.position,
+
         "--logoborderradius": `${this.logo.borderRadius}%`,
       };
     },
@@ -456,6 +458,7 @@ input {
 }
 
 .row--middle--forDesign {
+  display: flex;
   position: var(--playerimagebleedorboxed);
   flex-grow: 1;
   //border: 1px solid blue;
@@ -464,11 +467,29 @@ input {
   border-style: solid;
   border-color: var(--cardbordercolor);
   border-radius: var(--cardbordercurve);
-  justify-content: var(--logoposition);
-  align-items: var(--logopositionvertical);
+  // trying a trick
+
   overflow: hidden;
   // imperative way of handling full bleed
   //filter: drop-shadow(10px 10px red) sepia(100) grayscale(100);
+
+  &.topLeft {
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+  &.topRight {
+    justify-content: flex-end;
+
+    align-items: flex-start;
+  }
+  &.bottomLeft {
+    justify-content: flex-start;
+    align-items: flex-end;
+  }
+  &.bottomRight {
+    justify-content: flex-end;
+    align-items: flex-end;
+  }
 }
 
 .text__line--second {

@@ -20,12 +20,11 @@
   "cardTextFontSlant": "0",
   "cardSepia": "0",
   "cardGrayScale": "0",
-  "logoPosition": "flex-end",
-  "logoPositionVertical": "flex-end",
   "cardLayout": "one-one",
   "logo": {
     "hide": "false",
-    "borderRadius": "50"
+    "borderRadius": "50",
+    "position": "bottomRight"
   },
   "textLine1": {
     "color": "#123456",
