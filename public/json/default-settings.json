@@ -21,6 +21,10 @@
   "cardSepia": "0",
   "cardGrayScale": "0",
   "cardLayout": "one-one",
+
+  "borderInner": {
+    "style": "solid"
+  },
   "logo": {
     "hide": "false",
     "borderRadius": "50",
