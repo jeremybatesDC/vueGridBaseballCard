@@ -44,14 +44,6 @@
               />
               <span>Full Bleed</span>
             </label>
-            <label>
-              <input
-                type="radio"
-                v-model="playerImageBleedOrBoxed"
-                value="static"
-              />
-              <p>IF Full Bleed, outer border opacity option</p>
-            </label>
           </details>
         </form>
         <form>
@@ -121,10 +113,9 @@
               </label>
             </div>
 
-            <div class="row">
+            <div class="row" v-show="!logo.hide">
               <fieldset>
-                <!-- use vue hide/show prob is all thatS needed -->
-                <span v-show="!logo.hide">
+                <span>
                   <div class="row">
                     <label>
                       Team Logo Image (URL):
@@ -155,42 +146,50 @@
                   <div class="control--fourSquare">
                     <div class="row">
                       <div class="col">
+                        <label for="logoPostTL">Top</label>
                         <input
                           id="logoPostTL"
                           type="radio"
                           v-model="logo.position"
                           value="topLeft"
+                          aria-label="Top Left"
                         />
-                        <label for="logoPostTL">Top Left</label>
+                        <label for="logoPostTL">Left</label>
                       </div>
                       <div class="col">
+                        <label for="logoPostTR">Top</label>
                         <input
                           id="logoPostTR"
                           type="radio"
                           v-model="logo.position"
                           value="topRight"
+                          aria-label="Top Right"
                         />
-                        <label for="logoPostTR">Top Right</label>
+                        <label for="logoPostTR">Right</label>
                       </div>
                     </div>
                     <div class="row">
                       <div class="col">
+                        <label for="logoPostBL">Left</label>
                         <input
                           id="logoPostBL"
                           type="radio"
                           v-model="logo.position"
                           value="bottomLeft"
+                          aria-label="Bottom Left"
                         />
-                        <label for="logoPostBL">Bottom Left</label>
+                        <label for="logoPostBL">Bottom</label>
                       </div>
                       <div class="col">
+                        <label for="logoPostBR">Right</label>
                         <input
                           id="logoPostBR"
                           type="radio"
                           v-model="logo.position"
                           value="bottomRight"
+                          aria-label="Bottom Right"
                         />
-                        <label for="logoPostBR">Bottom Right</label>
+                        <label for="logoPostBR">Bottom</label>
                       </div>
                     </div>
                   </div>
@@ -205,22 +204,38 @@
               <legend>Inner Border</legend>
             </summary>
             <label>
-              Border Color
-              <input v-model="cardBorderColor" type="color" />
+              <input
+                type="checkbox"
+                v-model="borderInner.style"
+                true-value="none"
+                false-value="solid"
+              />
+              <span>No Inner Border</span>
             </label>
-            <label>
-              Border Curve
-              <input v-model="cardBorderCurve" type="range" min="0" max="24" />
-            </label>
-            <label>
-              Border Width
-              <input type="range" min="0" max="5" />
-            </label>
+            <div class="row" v-show="borderInner.style !== 'none'">
+              <label>
+                Border Color
+                <input v-model="cardBorderColor" type="color" />
+              </label>
+              <label>
+                Border Curve
+                <input
+                  v-model="cardBorderCurve"
+                  type="range"
+                  min="0"
+                  max="24"
+                />
+              </label>
+              <label>
+                Border Width
+                <input type="range" min="0" max="5" />
+              </label>
 
-            <p>
-              (make Optional). Border Styles: NONE, (Double? Or better to use
-              outline or FILTER drop shadow for 2nd element?)
-            </p>
+              <p>
+                (make Optional). Border Styles: NONE, (Double? Or better to use
+                outline or FILTER drop shadow for 2nd element?)
+              </p>
+            </div>
           </details>
         </form>
 
@@ -257,8 +272,8 @@
         </h2>
       </div>
       <div
-        :class="`${logo.position} row--middle--forDesign row`"
-        :style="cssLogoProps"
+        :class="`${logo.position} ${borderInner.style} row--middle--forDesign row`"
+        :style="[cssLogoProps, cssBorderInnerProps]"
       >
         <figure class="figure--player">
           <img
@@ -322,6 +337,9 @@ export default {
       playerName: defaultSettings.playerName,
       playerPosition: defaultSettings.playerPosition,
       teamName: defaultSettings.teamName,
+      borderInner: {
+        style: defaultSettings.borderInner.style,
+      },
       logo: {
         show: defaultSettings.logo.show,
         borderRadius: defaultSettings.logo.borderRadius,
@@ -379,6 +397,11 @@ export default {
         "--logoposition": this.logo.position,
 
         "--logoborderradius": `${this.logo.borderRadius}%`,
+      };
+    },
+    cssBorderInnerProps() {
+      return {
+        "--borderinnerstyle": this.borderInner.style,
       };
     },
   },
@@ -470,7 +493,7 @@ input {
   //border: 1px solid blue;
   // make configurable
   border-width: 3px;
-  border-style: solid;
+  border-style: var(--borderinnerstyle);
   border-color: var(--cardbordercolor);
   border-radius: var(--cardbordercurve);
   // trying a trick
@@ -578,12 +601,12 @@ h3 {
     border: 1px solid blue;
     .row {
       justify-content: space-between;
-      padding: var(--unit);
+      padding: var(--touch-target-spacing);
       &:first-child {
-        padding-bottom: 0.8rem;
+        padding-bottom: var(--unit);
       }
       &:last-child {
-        padding-top: 0.8rem;
+        padding-top: var(--unit);
         label {
           //justify-content: flex-end;
         }
