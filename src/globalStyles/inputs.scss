@@ -27,6 +27,13 @@ textarea {
   padding: 0;
 }
 
+[type="color"] {
+  display: flex;
+}
+
+[type="range"] {
+  display: flex;
+}
 [data-show-only-on-interaction] {
   position: absolute;
   display: flex;

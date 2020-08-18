@@ -78,7 +78,7 @@
 
             <fieldset>
               <label>
-                Brightness
+                Brightness: <output :value="cardBrightness"></output>
                 <input
                   v-model="cardBrightness"
                   type="range"
@@ -88,11 +88,11 @@
                 />
               </label>
               <label>
-                Sepia
+                Sepia: <output :value="cardSepia"></output>
                 <input v-model="cardSepia" type="range" min="0" max="50" />
               </label>
               <label>
-                Greyscale
+                Greyscale: <output :value="cardGrayScale"></output>
                 <input v-model="cardGrayScale" type="range" min="0" max="100" />
               </label>
             </fieldset>
@@ -199,7 +199,7 @@
           </details>
         </form>
         <form>
-          <details>
+          <details open>
             <summary>
               <legend>Inner Border</legend>
             </summary>
@@ -214,27 +214,37 @@
             </label>
             <div class="row" v-show="borderInner.style !== 'none'">
               <label>
-                Border Color
-                <input v-model="cardBorderColor" type="color" />
+                Border Color: <output :value="borderInner.color"></output>
+                <input v-model="borderInner.color" type="color" />
               </label>
               <label>
-                Border Curve
+                Border Opacity (Fix):
+                <output :value="borderInner.opacity"></output>
                 <input
-                  v-model="cardBorderCurve"
+                  type="range"
+                  min="10"
+                  max="99"
+                  v-model="borderInner.opacity"
+                />
+              </label>
+              <label>
+                Border Curve: <output :value="borderInner.curve"></output>
+                <input
+                  v-model="borderInner.curve"
                   type="range"
                   min="0"
                   max="24"
                 />
               </label>
               <label>
-                Border Width
-                <input type="range" min="0" max="5" />
+                Border Width <output :value="borderInner.width"></output>
+                <input
+                  v-model="borderInner.width"
+                  type="range"
+                  min="1"
+                  max="8"
+                />
               </label>
-
-              <p>
-                (make Optional). Border Styles: NONE, (Double? Or better to use
-                outline or FILTER drop shadow for 2nd element?)
-              </p>
             </div>
           </details>
         </form>
@@ -325,8 +335,6 @@ export default {
   data: function () {
     return {
       cardBackgroundColor: defaultSettings.cardBackgroundColor,
-      cardBorderColor: defaultSettings.cardBorderColor,
-      cardBorderCurve: defaultSettings.cardBorderCurve,
       cardBrightness: defaultSettings.cardBrightness,
       cardSepia: defaultSettings.cardSepia,
       cardGrayScale: defaultSettings.cardGrayScale,
@@ -338,7 +346,11 @@ export default {
       playerPosition: defaultSettings.playerPosition,
       teamName: defaultSettings.teamName,
       borderInner: {
+        color: defaultSettings.borderInner.color,
+        curve: defaultSettings.borderInner.curve,
         style: defaultSettings.borderInner.style,
+        opacity: defaultSettings.borderInner.opacity,
+        width: defaultSettings.borderInner.width,
       },
       logo: {
         show: defaultSettings.logo.show,
@@ -365,8 +377,6 @@ export default {
     cssCardDesignProps() {
       return {
         "--cardbackgroundcolor": this.cardBackgroundColor,
-        "--cardbordercolor": this.cardBorderColor,
-        "--cardbordercurve": `${this.cardBorderCurve}px`,
         "--cardsepia": `${this.cardSepia}%`,
         "--cardbrightness": this.cardBrightness,
         "--cardgrayscale": `${this.cardGrayScale}%`,
@@ -395,13 +405,16 @@ export default {
     cssLogoProps() {
       return {
         "--logoposition": this.logo.position,
-
         "--logoborderradius": `${this.logo.borderRadius}%`,
       };
     },
     cssBorderInnerProps() {
       return {
+        "--borderinnercurve": `${this.borderInner.curve}px`,
         "--borderinnerstyle": this.borderInner.style,
+        "--borderinneropacity": this.borderInner.opacity,
+        "--borderinnerhexplusalpha": `${this.borderInner.color}${this.borderInner.opacity}`,
+        "--borderinnerwidth": `${this.borderInner.width}px`,
       };
     },
   },
@@ -492,10 +505,10 @@ input {
   flex-grow: 1;
   //border: 1px solid blue;
   // make configurable
-  border-width: 3px;
+  border-width: var(--borderinnerwidth);
   border-style: var(--borderinnerstyle);
-  border-color: var(--cardbordercolor);
-  border-radius: var(--cardbordercurve);
+  border-color: var(--borderinnerhexplusalpha);
+  border-radius: var(--borderinnercurve);
   // trying a trick
 
   overflow: hidden;
@@ -564,7 +577,7 @@ h3 {
   left: 0;
   display: flex;
   //background-color: var(--cardbackgroundcolor);
-  border-radius: var(--cardbordercurve);
+  border-radius: var(--borderinnercurve);
   // donT override all the other filters here
   filter: #{"grayscale(var(--cardgrayscale))"} brightness(var(--cardbrightness))
     sepia(var(--cardsepia));

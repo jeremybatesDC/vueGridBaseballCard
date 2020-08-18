@@ -8,8 +8,6 @@
   "teamName": "Washington Nationals",
   "cardBackgroundColor": "#efefef",
   "cardBackgroundTexture": "filterfabric",
-  "cardBorderColor": "#000000",
-  "cardBorderCurve": "0",
   "cardBrightness": "1",
   "cardTextColor": "#000000",
 
@@ -23,7 +21,11 @@
   "cardLayout": "one-one",
 
   "borderInner": {
-    "style": "solid"
+    "curve": "0",
+    "style": "solid",
+    "opacity": "99",
+    "color": "#000000",
+    "width": "3"
   },
   "logo": {
     "hide": "false",

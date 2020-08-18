@@ -124,12 +124,7 @@ h3 {
   font-size: 1.2rem;
   align-self: center;
 }
-.image__container {
-  display: flex;
-  position: relative;
-  border: 3px solid var(--cardbordercolor, #000);
-  border-radius: var(--cardbordercurve, 0);
-}
+
 .footer--playerName {
   font-size: 1.6rem;
   align-self: center;
