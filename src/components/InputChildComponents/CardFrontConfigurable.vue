@@ -217,6 +217,7 @@
                 Border Color: <output :value="borderInner.color"></output>
                 <input v-model="borderInner.color" type="color" />
               </label>
+
               <label>
                 Border Opacity (Fix):
                 <output :value="borderInner.opacity"></output>
@@ -237,7 +238,7 @@
                 />
               </label>
               <label>
-                Border Width <output :value="borderInner.width"></output>
+                Border Width: <output :value="borderInner.width"></output>
                 <input
                   v-model="borderInner.width"
                   type="range"

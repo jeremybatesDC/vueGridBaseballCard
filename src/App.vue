@@ -64,6 +64,8 @@ export default {
   // having trouble this morning with calc and scss math with variable and didn't want to get too stuck
   // wtaf ?
   --unit: 1.6rem;
+  --min-touch-target: 4.4rem;
+  --min-touch-target-half: 2.2rem;
   --min-touch-target-height: 4.4rem;
   --min-touch-target-width: var(--min-touch-target-height);
   --min-touch-target-height-half: 2.2rem;

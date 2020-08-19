@@ -28,12 +28,41 @@ textarea {
 }
 
 [type="color"] {
+  //-webkit-appearance: none;
+  font-size: 1.6rem; // prevents ios zoom
   display: flex;
+  width: var(--min-touch-target);
+  height: var(--min-touch-target);
+  //border-radius: 50%;
+  border: 1px solid transparent;
+  overflow: hidden;
 }
 
 [type="range"] {
   display: flex;
 }
+
+input[type="range"] {
+  -webkit-appearance: none;
+  background-color: rebeccapurple;
+  height: var(--min-touch-target-height);
+  border-radius: var(--min-touch-target-half);
+}
+input[type="range"]:focus {
+  //outline: none;
+}
+input[type="range"]::-webkit-slider-thumb {
+  //position: relative;
+  -webkit-appearance: none;
+  cursor: pointer;
+  background-color: red;
+  width: var(--min-touch-target);
+  height: var(--min-touch-target);
+  border-radius: 50%;
+
+  //z-index: 2;
+}
+
 [data-show-only-on-interaction] {
   position: absolute;
   display: flex;
