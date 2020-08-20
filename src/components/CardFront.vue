@@ -7,7 +7,7 @@
         <fieldset>
           <details>
             <summary>
-              <legend>Typography</legend>
+              <legend>Typography (field specific)</legend>
             </summary>
             <label>
               Text Color
@@ -57,11 +57,9 @@
             <summary>
               <legend>Design</legend>
             </summary>
-            <label>
-              Background
-              <input v-model="cardBackgroundColor" type="color" />
-            </label>
-            <label>
+
+            <!-- texture in v2 -->
+            <!--<label>
               Texture
               <select v-model="cardBackgroundTexture">
                 <option>no texture</option>
@@ -69,21 +67,39 @@
                 <option value="filterpaper">Paper</option>
                 <option value="filternoise">Noise</option>
               </select>
-            </label>
+            </label>-->
           </details>
         </fieldset>
 
-        <fieldset>
+        <!-- v2 -->
+        <!--<fieldset>
+          <details>
+            <summary>
+              <legend>Superlatives</legend>
+            </summary>
+
+            <div>
+              <p>All Star, Rookie of the Year, MVP, Arbitrary</p>
+              <p>
+                circle border or open (maybe no circle border since it would
+                look maybe ugh)
+              </p>
+              <p>
+                img for superlative? Or just pizzaz (star, trophy, banner,
+                (other?) none)
+              </p>
+            </div>
+          </details>
+        </fieldset>-->
+
+        <!--<fieldset>
           <details>
             <summary>
               <legend>Imperfections</legend>
-            </summary>
+            </summary>-->
 
-            <!-- nested accordion here -->
-            <!-- gum -->
-
-            <!-- cmyk -->
-            <!-- <details>
+        <!-- cmyk -->
+        <!-- <details>
             <summary>Print Defects</summary>
             <label>
               <input type="checkbox" />
@@ -95,8 +111,10 @@
             </label>
             </details>-->
 
-            <!-- corners -->
-            <details>
+        <!-- corners -->
+
+        <!-- v2 -->
+        <!--<details>
               <summary>Corner Fuziness/Dogears</summary>
               <label>
                 Dog-Eared Corner
@@ -123,9 +141,9 @@
                 Fuzziness Degree
                 <input type="range" />
               </label>
-            </details>
+            </details>-->
 
-            <!-- <details>
+        <!-- <details>
             <summary>Other Creases</summary>
             <label>
               Crease Location
@@ -142,8 +160,8 @@
               <input type="range" />
             </label>
             </details>-->
-          </details>
-        </fieldset>
+        <!--</details>
+        </fieldset>-->
 
         <!-- mmust be type button so it doesn't fight with submit-->
         <button type="button" @click="saveHandler">Save</button>

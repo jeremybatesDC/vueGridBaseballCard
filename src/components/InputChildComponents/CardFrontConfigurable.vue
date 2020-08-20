@@ -4,6 +4,11 @@
       <summary>Front Controls</summary>
       <div class="row row--wrap">
         <form>
+          <label>
+            Card Front Background Color
+            <input type="color" />
+          </label>
+
           <details open>
             <summary>
               <legend>Layout</legend>
@@ -247,26 +252,6 @@
               </label>
             </div>
           </fieldset>
-        </form>
-
-        <form>
-          <details>
-            <summary>
-              <legend>Superlatives</legend>
-            </summary>
-
-            <div>
-              <p>All Star, Rookie of the Year, MVP, Arbitrary</p>
-              <p>
-                circle border or open (maybe no circle border since it would
-                look maybe ugh)
-              </p>
-              <p>
-                img for superlative? Or just pizzaz (star, trophy, banner,
-                (other?) none)
-              </p>
-            </div>
-          </details>
         </form>
       </div>
     </details>

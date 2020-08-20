@@ -2,25 +2,20 @@
 
 ## To Do
 
-Labor Day launch?
+Labor Day launch.
+
+--> card background color: front
+--> dutone back based on user selection
 
 --> using filter drop shadow mutliple syntax could help here. Just not sure exactly when
 
 --> un-nest scss
 
---> integrate the logo image
-
 --> consider input range diagonal "mountain" behind each indicateing which end is max vs min (it can be confusing when values are negative -- this might help)
-
---> ok now just saying when not full bleed then donT radius -- but HIDE disabled controls from user
 
 --> For lines with 2 text inputs, consider not allowing width adjustments (maybe just color, grade, slant)
 
 --> might be good to show all font adjustment buttons for each text input, but not all buttons would be enabled for all fields. That way user won't wonder "what happened to width option?" but will be shown it just can't be applied here (may need clear helper text about limitations)
-
-LOGO IMAGE:
---> combine logo position chooser into a 4 square
---> logo image -- offer round or square radio button
 
 - card flip on tab change:
   https://v3.vuejs.org/guide/transitions-overview.html#class-based-animations-transitions
@@ -36,16 +31,11 @@ LOGO IMAGE:
 
 --> absolutlely cannot find that blog post about auto-sizing grid when cells unused
 
---> the same inputs exist and its a matter of which grid area theyRe assigned to. CSS variable
-
-- could still use V-if of course, but itS more like "v-where" ...
-
 --> for backgroud color of grid areas, make an rgba slider if possible so user can set opacity value of background color
 
 (that still might have been a better way to offer full bleed... but users would have been frustrated)
 
 --> Get elements in cells to take full size
---> Should full bleed be considered a separate layout? Might help user with art direction.
 
 FOCUS UI STUFF
 -> a focus UI for images is needed:
@@ -122,8 +112,6 @@ because it may not be feasible to alwasy vertically center the aside and footer 
 
 - Calculations and column stat type -- have user define what kind of stat it is (to make calculation in footer proedictable and logical -- if user wants to add up all the miles per hour, fine, but that can be an override of a sensible defualt)
 
---> "Rookie" or "Single Year" option
-
 - Establish flow:
   -- share state?
 
@@ -154,6 +142,10 @@ consider 44px 22px 11px -- certainly unconventional but could work
 can i offer a 48px touch target (off to the side perhaps) while maintaining tight vertical content like cards actually have?
 
 ### 2nd release
+
+Texture move to v2
+Superlatives may have to wait for round 2
+--> "Rookie" or "Single Year" option
 
 --> validate years in pre-flight
 

@@ -2,41 +2,51 @@
   <details class="controls" open>
     <summary>Back Controls</summary>
     <form>
-      <div class="row">
+      <label>
+        Card Back Background Color
+        <input type="color" />
+      </label>
+      <fieldset>
         <legend>Gum</legend>
-        <label>
-          Hide Gum Stain
+        <div class="row">
+          <label>
+            Hide Gum Stain
 
-          <input type="radio" name="gumradio" value="nogum" />
-        </label>
-        <label>
-          Show Gum Stain
+            <input type="radio" name="gumradio" value="nogum" />
+          </label>
+          <label>
+            Show Gum Stain
 
-          <input type="radio" name="gumradio" value="gum front" />
-        </label>
-      </div>
-      <div class="row">
-        <label>
-          Gum angle
-          <input type="range" value />
-        </label>
-        <label>
-          Gum placement horz
-          <select>
-            <option>left</option>
-            <option>center</option>
-            <option>right</option>
-          </select>
-        </label>
-        <label>
-          Gum placement vert
-          <select>
-            <option>top</option>
-            <option>middle</option>
-            <option>bottom</option>
-          </select>
-        </label>
-      </div>
+            <input type="radio" name="gumradio" value="gum front" />
+          </label>
+        </div>
+        <div class="row">
+          <label>
+            Gum Stain Darkness
+            <input type="range" value />
+          </label>
+          <label>
+            Gum angle
+            <input type="range" value />
+          </label>
+          <label>
+            Gum placement horz
+            <select>
+              <option>left</option>
+              <option>center</option>
+              <option>right</option>
+            </select>
+          </label>
+          <label>
+            Gum placement vert
+            <select>
+              <option>top</option>
+              <option>middle</option>
+              <option>bottom</option>
+            </select>
+          </label>
+        </div>
+      </fieldset>
     </form>
   </details>
 
