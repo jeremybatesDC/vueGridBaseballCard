@@ -22,7 +22,7 @@ th {
   font-weight: normal;
 }
 
-.hidden {
+.hidden--visually {
   position: absolute;
   top: -9999px;
   left: -9999px;
@@ -62,4 +62,37 @@ img {
 input {
   margin: 0;
   padding: 0;
+  &[type="text"],
+  &[type="email"],
+  &[type="tel"],
+  &[type="number"] {
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    color: inherit;
+    background: transparent;
+    box-shadow: none;
+    border: none;
+    padding: 0;
+  }
+}
+
+textarea,
+label {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  color: inherit;
+  background: transparent;
+  box-shadow: none;
+  border: none;
+  padding: 0;
+}
+
+textarea {
+  resize: none;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  word-break: break-word;
 }

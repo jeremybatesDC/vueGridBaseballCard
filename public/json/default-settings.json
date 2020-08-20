@@ -28,7 +28,7 @@
     "width": "3"
   },
   "logo": {
-    "hide": "false",
+    "showing": "true",
     "borderRadius": "50",
     "position": "bottomRight"
   },

@@ -8,6 +8,8 @@ Labor Day launch?
 
 --> un-nest scss
 
+--> integrate the logo image
+
 --> consider input range diagonal "mountain" behind each indicateing which end is max vs min (it can be confusing when values are negative -- this might help)
 
 --> ok now just saying when not full bleed then donT radius -- but HIDE disabled controls from user

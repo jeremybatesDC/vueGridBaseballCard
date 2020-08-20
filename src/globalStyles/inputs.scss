@@ -1,66 +1,54 @@
-[type="text"],
-[type="email"],
-[type="tel"],
-[type="number"],
-textarea,
-label {
-  font-family: inherit;
-  font-size: inherit;
-  line-height: inherit;
-  color: inherit;
-  background: transparent;
-  box-shadow: none;
-  border: none;
-  padding: 0;
+input {
+  &[type="radio"],
+  &[type="checkbox"] {
+    width: var(--min-touch-target);
+    height: var(--min-touch-target);
+    //box-shadow: none;
+    //background: transparent;
+  }
+  /* https://css-tricks.com/snippets/css/force-file-upload-input-button-to-right-side-in-webkit/ */
+  &[type="file"] {
+    height: var(--min-touch-target);
+    font-size: 1.6rem;
+  }
+
+  &[type="color"] {
+    //-webkit-appearance: none;
+    font-size: 1.6rem; // prevents ios zoom
+    display: flex;
+    width: var(--min-touch-target);
+    height: var(--min-touch-target);
+    //border-radius: 50%;
+    border: 1px solid transparent;
+    overflow: hidden;
+  }
+
+  &[type="range"] {
+    display: flex;
+    -webkit-appearance: none;
+    background-color: rebeccapurple;
+    height: var(--min-touch-target-height);
+    border-radius: var(--min-touch-target-half);
+    &:focus {
+      //outline: none;
+    }
+    &::-webkit-slider-thumb {
+      //position: relative;
+      -webkit-appearance: none;
+      cursor: pointer;
+      background-color: red;
+      width: var(--min-touch-target);
+      height: var(--min-touch-target);
+      border-radius: 50%;
+
+      //z-index: 2;
+    }
+  }
 }
 
-textarea {
-  resize: none;
-  width: 100%;
-  margin: 0;
-  padding: 0;
-  word-break: break-word;
-}
-
-[type="radio"] {
-  margin: 0;
-  padding: 0;
-}
-
-[type="color"] {
-  //-webkit-appearance: none;
-  font-size: 1.6rem; // prevents ios zoom
+.label--fileInput {
   display: flex;
-  width: var(--min-touch-target);
-  height: var(--min-touch-target);
-  //border-radius: 50%;
-  border: 1px solid transparent;
-  overflow: hidden;
-}
-
-[type="range"] {
-  display: flex;
-}
-
-input[type="range"] {
-  -webkit-appearance: none;
-  background-color: rebeccapurple;
-  height: var(--min-touch-target-height);
-  border-radius: var(--min-touch-target-half);
-}
-input[type="range"]:focus {
-  //outline: none;
-}
-input[type="range"]::-webkit-slider-thumb {
-  //position: relative;
-  -webkit-appearance: none;
-  cursor: pointer;
-  background-color: red;
-  width: var(--min-touch-target);
-  height: var(--min-touch-target);
-  border-radius: 50%;
-
-  //z-index: 2;
+  flex-direction: column;
 }
 
 [data-show-only-on-interaction] {

@@ -59,15 +59,14 @@
                 type="text"
                 placeholder
               />
-              <br />
             </label>
 
-            <label>
+            <label class="label--fileInput">
               Take Selfie on Mobile
               <input type="file" capture="user" />
             </label>
 
-            <label>
+            <label class="label--fileInput">
               Take Pic on Mobile
               <input type="file" capture="environment" />
             </label>
@@ -77,144 +76,144 @@
             </label>
 
             <fieldset>
-              <label>
-                Brightness: <output :value="cardBrightness"></output>
-                <input
-                  v-model="cardBrightness"
-                  type="range"
-                  min="1"
-                  max="1.3"
-                  step="0.01"
-                />
-              </label>
-              <label>
-                Sepia: <output :value="cardSepia"></output>
-                <input v-model="cardSepia" type="range" min="0" max="50" />
-              </label>
-              <label>
-                Greyscale: <output :value="cardGrayScale"></output>
-                <input v-model="cardGrayScale" type="range" min="0" max="100" />
-              </label>
+              <div class="row">
+                <label>
+                  Brightness: <output :value="cardBrightness"></output>
+                  <input
+                    v-model="cardBrightness"
+                    type="range"
+                    min="1"
+                    max="1.3"
+                    step="0.01"
+                  />
+                </label>
+                <label>
+                  Sepia: <output :value="cardSepia"></output>
+                  <input v-model="cardSepia" type="range" min="0" max="50" />
+                </label>
+                <label>
+                  Greyscale: <output :value="cardGrayScale"></output>
+                  <input
+                    v-model="cardGrayScale"
+                    type="range"
+                    min="0"
+                    max="100"
+                  />
+                </label>
+              </div>
             </fieldset>
           </details>
         </form>
         <form>
-          <details>
-            <summary>
-              <legend>Logo Image</legend>
-            </summary>
+          <fieldset>
+            <legend>Logo Image</legend>
             <div class="row">
               <p>round/square, border)</p>
             </div>
             <div class="row">
               <label>
-                <input type="checkbox" v-model="logo.hide" />
-                <span>No Logo</span>
+                <span>Show Logo</span>
+                <input type="radio" v-model="logo.showing" :value="true" />
+              </label>
+              <label>
+                <span>Hide Logo</span>
+                <input type="radio" v-model="logo.showing" :value="false" />
               </label>
             </div>
+            <div class="row" v-show="logo.showing">
+              <span>
+                <div class="row">
+                  <label>
+                    Team Logo Image (URL):
+                    <input v-model="teamLogoURL" type="url " placeholder />
+                    <!-- <input type="file" id="logoFileInput" name="logoFileInput" accept="image/*" /> -->
+                  </label>
+                </div>
 
-            <div class="row" v-show="!logo.hide">
-              <fieldset>
-                <span>
+                <div class="row">
+                  <label>
+                    <input
+                      type="radio"
+                      v-model="logo.borderRadius"
+                      value="50"
+                    />
+                    <span>Round</span>
+                  </label>
+                  <label>
+                    <input type="radio" v-model="logo.borderRadius" value="0" />
+                    <span>Square</span>
+                  </label>
+                </div>
+
+                <div class="control--fourSquare">
                   <div class="row">
-                    <label>
-                      Team Logo Image (URL):
-                      <input v-model="teamLogoURL" type="url " placeholder />
-                      <!-- <input type="file" id="logoFileInput" name="logoFileInput" accept="image/*" /> -->
-                    </label>
-                  </div>
-
-                  <div class="row">
-                    <label>
+                    <div class="col">
+                      <label for="logoPostTL">Top</label>
                       <input
+                        id="logoPostTL"
                         type="radio"
-                        v-model="logo.borderRadius"
-                        value="50"
+                        v-model="logo.position"
+                        value="topLeft"
+                        aria-label="Top Left"
                       />
-                      <span>Round</span>
-                    </label>
-                    <label>
-                      <input
-                        type="radio"
-                        v-model="logo.borderRadius"
-                        value="0"
-                      />
-                      <span>Square</span>
-                    </label>
-                  </div>
-
-                  <div class="control--fourSquare">
-                    <div class="row">
-                      <div class="col">
-                        <label for="logoPostTL">Top</label>
-                        <input
-                          id="logoPostTL"
-                          type="radio"
-                          v-model="logo.position"
-                          value="topLeft"
-                          aria-label="Top Left"
-                        />
-                        <label for="logoPostTL">Left</label>
-                      </div>
-                      <div class="col">
-                        <label for="logoPostTR">Top</label>
-                        <input
-                          id="logoPostTR"
-                          type="radio"
-                          v-model="logo.position"
-                          value="topRight"
-                          aria-label="Top Right"
-                        />
-                        <label for="logoPostTR">Right</label>
-                      </div>
+                      <label for="logoPostTL">Left</label>
                     </div>
-                    <div class="row">
-                      <div class="col">
-                        <label for="logoPostBL">Left</label>
-                        <input
-                          id="logoPostBL"
-                          type="radio"
-                          v-model="logo.position"
-                          value="bottomLeft"
-                          aria-label="Bottom Left"
-                        />
-                        <label for="logoPostBL">Bottom</label>
-                      </div>
-                      <div class="col">
-                        <label for="logoPostBR">Right</label>
-                        <input
-                          id="logoPostBR"
-                          type="radio"
-                          v-model="logo.position"
-                          value="bottomRight"
-                          aria-label="Bottom Right"
-                        />
-                        <label for="logoPostBR">Bottom</label>
-                      </div>
+                    <div class="col">
+                      <label for="logoPostTR">Top</label>
+                      <input
+                        id="logoPostTR"
+                        type="radio"
+                        v-model="logo.position"
+                        value="topRight"
+                        aria-label="Top Right"
+                      />
+                      <label for="logoPostTR">Right</label>
                     </div>
                   </div>
-                </span>
-              </fieldset>
+                  <div class="row">
+                    <div class="col">
+                      <label for="logoPostBL">Left</label>
+                      <input
+                        id="logoPostBL"
+                        type="radio"
+                        v-model="logo.position"
+                        value="bottomLeft"
+                        aria-label="Bottom Left"
+                      />
+                      <label for="logoPostBL">Bottom</label>
+                    </div>
+                    <div class="col">
+                      <label for="logoPostBR">Right</label>
+                      <input
+                        id="logoPostBR"
+                        type="radio"
+                        v-model="logo.position"
+                        value="bottomRight"
+                        aria-label="Bottom Right"
+                      />
+                      <label for="logoPostBR">Bottom</label>
+                    </div>
+                  </div>
+                </div>
+              </span>
             </div>
-          </details>
+          </fieldset>
         </form>
         <form>
-          <details open>
-            <summary>
-              <legend>Inner Border</legend>
-            </summary>
+          <fieldset>
+            <legend>Inner Border</legend>
             <label>
-              <input
-                type="checkbox"
-                v-model="borderInner.style"
-                true-value="none"
-                false-value="solid"
-              />
-              <span>No Inner Border</span>
+              <input type="radio" v-model="borderInner.style" value="solid" />
+              <span>Show Inner Border</span>
             </label>
+            <label>
+              <input type="radio" v-model="borderInner.style" value="none" />
+              <span>Hide Inner Border</span>
+            </label>
+
             <div class="row" v-show="borderInner.style !== 'none'">
               <label>
-                Border Color: <output :value="borderInner.color"></output>
+                Border Color:
                 <input v-model="borderInner.color" type="color" />
               </label>
 
@@ -247,7 +246,7 @@
                 />
               </label>
             </div>
-          </details>
+          </fieldset>
         </form>
 
         <form>
@@ -297,7 +296,7 @@
 
         <!-- make rounded corner optional -->
         <!-- using css filter drop shadow could work -->
-        <figure class="figure--logo" v-show="!logo.hide">
+        <figure class="figure--logo" v-show="logo.showing">
           <img
             loading="lazy"
             class="image--logo"
@@ -354,7 +353,7 @@ export default {
         width: defaultSettings.borderInner.width,
       },
       logo: {
-        show: defaultSettings.logo.show,
+        showing: defaultSettings.logo.showing,
         borderRadius: defaultSettings.logo.borderRadius,
         position: defaultSettings.logo.position,
       },
