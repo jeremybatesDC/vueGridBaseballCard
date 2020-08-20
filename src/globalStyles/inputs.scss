@@ -6,7 +6,6 @@ input {
     //box-shadow: none;
     //background: transparent;
   }
-  /* https://css-tricks.com/snippets/css/force-file-upload-input-button-to-right-side-in-webkit/ */
   &[type="file"] {
     height: var(--min-touch-target);
     font-size: 1.6rem;
@@ -48,7 +47,19 @@ input {
 
 .label--fileInput {
   display: flex;
-  flex-direction: column;
+  //flex-direction: column-reverse;
+  position: relative;
+  height: var(--min-touch-target);
+  width: var(--min-touch-target);
+  border: 1px solid #000;
+  input {
+    display: flex;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    opacity: 0.1;
+  }
 }
 
 [data-show-only-on-interaction] {

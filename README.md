@@ -4,6 +4,7 @@
 
 Labor Day launch.
 
+--> use contrast detect scss thing for the card back: https://css-tricks.com/switch-font-color-for-different-backgrounds-with-css/
 --> card background color: front (outer border color)
 --> dutone back based on user selection
 

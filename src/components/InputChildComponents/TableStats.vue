@@ -11,7 +11,12 @@
             :data-col="index"
           >
             <span>
-              <textarea wrap="hard" rows="2" spellcheck="false" :value="value"></textarea>
+              <textarea
+                wrap="hard"
+                rows="2"
+                spellcheck="false"
+                :value="value"
+              ></textarea>
             </span>
           </th>
         </tr>
@@ -27,7 +32,12 @@
           <!-- this one doesnT expect index until 3rd argument. Is that because itS nested? Maybe itS the kind of object -->
 
           <!-- making first col a TH scope row -->
-          <th scope="row" class="stats-table__tbody__th" :data-col="0" :data-row="index">
+          <th
+            scope="row"
+            class="stats-table__tbody__th"
+            :data-col="0"
+            :data-row="index"
+          >
             <input
               class="stats-table__tbody__input fui__formElem"
               type="tel"
@@ -80,9 +90,18 @@
           <th scope="row" :data-col="0">TOT</th>
           <td :data-col="1"></td>
           <!-- a bit too imperative but it is good that we are not doing a v-if in a v-for-->
-          <td v-for="x in 5" :key="x" scope="col" :data-total-for-column-index="x + 1">
+          <td
+            v-for="x in 5"
+            :key="x"
+            scope="col"
+            :data-total-for-column-index="x + 1"
+          >
             <label>
-              <output class="tfoot__output--totals" :data-total-for-column-index="x + 1">SUM</output>
+              <output
+                class="tfoot__output--totals"
+                :data-total-for-column-index="x + 1"
+                >SUM</output
+              >
             </label>
           </td>
         </tr>
@@ -95,7 +114,7 @@
 // SLOTS MAY ALSO HELP HERE
 import defaultStats from "/json/default-stats.json";
 
-// can use COMPUTED to "filter" or "mask" out unwanted valuesbundleRenderer.renderToStreamhttps://v3.https://www.vuemastery.com/conferences/vueconf-us-2019/building-fast-and-semantic-input-masks-in-vuejs/
+// can use COMPUTED to "filter" or "mask" out unwanted valuesbundleRenderer.renderToStream https://v3.https://www.vuemastery.com/conferences/vueconf-us-2019/building-fast-and-semantic-input-masks-in-vuejs/
 
 export default {
   data: function () {

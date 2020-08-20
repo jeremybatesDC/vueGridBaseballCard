@@ -4,11 +4,6 @@
       <summary>Front Controls</summary>
       <div class="row row--wrap">
         <form>
-          <label>
-            Card Front Background Color
-            <input type="color" />
-          </label>
-
           <details open>
             <summary>
               <legend>Layout</legend>
@@ -41,13 +36,18 @@
               />
               <span>Outer Border</span>
             </label>
+
             <label>
               <input
                 type="radio"
                 v-model="playerImageBleedOrBoxed"
                 value="static"
               />
-              <span>Full Bleed</span>
+              <span>No Outer Border</span>
+            </label>
+            <label v-show="playerImageBleedOrBoxed === 'relative'">
+              <input type="color" v-model="cardBackgroundColor" />
+              <span>Outer Border Color </span>
             </label>
           </details>
         </form>
@@ -56,57 +56,56 @@
             <summary>
               <legend>Player Image</legend>
             </summary>
+            <div class="row">
+              <label>
+                Player Image (URL or upload):
+                <input
+                  v-model="playerImageURLorDataString"
+                  type="text"
+                  placeholder
+                />
+              </label>
+            </div>
+            <div class="row">
+              <label class="label--fileInput">
+                <input type="file" accept="image/*" />
+                <span>Upload Image</span>
+              </label>
+              <label class="label--fileInput">
+                <input type="file" capture="user" />
+                <span>Take Selfie (Mobile)</span>
+              </label>
 
-            <label>
-              Player Image (URL or upload):
-              <input
-                v-model="playerImageURLorDataString"
-                type="text"
-                placeholder
-              />
-            </label>
-
-            <label class="label--fileInput">
-              Take Selfie on Mobile
-              <input type="file" capture="user" />
-            </label>
-
-            <label class="label--fileInput">
-              Take Pic on Mobile
+              <!--<label class="label--fileInput">
               <input type="file" capture="environment" />
-            </label>
+              <span>Take Picture</span>
+            </label>-->
 
-            <label>
-              <button type="reset">Delete image</button>
-            </label>
+              <label>
+                <button type="reset">Delete image</button>
+              </label>
+            </div>
 
-            <fieldset>
-              <div class="row">
-                <label>
-                  Brightness: <output :value="cardBrightness"></output>
-                  <input
-                    v-model="cardBrightness"
-                    type="range"
-                    min="1"
-                    max="1.3"
-                    step="0.01"
-                  />
-                </label>
-                <label>
-                  Sepia: <output :value="cardSepia"></output>
-                  <input v-model="cardSepia" type="range" min="0" max="50" />
-                </label>
-                <label>
-                  Greyscale: <output :value="cardGrayScale"></output>
-                  <input
-                    v-model="cardGrayScale"
-                    type="range"
-                    min="0"
-                    max="100"
-                  />
-                </label>
-              </div>
-            </fieldset>
+            <div class="row">
+              <label>
+                Brightness: <output :value="cardBrightness"></output>
+                <input
+                  v-model="cardBrightness"
+                  type="range"
+                  min="1"
+                  max="1.3"
+                  step="0.01"
+                />
+              </label>
+              <label>
+                Sepia: <output :value="cardSepia"></output>
+                <input v-model="cardSepia" type="range" min="0" max="50" />
+              </label>
+              <label>
+                Greyscale: <output :value="cardGrayScale"></output>
+                <input v-model="cardGrayScale" type="range" min="0" max="100" />
+              </label>
+            </div>
           </details>
         </form>
         <form>

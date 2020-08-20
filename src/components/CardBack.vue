@@ -3,8 +3,8 @@
     <summary>Back Controls</summary>
     <form>
       <label>
-        Card Back Background Color
-        <input type="color" />
+        Card Back Outer Border Color
+        <input type="color" v-model="defaultSettingsBack.backgroundColor" />
       </label>
       <fieldset>
         <legend>Gum</legend>
@@ -50,7 +50,7 @@
     </form>
   </details>
 
-  <div class="card-back">
+  <div class="card-back" :style="cssCardBackProps">
     <article>
       <BackHeader />
 
@@ -69,6 +69,7 @@
 
 <script lang="ts">
 import defaultFacts from "/json/default-facts.json";
+import defaultSettingsBack from "/json/default-settings-back.json";
 import { set } from "idb-keyval";
 //import TextSlider from "./InputChildComponents/TextSlider.vue";
 import TableStats from "./InputChildComponents/TableStats.vue";
@@ -110,6 +111,9 @@ export default {
   data: function () {
     return {
       defaultFacts,
+      defaultSettingsBack: {
+        backgroundColor: defaultSettingsBack.backgroundColor,
+      },
       // would love to be equally declarative with footer and aside stuff too...
       // move these footer defaults to json
       footer: {
@@ -130,6 +134,11 @@ export default {
     this.setFunc();
   },
   computed: {
+    cssCardBackProps() {
+      return {
+        "--backgroundcolorback": this.defaultSettingsBack.backgroundColor,
+      };
+    },
     cssFooterProps() {
       return {
         "--fontweight": this.footer.fontWeight,
@@ -159,7 +168,7 @@ export default {
   display: flex;
   //flex-direction: column;
   position: relative;
-  background-color: #9a8b7c;
+  background-color: var(--backgroundcolorback);
   flex-basis: 100%;
   width: 100%;
   max-width: 50.4rem;
@@ -177,9 +186,10 @@ article {
   flex-direction: column;
   justify-content: space-between;
   position: relative;
+
   background-color: rgba(#9c2c1a, 0.25);
   // using outline here so that it'll just be clipped on small devices automatically
-  outline: 1.6rem solid #9a8b7c;
+  outline: 1.6rem solid var(--backgroundcolorback);
   overflow: hidden;
 
   // need to figure this out -- prob need another wrapper
