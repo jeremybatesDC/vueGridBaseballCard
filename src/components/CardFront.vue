@@ -15,20 +15,40 @@
             </label>
             <label>
               Font Weight
-              <input v-model="cardTextFontWeight" type="range" min="100" max="900" />
+              <input
+                v-model="cardTextFontWeight"
+                type="range"
+                min="100"
+                max="900"
+              />
             </label>
             <label>
               Font Width
-              <input v-model="cardTextFontWidth" type="range" min="35" max="100" />
+              <input
+                v-model="cardTextFontWidth"
+                type="range"
+                min="35"
+                max="100"
+              />
             </label>
 
             <label>
               Font Slant
-              <input v-model="cardTextFontSlant" type="range" min="-10" max="0" />
+              <input
+                v-model="cardTextFontSlant"
+                type="range"
+                min="-10"
+                max="0"
+              />
             </label>
             <label>
               Font Grade
-              <input v-model="cardTextFontGrade" type="range" min="0" max="48" />
+              <input
+                v-model="cardTextFontGrade"
+                type="range"
+                min="0"
+                max="48"
+              />
             </label>
           </details>
         </fieldset>
@@ -61,43 +81,6 @@
 
             <!-- nested accordion here -->
             <!-- gum -->
-            <details>
-              <summary>Gum</summary>
-              <label>
-                <input type="radio" name="gumradio" value="nogum" />
-                No gum
-              </label>
-              <label>
-                <input type="radio" name="gumradio" value="gum front" />
-                Gum front
-              </label>
-              <label>
-                <input type="radio" name="gumradio" value="gum back" />
-                Gum back
-              </label>
-
-              <label>
-                Gum angle
-                <input type="range" value />
-              </label>
-              <label>
-                Gum placement horz
-                <select>
-                  <option>left</option>
-                  <option>center</option>
-                  <option>right</option>
-                </select>
-              </label>
-
-              <label>
-                Gum placement vert
-                <select>
-                  <option>top</option>
-                  <option>middle</option>
-                  <option>bottom</option>
-                </select>
-              </label>
-            </details>
 
             <!-- cmyk -->
             <!-- <details>

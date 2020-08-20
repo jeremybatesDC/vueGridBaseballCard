@@ -1,7 +1,43 @@
 <template>
-  <details class="controls">
+  <details class="controls" open>
     <summary>Back Controls</summary>
-    <fieldset>hey</fieldset>
+    <form>
+      <div class="row">
+        <legend>Gum</legend>
+        <label>
+          Hide Gum Stain
+
+          <input type="radio" name="gumradio" value="nogum" />
+        </label>
+        <label>
+          Show Gum Stain
+
+          <input type="radio" name="gumradio" value="gum front" />
+        </label>
+      </div>
+      <div class="row">
+        <label>
+          Gum angle
+          <input type="range" value />
+        </label>
+        <label>
+          Gum placement horz
+          <select>
+            <option>left</option>
+            <option>center</option>
+            <option>right</option>
+          </select>
+        </label>
+        <label>
+          Gum placement vert
+          <select>
+            <option>top</option>
+            <option>middle</option>
+            <option>bottom</option>
+          </select>
+        </label>
+      </div>
+    </form>
   </details>
 
   <div class="card-back">
