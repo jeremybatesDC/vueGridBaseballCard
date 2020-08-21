@@ -4,6 +4,11 @@
 
 Labor Day launch.
 
+--> on file upload show user something is happening. Spinner might be fine. https://loading.io/css/
+https://css-tricks.com/lets-make-a-fancy-but-uncomplicated-page-loader/
+--> progress bar might be overkill
+--> cool be cool to say "upload complete -- encoding now"
+
 --> use contrast detect scss thing for the card back: https://css-tricks.com/switch-font-color-for-different-backgrounds-with-css/
 --> card background color: front (outer border color)
 --> dutone back based on user selection

@@ -64,6 +64,32 @@
       </section>
       <BackFooter />
     </article>
+    <aside class="sliders">
+      <input
+        type="range"
+        id="red"
+        min="0"
+        max="255"
+        v-model="defaultSettingsBack.red"
+        step="1"
+      />
+      <input
+        type="range"
+        id="green"
+        min="0"
+        max="255"
+        v-model="defaultSettingsBack.green"
+        step="1"
+      />
+      <input
+        type="range"
+        id="blue"
+        min="0"
+        max="255"
+        v-model="defaultSettingsBack.blue"
+        step="1"
+      />
+    </aside>
   </div>
 </template>
 
@@ -113,6 +139,9 @@ export default {
       defaultFacts,
       defaultSettingsBack: {
         backgroundColor: defaultSettingsBack.backgroundColor,
+        red: 200,
+        green: 60,
+        blue: 255,
       },
       // would love to be equally declarative with footer and aside stuff too...
       // move these footer defaults to json
@@ -137,6 +166,9 @@ export default {
     cssCardBackProps() {
       return {
         "--backgroundcolorback": this.defaultSettingsBack.backgroundColor,
+        "--red": this.defaultSettingsBack.red,
+        "--green": this.defaultSettingsBack.green,
+        "--blue": this.defaultSettingsBack.blue,
       };
     },
     cssFooterProps() {
@@ -163,21 +195,86 @@ export default {
 // if can keep square stats table, will allow switch between vert and horz
 
 // color contast functions: https://css-tricks.com/switch-font-color-for-different-backgrounds-with-css/
+:root {
+}
+
+.btn {
+  /*sets the background for the base class*/
+  //background: rgb(var(--red), var(--green), var(--blue));
+
+  //border-width: 2px;
+  //border-style: solid;
+  //border-color: rgba(
+  //  calc(var(--red) - 50),
+  //  calc(var(--green) - 50),
+  //  calc(var(--blue) - 50),
+  //  var(--border-alpha)
+  //);
+}
+//
+//.btn--secondary {
+//  filter: hue-rotate(60deg);
+//}
+
+.sliders {
+  position: absolute;
+  bottom: -200px;
+  left: 0;
+}
+input[id="red"]::after {
+  counter-reset: red var(--red);
+  content: counter(red);
+}
+
+input[id="green"]::after {
+  counter-reset: green var(--green);
+  content: counter(green);
+}
+
+input[id="blue"]::after {
+  counter-reset: blue var(--blue);
+  content: counter(blue);
+}
 
 .card-back {
   display: flex;
   //flex-direction: column;
   position: relative;
-  background-color: var(--backgroundcolorback);
+  //background-color: var(--backgroundcolorback);
+  background-color: rgb(var(--red), var(--green), var(--blue));
   flex-basis: 100%;
   width: 100%;
   max-width: 50.4rem;
   height: 36rem;
   // i detest top margins but
   margin: 3.2rem auto;
+  --threshold: 0.5;
+  /* theme color variables to use in RGB declarations */
+
+  /*the threshold at which colors are considered "light". 
+Range: decimals from 0 to 1,
+recommended 0.5 - 0.6*/
+  /*the threshold at which a darker border will be applied.
+Range: decimals from 0 to 1,
+recommended 0.8+*/
+  --border-threshold: 0.8;
   //padding: 1.6rem;
   // cannot do overflow hidden here because it chops the outline
   //overflow: hidden;
+  --r: calc(var(--red) * 0.2126);
+  --g: calc(var(--green) * 0.7152);
+  --b: calc(var(--blue) * 0.0722);
+  --sum: calc(var(--r) + var(--g) + var(--b));
+  --perceived-lightness: calc(var(--sum) / 255);
+  color: hsl(
+    0,
+    0%,
+    calc((var(--perceived-lightness) - var(--threshold)) * -10000000%)
+  );
+
+  --border-alpha: calc(
+    (var(--perceived-lightness) - var(--border-threshold)) * 100
+  );
 }
 
 article {

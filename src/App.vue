@@ -18,22 +18,6 @@
         <CardBack />
       </div>
     </div>
-    <aside class="sliders">
-      <input type="range" id="red" min="0" max="255" v-model="red" step="1" />
-      <input
-        type="range"
-        id="green"
-        min="0"
-        max="255"
-        v-model="green"
-        step="1"
-      />
-      <input type="range" id="blue" min="0" max="255" v-model="blue" step="1" />
-    </aside>
-    <div :style="cssColorContrastProps">
-      <button class="btn">Contast Test</button>
-      <!--<button class="btn btn--secondary">Secondary Color</button>-->
-    </div>
   </main>
 </template>
 
@@ -64,22 +48,8 @@ export default {
   data: function () {
     return {
       frontshowing: true,
-      red: 200,
-      green: 60,
-      blue: 255,
     };
   },
-  computed: {
-    cssColorContrastProps() {
-      return {
-        "--red": this.red,
-        "--green": this.green,
-        "--blue": this.blue,
-      };
-    },
-  },
-  //data
-  //should i move data into parent component? Yes, I think so.
 };
 </script>
 
@@ -106,67 +76,8 @@ export default {
     "YTLC" 400, "YTUC" 400, "YTFI" 400;
   --logoborderradius: "50%";
   //--cmyk-misalign: 1px 0 0 cyan, -1px 0 0 magenta, 0 1px 0 yellow;
-
-  /* theme color variables to use in RGB declarations */
-  --red: 200;
-  --green: 60;
-  --blue: 255;
-  /*the threshold at which colors are considered "light". 
-Range: decimals from 0 to 1,
-recommended 0.5 - 0.6*/
-  --threshold: 0.5;
-  /*the threshold at which a darker border will be applied.
-Range: decimals from 0 to 1,
-recommended 0.8+*/
-  --border-threshold: 0.8;
 }
-
-.btn {
-  /*sets the background for the base class*/
-  background: rgb(var(--red), var(--green), var(--blue));
-  --r: calc(var(--red) * 0.2126);
-  --g: calc(var(--green) * 0.7152);
-  --b: calc(var(--blue) * 0.0722);
-  --sum: calc(var(--r) + var(--g) + var(--b));
-  --perceived-lightness: calc(var(--sum) / 255);
-  color: hsl(
-    0,
-    0%,
-    calc((var(--perceived-lightness) - var(--threshold)) * -10000000%)
-  );
-
-  --border-alpha: calc(
-    (var(--perceived-lightness) - var(--border-threshold)) * 100
-  );
-
-  border-width: 2px;
-  border-style: solid;
-  border-color: rgba(
-    calc(var(--red) - 50),
-    calc(var(--green) - 50),
-    calc(var(--blue) - 50),
-    var(--border-alpha)
-  );
-}
-//
-//.btn--secondary {
-//  filter: hue-rotate(60deg);
-//}
-
-input[id="red"]::after {
-  counter-reset: red var(--red);
-  content: counter(red);
-}
-
-input[id="green"]::after {
-  counter-reset: green var(--green);
-  content: counter(green);
-}
-
-input[id="blue"]::after {
-  counter-reset: blue var(--blue);
-  content: counter(blue);
-}
+/* theme color variables to use in RGB declarations */
 
 //
 
