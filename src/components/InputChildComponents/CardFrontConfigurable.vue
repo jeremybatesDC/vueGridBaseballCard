@@ -67,21 +67,37 @@
               </label>
             </div>
             <div class="row">
-              <label class="label--fileInput">
-                <input type="file" accept="image/*" />
-                <span>Upload Image</span>
-              </label>
-              <label class="label--fileInput">
-                <input type="file" capture="user" />
-                <span>Take Selfie (Mobile)</span>
-              </label>
+              <div class="filePicker__wrapper">
+                <input
+                  id="filePicker_0"
+                  class="hidden--visually filePicker__input"
+                  type="file"
+                  accept="image/*"
+                />
+                <label for="filePicker_0" class="filePicker__label"
+                  >Upload
+                  <i class="filePicker__icon">⬆️</i>
+                  Image</label
+                >
+              </div>
 
-              <!--<label class="label--fileInput">
-              <input type="file" capture="environment" />
-              <span>Take Picture</span>
-            </label>-->
+              <div class="filePicker__wrapper">
+                <input
+                  id="filePicker_1"
+                  class="hidden--visually filePicker__input"
+                  type="file"
+                  capture="user"
+                  accept="image/*"
+                />
+                <label for="filePicker_1" class="filePicker__label"
+                  >Take
+                  <i class="filePicker__icon">📷</i>
+                  Selfie</label
+                >
+              </div>
 
               <label>
+                <!-- need to scope reset -->
                 <button type="reset">Delete image</button>
               </label>
             </div>
