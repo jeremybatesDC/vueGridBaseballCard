@@ -4,6 +4,13 @@
 
 Labor Day launch.
 
+- if different text fields on front could be different colors (which i think to support full-bleed images, it should be), then we need to tell user we've remembered that color:
+  radio: current color (show) vs color particular to this field. Not sure which color field would take priority.
+
+- can we switch the order of the text lines for each layout? That might be easier than giving user custom number of cols per row (lower interaction cost)
+
+- invert/hue rotate back stripe color text
+
 --> on file upload show user something is happening. Spinner might be fine. https://loading.io/css/
 https://css-tricks.com/lets-make-a-fancy-but-uncomplicated-page-loader/
 --> progress bar might be overkill

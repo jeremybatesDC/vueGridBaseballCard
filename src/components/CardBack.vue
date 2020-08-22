@@ -3,24 +3,35 @@
     <summary>Back Controls</summary>
     <form>
       <label>
-        Card Back Outer Border Color
+        Card Back Color
         <input type="color" v-model="defaultSettingsBack.backgroundColor" />
+        Text will be black or white depending on background color: contrast,
+        acceessibiliy
       </label>
-      <fieldset>
-        <legend>Gum</legend>
-        <div class="row">
-          <label>
-            Hide Gum Stain
+      <legend>Gum</legend>
+      <div class="row">
+        <label>
+          Show Gum Stain
 
-            <input type="radio" name="gumradio" value="nogum" />
-          </label>
-          <label>
-            Show Gum Stain
+          <input
+            type="radio"
+            name="gumradio"
+            v-model="defaultSettingsBack.gumShowing"
+            value="gumShowing"
+          />
+        </label>
+        <label>
+          Hide Gum Stain
 
-            <input type="radio" name="gumradio" value="gum front" />
-          </label>
-        </div>
-        <div class="row">
+          <input
+            type="radio"
+            name="gumradio"
+            v-model="defaultSettingsBack.gumShowing"
+            value="gumHidden"
+          />
+        </label>
+      </div>
+      <!--<div class="row">
           <label>
             Gum Stain Darkness
             <input type="range" value />
@@ -45,13 +56,12 @@
               <option>bottom</option>
             </select>
           </label>
-        </div>
-      </fieldset>
+        </div>-->
     </form>
   </details>
 
   <div class="card-back" :style="cssCardBackProps">
-    <article>
+    <article :class="defaultSettingsBack.gumShowing">
       <BackHeader />
 
       <section>
@@ -64,32 +74,6 @@
       </section>
       <BackFooter />
     </article>
-    <aside class="sliders">
-      <input
-        type="range"
-        id="red"
-        min="0"
-        max="255"
-        v-model="defaultSettingsBack.red"
-        step="1"
-      />
-      <input
-        type="range"
-        id="green"
-        min="0"
-        max="255"
-        v-model="defaultSettingsBack.green"
-        step="1"
-      />
-      <input
-        type="range"
-        id="blue"
-        min="0"
-        max="255"
-        v-model="defaultSettingsBack.blue"
-        step="1"
-      />
-    </aside>
   </div>
 </template>
 
@@ -139,9 +123,11 @@ export default {
       defaultFacts,
       defaultSettingsBack: {
         backgroundColor: defaultSettingsBack.backgroundColor,
-        red: 200,
-        green: 60,
-        blue: 255,
+
+        redVal: 200,
+        greenVal: 60,
+        blueVal: 255,
+        gumShowing: defaultSettingsBack.gumShowing,
       },
       // would love to be equally declarative with footer and aside stuff too...
       // move these footer defaults to json
@@ -164,11 +150,32 @@ export default {
   },
   computed: {
     cssCardBackProps() {
+      let r = 0,
+        g = 0,
+        b = 0;
+
+      let redVal = null;
+      let greenVal = null;
+      let blueVal = null;
+      function hexToDesiredColorSpace(hex) {
+        r = "0x" + hex[1] + hex[2];
+        g = "0x" + hex[3] + hex[4];
+        b = "0x" + hex[5] + hex[6];
+        redVal = +r;
+        greenVal = +g;
+        blueVal = +b;
+        //return "rgb(" + redVal + "," + greenVal + "," + blueVal + ")";
+        return `rgb(${redVal},${greenVal},${blueVal})`;
+      }
+
       return {
-        "--backgroundcolorback": this.defaultSettingsBack.backgroundColor,
-        "--red": this.defaultSettingsBack.red,
-        "--green": this.defaultSettingsBack.green,
-        "--blue": this.defaultSettingsBack.blue,
+        "--backgroundcolorback": hexToDesiredColorSpace(
+          this.defaultSettingsBack.backgroundColor
+        ),
+
+        "--red": redVal,
+        "--green": greenVal,
+        "--blue": blueVal,
       };
     },
     cssFooterProps() {
@@ -193,48 +200,6 @@ export default {
 
 <style scoped lang="scss">
 // if can keep square stats table, will allow switch between vert and horz
-
-// color contast functions: https://css-tricks.com/switch-font-color-for-different-backgrounds-with-css/
-:root {
-}
-
-.btn {
-  /*sets the background for the base class*/
-  //background: rgb(var(--red), var(--green), var(--blue));
-
-  //border-width: 2px;
-  //border-style: solid;
-  //border-color: rgba(
-  //  calc(var(--red) - 50),
-  //  calc(var(--green) - 50),
-  //  calc(var(--blue) - 50),
-  //  var(--border-alpha)
-  //);
-}
-//
-//.btn--secondary {
-//  filter: hue-rotate(60deg);
-//}
-
-.sliders {
-  position: absolute;
-  bottom: -200px;
-  left: 0;
-}
-input[id="red"]::after {
-  counter-reset: red var(--red);
-  content: counter(red);
-}
-
-input[id="green"]::after {
-  counter-reset: green var(--green);
-  content: counter(green);
-}
-
-input[id="blue"]::after {
-  counter-reset: blue var(--blue);
-  content: counter(blue);
-}
 
 .card-back {
   display: flex;
@@ -291,14 +256,27 @@ article {
 
   // need to figure this out -- prob need another wrapper
 
-  &.has-gum {
+  &.gumShowing {
+    &:after {
+      // svg gum image maybe
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 10rem;
+      height: 30rem;
+      background-color: rgba(0, 0, 0, 0.1);
+      border-radius: 3px 5px 7px 9px;
+      transform: rotate(-33deg) translateX(-8rem) translateY(-4rem);
+      mix-blend-mode: darken;
+      filter: blur(2px);
+    }
   }
   &.has-crease {
   }
 
-  //crease
-  &:before {
-    // svg crease image maybe
+  //crease consider svg
+  /*&:before {
     content: "";
     position: absolute;
     bottom: 0;
@@ -309,25 +287,11 @@ article {
     transform: rotate(45deg) scaleX(2);
     //transform-origin: center top;
     z-index: 1;
-    //tfoutline: 1px dashed rgba(0, 0, 0, 0.25);
+    //outline: 1px dashed rgba(0, 0, 0, 0.25);
     box-shadow: 1px 0 rgba(0, 0, 0, 1);
     //border-image:url();
-  }
+  }*/
   //gum
-  &:after {
-    // svg gum image maybe
-    content: "";
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 10rem;
-    height: 30rem;
-    background-color: rgba(0, 0, 0, 0.1);
-    border-radius: 3px 5px 7px 9px;
-    transform: rotate(-33deg) translateX(-8rem) translateY(-4rem);
-    mix-blend-mode: darken;
-    filter: blur(2px);
-  }
 }
 
 h2 {
