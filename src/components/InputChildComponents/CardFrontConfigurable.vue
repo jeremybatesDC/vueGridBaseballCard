@@ -1,110 +1,98 @@
 <template>
   <div>
     <div class="controls">
-      <div class="row row--wrap">
+      <div class="row">
         <form>
           <fieldset>
-            <details open>
-              <summary>
-                <legend>Layout</legend>
-              </summary>
-              <label>
-                <input type="radio" v-model="cardLayout" value="one-one" />
-                <span>1-1</span>
-              </label>
-              <label>
-                <input type="radio" v-model="cardLayout" value="zero-two" />
-                <span>0-2</span>
-              </label>
-              <label>
-                <input type="radio" v-model="cardLayout" value="two-zero" />
-                <span>2-0</span>
-              </label>
-            </details>
+            <legend>Layout</legend>
+            <label>
+              <input type="radio" v-model="cardLayout" value="one-one" />
+              <span>1-1</span>
+            </label>
+            <label>
+              <input type="radio" v-model="cardLayout" value="zero-two" />
+              <span>0-2</span>
+            </label>
+            <label>
+              <input type="radio" v-model="cardLayout" value="two-zero" />
+              <span>2-0</span>
+            </label>
           </fieldset>
         </form>
 
         <form>
           <fieldset>
-            <details open>
-              <summary>
-                <legend>Outer Border</legend>
-              </summary>
-              <label>
-                <input
-                  type="radio"
-                  v-model="playerImageBleedOrBoxed"
-                  value="relative"
-                />
-                <span>Outer Border</span>
-              </label>
+            <legend>Outer Border</legend>
+            <label>
+              <input
+                type="radio"
+                v-model="playerImageBleedOrBoxed"
+                value="relative"
+              />
+              <span>Outer Border</span>
+            </label>
 
-              <label>
-                <input
-                  type="radio"
-                  v-model="playerImageBleedOrBoxed"
-                  value="static"
-                />
-                <span>No Outer Border</span>
-              </label>
-              <label v-show="playerImageBleedOrBoxed === 'relative'">
-                <input type="color" v-model="cardBackgroundColor" />
-                <span>Outer Border Color </span>
-              </label>
-            </details>
+            <label>
+              <input
+                type="radio"
+                v-model="playerImageBleedOrBoxed"
+                value="static"
+              />
+              <span>No Outer Border</span>
+            </label>
+            <label v-show="playerImageBleedOrBoxed === 'relative'">
+              <input type="color" v-model="cardBackgroundColor" />
+              <span>Outer Border Color </span>
+            </label>
           </fieldset>
         </form>
         <form>
           <fieldset>
-            <details open>
-              <summary>
-                <legend>Inner Border</legend>
-              </summary>
+            <legend>Inner Border</legend>
+            <label>
+              <input type="radio" v-model="borderInner.style" value="solid" />
+              <span>Show Inner Border</span>
+            </label>
+            <label>
+              <input type="radio" v-model="borderInner.style" value="none" />
+              <span>Hide Inner Border</span>
+            </label>
+
+            <div class="row" v-show="borderInner.style !== 'none'">
               <label>
-                <input type="radio" v-model="borderInner.style" value="solid" />
-                <span>Show Inner Border</span>
-              </label>
-              <label>
-                <input type="radio" v-model="borderInner.style" value="none" />
-                <span>Hide Inner Border</span>
+                Border Color:
+                <input v-model="borderInner.color" type="color" />
               </label>
 
-              <div class="row" v-show="borderInner.style !== 'none'">
-                <label>
-                  Border Color:
-                  <input v-model="borderInner.color" type="color" />
-                </label>
-
-                <label>
-                  Border Opacity (Fix):
-                  <output :value="borderInner.opacity"></output>
-                  <input
-                    type="range"
-                    min="10"
-                    max="99"
-                    v-model="borderInner.opacity"
-                  />
-                </label>
-                <label>
-                  Border Curve: <output :value="borderInner.curve"></output>
-                  <input
-                    v-model="borderInner.curve"
-                    type="range"
-                    min="0"
-                    max="24"
-                  />
-                </label>
-                <label>
-                  Border Width: <output :value="borderInner.width"></output>
-                  <input
-                    v-model="borderInner.width"
-                    type="range"
-                    min="1"
-                    max="8"
-                  />
-                </label>
-              </div>
-            </details>
+              <label>
+                Border Opacity (Fix):
+                <output :value="borderInner.opacity"></output>
+                <input
+                  type="range"
+                  min="10"
+                  max="99"
+                  v-model="borderInner.opacity"
+                />
+              </label>
+              <label>
+                Border Curve: <output :value="borderInner.curve"></output>
+                <input
+                  v-model="borderInner.curve"
+                  type="range"
+                  min="0"
+                  max="24"
+                />
+              </label>
+              <label>
+                Border Width: <output :value="borderInner.width"></output>
+                <input
+                  v-model="borderInner.width"
+                  type="range"
+                  min="1"
+                  max="8"
+                />
+              </label>
+            </div>
           </fieldset>
         </form>
       </div>
@@ -448,6 +436,9 @@ export default {
       right: 0;
     }
   }
+}
+
+.controls {
 }
 
 .one-one {
