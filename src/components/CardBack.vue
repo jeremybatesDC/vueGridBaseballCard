@@ -1,35 +1,49 @@
 <template>
-  <details class="controls" open>
-    <summary>Back Controls</summary>
-    <form>
-      <label>
-        Card Back Color
-        <input type="color" v-model="defaultSettingsBack.backgroundColor" />
-        Text will be black or white depending on background color: contrast,
-        acceessibiliy
-      </label>
-      <legend>Gum</legend>
+  <div class="">
+    <form class="cardBack__form">
       <div class="row">
-        <label>
-          Show Gum Stain
+        <div class="col">
+          <label>
+            <input type="color" v-model="defaultSettingsBack.backgroundColor" />
+            <span>Background Color</span>
+            <small
+              >Text will be black or white depending on background color:
+              contrast, acceessibiliy</small
+            >
+          </label>
+        </div>
+        <div class="col">
+          <fieldset class="radioUI__fieldset">
+            <legend>Gum</legend>
+            <div class="row">
+              <div class="col">
+                <label class="radioUI__label">
+                  <input
+                    class="radioUI__input"
+                    type="radio"
+                    name="gumradio"
+                    v-model="defaultSettingsBack.gumShowing"
+                    value="gumShowing"
+                  />
+                  <span>Show Gum Stain</span>
+                </label>
+              </div>
 
-          <input
-            type="radio"
-            name="gumradio"
-            v-model="defaultSettingsBack.gumShowing"
-            value="gumShowing"
-          />
-        </label>
-        <label>
-          Hide Gum Stain
-
-          <input
-            type="radio"
-            name="gumradio"
-            v-model="defaultSettingsBack.gumShowing"
-            value="gumHidden"
-          />
-        </label>
+              <div class="col">
+                <label class="radioUI__label">
+                  <input
+                    class="radioUI__input"
+                    type="radio"
+                    name="gumradio"
+                    v-model="defaultSettingsBack.gumShowing"
+                    value="gumHidden"
+                  />
+                  <span>Hide Gum Stain</span>
+                </label>
+              </div>
+            </div>
+          </fieldset>
+        </div>
       </div>
       <!--<div class="row">
           <label>
@@ -58,22 +72,22 @@
           </label>
         </div>-->
     </form>
-  </details>
 
-  <div class="card-back" :style="cssCardBackProps">
-    <article :class="defaultSettingsBack.gumShowing">
-      <BackHeader />
+    <div class="card-back" :style="cssCardBackProps">
+      <article :class="defaultSettingsBack.gumShowing">
+        <BackHeader />
 
-      <section>
-        <!-- columns: min 2, max 6? -->
-        <!-- tbody rows: min 0 (leaving only tfoot totals), max 10? -->
+        <section>
+          <!-- columns: min 2, max 6? -->
+          <!-- tbody rows: min 0 (leaving only tfoot totals), max 10? -->
 
-        <TableStats />
+          <TableStats />
 
-        <AsideFacts />
-      </section>
-      <BackFooter />
-    </article>
+          <AsideFacts />
+        </section>
+        <BackFooter />
+      </article>
+    </div>
   </div>
 </template>
 

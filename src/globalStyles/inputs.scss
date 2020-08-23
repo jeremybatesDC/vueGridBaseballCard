@@ -45,8 +45,34 @@ input {
   }
 }
 
-// FILE PICKER UI
+// color picker UI
 
+.radioUI {
+  &__fieldset {
+    display: flex;
+    flex-direction: row;
+    flex-grow: 1;
+    flex-wrap: nowrap;
+  }
+  &__label {
+    display: flex;
+    flex-direction: column-reverse;
+    span {
+      display: inline-flex;
+      //max-width: 50%;
+    }
+  }
+  &__input {
+    display: flex;
+    &:checked {
+      + span {
+        color: red;
+      }
+    }
+  }
+}
+
+// FILE PICKER UI
 .filePicker__wrapper {
   display: flex;
   position: relative;

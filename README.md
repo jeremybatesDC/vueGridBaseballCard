@@ -11,6 +11,8 @@ Labor Day launch.
 
 - invert/hue rotate back stripe color text
 
+- decrease cardBack font weights now that subpizel-antialiasing has punched things up
+
 --> on file upload show user something is happening. Spinner might be fine. https://loading.io/css/
 https://css-tricks.com/lets-make-a-fancy-but-uncomplicated-page-loader/
 --> progress bar might be overkill
