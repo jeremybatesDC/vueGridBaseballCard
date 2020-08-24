@@ -61,6 +61,17 @@ img {
   object-fit: cover;
 }
 
+fieldset {
+  margin: 0;
+  padding: 0;
+  min-width: 0;
+}
+
+legend {
+  margin: 0;
+  padding: 0;
+}
+
 input {
   margin: 0;
   padding: 0;

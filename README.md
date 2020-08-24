@@ -4,6 +4,11 @@
 
 Labor Day launch.
 
+- back color picker -- how can i get the whole card to show? Really want to see bottom of card when choosing color
+- figure out how to limit inputs to 60px tall inclusive of text labels... need to bump up card by 200px or something.
+  -- (wait -- when color picker is open, can the controls hide?? oooh....)
+  -- back -- use variable font to achieve smaller text with 16px
+
 - if different text fields on front could be different colors (which i think to support full-bleed images, it should be), then we need to tell user we've remembered that color:
   radio: current color (show) vs color particular to this field. Not sure which color field would take priority.
 

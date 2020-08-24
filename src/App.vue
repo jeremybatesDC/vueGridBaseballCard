@@ -153,14 +153,12 @@ summary {
   display: flex;
 }
 fieldset {
-  padding: 0;
-  margin-bottom: 1.6rem;
 }
 legend {
   font-family: inherit;
   //font-weight: bold;
   text-align: center;
-  padding: 0 0.4rem;
+  //padding: 0 0.4rem;
   font-size: 1.6rem;
 }
 label {
@@ -187,7 +185,7 @@ label {
 
 [role="tablist"] {
   display: flex;
-  margin-bottom: 1.6rem;
+  //margin-bottom: 1.6rem;
   background: rgba(0, 0, 0, 0.1);
 }
 

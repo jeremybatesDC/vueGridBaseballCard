@@ -3,45 +3,49 @@
     <form class="cardBack__form">
       <div class="row">
         <div class="col">
-          <label>
-            <input type="color" v-model="defaultSettingsBack.backgroundColor" />
-            <span>Background Color</span>
-            <small
-              >Text will be black or white depending on background color:
-              contrast, acceessibiliy</small
-            >
-          </label>
+          <fieldset class="cardBack__fieldset colorPicker__fieldset">
+            <!--<legend>Background</legend>-->
+
+            <label class="colorPicker__label">
+              <!--<span>Background Color</span>-->
+              <input
+                class="colorPicker__input"
+                type="color"
+                v-model="defaultSettingsBack.backgroundColor"
+              />
+            </label>
+            <!--<small class="helperText colorPicker__helperText"
+              >Text color adjusts to maintain contrast</small
+            >-->
+          </fieldset>
         </div>
         <div class="col">
-          <fieldset class="radioUI__fieldset">
-            <legend>Gum</legend>
-            <div class="row">
-              <div class="col">
-                <label class="radioUI__label">
-                  <input
-                    class="radioUI__input"
-                    type="radio"
-                    name="gumradio"
-                    v-model="defaultSettingsBack.gumShowing"
-                    value="gumShowing"
-                  />
-                  <span>Show Gum Stain</span>
-                </label>
-              </div>
+          <fieldset
+            class="cardBack__fieldset radioUI__fieldset radioUI__fieldset--toggleStyle"
+          >
+            <!--<legend>Gum Stain</legend>-->
 
-              <div class="col">
-                <label class="radioUI__label">
-                  <input
-                    class="radioUI__input"
-                    type="radio"
-                    name="gumradio"
-                    v-model="defaultSettingsBack.gumShowing"
-                    value="gumHidden"
-                  />
-                  <span>Hide Gum Stain</span>
-                </label>
-              </div>
-            </div>
+            <label class="radioUI__label">
+              <input
+                class="radioUI__input"
+                type="radio"
+                name="gumradio"
+                v-model="defaultSettingsBack.gumShowing"
+                value="gumShowing"
+              />
+              <!--<span>Show</span>-->
+            </label>
+
+            <label class="radioUI__label">
+              <input
+                class="radioUI__input"
+                type="radio"
+                name="gumradio"
+                v-model="defaultSettingsBack.gumShowing"
+                value="gumHidden"
+              />
+              <!--<span>Hide</span>-->
+            </label>
           </fieldset>
         </div>
       </div>
@@ -226,7 +230,7 @@ export default {
   max-width: 50.4rem;
   height: 36rem;
   // i detest top margins but
-  margin: 3.2rem auto;
+  margin: 1.6rem auto 3.2rem auto;
   --threshold: 0.5;
   /* theme color variables to use in RGB declarations */
 
