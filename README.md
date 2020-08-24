@@ -4,8 +4,14 @@
 
 Labor Day launch.
 
+-> offer color check box of "adjust dark vs light based on backgrund"
+--> text options include color per field (defaults to currentColor), text-align
+--> might be good to show all font adjustment buttons for each text input, but not all buttons would be enabled for all fields. That way user won't wonder "what happened to width option?" but will be shown it just can't be applied here (may need clear helper text about limitations)
+--> For lines with 2 text inputs, consider not allowing width adjustments (maybe just color, grade, slant)
+
+-- fix overlapping on card back now that wrap reverse is in place boom!
+
 - back color picker -- how can i get the whole card to show? Really want to see bottom of card when choosing color
-- figure out how to limit inputs to 60px tall inclusive of text labels... need to bump up card by 200px or something.
   -- (wait -- when color picker is open, can the controls hide?? oooh....)
   -- back -- use variable font to achieve smaller text with 16px
 
@@ -18,20 +24,7 @@ Labor Day launch.
 
 - decrease cardBack font weights now that subpizel-antialiasing has punched things up
 
---> on file upload show user something is happening. Spinner might be fine. https://loading.io/css/
-https://css-tricks.com/lets-make-a-fancy-but-uncomplicated-page-loader/
---> progress bar might be overkill
---> cool be cool to say "upload complete -- encoding now"
-
---> use contrast detect scss thing for the card back: https://css-tricks.com/switch-font-color-for-different-backgrounds-with-css/
---> card background color: front (outer border color)
---> dutone back based on user selection
-
 --> icons for layout options
-
---> text options include color per field (defaults to currentColor), text-align
---> might be good to show all font adjustment buttons for each text input, but not all buttons would be enabled for all fields. That way user won't wonder "what happened to width option?" but will be shown it just can't be applied here (may need clear helper text about limitations)
---> For lines with 2 text inputs, consider not allowing width adjustments (maybe just color, grade, slant)
 
 --> Get elements in cells to take full size
 
@@ -80,9 +73,10 @@ and, after considering it, i donT think i need a table plugin. If I can properly
   -- birth announcements
 
 - group/team bulk stats upload
+- sell to youth sports leagues
 
--- refactor card header
--- save font-variation-settings to CSS vars to can easily reuse somethin like "tallest thinnest"
+  -- refactor card header
+  -- save font-variation-settings to CSS vars to can easily reuse somethin like "tallest thinnest"
 
 -- (further?) reduce visible size of borders for 320px devices so hopefully rest of content can give adequate touch targets in real world measurements (7-12mm) (maybe using min-max clamps?)
 -- min touch target 48px wherever possible (playing numerologist right now 44, 45, 46, 48)
