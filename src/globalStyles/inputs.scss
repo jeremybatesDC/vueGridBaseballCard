@@ -92,10 +92,10 @@ input {
         text-align: center;
         text-transform: uppercase;
         &:first-of-type {
-          margin-right: var(--unit);
+          margin-right: 0.8rem;
         }
         &:last-of-type {
-          margin-left: var(--unit);
+          margin-left: 0.8rem;
         }
         span {
           font-size: 1.6rem;
