@@ -7,7 +7,7 @@
             <!--<legend>Background</legend>-->
 
             <label class="colorPicker__label">
-              <!--<span>Background Color</span>-->
+              <span>Background </span>
               <input
                 class="colorPicker__input"
                 type="color"
@@ -33,7 +33,7 @@
                 v-model="defaultSettingsBack.gumShowing"
                 value="gumShowing"
               />
-              <!--<span>Show</span>-->
+              <span>Show Gum</span>
             </label>
 
             <label class="radioUI__label">
@@ -44,7 +44,7 @@
                 v-model="defaultSettingsBack.gumShowing"
                 value="gumHidden"
               />
-              <!--<span>Hide</span>-->
+              <span>Hide Gum</span>
             </label>
           </fieldset>
         </div>
@@ -326,7 +326,7 @@ section {
   flex-grow: 1;
   align-items: stretch;
   flex-direction: row;
-  flex-wrap: wrap;
+  flex-wrap: wrap-reverse;
   padding: 0;
   background: rgba(0, 0, 0, 0.1);
 }
