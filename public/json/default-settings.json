@@ -22,7 +22,7 @@
   "borderInner": {
     "curve": "0",
     "style": "solid",
-    "opacity": "99",
+    "opacity": "1",
     "color": "#000000",
     "width": "3"
   },

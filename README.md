@@ -4,6 +4,10 @@
 
 Labor Day launch.
 
+--> default to a color that's not quite so white
+
+--> bump full bleed to v2?
+
 -> offer color check box of "adjust dark vs light based on backgrund"
 --> text options include color per field (defaults to currentColor), text-align
 --> might be good to show all font adjustment buttons for each text input, but not all buttons would be enabled for all fields. That way user won't wonder "what happened to width option?" but will be shown it just can't be applied here (may need clear helper text about limitations)
@@ -139,6 +143,8 @@ can i offer a 48px touch target (off to the side perhaps) while maintaining tigh
   blockquote
 
 ### 2nd release
+
+--> was it the right call to change imae size based on border/ no border? Because color vs clear would make that menu super easy
 
 -- consider background opacity option so full bleed cards could still have semi transparent outer border for a possibly interesting visual effect
 

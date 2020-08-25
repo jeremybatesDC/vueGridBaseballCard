@@ -72,7 +72,7 @@
 
         <fieldset class="radioUI__fieldset">
           <legend class="radioUI__legend">Inner Border</legend>
-          <label class="radioUI__label">
+          <!--<label class="radioUI__label">
             <input
               type="radio"
               class="radioUI__input"
@@ -89,15 +89,10 @@
               value="none"
             />
             <span>Hide</span>
-          </label>
+          </label>-->
 
-          <div class="" v-show="borderInner.style !== 'none'">
-            <label class="colorPicker__label">
-              <input v-model="borderInner.color" type="color" />
-              <span>Color</span>
-            </label>
-
-            <label>
+          <div class="">
+            <!--<label>
               Border Opacity (Fix):
               <output :value="borderInner.opacity"></output>
               <input
@@ -107,9 +102,10 @@
                 v-model="borderInner.opacity"
                 class="colorPicker__input"
               />
-            </label>
+            </label>-->
+
             <label>
-              Border Curve: <output :value="borderInner.curve"></output>
+              Curve: <output :value="borderInner.curve"></output>
               <input
                 v-model="borderInner.curve"
                 type="range"
@@ -117,9 +113,20 @@
                 max="24"
               />
             </label>
+
             <label>
-              Border Width: <output :value="borderInner.width"></output>
-              <input v-model="borderInner.width" type="range" min="1" max="8" />
+              Width: <output :value="borderInner.width"></output>
+              <input
+                v-model="borderInner.width"
+                type="range"
+                min="0"
+                max="10"
+              />
+            </label>
+
+            <label class="colorPicker__label" v-show="borderInner.width != 0">
+              <input v-model="borderInner.color" type="color" />
+              <span>Color</span>
             </label>
           </div>
         </fieldset>
@@ -430,7 +437,8 @@ export default {
         "--borderinnercurve": `${this.borderInner.curve}px`,
         "--borderinnerstyle": this.borderInner.style,
         "--borderinneropacity": this.borderInner.opacity,
-        "--borderinnerhexplusalpha": `${this.borderInner.color}${this.borderInner.opacity}`,
+        "--borderinnercolor": this.borderInner.color,
+        //"--borderinnerhexplusalpha": `${this.borderInner.color}${this.borderInner.opacity}`,
         "--borderinnerwidth": `${this.borderInner.width}px`,
       };
     },
@@ -467,6 +475,7 @@ export default {
 }
 
 .controls {
+  position: relative;
 }
 
 .one-one {
@@ -527,7 +536,7 @@ input {
   // make configurable
   border-width: var(--borderinnerwidth);
   border-style: var(--borderinnerstyle);
-  border-color: var(--borderinnerhexplusalpha);
+  border-color: var(--borderinnercolor);
   border-radius: var(--borderinnercurve);
   // trying a trick
 
@@ -659,7 +668,7 @@ h3 {
     label {
       //display: flex;
       //flex-direction: column;
-      position: relative;
+      //position: relative;
       //width: var(--touch-target-large);
       //height: var(--touch-target-large);
       //border: 1px solid blue;
