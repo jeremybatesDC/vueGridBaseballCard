@@ -93,8 +93,8 @@
 
           <div class="" v-show="borderInner.style !== 'none'">
             <label class="colorPicker__label">
-              <span>Color</span>
               <input v-model="borderInner.color" type="color" />
+              <span>Color</span>
             </label>
 
             <label>
