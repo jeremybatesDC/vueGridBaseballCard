@@ -4,6 +4,12 @@
 
 Labor Day launch.
 
+--> but if outer border none then can zero-out inner border options, yah? It's not a great look
+
+--> ok maybe it could be cool to have a full-bleed with inner-border look. But it's kinda meh and it be cleaner if menu were:
+Borders: Yes / No (or whatever)
+If outer border, then inner border options.
+
 --> default to a color that's not quite so white
 
 --> bump full bleed to v2?

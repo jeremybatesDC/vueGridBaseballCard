@@ -58,7 +58,7 @@
             <span>Hide</span>
           </label>
           <label
-            v-show="playerImageBleedOrBoxed === 'relative'"
+            v-show="playerImageBleedOrBoxed !== 'static'"
             class="colorPicker__label"
           >
             <input
@@ -183,168 +183,182 @@
         </h3>
       </div>
     </div>
-    <form>
-      <fieldset>
-        <legend>Player Image</legend>
-        <div class="row">
-          <label>
-            Player Image (URL or upload):
-            <input
-              v-model="playerImageURLorDataString"
-              type="text"
-              placeholder
-            />
-          </label>
-        </div>
-        <div class="row">
-          <div class="filePicker__wrapper">
-            <input
-              id="filePicker_0"
-              class="hidden--visually filePicker__input"
-              type="file"
-              accept="image/*"
-            />
-            <label for="filePicker_0" class="filePicker__label"
-              >Upload
-              <i class="filePicker__icon">⬆️</i>
-              Image</label
-            >
-          </div>
 
-          <div class="filePicker__wrapper">
-            <input
-              id="filePicker_1"
-              class="hidden--visually filePicker__input"
-              type="file"
-              capture="user"
-              accept="image/*"
-            />
-            <label for="filePicker_1" class="filePicker__label"
-              >Take
-              <i class="filePicker__icon">📷</i>
-              Selfie</label
-            >
-          </div>
+    <!-- end card -->
 
-          <label>
-            <!-- need to scope reset -->
-            <button type="reset">Delete image</button>
-          </label>
-        </div>
-
-        <div class="row">
-          <label>
-            Brightness: <output :value="cardBrightness"></output>
-            <input
-              v-model="cardBrightness"
-              type="range"
-              min="1"
-              max="1.3"
-              step="0.01"
-            />
-          </label>
-          <label>
-            Sepia: <output :value="cardSepia"></output>
-            <input v-model="cardSepia" type="range" min="0" max="50" />
-          </label>
-          <label>
-            Greyscale: <output :value="cardGrayScale"></output>
-            <input v-model="cardGrayScale" type="range" min="0" max="100" />
-          </label>
-        </div>
-      </fieldset>
-    </form>
-    <form>
-      <fieldset>
-        <legend>Logo Image</legend>
-        <div class="row">
-          <p>round/square, border)</p>
-        </div>
-        <div class="row">
-          <label>
-            <span>Show Logo</span>
-            <input type="radio" v-model="logo.showing" :value="true" />
-          </label>
-          <label>
-            <span>Hide Logo</span>
-            <input type="radio" v-model="logo.showing" :value="false" />
-          </label>
-        </div>
-        <div class="row" v-show="logo.showing">
-          <span>
+    <details>
+      <summary>
+        Focus UI controls
+      </summary>
+      <div>
+        <form>
+          <fieldset>
+            <legend>Player Image</legend>
             <div class="row">
               <label>
-                Team Logo Image (URL):
-                <input v-model="teamLogoURL" type="url " placeholder />
-                <!-- <input type="file" id="logoFileInput" name="logoFileInput" accept="image/*" /> -->
+                Player Image (URL or upload):
+                <input
+                  v-model="playerImageURLorDataString"
+                  type="text"
+                  placeholder
+                />
+              </label>
+            </div>
+            <div class="row">
+              <div class="filePicker__wrapper">
+                <input
+                  id="filePicker_0"
+                  class="hidden--visually filePicker__input"
+                  type="file"
+                  accept="image/*"
+                />
+                <label for="filePicker_0" class="filePicker__label"
+                  >Upload
+                  <i class="filePicker__icon">⬆️</i>
+                  Image</label
+                >
+              </div>
+
+              <div class="filePicker__wrapper">
+                <input
+                  id="filePicker_1"
+                  class="hidden--visually filePicker__input"
+                  type="file"
+                  capture="user"
+                  accept="image/*"
+                />
+                <label for="filePicker_1" class="filePicker__label"
+                  >Take
+                  <i class="filePicker__icon">📷</i>
+                  Selfie</label
+                >
+              </div>
+
+              <label>
+                <!-- need to scope reset -->
+                <button type="reset">Delete image</button>
               </label>
             </div>
 
             <div class="row">
               <label>
-                <input type="radio" v-model="logo.borderRadius" value="50" />
-                <span>Round</span>
+                Brightness: <output :value="cardBrightness"></output>
+                <input
+                  v-model="cardBrightness"
+                  type="range"
+                  min="1"
+                  max="1.3"
+                  step="0.01"
+                />
               </label>
               <label>
-                <input type="radio" v-model="logo.borderRadius" value="0" />
-                <span>Square</span>
+                Sepia: <output :value="cardSepia"></output>
+                <input v-model="cardSepia" type="range" min="0" max="50" />
+              </label>
+              <label>
+                Greyscale: <output :value="cardGrayScale"></output>
+                <input v-model="cardGrayScale" type="range" min="0" max="100" />
               </label>
             </div>
-
-            <div class="control--fourSquare">
-              <div class="row">
-                <div class="col">
-                  <label for="logoPostTL">Top</label>
-                  <input
-                    id="logoPostTL"
-                    type="radio"
-                    v-model="logo.position"
-                    value="topLeft"
-                    aria-label="Top Left"
-                  />
-                  <label for="logoPostTL">Left</label>
-                </div>
-                <div class="col">
-                  <label for="logoPostTR">Top</label>
-                  <input
-                    id="logoPostTR"
-                    type="radio"
-                    v-model="logo.position"
-                    value="topRight"
-                    aria-label="Top Right"
-                  />
-                  <label for="logoPostTR">Right</label>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col">
-                  <label for="logoPostBL">Left</label>
-                  <input
-                    id="logoPostBL"
-                    type="radio"
-                    v-model="logo.position"
-                    value="bottomLeft"
-                    aria-label="Bottom Left"
-                  />
-                  <label for="logoPostBL">Bottom</label>
-                </div>
-                <div class="col">
-                  <label for="logoPostBR">Right</label>
-                  <input
-                    id="logoPostBR"
-                    type="radio"
-                    v-model="logo.position"
-                    value="bottomRight"
-                    aria-label="Bottom Right"
-                  />
-                  <label for="logoPostBR">Bottom</label>
-                </div>
-              </div>
+          </fieldset>
+        </form>
+        <form>
+          <fieldset>
+            <legend>Logo Image</legend>
+            <div class="row">
+              <p>round/square, border)</p>
             </div>
-          </span>
-        </div>
-      </fieldset>
-    </form>
+            <div class="row">
+              <label>
+                <span>Show Logo</span>
+                <input type="radio" v-model="logo.showing" :value="true" />
+              </label>
+              <label>
+                <span>Hide Logo</span>
+                <input type="radio" v-model="logo.showing" :value="false" />
+              </label>
+            </div>
+            <div class="row" v-show="logo.showing">
+              <span>
+                <div class="row">
+                  <label>
+                    Team Logo Image (URL):
+                    <input v-model="teamLogoURL" type="url " placeholder />
+                    <!-- <input type="file" id="logoFileInput" name="logoFileInput" accept="image/*" /> -->
+                  </label>
+                </div>
+
+                <div class="row">
+                  <label>
+                    <input
+                      type="radio"
+                      v-model="logo.borderRadius"
+                      value="50"
+                    />
+                    <span>Round</span>
+                  </label>
+                  <label>
+                    <input type="radio" v-model="logo.borderRadius" value="0" />
+                    <span>Square</span>
+                  </label>
+                </div>
+
+                <div class="control--fourSquare">
+                  <div class="row">
+                    <div class="col">
+                      <label for="logoPostTL">Top</label>
+                      <input
+                        id="logoPostTL"
+                        type="radio"
+                        v-model="logo.position"
+                        value="topLeft"
+                        aria-label="Top Left"
+                      />
+                      <label for="logoPostTL">Left</label>
+                    </div>
+                    <div class="col">
+                      <label for="logoPostTR">Top</label>
+                      <input
+                        id="logoPostTR"
+                        type="radio"
+                        v-model="logo.position"
+                        value="topRight"
+                        aria-label="Top Right"
+                      />
+                      <label for="logoPostTR">Right</label>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col">
+                      <label for="logoPostBL">Left</label>
+                      <input
+                        id="logoPostBL"
+                        type="radio"
+                        v-model="logo.position"
+                        value="bottomLeft"
+                        aria-label="Bottom Left"
+                      />
+                      <label for="logoPostBL">Bottom</label>
+                    </div>
+                    <div class="col">
+                      <label for="logoPostBR">Right</label>
+                      <input
+                        id="logoPostBR"
+                        type="radio"
+                        v-model="logo.position"
+                        value="bottomRight"
+                        aria-label="Bottom Right"
+                      />
+                      <label for="logoPostBR">Bottom</label>
+                    </div>
+                  </div>
+                </div>
+              </span>
+            </div>
+          </fieldset>
+        </form>
+      </div>
+    </details>
   </div>
 </template>
 

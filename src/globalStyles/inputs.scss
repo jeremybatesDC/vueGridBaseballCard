@@ -49,6 +49,7 @@ input {
 .colorPicker {
   &__label {
     display: flex;
+    font-size: 1.6rem;
     //flex-direction: column;
     //width: var(--min-touch-target);
     height: var(--min-touch-target);
