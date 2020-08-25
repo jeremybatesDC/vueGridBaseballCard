@@ -200,8 +200,8 @@ label {
   flex-grow: 1;
   align-items: center;
   justify-content: center;
-  min-height: var(--min-touch-target-height);
-  padding: 0.2rem 1.6rem;
+  min-height: var(--min-touch-target);
+  padding: 0;
   // in case ever have more than just 2 tabs
   &:not(:first-child) {
     box-shadow: -1px 0 #000;

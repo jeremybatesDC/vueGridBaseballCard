@@ -21,7 +21,7 @@
         </div>
         <div class="col">
           <fieldset
-            class="cardBack__fieldset radioUI__fieldset radioUI__fieldset--toggleStyle"
+            class="cardBack__fieldset radioUI__fieldset radioUI__fieldset--toggleStyle radioUI__fieldset--label-above"
           >
             <!--<legend>Gum Stain</legend>-->
 
