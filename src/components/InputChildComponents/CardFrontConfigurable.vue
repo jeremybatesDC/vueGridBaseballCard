@@ -1,100 +1,128 @@
 <template>
   <div>
     <div class="controls">
-      <div class="row">
-        <form>
-          <fieldset>
-            <legend>Layout</legend>
-            <label>
-              <input type="radio" v-model="cardLayout" value="one-one" />
-              <span>1-1</span>
-            </label>
-            <label>
-              <input type="radio" v-model="cardLayout" value="zero-two" />
-              <span>0-2</span>
-            </label>
-            <label>
-              <input type="radio" v-model="cardLayout" value="two-zero" />
-              <span>2-0</span>
-            </label>
-          </fieldset>
-        </form>
+      <div class="row space-around">
+        <fieldset class="radioUI__fieldset">
+          <legend class="radioUI__legend">Layout</legend>
 
-        <form>
-          <fieldset>
-            <legend>Outer Border</legend>
+          <label class="radioUI__label">
+            <input
+              type="radio"
+              class="radioUI__input"
+              v-model="cardLayout"
+              value="one-one"
+            />
+            <span>1-1</span>
+          </label>
+
+          <label class="radioUI__label">
+            <input
+              type="radio"
+              class="radioUI__input"
+              v-model="cardLayout"
+              value="zero-two"
+            />
+            <span>0-2</span>
+          </label>
+
+          <label class="radioUI__label">
+            <input
+              type="radio"
+              class="radioUI__input"
+              v-model="cardLayout"
+              value="two-zero"
+            />
+            <span>2-0</span>
+          </label>
+        </fieldset>
+
+        <fieldset class="radioUI__fieldset">
+          <legend class="radioUI__legend">Outer Border</legend>
+          <label class="radioUI__label">
+            <input
+              type="radio"
+              class="radioUI__input"
+              v-model="playerImageBleedOrBoxed"
+              value="relative"
+            />
+            <span>Show</span>
+          </label>
+
+          <label class="radioUI__label">
+            <input
+              type="radio"
+              class="radioUI__input"
+              v-model="playerImageBleedOrBoxed"
+              value="static"
+            />
+            <span>Hide</span>
+          </label>
+          <label
+            v-show="playerImageBleedOrBoxed === 'relative'"
+            class="colorPicker__label"
+          >
+            <input
+              class="colorPicker__input"
+              type="color"
+              v-model="cardBackgroundColor"
+            />
+            <span>Color</span>
+          </label>
+        </fieldset>
+
+        <fieldset class="radioUI__fieldset">
+          <legend class="radioUI__legend">Inner Border</legend>
+          <label class="radioUI__label">
+            <input
+              type="radio"
+              class="radioUI__input"
+              v-model="borderInner.style"
+              value="solid"
+            />
+            <span>Show</span>
+          </label>
+          <label class="radioUI__label">
+            <input
+              type="radio"
+              class="radioUI__input"
+              v-model="borderInner.style"
+              value="none"
+            />
+            <span>Hide</span>
+          </label>
+
+          <div class="row" v-show="borderInner.style !== 'none'">
+            <label class="colorPicker__label">
+              <span>Color</span>
+              <input v-model="borderInner.color" type="color" />
+            </label>
+
             <label>
+              Border Opacity (Fix):
+              <output :value="borderInner.opacity"></output>
               <input
-                type="radio"
-                v-model="playerImageBleedOrBoxed"
-                value="relative"
+                type="range"
+                min="10"
+                max="99"
+                v-model="borderInner.opacity"
+                class="colorPicker__input"
               />
-              <span>Outer Border</span>
             </label>
-
             <label>
+              Border Curve: <output :value="borderInner.curve"></output>
               <input
-                type="radio"
-                v-model="playerImageBleedOrBoxed"
-                value="static"
+                v-model="borderInner.curve"
+                type="range"
+                min="0"
+                max="24"
               />
-              <span>No Outer Border</span>
-            </label>
-            <label v-show="playerImageBleedOrBoxed === 'relative'">
-              <input type="color" v-model="cardBackgroundColor" />
-              <span>Outer Border Color </span>
-            </label>
-          </fieldset>
-        </form>
-        <form>
-          <fieldset>
-            <legend>Inner Border</legend>
-            <label>
-              <input type="radio" v-model="borderInner.style" value="solid" />
-              <span>Show Inner Border</span>
             </label>
             <label>
-              <input type="radio" v-model="borderInner.style" value="none" />
-              <span>Hide Inner Border</span>
+              Border Width: <output :value="borderInner.width"></output>
+              <input v-model="borderInner.width" type="range" min="1" max="8" />
             </label>
-
-            <div class="row" v-show="borderInner.style !== 'none'">
-              <label>
-                Border Color:
-                <input v-model="borderInner.color" type="color" />
-              </label>
-
-              <label>
-                Border Opacity (Fix):
-                <output :value="borderInner.opacity"></output>
-                <input
-                  type="range"
-                  min="10"
-                  max="99"
-                  v-model="borderInner.opacity"
-                />
-              </label>
-              <label>
-                Border Curve: <output :value="borderInner.curve"></output>
-                <input
-                  v-model="borderInner.curve"
-                  type="range"
-                  min="0"
-                  max="24"
-                />
-              </label>
-              <label>
-                Border Width: <output :value="borderInner.width"></output>
-                <input
-                  v-model="borderInner.width"
-                  type="range"
-                  min="1"
-                  max="8"
-                />
-              </label>
-            </div>
-          </fieldset>
-        </form>
+          </div>
+        </fieldset>
       </div>
     </div>
     <!-- end controls-->

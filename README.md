@@ -150,6 +150,8 @@ can i offer a 48px touch target (off to the side perhaps) while maintaining tigh
 
 --> un-nest scss
 
+-- consider ROUTE-BASED defaults like /yoga.html, genealogy.html etc that populate menus and labels with appropriate terminology
+
 --> offer a "100% custom" option -- leaving text blank and hiding logo inner border and choosing full bleed)
 
 Texture move to v2
