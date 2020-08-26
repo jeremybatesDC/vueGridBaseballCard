@@ -37,8 +37,8 @@
         </fieldset>
 
         <fieldset class="radioUI__fieldset">
-          <legend class="radioUI__legend">Outer Border</legend>
-          <label class="radioUI__label">
+          <!--<legend class="radioUI__legend">Outer Border</legend>-->
+          <!--<label class="radioUI__label">
             <input
               type="radio"
               class="radioUI__input"
@@ -56,22 +56,22 @@
               value="static"
             />
             <span>Hide</span>
-          </label>
+          </label>-->
           <label
             v-show="playerImageBleedOrBoxed !== 'static'"
-            class="colorPicker__label"
+            class="colorPicker__label colorPicker__label--textAbove"
           >
+            <span>Color</span>
             <input
               class="colorPicker__input"
               type="color"
               v-model="cardBackgroundColor"
             />
-            <span>Color</span>
           </label>
         </fieldset>
 
         <fieldset class="radioUI__fieldset">
-          <legend class="radioUI__legend">Inner Border</legend>
+          <!--<legend class="radioUI__legend">Inner Border</legend>-->
           <!--<label class="radioUI__label">
             <input
               type="radio"
@@ -105,7 +105,7 @@
             </label>-->
 
             <label>
-              Curve: <output :value="borderInner.curve"></output>
+              Image Curve: <output :value="borderInner.curve"></output>
               <input
                 v-model="borderInner.curve"
                 type="range"
@@ -115,19 +115,14 @@
             </label>
 
             <label>
-              Width: <output :value="borderInner.width"></output>
-              <input
-                v-model="borderInner.width"
-                type="range"
-                min="0"
-                max="10"
-              />
+              Inner Border Width: <output :value="borderInner.width"></output>
+              <input v-model="borderInner.width" type="range" min="0" max="8" />
             </label>
 
-            <label class="colorPicker__label" v-show="borderInner.width != 0">
+            <!--<label class="colorPicker__label" v-show="borderInner.width != 0">
               <input v-model="borderInner.color" type="color" />
               <span>Color</span>
-            </label>
+            </label>-->
           </div>
         </fieldset>
       </div>

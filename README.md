@@ -150,6 +150,10 @@ can i offer a 48px touch target (off to the side perhaps) while maintaining tigh
 
 ### 2nd release
 
+--> full bleed in v2
+
+--> border-color option in v2 (now it will match text color)
+
 --> was it the right call to change imae size based on border/ no border? Because color vs clear would make that menu super easy
 
 -- consider background opacity option so full bleed cards could still have semi transparent outer border for a possibly interesting visual effect
