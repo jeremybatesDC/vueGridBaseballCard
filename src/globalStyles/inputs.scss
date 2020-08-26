@@ -59,10 +59,17 @@ input {
     text-transform: uppercase;
     &--textAbove {
       width: var(--min-touch-target);
-      height: var(--min-touch-large);
       flex-direction: column;
       span {
         padding: 0;
+      }
+    }
+    &--textOverlap {
+      width: var(--min-touch-target);
+      position: relative;
+      span {
+        padding: 0;
+        position: absolute;
       }
     }
     span {
@@ -110,7 +117,7 @@ input {
         margin-left: var(--touch-target-spacing);
       }
     }
-    &--label-above {
+    &--textAbove {
       label {
         flex-direction: column-reverse;
       }

@@ -9,10 +9,10 @@
             <summary>
               <legend>Typography (field specific)</legend>
             </summary>
-            <label>
+            <!--<label>
               Text Color
               <input v-model="cardTextColor" type="color" />
-            </label>
+            </label>-->
             <label>
               Font Weight
               <input

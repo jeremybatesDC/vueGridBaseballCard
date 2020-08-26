@@ -81,6 +81,8 @@ export default {
 
   --logoborderradius: "50%";
   //--cmyk-misalign: 1px 0 0 cyan, -1px 0 0 magenta, 0 1px 0 yellow;
+  --contrast-threshold: 0.5;
+  --border-threshold: 0.8;
 }
 /* theme color variables to use in RGB declarations */
 
@@ -200,16 +202,14 @@ label {
   flex-grow: 1;
   align-items: center;
   justify-content: center;
-  min-height: var(--min-touch-target);
+  height: var(--min-touch-target);
   padding: 0;
   // in case ever have more than just 2 tabs
   &:not(:first-child) {
     box-shadow: -1px 0 #000;
   }
   [type="radio"] {
-    min-height: inherit;
-    min-width: var(--min-touch-target-width);
-    margin-right: 1.6rem;
+    margin-right: 1rem;
   }
 }
 </style>

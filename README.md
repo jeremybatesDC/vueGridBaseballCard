@@ -4,6 +4,10 @@
 
 Labor Day launch.
 
+--> consider again a contrast based color picker label -- would allow color picker control to be 44 x 44
+
+--> maybe there are more performant ways of setting css vars so there's not so much potential for catestrophic reflow
+
 --> but if outer border none then can zero-out inner border options, yah? It's not a great look
 
 --> ok maybe it could be cool to have a full-bleed with inner-border look. But it's kinda meh and it be cleaner if menu were:

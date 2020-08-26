@@ -1,13 +1,13 @@
 <template>
-  <div class="">
+  <div class="cardBack__wrapper--outermost" :style="cssCardBackProps">
     <form class="cardBack__form">
       <div class="row">
         <div class="col">
           <fieldset class="cardBack__fieldset colorPicker__fieldset">
             <!--<legend>Background</legend>-->
 
-            <label class="colorPicker__label">
-              <span>Background </span>
+            <label class="colorPicker__label colorPicker__label--textOverlap">
+              <span>Color</span>
               <input
                 class="colorPicker__input"
                 type="color"
@@ -77,7 +77,7 @@
         </div>-->
     </form>
 
-    <div class="card-back" :style="cssCardBackProps">
+    <div class="card-back">
       <article :class="defaultSettingsBack.gumShowing">
         <BackHeader />
 
@@ -219,6 +219,26 @@ export default {
 <style scoped lang="scss">
 // if can keep square stats table, will allow switch between vert and horz
 
+.cardBack__wrapper--outermost {
+  --r: calc(var(--red) * 0.2126);
+  --g: calc(var(--green) * 0.7152);
+  --b: calc(var(--blue) * 0.0722);
+  --sum: calc(var(--r) + var(--g) + var(--b));
+  --perceived-lightness: calc(var(--sum) / 255);
+  --border-alpha: calc(
+    (var(--perceived-lightness) - var(--border-threshold)) * 100
+  );
+}
+
+// cheat
+.colorPicker__label--textOverlap {
+  color: hsl(
+    0,
+    0%,
+    calc((var(--perceived-lightness) - var(--contrast-threshold)) * -10000000%)
+  );
+}
+
 .card-back {
   display: flex;
   //flex-direction: column;
@@ -231,32 +251,13 @@ export default {
   height: 36rem;
   // i detest top margins but
   margin: 1.6rem auto 3.2rem auto;
-  --threshold: 0.5;
-  /* theme color variables to use in RGB declarations */
 
-  /*the threshold at which colors are considered "light". 
-Range: decimals from 0 to 1,
-recommended 0.5 - 0.6*/
-  /*the threshold at which a darker border will be applied.
-Range: decimals from 0 to 1,
-recommended 0.8+*/
-  --border-threshold: 0.8;
-  //padding: 1.6rem;
-  // cannot do overflow hidden here because it chops the outline
-  //overflow: hidden;
-  --r: calc(var(--red) * 0.2126);
-  --g: calc(var(--green) * 0.7152);
-  --b: calc(var(--blue) * 0.0722);
-  --sum: calc(var(--r) + var(--g) + var(--b));
-  --perceived-lightness: calc(var(--sum) / 255);
+  // wondering whether should we move this into computed methods?
+
   color: hsl(
     0,
     0%,
-    calc((var(--perceived-lightness) - var(--threshold)) * -10000000%)
-  );
-
-  --border-alpha: calc(
-    (var(--perceived-lightness) - var(--border-threshold)) * 100
+    calc((var(--perceived-lightness) - var(--contrast-threshold)) * -10000000%)
   );
 }
 

@@ -1,9 +1,29 @@
 <template>
-  <div>
+  <div
+    class="cardFront__wrapper--outermost"
+    :style="[
+      cssColorContrastProps,
+      cssCardDesignProps,
+      cssLogoProps,
+      cssBorderInnerProps,
+    ]"
+  >
     <div class="controls">
       <div class="row space-around">
-        <fieldset class="radioUI__fieldset">
-          <legend class="radioUI__legend">Layout</legend>
+        <label
+          v-show="playerImageBleedOrBoxed !== 'static'"
+          class="colorPicker__label colorPicker__label--textOverlap"
+        >
+          <span>Color</span>
+          <input
+            class="colorPicker__input"
+            type="color"
+            v-model="cardBackgroundColor"
+          />
+        </label>
+
+        <fieldset class="radioUI__fieldset radioUI__fieldset--textAbove">
+          <!--<legend class="radioUI__legend">Layout</legend>-->
 
           <label class="radioUI__label">
             <input
@@ -36,9 +56,9 @@
           </label>
         </fieldset>
 
-        <fieldset class="radioUI__fieldset">
-          <!--<legend class="radioUI__legend">Outer Border</legend>-->
-          <!--<label class="radioUI__label">
+        <!--<fieldset class="radioUI__fieldset">-->
+        <!--<legend class="radioUI__legend">Outer Border</legend>-->
+        <!--<label class="radioUI__label">
             <input
               type="radio"
               class="radioUI__input"
@@ -57,22 +77,11 @@
             />
             <span>Hide</span>
           </label>-->
-          <label
-            v-show="playerImageBleedOrBoxed !== 'static'"
-            class="colorPicker__label colorPicker__label--textAbove"
-          >
-            <span>Color</span>
-            <input
-              class="colorPicker__input"
-              type="color"
-              v-model="cardBackgroundColor"
-            />
-          </label>
-        </fieldset>
+        <!--</fieldset>-->
 
-        <fieldset class="radioUI__fieldset">
-          <!--<legend class="radioUI__legend">Inner Border</legend>-->
-          <!--<label class="radioUI__label">
+        <!--<fieldset class="radioUI__fieldset">-->
+        <!--<legend class="radioUI__legend">Inner Border</legend>-->
+        <!--<label class="radioUI__label">
             <input
               type="radio"
               class="radioUI__input"
@@ -91,8 +100,8 @@
             <span>Hide</span>
           </label>-->
 
-          <div class="">
-            <!--<label>
+        <!--<div class="">-->
+        <!--<label>
               Border Opacity (Fix):
               <output :value="borderInner.opacity"></output>
               <input
@@ -104,34 +113,31 @@
               />
             </label>-->
 
-            <label>
-              Image Curve: <output :value="borderInner.curve"></output>
-              <input
-                v-model="borderInner.curve"
-                type="range"
-                min="0"
-                max="24"
-              />
-            </label>
-
-            <label>
-              Inner Border Width: <output :value="borderInner.width"></output>
-              <input v-model="borderInner.width" type="range" min="0" max="8" />
-            </label>
-
-            <!--<label class="colorPicker__label" v-show="borderInner.width != 0">
+        <!--<label class="colorPicker__label" v-show="borderInner.width != 0">
               <input v-model="borderInner.color" type="color" />
               <span>Color</span>
             </label>-->
-          </div>
-        </fieldset>
+        <!--</div>-->
+        <!--</fieldset>-->
+      </div>
+      <div class="row space-around">
+        <label>
+          Image Curve
+          <!--<output :value="borderInner.curve"></output>-->
+          <input v-model="borderInner.curve" type="range" min="0" max="24" />
+        </label>
+
+        <label>
+          Inner Border Width
+          <!--<output :value="borderInner.width"></output>-->
+          <input v-model="borderInner.width" type="range" min="0" max="8" />
+        </label>
       </div>
     </div>
     <!-- end controls-->
     <div
       class="card__container--front"
       :class="[cardLayout, playerImageBleedOrBoxed]"
-      :style="cssCardDesignProps"
     >
       <div class="text__line--first row">
         <h2 :style="cssTextLine1Props">
@@ -140,7 +146,6 @@
       </div>
       <div
         :class="`${logo.position} ${borderInner.style} row--middle--forDesign row`"
-        :style="[cssLogoProps, cssBorderInnerProps]"
       >
         <figure class="figure--player">
           <img
@@ -368,6 +373,7 @@ export default {
   data: function () {
     return {
       cardBackgroundColor: defaultSettings.cardBackgroundColor,
+      cardTextColor: defaultSettings.cardTextColor,
       cardBrightness: defaultSettings.cardBrightness,
       cardSepia: defaultSettings.cardSepia,
       cardGrayScale: defaultSettings.cardGrayScale,
@@ -393,23 +399,53 @@ export default {
       textLine1: {
         fontWeight: defaultSettings.textLine1.fontWeight,
         fontWidth: defaultSettings.textLine1.fontWidth,
-        color: defaultSettings.textLine1.color,
+        //color: defaultSettings.textLine1.color,
         fontGrade: defaultSettings.textLine1.fontGrade,
         fontSlant: defaultSettings.textLine1.fontSlant,
       },
       textLine2: {
         fontWeight: defaultSettings.textLine2.fontWeight,
         fontWidth: defaultSettings.textLine2.fontWidth,
-        color: defaultSettings.textLine2.color,
+        //color: defaultSettings.textLine2.color,
         fontGrade: defaultSettings.textLine2.fontGrade,
         fontSlant: defaultSettings.textLine2.fontSlant,
       },
     };
   },
   computed: {
+    cssColorContrastProps() {
+      let r = 0,
+        g = 0,
+        b = 0;
+
+      let redVal = null;
+      let greenVal = null;
+      let blueVal = null;
+      function hexToDesiredColorSpace(hex) {
+        r = "0x" + hex[1] + hex[2];
+        g = "0x" + hex[3] + hex[4];
+        b = "0x" + hex[5] + hex[6];
+        redVal = +r;
+        greenVal = +g;
+        blueVal = +b;
+        //return "rgb(" + redVal + "," + greenVal + "," + blueVal + ")";
+        return `rgb(${redVal},${greenVal},${blueVal})`;
+      }
+
+      return {
+        "--backgroundcolorback": hexToDesiredColorSpace(
+          this.cardBackgroundColor
+        ),
+
+        "--red": redVal,
+        "--green": greenVal,
+        "--blue": blueVal,
+      };
+    },
     cssCardDesignProps() {
       return {
         "--cardbackgroundcolor": this.cardBackgroundColor,
+        "--cardTextColor": this.cardTextColor,
         "--cardsepia": `${this.cardSepia}%`,
         "--cardbrightness": this.cardBrightness,
         "--cardgrayscale": `${this.cardGrayScale}%`,
@@ -419,7 +455,7 @@ export default {
     },
     cssTextLine1Props() {
       return {
-        "--color": this.textLine1.color,
+        //"--color": this.textLine1.color,
         "--fontweight": this.textLine1.fontWeight,
         "--fontwidth": this.textLine1.fontWidth,
         "--fontgrade": this.textLine1.fontGrade,
@@ -428,7 +464,7 @@ export default {
     },
     cssTextLine2Props() {
       return {
-        "--color": this.textLine2.color,
+        //"--color": this.textLine2.color,
         "--fontweight": this.textLine2.fontWeight,
         "--fontwidth": this.textLine2.fontWidth,
         "--fontgrade": this.textLine2.fontGrade,
@@ -457,6 +493,17 @@ export default {
 
 
 <style scoped lang="scss">
+.cardFront__wrapper--outermost {
+  --r: calc(var(--red) * 0.2126);
+  --g: calc(var(--green) * 0.7152);
+  --b: calc(var(--blue) * 0.0722);
+  --sum: calc(var(--r) + var(--g) + var(--b));
+  --perceived-lightness: calc(var(--sum) / 255);
+  --border-alpha: calc(
+    (var(--perceived-lightness) - var(--border-threshold)) * 100
+  );
+}
+
 .card__container--front {
   position: relative;
   display: flex;
@@ -466,6 +513,11 @@ export default {
   height: 50.4rem;
   margin: 0 auto 10rem auto;
   padding: 0 1.6rem;
+  color: hsl(
+    0,
+    0%,
+    calc((var(--perceived-lightness) - var(--contrast-threshold)) * -10000000%)
+  );
   background-color: var(--cardbackgroundcolor);
 
   border: 1px solid rgba(0, 0, 0, 0.3333);
@@ -485,6 +537,17 @@ export default {
 
 .controls {
   position: relative;
+  .colorPicker__label--textOverlap {
+    span {
+      color: hsl(
+        0,
+        0%,
+        calc(
+          (var(--perceived-lightness) - var(--contrast-threshold)) * -10000000%
+        )
+      );
+    }
+  }
 }
 
 .one-one {
@@ -545,7 +608,14 @@ input {
   // make configurable
   border-width: var(--borderinnerwidth);
   border-style: var(--borderinnerstyle);
-  border-color: var(--borderinnercolor);
+
+  //border-color: var(--borderinnercolor);
+  border-color: hsl(
+    0,
+    0%,
+    calc((var(--perceived-lightness) - var(--contrast-threshold)) * -10000000%)
+  );
+
   border-radius: var(--borderinnercurve);
   // trying a trick
 
