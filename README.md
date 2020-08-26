@@ -4,6 +4,8 @@
 
 Labor Day launch.
 
+--> refactor HSL color and put it into something that can be resued
+
 --> consider again a contrast based color picker label -- would allow color picker control to be 44 x 44
 
 --> maybe there are more performant ways of setting css vars so there's not so much potential for catestrophic reflow

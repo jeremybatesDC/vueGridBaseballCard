@@ -57,6 +57,11 @@ input {
     align-items: center;
     text-align: center;
     text-transform: uppercase;
+    span {
+      //font-size: 1.6rem;
+      //padding: 0 0 0.4rem 0;
+      font-variation-settings: var(--text-short-wide);
+    }
     &--textAbove {
       width: var(--min-touch-target);
       flex-direction: column;
@@ -70,12 +75,12 @@ input {
       span {
         padding: 0;
         position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 100%;
+        font-variation-settings: var(--text-squeeze);
       }
-    }
-    span {
-      //font-size: 1.6rem;
-      //padding: 0 0 0.4rem 0;
-      font-variation-settings: var(--text-short-wide);
     }
   }
   &__helperText {
