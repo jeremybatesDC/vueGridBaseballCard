@@ -4,6 +4,8 @@
 
 Labor Day launch.
 
+--> the controls atop each card face are looking CLOSE -- make them the same height so the top border of the card doesn't hop when jump from front to back
+
 --> refactor HSL color and put it into something that can be resued
 
 --> colotpicker contrast threshold should be like .8 (want card contrast slightly lower because print card contrast isn't super high)
@@ -141,6 +143,10 @@ can i offer a 48px touch target (off to the side perhaps) while maintaining tigh
   --> might be good to show all font adjustment buttons for each text input, but not all buttons would be enabled for all fields. That way user won't wonder "what happened to width option?" but will be shown it just can't be applied here (may need clear helper text about limitations)
 
 ### 2nd release
+
+--> get sponsorship even if from family
+
+--> "classic" vs "modern" defaults.
 
 --> is there a use for requestSubmit()
 

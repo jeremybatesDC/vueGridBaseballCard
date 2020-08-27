@@ -9,7 +9,7 @@
     ]"
   >
     <div class="cardFront__controls">
-      <div class="row space-around">
+      <div class="row space-around align-center">
         <label
           v-show="playerImageBleedOrBoxed !== 'static'"
           class="colorPicker__label colorPicker__label--textOverlap"
@@ -22,8 +22,8 @@
           />
         </label>
 
-        <fieldset class="radioUI__fieldset radioUI__fieldset--textAbove">
-          <!--<legend class="radioUI__legend">Layout</legend>-->
+        <fieldset class="radioUI__fieldset">
+          <legend class="radioUI__legend">Layout</legend>
 
           <label class="radioUI__label">
             <input
@@ -56,10 +56,16 @@
           </label>
         </fieldset>
 
-        <label>
-          Image Curve
-          <!--<output :value="borderInner.curve"></output>-->
-          <input v-model="borderInner.curve" type="range" min="0" max="24" />
+        <label class="rangeUI__label">
+          <span>Image Curve: <output :value="borderInner.curve"></output></span>
+
+          <input
+            class="rangeUI__input"
+            v-model="borderInner.curve"
+            type="range"
+            min="0"
+            max="24"
+          />
         </label>
       </div>
     </div>
@@ -169,10 +175,13 @@
               </label>
             </div>
 
-            <div class="row">
-              <label>
-                Brightness: <output :value="cardBrightness"></output>
+            <div class="">
+              <label class="rangeUI__label">
+                <span
+                  >Brightness: <output :value="cardBrightness"></output
+                ></span>
                 <input
+                  class="rangeUI__input"
                   v-model="cardBrightness"
                   type="range"
                   min="1"
@@ -180,13 +189,25 @@
                   step="0.01"
                 />
               </label>
-              <label>
-                Sepia: <output :value="cardSepia"></output>
-                <input v-model="cardSepia" type="range" min="0" max="50" />
+              <label class="rangeUI__label">
+                <span>Sepia: <output :value="cardSepia"></output></span>
+                <input
+                  class="rangeUI__input"
+                  v-model="cardSepia"
+                  type="range"
+                  min="0"
+                  max="50"
+                />
               </label>
-              <label>
-                Greyscale: <output :value="cardGrayScale"></output>
-                <input v-model="cardGrayScale" type="range" min="0" max="100" />
+              <label class="rangeUI__label">
+                <span>Greyscale: <output :value="cardGrayScale"></output></span>
+                <input
+                  class="rangeUI__input"
+                  v-model="cardGrayScale"
+                  type="range"
+                  min="0"
+                  max="100"
+                />
               </label>
             </div>
           </fieldset>
@@ -291,18 +312,21 @@
           <fieldset>
             <legend>Typography (field specific)</legend>
 
-            <label>
-              Font Weight
+            <label class="rangeUI__label">
+              <span>Font Weight: <output value="999"></output></span>
+
               <input
+                class="rangeUI__input"
                 v-model="cardTextFontWeight"
                 type="range"
                 min="100"
                 max="900"
               />
             </label>
-            <label>
-              Font Width
+            <label class="rangeUI__label">
+              <span>Font Width: <output value="999"></output></span>
               <input
+                class="rangeUI__input"
                 v-model="cardTextFontWidth"
                 type="range"
                 min="35"
@@ -310,18 +334,20 @@
               />
             </label>
 
-            <label>
-              Font Slant
+            <label class="rangeUI__label">
+              <span>Font Slant: <output value="999"></output></span>
               <input
+                class="rangeUI__input"
                 v-model="cardTextFontSlant"
                 type="range"
                 min="-10"
                 max="0"
               />
             </label>
-            <label>
-              Font Grade
+            <label class="rangeUI__label">
+              <span>Font Grade: <output value="999"></output></span>
               <input
+                class="rangeUI__input"
                 v-model="cardTextFontGrade"
                 type="range"
                 min="0"

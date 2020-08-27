@@ -1,7 +1,7 @@
 <template>
   <div class="cardBack__wrapper--outermost" :style="cssCardBackProps">
-    <form class="cardBack__form">
-      <div class="row">
+    <div class="cardBack__controls">
+      <div class="row space-around align-center">
         <div class="col">
           <fieldset class="cardBack__fieldset colorPicker__fieldset">
             <!--<legend>Background</legend>-->
@@ -21,9 +21,9 @@
         </div>
         <div class="col">
           <fieldset
-            class="cardBack__fieldset radioUI__fieldset radioUI__fieldset--toggleStyle radioUI__fieldset--textAbove"
+            class="cardBack__fieldset radioUI__fieldset radioUI__fieldset--toggleStyle"
           >
-            <!--<legend>Gum Stain</legend>-->
+            <legend class="radioUI__legend">Gum Stain</legend>
 
             <label class="radioUI__label">
               <input
@@ -33,7 +33,7 @@
                 v-model="defaultSettingsBack.gumShowing"
                 value="gumShowing"
               />
-              <span>Show Gum</span>
+              <span>Show</span>
             </label>
 
             <label class="radioUI__label">
@@ -44,12 +44,12 @@
                 v-model="defaultSettingsBack.gumShowing"
                 value="gumHidden"
               />
-              <span>Hide Gum</span>
+              <span>Hide</span>
             </label>
           </fieldset>
         </div>
       </div>
-    </form>
+    </div>
 
     <div class="card-back">
       <article :class="defaultSettingsBack.gumShowing">
@@ -202,6 +202,10 @@ export default {
   --border-alpha: calc(
     (var(--perceived-lightness) - var(--border-threshold)) * 100
   );
+}
+
+.cardBack__controls {
+  padding: 0.4rem 0;
 }
 
 // cheat

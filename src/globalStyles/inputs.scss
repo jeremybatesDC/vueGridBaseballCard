@@ -25,7 +25,7 @@ input {
   &[type="range"] {
     display: flex;
     -webkit-appearance: none;
-    background-color: rebeccapurple;
+    background-color: #888888;
     height: var(--min-touch-target-height);
     border-radius: var(--min-touch-target-half);
     &:focus {
@@ -35,7 +35,43 @@ input {
       //position: relative;
       -webkit-appearance: none;
       cursor: pointer;
-      background-color: red;
+      background-color: royalblue;
+      width: var(--min-touch-target);
+      height: var(--min-touch-target);
+      border-radius: 50%;
+
+      //z-index: 2;
+    }
+  }
+}
+
+.rangeUI {
+  &__label {
+    font-size: 1.6rem;
+    display: flex;
+    flex-direction: column;
+
+    span {
+      display: flex;
+      text-transform: uppercase;
+      font-variation-settings: var(--text-short-wide);
+      //padding-bottom: 0.4rem;
+    }
+    output {
+    }
+  }
+  &__input {
+    display: flex;
+    -webkit-appearance: none;
+    font-size: inherit;
+    background-color: #888888;
+    height: var(--min-touch-target-height);
+    border-radius: var(--min-touch-target-half);
+    &::-webkit-slider-thumb {
+      //position: relative;
+      -webkit-appearance: none;
+      cursor: pointer;
+      background-color: royalblue;
       width: var(--min-touch-target);
       height: var(--min-touch-target);
       border-radius: 50%;

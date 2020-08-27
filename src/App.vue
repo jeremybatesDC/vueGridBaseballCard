@@ -86,6 +86,7 @@ export default {
   --contrast-threshold-for-card: 0.4;
   --contrast-threshold-for-controls: 0.9;
   --border-threshold: 0.8;
+  --grey-for-controls: #c7c7c7;
 }
 /* theme color variables to use in RGB declarations */
 
@@ -196,7 +197,7 @@ label {
 [role="tablist"] {
   display: flex;
   //margin-bottom: 1.6rem;
-  background: rgba(0, 0, 0, 0.1);
+  background-color: var(--grey-for-controls);
 }
 
 [role="tab"] {
