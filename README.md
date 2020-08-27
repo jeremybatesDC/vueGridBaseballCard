@@ -4,27 +4,16 @@
 
 Labor Day launch.
 
--->
-
 --> refactor HSL color and put it into something that can be resued
 
 --> colotpicker contrast threshold should be like .8 (want card contrast slightly lower because print card contrast isn't super high)
 
 --> maybe there are more performant ways of setting css vars so there's not so much potential for catestrophic reflow
 
---> but if outer border none then can zero-out inner border options, yah? It's not a great look
-
---> ok maybe it could be cool to have a full-bleed with inner-border look. But it's kinda meh and it be cleaner if menu were:
-Borders: Yes / No (or whatever)
-If outer border, then inner border options.
-
 --> default to a color that's not quite so white
 
---> bump full bleed to v2?
+--> text options include text-align
 
--> offer color check box of "adjust dark vs light based on backgrund"
---> text options include color per field (defaults to currentColor), text-align
---> might be good to show all font adjustment buttons for each text input, but not all buttons would be enabled for all fields. That way user won't wonder "what happened to width option?" but will be shown it just can't be applied here (may need clear helper text about limitations)
 --> For lines with 2 text inputs, consider not allowing width adjustments (maybe just color, grade, slant)
 
 -- fix overlapping on card back now that wrap reverse is in place boom!
@@ -32,9 +21,6 @@ If outer border, then inner border options.
 - back color picker -- how can i get the whole card to show? Really want to see bottom of card when choosing color
   -- (wait -- when color picker is open, can the controls hide?? oooh....)
   -- back -- use variable font to achieve smaller text with 16px
-
-- if different text fields on front could be different colors (which i think to support full-bleed images, it should be), then we need to tell user we've remembered that color:
-  radio: current color (show) vs color particular to this field. Not sure which color field would take priority.
 
 - can we switch the order of the text lines for each layout? That might be easier than giving user custom number of cols per row (lower interaction cost)
 
@@ -52,7 +38,6 @@ FOCUS UI STUFF
 -> a focus UI for images is needed:
 
 - option to upload new image (clearing it should put back the OG placeholder image).
-
 - image sliders shown here sepia greyscale etc
 - this would be where object-fit options could live
 
@@ -94,7 +79,6 @@ and, after considering it, i donT think i need a table plugin. If I can properly
 - sell to youth sports leagues
 
   -- refactor card header
-  -- save font-variation-settings to CSS vars to can easily reuse somethin like "tallest thinnest"
 
 -- (further?) reduce visible size of borders for 320px devices so hopefully rest of content can give adequate touch targets in real world measurements (7-12mm) (maybe using min-max clamps?)
 -- min touch target 48px wherever possible (playing numerologist right now 44, 45, 46, 48)
@@ -108,8 +92,6 @@ and, after considering it, i donT think i need a table plugin. If I can properly
 - TABS: on screens that are wide enough, consider splitting front/back buttons to sides ( for thumbs holding a phone in landscape, for instance). Goal here is to have user se 100% all content needed without having to scroll
   --> make sure tab state is saved locally
   --> use hashes so BACK works as user expects
-
-  --> consider using requestSubmit()
 
 STATS TABLE
 
@@ -156,7 +138,21 @@ can i offer a 48px touch target (off to the side perhaps) while maintaining tigh
   td.stats-table-t-body-td
   blockquote
 
+  --> might be good to show all font adjustment buttons for each text input, but not all buttons would be enabled for all fields. That way user won't wonder "what happened to width option?" but will be shown it just can't be applied here (may need clear helper text about limitations)
+
 ### 2nd release
+
+--> is there a use for requestSubmit()
+
+- if different text fields on front could be different colors (which i think to support full-bleed images, it should be), then we need to tell user we've remembered that color:
+  radio: current color (show) vs color particular to this field. Not sure which color field would take priority.
+
+--> but if outer border none then can zero-out inner border options, yah? It's not a great look
+--> ok maybe it could be cool to have a full-bleed with inner-border look. But it's kinda meh and it be cleaner if menu were:
+Borders: Yes / No (or whatever)
+If outer border, then inner border options.
+
+--> test transparent PNGs/webPs -- might need need additional bg color option. Or transparency is v2
 
 --> gum placement and styling options
 
