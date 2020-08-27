@@ -4,9 +4,11 @@
 
 Labor Day launch.
 
+-->
+
 --> refactor HSL color and put it into something that can be resued
 
---> consider again a contrast based color picker label -- would allow color picker control to be 44 x 44
+--> colotpicker contrast threshold should be like .8 (want card contrast slightly lower because print card contrast isn't super high)
 
 --> maybe there are more performant ways of setting css vars so there's not so much potential for catestrophic reflow
 
@@ -156,6 +158,8 @@ can i offer a 48px touch target (off to the side perhaps) while maintaining tigh
 
 ### 2nd release
 
+--> gum placement and styling options
+
 --> full bleed in v2
 
 --> border-color option in v2 (now it will match text color)
@@ -177,6 +181,7 @@ can i offer a 48px touch target (off to the side perhaps) while maintaining tigh
 --> offer a "100% custom" option -- leaving text blank and hiding logo inner border and choosing full bleed)
 
 Texture move to v2
+--> superlatives and shapes
 Superlatives may have to wait for round 2
 --> "Rookie" or "Single Year" option
 

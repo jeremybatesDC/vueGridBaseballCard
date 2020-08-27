@@ -75,7 +75,7 @@ export default {
   --text-short-wide: "wght" 400, "wdth" 25, "opsz" 25, "GRAD" 1, "slnt" 0,
     "YTLC" 400, "YTUC" 400, "YTFI" 400;
   --text-squeeze: "wght" 175, "wdth" 1, "opsz" 27, "GRAD" 1, "slnt" 0,
-    "YTLC" 400, "YTUC" 400, "YTFI" 400;
+    "YTLC" 600, "YTUC" 600, "YTFI" 600;
   --text-tall-narrow: "wght" 200, "wdth" 1, "opsz" 25, "GRAD" 0, "slnt" 0,
     "YTLC" 400, "YTUC" 400, "YTFI" 400;
   --text-tall-narrow-active: "wght" 200, "wdth" 1, "opsz" 25, "GRAD" 1, "slnt" 0,
@@ -83,7 +83,8 @@ export default {
 
   --logoborderradius: "50%";
   //--cmyk-misalign: 1px 0 0 cyan, -1px 0 0 magenta, 0 1px 0 yellow;
-  --contrast-threshold: 0.5;
+  --contrast-threshold-for-card: 0.4;
+  --contrast-threshold-for-controls: 0.9;
   --border-threshold: 0.8;
 }
 /* theme color variables to use in RGB declarations */

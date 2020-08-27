@@ -8,7 +8,7 @@
       cssBorderInnerProps,
     ]"
   >
-    <div class="controls">
+    <div class="cardFront__controls">
       <div class="row space-around">
         <label
           v-show="playerImageBleedOrBoxed !== 'static'"
@@ -56,81 +56,10 @@
           </label>
         </fieldset>
 
-        <!--<fieldset class="radioUI__fieldset">-->
-        <!--<legend class="radioUI__legend">Outer Border</legend>-->
-        <!--<label class="radioUI__label">
-            <input
-              type="radio"
-              class="radioUI__input"
-              v-model="playerImageBleedOrBoxed"
-              value="relative"
-            />
-            <span>Show</span>
-          </label>
-
-          <label class="radioUI__label">
-            <input
-              type="radio"
-              class="radioUI__input"
-              v-model="playerImageBleedOrBoxed"
-              value="static"
-            />
-            <span>Hide</span>
-          </label>-->
-        <!--</fieldset>-->
-
-        <!--<fieldset class="radioUI__fieldset">-->
-        <!--<legend class="radioUI__legend">Inner Border</legend>-->
-        <!--<label class="radioUI__label">
-            <input
-              type="radio"
-              class="radioUI__input"
-              v-model="borderInner.style"
-              value="solid"
-            />
-            <span>Show</span>
-          </label>
-          <label class="radioUI__label">
-            <input
-              type="radio"
-              class="radioUI__input"
-              v-model="borderInner.style"
-              value="none"
-            />
-            <span>Hide</span>
-          </label>-->
-
-        <!--<div class="">-->
-        <!--<label>
-              Border Opacity (Fix):
-              <output :value="borderInner.opacity"></output>
-              <input
-                type="range"
-                min="10"
-                max="99"
-                v-model="borderInner.opacity"
-                class="colorPicker__input"
-              />
-            </label>-->
-
-        <!--<label class="colorPicker__label" v-show="borderInner.width != 0">
-              <input v-model="borderInner.color" type="color" />
-              <span>Color</span>
-            </label>-->
-        <!--</div>-->
-        <!--</fieldset>-->
-      </div>
-      <div class="row space-around">
         <label>
           Image Curve
           <!--<output :value="borderInner.curve"></output>-->
           <input v-model="borderInner.curve" type="range" min="0" max="24" />
-        </label>
-
-        <label>
-          Inner Border Width
-          <!--<output :value="borderInner.width"></output>-->
-          <input v-model="borderInner.width" type="range" min="0" max="8" />
         </label>
       </div>
     </div>
@@ -357,10 +286,55 @@
             </div>
           </fieldset>
         </form>
+
+        <form>
+          <fieldset>
+            <legend>Typography (field specific)</legend>
+
+            <label>
+              Font Weight
+              <input
+                v-model="cardTextFontWeight"
+                type="range"
+                min="100"
+                max="900"
+              />
+            </label>
+            <label>
+              Font Width
+              <input
+                v-model="cardTextFontWidth"
+                type="range"
+                min="35"
+                max="100"
+              />
+            </label>
+
+            <label>
+              Font Slant
+              <input
+                v-model="cardTextFontSlant"
+                type="range"
+                min="-10"
+                max="0"
+              />
+            </label>
+            <label>
+              Font Grade
+              <input
+                v-model="cardTextFontGrade"
+                type="range"
+                min="0"
+                max="48"
+              />
+            </label>
+          </fieldset>
+        </form>
       </div>
     </details>
   </div>
 </template>
+
 
 
 
@@ -399,14 +373,12 @@ export default {
       textLine1: {
         fontWeight: defaultSettings.textLine1.fontWeight,
         fontWidth: defaultSettings.textLine1.fontWidth,
-        //color: defaultSettings.textLine1.color,
         fontGrade: defaultSettings.textLine1.fontGrade,
         fontSlant: defaultSettings.textLine1.fontSlant,
       },
       textLine2: {
         fontWeight: defaultSettings.textLine2.fontWeight,
         fontWidth: defaultSettings.textLine2.fontWidth,
-        //color: defaultSettings.textLine2.color,
         fontGrade: defaultSettings.textLine2.fontGrade,
         fontSlant: defaultSettings.textLine2.fontSlant,
       },
@@ -516,7 +488,10 @@ export default {
   color: hsl(
     0,
     0%,
-    calc((var(--perceived-lightness) - var(--contrast-threshold)) * -10000000%)
+    calc(
+      (var(--perceived-lightness) - var(--contrast-threshold-for-card)) *
+        -10000000%
+    )
   );
   background-color: var(--cardbackgroundcolor);
 
@@ -535,15 +510,17 @@ export default {
   }
 }
 
-.controls {
+.cardFront__controls {
   position: relative;
+  padding: 0.8rem 0;
   .colorPicker__label--textOverlap {
     span {
       color: hsl(
         0,
         0%,
         calc(
-          (var(--perceived-lightness) - var(--contrast-threshold)) * -10000000%
+          (var(--perceived-lightness) - var(--contrast-threshold-for-card)) *
+            -10000000%
         )
       );
     }
@@ -613,7 +590,10 @@ input {
   border-color: hsl(
     0,
     0%,
-    calc((var(--perceived-lightness) - var(--contrast-threshold)) * -10000000%)
+    calc(
+      (var(--perceived-lightness) - var(--contrast-threshold-for-card)) *
+        -10000000%
+    )
   );
 
   border-radius: var(--borderinnercurve);
@@ -744,15 +724,7 @@ h3 {
         align-items: flex-end;
       }
     }
-    label {
-      //display: flex;
-      //flex-direction: column;
-      //position: relative;
-      //width: var(--touch-target-large);
-      //height: var(--touch-target-large);
-      //border: 1px solid blue;
-      // in case i ever add more
-    }
+
     input {
       &[type="radio"],
       &[type="checkmark"] {

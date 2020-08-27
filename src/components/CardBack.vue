@@ -21,7 +21,7 @@
         </div>
         <div class="col">
           <fieldset
-            class="cardBack__fieldset radioUI__fieldset radioUI__fieldset--toggleStyle radioUI__fieldset--label-above"
+            class="cardBack__fieldset radioUI__fieldset radioUI__fieldset--toggleStyle radioUI__fieldset--textAbove"
           >
             <!--<legend>Gum Stain</legend>-->
 
@@ -49,32 +49,6 @@
           </fieldset>
         </div>
       </div>
-      <!--<div class="row">
-          <label>
-            Gum Stain Darkness
-            <input type="range" value />
-          </label>
-          <label>
-            Gum angle
-            <input type="range" value />
-          </label>
-          <label>
-            Gum placement horz
-            <select>
-              <option>left</option>
-              <option>center</option>
-              <option>right</option>
-            </select>
-          </label>
-          <label>
-            Gum placement vert
-            <select>
-              <option>top</option>
-              <option>middle</option>
-              <option>bottom</option>
-            </select>
-          </label>
-        </div>-->
     </form>
 
     <div class="card-back">
@@ -235,7 +209,10 @@ export default {
   color: hsl(
     0,
     0%,
-    calc((var(--perceived-lightness) - var(--contrast-threshold)) * -10000000%)
+    calc(
+      (var(--perceived-lightness) - var(--contrast-threshold-for-card)) *
+        -10000000%
+    )
   );
 }
 
@@ -257,7 +234,10 @@ export default {
   color: hsl(
     0,
     0%,
-    calc((var(--perceived-lightness) - var(--contrast-threshold)) * -10000000%)
+    calc(
+      (var(--perceived-lightness) - var(--contrast-threshold-for-card)) *
+        -10000000%
+    )
   );
 }
 

@@ -1,186 +1,11 @@
 <template>
   <div id="vueCardApp" class="baseballCard__wrapper" :style="cssProps">
-    <CardFrontConfigurable />
+    <CardFrontConfigurableV1 />
 
-    <div class="baseballCard__wrapper--mid">
-      <form class="form--cardDesign">
-        <fieldset>
-          <details>
-            <summary>
-              <legend>Typography (field specific)</legend>
-            </summary>
-            <!--<label>
-              Text Color
-              <input v-model="cardTextColor" type="color" />
-            </label>-->
-            <label>
-              Font Weight
-              <input
-                v-model="cardTextFontWeight"
-                type="range"
-                min="100"
-                max="900"
-              />
-            </label>
-            <label>
-              Font Width
-              <input
-                v-model="cardTextFontWidth"
-                type="range"
-                min="35"
-                max="100"
-              />
-            </label>
-
-            <label>
-              Font Slant
-              <input
-                v-model="cardTextFontSlant"
-                type="range"
-                min="-10"
-                max="0"
-              />
-            </label>
-            <label>
-              Font Grade
-              <input
-                v-model="cardTextFontGrade"
-                type="range"
-                min="0"
-                max="48"
-              />
-            </label>
-          </details>
-        </fieldset>
-        <fieldset>
-          <details>
-            <summary>
-              <legend>Design</legend>
-            </summary>
-
-            <!-- texture in v2 -->
-            <!--<label>
-              Texture
-              <select v-model="cardBackgroundTexture">
-                <option>no texture</option>
-                <option value="filterfabric">Fabric</option>
-                <option value="filterpaper">Paper</option>
-                <option value="filternoise">Noise</option>
-              </select>
-            </label>-->
-          </details>
-        </fieldset>
-
-        <!-- v2 -->
-        <!--<fieldset>
-          <details>
-            <summary>
-              <legend>Superlatives</legend>
-            </summary>
-
-            <div>
-              <p>All Star, Rookie of the Year, MVP, Arbitrary</p>
-              <p>
-                circle border or open (maybe no circle border since it would
-                look maybe ugh)
-              </p>
-              <p>
-                img for superlative? Or just pizzaz (star, trophy, banner,
-                (other?) none)
-              </p>
-            </div>
-          </details>
-        </fieldset>-->
-
-        <!--<fieldset>
-          <details>
-            <summary>
-              <legend>Imperfections</legend>
-            </summary>-->
-
-        <!-- cmyk -->
-        <!-- <details>
-            <summary>Print Defects</summary>
-            <label>
-              <input type="checkbox" />
-              CMYK print misalignment
-            </label>
-            <label>
-              Misalignment Degree
-              <input type="range" />
-            </label>
-            </details>-->
-
-        <!-- corners -->
-
-        <!-- v2 -->
-        <!--<details>
-              <summary>Corner Fuziness/Dogears</summary>
-              <label>
-                Dog-Eared Corner
-                <select>
-                  <option>none</option>
-                  <option>top left</option>
-                  <option>top right</option>
-                  <option>bottom left</option>
-                  <option>bottom right</option>
-                </select>
-              </label>
-
-              <label>
-                Fuzzy Corner
-                <select>
-                  <option>none</option>
-                  <option>top left</option>
-                  <option>top right</option>
-                  <option>bottom left</option>
-                  <option>bottom right</option>
-                </select>
-              </label>
-              <label>
-                Fuzziness Degree
-                <input type="range" />
-              </label>
-            </details>-->
-
-        <!-- <details>
-            <summary>Other Creases</summary>
-            <label>
-              Crease Location
-              <select>
-                <option>none</option>
-                <option>top left</option>
-                <option>top right</option>
-                <option>bottom left</option>
-                <option>bottom right</option>
-              </select>
-            </label>
-            <label>
-              Crease/Fuzziness Severity (if selected)
-              <input type="range" />
-            </label>
-            </details>-->
-        <!--</details>
-        </fieldset>-->
-
-        <!-- mmust be type button so it doesn't fight with submit-->
+  
         <button type="button" @click="saveHandler">Save</button>
         <button type="button" @click="submitHandler">Submit</button>
-      </form>
     </div>
-
-    <!-- would like to use async and suspense if beneficial -->
-    <!-- <svg class="svg--textureOverlay" width="320" height="448">
-            <g>
-              <rect
-                width="320"
-                height="448"
-                :filter="`url(#${cardBackgroundTexture})`"
-                :fill="`url(#${cardBackgroundTexture})`"
-                opacity="1"
-              />
-            </g>
-    </svg>-->
   </div>
 </template>
 
@@ -190,7 +15,7 @@
 // can we make this import ASYNC?
 //import placeholderEncodedImage from "/json/placeholder-image.json";
 import defaultSettings from "/json/default-settings.json";
-import CardFrontConfigurable from "./InputChildComponents/CardFrontConfigurable.vue";
+import CardFrontConfigurableV1 from "./InputChildComponents/CardFrontConfigurableV1.vue";
 
 var webWorkerEncode = new Worker("./workers/web-worker-encode.js", {
   type: "module",
@@ -308,7 +133,7 @@ export default {
     },
   },
   components: {
-    CardFrontConfigurable,
+    CardFrontConfigurableV1,
   },
   computed: {
     cssProps() {
