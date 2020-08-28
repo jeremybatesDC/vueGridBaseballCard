@@ -75,8 +75,10 @@ input {
       width: var(--min-touch-target);
       height: var(--min-touch-target);
       border-radius: 50%;
-
       //z-index: 2;
+    }
+    &--vertical {
+      transform: rotate(-90deg);
     }
   }
 }

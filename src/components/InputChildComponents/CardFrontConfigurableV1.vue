@@ -177,7 +177,7 @@
         <label class="rangeUI__label">
           <span>Brightness: <output :value="cardBrightness"></output></span>
           <input
-            class="rangeUI__input"
+            class="rangeUI__input rangeUI__input--vertical"
             v-model="cardBrightness"
             type="range"
             min="1"
@@ -188,7 +188,7 @@
         <label class="rangeUI__label">
           <span>Sepia: <output :value="cardSepia"></output></span>
           <input
-            class="rangeUI__input"
+            class="rangeUI__input rangeUI__input--vertical"
             v-model="cardSepia"
             type="range"
             min="0"
@@ -198,7 +198,7 @@
         <label class="rangeUI__label">
           <span>Greyscale: <output :value="cardGrayScale"></output></span>
           <input
-            class="rangeUI__input"
+            class="rangeUI__input rangeUI__input--vertical"
             v-model="cardGrayScale"
             type="range"
             min="0"

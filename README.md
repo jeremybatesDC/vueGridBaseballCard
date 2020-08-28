@@ -4,6 +4,10 @@
 
 Labor Day launch.
 
+--> for player image, use v-show in conjuntcion with the checkbox hack.
+
+--> donT block image too much with edit controls... hmmm
+
 --> the controls atop each card face are looking CLOSE -- make them the same height so the top border of the card doesn't hop when jump from front to back
 
 --> refactor HSL color and put it into something that can be resued
