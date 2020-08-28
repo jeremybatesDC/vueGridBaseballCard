@@ -83,12 +83,14 @@
         :class="`${logo.position} ${borderInner.style} row--middle--forDesign row`"
       >
         <figure class="figure--player">
-          <img
-            loading="lazy"
-            class="image--player"
-            :src="playerImageURLorDataString"
-            alt
-          />
+          <label for="inputTriggerFocusUI_0">
+            <img
+              loading="lazy"
+              class="image--player"
+              :src="playerImageURLorDataString"
+              alt
+            />
+          </label>
         </figure>
 
         <!-- make rounded corner optional -->
@@ -117,6 +119,48 @@
           />
         </h3>
       </div>
+      <input
+        id="inputTriggerFocusUI_0"
+        class="checkbox--forReveal hidden--visually"
+        type="checkbox"
+      />
+      <fieldset
+        class="fui__wrap fui__wrap--images"
+        data-show-only-on-interaction
+      >
+        <label class="rangeUI__label">
+          <span>Brightness: <output :value="cardBrightness"></output></span>
+          <input
+            class="rangeUI__input"
+            v-model="cardBrightness"
+            type="range"
+            min="1"
+            max="1.3"
+            step="0.01"
+          />
+        </label>
+        <label class="rangeUI__label">
+          <span>Sepia: <output :value="cardSepia"></output></span>
+          <input
+            class="rangeUI__input"
+            v-model="cardSepia"
+            type="range"
+            min="0"
+            max="50"
+          />
+        </label>
+        <label class="rangeUI__label">
+          <span>Greyscale: <output :value="cardGrayScale"></output></span>
+          <input
+            class="rangeUI__input"
+            v-model="cardGrayScale"
+            type="range"
+            min="0"
+            max="100"
+          />
+        </label>
+        <label for="inputTriggerFocusUI_0">CLOSE</label>
+      </fieldset>
     </div>
 
     <!-- end card -->
@@ -175,41 +219,7 @@
               </label>
             </div>
 
-            <div class="">
-              <label class="rangeUI__label">
-                <span
-                  >Brightness: <output :value="cardBrightness"></output
-                ></span>
-                <input
-                  class="rangeUI__input"
-                  v-model="cardBrightness"
-                  type="range"
-                  min="1"
-                  max="1.3"
-                  step="0.01"
-                />
-              </label>
-              <label class="rangeUI__label">
-                <span>Sepia: <output :value="cardSepia"></output></span>
-                <input
-                  class="rangeUI__input"
-                  v-model="cardSepia"
-                  type="range"
-                  min="0"
-                  max="50"
-                />
-              </label>
-              <label class="rangeUI__label">
-                <span>Greyscale: <output :value="cardGrayScale"></output></span>
-                <input
-                  class="rangeUI__input"
-                  v-model="cardGrayScale"
-                  type="range"
-                  min="0"
-                  max="100"
-                />
-              </label>
-            </div>
+            <div class=""></div>
           </fieldset>
         </form>
         <form>

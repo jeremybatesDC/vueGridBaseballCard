@@ -2,10 +2,8 @@
   <div id="vueCardApp" class="baseballCard__wrapper" :style="cssProps">
     <CardFrontConfigurableV1 />
 
-  
-        <button type="button" @click="saveHandler">Save</button>
-        <button type="button" @click="submitHandler">Submit</button>
-    </div>
+    <button type="button" @click="saveHandler">Save</button>
+    <button type="button" @click="submitHandler">Submit</button>
   </div>
 </template>
 
