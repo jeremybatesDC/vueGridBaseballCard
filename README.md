@@ -4,6 +4,8 @@
 
 Labor Day launch.
 
+--> refactor the r = +r or whatever. I think thatS just coercion
+
 --> for player image, use v-show in conjuntcion with the checkbox hack.
 
 --> donT block image too much with edit controls... hmmm
@@ -12,8 +14,9 @@ Labor Day launch.
 
 --> refactor HSL color and put it into something that can be resued
 
---> colotpicker contrast threshold should be like .8 (want card contrast slightly lower because print card contrast isn't super high)
+--> colotpicker contrast threshold should be like .8 (want card contrast slightly lower because print card contrast isn't super high) -- NO, they need to match card visual or it'll look like a bug. Maybe try a grey text shadow or filter:drop-shadow
 
+--> and do i really need to be passing props the way I am in terms of binding :stlye? Well, for scoping reasons it makes sense, for instance with text fields that can be independtly named but we want json to be same. But for some universal variables at the card top, is that inline style actually required? Reactivity i believe is already being achieved.
 --> maybe there are more performant ways of setting css vars so there's not so much potential for catestrophic reflow
 
 --> default to a color that's not quite so white
@@ -73,7 +76,10 @@ the way to make a mask is via computed and watchers, set/get. No need for a mask
 and, after considering it, i donT think i need a table plugin. If I can properly tag columns then doing math on them shouldnT take any special code really. It would just be a formula, and probably use the Computed method
 
 - Add Examples (start with JSON)
-  --> CREATE A TEMPLATE spreadsheet XLSX on google drive, with an instruction about how to export a file that can be imported directly on the card site
+  --> CREATE A TEMPLATE spreadsheet XLSX on google drive, with an instruction about how to export a file that can be imported directly on the card site: OR Creat a service:
+  http://beautifytools.com/excel-to-json-converter.php
+  https://www.npmjs.com/package/xlsx-to-json
+
   -- untappt cards
   -- github cards
   -- genealogy cards
@@ -126,6 +132,10 @@ STATS TABLE
 
 ### Notes
 
+--> Pitch an extension/investment.
+
+--> Print partner? Need whitelabeling or at least to achieve some sort of margin
+
 --> absolutlely cannot find that blog post about auto-sizing grid when cells unused
 
 -- not sure if this would be considered a hack that might be prevented in future iOS updates, but setting font-size to 16px and then using font-variation settings to achieve desired visual size works at present and avoids the zoom plague
@@ -149,9 +159,11 @@ can i offer a 48px touch target (off to the side perhaps) while maintaining tigh
 
 ### 2nd release
 
---> get sponsorship even if from family
+--> consider hashes/routes to preserve the Back-button functionality some users rely on to escape a menu.
 
---> consider drag & drop logo placement
+--> portrait mode cutout mode using web worker and a white/black background to transparency process. I think this is doable and will be cool.
+
+--> get sponsorship even if from family
 
 --> "classic" vs "modern" defaults.
 
