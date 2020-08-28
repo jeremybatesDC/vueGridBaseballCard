@@ -68,7 +68,8 @@ math: computed. Grab an array by refs if necessary and tally those bitches. Can 
 the way to make a mask is via computed and watchers, set/get. No need for a mask plugin.
 and, after considering it, i donT think i need a table plugin. If I can properly tag columns then doing math on them shouldnT take any special code really. It would just be a formula, and probably use the Computed method
 
-- Add Examples (start with JSON)  
+- Add Examples (start with JSON)
+  --> CREATE A TEMPLATE spreadsheet XLSX on google drive, with an instruction about how to export a file that can be imported directly on the card site
   -- untappt cards
   -- github cards
   -- genealogy cards
@@ -145,6 +146,8 @@ can i offer a 48px touch target (off to the side perhaps) while maintaining tigh
 ### 2nd release
 
 --> get sponsorship even if from family
+
+--> consider drag & drop logo placement
 
 --> "classic" vs "modern" defaults.
 

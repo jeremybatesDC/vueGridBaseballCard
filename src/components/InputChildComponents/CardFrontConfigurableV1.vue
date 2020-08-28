@@ -128,6 +128,52 @@
         class="fui__wrap fui__wrap--images"
         data-show-only-on-interaction
       >
+        <!--<legend>Player Image</legend>-->
+        <div class="row">
+          <label>
+            Player Image (URL or upload):
+            <input
+              v-model="playerImageURLorDataString"
+              type="text"
+              placeholder
+            />
+          </label>
+        </div>
+        <div class="row">
+          <div class="filePicker__wrapper">
+            <input
+              id="filePicker_0"
+              class="hidden--visually filePicker__input"
+              type="file"
+              accept="image/*"
+            />
+            <label for="filePicker_0" class="filePicker__label"
+              >Upload
+              <!--<i class="filePicker__icon">⬆️</i>-->
+              Image</label
+            >
+          </div>
+
+          <div class="filePicker__wrapper">
+            <input
+              id="filePicker_1"
+              class="hidden--visually filePicker__input"
+              type="file"
+              capture="user"
+              accept="image/*"
+            />
+            <label for="filePicker_1" class="filePicker__label"
+              >Take
+              <!--<i class="filePicker__icon">📷</i>-->
+              Selfie</label
+            >
+          </div>
+
+          <label>
+            <!-- need to scope reset -->
+            <button type="reset">Delete image</button>
+          </label>
+        </div>
         <label class="rangeUI__label">
           <span>Brightness: <output :value="cardBrightness"></output></span>
           <input
@@ -172,53 +218,6 @@
       <div>
         <form>
           <fieldset>
-            <legend>Player Image</legend>
-            <div class="row">
-              <label>
-                Player Image (URL or upload):
-                <input
-                  v-model="playerImageURLorDataString"
-                  type="text"
-                  placeholder
-                />
-              </label>
-            </div>
-            <div class="row">
-              <div class="filePicker__wrapper">
-                <input
-                  id="filePicker_0"
-                  class="hidden--visually filePicker__input"
-                  type="file"
-                  accept="image/*"
-                />
-                <label for="filePicker_0" class="filePicker__label"
-                  >Upload
-                  <i class="filePicker__icon">⬆️</i>
-                  Image</label
-                >
-              </div>
-
-              <div class="filePicker__wrapper">
-                <input
-                  id="filePicker_1"
-                  class="hidden--visually filePicker__input"
-                  type="file"
-                  capture="user"
-                  accept="image/*"
-                />
-                <label for="filePicker_1" class="filePicker__label"
-                  >Take
-                  <i class="filePicker__icon">📷</i>
-                  Selfie</label
-                >
-              </div>
-
-              <label>
-                <!-- need to scope reset -->
-                <button type="reset">Delete image</button>
-              </label>
-            </div>
-
             <div class=""></div>
           </fieldset>
         </form>
