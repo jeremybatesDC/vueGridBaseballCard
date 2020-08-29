@@ -1,6 +1,7 @@
 {
   "playerImageURLorDataString": "/images/playerDefault.jpg",
   "playerImageBleedOrBoxed": "relative",
+  "playerImageFilterEffect": "none",
   "playerName": "Anthony Rendon",
   "playerPosition": "Third Base",
   "teamLogoAltText": "Nats Curley W Logo",

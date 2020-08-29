@@ -159,6 +159,8 @@ can i offer a 48px touch target (off to the side perhaps) while maintaining tigh
 
 ### 2nd release
 
+--> texture paper: https://yoksel.github.io/svg-filters/#/presets/paper
+
 --> consider hashes/routes to preserve the Back-button functionality some users rely on to escape a menu.
 
 --> portrait mode cutout mode using web worker and a white/black background to transparency process. I think this is doable and will be cool.

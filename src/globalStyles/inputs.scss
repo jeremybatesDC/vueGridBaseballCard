@@ -163,7 +163,7 @@ input {
       }
     }
     &--textAbove {
-      label {
+      .radioUI__label {
         flex-direction: column-reverse;
       }
     }
@@ -276,7 +276,7 @@ input {
     display: flex;
     flex-wrap: wrap;
     //flex-basis: 50%;
-    width: 50%;
+    //width: 50%;
     font-size: 1.6rem;
     padding: 1.6rem;
     color: #fff;

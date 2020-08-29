@@ -124,89 +124,97 @@
         class="checkbox--forReveal hidden--visually"
         type="checkbox"
       />
-      <fieldset
-        class="fui__wrap fui__wrap--images"
-        data-show-only-on-interaction
-      >
-        <!--<legend>Player Image</legend>-->
-        <div class="row">
-          <label>
-            Player Image (URL or upload):
-            <input
-              v-model="playerImageURLorDataString"
-              type="text"
-              placeholder
-            />
-          </label>
-        </div>
-        <div class="row">
-          <div class="filePicker__wrapper">
-            <input
-              id="filePicker_0"
-              class="hidden--visually filePicker__input"
-              type="file"
-              accept="image/*"
-            />
-            <label for="filePicker_0" class="filePicker__label"
-              >Upload
-              <!--<i class="filePicker__icon">⬆️</i>-->
-              Image</label
-            >
-          </div>
 
-          <div class="filePicker__wrapper">
-            <input
-              id="filePicker_1"
-              class="hidden--visually filePicker__input"
-              type="file"
-              capture="user"
-              accept="image/*"
-            />
-            <label for="filePicker_1" class="filePicker__label"
-              >Take
-              <!--<i class="filePicker__icon">📷</i>-->
-              Selfie</label
-            >
+      <!-- QuasiModal (heh)-->
+      <div class="playerImage__controls" data-show-only-on-interaction>
+        <div class="col">
+          <div class="row row--grow">
+            <label>
+              Player Image (URL or upload):
+              <input
+                v-model="playerImageURLorDataString"
+                type="text"
+                placeholder
+              />
+            </label>
           </div>
+          <div class="row row--grow">
+            <div class="filePicker__wrapper">
+              <input
+                id="filePicker_0"
+                class="hidden--visually filePicker__input"
+                type="file"
+                accept="image/*"
+              />
+              <label for="filePicker_0" class="filePicker__label"
+                >Upload
+                <!--<i class="filePicker__icon">⬆️</i>-->
+                Image</label
+              >
+            </div>
 
-          <label>
-            <!-- need to scope reset -->
-            <button type="reset">Delete image</button>
-          </label>
+            <div class="filePicker__wrapper">
+              <input
+                id="filePicker_1"
+                class="hidden--visually filePicker__input"
+                type="file"
+                capture="user"
+                accept="image/*"
+              />
+              <label for="filePicker_1" class="filePicker__label"
+                >Take
+                <!--<i class="filePicker__icon">📷</i>-->
+                Selfie</label
+              >
+            </div>
+
+            <label>
+              <!-- need to scope reset -->
+              <button type="reset">Delete image</button>
+            </label>
+          </div>
+          <div class="row row--grow">
+            <fieldset class="radioUI__fieldset radioUI__fieldset--textAbove">
+              <legend class="radioUI__legend">Filters</legend>
+              <div class="row">
+                <label class="radioUI__label">
+                  <input
+                    type="radio"
+                    class="radioUI__input"
+                    v-model="playerImageFilterEffect"
+                    value="none"
+                  />
+                  <span>Orig</span>
+                </label>
+
+                <label class="radioUI__label">
+                  <input
+                    type="radio"
+                    class="radioUI__input"
+                    v-model="playerImageFilterEffect"
+                    value="sepia"
+                  />
+                  <span>Sepia</span>
+                </label>
+
+                <label class="radioUI__label">
+                  <input
+                    type="radio"
+                    class="radioUI__input"
+                    v-model="playerImageFilterEffect"
+                    value="grayscale"
+                  />
+                  <span>B&amp;W</span>
+                </label>
+              </div>
+            </fieldset>
+          </div>
+          <div class="row row--grow">
+            <label for="inputTriggerFocusUI_0">CLOSE</label>
+          </div>
         </div>
-        <label class="rangeUI__label">
-          <span>Brightness: <output :value="cardBrightness"></output></span>
-          <input
-            class="rangeUI__input rangeUI__input--vertical"
-            v-model="cardBrightness"
-            type="range"
-            min="1"
-            max="1.3"
-            step="0.01"
-          />
-        </label>
-        <label class="rangeUI__label">
-          <span>Sepia: <output :value="cardSepia"></output></span>
-          <input
-            class="rangeUI__input rangeUI__input--vertical"
-            v-model="cardSepia"
-            type="range"
-            min="0"
-            max="50"
-          />
-        </label>
-        <label class="rangeUI__label">
-          <span>Greyscale: <output :value="cardGrayScale"></output></span>
-          <input
-            class="rangeUI__input rangeUI__input--vertical"
-            v-model="cardGrayScale"
-            type="range"
-            min="0"
-            max="100"
-          />
-        </label>
-        <label for="inputTriggerFocusUI_0">CLOSE</label>
-      </fieldset>
+      </div>
+      <!-- end QuasiModal-->
     </div>
 
     <!-- end card -->
@@ -320,49 +328,50 @@
         <form>
           <fieldset>
             <legend>Typography (field specific)</legend>
+            <div class="row">
+              <label class="rangeUI__label">
+                <span>Font Weight: <output value="999"></output></span>
 
-            <label class="rangeUI__label">
-              <span>Font Weight: <output value="999"></output></span>
+                <input
+                  class="rangeUI__input"
+                  v-model="cardTextFontWeight"
+                  type="range"
+                  min="100"
+                  max="900"
+                />
+              </label>
+              <label class="rangeUI__label">
+                <span>Font Width: <output value="999"></output></span>
+                <input
+                  class="rangeUI__input"
+                  v-model="cardTextFontWidth"
+                  type="range"
+                  min="35"
+                  max="100"
+                />
+              </label>
 
-              <input
-                class="rangeUI__input"
-                v-model="cardTextFontWeight"
-                type="range"
-                min="100"
-                max="900"
-              />
-            </label>
-            <label class="rangeUI__label">
-              <span>Font Width: <output value="999"></output></span>
-              <input
-                class="rangeUI__input"
-                v-model="cardTextFontWidth"
-                type="range"
-                min="35"
-                max="100"
-              />
-            </label>
-
-            <label class="rangeUI__label">
-              <span>Font Slant: <output value="999"></output></span>
-              <input
-                class="rangeUI__input"
-                v-model="cardTextFontSlant"
-                type="range"
-                min="-10"
-                max="0"
-              />
-            </label>
-            <label class="rangeUI__label">
-              <span>Font Grade: <output value="999"></output></span>
-              <input
-                class="rangeUI__input"
-                v-model="cardTextFontGrade"
-                type="range"
-                min="0"
-                max="48"
-              />
-            </label>
+              <label class="rangeUI__label">
+                <span>Font Slant: <output value="999"></output></span>
+                <input
+                  class="rangeUI__input"
+                  v-model="cardTextFontSlant"
+                  type="range"
+                  min="-10"
+                  max="0"
+                />
+              </label>
+              <label class="rangeUI__label">
+                <span>Font Grade: <output value="999"></output></span>
+                <input
+                  class="rangeUI__input"
+                  v-model="cardTextFontGrade"
+                  type="range"
+                  min="0"
+                  max="48"
+                />
+              </label>
+            </div>
           </fieldset>
         </form>
       </div>
@@ -390,6 +399,7 @@ export default {
       teamLogoURL: defaultSettings.teamLogoURL,
       playerImageURLorDataString: defaultSettings.playerImageURLorDataString,
       playerImageBleedOrBoxed: defaultSettings.playerImageBleedOrBoxed,
+      playerImageFilterEffect: defaultSettings.playerImageFilterEffect,
       playerName: defaultSettings.playerName,
       playerPosition: defaultSettings.playerPosition,
       teamName: defaultSettings.teamName,
@@ -458,6 +468,7 @@ export default {
         "--cardgrayscale": `${this.cardGrayScale}%`,
         "--cardlayout": this.cardLayout,
         "--playerimagebleedorboxed": this.playerImageBleedOrBoxed,
+        "--playerimagefiltereffect": `${this.playerImageFilterEffect}(100)`,
       };
     },
     cssTextLine1Props() {
@@ -558,6 +569,22 @@ export default {
             -10000000%
         )
       );
+    }
+  }
+}
+
+.playerImage__controls {
+  .radioUI__fieldset {
+    flex-grow: 1;
+    background-color: transparent;
+  }
+  .radioUI__label {
+    display: inline-flex;
+    flex-direction: column;
+    flex-grow: 0;
+    color: #000;
+    span {
+      columns: inherit;
     }
   }
 }
@@ -702,9 +729,9 @@ h3 {
   //background-color: var(--cardbackgroundcolor);
   border-radius: var(--borderinnercurve);
   // donT override all the other filters here
-  filter: #{"grayscale(var(--cardgrayscale))"} brightness(var(--cardbrightness))
-    sepia(var(--cardsepia));
-
+  //filter: #{"grayscale(var(--cardgrayscale))"} brightness(var(--cardbrightness))
+  //sepia(var(--cardsepia));
+  filter: var(--playerimagefiltereffect);
   .static & {
     border-radius: 0;
     z-index: -1;
@@ -717,6 +744,10 @@ h3 {
   width: 100%;
   // donT think i need this height value but
   height: 100%;
+}
+
+.playerImage__fieldset {
+  flex-grow: 1;
 }
 
 .figure--logo {
