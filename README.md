@@ -4,6 +4,8 @@
 
 Labor Day launch.
 
+--> image editing controls (and others) should "take-over" the 1st & 2nd level control area (either via overlay or actual live region)
+
 --> improve filters with before and after
 
 --> "edit mode" -- either use/implement or hide... (is useful for dev i suppose)
