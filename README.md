@@ -5,16 +5,14 @@
 Labor Day launch.
 
 --> image editing controls (and others) should "take-over" the 1st & 2nd level control area (either via overlay or actual live region)
+-- this will avoid blocking the image
+-- this might mean goodbye to checkbox hack maybe
 
 --> improve filters with before and after
 
 --> "edit mode" -- either use/implement or hide... (is useful for dev i suppose)
 
---> for player image, use v-show in conjuntcion with the checkbox hack.
-
---> donT block image too much with edit controls... hmmm
-
---> the controls atop each card face are looking CLOSE -- make them the same height so the top border of the card doesn't hop when jump from front to back
+--> make controls atop each card face the same height so the top border of the card doesn't hop when jump from front to back
 
 --> click outside to close?
 
@@ -47,14 +45,6 @@ Labor Day launch.
 -- reduce CLS (see notes)
 
 FOCUS UI STUFF
--> a focus UI for images is needed:
-
-- option to upload new image (clearing it should put back the OG placeholder image).
-- image sliders shown here sepia greyscale etc
-- this would be where object-fit options could live
-
--> need a close button for the focus UI.
--> What if it were a label that brought focus back up one landmark level?
 
 - click logo image: 1) refactor encode script to accept either image -- should be doable even just with some attributes
 
@@ -68,7 +58,6 @@ FOCUS UI STUFF
 
 -- should be only 1 text slider (teleport might be needed): Teleport. https://medium.com/@patelvivek2530/teleport-vue-3s-new-feature-a887fe05fd87 -- feature used to be palled portal
 
--- text slider styles shouldnT inherit from parent (except for maybe positioning in some cases
 )
 
 indicate whether a field can have its font manipulated
