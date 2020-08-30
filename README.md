@@ -160,6 +160,8 @@ can i offer a 48px touch target (off to the side perhaps) while maintaining tigh
 
 ### 2nd release
 
+--> ability to save card easily and load so you can make multiple without losing work
+
 --> re-consider whther filters should be applied to logo and player images SEPARATELY, or together. TOGETHER I thinK for v1.
 
 --> more CSS filters like Instagram: http://www.cssco.co/
@@ -226,6 +228,7 @@ Superlatives may have to wait for round 2
   https://v3.vuejs.org/guide/transitions-overview.html#class-based-animations-transitions
   https://www.smashingmagazine.com/2020/02/magic-flip-cards-common-sizing-problem/
   https://dev.to/dailydevtips1/css-flip-cards-3flc
+  https://una.im/CSSgram/
 
 Consider adding double border option
 

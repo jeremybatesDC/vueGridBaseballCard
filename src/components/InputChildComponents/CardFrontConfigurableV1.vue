@@ -139,39 +139,41 @@
             </label>
           </div>
           <div class="row row--grow">
-            <div class="filePicker__wrapper">
-              <input
-                id="filePicker_0"
-                class="hidden--visually filePicker__input"
-                type="file"
-                accept="image/*"
-              />
-              <label for="filePicker_0" class="filePicker__label"
-                >Upload
-                <!--<i class="filePicker__icon">⬆️</i>-->
-                Image</label
-              >
-            </div>
+            <form class="filePicker__form">
+              <div class="filePicker__wrapper">
+                <input
+                  id="filePicker_0"
+                  class="hidden--visually filePicker__input"
+                  type="file"
+                  accept="image/*"
+                />
+                <label for="filePicker_0" class="filePicker__label"
+                  >Upload
+                  <!--<i class="filePicker__icon">⬆️</i>-->
+                  Image</label
+                >
+              </div>
 
-            <div class="filePicker__wrapper">
-              <input
-                id="filePicker_1"
-                class="hidden--visually filePicker__input"
-                type="file"
-                capture="user"
-                accept="image/*"
-              />
-              <label for="filePicker_1" class="filePicker__label"
-                >Take
-                <!--<i class="filePicker__icon">📷</i>-->
-                Selfie</label
-              >
-            </div>
+              <div class="filePicker__wrapper">
+                <input
+                  id="filePicker_1"
+                  class="hidden--visually filePicker__input"
+                  type="file"
+                  capture="user"
+                  accept="image/*"
+                />
+                <label for="filePicker_1" class="filePicker__label"
+                  >Take
+                  <!--<i class="filePicker__icon">📷</i>-->
+                  Selfie</label
+                >
+              </div>
 
-            <label>
-              <!-- need to scope reset -->
-              <button type="reset">Delete image</button>
-            </label>
+              <label>
+                <!-- need to scope reset -->
+                <button type="reset">Delete image</button>
+              </label>
+            </form>
           </div>
           <div class="row row--grow">
             <fieldset class="radioUI__fieldset radioUI__fieldset--textAbove">
