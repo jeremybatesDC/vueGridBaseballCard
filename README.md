@@ -4,7 +4,9 @@
 
 Labor Day launch.
 
---> refactor the r = +r or whatever. I think thatS just coercion
+--> improve filters with before and after
+
+--> "edit mode" -- either use/implement or hide... (is useful for dev i suppose)
 
 --> for player image, use v-show in conjuntcion with the checkbox hack.
 
@@ -12,9 +14,9 @@ Labor Day launch.
 
 --> the controls atop each card face are looking CLOSE -- make them the same height so the top border of the card doesn't hop when jump from front to back
 
---> refactor HSL color and put it into something that can be resued
+--> click outside to close?
 
---> colotpicker contrast threshold should be like .8 (want card contrast slightly lower because print card contrast isn't super high) -- NO, they need to match card visual or it'll look like a bug. Maybe try a grey text shadow or filter:drop-shadow
+--> refactor HSL color and put it into something that can be resued
 
 --> and do i really need to be passing props the way I am in terms of binding :stlye? Well, for scoping reasons it makes sense, for instance with text fields that can be independtly named but we want json to be same. But for some universal variables at the card top, is that inline style actually required? Reactivity i believe is already being achieved.
 --> maybe there are more performant ways of setting css vars so there's not so much potential for catestrophic reflow
@@ -29,7 +31,6 @@ Labor Day launch.
 
 - back color picker -- how can i get the whole card to show? Really want to see bottom of card when choosing color
   -- (wait -- when color picker is open, can the controls hide?? oooh....)
-  -- back -- use variable font to achieve smaller text with 16px
 
 - can we switch the order of the text lines for each layout? That might be easier than giving user custom number of cols per row (lower interaction cost)
 
@@ -158,6 +159,11 @@ can i offer a 48px touch target (off to the side perhaps) while maintaining tigh
   --> might be good to show all font adjustment buttons for each text input, but not all buttons would be enabled for all fields. That way user won't wonder "what happened to width option?" but will be shown it just can't be applied here (may need clear helper text about limitations)
 
 ### 2nd release
+
+--> re-consider whther filters should be applied to logo and player images SEPARATELY, or together. TOGETHER I thinK for v1.
+
+--> more CSS filters like Instagram: http://www.cssco.co/
+https://una.im/CSSgram/
 
 --> texture paper: https://yoksel.github.io/svg-filters/#/presets/paper
 

@@ -80,7 +80,7 @@
         </h2>
       </div>
       <div
-        :class="`${logo.position} ${borderInner.style} row--middle--forDesign row`"
+        :class="`row--middle--forDesign row ${logo.position} ${borderInner.style} ${playerImageFilterEffect}`"
       >
         <figure class="figure--player">
           <label for="inputTriggerFocusUI_0">
@@ -192,7 +192,7 @@
                     type="radio"
                     class="radioUI__input"
                     v-model="playerImageFilterEffect"
-                    value="sepia"
+                    value="filtersepia"
                   />
                   <span>Sepia</span>
                 </label>
@@ -202,9 +202,18 @@
                     type="radio"
                     class="radioUI__input"
                     v-model="playerImageFilterEffect"
-                    value="grayscale"
+                    value="filterbw"
                   />
                   <span>B&amp;W</span>
+                </label>
+                <label class="radioUI__label">
+                  <input
+                    type="radio"
+                    class="radioUI__input"
+                    v-model="playerImageFilterEffect"
+                    value="filtervintage"
+                  />
+                  <span>Vintage</span>
                 </label>
               </div>
             </fieldset>
@@ -431,21 +440,13 @@ export default {
   },
   computed: {
     cssColorContrastProps() {
-      let r = 0,
-        g = 0,
-        b = 0;
-
-      let redVal = null;
-      let greenVal = null;
-      let blueVal = null;
+      let redVal = 0;
+      let greenVal = 0;
+      let blueVal = 0;
       function hexToDesiredColorSpace(hex) {
-        r = "0x" + hex[1] + hex[2];
-        g = "0x" + hex[3] + hex[4];
-        b = "0x" + hex[5] + hex[6];
-        redVal = +r;
-        greenVal = +g;
-        blueVal = +b;
-        //return "rgb(" + redVal + "," + greenVal + "," + blueVal + ")";
+        redVal = parseInt("0x" + hex[1] + hex[2]);
+        greenVal = parseInt("0x" + hex[3] + hex[4]);
+        blueVal = parseInt("0x" + hex[5] + hex[6]);
         return `rgb(${redVal},${greenVal},${blueVal})`;
       }
 
@@ -468,7 +469,7 @@ export default {
         "--cardgrayscale": `${this.cardGrayScale}%`,
         "--cardlayout": this.cardLayout,
         "--playerimagebleedorboxed": this.playerImageBleedOrBoxed,
-        "--playerimagefiltereffect": `${this.playerImageFilterEffect}(100)`,
+        //"--playerimagefiltereffect": this.playerImageFilterEffect,
       };
     },
     cssTextLine1Props() {
@@ -663,8 +664,7 @@ input {
 
   overflow: hidden;
   // imperative way of handling full bleed
-  //filter: drop-shadow(10px 10px red) sepia(100) grayscale(100);
-
+  //filter: var(--playerimagefiltereffect);
   &.topLeft {
     justify-content: flex-start;
     align-items: flex-start;
@@ -728,10 +728,6 @@ h3 {
   display: flex;
   //background-color: var(--cardbackgroundcolor);
   border-radius: var(--borderinnercurve);
-  // donT override all the other filters here
-  //filter: #{"grayscale(var(--cardgrayscale))"} brightness(var(--cardbrightness))
-  //sepia(var(--cardsepia));
-  filter: var(--playerimagefiltereffect);
   .static & {
     border-radius: 0;
     z-index: -1;

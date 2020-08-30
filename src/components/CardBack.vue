@@ -142,21 +142,13 @@ export default {
   },
   computed: {
     cssCardBackProps() {
-      let r = 0,
-        g = 0,
-        b = 0;
-
-      let redVal = null;
-      let greenVal = null;
-      let blueVal = null;
+      let redVal = 0;
+      let greenVal = 0;
+      let blueVal = 0;
       function hexToDesiredColorSpace(hex) {
-        r = "0x" + hex[1] + hex[2];
-        g = "0x" + hex[3] + hex[4];
-        b = "0x" + hex[5] + hex[6];
-        redVal = +r;
-        greenVal = +g;
-        blueVal = +b;
-        //return "rgb(" + redVal + "," + greenVal + "," + blueVal + ")";
+        redVal = parseInt("0x" + hex[1] + hex[2]);
+        greenVal = parseInt("0x" + hex[3] + hex[4]);
+        blueVal = parseInt("0x" + hex[5] + hex[6]);
         return `rgb(${redVal},${greenVal},${blueVal})`;
       }
 

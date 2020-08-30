@@ -42,6 +42,13 @@
             <feDistantLight azimuth="100" elevation="55" />
           </feDiffuseLighting>
         </filter>
+
+        <filter id="filteroffset">
+          <!-- Offset the input graphic by the amount defined in its "dx" and "dy" attributes: -->
+
+          <feOffset in="SourceGraphic" dx="1" dy="1" />
+        </filter>
+
         <filter id="filternoise">
           <feTurbulence
             type="fractalNoise"
