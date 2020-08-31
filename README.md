@@ -4,6 +4,10 @@
 
 Labor Day launch.
 
+on back, need upload json button
+
+clicking logo ideally would bring focus to that side of the cardfront image controls
+
 click outside to close. v-click thing maybe?
 
 --> consider keeping filters in column left
@@ -151,6 +155,8 @@ can i offer a 48px touch target (off to the side perhaps) while maintaining tigh
   --> might be good to show all font adjustment buttons for each text input, but not all buttons would be enabled for all fields. That way user won't wonder "what happened to width option?" but will be shown it just can't be applied here (may need clear helper text about limitations)
 
 ### 2nd release
+
+--> consider logo border option
 
 --> lazyload images (for iOS really) -- safari implemtation in progress! Looks like it's already been implemented in webkit: https://bugs.webkit.org/show_bug.cgi?id=200764
 

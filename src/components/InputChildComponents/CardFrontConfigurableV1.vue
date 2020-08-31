@@ -57,7 +57,7 @@
         </fieldset>
 
         <label class="rangeUI__label">
-          <span>Image Curve: <output :value="borderInner.curve"></output></span>
+          <span>Curve: <output :value="borderInner.curve"></output></span>
 
           <input
             class="rangeUI__input"
@@ -95,7 +95,10 @@
 
         <!-- make rounded corner optional -->
         <!-- using css filter drop shadow could work -->
-        <figure class="figure--logo" v-show="logo.showing">
+        <figure
+          class="figure--logo"
+          v-show="logo.showing && logo.position !== 'hideLogo'"
+        >
           <img
             loading="lazy"
             class="image--logo"
@@ -158,6 +161,30 @@
                 >
               </div>
               <div class="filePicker__wrapper">
+                <input
+                  id="filePicker_2"
+                  class="hidden--visually filePicker__input"
+                  type="file"
+                  accept="image/*"
+                />
+                <label for="filePicker_2" class="filePicker__label"
+                  >Upload Logo Img</label
+                >
+              </div>
+
+              <div class="filePicker__wrapper">
+                <input
+                  id="filePicker_3"
+                  class="hidden--visually filePicker__input"
+                  type="file"
+                  capture="user"
+                  accept="image/*"
+                />
+                <label for="filePicker_3" class="filePicker__label"
+                  >Logo Selfie</label
+                >
+              </div>
+              <div class="filePicker__wrapper">
                 <label>
                   <!-- need to scope reset -->
                   <input type="reset" value="Delete Image" />
@@ -166,7 +193,7 @@
               <!--</fieldset>-->
             </form>
           </div>
-          <div class="row row--grow">
+          <div class="row row--grow space-between">
             <fieldset class="radioUI__fieldset radioUI__fieldset--textAbove">
               <legend class="radioUI__legend">Filters</legend>
               <div class="">
@@ -175,7 +202,7 @@
                     type="radio"
                     class="radioUI__input"
                     v-model="playerImageFilterEffect"
-                    value="none"
+                    value="noFilterEffect"
                   />
                   <span>Orig</span>
                 </label>
@@ -210,6 +237,74 @@
                 </label>
               </div>
             </fieldset>
+            <fieldset class="radioUI__fieldset radioUI__fieldset--textAbove">
+              <legend class="radioUI__legend">Logo</legend>
+              <div class="">
+                <label class="radioUI__label">
+                  <span>Top</span>
+                  <input
+                    type="radio"
+                    class="radioUI__input"
+                    v-model="logo.position"
+                    value="topLeft"
+                    aria-label="Top Left"
+                  />
+                  <span>Left</span>
+                </label>
+
+                <label class="radioUI__label">
+                  <span>Top</span>
+                  <input
+                    type="radio"
+                    class="radioUI__input"
+                    v-model="logo.position"
+                    value="topRight"
+                    aria-label="Top Right"
+                  />
+                  <span>Right</span>
+                </label>
+
+                <label class="radioUI__label">
+                  <span>Bottom</span>
+                  <input
+                    type="radio"
+                    class="radioUI__input"
+                    v-model="logo.position"
+                    value="bottomLeft"
+                    aria-label="Bottom Left"
+                  />
+                  <span>Left</span>
+                </label>
+
+                <label class="radioUI__label">
+                  <span>Bottom</span>
+                  <input
+                    type="radio"
+                    class="radioUI__input"
+                    v-model="logo.position"
+                    value="bottomRight"
+                    aria-label="Bottom Right"
+                  />
+                  <span>
+                    Right
+                  </span>
+                </label>
+
+                <label class="radioUI__label">
+                  <span>Hide</span>
+                  <input
+                    type="radio"
+                    class="radioUI__input"
+                    v-model="logo.position"
+                    value="hideLogo"
+                    aria-label="Bottom Right"
+                  />
+                  <span>
+                    Logo
+                  </span>
+                </label>
+              </div>
+            </fieldset>
           </div>
           <div class="row row--grow">
             <label for="inputTriggerFocusUI_0">CLOSE</label>
@@ -234,10 +329,8 @@
         <form>
           <fieldset>
             <legend>Logo Image</legend>
-            <div class="row">
-              <p>round/square, border)</p>
-            </div>
-            <div class="row">
+
+            <!--<div class="row">
               <label>
                 <span>Show Logo</span>
                 <input type="radio" v-model="logo.showing" :value="true" />
@@ -246,7 +339,7 @@
                 <span>Hide Logo</span>
                 <input type="radio" v-model="logo.showing" :value="false" />
               </label>
-            </div>
+            </div>-->
             <div class="row" v-show="logo.showing">
               <span>
                 <div class="row">
@@ -270,57 +363,6 @@
                     <input type="radio" v-model="logo.borderRadius" value="0" />
                     <span>Square</span>
                   </label>
-                </div>
-
-                <div class="control--fourSquare">
-                  <div class="row">
-                    <div class="col">
-                      <label for="logoPostTL">Top</label>
-                      <input
-                        id="logoPostTL"
-                        type="radio"
-                        v-model="logo.position"
-                        value="topLeft"
-                        aria-label="Top Left"
-                      />
-                      <label for="logoPostTL">Left</label>
-                    </div>
-                    <div class="col">
-                      <label for="logoPostTR">Top</label>
-                      <input
-                        id="logoPostTR"
-                        type="radio"
-                        v-model="logo.position"
-                        value="topRight"
-                        aria-label="Top Right"
-                      />
-                      <label for="logoPostTR">Right</label>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col">
-                      <label for="logoPostBL">Left</label>
-                      <input
-                        id="logoPostBL"
-                        type="radio"
-                        v-model="logo.position"
-                        value="bottomLeft"
-                        aria-label="Bottom Left"
-                      />
-                      <label for="logoPostBL">Bottom</label>
-                    </div>
-                    <div class="col">
-                      <label for="logoPostBR">Right</label>
-                      <input
-                        id="logoPostBR"
-                        type="radio"
-                        v-model="logo.position"
-                        value="bottomRight"
-                        aria-label="Bottom Right"
-                      />
-                      <label for="logoPostBR">Bottom</label>
-                    </div>
-                  </div>
                 </div>
               </span>
             </div>
@@ -559,6 +601,7 @@ export default {
 }
 
 .playerImage__controls {
+  height: 100%;
   .radioUI__fieldset {
     background-color: var(--background-for-overlay-controls);
   }
