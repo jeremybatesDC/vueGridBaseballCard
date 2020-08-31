@@ -4,6 +4,27 @@
 
 Labor Day launch.
 
+do we really need logo selfie? Clever user can figure it out
+
+for side image controls, need button-y look rather than big circles. And they are slightly too tall for some reason
+
+icons needed:
+https://github.com/danklammer/bytesize-icons
+
+- SAVE! (auto save assuemed? I want a disc dammit)
+- SUBMIT! (not airplane please)
+- print
+- submit
+- close (unicode X is ok)
+- upload
+- picture
+- delete
+- calendar
+- options: https://camo.githubusercontent.com/27571c558459bfce3a07cdd814a6cb25195d46b0/68747470733a2f2f63646e2e7261776769742e636f6d2f64616e6b6c616d6d65722f6279746573697a652d69636f6e732f6d61737465722f646973742f69636f6e732f6f7074696f6e732e737667
+
+- star / flag
+- LAYOUTS
+
 grain:
 
 on back, need upload json button
@@ -152,6 +173,8 @@ can i offer a 48px touch target (off to the side perhaps) while maintaining tigh
   --> might be good to show all font adjustment buttons for each text input, but not all buttons would be enabled for all fields. That way user won't wonder "what happened to width option?" but will be shown it just can't be applied here (may need clear helper text about limitations)
 
 ### 2nd release
+
+- for imperfections, look at the card condition rating service details
 
 -- could offer duotone filter
 

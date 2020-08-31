@@ -141,9 +141,22 @@
                   type="file"
                   accept="image/*"
                 />
-                <label for="filePicker_0" class="filePicker__label"
-                  >Upload Image</label
-                >
+                <label
+                  for="filePicker_0"
+                  class="filePicker__label"
+                  aria-label="Upload Image"
+                  ><svg
+                    viewBox="0 0 32 32"
+                    width="32"
+                    height="32"
+                    fill="none"
+                    stroke="currentcolor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                  >
+                    <use xlink:href="#iconphoto"></use></svg
+                ></label>
               </div>
 
               <div class="filePicker__wrapper">
@@ -154,11 +167,40 @@
                   capture="user"
                   accept="image/*"
                 />
-                <label for="filePicker_1" class="filePicker__label"
-                  >Take
-                  <!--<i class="filePicker__icon">📷</i>-->
-                  Selfie</label
-                >
+                <label
+                  for="filePicker_1"
+                  class="filePicker__label"
+                  aria-label="Take Selfie"
+                  ><svg
+                    viewBox="0 0 32 32"
+                    width="32"
+                    height="32"
+                    fill="none"
+                    stroke="currentcolor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                  >
+                    <use xlink:href="#iconcamera"></use></svg
+                ></label>
+              </div>
+              <div class="filePicker__wrapper">
+                <label>
+                  <button type="reset" aria-label="Delete Image">
+                    <svg
+                      viewBox="0 0 32 32"
+                      width="32"
+                      height="32"
+                      fill="none"
+                      stroke="currentcolor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                    >
+                      <use xlink:href="#icontrash"></use>
+                    </svg>
+                  </button>
+                </label>
               </div>
               <div class="filePicker__wrapper">
                 <input
@@ -167,27 +209,41 @@
                   type="file"
                   accept="image/*"
                 />
-                <label for="filePicker_2" class="filePicker__label"
-                  >Upload Logo Img</label
-                >
+                <label
+                  for="filePicker_2"
+                  class="filePicker__label"
+                  aria-label="Upload Logo Image"
+                  ><svg
+                    viewBox="0 0 32 32"
+                    width="32"
+                    height="32"
+                    fill="none"
+                    stroke="currentcolor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                  >
+                    <use xlink:href="#iconphoto"></use></svg
+                ></label>
               </div>
 
               <div class="filePicker__wrapper">
-                <input
-                  id="filePicker_3"
-                  class="hidden--visually filePicker__input"
-                  type="file"
-                  capture="user"
-                  accept="image/*"
-                />
-                <label for="filePicker_3" class="filePicker__label"
-                  >Logo Selfie</label
-                >
-              </div>
-              <div class="filePicker__wrapper">
                 <label>
                   <!-- need to scope reset -->
-                  <input type="reset" value="Delete Image" />
+                  <button type="reset" aria-label="Delete Image">
+                    <svg
+                      viewBox="0 0 32 32"
+                      width="32"
+                      height="32"
+                      fill="none"
+                      stroke="currentcolor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                    >
+                      <use xlink:href="#icontrash"></use>
+                    </svg>
+                  </button>
                 </label>
               </div>
               <!--</fieldset>-->
