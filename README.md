@@ -10,11 +10,6 @@ clicking logo ideally would bring focus to that side of the cardfront image cont
 
 click outside to close. v-click thing maybe?
 
---> consider keeping filters in column left
-
-- a) want to keep it away from delete button
-- b) because it allows me to add X more (which is roadmapped) and fill up space
-
 --> improve filters with before and after
 
 --> make controls atop each card face the same height so the top border of the card doesn't hop when jump from front to back
@@ -35,7 +30,7 @@ click outside to close. v-click thing maybe?
 - back color picker -- how can i get the whole card to show? Really want to see bottom of card when choosing color
   -- (wait -- when color picker is open, can the controls hide?? oooh....)
 
-- can we switch the order of the text lines for each layout? That might be easier than giving user custom number of cols per row (lower interaction cost)
+- can we allow user to switch the order of the text lines for each layout? That might be easier than giving user custom number of cols per row (lower interaction cost)
 
 - invert/hue rotate back stripe color text
 
@@ -156,6 +151,10 @@ can i offer a 48px touch target (off to the side perhaps) while maintaining tigh
 
 ### 2nd release
 
+- bumped logo shape option to v2. RECONISDER: no inspirational card has a square subshape (so 1984)
+
+stats should allow year range like 1997-2009
+
 --> consider logo border option
 
 --> lazyload images (for iOS really) -- safari implemtation in progress! Looks like it's already been implemented in webkit: https://bugs.webkit.org/show_bug.cgi?id=200764
@@ -175,9 +174,7 @@ https://una.im/CSSgram/
 
 --> consider hashes/routes to preserve the Back-button functionality some users rely on to escape a menu.
 
---> portrait mode cutout mode using web worker and a white/black background to transparency process. I think this is doable and will be cool.
-
---> get sponsorship even if from family
+--> cutout mode using web worker and a white/black background to transparency process. There are services/plugins (also a chrome api that maybe a node server could use)
 
 --> "classic" vs "modern" defaults.
 

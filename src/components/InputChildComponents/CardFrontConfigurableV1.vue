@@ -326,11 +326,11 @@
             <div class=""></div>
           </fieldset>
         </form>
-        <form>
+        <!--<form>
           <fieldset>
-            <legend>Logo Image</legend>
+            <legend>Logo Image</legend>-->
 
-            <!--<div class="row">
+        <!--<div class="row">
               <label>
                 <span>Show Logo</span>
                 <input type="radio" v-model="logo.showing" :value="true" />
@@ -340,17 +340,14 @@
                 <input type="radio" v-model="logo.showing" :value="false" />
               </label>
             </div>-->
-            <div class="row" v-show="logo.showing">
-              <span>
-                <div class="row">
-                  <label>
-                    Team Logo Image (URL):
-                    <input v-model="teamLogoURL" type="url " placeholder />
-                    <!-- <input type="file" id="logoFileInput" name="logoFileInput" accept="image/*" /> -->
-                  </label>
-                </div>
+        <!--<div class="row" v-show="logo.showing">-->
 
-                <div class="row">
+        <!--<label>-->
+        <!--<input v-model="teamLogoURL" type="url " placeholder />-->
+        <!-- <input type="file" id="logoFileInput" name="logoFileInput" accept="image/*" /> -->
+        <!--</label>-->
+
+        <!--<div class="row">
                   <label>
                     <input
                       type="radio"
@@ -363,11 +360,10 @@
                     <input type="radio" v-model="logo.borderRadius" value="0" />
                     <span>Square</span>
                   </label>
-                </div>
-              </span>
-            </div>
-          </fieldset>
-        </form>
+                </div>-->
+        <!--</div>-->
+        <!--</fieldset>
+        </form>-->
 
         <form>
           <fieldset>
