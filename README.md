@@ -4,17 +4,16 @@
 
 Labor Day launch.
 
---> image editing controls (and others) should "take-over" the 1st & 2nd level control area (either via overlay or actual live region)
--- this will avoid blocking the image
--- this might mean goodbye to checkbox hack maybe
+click outside to close. v-click thing maybe?
+
+--> consider keeping filters in column left
+
+- a) want to keep it away from delete button
+- b) because it allows me to add X more (which is roadmapped) and fill up space
 
 --> improve filters with before and after
 
---> "edit mode" -- either use/implement or hide... (is useful for dev i suppose)
-
 --> make controls atop each card face the same height so the top border of the card doesn't hop when jump from front to back
-
---> click outside to close?
 
 --> refactor HSL color and put it into something that can be resued
 
@@ -140,6 +139,8 @@ can i offer a 48px touch target (off to the side perhaps) while maintaining tigh
 
 --> using filter drop shadow mutliple syntax could help here. Just not sure exactly when
 
+--> css backdrop filter is cool/intertesting/well supported: https://developer.mozilla.org/en-US/docs/Web/CSS/backdrop-filter
+
 - CLS is being caused by at lease these, so think man, think:
   (if initial font is better sized to match loaded font, then won't flex... Obvi caching is the way, but first load... )
   tr
@@ -150,6 +151,12 @@ can i offer a 48px touch target (off to the side perhaps) while maintaining tigh
   --> might be good to show all font adjustment buttons for each text input, but not all buttons would be enabled for all fields. That way user won't wonder "what happened to width option?" but will be shown it just can't be applied here (may need clear helper text about limitations)
 
 ### 2nd release
+
+--> lazyload images (for iOS really) -- safari implemtation in progress! Looks like it's already been implemented in webkit: https://bugs.webkit.org/show_bug.cgi?id=200764
+
+--> avif support?
+
+--> image editing controls (and others) could "take-over" the 1st & 2nd level control area (either via overlay or actual live region)
 
 --> ability to save card easily and load so you can make multiple without losing work
 

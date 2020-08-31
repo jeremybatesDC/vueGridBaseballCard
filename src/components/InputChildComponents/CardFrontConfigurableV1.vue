@@ -129,17 +129,8 @@
       <div class="playerImage__controls" data-show-only-on-interaction>
         <div class="col">
           <div class="row row--grow">
-            <label>
-              Player Image (URL or upload):
-              <input
-                v-model="playerImageURLorDataString"
-                type="text"
-                placeholder
-              />
-            </label>
-          </div>
-          <div class="row row--grow">
             <form class="filePicker__form">
+              <!--<fieldset class="filePicker__fieldset">-->
               <div class="filePicker__wrapper">
                 <input
                   id="filePicker_0"
@@ -148,9 +139,7 @@
                   accept="image/*"
                 />
                 <label for="filePicker_0" class="filePicker__label"
-                  >Upload
-                  <!--<i class="filePicker__icon">⬆️</i>-->
-                  Image</label
+                  >Upload Image</label
                 >
               </div>
 
@@ -168,17 +157,19 @@
                   Selfie</label
                 >
               </div>
-
-              <label>
-                <!-- need to scope reset -->
-                <button type="reset">Delete image</button>
-              </label>
+              <div class="filePicker__wrapper">
+                <label>
+                  <!-- need to scope reset -->
+                  <input type="reset" value="Delete Image" />
+                </label>
+              </div>
+              <!--</fieldset>-->
             </form>
           </div>
           <div class="row row--grow">
             <fieldset class="radioUI__fieldset radioUI__fieldset--textAbove">
               <legend class="radioUI__legend">Filters</legend>
-              <div class="row">
+              <div class="">
                 <label class="radioUI__label">
                   <input
                     type="radio"
@@ -548,15 +539,6 @@ export default {
   overflow: hidden;
 
   z-index: 0;
-
-  &:focus-within {
-    &:before {
-      content: "edit mode";
-      position: fixed;
-      top: 0;
-      right: 0;
-    }
-  }
 }
 
 .cardFront__controls {
@@ -578,13 +560,14 @@ export default {
 
 .playerImage__controls {
   .radioUI__fieldset {
-    flex-grow: 1;
-    background-color: transparent;
+    background-color: var(--background-for-overlay-controls);
   }
   .radioUI__label {
-    display: inline-flex;
+    display: flex;
     flex-direction: column;
     flex-grow: 0;
+    flex-wrap: nowrap;
+    padding: 0;
     color: #000;
     span {
       columns: inherit;
