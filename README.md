@@ -4,6 +4,8 @@
 
 Labor Day launch.
 
+grain:
+
 on back, need upload json button
 
 clicking logo ideally would bring focus to that side of the cardfront image controls
@@ -150,6 +152,8 @@ can i offer a 48px touch target (off to the side perhaps) while maintaining tigh
   --> might be good to show all font adjustment buttons for each text input, but not all buttons would be enabled for all fields. That way user won't wonder "what happened to width option?" but will be shown it just can't be applied here (may need clear helper text about limitations)
 
 ### 2nd release
+
+-- could offer duotone filter
 
 - bumped logo shape option to v2. RECONISDER: no inspirational card has a square subshape (so 1984)
 

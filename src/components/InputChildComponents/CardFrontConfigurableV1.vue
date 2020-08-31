@@ -235,6 +235,24 @@
                   />
                   <span>Vintage</span>
                 </label>
+                <!--<label class="radioUI__label">
+                  <input
+                    type="radio"
+                    class="radioUI__input"
+                    v-model="playerImageFilterEffect"
+                    value="filterposterize"
+                  />
+                  <span>Posterize</span>
+                </label>-->
+                <label class="radioUI__label">
+                  <input
+                    type="radio"
+                    class="radioUI__input"
+                    v-model="playerImageFilterEffect"
+                    value="filternoblue"
+                  />
+                  <span>No Blue</span>
+                </label>
               </div>
             </fieldset>
             <fieldset class="radioUI__fieldset radioUI__fieldset--textAbove">
@@ -326,44 +344,6 @@
             <div class=""></div>
           </fieldset>
         </form>
-        <!--<form>
-          <fieldset>
-            <legend>Logo Image</legend>-->
-
-        <!--<div class="row">
-              <label>
-                <span>Show Logo</span>
-                <input type="radio" v-model="logo.showing" :value="true" />
-              </label>
-              <label>
-                <span>Hide Logo</span>
-                <input type="radio" v-model="logo.showing" :value="false" />
-              </label>
-            </div>-->
-        <!--<div class="row" v-show="logo.showing">-->
-
-        <!--<label>-->
-        <!--<input v-model="teamLogoURL" type="url " placeholder />-->
-        <!-- <input type="file" id="logoFileInput" name="logoFileInput" accept="image/*" /> -->
-        <!--</label>-->
-
-        <!--<div class="row">
-                  <label>
-                    <input
-                      type="radio"
-                      v-model="logo.borderRadius"
-                      value="50"
-                    />
-                    <span>Round</span>
-                  </label>
-                  <label>
-                    <input type="radio" v-model="logo.borderRadius" value="0" />
-                    <span>Square</span>
-                  </label>
-                </div>-->
-        <!--</div>-->
-        <!--</fieldset>
-        </form>-->
 
         <form>
           <fieldset>
