@@ -215,9 +215,9 @@ input {
     overflow: hidden;
     align-items: center;
     text-align: center;
-    &:not(:first-of-type) {
-      margin-left: var(--touch-target-spacing);
-    }
+    //&:not(:first-of-type) {
+    //  margin-left: var(--touch-target-spacing);
+    //}
   }
 
   &__fieldset {
@@ -291,6 +291,7 @@ input {
   &.playerImage__controls {
     top: 0;
     padding-top: 0;
+    flex-wrap: nowrap;
     .filePicker__label {
       padding: 0;
     }

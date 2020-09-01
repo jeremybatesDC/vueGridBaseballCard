@@ -9,6 +9,79 @@
     ]"
   >
     <div class="cardFront__controls">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="32"
+        height="32"
+        viewBox="0 0 32 32"
+      >
+        <g>
+          <rect
+            x="6.4855"
+            y="2"
+            width="19"
+            height="28"
+            fill="none"
+            stroke="#000"
+            stroke-linejoin="round"
+            stroke-width="2"
+          />
+          <path d="M6.4855,26h19" fill="none" stroke="#000" stroke-width="2" />
+          <path d="M6.6217,6h19" fill="none" stroke="#000" stroke-width="2" />
+        </g>
+      </svg>
+
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 32 32"
+        width="32"
+        height="32"
+      >
+        <g>
+          <rect
+            x="6.4855"
+            y="2"
+            width="19"
+            height="28"
+            fill="none"
+            stroke="#000"
+            stroke-linejoin="round"
+            stroke-width="2"
+          />
+          <path
+            d="M6.4855,24.0566h19"
+            fill="none"
+            stroke="#000"
+            stroke-width="2"
+          />
+        </g>
+      </svg>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 32 32"
+        width="32"
+        height="32"
+      >
+        <g>
+          <rect
+            x="6.4855"
+            y="2"
+            width="19"
+            height="28"
+            fill="none"
+            stroke="#000"
+            stroke-linejoin="round"
+            stroke-width="2"
+          />
+          <path
+            d="M25.4855,7.9434h-19"
+            fill="none"
+            stroke="#000"
+            stroke-width="2"
+          />
+        </g>
+      </svg>
+
       <div class="row space-around align-center">
         <label
           v-show="playerImageBleedOrBoxed !== 'static'"
@@ -184,24 +257,7 @@
                     <use xlink:href="#iconcamera"></use></svg
                 ></label>
               </div>
-              <div class="filePicker__wrapper">
-                <label>
-                  <button type="reset" aria-label="Delete Image">
-                    <svg
-                      viewBox="0 0 32 32"
-                      width="32"
-                      height="32"
-                      fill="none"
-                      stroke="currentcolor"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                    >
-                      <use xlink:href="#icontrash"></use>
-                    </svg>
-                  </button>
-                </label>
-              </div>
+
               <div class="filePicker__wrapper">
                 <input
                   id="filePicker_2"
@@ -226,30 +282,9 @@
                     <use xlink:href="#iconphoto"></use></svg
                 ></label>
               </div>
-
-              <div class="filePicker__wrapper">
-                <label>
-                  <!-- need to scope reset -->
-                  <button type="reset" aria-label="Delete Image">
-                    <svg
-                      viewBox="0 0 32 32"
-                      width="32"
-                      height="32"
-                      fill="none"
-                      stroke="currentcolor"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                    >
-                      <use xlink:href="#icontrash"></use>
-                    </svg>
-                  </button>
-                </label>
-              </div>
-              <!--</fieldset>-->
             </form>
           </div>
-          <div class="row row--grow space-between">
+          <div class="row space-between row--full-width">
             <fieldset class="radioUI__fieldset radioUI__fieldset--textAbove">
               <legend class="radioUI__legend">Filters</legend>
               <div class="">

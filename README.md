@@ -174,6 +174,10 @@ can i offer a 48px touch target (off to the side perhaps) while maintaining tigh
 
 ### 2nd release
 
+--> can we move delete image(s) option to v2?
+
+-> the buttons for filters could be previews of the larger image with th filters applied. That would be really cool and throetically not hard to do as long as it could be performant
+
 - for imperfections, look at the card condition rating service details
 
 -- could offer duotone filter
