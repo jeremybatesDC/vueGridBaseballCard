@@ -4,12 +4,39 @@
 
 Labor Day launch.
 
-do we really need logo selfie? Clever user can figure it out
+image editing close "button" needs styling and positioning...
 
-for side image controls, need button-y look rather than big circles. And they are slightly too tall for some reason
+legends need left right padding of like 2px each
+
+are there room for clear labels across top? Upload/ Take Pic / are pretty useful labels
+
+might need top "player and logo image" control to be more like 60 or 88 or whatever tall. Otherwise it looks too busy in 2-0 laout
+
+colorpicker UI on ios has clipped borders.
+
+logo click target man
+
+replace filepicker player image upload button with an icon of a picture that feautures a person not a mountian: something like: https://iconmonstr.com/picture-4-svg/
+
+make a class for the "none" radio button
+
+maybe active class for the file pikcer ? actually that mayb be odd
+
+icon for hide logo?
+
+layout icons could use improvement to better show text
+layout icons -- also want easy way to invert colors. Move some stroke/fill attributes into CSS
+
+icon for logo placement can be just one def with a single class applied to determine fill.
+
+front and back could have icons showing generic avatar in portrait and a stats table icon for back. maybe.
 
 icons needed:
 https://github.com/danklammer/bytesize-icons
+
+- b&w could be moon like dark mode: https://thenounproject.com/darthpier/collection/photo-editor/?i=1949966
+- sepia though?
+  not sure about this... tiny image previews would indeed be cool-- is there time?
 
 - SAVE! (auto save assuemed? I want a disc dammit)
 - SUBMIT! (not airplane please)
@@ -173,6 +200,10 @@ can i offer a 48px touch target (off to the side perhaps) while maintaining tigh
   --> might be good to show all font adjustment buttons for each text input, but not all buttons would be enabled for all fields. That way user won't wonder "what happened to width option?" but will be shown it just can't be applied here (may need clear helper text about limitations)
 
 ### 2nd release
+
+--> place for Card Number
+
+--> re-consider icon for color, although unambiguos text really is better
 
 --> can we move delete image(s) option to v2?
 
