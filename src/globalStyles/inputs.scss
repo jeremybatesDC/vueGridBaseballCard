@@ -197,6 +197,50 @@ input {
   }
 }
 
+.checkRadioButtons {
+  &__fieldset {
+    display: flex;
+    flex-wrap: nowrap;
+    background-color: var(--background-for-overlay-controls);
+    // need to set this here otherwise itS going to inherit the coor change from the card itseld (oops, my bad)
+    color: #000;
+  }
+  &__legend {
+    display: flex;
+    font-variation-settings: var(--text-short-wide);
+
+    background-color: var(--background-for-overlay-controls);
+
+    text-transform: uppercase;
+  }
+  &__label {
+    display: inline-flex;
+    width: var(--min-touch-target);
+    height: var(--min-touch-target);
+    // cheat
+
+    &.checkRadioButtons__label.checkRadioButtons__label {
+      padding: 0;
+    }
+  }
+  &__input {
+    + span {
+      display: flex;
+      flex-grow: 1;
+      justify-content: center;
+      align-items: center;
+      text-transform: uppercase;
+      font-variation-settings: var(--text-short-wide);
+    }
+    &:checked {
+      + span {
+        color: #fff;
+        background-color: royalblue;
+      }
+    }
+  }
+}
+
 // FILE PICKER UI
 
 .filePicker {
@@ -211,7 +255,7 @@ input {
     position: relative;
 
     width: var(--min-touch-target);
-    border: 1px solid #000;
+    //border: 1px solid #000;
     overflow: hidden;
     align-items: center;
     text-align: center;
@@ -223,7 +267,15 @@ input {
   &__fieldset {
     display: flex;
     width: 100%;
+    border: none;
   }
+  &__legend {
+    display: flex;
+    font-variation-settings: var(--text-short-wide);
+
+    text-transform: uppercase;
+  }
+
   &__input {
     display: flex;
     position: absolute;
@@ -237,6 +289,9 @@ input {
     flex-direction: column;
     flex-grow: 1;
     text-transform: uppercase;
+    justify-content: center;
+    align-items: center;
+    color: #000;
     cursor: pointer;
     &--fullTargetTransparent {
       position: absolute;
@@ -286,7 +341,7 @@ input {
     //width: 50%;
     font-size: 1.6rem;
     padding: 1.6rem;
-    color: #fff;
+    //color: #fff;
   }
   &.playerImage__controls {
     top: 0;

@@ -9,263 +9,6 @@
     ]"
   >
     <div class="cardFront__controls">
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="32"
-        height="32"
-        viewBox="0 0 32 32"
-      >
-        <g>
-          <rect
-            x="6.4855"
-            y="2"
-            width="19"
-            height="28"
-            fill="none"
-            stroke="#000"
-            stroke-linejoin="round"
-            stroke-width="2"
-          />
-          <path d="M6.4855,26h19" fill="none" stroke="#000" stroke-width="2" />
-          <path d="M6.6217,6h19" fill="none" stroke="#000" stroke-width="2" />
-        </g>
-      </svg>
-
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 32 32"
-        width="32"
-        height="32"
-      >
-        <g>
-          <rect
-            x="6.4855"
-            y="2"
-            width="19"
-            height="28"
-            fill="none"
-            stroke="#000"
-            stroke-linejoin="round"
-            stroke-width="2"
-          />
-          <path
-            d="M6.4855,24.0566h19"
-            fill="none"
-            stroke="#000"
-            stroke-width="2"
-          />
-        </g>
-      </svg>
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 32 32"
-        width="32"
-        height="32"
-      >
-        <g>
-          <rect
-            x="6.4855"
-            y="2"
-            width="19"
-            height="28"
-            fill="none"
-            stroke="#000"
-            stroke-linejoin="round"
-            stroke-width="2"
-          />
-          <path
-            d="M25.4855,7.9434h-19"
-            fill="none"
-            stroke="#000"
-            stroke-width="2"
-          />
-        </g>
-      </svg>
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="32"
-        height="32"
-        viewBox="0 0 32 32"
-      >
-        <rect
-          x="3.9351"
-          y="4.0328"
-          width="12"
-          height="12"
-          stroke="#000"
-          stroke-linejoin="round"
-          stroke-width="2"
-        />
-        <rect
-          x="16.0649"
-          y="4.0328"
-          width="12"
-          height="12"
-          fill="none"
-          stroke="#000"
-          stroke-linejoin="round"
-          stroke-width="2"
-        />
-        <rect
-          x="16.0649"
-          y="15.9672"
-          width="12"
-          height="12"
-          fill="none"
-          stroke="#000"
-          stroke-linejoin="round"
-          stroke-width="2"
-        />
-        <rect
-          x="3.9351"
-          y="15.9672"
-          width="12"
-          height="12"
-          fill="none"
-          stroke="#000"
-          stroke-linejoin="round"
-          stroke-width="2"
-        />
-      </svg>
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="32"
-        height="32"
-        viewBox="0 0 32 32"
-      >
-        <rect
-          x="3.9351"
-          y="4.0328"
-          width="12"
-          height="12"
-          fill="none"
-          stroke="#000"
-          stroke-linejoin="round"
-          stroke-width="2"
-        />
-        <rect
-          x="16.0649"
-          y="4.0328"
-          width="12"
-          height="12"
-          stroke="#000"
-          stroke-linejoin="round"
-          stroke-width="2"
-        />
-        <rect
-          x="16.0649"
-          y="15.9672"
-          width="12"
-          height="12"
-          fill="none"
-          stroke="#000"
-          stroke-linejoin="round"
-          stroke-width="2"
-        />
-        <rect
-          x="3.9351"
-          y="15.9672"
-          width="12"
-          height="12"
-          fill="none"
-          stroke="#000"
-          stroke-linejoin="round"
-          stroke-width="2"
-        />
-      </svg>
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="32"
-        height="32"
-        viewBox="0 0 32 32"
-      >
-        <rect
-          x="3.9351"
-          y="4.0328"
-          width="12"
-          height="12"
-          fill="none"
-          stroke="#000"
-          stroke-linejoin="round"
-          stroke-width="2"
-        />
-        <rect
-          x="16.0649"
-          y="4.0328"
-          width="12"
-          height="12"
-          fill="none"
-          stroke="#000"
-          stroke-linejoin="round"
-          stroke-width="2"
-        />
-        <rect
-          x="16.0649"
-          y="15.9672"
-          width="12"
-          height="12"
-          fill="none"
-          stroke="#000"
-          stroke-linejoin="round"
-          stroke-width="2"
-        />
-        <rect
-          x="3.9351"
-          y="15.9672"
-          width="12"
-          height="12"
-          stroke="#000"
-          stroke-linejoin="round"
-          stroke-width="2"
-        />
-      </svg>
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="32"
-        height="32"
-        viewBox="0 0 32 32"
-      >
-        <rect
-          x="3.9351"
-          y="4.0328"
-          width="12"
-          height="12"
-          fill="none"
-          stroke="#000"
-          stroke-linejoin="round"
-          stroke-width="2"
-        />
-        <rect
-          x="16.0649"
-          y="4.0328"
-          width="12"
-          height="12"
-          fill="none"
-          stroke="#000"
-          stroke-linejoin="round"
-          stroke-width="2"
-        />
-        <rect
-          x="16.0649"
-          y="15.9672"
-          width="12"
-          height="12"
-          stroke="#000"
-          stroke-linejoin="round"
-          stroke-width="2"
-        />
-        <rect
-          x="3.9351"
-          y="15.9672"
-          width="12"
-          height="12"
-          fill="none"
-          stroke="#000"
-          stroke-linejoin="round"
-          stroke-width="2"
-        />
-      </svg>
-
       <div class="row space-around align-center">
         <label
           v-show="playerImageBleedOrBoxed !== 'static'"
@@ -279,42 +22,127 @@
           />
         </label>
 
-        <fieldset class="radioUI__fieldset">
-          <legend class="radioUI__legend">Layout</legend>
+        <fieldset class="checkRadioButtons__fieldset">
+          <legend class="checkRadioButtons__legend">Layout</legend>
+          <div>
+            <label class="checkRadioButtons__label">
+              <input
+                type="radio"
+                class="checkRadioButtons__input hidden--visually"
+                v-model="cardLayout"
+                value="one-one"
+              />
+              <span
+                ><svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="32"
+                  height="32"
+                  viewBox="0 0 32 32"
+                >
+                  <g>
+                    <rect
+                      x="6.4855"
+                      y="2"
+                      width="19"
+                      height="28"
+                      fill="none"
+                      stroke="#000"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                    />
+                    <path
+                      d="M6.4855,26h19"
+                      fill="none"
+                      stroke="#000"
+                      stroke-width="2"
+                    />
+                    <path
+                      d="M6.6217,6h19"
+                      fill="none"
+                      stroke="#000"
+                      stroke-width="2"
+                    />
+                  </g></svg
+              ></span>
+            </label>
 
-          <label class="radioUI__label">
-            <input
-              type="radio"
-              class="radioUI__input"
-              v-model="cardLayout"
-              value="one-one"
-            />
-            <span>1-1</span>
-          </label>
+            <label class="checkRadioButtons__label">
+              <input
+                type="radio"
+                class="checkRadioButtons__input hidden--visually"
+                v-model="cardLayout"
+                value="zero-two"
+              />
+              <span
+                ><svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 32 32"
+                  width="32"
+                  height="32"
+                >
+                  <g>
+                    <rect
+                      x="6.4855"
+                      y="2"
+                      width="19"
+                      height="28"
+                      fill="none"
+                      stroke="#000"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                    />
+                    <path
+                      d="M6.4855,24.0566h19"
+                      fill="none"
+                      stroke="#000"
+                      stroke-width="2"
+                    />
+                  </g></svg
+              ></span>
+            </label>
 
-          <label class="radioUI__label">
-            <input
-              type="radio"
-              class="radioUI__input"
-              v-model="cardLayout"
-              value="zero-two"
-            />
-            <span>0-2</span>
-          </label>
-
-          <label class="radioUI__label">
-            <input
-              type="radio"
-              class="radioUI__input"
-              v-model="cardLayout"
-              value="two-zero"
-            />
-            <span>2-0</span>
-          </label>
+            <label class="checkRadioButtons__label">
+              <input
+                type="radio"
+                class="checkRadioButtons__input hidden--visually"
+                v-model="cardLayout"
+                value="two-zero"
+              />
+              <span
+                ><svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 32 32"
+                  width="32"
+                  height="32"
+                >
+                  <g>
+                    <rect
+                      x="6.4855"
+                      y="2"
+                      width="19"
+                      height="28"
+                      fill="none"
+                      stroke="#000"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                    />
+                    <path
+                      d="M25.4855,7.9434h-19"
+                      fill="none"
+                      stroke="#000"
+                      stroke-width="2"
+                    />
+                  </g></svg
+              ></span>
+            </label>
+          </div>
         </fieldset>
 
         <label class="rangeUI__label">
-          <span>Curve: <output :value="borderInner.curve"></output></span>
+          <span
+            >Curve
+            <!-- : <output :value="borderInner.curve"></output> -->
+          </span>
 
           <input
             class="rangeUI__input"
@@ -390,211 +218,393 @@
         <div class="col">
           <div class="row row--grow">
             <form class="filePicker__form">
-              <!--<fieldset class="filePicker__fieldset">-->
-              <div class="filePicker__wrapper">
-                <input
-                  id="filePicker_0"
-                  class="hidden--visually filePicker__input"
-                  type="file"
-                  accept="image/*"
-                />
-                <label
-                  for="filePicker_0"
-                  class="filePicker__label"
-                  aria-label="Upload Image"
-                  ><svg
-                    viewBox="0 0 32 32"
-                    width="32"
-                    height="32"
-                    fill="none"
-                    stroke="currentcolor"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                  >
-                    <use xlink:href="#iconphoto"></use></svg
-                ></label>
-              </div>
+              <fieldset class="filePicker__fieldset">
+                <legend class="filePicker__legend text-left">
+                  Player Image
+                </legend>
+                <div class="row">
+                  <div class="filePicker__wrapper">
+                    <input
+                      id="filePicker_0"
+                      class="hidden--visually filePicker__input"
+                      type="file"
+                      accept="image/*"
+                    />
+                    <label
+                      for="filePicker_0"
+                      class="filePicker__label"
+                      aria-label="Upload Image"
+                      ><svg
+                        viewBox="0 0 32 32"
+                        width="32"
+                        height="32"
+                        fill="none"
+                        stroke="currentcolor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                      >
+                        <use xlink:href="#iconphoto"></use></svg
+                    ></label>
+                  </div>
 
-              <div class="filePicker__wrapper">
-                <input
-                  id="filePicker_1"
-                  class="hidden--visually filePicker__input"
-                  type="file"
-                  capture="user"
-                  accept="image/*"
-                />
-                <label
-                  for="filePicker_1"
-                  class="filePicker__label"
-                  aria-label="Take Selfie"
-                  ><svg
-                    viewBox="0 0 32 32"
-                    width="32"
-                    height="32"
-                    fill="none"
-                    stroke="currentcolor"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                  >
-                    <use xlink:href="#iconcamera"></use></svg
-                ></label>
-              </div>
-
-              <div class="filePicker__wrapper">
-                <input
-                  id="filePicker_2"
-                  class="hidden--visually filePicker__input"
-                  type="file"
-                  accept="image/*"
-                />
-                <label
-                  for="filePicker_2"
-                  class="filePicker__label"
-                  aria-label="Upload Logo Image"
-                  ><svg
-                    viewBox="0 0 32 32"
-                    width="32"
-                    height="32"
-                    fill="none"
-                    stroke="currentcolor"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                  >
-                    <use xlink:href="#iconphoto"></use></svg
-                ></label>
-              </div>
+                  <div class="filePicker__wrapper">
+                    <input
+                      id="filePicker_1"
+                      class="hidden--visually filePicker__input"
+                      type="file"
+                      capture="user"
+                      accept="image/*"
+                    />
+                    <label
+                      for="filePicker_1"
+                      class="filePicker__label"
+                      aria-label="Take Selfie"
+                      ><svg
+                        viewBox="0 0 32 32"
+                        width="32"
+                        height="32"
+                        fill="none"
+                        stroke="currentcolor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                      >
+                        <use xlink:href="#iconcamera"></use></svg
+                    ></label>
+                  </div>
+                </div>
+              </fieldset>
+              <fieldset class="filePicker__fieldset">
+                <legend class="filePicker__legend text-right">Logo</legend>
+                <div class="row flex-end">
+                  <div class="filePicker__wrapper">
+                    <input
+                      id="filePicker_2"
+                      class="hidden--visually filePicker__input"
+                      type="file"
+                      accept="image/*"
+                    />
+                    <label
+                      for="filePicker_2"
+                      class="filePicker__label"
+                      aria-label="Upload Logo Image"
+                      ><svg
+                        viewBox="0 0 32 32"
+                        width="32"
+                        height="32"
+                        fill="none"
+                        stroke="currentcolor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                      >
+                        <use xlink:href="#iconphoto"></use></svg
+                    ></label>
+                  </div>
+                </div>
+              </fieldset>
             </form>
           </div>
           <div class="row space-between row--full-width">
-            <fieldset class="radioUI__fieldset radioUI__fieldset--textAbove">
-              <legend class="radioUI__legend">Filters</legend>
-              <div class="">
-                <label class="radioUI__label">
+            <fieldset class="checkRadioButtons__fieldset">
+              <legend class="checkRadioButtons__legend">Filters</legend>
+              <div>
+                <label class="checkRadioButtons__label">
                   <input
                     type="radio"
-                    class="radioUI__input"
+                    class="checkRadioButtons__input hidden--visually"
                     v-model="playerImageFilterEffect"
                     value="noFilterEffect"
                   />
-                  <span>Orig</span>
+                  <span>None</span>
                 </label>
 
-                <label class="radioUI__label">
+                <label class="checkRadioButtons__label">
                   <input
                     type="radio"
-                    class="radioUI__input"
+                    class="checkRadioButtons__input hidden--visually"
+                    v-model="playerImageFilterEffect"
+                    value="filterbw"
+                  />
+                  <span>B&amp;W</span>
+                </label>
+
+                <label class="checkRadioButtons__label">
+                  <input
+                    type="radio"
+                    class="checkRadioButtons__input hidden--visually"
                     v-model="playerImageFilterEffect"
                     value="filtersepia"
                   />
                   <span>Sepia</span>
                 </label>
 
-                <label class="radioUI__label">
+                <label class="checkRadioButtons__label">
                   <input
                     type="radio"
-                    class="radioUI__input"
-                    v-model="playerImageFilterEffect"
-                    value="filterbw"
-                  />
-                  <span>B&amp;W</span>
-                </label>
-                <label class="radioUI__label">
-                  <input
-                    type="radio"
-                    class="radioUI__input"
+                    class="checkRadioButtons__input hidden--visually"
                     v-model="playerImageFilterEffect"
                     value="filtervintage"
                   />
-                  <span>Vintage</span>
+                  <span>1920</span>
                 </label>
-                <!--<label class="radioUI__label">
+                <label class="checkRadioButtons__label">
                   <input
                     type="radio"
-                    class="radioUI__input"
-                    v-model="playerImageFilterEffect"
-                    value="filterposterize"
-                  />
-                  <span>Posterize</span>
-                </label>-->
-                <label class="radioUI__label">
-                  <input
-                    type="radio"
-                    class="radioUI__input"
+                    class="checkRadioButtons__input hidden--visually"
                     v-model="playerImageFilterEffect"
                     value="filternoblue"
                   />
-                  <span>No Blue</span>
+                  <span>Faded</span>
                 </label>
               </div>
             </fieldset>
-            <fieldset class="radioUI__fieldset radioUI__fieldset--textAbove">
-              <legend class="radioUI__legend">Logo</legend>
+
+            <fieldset class="checkRadioButtons__fieldset">
+              <legend class="checkRadioButtons__legend">Logo</legend>
               <div class="">
-                <label class="radioUI__label">
-                  <span>Top</span>
+                <label class="checkRadioButtons__label">
                   <input
                     type="radio"
-                    class="radioUI__input"
+                    class="checkRadioButtons__input hidden--visually"
                     v-model="logo.position"
                     value="topLeft"
                     aria-label="Top Left"
                   />
-                  <span>Left</span>
+                  <span>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="32"
+                      height="32"
+                      viewBox="0 0 32 32"
+                    >
+                      <rect
+                        x="3.9351"
+                        y="4.0328"
+                        width="12"
+                        height="12"
+                        stroke="#000"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                      />
+                      <rect
+                        x="16.0649"
+                        y="4.0328"
+                        width="12"
+                        height="12"
+                        fill="none"
+                        stroke="#000"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                      />
+                      <rect
+                        x="16.0649"
+                        y="15.9672"
+                        width="12"
+                        height="12"
+                        fill="none"
+                        stroke="#000"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                      />
+                      <rect
+                        x="3.9351"
+                        y="15.9672"
+                        width="12"
+                        height="12"
+                        fill="none"
+                        stroke="#000"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                      />
+                    </svg>
+                  </span>
                 </label>
 
-                <label class="radioUI__label">
-                  <span>Top</span>
+                <label class="checkRadioButtons__label">
                   <input
                     type="radio"
-                    class="radioUI__input"
+                    class="checkRadioButtons__input hidden--visually"
                     v-model="logo.position"
                     value="topRight"
                     aria-label="Top Right"
                   />
-                  <span>Right</span>
+                  <span
+                    ><svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="32"
+                      height="32"
+                      viewBox="0 0 32 32"
+                    >
+                      <rect
+                        x="3.9351"
+                        y="4.0328"
+                        width="12"
+                        height="12"
+                        fill="none"
+                        stroke="#000"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                      />
+                      <rect
+                        x="16.0649"
+                        y="4.0328"
+                        width="12"
+                        height="12"
+                        stroke="#000"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                      />
+                      <rect
+                        x="16.0649"
+                        y="15.9672"
+                        width="12"
+                        height="12"
+                        fill="none"
+                        stroke="#000"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                      />
+                      <rect
+                        x="3.9351"
+                        y="15.9672"
+                        width="12"
+                        height="12"
+                        fill="none"
+                        stroke="#000"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                      />
+                    </svg>
+                  </span>
                 </label>
 
-                <label class="radioUI__label">
-                  <span>Bottom</span>
+                <label class="checkRadioButtons__label">
                   <input
                     type="radio"
-                    class="radioUI__input"
+                    class="checkRadioButtons__input hidden--visually"
                     v-model="logo.position"
                     value="bottomLeft"
                     aria-label="Bottom Left"
                   />
-                  <span>Left</span>
+                  <span
+                    ><svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="32"
+                      height="32"
+                      viewBox="0 0 32 32"
+                    >
+                      <rect
+                        x="3.9351"
+                        y="4.0328"
+                        width="12"
+                        height="12"
+                        fill="none"
+                        stroke="#000"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                      />
+                      <rect
+                        x="16.0649"
+                        y="4.0328"
+                        width="12"
+                        height="12"
+                        fill="none"
+                        stroke="#000"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                      />
+                      <rect
+                        x="16.0649"
+                        y="15.9672"
+                        width="12"
+                        height="12"
+                        fill="none"
+                        stroke="#000"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                      />
+                      <rect
+                        x="3.9351"
+                        y="15.9672"
+                        width="12"
+                        height="12"
+                        stroke="#000"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                      />
+                    </svg>
+                  </span>
                 </label>
 
-                <label class="radioUI__label">
-                  <span>Bottom</span>
+                <label class="checkRadioButtons__label">
                   <input
                     type="radio"
-                    class="radioUI__input"
+                    class="checkRadioButtons__input hidden--visually"
                     v-model="logo.position"
                     value="bottomRight"
                     aria-label="Bottom Right"
                   />
-                  <span>
-                    Right
+                  <span
+                    ><svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="32"
+                      height="32"
+                      viewBox="0 0 32 32"
+                    >
+                      <rect
+                        x="3.9351"
+                        y="4.0328"
+                        width="12"
+                        height="12"
+                        fill="none"
+                        stroke="#000"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                      />
+                      <rect
+                        x="16.0649"
+                        y="4.0328"
+                        width="12"
+                        height="12"
+                        fill="none"
+                        stroke="#000"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                      />
+                      <rect
+                        x="16.0649"
+                        y="15.9672"
+                        width="12"
+                        height="12"
+                        stroke="#000"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                      />
+                      <rect
+                        x="3.9351"
+                        y="15.9672"
+                        width="12"
+                        height="12"
+                        fill="none"
+                        stroke="#000"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                      />
+                    </svg>
                   </span>
                 </label>
 
-                <label class="radioUI__label">
-                  <span>Hide</span>
+                <label class="checkRadioButtons__label">
                   <input
                     type="radio"
-                    class="radioUI__input"
+                    class="checkRadioButtons__input hidden--visually"
                     v-model="logo.position"
                     value="hideLogo"
                     aria-label="Bottom Right"
                   />
-                  <span>
-                    Logo
-                  </span>
+                  <span> None </span>
                 </label>
               </div>
             </fieldset>

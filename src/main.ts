@@ -1,6 +1,8 @@
 //typescript works in here out of the box
 import "./globalStyles/reset.scss";
 
+import "./globalStyles/utilities.scss";
+
 import "./globalStyles/grid.scss";
 
 import "./globalStyles/inputs.scss";
