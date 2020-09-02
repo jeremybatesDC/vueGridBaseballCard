@@ -381,6 +381,20 @@ input {
   }
 }
 
+h1,
+h2,
+h3 {
+  &:focus-within {
+    [data-show-only-on-interaction] {
+      .cardFront__wrapper--outermost & {
+        visibility: visible;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+    }
+  }
+}
+
 // card back element is an example
 
 .fui__wrap {

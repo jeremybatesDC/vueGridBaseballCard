@@ -4,9 +4,15 @@
 
 Labor Day launch.
 
-for consistency conisder color picker with text label and a palatte icon (to which the text color ocntrast function gets applied)
+time to generalize the text slider becaue i need to put the other 2 in today :-)
 
-there are other fonts still (though i'm using this one so thoroughyl...)
+can text align left/center/right be bumped to v2?
+
+the text sliders could take up middle design picture area -- might need to put them in the right place in the DOM.
+
+focusUI is cool -- but i may not want to block so much of the design in this case
+
+for consistency conisder color picker with text label and a palatte icon (to which the text color ocntrast function gets applied)
 
 so really it's just an upload button... I want it to match the logo image icon. And since image player icon can't be a mountain, and logo image prob shouldn't be a person, then need to generalize more
 Only 1 button per image field -- iOS will propmt them. And dictatcing camera makes browing image inaccessibilie sometimes which sucks
@@ -59,7 +65,6 @@ https://github.com/danklammer/bytesize-icons
 - options: https://camo.githubusercontent.com/27571c558459bfce3a07cdd814a6cb25195d46b0/68747470733a2f2f63646e2e7261776769742e636f6d2f64616e6b6c616d6d65722f6279746573697a652d69636f6e732f6d61737465722f646973742f69636f6e732f6f7074696f6e732e737667
 
 - star / flag
-- LAYOUTS
 
 grain:
 
@@ -79,8 +84,6 @@ click outside to close. v-click thing maybe?
 --> maybe there are more performant ways of setting css vars so there's not so much potential for catestrophic reflow
 
 --> default to a color that's not quite so white
-
---> text options include text-align
 
 --> For lines with 2 text inputs, consider not allowing width adjustments (maybe just color, grade, slant)
 
@@ -209,6 +212,10 @@ can i offer a 48px touch target (off to the side perhaps) while maintaining tigh
   --> might be good to show all font adjustment buttons for each text input, but not all buttons would be enabled for all fields. That way user won't wonder "what happened to width option?" but will be shown it just can't be applied here (may need clear helper text about limitations)
 
 ### 2nd release
+
+--> text options include text-align
+
+there are other fonts still (though i'm using this one so thoroughyl...and ascenders/descrender adjustment needed for making 16px look maller to avoid iOS zoom
 
 some font options look kinda frail... plus grade and weight aren't orthogonal... might consider switching here seriously... though later...
 

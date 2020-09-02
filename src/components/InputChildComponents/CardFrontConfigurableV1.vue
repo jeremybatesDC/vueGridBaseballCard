@@ -162,6 +162,62 @@
       <div class="text__line--first row">
         <h2 :style="cssTextLine1Props">
           <input v-model="teamName" type="text" placeholder maxlength="42" />
+          <div data-show-only-on-interaction>
+            <div class="row row--grow">
+              <label class="rangeUI__label">
+                <span
+                  >Weight: <output :value="textLine1.fontWeight"></output
+                ></span>
+
+                <input
+                  class="rangeUI__input"
+                  v-model="textLine1.fontWeight"
+                  type="range"
+                  min="150"
+                  max="800"
+                />
+              </label>
+              <label class="rangeUI__label">
+                <span
+                  >Width: <output :value="textLine1.fontWidth"></output
+                ></span>
+                <input
+                  class="rangeUI__input"
+                  v-model="textLine1.fontWidth"
+                  type="range"
+                  min="35"
+                  max="100"
+                />
+              </label>
+            </div>
+            <div class="row row--grow">
+              <label class="rangeUI__label">
+                <span
+                  >Slant: <output :value="textLine1.fontSlant"></output
+                ></span>
+                <input
+                  class="rangeUI__input"
+                  v-model="textLine1.fontSlant"
+                  type="range"
+                  min="-10"
+                  max="0"
+                />
+              </label>
+              <label class="rangeUI__label">
+                <span
+                  >Grade: <output :value="textLine1.fontGrade"></output
+                ></span>
+                <input
+                  class="rangeUI__input"
+                  v-model="textLine1.fontGrade"
+                  type="range"
+                  min="0"
+                  max="1"
+                  step=".1"
+                />
+              </label>
+            </div>
+          </div>
         </h2>
       </div>
       <div
@@ -616,59 +672,7 @@
         <form>
           <fieldset>
             <legend>Typography (field specific)</legend>
-            <div class="row">
-              <label class="rangeUI__label">
-                <span
-                  >Weight: <output :value="textLine1.fontWeight"></output
-                ></span>
-
-                <input
-                  class="rangeUI__input"
-                  v-model="textLine1.fontWeight"
-                  type="range"
-                  min="150"
-                  max="800"
-                />
-              </label>
-              <label class="rangeUI__label">
-                <span
-                  >Width: <output :value="textLine1.fontWidth"></output
-                ></span>
-                <input
-                  class="rangeUI__input"
-                  v-model="textLine1.fontWidth"
-                  type="range"
-                  min="35"
-                  max="100"
-                />
-              </label>
-
-              <label class="rangeUI__label">
-                <span
-                  >Slant: <output :value="textLine1.fontSlant"></output
-                ></span>
-                <input
-                  class="rangeUI__input"
-                  v-model="textLine1.fontSlant"
-                  type="range"
-                  min="-10"
-                  max="0"
-                />
-              </label>
-              <label class="rangeUI__label">
-                <span
-                  >Grade: <output :value="textLine1.fontGrade"></output
-                ></span>
-                <input
-                  class="rangeUI__input"
-                  v-model="textLine1.fontGrade"
-                  type="range"
-                  min="0"
-                  max="1"
-                  step=".1"
-                />
-              </label>
-            </div>
+            <div class="row"></div>
           </fieldset>
         </form>
       </div>
