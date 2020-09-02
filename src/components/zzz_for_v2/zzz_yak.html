@@ -1,0 +1,43 @@
+<fieldset class="checkRadioButtons__fieldset">
+  <legend class="checkRadioButtons__legend">Filters</legend>
+  <div>
+    <label class="checkRadioButtons__label">
+      <input
+        type="radio"
+        class="checkRadioButtons__input hidden--visually"
+        v-model="playerImageFilterEffect"
+        value="noFilterEffect"
+      />
+      <span>Orig</span>
+    </label>
+
+    <label class="checkRadioButtons__label">
+      <input
+        type="radio"
+        class="checkRadioButtons__input hidden--visually"
+        v-model="playerImageFilterEffect"
+        value="filtersepia"
+      />
+      <span>Sepia</span>
+    </label>
+
+    <label class="checkRadioButtons__label">
+      <input
+        type="radio"
+        class="checkRadioButtons__input hidden--visually"
+        v-model="playerImageFilterEffect"
+        value="filtervintage"
+      />
+      <span>Vintage</span>
+    </label>
+    <label class="checkRadioButtons__label">
+      <input
+        type="radio"
+        class="checkRadioButtons__input hidden--visually"
+        v-model="playerImageFilterEffect"
+        value="filternoblue"
+      />
+      <span>Faded</span>
+    </label>
+  </div>
+</fieldset>

@@ -23,8 +23,8 @@
         </label>
 
         <fieldset class="checkRadioButtons__fieldset">
-          <legend class="checkRadioButtons__legend">Layout</legend>
-          <div>
+          <legend class="checkRadioButtons__legend text-left">Layout</legend>
+          <div class="checkRadioButtons__wrapper--inner">
             <label class="checkRadioButtons__label">
               <input
                 type="radio"
@@ -219,9 +219,9 @@
           <div class="row row--grow">
             <form class="filePicker__form">
               <fieldset class="filePicker__fieldset">
-                <legend class="filePicker__legend text-left">
+                <!--<legend class="filePicker__legend text-left">
                   Player Image
-                </legend>
+                </legend>-->
                 <div class="row">
                   <div class="filePicker__wrapper">
                     <input
@@ -234,49 +234,18 @@
                       for="filePicker_0"
                       class="filePicker__label"
                       aria-label="Upload Image"
-                      ><svg
-                        viewBox="0 0 32 32"
+                    >
+                      <img
                         width="32"
                         height="32"
-                        fill="none"
-                        stroke="currentcolor"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                      >
-                        <use xlink:href="#iconphoto"></use></svg
-                    ></label>
-                  </div>
-
-                  <div class="filePicker__wrapper">
-                    <input
-                      id="filePicker_1"
-                      class="hidden--visually filePicker__input"
-                      type="file"
-                      capture="user"
-                      accept="image/*"
-                    />
-                    <label
-                      for="filePicker_1"
-                      class="filePicker__label"
-                      aria-label="Take Selfie"
-                      ><svg
-                        viewBox="0 0 32 32"
-                        width="32"
-                        height="32"
-                        fill="none"
-                        stroke="currentcolor"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                      >
-                        <use xlink:href="#iconcamera"></use></svg
-                    ></label>
+                        loading="lazy"
+                        src="/images/addPlayerImage.png"
+                    /></label>
                   </div>
                 </div>
               </fieldset>
               <fieldset class="filePicker__fieldset">
-                <legend class="filePicker__legend text-right">Logo</legend>
+                <!--<legend class="filePicker__legend text-right">Logo</legend>-->
                 <div class="row flex-end">
                   <div class="filePicker__wrapper">
                     <input
@@ -619,10 +588,7 @@
 
     <!-- end card -->
 
-    <details>
-      <summary>
-        Focus UI controls
-      </summary>
+    <section>
       <div>
         <form>
           <fieldset>
@@ -680,7 +646,7 @@
           </fieldset>
         </form>
       </div>
-    </details>
+    </section>
   </div>
 </template>
 
@@ -991,6 +957,8 @@ h6 {
 
 h2 {
   font-size: 1.8rem;
+  display: flex;
+  flex-grow: 1;
   input[type="text"] {
     // still mulling this over
     //text-shadow: 1px 0 0 rgba(black, 0.5), 1px 0 0 rgba(cyan, 0.8),
@@ -1024,6 +992,7 @@ h3 {
 }
 
 .image--player {
+  background-color: #fff;
   // depending on layout might want to make object-position managable yarh
   object-position: 0 50%;
   width: 100%;

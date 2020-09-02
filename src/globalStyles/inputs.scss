@@ -204,14 +204,22 @@ input {
     background-color: var(--background-for-overlay-controls);
     // need to set this here otherwise itS going to inherit the coor change from the card itseld (oops, my bad)
     color: #000;
+    .cardFront__controls & {
+      background-color: transparent;
+    }
   }
   &__legend {
     display: flex;
     font-variation-settings: var(--text-short-wide);
 
-    background-color: var(--background-for-overlay-controls);
+    //background-color: var(--background-for-overlay-controls);
 
     text-transform: uppercase;
+  }
+  &__wrapper {
+    &--inner {
+      background-color: var(--background-for-overlay-controls);
+    }
   }
   &__label {
     display: inline-flex;
@@ -248,13 +256,14 @@ input {
     display: flex;
     width: 100%;
     height: var(--min-touch-target);
-    background-color: var(--background-for-overlay-controls);
+    //padding: 0 6.4rem;
+    //background-color: var(--background-for-overlay-controls);
   }
   &__wrapper {
     display: flex;
     position: relative;
-
-    width: var(--min-touch-target);
+    //padding: 0 0.8rem;
+    //width: var(--min-touch-target);
     //border: 1px solid #000;
     overflow: hidden;
     align-items: center;
@@ -267,6 +276,8 @@ input {
   &__fieldset {
     display: flex;
     width: 100%;
+    background-color: var(--background-for-overlay-controls);
+    padding: 0 0.8rem;
     border: none;
   }
   &__legend {
@@ -288,6 +299,8 @@ input {
     display: flex;
     flex-direction: column;
     flex-grow: 1;
+    width: var(--min-touch-target);
+    height: var(--min-touch-target);
     text-transform: uppercase;
     justify-content: center;
     align-items: center;

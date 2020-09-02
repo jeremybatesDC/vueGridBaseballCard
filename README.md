@@ -4,6 +4,15 @@
 
 Labor Day launch.
 
+for consistency conisder color picker with text label and a palatte icon (to which the text color ocntrast function gets applied)
+
+there are other fonts still (though i'm using this one so thoroughyl...)
+
+so really it's just an upload button... I want it to match the logo image icon. And since image player icon can't be a mountain, and logo image prob shouldn't be a person, then need to generalize more
+Only 1 button per image field -- iOS will propmt them. And dictatcing camera makes browing image inaccessibilie sometimes which sucks
+
+CARD FRONT FIGURE DESIGN ROW BACKGROUND NEEDS TO HAVE A COLOR HACKGROUND MAYBE LIKE CARD STOCK
+
 image editing close "button" needs styling and positioning...
 
 legends need left right padding of like 2px each
