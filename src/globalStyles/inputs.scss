@@ -348,7 +348,7 @@ input {
   left: 0;
   //background: rgba(0, 0, 0, 0.5);
   //width: 100%;
-  padding: 1.6rem 0;
+  padding: 4.8rem 0 0 0;
   visibility: hidden;
   overflow: visible;
   z-index: 2;
@@ -362,7 +362,11 @@ input {
     font-size: 1.6rem;
     padding: 1.6rem;
     //color: #fff;
+    &.rangeUI__label {
+      color: #fff;
+    }
   }
+
   &.playerImage__controls {
     top: 0;
     padding-top: 0;
@@ -377,20 +381,6 @@ input {
   &:checked {
     + [data-show-only-on-interaction] {
       visibility: visible;
-    }
-  }
-}
-
-h1,
-h2,
-h3 {
-  &:focus-within {
-    [data-show-only-on-interaction] {
-      .cardFront__wrapper--outermost & {
-        visibility: visible;
-        top: 50%;
-        transform: translateY(-50%);
-      }
     }
   }
 }

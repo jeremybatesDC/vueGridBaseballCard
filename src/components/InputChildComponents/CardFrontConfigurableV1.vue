@@ -160,65 +160,74 @@
       :class="[cardLayout, playerImageBleedOrBoxed]"
     >
       <div class="text__line--first row">
-        <h2 :style="cssTextLine1Props">
-          <input v-model="teamName" type="text" placeholder maxlength="42" />
-          <div data-show-only-on-interaction>
-            <div class="row row--grow">
-              <label class="rangeUI__label">
-                <span
-                  >Weight: <output :value="textLine1.fontWeight"></output
-                ></span>
+        <span class="fui__wrap">
+          <h2 :style="cssTextLine1Props" class="fui__mid">
+            <input
+              class="fui__formElem"
+              v-model="teamName"
+              type="text"
+              placeholder
+              maxlength="42"
+            />
 
-                <input
-                  class="rangeUI__input"
-                  v-model="textLine1.fontWeight"
-                  type="range"
-                  min="150"
-                  max="800"
-                />
-              </label>
-              <label class="rangeUI__label">
-                <span
-                  >Width: <output :value="textLine1.fontWidth"></output
-                ></span>
-                <input
-                  class="rangeUI__input"
-                  v-model="textLine1.fontWidth"
-                  type="range"
-                  min="35"
-                  max="100"
-                />
-              </label>
+            <div data-show-only-on-interaction>
+              <div class="row row--grow">
+                <label class="rangeUI__label">
+                  <span
+                    >Weight: <output :value="textLine1.fontWeight"></output
+                  ></span>
+
+                  <input
+                    class="rangeUI__input"
+                    v-model="textLine1.fontWeight"
+                    type="range"
+                    min="150"
+                    max="800"
+                  />
+                </label>
+                <label class="rangeUI__label">
+                  <span
+                    >Width: <output :value="textLine1.fontWidth"></output
+                  ></span>
+                  <input
+                    class="rangeUI__input"
+                    v-model="textLine1.fontWidth"
+                    type="range"
+                    min="35"
+                    max="100"
+                  />
+                </label>
+              </div>
+              <div class="row row--grow">
+                <label class="rangeUI__label">
+                  <span
+                    >Slant: <output :value="textLine1.fontSlant"></output
+                  ></span>
+                  <input
+                    class="rangeUI__input"
+                    v-model="textLine1.fontSlant"
+                    type="range"
+                    min="-10"
+                    max="0"
+                  />
+                </label>
+                <label class="rangeUI__label">
+                  <span
+                    >Grade: <output :value="textLine1.fontGrade"></output
+                  ></span>
+                  <input
+                    class="rangeUI__input"
+                    v-model="textLine1.fontGrade"
+                    type="range"
+                    min="0"
+                    max="1"
+                    step=".1"
+                  />
+                </label>
+              </div>
             </div>
-            <div class="row row--grow">
-              <label class="rangeUI__label">
-                <span
-                  >Slant: <output :value="textLine1.fontSlant"></output
-                ></span>
-                <input
-                  class="rangeUI__input"
-                  v-model="textLine1.fontSlant"
-                  type="range"
-                  min="-10"
-                  max="0"
-                />
-              </label>
-              <label class="rangeUI__label">
-                <span
-                  >Grade: <output :value="textLine1.fontGrade"></output
-                ></span>
-                <input
-                  class="rangeUI__input"
-                  v-model="textLine1.fontGrade"
-                  type="range"
-                  min="0"
-                  max="1"
-                  step=".1"
-                />
-              </label>
-            </div>
-          </div>
-        </h2>
+          </h2>
+        </span>
       </div>
       <div
         :class="`row--middle--forDesign row ${logo.position} ${borderInner.style} ${playerImageFilterEffect}`"
@@ -251,17 +260,30 @@
         </figure>
       </div>
       <div class="text__line--second row">
-        <h1 :style="cssTextLine2Props">
-          <input v-model="playerName" type="text" placeholder maxlength="48" />
-        </h1>
-        <h3 :style="cssTextPlayerPositionProps">
-          <input
-            v-model="playerPosition"
-            type="text"
-            placeholder
-            maxlength="48"
-          />
-        </h3>
+        <span class="fui__wrap">
+          <h1 :style="cssTextLine2Props" class="fui__mid">
+            <input
+              class="fui__formElem"
+              v-model="playerName"
+              type="text"
+              placeholder
+              maxlength="48"
+            />
+            <TextSlider v-bind="textLine2"></TextSlider>
+          </h1>
+        </span>
+        <span class="fui__wrap">
+          <h3 :style="cssTextPlayerPositionProps" class="fui__mid">
+            <input
+              class="fui__formElem"
+              v-model="playerPosition"
+              type="text"
+              placeholder
+              maxlength="48"
+            />
+            <TextSlider v-bind="textPlayerPosition"></TextSlider>
+          </h3>
+        </span>
       </div>
       <input
         id="inputTriggerFocusUI_0"
@@ -660,23 +682,6 @@
     </div>
 
     <!-- end card -->
-
-    <section>
-      <div>
-        <form>
-          <fieldset>
-            <div class=""></div>
-          </fieldset>
-        </form>
-
-        <form>
-          <fieldset>
-            <legend>Typography (field specific)</legend>
-            <div class="row"></div>
-          </fieldset>
-        </form>
-      </div>
-    </section>
   </div>
 </template>
 
@@ -687,8 +692,12 @@
 
 <script>
 import defaultSettings from "/json/default-settings.json";
+import TextSlider from "./TextSlider.vue";
 
 export default {
+  //setup: function () {
+  //  return { TextSlider };
+  //},
   data: function () {
     return {
       cardBackgroundColor: defaultSettings.cardBackgroundColor,
@@ -813,6 +822,9 @@ export default {
         "--borderinnerwidth": `${this.borderInner.width}px`,
       };
     },
+  },
+  components: {
+    TextSlider,
   },
 };
 </script>

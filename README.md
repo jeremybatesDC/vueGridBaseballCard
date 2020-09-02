@@ -4,6 +4,14 @@
 
 Labor Day launch.
 
+WITH SOME SPANS for fui classes and setting heights on text lines we can preserve space for fui
+
+since it makes sense / is necessary to edit text in a focus UI state (this has been reasoned through now fully twice), perhaps the input doesn't have to be INSIDE the h1, h2, and h3... Interesting reversal... This is needed i think... When clicked that field's actual input element could be revealed... (keep in mind though this helps with the focus-UI idea of focus-within... but that might be cheating anyway... gotta think this through...
+
+these don't have to be inputs. Perhaps they can be
+
+maybe add inline hidden attr to data-showon interaction so doesn't flash worst case
+
 time to generalize the text slider becaue i need to put the other 2 in today :-)
 
 can text align left/center/right be bumped to v2?

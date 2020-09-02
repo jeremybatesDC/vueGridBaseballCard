@@ -1,28 +1,49 @@
 <template>
   <div tabindex="0" data-show-only-on-interaction>
-    <div class="row">
-      <label>
-        Font Weight:
-        <output>100</output>
-        <input type="range" min="100" max="900" />
+    <div class="row row--grow">
+      <label class="rangeUI__label">
+        <span>Weight: <output :value=""></output></span>
+
+        <input
+          class="rangeUI__input"
+          v-model=""
+          type="range"
+          min="150"
+          max="800"
+        />
       </label>
-      <label>
-        Font Width:
-        <output>100</output>
-        <input type="range" min="35" max="100" />
+      <label class="rangeUI__label">
+        <span>Width: <output :value=""></output></span>
+        <input
+          class="rangeUI__input"
+          v-model=""
+          type="range"
+          min="35"
+          max="100"
+        />
       </label>
     </div>
-    <!-- need a better easy grid -->
-    <div class="row">
-      <label>
-        Font Slant:
-        <output>100</output>
-        <input type="range" min="-10" max="0" />
+    <div class="row row--grow">
+      <label class="rangeUI__label">
+        <span>Slant: <output :value=""></output></span>
+        <input
+          class="rangeUI__input"
+          v-model=""
+          type="range"
+          min="-10"
+          max="0"
+        />
       </label>
-      <label>
-        Font Grade:
-        <output>100</output>
-        <input type="range" min="0" max="48" />
+      <label class="rangeUI__label">
+        <span>Grade: <output :value=""></output></span>
+        <input
+          class="rangeUI__input"
+          v-model=""
+          type="range"
+          min="0"
+          max="1"
+          step=".1"
+        />
       </label>
     </div>
   </div>
@@ -32,3 +53,9 @@
 <script>
 export default {};
 </script>
+
+<style lang="scss" scoped>
+.rangeUI__label {
+  color: #fff;
+}
+</style>
