@@ -261,6 +261,7 @@ input {
   }
   &__wrapper {
     display: flex;
+    flex-grow: 1;
     position: relative;
     //padding: 0 0.8rem;
     //width: var(--min-touch-target);
@@ -279,6 +280,9 @@ input {
     background-color: var(--background-for-overlay-controls);
     padding: 0 0.8rem;
     border: none;
+    &:not(:first-of-type) {
+      box-shadow: -1px 0 #666666;
+    }
   }
   &__legend {
     display: flex;
@@ -299,13 +303,16 @@ input {
     display: flex;
     flex-direction: column;
     flex-grow: 1;
-    width: var(--min-touch-target);
+    min-width: var(--min-touch-target);
     height: var(--min-touch-target);
     text-transform: uppercase;
     justify-content: center;
     align-items: center;
     color: #000;
     cursor: pointer;
+    span {
+      font-variation-settings: var(--text-short-wide);
+    }
     &--fullTargetTransparent {
       position: absolute;
       top: 0;

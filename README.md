@@ -210,6 +210,8 @@ can i offer a 48px touch target (off to the side perhaps) while maintaining tigh
 
 ### 2nd release
 
+some font options look kinda frail... plus grade and weight aren't orthogonal... might consider switching here seriously... though later...
+
 --> place for Card Number
 
 --> re-consider icon for color, although unambiguos text really is better

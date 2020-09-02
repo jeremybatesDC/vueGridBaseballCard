@@ -198,7 +198,7 @@
         <h1 :style="cssTextLine2Props">
           <input v-model="playerName" type="text" placeholder maxlength="48" />
         </h1>
-        <h3>
+        <h3 :style="cssTextPlayerPositionProps">
           <input
             v-model="playerPosition"
             type="text"
@@ -235,12 +235,26 @@
                       class="filePicker__label"
                       aria-label="Upload Image"
                     >
+                      <!--<svg
+                        viewBox="0 0 32 32"
+                        width="32"
+                        height="32"
+                        fill="none"
+                        stroke="currentcolor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                      >
+                        <use xlink:href="#iconportraitadd"></use>
+                      </svg>-->
                       <img
                         width="32"
                         height="32"
                         loading="lazy"
-                        src="/images/addPlayerImage.png"
-                    /></label>
+                        src="/images/addPortrait.svg"
+                      />
+                      <span>Upload Portrait</span>
+                    </label>
                   </div>
                 </div>
               </fieldset>
@@ -254,11 +268,14 @@
                       type="file"
                       accept="image/*"
                     />
+
                     <label
                       for="filePicker_2"
                       class="filePicker__label"
                       aria-label="Upload Logo Image"
-                      ><svg
+                    >
+                      <span>Upload Logo</span>
+                      <svg
                         viewBox="0 0 32 32"
                         width="32"
                         height="32"
@@ -601,21 +618,25 @@
             <legend>Typography (field specific)</legend>
             <div class="row">
               <label class="rangeUI__label">
-                <span>Font Weight: <output value="999"></output></span>
+                <span
+                  >Weight: <output :value="textLine1.fontWeight"></output
+                ></span>
 
                 <input
                   class="rangeUI__input"
-                  v-model="cardTextFontWeight"
+                  v-model="textLine1.fontWeight"
                   type="range"
-                  min="100"
-                  max="900"
+                  min="150"
+                  max="800"
                 />
               </label>
               <label class="rangeUI__label">
-                <span>Font Width: <output value="999"></output></span>
+                <span
+                  >Width: <output :value="textLine1.fontWidth"></output
+                ></span>
                 <input
                   class="rangeUI__input"
-                  v-model="cardTextFontWidth"
+                  v-model="textLine1.fontWidth"
                   type="range"
                   min="35"
                   max="100"
@@ -623,23 +644,28 @@
               </label>
 
               <label class="rangeUI__label">
-                <span>Font Slant: <output value="999"></output></span>
+                <span
+                  >Slant: <output :value="textLine1.fontSlant"></output
+                ></span>
                 <input
                   class="rangeUI__input"
-                  v-model="cardTextFontSlant"
+                  v-model="textLine1.fontSlant"
                   type="range"
                   min="-10"
                   max="0"
                 />
               </label>
               <label class="rangeUI__label">
-                <span>Font Grade: <output value="999"></output></span>
+                <span
+                  >Grade: <output :value="textLine1.fontGrade"></output
+                ></span>
                 <input
                   class="rangeUI__input"
-                  v-model="cardTextFontGrade"
+                  v-model="textLine1.fontGrade"
                   type="range"
                   min="0"
-                  max="48"
+                  max="1"
+                  step=".1"
                 />
               </label>
             </div>
@@ -698,6 +724,12 @@ export default {
         fontGrade: defaultSettings.textLine2.fontGrade,
         fontSlant: defaultSettings.textLine2.fontSlant,
       },
+      textPlayerPosition: {
+        fontWeight: defaultSettings.textPlayerPosition.fontWeight,
+        fontWidth: defaultSettings.textPlayerPosition.fontWidth,
+        fontGrade: defaultSettings.textPlayerPosition.fontGrade,
+        fontSlant: defaultSettings.textPlayerPosition.fontSlant,
+      },
     };
   },
   computed: {
@@ -750,6 +782,15 @@ export default {
         "--fontwidth": this.textLine2.fontWidth,
         "--fontgrade": this.textLine2.fontGrade,
         "--fontslant": this.textLine2.fontSlant,
+      };
+    },
+    cssTextPlayerPositionProps() {
+      return {
+        //"--color": this.textLine2.color,
+        "--fontweight": this.textPlayerPosition.fontWeight,
+        "--fontwidth": this.textPlayerPosition.fontWidth,
+        "--fontgrade": this.textPlayerPosition.fontGrade,
+        "--fontslant": this.textPlayerPosition.fontSlant,
       };
     },
     cssLogoProps() {
