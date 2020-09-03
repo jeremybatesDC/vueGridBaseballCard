@@ -27,22 +27,42 @@
         <!-- nested row -->
         <div class="row stripe--dark">
           <label>
-            <input class="fui__formElem" type="email" v-model="defaultFacts.info.info_0" />
+            <input
+              class="fui__formElem"
+              type="email"
+              v-model="defaultFacts.info.info_0"
+            />
           </label>
 
           <label>
-            <input class="fui__formElem" type="text" v-model="defaultFacts.info.info_1" />
+            <input
+              class="fui__formElem"
+              type="text"
+              v-model="defaultFacts.info.info_1"
+            />
           </label>
         </div>
         <div class="row">
           <label>
-            <input class="fui__formElem" type="text" v-model="defaultFacts.info.info_4" />
+            <input
+              class="fui__formElem"
+              type="text"
+              v-model="defaultFacts.info.info_4"
+            />
           </label>
           <label>
-            <input class="fui__formElem" type="text" v-model="defaultFacts.info.info_5" />
+            <input
+              class="fui__formElem"
+              type="text"
+              v-model="defaultFacts.info.info_5"
+            />
           </label>
           <label>
-            <input class="fui__formElem" type="text" v-model="defaultFacts.info.info_6" />
+            <input
+              class="fui__formElem"
+              type="text"
+              v-model="defaultFacts.info.info_6"
+            />
           </label>
         </div>
       </span>

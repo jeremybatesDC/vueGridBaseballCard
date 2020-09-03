@@ -795,9 +795,7 @@
         </div>
       </div>
       <!-- end QuasiModal-->
-      <label class="omniClose__label" for="inputTriggerFocusUI_0"
-        >CLOSE B</label
-      >
+      <label class="omniClose__label" for="inputTriggerFocusUI_0"></label>
     </div>
 
     <!-- end card -->

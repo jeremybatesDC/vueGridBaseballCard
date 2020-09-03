@@ -378,6 +378,7 @@ input {
 }
 
 .omniClose {
+  // this still flickers for some reason... need to think it through.. .
   &__label {
     display: none;
     position: absolute;
@@ -385,8 +386,16 @@ input {
     left: -100vw;
     width: 300vw;
     height: 300vh;
-    background-color: transparent;
+    background: none;
     z-index: -1;
+    opacity: 0;
+    &:hover,
+    &:active,
+    &:focus {
+      outline: none !important;
+    }
+    // boom baby
+    -webkit-tap-highlight-color: transparent !important;
   }
 }
 
