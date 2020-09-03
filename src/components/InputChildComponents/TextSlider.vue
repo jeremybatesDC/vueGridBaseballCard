@@ -51,7 +51,9 @@
 
 
 <script>
-export default {};
+export default {
+  props: ["modelValue"],
+};
 </script>
 
 <style lang="scss" scoped>

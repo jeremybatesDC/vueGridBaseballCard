@@ -269,7 +269,63 @@
               placeholder
               maxlength="48"
             />
-            <TextSlider v-bind="textLine2"></TextSlider>
+            <!--<TextSlider v-model="textLine2"></TextSlider>-->
+            <div data-show-only-on-interaction>
+              <div class="row row--grow">
+                <label class="rangeUI__label">
+                  <span
+                    >Weight: <output :value="textLine2.fontWeight"></output
+                  ></span>
+
+                  <input
+                    class="rangeUI__input"
+                    v-model="textLine2.fontWeight"
+                    type="range"
+                    min="150"
+                    max="800"
+                  />
+                </label>
+                <label class="rangeUI__label">
+                  <span
+                    >Width: <output :value="textLine2.fontWidth"></output
+                  ></span>
+                  <input
+                    class="rangeUI__input"
+                    v-model="textLine2.fontWidth"
+                    type="range"
+                    min="35"
+                    max="100"
+                  />
+                </label>
+              </div>
+              <div class="row row--grow">
+                <label class="rangeUI__label">
+                  <span
+                    >Slant: <output :value="textLine2.fontSlant"></output
+                  ></span>
+                  <input
+                    class="rangeUI__input"
+                    v-model="textLine2.fontSlant"
+                    type="range"
+                    min="-10"
+                    max="0"
+                  />
+                </label>
+                <label class="rangeUI__label">
+                  <span
+                    >Grade: <output :value="textLine2.fontGrade"></output
+                  ></span>
+                  <input
+                    class="rangeUI__input"
+                    v-model="textLine2.fontGrade"
+                    type="range"
+                    min="0"
+                    max="1"
+                    step=".1"
+                  />
+                </label>
+              </div>
+            </div>
           </h1>
         </span>
         <span class="fui__wrap">
@@ -281,7 +337,67 @@
               placeholder
               maxlength="48"
             />
-            <TextSlider v-bind="textPlayerPosition"></TextSlider>
+            <!--<TextSlider v-model="textPlayerPosition"></TextSlider>-->
+            <div data-show-only-on-interaction>
+              <div class="row row--grow">
+                <label class="rangeUI__label">
+                  <span
+                    >Weight:
+                    <output :value="textPlayerPosition.fontWeight"></output
+                  ></span>
+
+                  <input
+                    class="rangeUI__input"
+                    v-model="textPlayerPosition.fontWeight"
+                    type="range"
+                    min="150"
+                    max="800"
+                  />
+                </label>
+                <label class="rangeUI__label">
+                  <span
+                    >Width:
+                    <output :value="textPlayerPosition.fontWidth"></output
+                  ></span>
+                  <input
+                    class="rangeUI__input"
+                    v-model="textPlayerPosition.fontWidth"
+                    type="range"
+                    min="35"
+                    max="100"
+                  />
+                </label>
+              </div>
+              <div class="row row--grow">
+                <label class="rangeUI__label">
+                  <span
+                    >Slant:
+                    <output :value="textPlayerPosition.fontSlant"></output
+                  ></span>
+                  <input
+                    class="rangeUI__input"
+                    v-model="textPlayerPosition.fontSlant"
+                    type="range"
+                    min="-10"
+                    max="0"
+                  />
+                </label>
+                <label class="rangeUI__label">
+                  <span
+                    >Grade:
+                    <output :value="textPlayerPosition.fontGrade"></output
+                  ></span>
+                  <input
+                    class="rangeUI__input"
+                    v-model="textPlayerPosition.fontGrade"
+                    type="range"
+                    min="0"
+                    max="1"
+                    step=".1"
+                  />
+                </label>
+              </div>
+            </div>
           </h3>
         </span>
       </div>
@@ -907,6 +1023,12 @@ export default {
   .row--middle--forDesign {
     order: 0;
   }
+
+  //preserve space because fui moves things
+  .text__line--first,
+  .text__line--second {
+    height: var(--min-touch-target);
+  }
 }
 .zero-two {
   justify-content: flex-end;
@@ -914,6 +1036,11 @@ export default {
   padding-bottom: 0;
   .row--middle--forDesign {
     order: -1;
+  }
+
+  .text__line--first,
+  .text__line--second {
+    height: 3.2rem;
   }
   .text__line--first {
     padding-top: 0.8rem;
@@ -928,6 +1055,10 @@ export default {
   padding-bottom: 1.6rem;
   .row--middle--forDesign {
     order: 1;
+  }
+  .text__line--first,
+  .text__line--second {
+    height: 3.2rem;
   }
   .text__line--first {
     padding-top: 0.8rem;
