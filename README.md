@@ -4,24 +4,7 @@
 
 Labor Day launch.
 
-background color of FUI input should match bg color of card so color contrast can come through
-and put focus UI text a tad lower so it doesn't seem to "favor" the top line in terms of appearing falsly to reflect position
-
-WITH SOME SPANS for fui classes and setting heights on text lines we can preserve space for fui
-
-since it makes sense / is necessary to edit text in a focus UI state (this has been reasoned through now fully twice), perhaps the input doesn't have to be INSIDE the h1, h2, and h3... Interesting reversal... This is needed i think... When clicked that field's actual input element could be revealed... (keep in mind though this helps with the focus-UI idea of focus-within... but that might be cheating anyway... gotta think this through...
-
-these don't have to be inputs. Perhaps they can be
-
-maybe add inline hidden attr to data-showon interaction so doesn't flash worst case
-
-time to generalize the text slider becaue i need to put the other 2 in today :-)
-
-can text align left/center/right be bumped to v2?
-
-the text sliders could take up middle design picture area -- might need to put them in the right place in the DOM.
-
-focusUI is cool -- but i may not want to block so much of the design in this case
+logo click target man
 
 for consistency conisder color picker with text label and a palatte icon (to which the text color ocntrast function gets applied)
 
@@ -36,11 +19,7 @@ legends need left right padding of like 2px each
 
 are there room for clear labels across top? Upload/ Take Pic / are pretty useful labels
 
-might need top "player and logo image" control to be more like 60 or 88 or whatever tall. Otherwise it looks too busy in 2-0 laout
-
 colorpicker UI on ios has clipped borders.
-
-logo click target man
 
 replace filepicker player image upload button with an icon of a picture that feautures a person not a mountian: something like: https://iconmonstr.com/picture-4-svg/
 
@@ -223,6 +202,12 @@ can i offer a 48px touch target (off to the side perhaps) while maintaining tigh
   --> might be good to show all font adjustment buttons for each text input, but not all buttons would be enabled for all fields. That way user won't wonder "what happened to width option?" but will be shown it just can't be applied here (may need clear helper text about limitations)
 
 ### 2nd release
+
+can text align left/center/right be bumped to v2?
+
+--> generalize text slider man!
+
+v2: since it makes sense / is necessary to edit text in a focus UI state (this has been reasoned through now fully twice), perhaps the input doesn't have to be INSIDE the h1, h2, and h3... Interesting reversal... This is needed i think... When clicked that field's actual input element could be revealed... (keep in mind though this helps with the focus-UI idea of focus-within... but that might be cheating anyway... gotta think this through...
 
 --> text options include text-align
 

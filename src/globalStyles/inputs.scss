@@ -406,6 +406,9 @@ input {
     background-color: rgba(0, 0, 0, 0.75);
 
     z-index: 1;
+    .card__container--front & {
+      padding-top: var(--min-touch-target);
+    }
     .fui__mid {
       position: relative;
       width: 100%;

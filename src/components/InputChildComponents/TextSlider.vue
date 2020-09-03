@@ -1,5 +1,5 @@
 <template>
-  <div tabindex="0" data-show-only-on-interaction>
+  <div tabindex="0" data-show-only-on-interaction hidden>
     <div class="row row--grow">
       <label class="rangeUI__label">
         <span>Weight: <output :value=""></output></span>

@@ -170,7 +170,7 @@
               maxlength="42"
             />
 
-            <div data-show-only-on-interaction>
+            <div data-show-only-on-interaction hidden>
               <div class="row row--grow">
                 <label class="rangeUI__label">
                   <span
@@ -270,7 +270,7 @@
               maxlength="48"
             />
             <!--<TextSlider v-model="textLine2"></TextSlider>-->
-            <div data-show-only-on-interaction>
+            <div data-show-only-on-interaction hidden>
               <div class="row row--grow">
                 <label class="rangeUI__label">
                   <span
@@ -338,7 +338,7 @@
               maxlength="48"
             />
             <!--<TextSlider v-model="textPlayerPosition"></TextSlider>-->
-            <div data-show-only-on-interaction>
+            <div data-show-only-on-interaction hidden>
               <div class="row row--grow">
                 <label class="rangeUI__label">
                   <span
