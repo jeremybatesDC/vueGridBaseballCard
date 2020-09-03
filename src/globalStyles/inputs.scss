@@ -344,11 +344,11 @@ input {
   flex-wrap: wrap;
   //flex-direction: column;
   width: 100%;
-  //top: 100%;
+  top: 100%;
   left: 0;
   //background: rgba(0, 0, 0, 0.5);
   //width: 100%;
-  padding: 4.8rem 0 0 0;
+  padding: 0;
   visibility: hidden;
   overflow: visible;
   z-index: 2;
@@ -416,7 +416,9 @@ input {
       // MIN font-size SHOULD BE 1.6rem;
       font-family: inherit;
       padding: 0.4rem;
-      background: #fff;
+      .card__container--front & {
+        background-color: var(--cardbackgroundcolor);
+      }
     }
     [data-show-only-on-interaction] {
       visibility: visible;

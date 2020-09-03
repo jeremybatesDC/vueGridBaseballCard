@@ -4,6 +4,9 @@
 
 Labor Day launch.
 
+background color of FUI input should match bg color of card so color contrast can come through
+and put focus UI text a tad lower so it doesn't seem to "favor" the top line in terms of appearing falsly to reflect position
+
 WITH SOME SPANS for fui classes and setting heights on text lines we can preserve space for fui
 
 since it makes sense / is necessary to edit text in a focus UI state (this has been reasoned through now fully twice), perhaps the input doesn't have to be INSIDE the h1, h2, and h3... Interesting reversal... This is needed i think... When clicked that field's actual input element could be revealed... (keep in mind though this helps with the focus-UI idea of focus-within... but that might be cheating anyway... gotta think this through...

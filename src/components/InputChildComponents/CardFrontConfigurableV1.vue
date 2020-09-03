@@ -808,7 +808,7 @@
 
 <script>
 import defaultSettings from "/json/default-settings.json";
-import TextSlider from "./TextSlider.vue";
+//import TextSlider from "./TextSlider.vue";
 
 export default {
   //setup: function () {
@@ -939,9 +939,9 @@ export default {
       };
     },
   },
-  components: {
-    TextSlider,
-  },
+  //components: {
+  //  TextSlider,
+  //},
 };
 </script>
 
