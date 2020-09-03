@@ -87,6 +87,7 @@ export default {
   --contrast-threshold-for-controls: 0.9;
   --border-threshold: 0.8;
   --grey-for-controls: #c7c7c7;
+  --background-for-overlay: rgba(0, 0, 0, 0.75);
   --background-for-overlay-controls: rgba(175, 175, 175, 0.9);
 }
 /* theme color variables to use in RGB declarations */

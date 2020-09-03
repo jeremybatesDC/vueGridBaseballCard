@@ -377,10 +377,28 @@ input {
   }
 }
 
+.omniClose {
+  &__label {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: -100vw;
+    width: 300vw;
+    height: 300vh;
+    background-color: transparent;
+    z-index: -1;
+  }
+}
+
 .checkbox--forReveal {
   &:checked {
     + [data-show-only-on-interaction] {
       visibility: visible;
+      + .omniClose {
+        &__label {
+          display: block;
+        }
+      }
     }
   }
 }
@@ -403,7 +421,7 @@ input {
     height: 100%;
     // but this should be no taller than max card height right?
     padding: 1.6rem;
-    background-color: rgba(0, 0, 0, 0.75);
+    background-color: var(--background-for-overlay);
 
     z-index: 1;
     .card__container--front & {

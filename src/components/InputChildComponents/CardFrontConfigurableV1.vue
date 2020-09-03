@@ -409,8 +409,8 @@
 
       <!-- QuasiModal (heh)-->
       <div class="playerImage__controls" data-show-only-on-interaction>
-        <div class="col">
-          <div class="row row--grow">
+        <div class="col flex-start">
+          <div class="row row--full-width">
             <form class="filePicker__form">
               <fieldset class="filePicker__fieldset">
                 <!--<legend class="filePicker__legend text-left">
@@ -447,7 +447,7 @@
                         loading="lazy"
                         src="/images/addPortrait.svg"
                       />
-                      <span>Upload Portrait</span>
+                      <span>Upload Pic</span>
                     </label>
                   </div>
                 </div>
@@ -789,12 +789,15 @@
               </div>
             </fieldset>
           </div>
-          <div class="row row--grow">
-            <label for="inputTriggerFocusUI_0">CLOSE</label>
-          </div>
+          <!--<div class="row row--grow">
+            <label for="inputTriggerFocusUI_0">CLOSE A</label>
+          </div>-->
         </div>
       </div>
       <!-- end QuasiModal-->
+      <label class="omniClose__label" for="inputTriggerFocusUI_0"
+        >CLOSE B</label
+      >
     </div>
 
     <!-- end card -->
@@ -956,6 +959,8 @@ export default {
   --border-alpha: calc(
     (var(--perceived-lightness) - var(--border-threshold)) * 100
   );
+
+  overflow: hidden;
 }
 
 .card__container--front {
@@ -978,7 +983,9 @@ export default {
   background-color: var(--cardbackgroundcolor);
 
   border: 1px solid rgba(0, 0, 0, 0.3333);
-  overflow: hidden;
+
+  // may need this again...
+  //overflow: hidden;
 
   z-index: 0;
 }
