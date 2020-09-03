@@ -203,13 +203,19 @@ input {
     flex-wrap: nowrap;
     background-color: var(--background-for-overlay-controls);
     // need to set this here otherwise itS going to inherit the coor change from the card itseld (oops, my bad)
+
     color: #000;
     .cardFront__controls & {
       background-color: transparent;
     }
+    .playerImage__controls & {
+      padding-top: 0.4rem;
+      text-align: center;
+    }
   }
   &__legend {
-    display: flex;
+    display: contents;
+    text-align: center;
     font-variation-settings: var(--text-short-wide);
 
     //background-color: var(--background-for-overlay-controls);
@@ -219,6 +225,9 @@ input {
   &__wrapper {
     &--inner {
       background-color: var(--background-for-overlay-controls);
+      .playerImage__controls & {
+        padding-top: 0.4rem;
+      }
     }
   }
   &__label {
@@ -229,6 +238,16 @@ input {
 
     &.checkRadioButtons__label.checkRadioButtons__label {
       padding: 0;
+    }
+
+    &:not(:first-of-type) {
+      .cardFront__controls & {
+        box-shadow: -1px 0 rgba(0, 0, 0, 0.1);
+      }
+    }
+
+    .playerImage__controls & {
+      box-shadow: 0 -1px rgba(0, 0, 0, 0.1);
     }
   }
   &__input {
@@ -258,6 +277,9 @@ input {
     height: var(--min-touch-target);
     //padding: 0 6.4rem;
     //background-color: var(--background-for-overlay-controls);
+    .playerImage__controls & {
+      margin-bottom: calc(2 * var(--min-touch-target));
+    }
   }
   &__wrapper {
     display: flex;
@@ -382,20 +404,31 @@ input {
   &__label {
     display: none;
     position: absolute;
-    top: 0;
-    left: -100vw;
-    width: 300vw;
-    height: 300vh;
+    top: var(--min-touch-target);
     background: none;
-    z-index: -1;
     opacity: 0;
+
+    -webkit-tap-highlight-color: transparent;
     &:hover,
     &:active,
     &:focus {
       outline: none !important;
     }
+    &--outside {
+      left: -100vw;
+      width: 300vw;
+      height: 300vh;
+      z-index: -1;
+    }
+    &--inside {
+      // the left and right and only needed to avoid the side menus... kinda hacky rreally. I'd like maybe to give those side menus a z-index maybe...
+      left: var(--min-touch-target);
+      right: var(--min-touch-target);
+      bottom: 0;
+      z-index: 0;
+    }
+
     // boom baby
-    -webkit-tap-highlight-color: transparent !important;
   }
 }
 
@@ -405,7 +438,9 @@ input {
       visibility: visible;
       + .omniClose {
         &__label {
-          display: block;
+          &--outside {
+            display: block;
+          }
         }
       }
     }

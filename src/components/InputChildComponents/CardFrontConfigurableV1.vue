@@ -489,7 +489,7 @@
           <div class="row space-between row--full-width">
             <fieldset class="checkRadioButtons__fieldset">
               <legend class="checkRadioButtons__legend">Filters</legend>
-              <div>
+              <div class="checkRadioButtons__wrapper--inner">
                 <label class="checkRadioButtons__label">
                   <input
                     type="radio"
@@ -543,7 +543,7 @@
 
             <fieldset class="checkRadioButtons__fieldset">
               <legend class="checkRadioButtons__legend">Logo</legend>
-              <div class="">
+              <div class="checkRadioButtons__wrapper--inner">
                 <label class="checkRadioButtons__label">
                   <input
                     type="radio"
@@ -789,13 +789,18 @@
               </div>
             </fieldset>
           </div>
-          <!--<div class="row row--grow">
-            <label for="inputTriggerFocusUI_0">CLOSE A</label>
-          </div>-->
+          <label
+            for="inputTriggerFocusUI_0"
+            class="omniClose__label omniClose__label--inside"
+            >CLOSE A</label
+          >
         </div>
       </div>
       <!-- end QuasiModal-->
-      <label class="omniClose__label" for="inputTriggerFocusUI_0"></label>
+      <label
+        class="omniClose__label omniClose__label--outside"
+        for="inputTriggerFocusUI_0"
+      ></label>
     </div>
 
     <!-- end card -->

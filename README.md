@@ -4,7 +4,9 @@
 
 Labor Day launch.
 
-logo click target man
+close button A can be made to fill inner area so you can click INSIDE to close which here is also natural
+
+logo click target man!
 
 for consistency conisder color picker with text label and a palatte icon (to which the text color ocntrast function gets applied)
 
