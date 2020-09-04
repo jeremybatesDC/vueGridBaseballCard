@@ -233,7 +233,7 @@
         :class="`row--middle--forDesign row ${logo.position} ${borderInner.style} ${playerImageFilterEffect}`"
       >
         <figure class="figure--player">
-          <label for="inputTriggerFocusUI_0">
+          <label class="figure--player__label" for="inputTriggerFocusUI_0">
             <img
               loading="lazy"
               class="image--player"
@@ -416,20 +416,22 @@
                 <!--<legend class="filePicker__legend text-left">
                   Player Image
                 </legend>-->
-                <div class="row">
-                  <div class="filePicker__wrapper">
-                    <input
-                      id="filePicker_0"
-                      class="hidden--visually filePicker__input"
-                      type="file"
-                      accept="image/*"
-                    />
-                    <label
-                      for="filePicker_0"
-                      class="filePicker__label"
-                      aria-label="Upload Image"
-                    >
-                      <!--<svg
+                <div class="filePicker__wrapper">
+                  <input
+                    id="playerImageFileInput"
+                    ref="playerImageFileInput"
+                    name="playerImageFileInput"
+                    class="hidden--visually filePicker__input"
+                    type="file"
+                    accept="image/*"
+                    @input="encodeImage"
+                  />
+                  <label
+                    for="playerImageFileInput"
+                    class="filePicker__label"
+                    aria-label="Upload Image"
+                  >
+                    <!--<svg
                         viewBox="0 0 32 32"
                         width="32"
                         height="32"
@@ -441,47 +443,44 @@
                       >
                         <use xlink:href="#iconportraitadd"></use>
                       </svg>-->
-                      <img
-                        width="32"
-                        height="32"
-                        loading="lazy"
-                        src="/images/addPortrait.svg"
-                      />
-                      <span>Upload Pic</span>
-                    </label>
-                  </div>
+                    <img
+                      width="32"
+                      height="32"
+                      loading="lazy"
+                      src="/images/addPortrait.svg"
+                    />
+                    <span>Upload Pic</span>
+                  </label>
                 </div>
               </fieldset>
               <fieldset class="filePicker__fieldset">
                 <!--<legend class="filePicker__legend text-right">Logo</legend>-->
-                <div class="row flex-end">
-                  <div class="filePicker__wrapper">
-                    <input
-                      id="filePicker_2"
-                      class="hidden--visually filePicker__input"
-                      type="file"
-                      accept="image/*"
-                    />
+                <div class="filePicker__wrapper">
+                  <input
+                    id="filePicker_2"
+                    class="hidden--visually filePicker__input"
+                    type="file"
+                    accept="image/*"
+                  />
 
-                    <label
-                      for="filePicker_2"
-                      class="filePicker__label"
-                      aria-label="Upload Logo Image"
+                  <label
+                    for="filePicker_2"
+                    class="filePicker__label"
+                    aria-label="Upload Logo Image"
+                  >
+                    <span>Upload Logo</span>
+                    <svg
+                      viewBox="0 0 32 32"
+                      width="32"
+                      height="32"
+                      fill="none"
+                      stroke="currentcolor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
                     >
-                      <span>Upload Logo</span>
-                      <svg
-                        viewBox="0 0 32 32"
-                        width="32"
-                        height="32"
-                        fill="none"
-                        stroke="currentcolor"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                      >
-                        <use xlink:href="#iconphoto"></use></svg
-                    ></label>
-                  </div>
+                      <use xlink:href="#iconphoto"></use></svg
+                  ></label>
                 </div>
               </fieldset>
             </form>
@@ -816,10 +815,95 @@
 import defaultSettings from "/json/default-settings.json";
 //import TextSlider from "./TextSlider.vue";
 
+var webWorkerEncode = new Worker("./workers/web-worker-encode.js", {
+  type: "module",
+});
+var webWorkerFetch = new Worker("./workers/web-worker-fetch.js", {
+  type: "module",
+});
+
+// any reason not to fire up web worker at the beginning?
+
+// async function submitHandler() {
+//   console.log(event);
+//   webWorkerFetch.postMessage(defaultSettings, this.data);
+//   webWorkerFetch.onmessage = function(event) {
+//     console.log(
+//       event.data,
+//       "card front here thanking web worker fetch for its help"
+//     );
+//   };
+// }
+async function saveHandler() {
+  console.log("this should force a save to localstorage");
+}
+function setFromLocalStorage() {
+  for (let key in localStorage) {
+    if (localStorage[key]) {
+      this[key] = localStorage[key];
+    }
+  }
+}
+
+// can constrain the ACCEPT attribute  https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file
+
+// async function validateImage(imageFileToValidate) {
+//   const maxFileSize = 1;
+//   if (imageFileToValidate.size < maxFileSize) {
+//     console.log("okay go ahead");
+//   } else {
+//     console.log("too heavy");
+//   }
+// }
+
+// need this to encode whatever image is passed to it right?
+async function encodeImage() {
+  let filesProp = this.$refs.playerImageFileInput.files;
+  let usrfile = filesProp[0];
+
+  //async await
+
+  //validateImage();
+
+  if (filesProp && usrfile) {
+    let theThis = this;
+    webWorkerEncode.postMessage(usrfile);
+    theThis.$emit("input", usrfile);
+
+    // 'this' gets changed
+
+    function testFunction(strng) {
+      theThis.playerImageURLorDataString = strng;
+    }
+    webWorkerEncode.onmessage = function (event) {
+      console.log("received message here");
+      //this.playerImageURLorDataString = event.data;
+      //
+      testFunction(event.data);
+    };
+  }
+}
+
+function receivedWorkerMessage(event) {}
+// function updateLocalStorage(fieldname, newPlayerName) {
+//   localStorage[fieldname] = newPlayerName;
+// }
+
 export default {
-  //setup: function () {
-  //  return { TextSlider };
-  //},
+  setup: function () {
+    return {
+      //endpointURL,
+      //postData,
+      saveHandler,
+      setFromLocalStorage,
+      encodeImage,
+      webWorkerEncode,
+      webWorkerFetch,
+      //receivedWorkerMessage
+      //validateImage
+      //updateLocalStorage
+    };
+  },
   data: function () {
     return {
       cardBackgroundColor: defaultSettings.cardBackgroundColor,
@@ -945,9 +1029,29 @@ export default {
       };
     },
   },
-  //components: {
-  //  TextSlider,
-  //},
+  mounted: function () {
+    //this one needs THIS
+    this.setFromLocalStorage();
+  },
+  methods: {
+    submitHandler: async function (event) {
+      console.log(this);
+
+      // note the $
+      this.webWorkerFetch.postMessage(JSON.stringify(this.$data));
+
+      this.webWorkerFetch.onmessage = function (event) {
+        console.log(
+          event.data,
+          "card front here thanking web worker fetch for its help"
+        );
+      };
+      // gives proper access to THIS i believe
+      // persist() {
+      // 	localStorage.playerName = this.playerName;
+      // 	localStorage.teamName = this.teamName;
+    },
+  },
 };
 </script>
 
@@ -1187,6 +1291,9 @@ h3 {
     border-radius: 0;
     z-index: -1;
   }
+  .figure--player__label {
+    flex-grow: 1;
+  }
 }
 
 .image--player {
@@ -1207,6 +1314,7 @@ h3 {
   display: flex;
   filter: #{"grayscale(var(--cardgrayscale))"} brightness(var(--cardbrightness))
     sepia(var(--cardsepia));
+  pointer-events: none;
 }
 
 .image--logo {

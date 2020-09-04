@@ -298,12 +298,27 @@ input {
 
   &__fieldset {
     display: flex;
+
     width: 100%;
     background-color: var(--background-for-overlay-controls);
     padding: 0 0.8rem;
     border: none;
     &:not(:first-of-type) {
       box-shadow: -1px 0 #666666;
+    }
+    .playerImage__controls & {
+      padding: 0;
+    }
+
+    &:first-of-type {
+      .filePicker__label {
+        align-items: flex-start;
+      }
+    }
+    &:last-of-type {
+      .filePicker__label {
+        align-items: flex-end;
+      }
     }
   }
   &__legend {
@@ -394,7 +409,8 @@ input {
     padding-top: 0;
     flex-wrap: nowrap;
     .filePicker__label {
-      padding: 0;
+      flex-grow: 1;
+      padding: 0 1.6rem;
     }
   }
 }

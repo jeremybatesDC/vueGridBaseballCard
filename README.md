@@ -4,9 +4,13 @@
 
 Labor Day launch.
 
+wasted way too much time trying to align the "upload pic" and "upload logo" labels... wtf
+
 close button A can be made to fill inner area so you can click INSIDE to close which here is also natural
 
 logo click target man!
+
+gum stain icons.
 
 for consistency conisder color picker with text label and a palatte icon (to which the text color ocntrast function gets applied)
 
