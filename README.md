@@ -211,6 +211,8 @@ can i offer a 48px touch target (off to the side perhaps) while maintaining tigh
 
 ### 2nd release
 
+could offer choice to choose text color and then have BG color AUTO adjust per backwards color contrast function along a greyscale or some simplified/lightened version of color picker... ...
+
 can text align left/center/right be bumped to v2?
 
 --> generalize text slider man!

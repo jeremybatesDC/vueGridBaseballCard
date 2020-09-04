@@ -457,14 +457,17 @@
                 <!--<legend class="filePicker__legend text-right">Logo</legend>-->
                 <div class="filePicker__wrapper">
                   <input
-                    id="filePicker_2"
+                    id="logoFileInput"
+                    ref="logoFileInput"
+                    name="logoFileInput"
                     class="hidden--visually filePicker__input"
                     type="file"
                     accept="image/*"
+                    @input="encodeImage"
                   />
 
                   <label
-                    for="filePicker_2"
+                    for="logoFileInput"
                     class="filePicker__label"
                     aria-label="Upload Logo Image"
                   >
@@ -857,27 +860,38 @@ function setFromLocalStorage() {
 // }
 
 // need this to encode whatever image is passed to it right?
-async function encodeImage() {
-  let filesProp = this.$refs.playerImageFileInput.files;
+async function encodeImage(event) {
+  let evntTrgtID = event.target.id;
+  let filesProp = this.$refs[evntTrgtID].files;
   let usrfile = filesProp[0];
-
-  //async await
+  console.log(usrfile);
+  // correct through here
 
   //validateImage();
 
   if (filesProp && usrfile) {
-    let theThis = this;
+    console.log(this);
     webWorkerEncode.postMessage(usrfile);
-    theThis.$emit("input", usrfile);
 
-    // 'this' gets changed
+    this.$emit("input", usrfile);
 
-    function testFunction(strng) {
-      theThis.playerImageURLorDataString = strng;
+    // hard to pass through the refernce
+
+    let testFunction = null;
+
+    if (evntTrgtID === "playerImageFileInput") {
+      testFunction = (strng) => {
+        this.playerImageURLorDataString = strng;
+      };
+    } else {
+      testFunction = (strng) => {
+        this.teamLogoURL = strng;
+      };
     }
+
     webWorkerEncode.onmessage = function (event) {
       console.log("received message here");
-      //this.playerImageURLorDataString = event.data;
+      console.log(event.data);
       //
       testFunction(event.data);
     };
