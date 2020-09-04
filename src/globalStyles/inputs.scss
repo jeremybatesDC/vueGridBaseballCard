@@ -200,6 +200,7 @@ input {
 .checkRadioButtons {
   &__fieldset {
     display: flex;
+    flex-direction: column;
     flex-wrap: nowrap;
     background-color: var(--background-for-overlay-controls);
     // need to set this here otherwise itS going to inherit the coor change from the card itseld (oops, my bad)
@@ -214,11 +215,16 @@ input {
     }
   }
   &__legend {
-    //display: contents;
-    text-align: center;
     font-variation-settings: var(--text-short-wide);
+    .playerImage__controls & {
+      // unfortch display contents here makes this click throguh able... and closes the quasi modal
+      // display: contents;
 
-    //background-color: var(--background-for-overlay-controls);
+      padding-top: 0.4rem;
+      background-color: var(--background-for-overlay-controls);
+      width: 100%;
+      text-align: center;
+    }
 
     text-transform: uppercase;
   }

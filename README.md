@@ -4,6 +4,8 @@
 
 Labor Day launch.
 
+if you upload a logo, the "none" should be reset (can the last position be remembered if "none" corresponds to a class that does something slightly different?)
+
 wasted way too much time trying to align the "upload pic" and "upload logo" labels... wtf
 
 close button A can be made to fill inner area so you can click INSIDE to close which here is also natural
