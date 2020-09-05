@@ -419,6 +419,10 @@ input {
       padding: 0 1.6rem;
     }
   }
+
+  .card-back & {
+    top: var(--min-touch-target);
+  }
 }
 
 .omniClose {

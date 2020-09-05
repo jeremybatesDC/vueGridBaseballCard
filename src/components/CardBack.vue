@@ -265,6 +265,7 @@ article {
       transform: rotate(-33deg) translateX(-8rem) translateY(-4rem);
       mix-blend-mode: darken;
       filter: blur(2px);
+      pointer-events: none;
     }
   }
   &.has-crease {

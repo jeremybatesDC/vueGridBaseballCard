@@ -168,6 +168,7 @@
               type="text"
               placeholder
               maxlength="42"
+              spellcheck="false"
             />
 
             <div data-show-only-on-interaction hidden>
@@ -268,6 +269,7 @@
               type="text"
               placeholder
               maxlength="48"
+              spellcheck="false"
             />
             <!--<TextSlider v-model="textLine2"></TextSlider>-->
             <div data-show-only-on-interaction hidden>
@@ -336,6 +338,7 @@
               type="text"
               placeholder
               maxlength="48"
+              spellcheck="false"
             />
             <!--<TextSlider v-model="textPlayerPosition"></TextSlider>-->
             <div data-show-only-on-interaction hidden>

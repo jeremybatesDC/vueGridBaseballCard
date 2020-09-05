@@ -51,7 +51,8 @@ footer {
   &:focus-within {
     textarea {
       //transform: scale(2);
-      background-color: #fff;
+      //background-color: #fff;
+      background-color: var(--backgroundcolorback);
     }
     &:before {
       content: "";

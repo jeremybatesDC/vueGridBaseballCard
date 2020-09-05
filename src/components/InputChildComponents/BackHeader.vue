@@ -6,9 +6,10 @@
         <h1 class="fui__mid">
           <input
             type="text"
-            class="fui__formElem"
+            class=""
             value="WONDER WOMAN"
             placeholder="Firstname Lastname"
+            spellcheck="false"
           />
           <TextSlider />
         </h1>
@@ -22,10 +23,10 @@
     </div>
 
     <!-- hard to loop since distinct lists may help... Although... -->
-    <div class="row fui__wrap">
-      <span class="fui__mid">
+    <div class="row row--stacked">
+      <span class="">
         <!-- nested row -->
-        <div class="row stripe--dark">
+        <div class="row row--stripe stripe--dark">
           <label>
             <input
               class="fui__formElem"
@@ -87,6 +88,27 @@ export default {
 <style lang="scss" scoped>
 // consider moving this
 
+//preserve heights
+
+.row--topmost {
+  height: var(--min-touch-target);
+}
+
+.row--stripe {
+  height: 3.2rem;
+}
+
+.row--stacked {
+  height: 6.4rem;
+}
+
+// scoped to header
+.fui__wrap {
+  padding-top: 0;
+
+  //background-color: rgba(0, 0, 0, 0.6666);
+}
+
 header {
   display: flex;
   flex-direction: column;
@@ -105,8 +127,12 @@ h1 {
   input[type="text"] {
     height: var(--min-touch-target-height);
     font-variation-settings: inherit;
-    padding: 0;
+    padding-top: 0;
+    padding-bottom: 0;
     width: 100%;
+    &:focus {
+      background-color: var(--backgroundcolorback);
+    }
   }
 }
 

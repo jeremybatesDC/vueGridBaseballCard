@@ -1,6 +1,6 @@
 <template>
-  <div class="fui__wrap stats__wrapper--outer">
-    <table class="fui__mid">
+  <div class="stats__wrapper--outer">
+    <table class="">
       <!--<caption>Career Stats</caption>-->
       <thead>
         <tr>
@@ -39,7 +39,7 @@
             :data-row="index"
           >
             <input
-              class="stats-table__tbody__input fui__formElem"
+              class="stats-table__tbody__input"
               type="tel"
               :value="season.year"
               size="4"
@@ -51,7 +51,7 @@
           </th>
           <td class="stats-table__tbody__td" :data-col="1" :data-row="index">
             <input
-              class="stats-table__tbody__input fui__formElem"
+              class="stats-table__tbody__input"
               type="tel"
               :value="season.homeCity"
               size="4"
@@ -72,7 +72,7 @@
           >
             <!-- type number continues to be annoying AF. Trying to move down a cell with an arrow key shouldn't accidentally alter the stats -->
             <input
-              class="stats-table__tbody__input fui__formElem"
+              class="stats-table__tbody__input"
               type="tel"
               inputmode="decimal"
               :value="value"
@@ -151,22 +151,6 @@ table {
 
   // need to address making this fit on portrait
   //overflow: hidden;
-  &:focus-within {
-    input[type="tel"],
-    input[type="text"],
-    textarea {
-      font-size: 1.8rem;
-    }
-    th {
-      span {
-        //transform: none;
-        textarea {
-          //position: initial;
-          color: #fff;
-        }
-      }
-    }
-  }
 }
 caption {
   //background: rgba(#9c2c1a, 0.25);

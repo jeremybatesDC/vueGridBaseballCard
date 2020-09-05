@@ -4,43 +4,42 @@
 
 Labor Day launch.
 
+BACK
+stats table: move cursor to end. Very simple function. Just a metter of where best to put code/handler....
+If selectionEnd is less than selectionStart, then both are treated as the value of selectionEnd.
+elem.setSelectionRange(99, 99)
+
+prevent 3rd line on table back headers
+
+disabe more spellcheck (enough?)
+carback:
+
+- reason through color layering. Would
+
+-gum stain icons if time
+
+---
+
+FRONT
 if you upload a logo, the "none" should be reset (can the last position be remembered if "none" corresponds to a class that does something slightly different?)
 
 wasted way too much time trying to align the "upload pic" and "upload logo" labels... wtf
 
-close button A can be made to fill inner area so you can click INSIDE to close which here is also natural
-
-logo click target man!
-
-gum stain icons.
-
 for consistency conisder color picker with text label and a palatte icon (to which the text color ocntrast function gets applied)
 
-so really it's just an upload button... I want it to match the logo image icon. And since image player icon can't be a mountain, and logo image prob shouldn't be a person, then need to generalize more
-Only 1 button per image field -- iOS will propmt them. And dictatcing camera makes browing image inaccessibilie sometimes which sucks
+so really it's just an upload button... I want it to match the logo image icon. And since image player icon can't be a mountain, and logo image prob shouldn't be a person, then need to generalize morereplace filepicker player image upload button with an icon of a picture that feautures a person not a mountian: something like: https://iconmonstr.com/picture-4-svg/
 
 CARD FRONT FIGURE DESIGN ROW BACKGROUND NEEDS TO HAVE A COLOR HACKGROUND MAYBE LIKE CARD STOCK
 
-image editing close "button" needs styling and positioning...
-
-legends need left right padding of like 2px each
-
-are there room for clear labels across top? Upload/ Take Pic / are pretty useful labels
-
 colorpicker UI on ios has clipped borders.
 
-replace filepicker player image upload button with an icon of a picture that feautures a person not a mountian: something like: https://iconmonstr.com/picture-4-svg/
-
-make a class for the "none" radio button
+make a class/style/icon for the "none/hide" logo radio button
 
 maybe active class for the file pikcer ? actually that mayb be odd
 
-icon for hide logo?
-
 layout icons could use improvement to better show text
-layout icons -- also want easy way to invert colors. Move some stroke/fill attributes into CSS
 
-icon for logo placement can be just one def with a single class applied to determine fill.
+layout icons -- also want easy way to invert colors. Move some stroke/fill attributes into CSS
 
 front and back could have icons showing generic avatar in portrait and a stats table icon for back. maybe.
 
@@ -125,37 +124,6 @@ math: computed. Grab an array by refs if necessary and tally those bitches. Can 
 the way to make a mask is via computed and watchers, set/get. No need for a mask plugin.
 and, after considering it, i donT think i need a table plugin. If I can properly tag columns then doing math on them shouldnT take any special code really. It would just be a formula, and probably use the Computed method
 
-- Add Examples (start with JSON)
-  --> CREATE A TEMPLATE spreadsheet XLSX on google drive, with an instruction about how to export a file that can be imported directly on the card site: OR Creat a service:
-  http://beautifytools.com/excel-to-json-converter.php
-  https://www.npmjs.com/package/xlsx-to-json
-
-  -- untappt cards
-  -- github cards
-  -- genealogy cards
-  -- PRESIDENTS & politicians
-  -- baseball current example
-  -- school photo option ( cash money )
-  -- birth announcements
-
-- group/team bulk stats upload
-- sell to youth sports leagues
-
-  -- refactor card header
-
--- (further?) reduce visible size of borders for 320px devices so hopefully rest of content can give adequate touch targets in real world measurements (7-12mm) (maybe using min-max clamps?)
--- min touch target 48px wherever possible (playing numerologist right now 44, 45, 46, 48)
-
-- consider PWA -- why is dev tools showing installation probs related to icons? They are there... Path issue? Prob not issue with actual file but can check
-
---> better highlightthe active table cell you're editing beucase otherwise it's disorientating
-
---> in addition to preventing jumps by taking up space (the focus UI needs this), CONSIDER a simple ANIMATION to show that a field is opening up to be edited and then is closing back down.
-
-- TABS: on screens that are wide enough, consider splitting front/back buttons to sides ( for thumbs holding a phone in landscape, for instance). Goal here is to have user se 100% all content needed without having to scroll
-  --> make sure tab state is saved locally
-  --> use hashes so BACK works as user expects
-
 STATS TABLE
 
 --> stats: Previous 5 years
@@ -164,7 +132,7 @@ STATS TABLE
 
 - Years: Default to 2019, working backwards X (5) years. Could offer another "start year." Will have to think of easy way to give non-contiguous years without making it too easy for user to make typo... (they could default, and then each be over-rideable via a select menu or data-list or whatever)
 
-- Calculations and column stat type -- have user define what kind of stat it is (to make calculation in footer proedictable and logical -- if user wants to add up all the miles per hour, fine, but that can be an override of a sensible defualt)
+-- math: JUST TOTALS for v1. averages can be v2 because that will require UI work to allow user to select which kind of career stat (total, avg, is there another?) to show for that column...
 
 - because it may not be feasible to alwasy vertically center the aside and footer textareas without ever clipping text, consider adding a visual florish / bottom box shadow that would be obscured by the text (maybe with a text background color or something) if there was a 2nd line of text, but visible if there is only 1 line. I think that is doable. A char max-length could help too. YES. A char counter will help some fields (thinking textareas in particular)
 
@@ -181,6 +149,22 @@ STATS TABLE
 ---
 
 ### Notes
+
+- Add Examples (start with JSON)
+  --> CREATE A TEMPLATE spreadsheet XLSX on google drive, with an instruction about how to export a file that can be imported directly on the card site: OR Creat a service:
+  http://beautifytools.com/excel-to-json-converter.php
+  https://www.npmjs.com/package/xlsx-to-json
+
+  -- untappt cards
+  -- github cards
+  -- genealogy cards
+  -- PRESIDENTS & politicians
+  -- baseball current example
+  -- school photo option ( cash money )
+  -- birth announcements
+
+- group/team bulk stats upload
+- sell to youth sports leagues
 
 --> Pitch an extension/investment.
 
@@ -210,6 +194,23 @@ can i offer a 48px touch target (off to the side perhaps) while maintaining tigh
   --> might be good to show all font adjustment buttons for each text input, but not all buttons would be enabled for all fields. That way user won't wonder "what happened to width option?" but will be shown it just can't be applied here (may need clear helper text about limitations)
 
 ### 2nd release
+
+build out index db (it's already set up to work) to allow saving (replaces previous localstorage implementation).
+
+-- (further?) reduce visible size of borders for 320px devices so hopefully rest of content can give adequate touch targets in real world measurements (7-12mm) (maybe using min-max clamps?)
+-- min touch target 48px wherever possible (playing numerologist right now 44, 45, 46, 48)
+
+- drill into PWA details -- why is dev tools showing installation probs related to icons? They are there... Path issue? Prob not issue with actual file but can check
+
+- Calculations and column stat type -- have user define what kind of stat it is (to make calculation in footer proedictable and logical -- if user wants to add up all the miles per hour, fine, but that can be an override of a sensible defualt)
+
+--> in addition to preventing jumps by taking up space (the focus UI needs this), CONSIDER a simple ANIMATION to show that a field is opening up to be edited and then is closing back down.
+
+- TABS: on screens that are wide enough, consider splitting front/back buttons to sides ( for thumbs holding a phone in landscape, for instance). Goal here is to have user se 100% all content needed without having to scroll
+  --> make sure tab state is saved locally
+  --> use hashes so BACK works as user expects
+
+icon for logo placement can be just one def with a single class applied to determine fill.
 
 could offer choice to choose text color and then have BG color AUTO adjust per backwards color contrast function along a greyscale or some simplified/lightened version of color picker... ...
 

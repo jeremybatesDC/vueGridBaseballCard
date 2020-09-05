@@ -1,14 +1,17 @@
 <template>
-  <aside class='stats__aside'>
+  <aside class="stats__aside">
     <blockquote>
       <span>
         <!-- this input is preserving the space that the textarea cannot -->
         <!-- refactor flex in here -->
         <h3>
-          <input type='text' v-model='defaultFacts.info.facts[0].headline' />
+          <input type="text" v-model="defaultFacts.info.facts[0].headline" />
         </h3>
         <!-- no need here it seems to add a 'wrap' attr -->
-        <textarea :style='cssAsideProps' v-model='defaultFacts.info.facts[0].text'></textarea>
+        <textarea
+          :style="cssAsideProps"
+          v-model="defaultFacts.info.facts[0].text"
+        ></textarea>
       </span>
     </blockquote>
   </aside>
@@ -42,6 +45,10 @@ aside {
       width: 100%;
       height: auto;
       // background-color: red;
+      input[type="text"],
+      textarea {
+        background-color: var(--backgroundcolorback);
+      }
     }
     // this indeed seems to help prevent iOS zoom
     textarea {
