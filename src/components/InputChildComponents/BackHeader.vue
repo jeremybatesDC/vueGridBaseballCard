@@ -95,11 +95,11 @@ export default {
 }
 
 .row--stripe {
-  height: 3.2rem;
+  height: 2.4rem;
 }
 
 .row--stacked {
-  height: 6.4rem;
+  height: 5.4rem;
 }
 
 // scoped to header
@@ -234,14 +234,17 @@ h1 {
   //height: var(--min-touch-target-height);
   // iOS wants min height hmmmm
   //min-height: var(--min-touch-target-height);
-  background: #000;
-  color: #9a8b7c;
-  box-shadow: 1.6rem 0 #000, -1.6rem 0 #000;
-
+  background: var(--calcColor);
+  color: var(--backgroundcolorback);
+  box-shadow: 1.6rem 0 var(--calcColor), -1.6rem 0 var(--calcColor);
+  input {
+    text-transform: uppercase;
+  }
   label {
     //height: var(--min-touch-target-height);
     // iOS wants this explicit
     align-items: center;
+    //filter: invert(1);
     input {
       height: calc(var(--min-touch-target-height-half) + 0.8rem);
       width: 100%;

@@ -58,6 +58,7 @@ export default {
 //$minTouchTargetHeight: 4.4rem;
 // vite is really setup to use CSS custom props instead of CSS vars
 
+// is there an advantage to putting this in index...
 :root {
   // having trouble this morning with calc and scss math with variable and didn't want to get too stuck
   // wtaf ?

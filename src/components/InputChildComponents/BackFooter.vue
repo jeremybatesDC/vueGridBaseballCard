@@ -36,7 +36,7 @@ footer {
   position: relative;
   font-size: 1.6rem;
   padding: 0 1.6rem;
-  background-color: rgba(#9c2c1a, 0.25);
+  background-color: rgba(0, 0, 0, 0.2);
 
   input[type="text"] {
     padding: 0;

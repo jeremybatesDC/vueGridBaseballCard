@@ -74,7 +74,7 @@ blockquote {
   height: auto;
   padding: 0.4rem 1.6rem 0 1.6rem;
   margin: 0;
-  background-color: rgba(#9c2c1a, 0.25);
+  background-color: rgba(0, 0, 0, 0.2);
 }
 
 span {

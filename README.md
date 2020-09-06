@@ -4,17 +4,25 @@
 
 Labor Day launch.
 
+--> front player psition is zoomingon ios fix that font size
+
 BACK
+
+rather than just darkening the aside and footer, USE LIGHTEN AND DARKEN -- could be done with a css filter even if not a scss function
+
+it should be intensifying contrast (so make lighter than color or darker depening on contrast function -- use hur rotate for instance or a css variable)
+for instance shouldn't all dark have charcola regions just like all white ha some grey boxes? yah
+
+-- header-- all caps will help ensure leibility
+
+-- really only need FUI on the 3 fields that have sliders: name, aside, footer
+wire - up sliders... (and, if you're having trouble binding like last time, at least just make 3 sep sliders for import/regference to keep this file samll yah?)
+
 stats table: move cursor to end. Very simple function. Just a metter of where best to put code/handler....
 If selectionEnd is less than selectionStart, then both are treated as the value of selectionEnd.
 elem.setSelectionRange(99, 99)
 
 prevent 3rd line on table back headers
-
-disabe more spellcheck (enough?)
-carback:
-
-- reason through color layering. Would
 
 -gum stain icons if time
 
@@ -89,13 +97,9 @@ click outside to close. v-click thing maybe?
 - back color picker -- how can i get the whole card to show? Really want to see bottom of card when choosing color
   -- (wait -- when color picker is open, can the controls hide?? oooh....)
 
-- can we allow user to switch the order of the text lines for each layout? That might be easier than giving user custom number of cols per row (lower interaction cost)
-
 - invert/hue rotate back stripe color text
 
 - decrease cardBack font weights now that subpizel-antialiasing has punched things up
-
---> icons for layout options
 
 --> Get elements in cells to take full size
 
@@ -194,6 +198,19 @@ can i offer a 48px touch target (off to the side perhaps) while maintaining tigh
   --> might be good to show all font adjustment buttons for each text input, but not all buttons would be enabled for all fields. That way user won't wonder "what happened to width option?" but will be shown it just can't be applied here (may need clear helper text about limitations)
 
 ### 2nd release
+
+--refactor caclcolor vars because we're using it in someplace and not others...
+
+-- consider lighteing/darkening the outline color so it looks more card-like (make it a relation to the bg color: maybe stripe also)
+
+(do i need a 2nd color for duotone?) or is this really monotone until v2?
+
+-- re-reconsider fui for table -- what does that look like?
+-- on mobile, the table spans full width anyway... and dinsce the focus ui can cause a disorienting jump anyway that called for a cleanup item, i think we need to scrap it on table, at elast for v1
+
+- can we allow user to switch the order of the text lines for each layout? That might be easier than giving user custom number of cols per row (lower interaction cost)
+
+disabe more spellcheck (enough?)
 
 build out index db (it's already set up to work) to allow saving (replaces previous localstorage implementation).
 

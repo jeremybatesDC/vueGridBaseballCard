@@ -194,15 +194,8 @@ export default {
   --border-alpha: calc(
     (var(--perceived-lightness) - var(--border-threshold)) * 100
   );
-}
-
-.cardBack__controls {
-  padding: 0.4rem 0;
-}
-
-// cheat
-.colorPicker__label--textOverlap {
-  color: hsl(
+  --colorinrgb: rgb(var(--red), var(--green), var(--blue));
+  --calcColor: hsl(
     0,
     0%,
     calc(
@@ -212,12 +205,21 @@ export default {
   );
 }
 
+.cardBack__controls {
+  padding: 0.4rem 0;
+}
+
+// cheat
+.colorPicker__label--textOverlap {
+  color: var(--calcColor);
+}
+
 .card-back {
   display: flex;
   //flex-direction: column;
   position: relative;
   //background-color: var(--backgroundcolorback);
-  background-color: rgb(var(--red), var(--green), var(--blue));
+  background-color: var(--colorinrgb);
   flex-basis: 100%;
   width: 100%;
   max-width: 50.4rem;
@@ -235,6 +237,8 @@ export default {
         -10000000%
     )
   );
+  filter: drop-shadow(0 1px 0 #000) drop-shadow(0 -1px 0 #000)
+    drop-shadow(1px 0 0 #000) drop-shadow(-1px 0 0 #000);
 }
 
 article {
@@ -244,9 +248,17 @@ article {
   justify-content: space-between;
   position: relative;
 
-  background-color: rgba(#9c2c1a, 0.25);
+  //background-color: rgba(#9c2c1a, 0.25);
   // using outline here so that it'll just be clipped on small devices automatically
-  outline: 1.6rem solid var(--backgroundcolorback);
+  outline: 1.6rem solid
+    hsl(
+      0,
+      0%,
+      calc(
+        (var(--perceived-lightness) - var(--contrast-threshold-for-card)) *
+          -10000000%
+      )
+    );
   overflow: hidden;
 
   // need to figure this out -- prob need another wrapper

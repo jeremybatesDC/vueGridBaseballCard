@@ -539,7 +539,7 @@
                     type="radio"
                     class="checkRadioButtons__input hidden--visually"
                     v-model="playerImageFilterEffect"
-                    value="filternoblue"
+                    value="filterfaded"
                   />
                   <span>Faded</span>
                 </label>
