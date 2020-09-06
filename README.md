@@ -18,6 +18,8 @@ for instance shouldn't all dark have charcola regions just like all white ha som
 -- really only need FUI on the 3 fields that have sliders: name, aside, footer
 wire - up sliders... (and, if you're having trouble binding like last time, at least just make 3 sep sliders for import/regference to keep this file samll yah?)
 
+--> handler on table (maybe click -- is focus within an event?). check if tablget is an iput and
+-- don't want to add hander per cell
 stats table: move cursor to end. Very simple function. Just a metter of where best to put code/handler....
 If selectionEnd is less than selectionStart, then both are treated as the value of selectionEnd.
 elem.setSelectionRange(99, 99)
@@ -198,6 +200,9 @@ can i offer a 48px touch target (off to the side perhaps) while maintaining tigh
   --> might be good to show all font adjustment buttons for each text input, but not all buttons would be enabled for all fields. That way user won't wonder "what happened to width option?" but will be shown it just can't be applied here (may need clear helper text about limitations)
 
 ### 2nd release
+
+--> consider whether look is better with current stripe placement, or whether it should be the last row before table.
+Could make consfigurable i suppose. User could invert all 3 rows, for instance.
 
 --refactor caclcolor vars because we're using it in someplace and not others...
 
