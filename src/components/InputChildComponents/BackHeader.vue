@@ -109,6 +109,10 @@ export default {
   //background-color: rgba(0, 0, 0, 0.6666);
 }
 
+input {
+  text-transform: uppercase;
+}
+
 header {
   display: flex;
   flex-direction: column;

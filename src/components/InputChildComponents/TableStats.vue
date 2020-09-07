@@ -1,112 +1,114 @@
 <template>
   <div class="stats__wrapper--outer">
-    <table class="">
-      <!--<caption>Career Stats</caption>-->
-      <thead>
-        <tr>
-          <th
-            v-for="(value, name, index) in defaultStats.fields"
-            :key="value"
-            scope="col"
-            :data-col="index"
-          >
-            <span>
-              <textarea
-                wrap="hard"
-                rows="2"
-                spellcheck="false"
-                :value="value"
-              ></textarea>
-            </span>
-          </th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr
-          class="stats-table__tbody__tr"
-          v-for="(season, index) in defaultStats.seasons"
-          :key="season"
-          :data-row="index"
-        >
-          <!-- i really don't want to do a loop in a loop, do I? Space/time complexity wise, it's better to loop twice -->
-          <!-- this one doesnT expect index until 3rd argument. Is that because itS nested? Maybe itS the kind of object -->
-
-          <!-- making first col a TH scope row -->
-          <th
-            scope="row"
-            class="stats-table__tbody__th"
-            :data-col="0"
+    <form class="stats__form" @focusin="putCursorAtEnd">
+      <table class="">
+        <!--<caption>Career Stats</caption>-->
+        <thead>
+          <tr>
+            <th
+              v-for="(value, name, index) in defaultStats.fields"
+              :key="value"
+              scope="col"
+              :data-col="index"
+            >
+              <span>
+                <textarea
+                  wrap="hard"
+                  rows="2"
+                  spellcheck="false"
+                  :value="value"
+                ></textarea>
+              </span>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr
+            class="stats-table__tbody__tr"
+            v-for="(season, index) in defaultStats.seasons"
+            :key="season"
             :data-row="index"
           >
-            <input
-              class="stats-table__tbody__input"
-              type="tel"
-              :value="season.year"
-              size="4"
-              maxlength="4"
-              :data-column-name="name"
+            <!-- i really don't want to do a loop in a loop, do I? Space/time complexity wise, it's better to loop twice -->
+            <!-- this one doesnT expect index until 3rd argument. Is that because itS nested? Maybe itS the kind of object -->
+
+            <!-- making first col a TH scope row -->
+            <th
+              scope="row"
+              class="stats-table__tbody__th"
               :data-col="0"
               :data-row="index"
-            />
-          </th>
-          <td class="stats-table__tbody__td" :data-col="1" :data-row="index">
-            <input
-              class="stats-table__tbody__input"
-              type="tel"
-              :value="season.homeCity"
-              size="4"
-              maxlength="4"
-              :data-column-name="name"
-              :data-col="1"
-              :data-row="index"
-            />
-          </td>
+            >
+              <input
+                class="stats-table__tbody__input"
+                type="tel"
+                :value="season.year"
+                size="4"
+                maxlength="4"
+                :data-column-name="name"
+                :data-col="0"
+                :data-row="index"
+              />
+            </th>
+            <td class="stats-table__tbody__td" :data-col="1" :data-row="index">
+              <input
+                class="stats-table__tbody__input"
+                type="tel"
+                :value="season.homeCity"
+                size="4"
+                maxlength="4"
+                :data-column-name="name"
+                :data-col="1"
+                :data-row="index"
+              />
+            </td>
 
-          <td
-            class="stats-table__tbody__td"
-            v-for="(value, name, index) in season.numericStats"
-            :key="value"
-            :data-column-name="name"
-            :data-col="index + 2"
-            :data-row="index"
-          >
-            <!-- type number continues to be annoying AF. Trying to move down a cell with an arrow key shouldn't accidentally alter the stats -->
-            <input
-              class="stats-table__tbody__input"
-              type="tel"
-              inputmode="decimal"
-              :value="value"
-              size="5"
-              maxlength="5"
+            <td
+              class="stats-table__tbody__td"
+              v-for="(value, name, index) in season.numericStats"
+              :key="value"
               :data-column-name="name"
               :data-col="index + 2"
               :data-row="index"
-            />
-          </td>
-        </tr>
-      </tbody>
-      <tfoot>
-        <tr>
-          <th scope="row" :data-col="0">TOT</th>
-          <td :data-col="1"></td>
-          <!-- a bit too imperative but it is good that we are not doing a v-if in a v-for-->
-          <td
-            v-for="x in 5"
-            :key="x"
-            scope="col"
-            :data-total-for-column-index="x + 1"
-          >
-            <label>
-              <output
-                class="tfoot__output--totals"
-                :data-total-for-column-index="x + 1"
-                >SUM</output
-              >
-            </label>
-          </td>
-        </tr>
-      </tfoot>
-    </table>
+            >
+              <!-- type number continues to be annoying AF. Trying to move down a cell with an arrow key shouldn't accidentally alter the stats -->
+              <input
+                class="stats-table__tbody__input"
+                type="tel"
+                inputmode="decimal"
+                :value="value"
+                size="5"
+                maxlength="5"
+                :data-column-name="name"
+                :data-col="index + 2"
+                :data-row="index"
+              />
+            </td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <tr>
+            <th scope="row" :data-col="0">TOT</th>
+            <td :data-col="1"></td>
+            <!-- a bit too imperative but it is good that we are not doing a v-if in a v-for-->
+            <td
+              v-for="x in 5"
+              :key="x"
+              scope="col"
+              :data-total-for-column-index="x + 1"
+            >
+              <label>
+                <output
+                  class="tfoot__output--totals"
+                  :data-total-for-column-index="x + 1"
+                  >SUM</output
+                >
+              </label>
+            </td>
+          </tr>
+        </tfoot>
+      </table>
+    </form>
   </div>
 </template>
 <script>
@@ -116,7 +118,15 @@ import defaultStats from "/json/default-stats.json";
 
 // can use COMPUTED to "filter" or "mask" out unwanted valuesbundleRenderer.renderToStream https://v3.https://www.vuemastery.com/conferences/vueconf-us-2019/building-fast-and-semantic-input-masks-in-vuejs/
 
+function putCursorAtEnd(event) {
+  event.target.setSelectionRange(99, 99);
+  console.log(event.target, "place cursor");
+}
+
 export default {
+  setup: function () {
+    return { putCursorAtEnd };
+  },
   data: function () {
     return {
       defaultStats,
@@ -135,6 +145,10 @@ export default {
   min-width: 30rem;
   padding: 0 1.6rem;
   //padding-right: 1.6rem;
+}
+
+form {
+  width: 100%;
 }
 
 table {

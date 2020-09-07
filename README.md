@@ -4,25 +4,20 @@
 
 Labor Day launch.
 
---> front player psition is zoomingon ios fix that font size
+when text is on top in 1-1 or 2-0 layout, the sliders need to be higher. Should they all be bottom based then? Wouldn't be hard to specify per layout but only if needed...
+
+nudge logo towards corner
 
 BACK
 
 rather than just darkening the aside and footer, USE LIGHTEN AND DARKEN -- could be done with a css filter even if not a scss function
+gum: maybe base stain off text color so it will have contrast against white or black...
 
 it should be intensifying contrast (so make lighter than color or darker depening on contrast function -- use hur rotate for instance or a css variable)
 for instance shouldn't all dark have charcola regions just like all white ha some grey boxes? yah
 
--- header-- all caps will help ensure leibility
-
 -- really only need FUI on the 3 fields that have sliders: name, aside, footer
 wire - up sliders... (and, if you're having trouble binding like last time, at least just make 3 sep sliders for import/regference to keep this file samll yah?)
-
---> handler on table (maybe click -- is focus within an event?). check if tablget is an iput and
--- don't want to add hander per cell
-stats table: move cursor to end. Very simple function. Just a metter of where best to put code/handler....
-If selectionEnd is less than selectionStart, then both are treated as the value of selectionEnd.
-elem.setSelectionRange(99, 99)
 
 prevent 3rd line on table back headers
 
@@ -200,6 +195,13 @@ can i offer a 48px touch target (off to the side perhaps) while maintaining tigh
   --> might be good to show all font adjustment buttons for each text input, but not all buttons would be enabled for all fields. That way user won't wonder "what happened to width option?" but will be shown it just can't be applied here (may need clear helper text about limitations)
 
 ### 2nd release
+
+--> focusin handler on stats table seems to work and properly place cusor at end of input.
+But, it seems to work on touch, not mouse. That is, actually, desireable. But when things work without me knowing why it makes me nervous... (maybe click -- is focus within an event?). check if tablget is an iput and
+-- don't want to add hander per cell
+stats table: move cursor to end. Very simple function. Just a metter of where best to put code/handler....
+If selectionEnd is less than selectionStart, then both are treated as the value of selectionEnd.
+elem.setSelectionRange(99, 99)
 
 --> consider whether look is better with current stripe placement, or whether it should be the last row before table.
 Could make consfigurable i suppose. User could invert all 3 rows, for instance.
