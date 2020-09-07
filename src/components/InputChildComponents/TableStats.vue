@@ -101,7 +101,7 @@
                 <output
                   class="tfoot__output--totals"
                   :data-total-for-column-index="x + 1"
-                  >SUM</output
+                  >{{ sumCol2 }}</output
                 >
               </label>
             </td>
@@ -118,6 +118,12 @@ import defaultStats from "/json/default-stats.json";
 
 // can use COMPUTED to "filter" or "mask" out unwanted valuesbundleRenderer.renderToStream https://v3.https://www.vuemastery.com/conferences/vueconf-us-2019/building-fast-and-semantic-input-masks-in-vuejs/
 
+//let inputsCol_2 = [... ];
+
+// data-col="2"
+
+const col2values = [1, 2, 3, 4];
+
 function putCursorAtEnd(event) {
   event.target.setSelectionRange(99, 99);
   console.log(event.target, "place cursor");
@@ -132,6 +138,22 @@ export default {
       defaultStats,
     };
   },
+  computed: {
+    sumCol2() {
+      const reducer = (accumulator, currentValue) => accumulator + currentValue;
+
+      let col2numbers = Object.values(
+        this.defaultStats.seasons[2].numericStats
+      );
+
+      let col2numsAsNums = col2numbers.map((x) => {
+        return parseFloat(x);
+      });
+
+      return col2numsAsNums.reduce(reducer);
+    },
+  },
+  mounted: function () {},
 };
 </script>
 
