@@ -103,7 +103,7 @@
                 <output
                   class="tfoot__output--totals"
                   :data-total-for-column-index="x + 1"
-                  >{{ sumCol2() }}</output
+                  >{{ sumCol2 }}</output
                 >
               </label>
             </td>
@@ -197,25 +197,32 @@ export default {
       ],
     };
   },
-  methods: {
+  // using a method instead of computerd would allow me to pass in the column-number...
+  methods: {},
+  computed: {
     sumCol2() {
-      const reducer = (accumulator, currentValue) => {
+      const rdcr = (acum, curVal) => {
         console.log(this.seasons[0].numericStats.racesCycled);
-        return parseFloat(accumulator) + parseFloat(currentValue);
+        return parseFloat(acum) + parseFloat(curVal);
       };
 
       // THIS REFERENCE RIGHT IS STATIC. NOT GETTING RECOMPUTED
       //let col2numbers = Object.values(this.seasons[0].numericStats);
-      let argh = this.seasons[0].numericStats.racesCycled;
-      let argh2 = this.seasons[1].numericStats.racesCycled;
-      let col2numbers = [argh, argh2];
+      //let argh0;let argh1;let argh2;let argh3;let argh4;
+      //this.seasons.map((x)=>{
+      //  x.numericStats.racesCycled
+      //})
+      let argh0 = this.seasons[0].numericStats.racesCycled;
+      let argh1 = this.seasons[1].numericStats.racesCycled;
+      let argh2 = this.seasons[2].numericStats.racesCycled;
+      let argh3 = this.seasons[3].numericStats.racesCycled;
+      let argh4 = this.seasons[4].numericStats.racesCycled;
 
-      console.log(argh, argh2);
+      let col2numbers = [argh0, argh1, argh2, argh3, argh4];
 
-      return col2numbers.reduce(reducer);
+      return col2numbers.reduce(rdcr);
     },
   },
-  computed: {},
 };
 </script>
 
