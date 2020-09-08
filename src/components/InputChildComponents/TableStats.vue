@@ -25,9 +25,9 @@
         <tbody>
           <tr
             class="stats-table__tbody__tr"
-            v-for="(season, index) in defaultStats.seasons"
+            v-for="(season, name, indexOuter) in seasons"
             :key="season"
-            :data-row="index"
+            :data-row="indexOuter"
           >
             <!-- i really don't want to do a loop in a loop, do I? Space/time complexity wise, it's better to loop twice -->
             <!-- this one doesnT expect index until 3rd argument. Is that because itS nested? Maybe itS the kind of object -->
@@ -37,51 +37,53 @@
               scope="row"
               class="stats-table__tbody__th"
               :data-col="0"
-              :data-row="index"
+              :data-row="indexOuter"
             >
               <input
                 class="stats-table__tbody__input"
                 type="tel"
-                :value="season.year"
+                v-model="season.year"
                 size="4"
                 maxlength="4"
                 :data-column-name="name"
                 :data-col="0"
-                :data-row="index"
+                :data-row="indexOuter"
               />
             </th>
-            <td class="stats-table__tbody__td" :data-col="1" :data-row="index">
+            <td
+              class="stats-table__tbody__td"
+              :data-col="1"
+              :data-row="indexOuter"
+            >
               <input
                 class="stats-table__tbody__input"
                 type="tel"
-                :value="season.homeCity"
+                v-model="season.homeCity"
                 size="4"
                 maxlength="4"
                 :data-column-name="name"
                 :data-col="1"
-                :data-row="index"
+                :data-row="indexOuter"
               />
             </td>
 
             <td
               class="stats-table__tbody__td"
-              v-for="(value, name, index) in season.numericStats"
-              :key="value"
-              :data-column-name="name"
-              :data-col="index + 2"
-              :data-row="index"
+              v-for="(theStat, indexInner) in season.numericStats"
+              :key="theStat.value"
             >
               <!-- type number continues to be annoying AF. Trying to move down a cell with an arrow key shouldn't accidentally alter the stats -->
+
+              <!--     v-model="seasons[index].numericStats[name]" -->
+              <!--  :value="theStat" -->
+
               <input
                 class="stats-table__tbody__input"
                 type="tel"
                 inputmode="decimal"
-                :value="value"
+                v-model="season.numericStats[indexInner]"
                 size="5"
                 maxlength="5"
-                :data-column-name="name"
-                :data-col="index + 2"
-                :data-row="index"
               />
             </td>
           </tr>
@@ -101,7 +103,7 @@
                 <output
                   class="tfoot__output--totals"
                   :data-total-for-column-index="x + 1"
-                  >{{ sumCol2 }}</output
+                  >{{ sumCol2() }}</output
                 >
               </label>
             </td>
@@ -136,24 +138,84 @@ export default {
   data: function () {
     return {
       defaultStats,
+      seasons: [
+        {
+          year: "2015",
+          homeCity: "DC",
+          numericStats: {
+            racesCycled: 55,
+            milesCycled: 905,
+            avgSpeed: 29,
+            falls: 12,
+            beersTasted: 112,
+          },
+        },
+        {
+          year: "2016",
+          homeCity: "NYC",
+          numericStats: {
+            racesCycled: 25,
+            milesCycled: 1005,
+            avgSpeed: 28.5,
+            falls: 6,
+            beersTasted: 118,
+          },
+        },
+        {
+          year: "2017",
+          homeCity: "SF",
+          numericStats: {
+            racesCycled: 1,
+            milesCycled: 4,
+            avgSpeed: 8.5,
+            falls: 1,
+            beersTasted: 398,
+          },
+        },
+        {
+          year: "2018",
+          homeCity: "SF",
+          numericStats: {
+            racesCycled: 102,
+            milesCycled: 9876,
+            avgSpeed: 42,
+            falls: 11,
+            beersTasted: 77,
+          },
+        },
+        {
+          year: "2019",
+          homeCity: "LA",
+          numericStats: {
+            racesCycled: 29,
+            milesCycled: 3201,
+            avgSpeed: 101,
+            falls: 0,
+            beersTasted: 27,
+          },
+        },
+      ],
     };
   },
-  computed: {
+  methods: {
     sumCol2() {
-      const reducer = (accumulator, currentValue) => accumulator + currentValue;
+      const reducer = (accumulator, currentValue) => {
+        console.log(this.seasons[0].numericStats.racesCycled);
+        return parseFloat(accumulator) + parseFloat(currentValue);
+      };
 
-      let col2numbers = Object.values(
-        this.defaultStats.seasons[2].numericStats
-      );
+      // THIS REFERENCE RIGHT IS STATIC. NOT GETTING RECOMPUTED
+      //let col2numbers = Object.values(this.seasons[0].numericStats);
+      let argh = this.seasons[0].numericStats.racesCycled;
+      let argh2 = this.seasons[1].numericStats.racesCycled;
+      let col2numbers = [argh, argh2];
 
-      let col2numsAsNums = col2numbers.map((x) => {
-        return parseFloat(x);
-      });
+      console.log(argh, argh2);
 
-      return col2numsAsNums.reduce(reducer);
+      return col2numbers.reduce(reducer);
     },
   },
-  mounted: function () {},
+  computed: {},
 };
 </script>
 

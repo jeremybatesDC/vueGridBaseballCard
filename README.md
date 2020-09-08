@@ -2,7 +2,15 @@
 
 ## To Do
 
+think through column data function... sweet news is this is working
+
+parsefloat -- is there a better place to run this? Would this be needed with proper TS use? hmmm
+
 Labor Day launch.
+
+cant get rid of data column junk attributes bc some areused for styling
+
+generalize the column names
 
 when text is on top in 1-1 or 2-0 layout, the sliders need to be higher. Should they all be bottom based then? Wouldn't be hard to specify per layout but only if needed...
 
@@ -20,8 +28,6 @@ for instance shouldn't all dark have charcola regions just like all white ha som
 wire - up sliders... (and, if you're having trouble binding like last time, at least just make 3 sep sliders for import/regference to keep this file samll yah?)
 
 prevent 3rd line on table back headers
-
--gum stain icons if time
 
 ---
 
@@ -195,6 +201,8 @@ can i offer a 48px touch target (off to the side perhaps) while maintaining tigh
   --> might be good to show all font adjustment buttons for each text input, but not all buttons would be enabled for all fields. That way user won't wonder "what happened to width option?" but will be shown it just can't be applied here (may need clear helper text about limitations)
 
 ### 2nd release
+
+-gum stain icons if time
 
 --> focusin handler on stats table seems to work and properly place cusor at end of input.
 But, it seems to work on touch, not mouse. That is, actually, desireable. But when things work without me knowing why it makes me nervous... (maybe click -- is focus within an event?). check if tablget is an iput and
