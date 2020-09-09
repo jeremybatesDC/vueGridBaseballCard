@@ -1,6 +1,7 @@
 <template>
-  <div class="stats__wrapper--outer">
-    <form class="stats__form" @focusin="putCursorAtEnd">
+  <div class="stats__wrapper--outer" @focusin="putCursorAtEnd">
+    <!--  -->
+    <form class="stats__form">
       <table class="">
         <!--<caption>Career Stats</caption>-->
         <thead>
@@ -69,19 +70,18 @@
 
             <td
               class="stats-table__tbody__td"
-              v-for="(theStat, indexInner) in season.numericStats"
-              :key="theStat.value"
+              v-for="(theStat, theName, indexInner) in season.numericStats"
+              :key="indexInner"
             >
               <!-- type number continues to be annoying AF. Trying to move down a cell with an arrow key shouldn't accidentally alter the stats -->
 
-              <!--     v-model="seasons[index].numericStats[name]" -->
-              <!--  :value="theStat" -->
+              <!--v-model="season.numericStats[theName]"-->
+              <!-- -->
 
               <input
                 class="stats-table__tbody__input"
                 type="tel"
-                inputmode="decimal"
-                v-model="season.numericStats[indexInner]"
+                v-model="season.numericStats[theName]"
                 size="5"
                 maxlength="5"
               />
@@ -143,7 +143,7 @@ export default {
           year: "2015",
           homeCity: "DC",
           numericStats: {
-            racesCycled: 55,
+            racesCycled: 11,
             milesCycled: 905,
             avgSpeed: 29,
             falls: 12,

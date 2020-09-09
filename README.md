@@ -2,6 +2,19 @@
 
 ## To Do
 
+click outside to close not working for image editing view
+
+--> make table headers reactive/vmodel based
+
+v-model was bugging out, making the input lose fous with every keystorok...
+truning it to value helped... did this happen as a method?
+
+there is a bug -- the v-model is
+
+test last commit on iphone - network here creashed
+
+math: validate against NAN, etc... in compterd...
+
 think through column data function... sweet news is this is working
 
 parsefloat -- is there a better place to run this? Would this be needed with proper TS use? hmmm
@@ -13,8 +26,6 @@ cant get rid of data column junk attributes bc some areused for styling
 generalize the column names
 
 when text is on top in 1-1 or 2-0 layout, the sliders need to be higher. Should they all be bottom based then? Wouldn't be hard to specify per layout but only if needed...
-
-nudge logo towards corner
 
 BACK
 

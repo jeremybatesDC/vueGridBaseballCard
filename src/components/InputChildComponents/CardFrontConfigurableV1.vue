@@ -1233,25 +1233,49 @@ input {
   border-radius: var(--borderinnercurve);
   // trying a trick
 
-  overflow: hidden;
+  //overflow: hidden;
   // imperative way of handling full bleed
   //filter: var(--playerimagefiltereffect);
   &.topLeft {
     justify-content: flex-start;
     align-items: flex-start;
+    .figure--logo {
+      transform: translate(
+        calc(var(--borderinnercurve) / -3.5),
+        calc(var(--borderinnercurve) / -3.5)
+      );
+    }
   }
   &.topRight {
     justify-content: flex-end;
 
     align-items: flex-start;
+    .figure--logo {
+      transform: translate(
+        calc(var(--borderinnercurve) / 3.5),
+        calc(var(--borderinnercurve) / -3.5)
+      );
+    }
   }
   &.bottomLeft {
     justify-content: flex-start;
     align-items: flex-end;
+    .figure--logo {
+      transform: translate(
+        calc(var(--borderinnercurve) / -3.5),
+        calc(var(--borderinnercurve) / 3.5)
+      );
+    }
   }
   &.bottomRight {
     justify-content: flex-end;
     align-items: flex-end;
+    .figure--logo {
+      transform: translate(
+        calc(var(--borderinnercurve) / 3.5),
+        calc(var(--borderinnercurve) / 3.5)
+      );
+    }
   }
 }
 
@@ -1336,6 +1360,7 @@ h3 {
   width: 100%;
   // donT think i need this height value but
   height: 100%;
+  border-radius: calc(var(--borderinnercurve) - var(--borderinnerwidth));
 }
 
 .playerImage__fieldset {

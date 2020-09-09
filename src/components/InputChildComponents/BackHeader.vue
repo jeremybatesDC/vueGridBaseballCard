@@ -11,13 +11,13 @@
             placeholder="Firstname Lastname"
             spellcheck="false"
           />
-          <TextSlider />
+          <!--<TextSlider />-->
         </h1>
       </label>
       <label>
         <span>
           <input type="text" v-model="defaultFacts.info.info_3" />
-          <TextSlider />
+          <!--<TextSlider />-->
         </span>
       </label>
     </div>
@@ -73,14 +73,17 @@
 
 <script>
 import defaultFacts from "/json/default-facts.json";
-import TextSlider from "../InputChildComponents/TextSlider.vue";
+//import TextSlider from "../InputChildComponents/TextSlider.vue";
 export default {
   components: {
-    TextSlider,
+    //TextSlider,
   },
 
   data: function () {
-    return { defaultFacts, TextSlider };
+    return {
+      defaultFacts,
+      //TextSlider
+    };
   },
 };
 </script>
