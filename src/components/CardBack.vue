@@ -229,14 +229,7 @@ export default {
 
   // wondering whether should we move this into computed methods?
 
-  color: hsl(
-    0,
-    0%,
-    calc(
-      (var(--perceived-lightness) - var(--contrast-threshold-for-card)) *
-        -10000000%
-    )
-  );
+  color: var(--calcColor);
   filter: drop-shadow(0 1px 0 #000) drop-shadow(0 -1px 0 #000)
     drop-shadow(1px 0 0 #000) drop-shadow(-1px 0 0 #000);
 }
@@ -250,15 +243,7 @@ article {
 
   //background-color: rgba(#9c2c1a, 0.25);
   // using outline here so that it'll just be clipped on small devices automatically
-  outline: 1.6rem solid
-    hsl(
-      0,
-      0%,
-      calc(
-        (var(--perceived-lightness) - var(--contrast-threshold-for-card)) *
-          -10000000%
-      )
-    );
+  outline: 1.6rem solid var(--calcColor);
   overflow: hidden;
 
   // need to figure this out -- prob need another wrapper
@@ -272,10 +257,11 @@ article {
       right: 0;
       width: 10rem;
       height: 30rem;
-      background-color: rgba(0, 0, 0, 0.1);
+      background-color: var(--calcColor);
+      opacity: 0.15;
       border-radius: 3px 5px 7px 9px;
       transform: rotate(-33deg) translateX(-8rem) translateY(-4rem);
-      mix-blend-mode: darken;
+      //mix-blend-mode: difference;
       filter: blur(2px);
       pointer-events: none;
     }

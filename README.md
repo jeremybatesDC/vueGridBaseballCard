@@ -30,7 +30,6 @@ when text is on top in 1-1 or 2-0 layout, the sliders need to be higher. Should 
 BACK
 
 rather than just darkening the aside and footer, USE LIGHTEN AND DARKEN -- could be done with a css filter even if not a scss function
-gum: maybe base stain off text color so it will have contrast against white or black...
 
 it should be intensifying contrast (so make lighter than color or darker depening on contrast function -- use hur rotate for instance or a css variable)
 for instance shouldn't all dark have charcola regions just like all white ha some grey boxes? yah
@@ -213,7 +212,10 @@ can i offer a 48px touch target (off to the side perhaps) while maintaining tigh
 
 ### 2nd release
 
--gum stain icons if time
+gum stain:
+
+- icons
+- mix blend mode (and/or maybe add a before AND after to get the desired result)
 
 --> focusin handler on stats table seems to work and properly place cusor at end of input.
 But, it seems to work on touch, not mouse. That is, actually, desireable. But when things work without me knowing why it makes me nervous... (maybe click -- is focus within an event?). check if tablget is an iput and
