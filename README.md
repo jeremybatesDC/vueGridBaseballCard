@@ -2,158 +2,41 @@
 
 ## To Do
 
---> make table headers reactive/vmodel based
-
-v-model was bugging out, making the input lose fous with every keystorok...
-there is a bug -- the v-model is
-math: validate against NAN, etc... in compterd...
-
-parsefloat -- is there a better place to run this? Would this be needed with proper TS use? hmmm
-
-cant get rid of data column junk attributes bc some areused for styling
-
-generalize the column names
-
-when text is on top in 1-1 or 2-0 layout, the sliders need to be higher. Should they all be bottom based then? Wouldn't be hard to specify per layout but only if needed...
+- colorpicker UI on ios has clipped borders.
+- front and back could have icons showing generic avatar in portrait and a stats table icon for back. maybe.
+- icons -- want easy way to invert colors. Move some stroke/fill attributes into CSS
+- make controls atop each card face the same height so the top border of the card doesn't hop when jump from front to back
+- ?Get elements in cells to take full size?
 
 BACK
 
-- rather than just darkening the aside and footer, USE LIGHTEN AND DARKEN -- could be done with a css filter even if not a scss function
-- it should be intensifying contrast (so make lighter than color or darker depening on contrast function -- use hur rotate for instance or a css variable)
+- rather than just darkening the aside and footer, USE LIGHTEN AND DARKEN -- could be done with a css filter even if not a scss function. it should be intensifying contrast (so make lighter than color or darker depening on contrast function -- use hur rotate for instance or a css variable)
   for instance shouldn't all dark have charcola regions just like all white ha some grey boxes? yah
-
--- really only need FUI on the 3 fields that have sliders: name, aside, footer
-wire - up sliders... (and, if you're having trouble binding like last time, at least just make 3 sep sliders for import/regference to keep this file samll yah?)
-
-prevent 3rd line on table back headers
+- really only need FUI on the 3 fields that have sliders: name, aside, footer
+- finish wiring up sliders / styling quasimodal bg.
+- prevent 3rd line on table back headers
+- generalize the column names
+- make table headers reactive/vmodel based
+- v-model was bugging out, making the input lose fous with every keystorok... there is a bug -- the v-model is
+- math: validate against NAN, etc... in compterd...
+- parsefloat -- is there a better place to run this? Would this be needed with proper TS use? hmmm
+- fix overlapping on card back now that wrap reverse is in place boom!
+- decrease cardBack font weights now that subpizel-antialiasing has punched things up
+- because it may not be feasible to alwasy vertically center the aside and footer textareas without ever clipping text, consider adding a visual florish / bottom box shadow that would be obscured by the text (maybe with a text background color or something) if there was a 2nd line of text, but visible if there is only 1 line. I think that is doable. A char max-length could help too. YES. A char counter will help some fields (thinking textareas in particular)
+- math: computed. Grab an array by refs if necessary and tally those bitches. Can we have only a column recalcute as opposed to the whole table? Yes the watch could be scoped to a an array of only that column's cells. math: JUST TOTALS for v1. averages can be v2 because that will require UI work to allow user to select which kind of career stat (total, avg, is there another?) to show for that column...
 
 ---
 
 FRONT
 
-click outside to close not working for image editing view
-
-if you upload a logo, the "none" should be reset (can the last position be remembered if "none" corresponds to a class that does something slightly different?)
-
-wasted way too much time trying to align the "upload pic" and "upload logo" labels... wtf
-
-so really it's just an upload button... I want it to match the logo image icon. And since image player icon can't be a mountain, and logo image prob shouldn't be a person, then need to generalize morereplace filepicker player image upload button with an icon of a picture that feautures a person not a mountian: something like: https://iconmonstr.com/picture-4-svg/
-
-colorpicker UI on ios has clipped borders.
-
-layout icons -- also want easy way to invert colors. Move some stroke/fill attributes into CSS
-
-front and back could have icons showing generic avatar in portrait and a stats table icon for back. maybe.
-
-icons needed:
-https://github.com/danklammer/bytesize-icons
-
-- b&w could be moon like dark mode: https://thenounproject.com/darthpier/collection/photo-editor/?i=1949966
-- sepia though?
-  not sure about this... tiny image previews would indeed be cool-- is there time?
-
-- SAVE! (auto save assuemed? I want a disc dammit)
-- SUBMIT! (not airplane please)
-- print
-- submit
-- close (unicode X is ok)
-- upload
-- picture
-- delete
-- calendar
-- options: https://camo.githubusercontent.com/27571c558459bfce3a07cdd814a6cb25195d46b0/68747470733a2f2f63646e2e7261776769742e636f6d2f64616e6b6c616d6d65722f6279746573697a652d69636f6e732f6d61737465722f646973742f69636f6e732f6f7074696f6e732e737667
-
-- star / flag
-
-grain:
-
-on back, need upload json button
-
-clicking logo ideally would bring focus to that side of the cardfront image controls
-
-click outside to close. v-click thing maybe?
-
---> improve filters with before and after
-
---> make controls atop each card face the same height so the top border of the card doesn't hop when jump from front to back
-
---> and do i really need to be passing props the way I am in terms of binding :stlye? Well, for scoping reasons it makes sense, for instance with text fields that can be independtly named but we want json to be same. But for some universal variables at the card top, is that inline style actually required? Reactivity i believe is already being achieved.
---> maybe there are more performant ways of setting css vars so there's not so much potential for catestrophic reflow
-
---> For lines with 2 text inputs, consider not allowing width adjustments (maybe just color, grade, slant)
-
--- fix overlapping on card back now that wrap reverse is in place boom!
-
-- back color picker -- how can i get the whole card to show? Really want to see bottom of card when choosing color
-  -- (wait -- when color picker is open, can the controls hide?? oooh....)
-
-- invert/hue rotate back stripe color text
-
-- decrease cardBack font weights now that subpizel-antialiasing has punched things up
-
---> Get elements in cells to take full size
-
--- reduce CLS (see notes)
-
-FOCUS UI STUFF
-
-- click logo image: 1) refactor encode script to accept either image -- should be doable even just with some attributes
-
-- helper text explaining image specs
-
-* can a worker send the actual image file somewhere, but give back a filename string or something so we can match them up later?
-
-- ensure offline mode tells user they are offline
-
-* refactor resets and global inputs: -- refactor input styling -- too much redundancy. See header.
-
--- should be only 1 text slider (teleport might be needed): Teleport. https://medium.com/@patelvivek2530/teleport-vue-3s-new-feature-a887fe05fd87 -- feature used to be palled portal
-
-)
-
-indicate whether a field can have its font manipulated
-
-math: computed. Grab an array by refs if necessary and tally those bitches. Can we have only a column recalcute as opposed to the whole table? Yes the watch could be scoped to a an array of only that column's cells
-
-the way to make a mask is via computed and watchers, set/get. No need for a mask plugin.
-and, after considering it, i donT think i need a table plugin. If I can properly tag columns then doing math on them shouldnT take any special code really. It would just be a formula, and probably use the Computed method
-
-STATS TABLE
-
---> stats: Previous 5 years
-(offer previous 10 years but no fact footer)
-(offer 10 categories, but no career highlights section)
-
--- math: JUST TOTALS for v1. averages can be v2 because that will require UI work to allow user to select which kind of career stat (total, avg, is there another?) to show for that column...
-
-- because it may not be feasible to alwasy vertically center the aside and footer textareas without ever clipping text, consider adding a visual florish / bottom box shadow that would be obscured by the text (maybe with a text background color or something) if there was a 2nd line of text, but visible if there is only 1 line. I think that is doable. A char max-length could help too. YES. A char counter will help some fields (thinking textareas in particular)
-
-* Establish data flow:
-  -- share state? Vuex?
-
-* User shouldn't have to save anything manually (although a button to force it to happen on request can be reassuring). So when do we save to indexedDB?
-  -- use blur event and see whther placeholder is showing (can select that in JS)
-
-1.  If a value for a given field in indexedDB is null or doesn't exist, then grab the json default data for that field
-
-2.  On X event(s) [blur with placeholder not showing] and/or at Y time(s), save fields that user changes to IDB. Do this async and, if it makes sense, have a WORKER do this to keep the UI thread free (maybe for a dostracting animation)
+- click outside to close not working for image editing view
+- finish wiring up sliders / styling quasimodal bg.
+- wasted way too much time trying to align the "upload pic" and "upload logo" labels... wtf
+- when text is on top in 1-1 or 2-0 layout, the sliders need to be higher. Should they all be bottom based then? Wouldn't be hard to specify per layout but only if needed...
 
 ---
 
 ### Notes
-
-- Add Examples (start with JSON)
-  --> CREATE A TEMPLATE spreadsheet XLSX on google drive, with an instruction about how to export a file that can be imported directly on the card site: OR Creat a service:
-  http://beautifytools.com/excel-to-json-converter.php
-  https://www.npmjs.com/package/xlsx-to-json
-
-  -- untappt cards
-  -- github cards
-  -- genealogy cards
-  -- PRESIDENTS & politicians
-  -- baseball current example
-  -- school photo option ( cash money )
-  -- birth announcements
 
 - group/team bulk stats upload
 - sell to youth sports leagues
@@ -185,7 +68,54 @@ can i offer a 48px touch target (off to the side perhaps) while maintaining tigh
 
   --> might be good to show all font adjustment buttons for each text input, but not all buttons would be enabled for all fields. That way user won't wonder "what happened to width option?" but will be shown it just can't be applied here (may need clear helper text about limitations)
 
+the way to make a mask is via computed and watchers, set/get. No need for a mask plugin.
+and, after considering it, i donT think i need a table plugin. If I can properly tag columns then doing math on them shouldnT take any special code really. It would just be a formula, and probably use the Computed method
+
+so really it's just an upload button... I want it to match the logo image icon. And since image player icon can't be a mountain, and logo image prob shouldn't be a person, then need to generalize morereplace filepicker player image upload button with an icon of a picture that feautures a person not a mountian: something like: https://iconmonstr.com/picture-4-svg/
+
 ### 2nd release
+
+-- carefukly factor out data column junk attributes bc some areused for styling
+
+- back color picker -- how can i get the whole card to show? Really want to see bottom of card when choosing color
+  -- (wait -- when color picker is open, can the controls hide?? oooh....)
+
+--> For lines with 2 text inputs, consider not allowing width adjustments (maybe just color, grade, slant)
+
+- Establish data flow:
+  -- share state? Vuex?
+
+- User shouldn't have to save anything manually (although a button to force it to happen on request can be reassuring). So when do we save to indexedDB?
+  -- use blur event and see whther placeholder is showing (can select that in JS)
+
+1.  If a value for a given field in indexedDB is null or doesn't exist, then grab the json default data for that field
+
+2.  On X event(s) [blur with placeholder not showing] and/or at Y time(s), save fields that user changes to IDB. Do this async and, if it makes sense, have a WORKER do this to keep the UI thread free (maybe for a dostracting animation)
+
+- Add Examples (start with JSON)
+  --> CREATE A TEMPLATE spreadsheet XLSX on google drive, with an instruction about how to export a file that can be imported directly on the card site: OR Creat a service:
+  http://beautifytools.com/excel-to-json-converter.php
+  https://www.npmjs.com/package/xlsx-to-json
+
+  -- untappt cards
+  -- github cards
+  -- genealogy cards
+  -- PRESIDENTS & politicians
+  -- baseball current example
+  -- school photo option ( cash money )
+  -- birth announcements
+
+--> improve filters with before and after
+-- reduce CLS (see notes)
+
+--> and do i really need to be passing props the way I am in terms of binding :stlye? Well, for scoping reasons it makes sense, for instance with text fields that can be independtly named but we want json to be same. But for some universal variables at the card top, is that inline style actually required? Reactivity i believe is already being achieved.
+--> maybe there are more performant ways of setting css vars so there's not so much potential for catestrophic reflow
+
+clicking logo ideally would bring focus to that side of the cardfront image controls
+
+--> do i save indexdb/local storage for v2? Could take pressure off
+
+if you upload a logo, the "none" should be reset (can the last position be remembered if "none" corresponds to a class that does something slightly different?)
 
 - Years: Default to 2019, working backwards X (5) years. Could offer another "start year." Will have to think of easy way to give non-contiguous years without making it too easy for user to make typo... (they could default, and then each be over-rideable via a select menu or data-list or whatever)
 
@@ -227,6 +157,8 @@ Could make consfigurable i suppose. User could invert all 3 rows, for instance.
 disabe more spellcheck (enough?)
 
 build out index db (it's already set up to work) to allow saving (replaces previous localstorage implementation).
+
+indicate whether a field can have its font manipulated
 
 -- (further?) reduce visible size of borders for 320px devices so hopefully rest of content can give adequate touch targets in real world measurements (7-12mm) (maybe using min-max clamps?)
 -- min touch target 48px wherever possible (playing numerologist right now 44, 45, 46, 48)
@@ -372,6 +304,47 @@ Consider adding double border option
 
 -- consider using placeholders and style them exaclty if possible -- makes it easier for user to to type from scratch.
 -- Name on back could inherit AS A PLACEHOLDER the value of name on front, so it can be its own field that could be edited on its own without affecting the field on the front. Better and simpler than having user select whether to inherit or not. I'll find an issue maybe, but i like the idea
+
+icons needed:
+https://github.com/danklammer/bytesize-icons
+
+- b&w could be moon like dark mode: https://thenounproject.com/darthpier/collection/photo-editor/?i=1949966
+- sepia though?
+  not sure about this... tiny image previews would indeed be cool-- is there time?
+
+- SAVE! (auto save assuemed? I want a disc dammit)
+- SUBMIT! (not airplane please)
+- print
+- submit
+- close (unicode X is ok)
+- upload
+- picture
+- delete
+- calendar
+- options: https://camo.githubusercontent.com/27571c558459bfce3a07cdd814a6cb25195d46b0/68747470733a2f2f63646e2e7261776769742e636f6d2f64616e6b6c616d6d65722f6279746573697a652d69636f6e732f6d61737465722f646973742f69636f6e732f6f7074696f6e732e737667
+
+- star / flag
+
+grain:
+
+on back, need upload json button
+
+- ensure offline mode tells user they are offline
+
+* refactor resets and global inputs: -- refactor input styling -- too much redundancy. See header.
+
+-- should be only 1 text slider (teleport might be needed): Teleport. https://medium.com/@patelvivek2530/teleport-vue-3s-new-feature-a887fe05fd87 -- feature used to be palled portal
+
+- helper text explaining image specs
+
+* can a worker send the actual image file somewhere, but give back a filename string or something so we can match them up later?
+
+)
+
+STATS TABLE
+--> stats: Previous 5 years
+(offer previous 10 years but no fact footer)
+(offer 10 categories, but no career highlights section)
 
 ### Built with
 
