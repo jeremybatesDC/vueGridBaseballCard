@@ -1080,6 +1080,14 @@ export default {
   --border-alpha: calc(
     (var(--perceived-lightness) - var(--border-threshold)) * 100
   );
+  --calcColor: hsl(
+    0,
+    0%,
+    calc(
+      (var(--perceived-lightness) - var(--contrast-threshold-for-card)) *
+        -10000000%
+    )
+  );
 
   overflow: hidden;
 }
@@ -1093,14 +1101,7 @@ export default {
   height: 50.4rem;
   margin: 0 auto;
   padding: 0 1.6rem;
-  color: hsl(
-    0,
-    0%,
-    calc(
-      (var(--perceived-lightness) - var(--contrast-threshold-for-card)) *
-        -10000000%
-    )
-  );
+  color: var(--calcColor);
   background-color: var(--cardbackgroundcolor);
 
   border: 1px solid rgba(0, 0, 0, 0.3333);
@@ -1116,14 +1117,7 @@ export default {
   padding: 0.8rem 0;
   .colorPicker__label--textOverlap {
     span {
-      color: hsl(
-        0,
-        0%,
-        calc(
-          (var(--perceived-lightness) - var(--contrast-threshold-for-card)) *
-            -10000000%
-        )
-      );
+      color: var(--calcColor);
     }
   }
 }
@@ -1221,14 +1215,7 @@ input {
   border-style: var(--borderinnerstyle);
 
   //border-color: var(--borderinnercolor);
-  border-color: hsl(
-    0,
-    0%,
-    calc(
-      (var(--perceived-lightness) - var(--contrast-threshold-for-card)) *
-        -10000000%
-    )
-  );
+  border-color: var(--calcColor);
 
   border-radius: var(--borderinnercurve);
   // trying a trick

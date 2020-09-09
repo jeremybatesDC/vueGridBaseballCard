@@ -2,24 +2,13 @@
 
 ## To Do
 
-click outside to close not working for image editing view
-
 --> make table headers reactive/vmodel based
 
 v-model was bugging out, making the input lose fous with every keystorok...
-truning it to value helped... did this happen as a method?
-
 there is a bug -- the v-model is
-
-test last commit on iphone - network here creashed
-
 math: validate against NAN, etc... in compterd...
 
-think through column data function... sweet news is this is working
-
 parsefloat -- is there a better place to run this? Would this be needed with proper TS use? hmmm
-
-Labor Day launch.
 
 cant get rid of data column junk attributes bc some areused for styling
 
@@ -29,10 +18,9 @@ when text is on top in 1-1 or 2-0 layout, the sliders need to be higher. Should 
 
 BACK
 
-rather than just darkening the aside and footer, USE LIGHTEN AND DARKEN -- could be done with a css filter even if not a scss function
-
-it should be intensifying contrast (so make lighter than color or darker depening on contrast function -- use hur rotate for instance or a css variable)
-for instance shouldn't all dark have charcola regions just like all white ha some grey boxes? yah
+- rather than just darkening the aside and footer, USE LIGHTEN AND DARKEN -- could be done with a css filter even if not a scss function
+- it should be intensifying contrast (so make lighter than color or darker depening on contrast function -- use hur rotate for instance or a css variable)
+  for instance shouldn't all dark have charcola regions just like all white ha some grey boxes? yah
 
 -- really only need FUI on the 3 fields that have sliders: name, aside, footer
 wire - up sliders... (and, if you're having trouble binding like last time, at least just make 3 sep sliders for import/regference to keep this file samll yah?)
@@ -42,23 +30,16 @@ prevent 3rd line on table back headers
 ---
 
 FRONT
+
+click outside to close not working for image editing view
+
 if you upload a logo, the "none" should be reset (can the last position be remembered if "none" corresponds to a class that does something slightly different?)
 
 wasted way too much time trying to align the "upload pic" and "upload logo" labels... wtf
 
-for consistency conisder color picker with text label and a palatte icon (to which the text color ocntrast function gets applied)
-
 so really it's just an upload button... I want it to match the logo image icon. And since image player icon can't be a mountain, and logo image prob shouldn't be a person, then need to generalize morereplace filepicker player image upload button with an icon of a picture that feautures a person not a mountian: something like: https://iconmonstr.com/picture-4-svg/
 
-CARD FRONT FIGURE DESIGN ROW BACKGROUND NEEDS TO HAVE A COLOR HACKGROUND MAYBE LIKE CARD STOCK
-
 colorpicker UI on ios has clipped borders.
-
-make a class/style/icon for the "none/hide" logo radio button
-
-maybe active class for the file pikcer ? actually that mayb be odd
-
-layout icons could use improvement to better show text
 
 layout icons -- also want easy way to invert colors. Move some stroke/fill attributes into CSS
 
@@ -96,12 +77,8 @@ click outside to close. v-click thing maybe?
 
 --> make controls atop each card face the same height so the top border of the card doesn't hop when jump from front to back
 
---> refactor HSL color and put it into something that can be resued
-
 --> and do i really need to be passing props the way I am in terms of binding :stlye? Well, for scoping reasons it makes sense, for instance with text fields that can be independtly named but we want json to be same. But for some universal variables at the card top, is that inline style actually required? Reactivity i believe is already being achieved.
 --> maybe there are more performant ways of setting css vars so there's not so much potential for catestrophic reflow
-
---> default to a color that's not quite so white
 
 --> For lines with 2 text inputs, consider not allowing width adjustments (maybe just color, grade, slant)
 
@@ -146,8 +123,6 @@ STATS TABLE
 --> stats: Previous 5 years
 (offer previous 10 years but no fact footer)
 (offer 10 categories, but no career highlights section)
-
-- Years: Default to 2019, working backwards X (5) years. Could offer another "start year." Will have to think of easy way to give non-contiguous years without making it too easy for user to make typo... (they could default, and then each be over-rideable via a select menu or data-list or whatever)
 
 -- math: JUST TOTALS for v1. averages can be v2 because that will require UI work to allow user to select which kind of career stat (total, avg, is there another?) to show for that column...
 
@@ -211,6 +186,17 @@ can i offer a 48px touch target (off to the side perhaps) while maintaining tigh
   --> might be good to show all font adjustment buttons for each text input, but not all buttons would be enabled for all fields. That way user won't wonder "what happened to width option?" but will be shown it just can't be applied here (may need clear helper text about limitations)
 
 ### 2nd release
+
+- Years: Default to 2019, working backwards X (5) years. Could offer another "start year." Will have to think of easy way to give non-contiguous years without making it too easy for user to make typo... (they could default, and then each be over-rideable via a select menu or data-list or whatever)
+
+make a class/style/icon for the "none/hide" logo radio button
+
+maybe active class for the file pikcer ? actually that mayb be odd
+
+layout icons could use improvement to better show text
+
+for consistency conisder color picker with text label and a palatte icon (to which the text color ocntrast function gets applied)
+because fade, CARD FRONT FIGURE DESIGN ROW BACKGROUND should have, ideally, A COLOR HACKGROUND MAYBE LIKE CARD STOCK
 
 gum stain:
 
