@@ -1,12 +1,12 @@
 <template>
-  <footer class="fui__wrap">
-    <fieldset class="fui__mid">
+  <footer class="">
+    <fieldset class="">
       <!-- <h2>
             <input type="text" v-model="defaultFacts.info.facts[1].headline" />
       </h2>-->
       <textarea
         rows="2"
-        class="fui__formElem"
+        class=""
         spellcheck="false"
         :style="cssFooterProps"
         v-model="defaultFacts.info.facts[1].text"
@@ -17,14 +17,17 @@
 
 <script>
 import defaultFacts from "/json/default-facts.json";
-import TextSlider from "../InputChildComponents/TextSlider.vue";
+//import TextSlider from "../InputChildComponents/TextSlider.vue";
 export default {
   components: {
-    TextSlider,
+    //TextSlider,
   },
 
   data: function () {
-    return { defaultFacts, TextSlider };
+    return {
+      defaultFacts,
+      //TextSlider
+    };
   },
 };
 </script>
@@ -36,7 +39,7 @@ footer {
   position: relative;
   font-size: 1.6rem;
   padding: 0 1.6rem;
-  background-color: rgba(0, 0, 0, 0.2);
+  //background-color: rgba(0, 0, 0, 0.2);
 
   input[type="text"] {
     padding: 0;

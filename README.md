@@ -2,37 +2,26 @@
 
 ## To Do
 
-- colorpicker UI on ios has clipped borders.
 - front and back could have icons showing generic avatar in portrait and a stats table icon for back. maybe.
 - icons -- want easy way to invert colors. Move some stroke/fill attributes into CSS
 - make controls atop each card face the same height so the top border of the card doesn't hop when jump from front to back
 - ?Get elements in cells to take full size?
-
-BACK
-
-- rather than just darkening the aside and footer, USE LIGHTEN AND DARKEN -- could be done with a css filter even if not a scss function. it should be intensifying contrast (so make lighter than color or darker depening on contrast function -- use hur rotate for instance or a css variable)
-  for instance shouldn't all dark have charcola regions just like all white ha some grey boxes? yah
-- really only need FUI on the 3 fields that have sliders: name, aside, footer
 - finish wiring up sliders / styling quasimodal bg.
-- prevent 3rd line on table back headers
-- generalize the column names
-- make table headers reactive/vmodel based
-- v-model was bugging out, making the input lose fous with every keystorok... there is a bug -- the v-model is
-- math: validate against NAN, etc... in compterd...
-- parsefloat -- is there a better place to run this? Would this be needed with proper TS use? hmmm
-- fix overlapping on card back now that wrap reverse is in place boom!
-- decrease cardBack font weights now that subpizel-antialiasing has punched things up
-- because it may not be feasible to alwasy vertically center the aside and footer textareas without ever clipping text, consider adding a visual florish / bottom box shadow that would be obscured by the text (maybe with a text background color or something) if there was a 2nd line of text, but visible if there is only 1 line. I think that is doable. A char max-length could help too. YES. A char counter will help some fields (thinking textareas in particular)
-- math: computed. Grab an array by refs if necessary and tally those bitches. Can we have only a column recalcute as opposed to the whole table? Yes the watch could be scoped to a an array of only that column's cells. math: JUST TOTALS for v1. averages can be v2 because that will require UI work to allow user to select which kind of career stat (total, avg, is there another?) to show for that column...
 
----
+STATS TABLE
+
+- prevent 3rd line on table back headers (char count(12, done), height combination, plus overflow hidden -- should these be monospaced?)
+- th hard to click (maybe beucase ther's an absolute and a translate and no min height or something)
+
+ASIDE & FOOTER
+
+- because it may not be feasible to alwasy vertically center the aside and footer textareas without ever clipping text, consider adding a visual florish / bottom box shadow that would be obscured by the text (maybe with a text background color or something) if there was a 2nd line of text, but visible if there is only 1 line. I think that is doable. A char max-length could help too. YES. A char counter will help some fields (thinking textareas in particular)
 
 FRONT
 
 - click outside to close not working for image editing view
-- finish wiring up sliders / styling quasimodal bg.
-- wasted way too much time trying to align the "upload pic" and "upload logo" labels... wtf
-- when text is on top in 1-1 or 2-0 layout, the sliders need to be higher. Should they all be bottom based then? Wouldn't be hard to specify per layout but only if needed...
+- layout-specific tweaks to sliders: place sliders when text is on top in 1-1 or 2-0 layout, **the sliders need to be higher**. Should they all be bottom based then? Wouldn't be hard to specify per layout but only if needed...
+- "upload pic" and "upload logo" labels improvemnts (something is wrong there)
 
 ---
 
@@ -74,6 +63,24 @@ and, after considering it, i donT think i need a table plugin. If I can properly
 so really it's just an upload button... I want it to match the logo image icon. And since image player icon can't be a mountain, and logo image prob shouldn't be a person, then need to generalize morereplace filepicker player image upload button with an icon of a picture that feautures a person not a mountian: something like: https://iconmonstr.com/picture-4-svg/
 
 ### 2nd release
+
+- consider decreasing cardBack font weights now that subpizel-antialiasing has punched things up (or making a text shadow or drop shadow with the contrasting color -- this is really for when card is black)
+
+- generalize stat column names
+
+- (this really applies most when card is black) rather than just darkening aside/footer/tablestats, USE LIGHTEN AND DARKEN filtering -- could be done with a css filter even if not a scss function. it should be intensifying contrast (so make lighter than color or darker depening on contrast function -- use hur rotate for instance or a css variable. for instance shouldn't all dark have charcola regions just like all white ha some grey boxes? yah
+
+consider extending thead and tfoot (if possible) so there's no visual margin between it and career highlights. Maybe.
+
+- consider char counter
+
+- math to v2 because something isnT right and i AM using beta... so just breath
+
+- make table headers reactive/vmodel based
+- v-model bugging out, making the input lose fous with every keystorok... there is a bug -- the v-model is
+- math: validate against NAN, etc... in compterd...
+- parsefloat -- is there a better place to run this? Would this be needed with proper TS use? hmmm
+- math: computed. Grab an array by refs if necessary and tally those bitches. Can we have only a column recalcute as opposed to the whole table? Yes the watch could be scoped to a an array of only that column's cells. math: JUST TOTALS for v1. averages can be v2 because that will require UI work to allow user to select which kind of career stat (total, avg, is there another?) to show for that column...
 
 -- carefukly factor out data column junk attributes bc some areused for styling
 

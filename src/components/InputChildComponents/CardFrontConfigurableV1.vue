@@ -160,10 +160,9 @@
       :class="[cardLayout, playerImageBleedOrBoxed]"
     >
       <div class="text__line--first row">
-        <!--<span class="fui__wrap">-->
-        <h2 :style="cssTextLine1Props" class="fui__mid">
+        <h2 :style="cssTextLine1Props" class="">
           <input
-            class="fui__formElem"
+            class=""
             v-model="teamName"
             type="text"
             placeholder
@@ -228,7 +227,6 @@
             </div>
           </div>
         </h2>
-        <!--</span>-->
       </div>
       <div
         :class="`row--middle--forDesign row ${logo.position} ${borderInner.style} ${playerImageFilterEffect}`"
@@ -261,10 +259,9 @@
         </figure>
       </div>
       <div class="text__line--second row">
-        <!--<span class="fui__wrap">-->
-        <h1 :style="cssTextLine2Props" class="fui__mid">
+        <h1 :style="cssTextLine2Props" class="">
           <input
-            class="fui__formElem"
+            class=""
             v-model="playerName"
             type="text"
             placeholder
@@ -329,11 +326,9 @@
             </div>
           </div>
         </h1>
-        <!--</span>-->
-        <!--<span class="fui__wrap">-->
-        <h3 :style="cssTextPlayerPositionProps" class="fui__mid">
+        <h3 :style="cssTextPlayerPositionProps" class="">
           <input
-            class="fui__formElem"
+            class=""
             v-model="playerPosition"
             type="text"
             placeholder
@@ -399,7 +394,6 @@
             </div>
           </div>
         </h3>
-        <!--</span>-->
       </div>
       <input
         id="inputTriggerFocusUI_0"
@@ -794,8 +788,7 @@
           <label
             for="inputTriggerFocusUI_0"
             class="omniClose__label omniClose__label--inside"
-            >CLOSE A</label
-          >
+          ></label>
         </div>
       </div>
       <!-- end QuasiModal-->
@@ -1147,10 +1140,10 @@ export default {
   }
 
   //preserve space because fui moves things
-  .text__line--first,
-  .text__line--second {
-    height: var(--min-touch-target);
-  }
+  //.text__line--first,
+  //.text__line--second {
+  //  height: var(--min-touch-target);
+  //}
 }
 .zero-two {
   justify-content: flex-end;
@@ -1160,10 +1153,10 @@ export default {
     order: -1;
   }
 
-  .text__line--first,
-  .text__line--second {
-    height: 3.2rem;
-  }
+  //.text__line--first,
+  //.text__line--second {
+  //  height: 3.2rem;
+  //}
   .text__line--first {
     padding-top: 0.8rem;
   }
@@ -1178,10 +1171,10 @@ export default {
   .row--middle--forDesign {
     order: 1;
   }
-  .text__line--first,
-  .text__line--second {
-    height: 3.2rem;
-  }
+  //.text__line--first,
+  //.text__line--second {
+  //  height: 3.2rem;
+  //}
   .text__line--first {
     padding-top: 0.8rem;
   }

@@ -18,7 +18,8 @@ input {
     width: var(--min-touch-target);
     height: var(--min-touch-target);
     //border-radius: 50%;
-    border: 1px solid transparent;
+    //border: 1px solid transparent;
+    border: none;
     overflow: hidden;
   }
 
@@ -474,53 +475,53 @@ input {
 }
 
 // card back element is an example
-
-.fui__wrap {
-  font-family: "VariableFont", -apple-system, BlinkMacSystemFont, "Segoe UI",
-    Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", "Helvetica", Arial,
-    sans-serif;
-  &:focus-within {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    align-items: flex-start !important;
-    // because of a scoped class elesewhere oof
-    max-width: none !important;
-
-    height: 100%;
-    // but this should be no taller than max card height right?
-    padding: 1.6rem;
-    background-color: var(--background-for-overlay);
-
-    z-index: 1;
-    .card__container--front & {
-      padding-top: var(--min-touch-target);
-    }
-    .fui__mid {
-      position: relative;
-      width: 100%;
-    }
-    // [type="text"], textarea,
-    .fui__formElem {
-      //position: absolute;
-      // MIN font-size SHOULD BE 1.6rem;
-      font-family: inherit;
-      padding: 0.4rem;
-      .card__container--front & {
-        background-color: var(--cardbackgroundcolor);
-      }
-    }
-    [data-show-only-on-interaction] {
-      visibility: visible;
-    }
-
-    // consider a backdrop
-    // &:before {
-
-    // }
-  }
-  &.fui__wrap--images {
-    top: 0;
-  }
-}
+//
+//.fui__wrap {
+//  font-family: "VariableFont", -apple-system, BlinkMacSystemFont, "Segoe UI",
+//    Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", "Helvetica", Arial,
+//    sans-serif;
+//  &:focus-within {
+//    position: fixed;
+//    top: 0;
+//    left: 0;
+//    width: 100%;
+//    align-items: flex-start !important;
+//    // because of a scoped class elesewhere oof
+//    max-width: none !important;
+//
+//    height: 100%;
+//    // but this should be no taller than max card height right?
+//    padding: 1.6rem;
+//    background-color: var(--background-for-overlay);
+//
+//    z-index: 1;
+//    .card__container--front & {
+//      padding-top: var(--min-touch-target);
+//    }
+//    .fui__mid {
+//      position: relative;
+//      width: 100%;
+//    }
+//    // [type="text"], textarea,
+//    .fui__formElem {
+//      //position: absolute;
+//      // MIN font-size SHOULD BE 1.6rem;
+//      font-family: inherit;
+//      padding: 0.4rem;
+//      .card__container--front & {
+//        background-color: var(--cardbackgroundcolor);
+//      }
+//    }
+//    [data-show-only-on-interaction] {
+//      visibility: visible;
+//    }
+//
+//    // consider a backdrop
+//    // &:before {
+//
+//    // }
+//  }
+//  &.fui__wrap--images {
+//    top: 0;
+//  }
+//}

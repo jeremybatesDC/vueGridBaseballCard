@@ -2,8 +2,8 @@
   <header>
     <div class="row row--topmost">
       <!-- i dont think label is necessarily correct here -->
-      <label class="fui__wrap">
-        <h1 class="fui__mid">
+      <label class="">
+        <h1 class="">
           <input
             type="text"
             class=""
@@ -28,42 +28,22 @@
         <!-- nested row -->
         <div class="row row--stripe stripe--dark">
           <label>
-            <input
-              class="fui__formElem"
-              type="email"
-              v-model="defaultFacts.info.info_0"
-            />
+            <input class="" type="email" v-model="defaultFacts.info.info_0" />
           </label>
 
           <label>
-            <input
-              class="fui__formElem"
-              type="text"
-              v-model="defaultFacts.info.info_1"
-            />
+            <input class="" type="text" v-model="defaultFacts.info.info_1" />
           </label>
         </div>
-        <div class="row">
+        <div class="row row--bottommost">
           <label>
-            <input
-              class="fui__formElem"
-              type="text"
-              v-model="defaultFacts.info.info_4"
-            />
+            <input class="" type="text" v-model="defaultFacts.info.info_4" />
           </label>
           <label>
-            <input
-              class="fui__formElem"
-              type="text"
-              v-model="defaultFacts.info.info_5"
-            />
+            <input class="" type="text" v-model="defaultFacts.info.info_5" />
           </label>
           <label>
-            <input
-              class="fui__formElem"
-              type="text"
-              v-model="defaultFacts.info.info_6"
-            />
+            <input class="" type="text" v-model="defaultFacts.info.info_6" />
           </label>
         </div>
       </span>
@@ -104,13 +84,11 @@ export default {
 .row--stacked {
   height: 5.4rem;
 }
+.row--bottommost {
+  height: 3.2rem;
+}
 
 // scoped to header
-.fui__wrap {
-  padding-top: 0;
-
-  //background-color: rgba(0, 0, 0, 0.6666);
-}
 
 input {
   text-transform: uppercase;

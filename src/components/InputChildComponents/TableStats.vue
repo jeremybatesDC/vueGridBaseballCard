@@ -17,6 +17,7 @@
                   wrap="hard"
                   rows="2"
                   spellcheck="false"
+                  maxlength="12"
                   :value="value"
                 ></textarea>
               </span>
@@ -70,18 +71,18 @@
 
             <td
               class="stats-table__tbody__td"
-              v-for="(theStat, theName, indexInner) in season.numericStats"
+              v-for="(theStat, indexInner) in season.numericStats"
               :key="indexInner"
             >
               <!-- type number continues to be annoying AF. Trying to move down a cell with an arrow key shouldn't accidentally alter the stats -->
 
-              <!--v-model="season.numericStats[theName]"-->
+              <!--v-model="season.numericStats[indexInner]"-->
               <!-- -->
 
               <input
                 class="stats-table__tbody__input"
                 type="tel"
-                v-model="season.numericStats[theName]"
+                :value="theStat"
                 size="5"
                 maxlength="5"
               />
@@ -114,17 +115,9 @@
   </div>
 </template>
 <script>
-// THIS COMPONENT SHOULD RECEIVE STATS AS PROPS
-// SLOTS MAY ALSO HELP HERE
 import defaultStats from "/json/default-stats.json";
 
 // can use COMPUTED to "filter" or "mask" out unwanted valuesbundleRenderer.renderToStream https://v3.https://www.vuemastery.com/conferences/vueconf-us-2019/building-fast-and-semantic-input-masks-in-vuejs/
-
-//let inputsCol_2 = [... ];
-
-// data-col="2"
-
-const col2values = [1, 2, 3, 4];
 
 function putCursorAtEnd(event) {
   event.target.setSelectionRange(99, 99);
@@ -132,10 +125,10 @@ function putCursorAtEnd(event) {
 }
 
 export default {
-  setup: function () {
+  setup() {
     return { putCursorAtEnd };
   },
-  data: function () {
+  data() {
     return {
       defaultStats,
       seasons: [
@@ -197,7 +190,7 @@ export default {
       ],
     };
   },
-  // using a method instead of computerd would allow me to pass in the column-number...
+  // using a method instead of computerd MIGHT allow me to pass in the column-number...
   methods: {},
   computed: {
     sumCol2() {
@@ -206,12 +199,7 @@ export default {
         return parseFloat(acum) + parseFloat(curVal);
       };
 
-      // THIS REFERENCE RIGHT IS STATIC. NOT GETTING RECOMPUTED
-      //let col2numbers = Object.values(this.seasons[0].numericStats);
-      //let argh0;let argh1;let argh2;let argh3;let argh4;
-      //this.seasons.map((x)=>{
-      //  x.numericStats.racesCycled
-      //})
+      // wondering if this is where things go off the rails...
       let argh0 = this.seasons[0].numericStats.racesCycled;
       let argh1 = this.seasons[1].numericStats.racesCycled;
       let argh2 = this.seasons[2].numericStats.racesCycled;
@@ -301,9 +289,9 @@ th {
       top: 0;
       left: 0;
       width: 100%;
-      //height: 100%;
-      //min-width: 0.4rem;
       min-width: 4.4rem;
+      // might need min height to prevent cutoff after editing
+      //min-height: 2.4rem;
       white-space: pre-wrap;
       word-break: break-word;
       //text-align: left;

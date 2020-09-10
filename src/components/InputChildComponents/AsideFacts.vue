@@ -1,17 +1,17 @@
 <template>
   <aside class="stats__aside">
     <blockquote>
-      <span>
-        <!-- this input is preserving the space that the textarea cannot -->
-        <!-- refactor flex in here -->
+      <span class="aside__wrapper--outer">
         <h3>
           <input type="text" v-model="defaultFacts.info.facts[0].headline" />
         </h3>
-        <!-- no need here it seems to add a 'wrap' attr -->
-        <textarea
-          :style="cssAsideProps"
-          v-model="defaultFacts.info.facts[0].text"
-        ></textarea>
+        <span class="aside__wrapper--inner">
+          <textarea
+            rows="3"
+            :style="cssAsideProps"
+            v-model="defaultFacts.info.facts[0].text"
+          ></textarea>
+        </span>
       </span>
     </blockquote>
   </aside>
@@ -28,71 +28,67 @@ export default {
 </script>
 
 <style scoped lang="scss">
+.stats__aside {
+  --textareaheight: auto;
+  --textareapadding: 0;
+  --headlineheight: 2.4rem;
+  @media (min-width: 400px) {
+    --textareaheight: calc(100% - 6.4rem);
+    --textareapadding: 0 1rem;
+    --headlineheight: 3.6rem;
+  }
+}
+
 aside {
   display: flex;
   flex-grow: 1;
   flex-basis: 25%;
   //width: auto;
-  //height: 100%;
-  //background: rgba(0, 0, 0, 0.05);
-  min-height: calc(var(--min-touch-target-height) + 3.2rem);
-  &:focus-within {
-    blockquote {
-      font-size: 1.6rem;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: auto;
-      // background-color: red;
-      input[type="text"],
-      textarea {
-        background-color: var(--backgroundcolorback);
-      }
-    }
-    // this indeed seems to help prevent iOS zoom
-    textarea {
-      font-size: 1.6rem;
-      background-color: #fff;
-      max-height: 12rem;
-    }
-    &:before {
-      content: "";
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0, 0, 0, 0.75);
-    }
-  }
+  min-height: 5.4rem;
+  //background: rgba(0, 0, 0, 0.2);
+  //min-height: calc(var(--min-touch-target-height) + 3.2rem);
+}
+
+.aside__wrapper--outer {
+  display: block;
+  height: 100%;
+  //min-height: var(--min-touch-target);
+  //width: 100%;
+  //background-color: rgba(0, 0, 0, 0.05);
+}
+
+.aside__wrapper--inner {
+  display: block;
+  position: relative;
+
+  height: calc(100% - var(--headlineheight));
 }
 
 blockquote {
   display: block;
   width: 100%;
   height: auto;
-  padding: 0.4rem 1.6rem 0 1.6rem;
+  padding: 0 1.6rem 0 1.6rem;
   margin: 0;
-  background-color: rgba(0, 0, 0, 0.2);
+  background-color: rgba(0, 0, 0, 0.05);
 }
 
 span {
-  display: block;
-  position: relative;
-  height: 100%;
-  min-height: var(--min-touch-target-height);
-  width: 100%;
 }
 
 h3 {
-  position: absolute;
+  //position: absolute;
   top: 0;
   left: 0;
   display: block;
+  font-size: 1.6rem;
   width: 100%;
-  //height: var(--min-touch-target-height);
-  padding: 0;
+  //padding-top: 0.4rem;
+  font-variation-settings: var(--text-shortest-wide);
+
+  input {
+    min-height: var(--headlineheight);
+  }
 }
 
 input[type="text"] {
@@ -109,12 +105,13 @@ textarea {
   top: 50%;
   left: 0;
   width: 100%;
-  height: auto;
-  min-height: var(--min-touch-target-height);
+  height: var(--textareaheight);
+  //min-height: var(--min-touch-target);
   transform: translateY(-50%);
   // padding here based on width helps avoid media queries
   // can i do a min-max CLAMP here somewhere?
-  padding: 2.4rem 0 6vw 0;
+  padding: var(--textareapadding);
+  //padding-bottom: 1.6rem;
   overflow: hidden;
   text-overflow: ellipsis;
   font-size: 1.6rem;
