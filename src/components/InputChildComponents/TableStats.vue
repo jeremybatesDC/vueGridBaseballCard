@@ -261,7 +261,7 @@ thead {
     vertical-align: middle;
     span {
       margin-left: 3.2rem;
-      //height: 100%;
+      //min-height: 1.6rem;
       position: relative;
     }
   }
@@ -291,7 +291,7 @@ th {
       width: 100%;
       min-width: 4.4rem;
       // might need min height to prevent cutoff after editing
-      //min-height: 2.4rem;
+      min-height: 1.6rem;
       white-space: pre-wrap;
       word-break: break-word;
       //text-align: left;

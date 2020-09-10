@@ -10,8 +10,10 @@
 
 STATS TABLE
 
+- header ths: -after editing they shape shift slightly (look this up)... do i need to make these a fixed size and weight, and then just allow overflow? May need to sketch this out.
+  th hard to click (maybe beucase ther's an absolute and a translate and no min height or something)
 - prevent 3rd line on table back headers (char count(12, done), height combination, plus overflow hidden -- should these be monospaced?)
-- th hard to click (maybe beucase ther's an absolute and a translate and no min height or something)
+- can we make this work with manual model? Also, is it worth upgrading to se if i'm encountering a bug? Yes.
 
 ASIDE & FOOTER
 
@@ -63,6 +65,8 @@ and, after considering it, i donT think i need a table plugin. If I can properly
 so really it's just an upload button... I want it to match the logo image icon. And since image player icon can't be a mountain, and logo image prob shouldn't be a person, then need to generalize morereplace filepicker player image upload button with an icon of a picture that feautures a person not a mountian: something like: https://iconmonstr.com/picture-4-svg/
 
 ### 2nd release
+
+- promo screenshots of 3 different designs
 
 - consider decreasing cardBack font weights now that subpizel-antialiasing has punched things up (or making a text shadow or drop shadow with the contrasting color -- this is really for when card is black)
 
