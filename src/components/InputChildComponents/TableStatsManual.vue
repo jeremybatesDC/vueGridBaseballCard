@@ -1,0 +1,685 @@
+<template>
+  <div class="stats__wrapper--outer" @focusin="putCursorAtEnd">
+    <!--  -->
+    <form class="stats__form">
+      <table class="">
+        <!--<caption>Career Stats</caption>-->
+        <thead>
+          <tr>
+            <th
+              v-for="(value, name, index) in defaultStats.fields"
+              :key="value"
+              scope="col"
+              :data-col="index"
+            >
+              <span>
+                <textarea
+                  wrap="hard"
+                  rows="2"
+                  spellcheck="false"
+                  maxlength="12"
+                  :value="value"
+                ></textarea>
+              </span>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="stats-table__tbody__tr">
+            <!-- i really don't want to do a loop in a loop, do I? Space/time complexity wise, it's better to loop twice -->
+            <!-- this one doesnT expect index until 3rd argument. Is that because itS nested? Maybe itS the kind of object -->
+
+            <!-- making first col a TH scope row -->
+            <th
+              scope="row"
+              class="stats-table__tbody__th"
+              :data-col="0"
+              :data-row="0"
+            >
+              <input
+                class="stats-table__tbody__input"
+                type="tel"
+                v-model="seasons.yr1.year"
+                size="4"
+                maxlength="4"
+                :data-col="0"
+                :data-row="0"
+              />
+            </th>
+            <td class="stats-table__tbody__td" :data-col="1" :data-row="0">
+              <input
+                class="stats-table__tbody__input"
+                type="tel"
+                v-model="seasons.yr1.homeCity"
+                size="4"
+                maxlength="4"
+                :data-col="1"
+                :data-row="0"
+              />
+            </td>
+
+            <!-- type number continues to be annoying AF. Trying to move down a cell with an arrow key shouldn't accidentally alter the stats -->
+
+            <!--v-model="season.numericStats[indexInner]"-->
+            <!-- :value="theStat" -->
+            <td class="stats-table__tbody__td">
+              <input
+                class="stats-table__tbody__input"
+                type="tel"
+                v-model="seasons.yr1.numericStats.racesCycled"
+                size="5"
+                maxlength="5"
+              />
+            </td>
+
+            <td class="stats-table__tbody__td">
+              <input
+                class="stats-table__tbody__input"
+                type="tel"
+                v-model="seasons.yr1.numericStats.milesCycled"
+                size="5"
+                maxlength="5"
+              />
+            </td>
+            <td class="stats-table__tbody__td">
+              <input
+                class="stats-table__tbody__input"
+                type="tel"
+                v-model="seasons.yr1.numericStats.avgSpeed"
+                size="5"
+                maxlength="5"
+              />
+            </td>
+            <td class="stats-table__tbody__td">
+              <input
+                class="stats-table__tbody__input"
+                type="tel"
+                v-model="seasons.yr1.numericStats.falls"
+                size="5"
+                maxlength="5"
+              />
+            </td>
+            <td class="stats-table__tbody__td">
+              <input
+                class="stats-table__tbody__input"
+                type="tel"
+                v-model="seasons.yr1.numericStats.beersTasted"
+                size="5"
+                maxlength="5"
+              />
+            </td>
+          </tr>
+          <tr class="stats-table__tbody__tr">
+            <th
+              scope="row"
+              class="stats-table__tbody__th"
+              :data-col="0"
+              :data-row="0"
+            >
+              <input
+                class="stats-table__tbody__input"
+                type="tel"
+                v-model="seasons.yr2.year"
+                size="4"
+                maxlength="4"
+                :data-col="0"
+                :data-row="0"
+              />
+            </th>
+            <td class="stats-table__tbody__td" :data-col="1" :data-row="0">
+              <input
+                class="stats-table__tbody__input"
+                type="tel"
+                v-model="seasons.yr2.homeCity"
+                size="4"
+                maxlength="4"
+                :data-col="1"
+                :data-row="0"
+              />
+            </td>
+            <td class="stats-table__tbody__td">
+              <input
+                class="stats-table__tbody__input"
+                type="tel"
+                v-model="seasons.yr2.numericStats.racesCycled"
+                size="5"
+                maxlength="5"
+              />
+            </td>
+
+            <td class="stats-table__tbody__td">
+              <input
+                class="stats-table__tbody__input"
+                type="tel"
+                v-model="seasons.yr2.numericStats.milesCycled"
+                size="5"
+                maxlength="5"
+              />
+            </td>
+            <td class="stats-table__tbody__td">
+              <input
+                class="stats-table__tbody__input"
+                type="tel"
+                v-model="seasons.yr2.numericStats.avgSpeed"
+                size="5"
+                maxlength="5"
+              />
+            </td>
+            <td class="stats-table__tbody__td">
+              <input
+                class="stats-table__tbody__input"
+                type="tel"
+                v-model="seasons.yr2.numericStats.falls"
+                size="5"
+                maxlength="5"
+              />
+            </td>
+            <td class="stats-table__tbody__td">
+              <input
+                class="stats-table__tbody__input"
+                type="tel"
+                v-model="seasons.yr2.numericStats.beersTasted"
+                size="5"
+                maxlength="5"
+              />
+            </td>
+          </tr>
+          <tr class="stats-table__tbody__tr">
+            <th
+              scope="row"
+              class="stats-table__tbody__th"
+              :data-col="0"
+              :data-row="0"
+            >
+              <input
+                class="stats-table__tbody__input"
+                type="tel"
+                v-model="seasons.yr3.year"
+                size="4"
+                maxlength="4"
+                :data-col="0"
+                :data-row="0"
+              />
+            </th>
+            <td class="stats-table__tbody__td" :data-col="1" :data-row="0">
+              <input
+                class="stats-table__tbody__input"
+                type="tel"
+                v-model="seasons.yr3.homeCity"
+                size="4"
+                maxlength="4"
+                :data-col="1"
+                :data-row="0"
+              />
+            </td>
+            <td class="stats-table__tbody__td">
+              <input
+                class="stats-table__tbody__input"
+                type="tel"
+                v-model="seasons.yr3.numericStats.racesCycled"
+                size="5"
+                maxlength="5"
+              />
+            </td>
+
+            <td class="stats-table__tbody__td">
+              <input
+                class="stats-table__tbody__input"
+                type="tel"
+                v-model="seasons.yr3.numericStats.milesCycled"
+                size="5"
+                maxlength="5"
+              />
+            </td>
+            <td class="stats-table__tbody__td">
+              <input
+                class="stats-table__tbody__input"
+                type="tel"
+                v-model="seasons.yr3.numericStats.avgSpeed"
+                size="5"
+                maxlength="5"
+              />
+            </td>
+            <td class="stats-table__tbody__td">
+              <input
+                class="stats-table__tbody__input"
+                type="tel"
+                v-model="seasons.yr3.numericStats.falls"
+                size="5"
+                maxlength="5"
+              />
+            </td>
+            <td class="stats-table__tbody__td">
+              <input
+                class="stats-table__tbody__input"
+                type="tel"
+                v-model="seasons.yr3.numericStats.beersTasted"
+                size="5"
+                maxlength="5"
+              />
+            </td>
+          </tr>
+          <tr class="stats-table__tbody__tr">
+            <th
+              scope="row"
+              class="stats-table__tbody__th"
+              :data-col="0"
+              :data-row="0"
+            >
+              <input
+                class="stats-table__tbody__input"
+                type="tel"
+                v-model="seasons.yr4.year"
+                size="4"
+                maxlength="4"
+                :data-col="0"
+                :data-row="0"
+              />
+            </th>
+            <td class="stats-table__tbody__td" :data-col="1" :data-row="0">
+              <input
+                class="stats-table__tbody__input"
+                type="tel"
+                v-model="seasons.yr4.homeCity"
+                size="4"
+                maxlength="4"
+                :data-col="1"
+                :data-row="0"
+              />
+            </td>
+            <td class="stats-table__tbody__td">
+              <input
+                class="stats-table__tbody__input"
+                type="tel"
+                v-model="seasons.yr4.numericStats.racesCycled"
+                size="5"
+                maxlength="5"
+              />
+            </td>
+
+            <td class="stats-table__tbody__td">
+              <input
+                class="stats-table__tbody__input"
+                type="tel"
+                v-model="seasons.yr4.numericStats.milesCycled"
+                size="5"
+                maxlength="5"
+              />
+            </td>
+            <td class="stats-table__tbody__td">
+              <input
+                class="stats-table__tbody__input"
+                type="tel"
+                v-model="seasons.yr4.numericStats.avgSpeed"
+                size="5"
+                maxlength="5"
+              />
+            </td>
+            <td class="stats-table__tbody__td">
+              <input
+                class="stats-table__tbody__input"
+                type="tel"
+                v-model="seasons.yr4.numericStats.falls"
+                size="5"
+                maxlength="5"
+              />
+            </td>
+            <td class="stats-table__tbody__td">
+              <input
+                class="stats-table__tbody__input"
+                type="tel"
+                v-model="seasons.yr4.numericStats.beersTasted"
+                size="5"
+                maxlength="5"
+              />
+            </td>
+          </tr>
+          <tr class="stats-table__tbody__tr">
+            <th
+              scope="row"
+              class="stats-table__tbody__th"
+              :data-col="0"
+              :data-row="0"
+            >
+              <input
+                class="stats-table__tbody__input"
+                type="tel"
+                v-model="seasons.yr5.year"
+                size="4"
+                maxlength="4"
+                :data-col="0"
+                :data-row="0"
+              />
+            </th>
+            <td class="stats-table__tbody__td" :data-col="1" :data-row="0">
+              <input
+                class="stats-table__tbody__input"
+                type="tel"
+                v-model="seasons.yr5.homeCity"
+                size="4"
+                maxlength="4"
+                :data-col="1"
+                :data-row="0"
+              />
+            </td>
+            <td class="stats-table__tbody__td">
+              <input
+                class="stats-table__tbody__input"
+                type="tel"
+                v-model="seasons.yr5.numericStats.racesCycled"
+                size="5"
+                maxlength="5"
+              />
+            </td>
+
+            <td class="stats-table__tbody__td">
+              <input
+                class="stats-table__tbody__input"
+                type="tel"
+                v-model="seasons.yr5.numericStats.milesCycled"
+                size="5"
+                maxlength="5"
+              />
+            </td>
+            <td class="stats-table__tbody__td">
+              <input
+                class="stats-table__tbody__input"
+                type="tel"
+                v-model="seasons.yr5.numericStats.avgSpeed"
+                size="5"
+                maxlength="5"
+              />
+            </td>
+            <td class="stats-table__tbody__td">
+              <input
+                class="stats-table__tbody__input"
+                type="tel"
+                v-model="seasons.yr5.numericStats.falls"
+                size="5"
+                maxlength="5"
+              />
+            </td>
+            <td class="stats-table__tbody__td">
+              <input
+                class="stats-table__tbody__input"
+                type="tel"
+                v-model="seasons.yr5.numericStats.beersTasted"
+                size="5"
+                maxlength="5"
+              />
+            </td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <tr>
+            <th scope="row" :data-col="0">TOT</th>
+            <td :data-col="1"></td>
+            <!-- a bit too imperative but it is good that we are not doing a v-if in a v-for-->
+            <td
+              v-for="x in 5"
+              :key="x"
+              scope="col"
+              :data-total-for-column-index="x + 1"
+            >
+              <label>
+                <output
+                  class="tfoot__output--totals"
+                  :data-total-for-column-index="x + 1"
+                  >{{ sumNumericCol }}</output
+                >
+              </label>
+            </td>
+          </tr>
+        </tfoot>
+      </table>
+    </form>
+  </div>
+</template>
+<script>
+import defaultStats from "/json/default-stats.json";
+
+// can use COMPUTED to "filter" or "mask" out unwanted valuesbundleRenderer.renderToStream https://v3.https://www.vuemastery.com/conferences/vueconf-us-2019/building-fast-and-semantic-input-masks-in-vuejs/
+
+function putCursorAtEnd(event) {
+  event.target.setSelectionRange(99, 99);
+  console.log(event.target, "place cursor");
+}
+
+export default {
+  setup() {
+    return { putCursorAtEnd };
+  },
+  data() {
+    return {
+      defaultStats,
+      seasons: {
+        yr1: {
+          year: "2015",
+          homeCity: "DC",
+          numericStats: {
+            racesCycled: 11,
+            milesCycled: 905,
+            avgSpeed: 29,
+            falls: 12,
+            beersTasted: 112,
+          },
+        },
+        yr2: {
+          year: "2016",
+          homeCity: "NYC",
+          numericStats: {
+            racesCycled: 25,
+            milesCycled: 1005,
+            avgSpeed: 28.5,
+            falls: 6,
+            beersTasted: 118,
+          },
+        },
+        yr3: {
+          year: "2017",
+          homeCity: "SF",
+          numericStats: {
+            racesCycled: 1,
+            milesCycled: 4,
+            avgSpeed: 8.5,
+            falls: 1,
+            beersTasted: 398,
+          },
+        },
+        yr4: {
+          year: "2018",
+          homeCity: "SF",
+          numericStats: {
+            racesCycled: 102,
+            milesCycled: 9876,
+            avgSpeed: 42,
+            falls: 11,
+            beersTasted: 77,
+          },
+        },
+        yr5: {
+          year: "2019",
+          homeCity: "LA",
+          numericStats: {
+            racesCycled: 29,
+            milesCycled: 3201,
+            avgSpeed: 101,
+            falls: 0,
+            beersTasted: 27,
+          },
+        },
+      },
+    };
+  },
+  // using a method instead of computerd MIGHT allow me to pass in the column-number...
+  methods: {},
+  computed: {
+    sumNumericCol() {
+      const rdcr = (acum, curVal) => {
+        return parseFloat(acum) + parseFloat(curVal);
+      };
+      // wondering if this is where things go off the rails... and if itS not the model at all... did i test that? Yes, I did. Not the
+      let argh0 = this.seasons.yr1.numericStats.racesCycled;
+      let argh1 = this.seasons.yr2.numericStats.racesCycled;
+      let argh2 = this.seasons.yr3.numericStats.racesCycled;
+      let argh3 = this.seasons.yr4.numericStats.racesCycled;
+      let argh4 = this.seasons.yr5.numericStats.racesCycled;
+      //
+      let colNums = [argh0, argh1, argh2, argh3, argh4];
+      //
+      return colNums.reduce(rdcr);
+    },
+  },
+};
+</script>
+
+<style scoped lang="scss">
+.stats__wrapper--outer {
+  display: flex;
+  flex-grow: 1;
+  align-items: center;
+  // this needs to be put in a variable duh
+  //width: 30rem;
+  min-width: 30rem;
+  padding: 0 1.6rem;
+  //padding-right: 1.6rem;
+}
+
+form {
+  width: 100%;
+}
+
+table {
+  width: 100%;
+  max-width: calc(100vw - 3.2rem);
+  margin: 0 auto;
+  font-size: 1.6rem;
+  // i just learned that line-height of exactly 1 gets rejected by brower on inputs and then falls back on a larger value of normal (1.2 i think)
+  // so, a value of 1.1 actually results in a shorter line height than 1
+  line-height: 1.1;
+  font-family: inherit;
+  font-variant-numeric: lining-nums tabular-nums;
+  text-align: right;
+
+  // need to address making this fit on portrait
+  //overflow: hidden;
+}
+caption {
+  //background: rgba(#9c2c1a, 0.25);
+  text-align: left;
+  padding: 0.5rem;
+  // learned something new
+  //caption-side: bottom;
+}
+thead {
+  background: rgba(0, 0, 0, 0.05);
+  //box-shadow: 0 1px #000;
+  th {
+    position: relative;
+    height: 3.2rem;
+    vertical-align: middle;
+    span {
+      margin-left: 3.2rem;
+      //min-height: 1.6rem;
+      position: relative;
+    }
+  }
+}
+// some ths are in tbody and tfoot
+th {
+  //padding: 3.2rem 0 0 0;
+
+  //text-align: right;
+
+  span {
+    display: flex;
+    //padding-left: 1rem;
+    transform: rotate(-40deg);
+    //transform-origin: 0 0;
+    //margin-top: -2.4rem;
+    //margin-left: 1rem;
+    //margin-right: 1rem;
+    textarea {
+      font-variation-settings: "wght" 300, "wdth" 25, "opsz" 35, "GRAD" 1,
+        "slnt" 0, "YTLC" 500, "YTUC" 500, "YTFI" 500;
+      line-height: 0.65;
+      display: flex;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      min-width: 4.4rem;
+      // might need min height to prevent cutoff after editing
+      min-height: 1.6rem;
+      white-space: pre-wrap;
+      word-break: break-word;
+      //text-align: left;
+      text-transform: uppercase;
+      text-indent: -1rem;
+      padding-left: 1rem;
+
+      // safari mobile seems to struggle with first-line
+    }
+  }
+  &:first-child,
+  &:nth-child(2) {
+    span {
+      vertical-align: top;
+      margin-left: -1.6rem;
+      textarea {
+        text-indent: -0.4rem;
+        padding-left: 2rem;
+      }
+    }
+  }
+}
+tbody {
+  //box-shadow: 0 1px #000;
+  font-variation-settings: "wght" 100, "wdth" 25, "opsz" 35, "GRAD" 0.5,
+    "slnt" 0, "XTRA" 500, "YTLC" 500, "YTUC" 500, "YTFI" 500;
+  background: rgba(255, 255, 255, 0.1);
+
+  td,
+  th {
+    padding: 0;
+    box-shadow: 0 1px rgba(0, 0, 0, 0.25);
+    //width: 0.1px;
+    //max-width: 0.1px;
+    white-space: nowrap;
+    &:first-child,
+    &:nth-child(2) {
+      text-align: left;
+
+      input {
+        text-align: left;
+      }
+    }
+
+    input {
+      //display: block;
+      padding: 0;
+      text-align: right;
+    }
+  }
+}
+tfoot {
+  font-variation-settings: "wght" 200, "wdth" 25, "opsz" 30, "GRAD" 1, "slnt" 0,
+    "YTLC" 500, "YTUC" 500, "YTFI" 500;
+  background: rgba(0, 0, 0, 0.05);
+  //box-shadow: 0 1px #000, 1px 0 #000, -1px 0 #000;
+  td,
+  th {
+    padding: 0.1rem 0 0.1rem 0.1rem;
+    &:first-child {
+      text-align: left;
+    }
+  }
+  //box-shadow: 0 1px #000;
+}
+
+[data-col="1"] {
+  width: 3ch;
+  white-space: nowrap;
+  overflow: visible;
+}
+</style>

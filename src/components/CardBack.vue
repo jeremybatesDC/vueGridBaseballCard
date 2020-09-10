@@ -59,7 +59,7 @@
           <!-- columns: min 2, max 6? -->
           <!-- tbody rows: min 0 (leaving only tfoot totals), max 10? -->
 
-          <TableStats />
+          <TableStatsManual />
 
           <AsideFacts />
         </section>
@@ -74,7 +74,7 @@ import defaultFacts from "/json/default-facts.json";
 import defaultSettingsBack from "/json/default-settings-back.json";
 import { set } from "idb-keyval";
 //import TextSlider from "./InputChildComponents/TextSlider.vue";
-import TableStats from "./InputChildComponents/TableStats.vue";
+import TableStatsManual from "./InputChildComponents/TableStatsManual.vue";
 import BackHeader from "./InputChildComponents/BackHeader.vue";
 import BackFooter from "./InputChildComponents/BackFooter.vue";
 import AsideFacts from "./InputChildComponents/AsideFacts.vue";
@@ -104,7 +104,7 @@ export default {
   // do I nest props to send to child components in here?
   components: {
     //TextSlider,
-    TableStats,
+    TableStatsManual,
     BackHeader,
     BackFooter,
     AsideFacts,
