@@ -119,6 +119,9 @@ h3 {
 
 // .baseballCard__wrapper {
 // }
+.controls--l2 {
+  height: 7.2rem;
+}
 
 .fileInput--fullContainerSize {
   position: absolute;

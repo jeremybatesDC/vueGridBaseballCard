@@ -4,26 +4,24 @@
 
 - front and back could have icons showing generic avatar in portrait and a stats table icon for back. maybe.
 - icons -- want easy way to invert colors. Move some stroke/fill attributes into CSS
-- make controls atop each card face the same height so the top border of the card doesn't hop when jump from front to back
-- ?Get elements in cells to take full size?
 - finish wiring up sliders / styling quasimodal bg.
-
-STATS TABLE
-
-- header ths: -after editing they shape shift slightly (look this up)... do i need to make these a fixed size and weight, and then just allow overflow? May need to sketch this out.
-  th hard to click (maybe beucase ther's an absolute and a translate and no min height or something)
-- prevent 3rd line on table back headers (char count(12, done), height combination, plus overflow hidden -- should these be monospaced?)
-- can we make this work with manual model? Also, is it worth upgrading to se if i'm encountering a bug? Yes.
-
-ASIDE & FOOTER
-
-- because it may not be feasible to alwasy vertically center the aside and footer textareas without ever clipping text, consider adding a visual florish / bottom box shadow that would be obscured by the text (maybe with a text background color or something) if there was a 2nd line of text, but visible if there is only 1 line. I think that is doable. A char max-length could help too. YES. A char counter will help some fields (thinking textareas in particular)
+- ?Get elements in cells to take full size?
 
 FRONT
 
 - click outside to close not working for image editing view
 - layout-specific tweaks to sliders: place sliders when text is on top in 1-1 or 2-0 layout, **the sliders need to be higher**. Should they all be bottom based then? Wouldn't be hard to specify per layout but only if needed...
 - "upload pic" and "upload logo" labels improvemnts (something is wrong there)
+
+STATS TABLE
+
+- header ths: -after editing they shape shift slightly (look this up)... do i need to make these a fixed size and weight, and then just allow overflow? May need to sketch this out.
+  th hard to click (maybe beucase ther's an absolute and a translate and no min height or something)
+- prevent 3rd line on table back headers (char count(12, done), height combination, plus overflow hidden -- should these be monospaced?)
+
+ASIDE & FOOTER
+
+- because it may not be feasible to alwasy vertically center the aside and footer textareas without ever clipping text, consider adding a visual florish / bottom box shadow that would be obscured by the text (maybe with a text background color or something) if there was a 2nd line of text, but visible if there is only 1 line. I think that is doable. A char max-length could help too. YES. A char counter will help some fields (thinking textareas in particular)
 
 ---
 
@@ -65,6 +63,12 @@ and, after considering it, i donT think i need a table plugin. If I can properly
 so really it's just an upload button... I want it to match the logo image icon. And since image player icon can't be a mountain, and logo image prob shouldn't be a person, then need to generalize morereplace filepicker player image upload button with an icon of a picture that feautures a person not a mountian: something like: https://iconmonstr.com/picture-4-svg/
 
 ### 2nd release
+
+- math -- sometimes things no nuts and the output exceeds 5 digits. Need to use toFixed or something to limit decimal places
+
+- math minvalue 0 for the columns to avoid visual blanks as well as NaN errors, etc
+
+- upgrade project dependencies
 
 - promo screenshots of 3 different designs
 

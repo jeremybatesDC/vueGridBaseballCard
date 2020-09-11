@@ -198,6 +198,12 @@ input {
   }
 }
 
+.controls--l2 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
 .checkRadioButtons {
   &__fieldset {
     display: flex;
@@ -207,7 +213,7 @@ input {
     // need to set this here otherwise itS going to inherit the coor change from the card itseld (oops, my bad)
 
     color: #000;
-    .cardFront__controls & {
+    .controls--l2 & {
       background-color: transparent;
     }
     .playerImage__controls & {
@@ -242,6 +248,9 @@ input {
     width: var(--min-touch-target);
     height: var(--min-touch-target);
     // cheat
+    .controls--l2 & {
+      font-size: 1.6rem;
+    }
 
     &.checkRadioButtons__label.checkRadioButtons__label {
       padding: 0;

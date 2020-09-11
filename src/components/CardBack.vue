@@ -1,34 +1,31 @@
 <template>
   <div class="cardBack__wrapper--outermost" :style="cssCardBackProps">
-    <div class="cardBack__controls">
-      <div class="row space-around align-center">
-        <div class="col">
-          <fieldset class="cardBack__fieldset colorPicker__fieldset">
-            <!--<legend>Background</legend>-->
+    <div class="cardBack__controls controls--l2">
+      <div class="row space-around height--100">
+        <fieldset
+          class="cardBack__fieldset colorPicker__fieldset align-self-center"
+        >
+          <!--<legend>Background</legend>-->
 
-            <label class="colorPicker__label colorPicker__label--textOverlap">
-              <span>Color</span>
-              <input
-                class="colorPicker__input"
-                type="color"
-                v-model="defaultSettingsBack.backgroundColor"
-              />
-            </label>
-            <!--<small class="helperText colorPicker__helperText"
+          <label class="colorPicker__label colorPicker__label--textOverlap">
+            <span>Color</span>
+            <input
+              class="colorPicker__input"
+              type="color"
+              v-model="defaultSettingsBack.backgroundColor"
+            />
+          </label>
+          <!--<small class="helperText colorPicker__helperText"
               >Text color adjusts to maintain contrast</small
             >-->
-          </fieldset>
-        </div>
-        <div class="col">
-          <fieldset
-            class="cardBack__fieldset radioUI__fieldset radioUI__fieldset--toggleStyle"
-          >
-            <legend class="radioUI__legend">Gum Stain</legend>
-
-            <label class="radioUI__label">
+        </fieldset>
+        <fieldset class="checkRadioButtons__fieldset">
+          <legend class="checkRadioButtons__legend text-left">Gum Stain</legend>
+          <div class="checkRadioButtons__wrapper--inner">
+            <label class="checkRadioButtons__label">
               <input
-                class="radioUI__input"
                 type="radio"
+                class="checkRadioButtons__input hidden--visually"
                 name="gumradio"
                 v-model="defaultSettingsBack.gumShowing"
                 value="gumShowing"
@@ -36,18 +33,18 @@
               <span>Show</span>
             </label>
 
-            <label class="radioUI__label">
+            <label class="checkRadioButtons__label">
               <input
-                class="radioUI__input"
                 type="radio"
+                class="checkRadioButtons__input hidden--visually"
                 name="gumradio"
                 v-model="defaultSettingsBack.gumShowing"
                 value="gumHidden"
               />
               <span>Hide</span>
             </label>
-          </fieldset>
-        </div>
+          </div>
+        </fieldset>
       </div>
     </div>
 
@@ -204,10 +201,10 @@ export default {
     )
   );
 }
-
-.cardBack__controls {
-  padding: 0.4rem 0;
-}
+//
+//.cardBack__controls {
+//  padding: 0.4rem 0;
+//}
 
 // cheat
 .colorPicker__label--textOverlap {

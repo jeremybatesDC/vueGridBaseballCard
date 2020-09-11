@@ -39,6 +39,7 @@
               <input
                 class="stats-table__tbody__input"
                 type="tel"
+                inputmode="decimal"
                 v-model="seasons.yr1.year"
                 size="4"
                 maxlength="4"
@@ -50,6 +51,7 @@
               <input
                 class="stats-table__tbody__input"
                 type="tel"
+                inputmode="decimal"
                 v-model="seasons.yr1.homeCity"
                 size="4"
                 maxlength="4"
@@ -66,6 +68,7 @@
               <input
                 class="stats-table__tbody__input"
                 type="tel"
+                inputmode="decimal"
                 v-model="seasons.yr1.numericStats.racesCycled"
                 size="5"
                 maxlength="5"
@@ -76,6 +79,7 @@
               <input
                 class="stats-table__tbody__input"
                 type="tel"
+                inputmode="decimal"
                 v-model="seasons.yr1.numericStats.milesCycled"
                 size="5"
                 maxlength="5"
@@ -85,6 +89,7 @@
               <input
                 class="stats-table__tbody__input"
                 type="tel"
+                inputmode="decimal"
                 v-model="seasons.yr1.numericStats.avgSpeed"
                 size="5"
                 maxlength="5"
@@ -94,6 +99,7 @@
               <input
                 class="stats-table__tbody__input"
                 type="tel"
+                inputmode="decimal"
                 v-model="seasons.yr1.numericStats.falls"
                 size="5"
                 maxlength="5"
@@ -103,6 +109,7 @@
               <input
                 class="stats-table__tbody__input"
                 type="tel"
+                inputmode="decimal"
                 v-model="seasons.yr1.numericStats.beersTasted"
                 size="5"
                 maxlength="5"
@@ -119,6 +126,7 @@
               <input
                 class="stats-table__tbody__input"
                 type="tel"
+                inputmode="decimal"
                 v-model="seasons.yr2.year"
                 size="4"
                 maxlength="4"
@@ -130,6 +138,7 @@
               <input
                 class="stats-table__tbody__input"
                 type="tel"
+                inputmode="decimal"
                 v-model="seasons.yr2.homeCity"
                 size="4"
                 maxlength="4"
@@ -141,6 +150,7 @@
               <input
                 class="stats-table__tbody__input"
                 type="tel"
+                inputmode="decimal"
                 v-model="seasons.yr2.numericStats.racesCycled"
                 size="5"
                 maxlength="5"
@@ -151,6 +161,7 @@
               <input
                 class="stats-table__tbody__input"
                 type="tel"
+                inputmode="decimal"
                 v-model="seasons.yr2.numericStats.milesCycled"
                 size="5"
                 maxlength="5"
@@ -160,6 +171,7 @@
               <input
                 class="stats-table__tbody__input"
                 type="tel"
+                inputmode="decimal"
                 v-model="seasons.yr2.numericStats.avgSpeed"
                 size="5"
                 maxlength="5"
@@ -169,6 +181,7 @@
               <input
                 class="stats-table__tbody__input"
                 type="tel"
+                inputmode="decimal"
                 v-model="seasons.yr2.numericStats.falls"
                 size="5"
                 maxlength="5"
@@ -178,6 +191,7 @@
               <input
                 class="stats-table__tbody__input"
                 type="tel"
+                inputmode="decimal"
                 v-model="seasons.yr2.numericStats.beersTasted"
                 size="5"
                 maxlength="5"
@@ -194,6 +208,7 @@
               <input
                 class="stats-table__tbody__input"
                 type="tel"
+                inputmode="decimal"
                 v-model="seasons.yr3.year"
                 size="4"
                 maxlength="4"
@@ -205,6 +220,7 @@
               <input
                 class="stats-table__tbody__input"
                 type="tel"
+                inputmode="decimal"
                 v-model="seasons.yr3.homeCity"
                 size="4"
                 maxlength="4"
@@ -216,6 +232,7 @@
               <input
                 class="stats-table__tbody__input"
                 type="tel"
+                inputmode="decimal"
                 v-model="seasons.yr3.numericStats.racesCycled"
                 size="5"
                 maxlength="5"
@@ -226,6 +243,7 @@
               <input
                 class="stats-table__tbody__input"
                 type="tel"
+                inputmode="decimal"
                 v-model="seasons.yr3.numericStats.milesCycled"
                 size="5"
                 maxlength="5"
@@ -235,6 +253,7 @@
               <input
                 class="stats-table__tbody__input"
                 type="tel"
+                inputmode="decimal"
                 v-model="seasons.yr3.numericStats.avgSpeed"
                 size="5"
                 maxlength="5"
@@ -244,6 +263,7 @@
               <input
                 class="stats-table__tbody__input"
                 type="tel"
+                inputmode="decimal"
                 v-model="seasons.yr3.numericStats.falls"
                 size="5"
                 maxlength="5"
@@ -253,6 +273,7 @@
               <input
                 class="stats-table__tbody__input"
                 type="tel"
+                inputmode="decimal"
                 v-model="seasons.yr3.numericStats.beersTasted"
                 size="5"
                 maxlength="5"
@@ -269,6 +290,7 @@
               <input
                 class="stats-table__tbody__input"
                 type="tel"
+                inputmode="decimal"
                 v-model="seasons.yr4.year"
                 size="4"
                 maxlength="4"
@@ -280,6 +302,7 @@
               <input
                 class="stats-table__tbody__input"
                 type="tel"
+                inputmode="decimal"
                 v-model="seasons.yr4.homeCity"
                 size="4"
                 maxlength="4"
@@ -291,6 +314,7 @@
               <input
                 class="stats-table__tbody__input"
                 type="tel"
+                inputmode="decimal"
                 v-model="seasons.yr4.numericStats.racesCycled"
                 size="5"
                 maxlength="5"
@@ -301,6 +325,7 @@
               <input
                 class="stats-table__tbody__input"
                 type="tel"
+                inputmode="decimal"
                 v-model="seasons.yr4.numericStats.milesCycled"
                 size="5"
                 maxlength="5"
@@ -310,6 +335,7 @@
               <input
                 class="stats-table__tbody__input"
                 type="tel"
+                inputmode="decimal"
                 v-model="seasons.yr4.numericStats.avgSpeed"
                 size="5"
                 maxlength="5"
@@ -319,6 +345,7 @@
               <input
                 class="stats-table__tbody__input"
                 type="tel"
+                inputmode="decimal"
                 v-model="seasons.yr4.numericStats.falls"
                 size="5"
                 maxlength="5"
@@ -328,6 +355,7 @@
               <input
                 class="stats-table__tbody__input"
                 type="tel"
+                inputmode="decimal"
                 v-model="seasons.yr4.numericStats.beersTasted"
                 size="5"
                 maxlength="5"
@@ -344,6 +372,7 @@
               <input
                 class="stats-table__tbody__input"
                 type="tel"
+                inputmode="decimal"
                 v-model="seasons.yr5.year"
                 size="4"
                 maxlength="4"
@@ -355,6 +384,7 @@
               <input
                 class="stats-table__tbody__input"
                 type="tel"
+                inputmode="decimal"
                 v-model="seasons.yr5.homeCity"
                 size="4"
                 maxlength="4"
@@ -366,6 +396,7 @@
               <input
                 class="stats-table__tbody__input"
                 type="tel"
+                inputmode="decimal"
                 v-model="seasons.yr5.numericStats.racesCycled"
                 size="5"
                 maxlength="5"
@@ -376,6 +407,7 @@
               <input
                 class="stats-table__tbody__input"
                 type="tel"
+                inputmode="decimal"
                 v-model="seasons.yr5.numericStats.milesCycled"
                 size="5"
                 maxlength="5"
@@ -385,6 +417,7 @@
               <input
                 class="stats-table__tbody__input"
                 type="tel"
+                inputmode="decimal"
                 v-model="seasons.yr5.numericStats.avgSpeed"
                 size="5"
                 maxlength="5"
@@ -394,6 +427,7 @@
               <input
                 class="stats-table__tbody__input"
                 type="tel"
+                inputmode="decimal"
                 v-model="seasons.yr5.numericStats.falls"
                 size="5"
                 maxlength="5"
@@ -403,6 +437,7 @@
               <input
                 class="stats-table__tbody__input"
                 type="tel"
+                inputmode="decimal"
                 v-model="seasons.yr5.numericStats.beersTasted"
                 size="5"
                 maxlength="5"

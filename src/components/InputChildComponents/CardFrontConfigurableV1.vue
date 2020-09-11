@@ -8,11 +8,11 @@
       cssBorderInnerProps,
     ]"
   >
-    <div class="cardFront__controls">
-      <div class="row space-around align-center">
+    <div class="cardFront__controls controls--l2">
+      <div class="row space-around height--100">
         <label
           v-show="playerImageBleedOrBoxed !== 'static'"
-          class="colorPicker__label colorPicker__label--textOverlap"
+          class="colorPicker__label colorPicker__label--textOverlap align-self-center"
         >
           <span>Color</span>
           <input
@@ -1107,7 +1107,7 @@ export default {
 
 .cardFront__controls {
   position: relative;
-  padding: 0.8rem 0;
+  //padding: 0.8rem 0;
   .colorPicker__label--textOverlap {
     span {
       color: var(--calcColor);
