@@ -33,8 +33,8 @@
             <th
               scope="row"
               class="stats-table__tbody__th"
-              :data-col="0"
-              :data-row="0"
+              data-col="0"
+              data-row="0"
             >
               <input
                 class="stats-table__tbody__input"
@@ -42,19 +42,19 @@
                 v-model="seasons.yr1.year"
                 size="4"
                 maxlength="4"
-                :data-col="0"
-                :data-row="0"
+                data-col="0"
+                data-row="0"
               />
             </th>
-            <td class="stats-table__tbody__td" :data-col="1" :data-row="0">
+            <td class="stats-table__tbody__td" data-col="1" data-row="0">
               <input
                 class="stats-table__tbody__input"
                 type="tel"
                 v-model="seasons.yr1.homeCity"
                 size="4"
                 maxlength="4"
-                :data-col="1"
-                :data-row="0"
+                data-col="1"
+                data-row="0"
               />
             </td>
 
@@ -113,8 +113,8 @@
             <th
               scope="row"
               class="stats-table__tbody__th"
-              :data-col="0"
-              :data-row="0"
+              data-col="0"
+              data-row="0"
             >
               <input
                 class="stats-table__tbody__input"
@@ -122,19 +122,19 @@
                 v-model="seasons.yr2.year"
                 size="4"
                 maxlength="4"
-                :data-col="0"
-                :data-row="0"
+                data-col="0"
+                data-row="0"
               />
             </th>
-            <td class="stats-table__tbody__td" :data-col="1" :data-row="0">
+            <td class="stats-table__tbody__td" data-col="1" data-row="0">
               <input
                 class="stats-table__tbody__input"
                 type="tel"
                 v-model="seasons.yr2.homeCity"
                 size="4"
                 maxlength="4"
-                :data-col="1"
-                :data-row="0"
+                data-col="1"
+                data-row="0"
               />
             </td>
             <td class="stats-table__tbody__td">
@@ -188,8 +188,8 @@
             <th
               scope="row"
               class="stats-table__tbody__th"
-              :data-col="0"
-              :data-row="0"
+              data-col="0"
+              data-row="0"
             >
               <input
                 class="stats-table__tbody__input"
@@ -197,19 +197,19 @@
                 v-model="seasons.yr3.year"
                 size="4"
                 maxlength="4"
-                :data-col="0"
-                :data-row="0"
+                data-col="0"
+                data-row="0"
               />
             </th>
-            <td class="stats-table__tbody__td" :data-col="1" :data-row="0">
+            <td class="stats-table__tbody__td" data-col="1" data-row="0">
               <input
                 class="stats-table__tbody__input"
                 type="tel"
                 v-model="seasons.yr3.homeCity"
                 size="4"
                 maxlength="4"
-                :data-col="1"
-                :data-row="0"
+                data-col="1"
+                data-row="0"
               />
             </td>
             <td class="stats-table__tbody__td">
@@ -263,8 +263,8 @@
             <th
               scope="row"
               class="stats-table__tbody__th"
-              :data-col="0"
-              :data-row="0"
+              data-col="0"
+              data-row="0"
             >
               <input
                 class="stats-table__tbody__input"
@@ -272,19 +272,19 @@
                 v-model="seasons.yr4.year"
                 size="4"
                 maxlength="4"
-                :data-col="0"
-                :data-row="0"
+                data-col="0"
+                data-row="0"
               />
             </th>
-            <td class="stats-table__tbody__td" :data-col="1" :data-row="0">
+            <td class="stats-table__tbody__td" data-col="1" data-row="0">
               <input
                 class="stats-table__tbody__input"
                 type="tel"
                 v-model="seasons.yr4.homeCity"
                 size="4"
                 maxlength="4"
-                :data-col="1"
-                :data-row="0"
+                data-col="1"
+                data-row="0"
               />
             </td>
             <td class="stats-table__tbody__td">
@@ -338,8 +338,8 @@
             <th
               scope="row"
               class="stats-table__tbody__th"
-              :data-col="0"
-              :data-row="0"
+              data-col="0"
+              data-row="0"
             >
               <input
                 class="stats-table__tbody__input"
@@ -347,19 +347,19 @@
                 v-model="seasons.yr5.year"
                 size="4"
                 maxlength="4"
-                :data-col="0"
-                :data-row="0"
+                data-col="0"
+                data-row="0"
               />
             </th>
-            <td class="stats-table__tbody__td" :data-col="1" :data-row="0">
+            <td class="stats-table__tbody__td" data-col="1" data-row="0">
               <input
                 class="stats-table__tbody__input"
                 type="tel"
                 v-model="seasons.yr5.homeCity"
                 size="4"
                 maxlength="4"
-                :data-col="1"
-                :data-row="0"
+                data-col="1"
+                data-row="0"
               />
             </td>
             <td class="stats-table__tbody__td">
@@ -412,22 +412,33 @@
         </tbody>
         <tfoot>
           <tr>
-            <th scope="row" :data-col="0">TOT</th>
-            <td :data-col="1"></td>
+            <th scope="row" data-col="0">TOT</th>
+            <td data-col="1"></td>
             <!-- a bit too imperative but it is good that we are not doing a v-if in a v-for-->
-            <td
-              v-for="x in 5"
-              :key="x"
-              scope="col"
-              :data-total-for-column-index="x + 1"
-            >
-              <label>
-                <output
-                  class="tfoot__output--totals"
-                  :data-total-for-column-index="x + 1"
-                  >{{ sumNumericCol }}</output
-                >
-              </label>
+            <td scope="col">
+              <output class="tfoot__output--totals">{{
+                sumNumericCol("racesCycled")
+              }}</output>
+            </td>
+            <td scope="col">
+              <output class="tfoot__output--totals">{{
+                sumNumericCol("milesCycled")
+              }}</output>
+            </td>
+            <td scope="col">
+              <output class="tfoot__output--totals">{{
+                sumNumericCol("avgSpeed")
+              }}</output>
+            </td>
+            <td scope="col">
+              <output class="tfoot__output--totals">{{
+                sumNumericCol("falls")
+              }}</output>
+            </td>
+            <td scope="col">
+              <output class="tfoot__output--totals">{{
+                sumNumericCol("beersTasted")
+              }}</output>
             </td>
           </tr>
         </tfoot>
@@ -512,28 +523,30 @@ export default {
     };
   },
   // using a method instead of computerd MIGHT allow me to pass in the column-number...
-  methods: {},
-  computed: {
-    sumNumericCol() {
-      const rdcr = (acum, curVal) => {
+  methods: {
+    sumNumericCol(statCol) {
+      const rdcrSum = (acum, curVal) => {
         return parseFloat(acum) + parseFloat(curVal);
       };
-      // wondering if this is where things go off the rails... and if itS not the model at all... did i test that? Yes, I did. Not the
-      let argh0 = this.seasons.yr1.numericStats.racesCycled;
-      let argh1 = this.seasons.yr2.numericStats.racesCycled;
-      let argh2 = this.seasons.yr3.numericStats.racesCycled;
-      let argh3 = this.seasons.yr4.numericStats.racesCycled;
-      let argh4 = this.seasons.yr5.numericStats.racesCycled;
-      //
-      let colNums = [argh0, argh1, argh2, argh3, argh4];
-      //
-      return colNums.reduce(rdcr);
+      let colNumsArray = [];
+      for (let i = 0; i < 5; i++) {
+        let yrString = `yr${i + 1}`;
+        colNumsArray.push(this.seasons[yrString].numericStats[statCol]);
+      }
+      return colNumsArray.reduce(rdcrSum);
     },
   },
+  computed: {},
 };
 </script>
 
 <style scoped lang="scss">
+[data-col="1"] {
+  width: 3ch;
+  white-space: nowrap;
+  overflow: visible;
+}
+
 .stats__wrapper--outer {
   display: flex;
   flex-grow: 1;
@@ -675,11 +688,5 @@ tfoot {
     }
   }
   //box-shadow: 0 1px #000;
-}
-
-[data-col="1"] {
-  width: 3ch;
-  white-space: nowrap;
-  overflow: visible;
 }
 </style>
