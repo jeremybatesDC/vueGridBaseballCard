@@ -425,24 +425,19 @@
                     class="filePicker__label"
                     aria-label="Upload Image"
                   >
-                    <!--<svg
-                        viewBox="0 0 32 32"
-                        width="32"
-                        height="32"
-                        fill="none"
-                        stroke="currentcolor"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                      >
-                        <use xlink:href="#iconportraitadd"></use>
-                      </svg>-->
-                    <img
+                    <svg
+                      viewBox="0 0 32 32"
                       width="32"
                       height="32"
-                      loading="lazy"
-                      src="/images/addPortrait.svg"
-                    />
+                      fill="none"
+                      stroke="currentcolor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                    >
+                      <use xlink:href="#iconportraitadd"></use>
+                    </svg>
+
                     <span>Upload Pic</span>
                   </label>
                 </div>
@@ -476,7 +471,7 @@
                       stroke-linejoin="round"
                       stroke-width="2"
                     >
-                      <use xlink:href="#iconphoto"></use></svg
+                      <use xlink:href="#iconphotoadd"></use></svg
                   ></label>
                 </div>
               </fieldset>

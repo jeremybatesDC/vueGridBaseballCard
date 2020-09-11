@@ -9,9 +9,9 @@
 
 FRONT
 
+- icons - improve upload pic
 - click outside to close not working for image editing view
 - layout-specific tweaks to sliders: place sliders when text is on top in 1-1 or 2-0 layout, **the sliders need to be higher**. Should they all be bottom based then? Wouldn't be hard to specify per layout but only if needed...
-- "upload pic" and "upload logo" labels improvemnts (something is wrong there)
 
 STATS TABLE
 
@@ -63,6 +63,8 @@ and, after considering it, i donT think i need a table plugin. If I can properly
 so really it's just an upload button... I want it to match the logo image icon. And since image player icon can't be a mountain, and logo image prob shouldn't be a person, then need to generalize morereplace filepicker player image upload button with an icon of a picture that feautures a person not a mountian: something like: https://iconmonstr.com/picture-4-svg/
 
 ### 2nd release
+
+- "upload pic" and "upload logo" labels improvemnts (something is wrong there) -- brute forced it for v1 -- i think it's combo having svg and an image as direct children of flex... neither does well in that scenario so maybe this is unsurpring
 
 - math -- sometimes things no nuts and the output exceeds 5 digits. Need to use toFixed or something to limit decimal places
 

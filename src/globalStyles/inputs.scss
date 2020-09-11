@@ -326,14 +326,21 @@ input {
       padding: 0;
     }
 
+    // refactor in v2
     &:first-of-type {
       .filePicker__label {
         align-items: flex-start;
+        span {
+          margin-left: -3.2rem;
+        }
       }
     }
     &:last-of-type {
       .filePicker__label {
         align-items: flex-end;
+        span {
+          margin-right: -2.4rem;
+        }
       }
     }
   }
