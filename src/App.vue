@@ -1,21 +1,50 @@
 <template>
   <main>
-    <div role="tablist">
-      <label role="tab" aria-selected aria-controls id>
-        <input type="radio" v-model="frontshowing" :value="true" />
-        <span>FRONT</span>
-      </label>
-      <label role="tab" aria-selected aria-controls id>
-        <input type="radio" v-model="frontshowing" :value="false" />
-        <span>BACK</span>
-      </label>
-    </div>
-    <div>
-      <div role="tabpanel" id aria-labelledby v-show="frontshowing">
-        <CardFront />
+    <div class="tabs">
+      <div role="tablist">
+        <fieldset class="checkRadioButtons__fieldset width--100">
+          <div class="checkRadioButtons__wrapper--inner row">
+            <label
+              class="checkRadioButtons__label align-items-stretch"
+              role="tab"
+              aria-selected
+              aria-controls
+              id
+            >
+              <input
+                type="radio"
+                class="checkRadioButtons__input hidden--visually"
+                v-model="frontshowing"
+                :value="true"
+              />
+              <span>Front</span>
+            </label>
+
+            <label
+              class="checkRadioButtons__label align-items-stretch"
+              role="tab"
+              aria-selected
+              aria-controls
+              id
+            >
+              <input
+                type="radio"
+                class="checkRadioButtons__input hidden--visually"
+                v-model="frontshowing"
+                :value="false"
+              />
+              <span>Back</span>
+            </label>
+          </div>
+        </fieldset>
       </div>
-      <div role="tabpanel" id aria-labelledby v-show="!frontshowing">
-        <CardBack />
+      <div>
+        <div role="tabpanel" id aria-labelledby v-show="frontshowing">
+          <CardFront />
+        </div>
+        <div role="tabpanel" id aria-labelledby v-show="!frontshowing">
+          <CardBack />
+        </div>
       </div>
     </div>
   </main>
@@ -212,7 +241,7 @@ label {
   font-size: 1.8rem;
   display: flex;
   flex-grow: 1;
-  align-items: center;
+  align-items: stretch;
   justify-content: center;
   height: var(--min-touch-target);
   padding: 0;
