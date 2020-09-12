@@ -33,12 +33,7 @@
                 value="one-one"
               />
               <span
-                ><svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="32"
-                  height="32"
-                  viewBox="0 0 32 32"
-                >
+                ><svg width="32" height="32" viewBox="0 0 32 32">
                   <g>
                     <rect
                       x="6.4855"
@@ -74,12 +69,7 @@
                 value="zero-two"
               />
               <span
-                ><svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 32 32"
-                  width="32"
-                  height="32"
-                >
+                ><svg viewBox="0 0 32 32" width="32" height="32">
                   <g>
                     <rect
                       x="6.4855"
@@ -109,12 +99,7 @@
                 value="two-zero"
               />
               <span
-                ><svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 32 32"
-                  width="32"
-                  height="32"
-                >
+                ><svg viewBox="0 0 32 32" width="32" height="32">
                   <g>
                     <rect
                       x="6.4855"
@@ -545,10 +530,10 @@
                   />
                   <span>
                     <svg
-                      xmlns="http://www.w3.org/2000/svg"
                       width="32"
                       height="32"
                       viewBox="0 0 32 32"
+                      class="icon__foursquare icon__foursquare--topLeft"
                     >
                       <rect
                         x="3.9351"
@@ -603,17 +588,16 @@
                   />
                   <span
                     ><svg
-                      xmlns="http://www.w3.org/2000/svg"
                       width="32"
                       height="32"
                       viewBox="0 0 32 32"
+                      class="icon__foursquare icon__foursquare--topRight"
                     >
                       <rect
                         x="3.9351"
                         y="4.0328"
                         width="12"
                         height="12"
-                        fill="none"
                         stroke="#000"
                         stroke-linejoin="round"
                         stroke-width="2"
@@ -623,6 +607,7 @@
                         y="4.0328"
                         width="12"
                         height="12"
+                        fill="none"
                         stroke="#000"
                         stroke-linejoin="round"
                         stroke-width="2"
@@ -661,17 +646,16 @@
                   />
                   <span
                     ><svg
-                      xmlns="http://www.w3.org/2000/svg"
                       width="32"
                       height="32"
                       viewBox="0 0 32 32"
+                      class="icon__foursquare icon__foursquare--bottomLeft"
                     >
                       <rect
                         x="3.9351"
                         y="4.0328"
                         width="12"
                         height="12"
-                        fill="none"
                         stroke="#000"
                         stroke-linejoin="round"
                         stroke-width="2"
@@ -701,6 +685,7 @@
                         y="15.9672"
                         width="12"
                         height="12"
+                        fill="none"
                         stroke="#000"
                         stroke-linejoin="round"
                         stroke-width="2"
@@ -719,17 +704,16 @@
                   />
                   <span
                     ><svg
-                      xmlns="http://www.w3.org/2000/svg"
                       width="32"
                       height="32"
                       viewBox="0 0 32 32"
+                      class="icon__foursquare icon__foursquare--bottomRight"
                     >
                       <rect
                         x="3.9351"
                         y="4.0328"
                         width="12"
                         height="12"
-                        fill="none"
                         stroke="#000"
                         stroke-linejoin="round"
                         stroke-width="2"
@@ -749,6 +733,7 @@
                         y="15.9672"
                         width="12"
                         height="12"
+                        fill="none"
                         stroke="#000"
                         stroke-linejoin="round"
                         stroke-width="2"

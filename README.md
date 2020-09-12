@@ -2,8 +2,6 @@
 
 ## To Do
 
-- refine top tabs type variations
-- icons -- want easy way to invert colors (or may need to help contrast a bit for now with lighter highlight color). Move some stroke/fill attributes into CSS
 - finish wiring up sliders / styling quasimodal bg.
 
 FRONT
@@ -61,6 +59,15 @@ and, after considering it, i donT think i need a table plugin. If I can properly
 so really it's just an upload button... I want it to match the logo image icon. And since image player icon can't be a mountain, and logo image prob shouldn't be a person, then need to generalize morereplace filepicker player image upload button with an icon of a picture that feautures a person not a mountian: something like: https://iconmonstr.com/picture-4-svg/
 
 ### 2nd release
+
+- refine top tabs type variations
+
+refactor icon color stoke fill -- code is a mess but...
+
+- icons -- **TRY HUE ROTATE 180** want easy way to invert colors (or may need to help contrast a bit for now with lighter highlight color). Move some stroke/fill attributes into CSS
+  logo position icons need color work (just don't want to bikeshed further on this)
+
+is there a tap highlight flash i can get rid of elsewhere? like on the tabs? it's annoying...
 
 - ?Get elements in cells to take full size?
 

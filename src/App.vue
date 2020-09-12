@@ -112,6 +112,7 @@ export default {
     "YTLC" 400, "YTUC" 400, "YTFI" 400;
   --text-tall-narrow-active: "wght" 200, "wdth" 1, "opsz" 25, "GRAD" 1, "slnt" 0,
     "YTLC" 400, "YTUC" 400, "YTFI" 400;
+  --text-big-bold: "wght" 400, "wdth" 75, "opsz" 1, "GRAD" 1, "slnt" 0;
 
   --logoborderradius: "50%";
   //--cmyk-misalign: 1px 0 0 cyan, -1px 0 0 magenta, 0 1px 0 yellow;
@@ -121,6 +122,9 @@ export default {
   --grey-for-controls: #c7c7c7;
   --background-for-overlay: rgba(0, 0, 0, 0.75);
   --background-for-overlay-controls: rgba(175, 175, 175, 0.9);
+  --color-for-svgs: #000;
+  --active-color-for-svgs: #fff;
+  --transparent-for-svgs: none;
 }
 /* theme color variables to use in RGB declarations */
 
@@ -238,7 +242,7 @@ label {
 }
 
 [role="tab"] {
-  font-size: 1.8rem;
+  font-size: 1.6rem;
   display: flex;
   flex-grow: 1;
   align-items: stretch;
