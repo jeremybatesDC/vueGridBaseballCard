@@ -4,8 +4,9 @@
 
 BACK/STATS TABLE
 
-- finish wiring up sliders / styling quasimodal bg.
+- (this really applies most when card is black) rather than just darkening aside/footer/tablestats, USE LIGHTEN AND DARKEN filtering -- could be done with a css filter even if not a scss function. it should be intensifying contrast (so make lighter than color or darker depening on contrast function -- use hur rotate for instance or a css variable. for instance shouldn't all dark have charcola regions just like all white ha some grey boxes? yah
 
+- finish wiring up sliders / styling quasimodal bg.
 - header ths: -after editing they shape shift slightly (look this up)... do i need to make these a fixed size and weight, and then just allow overflow? May need to sketch this out.
   th hard to click (maybe beucase ther's an absolute and a translate and no min height or something)
 - prevent 3rd line on table back headers (char count(12, done), height combination, plus overflow hidden -- should these be monospaced?)
@@ -89,8 +90,6 @@ consider upgraded color picker: https://web-padawan.github.io/vanilla-colorful/
 - consider decreasing cardBack font weights now that subpizel-antialiasing has punched things up (or making a text shadow or drop shadow with the contrasting color -- this is really for when card is black)
 
 - generalize stat column names
-
-- (this really applies most when card is black) rather than just darkening aside/footer/tablestats, USE LIGHTEN AND DARKEN filtering -- could be done with a css filter even if not a scss function. it should be intensifying contrast (so make lighter than color or darker depening on contrast function -- use hur rotate for instance or a css variable. for instance shouldn't all dark have charcola regions just like all white ha some grey boxes? yah
 
 consider extending thead and tfoot (if possible) so there's no visual margin between it and career highlights. Maybe.
 
