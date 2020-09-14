@@ -560,11 +560,11 @@ input {
   &:checked {
     + [data-show-only-on-interaction] {
       visibility: visible;
-      + .omniClose {
-        &__label {
-          &--outside {
-            display: block;
-          }
+    }
+    ~ .omniClose {
+      &__label {
+        &--outside {
+          display: block;
         }
       }
     }

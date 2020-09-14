@@ -156,7 +156,7 @@
           />
 
           <div data-show-only-on-interaction hidden>
-            <div class="row row--grow">
+            <div class="row row--grow space-between">
               <label class="rangeUI__label">
                 <span
                   >Weight: <output :value="textLine1.fontWeight"></output
@@ -183,7 +183,7 @@
                 />
               </label>
             </div>
-            <div class="row row--grow">
+            <div class="row row--grow space-between">
               <label class="rangeUI__label">
                 <span
                   >Slant: <output :value="textLine1.fontSlant"></output
@@ -255,7 +255,7 @@
           />
           <!--<TextSlider v-model="textLine2"></TextSlider>-->
           <div data-show-only-on-interaction hidden>
-            <div class="row row--grow">
+            <div class="row row--grow space-between">
               <label class="rangeUI__label">
                 <span
                   >Weight: <output :value="textLine2.fontWeight"></output
@@ -282,7 +282,7 @@
                 />
               </label>
             </div>
-            <div class="row row--grow">
+            <div class="row row--grow space-between">
               <label class="rangeUI__label">
                 <span
                   >Slant: <output :value="textLine2.fontSlant"></output
@@ -322,7 +322,7 @@
           />
           <!--<TextSlider v-model="textPlayerPosition"></TextSlider>-->
           <div data-show-only-on-interaction hidden>
-            <div class="row row--grow">
+            <div class="row row--grow space-between">
               <label class="rangeUI__label">
                 <span
                   >Weight:
@@ -350,7 +350,7 @@
                 />
               </label>
             </div>
-            <div class="row row--grow">
+            <div class="row row--grow space-between">
               <label class="rangeUI__label">
                 <span
                   >Slant: <output :value="textPlayerPosition.fontSlant"></output
@@ -1080,7 +1080,7 @@ export default {
   border: 1px solid rgba(0, 0, 0, 0.3333);
 
   // may need this again...
-  overflow: hidden;
+  //overflow: hidden;
 
   z-index: 0;
 }
@@ -1259,12 +1259,69 @@ h1,
 h2,
 h3 {
   [data-show-only-on-interaction] {
-    top: 50%;
-    transform: translateY(-50%);
+    //top: 50%;
+    //transform: translateY(-50%);
+    //height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    .rangeUI__label {
+      width: 50%;
+      &:first-of-type {
+        padding-left: 3.2rem;
+      }
+      &:last-of-type {
+        padding-right: 3.2rem;
+      }
+    }
   }
   &:focus-within {
     [data-show-only-on-interaction] {
       visibility: visible;
+    }
+  }
+}
+
+.one-one {
+  .text__line--first {
+    [data-show-only-on-interaction] {
+      top: var(--min-touch-target);
+      bottom: auto;
+    }
+  }
+
+  .text__line--second {
+    [data-show-only-on-interaction] {
+      top: auto;
+      bottom: var(--min-touch-target);
+    }
+  }
+}
+
+.zero-two {
+  .text__line--first {
+    [data-show-only-on-interaction] {
+      top: auto;
+      bottom: 6.4rem;
+    }
+  }
+  .text__line--second {
+    [data-show-only-on-interaction] {
+      top: auto;
+      bottom: 6.4rem;
+    }
+  }
+}
+
+.two-zero {
+  .text__line--first {
+    [data-show-only-on-interaction] {
+      top: 6.4rem;
+      bottom: auto;
+    }
+  }
+  .text__line--second {
+    [data-show-only-on-interaction] {
+      top: 6.4rem;
+      bottom: auto;
     }
   }
 }

@@ -2,14 +2,9 @@
 
 ## To Do
 
+BACK/STATS TABLE
+
 - finish wiring up sliders / styling quasimodal bg.
-
-FRONT
-
-- click outside to close not working for image editing view
-- layout-specific tweaks to sliders: place sliders when text is on top in 1-1 or 2-0 layout, **the sliders need to be higher**. Should they all be bottom based then? Wouldn't be hard to specify per layout but only if needed...
-
-STATS TABLE
 
 - header ths: -after editing they shape shift slightly (look this up)... do i need to make these a fixed size and weight, and then just allow overflow? May need to sketch this out.
   th hard to click (maybe beucase ther's an absolute and a translate and no min height or something)
