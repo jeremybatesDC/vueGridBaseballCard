@@ -74,7 +74,9 @@ export default {
 //preserve heights
 
 .row--topmost {
-  height: var(--min-touch-target);
+  input[type="text"] {
+    height: var(--min-touch-target);
+  }
 }
 
 .row--stripe {
