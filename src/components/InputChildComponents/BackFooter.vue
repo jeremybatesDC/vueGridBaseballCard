@@ -1,5 +1,5 @@
 <template>
-  <footer class="">
+  <footer class="" :style="textLineCProps">
     <fieldset class="">
       <!-- <h2>
             <input type="text" v-model="defaultFacts.info.facts[1].headline" />
@@ -8,7 +8,7 @@
         rows="2"
         class=""
         spellcheck="false"
-        :style="cssFooterProps"
+        :style=""
         v-model="defaultFacts.info.facts[1].text"
       ></textarea>
     </fieldset>
@@ -85,6 +85,17 @@ export default {
       },
     };
   },
+  computed: {
+    textLineCProps() {
+      return {
+        //"--color": this.textLine1.color,
+        "--fontweight": this.textLineC.fontWeight,
+        "--fontwidth": this.textLineC.fontWidth,
+        "--fontgrade": this.textLineC.fontGrade,
+        "--fontslant": this.textLineC.fontSlant,
+      };
+    },
+  },
 };
 </script>
 
@@ -102,8 +113,9 @@ footer {
   }
   textarea {
     min-height: var(--min-touch-target-height);
-    font-variation-settings: "wght" 333, "wdth" 33, "opsz" 33, "GRAD" 1,
-      "slnt" -5, "YTLC" 500, "YTUC" 500, "YTAS" 500;
+    font-variation-settings: "wght" var(--fontweight), "wdth" var(--fontwidth),
+      "opsz" 33, "GRAD" var(--fontgrade), "slnt" var(--fontslant), "YTLC" 500,
+      "YTUC" 500, "YTAS" 500;
     line-height: 0.8;
     padding-top: 0.4rem;
   }

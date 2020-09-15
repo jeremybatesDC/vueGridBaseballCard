@@ -1,5 +1,5 @@
 <template>
-  <aside class="stats__aside">
+  <aside class="stats__aside" :style="textLineBProps">
     <blockquote>
       <span class="aside__wrapper--outer">
         <h3>
@@ -8,7 +8,6 @@
         <span class="aside__wrapper--inner">
           <textarea
             rows="3"
-            :style="cssAsideProps"
             v-model="defaultFacts.info.facts[0].text"
           ></textarea>
           <div data-show-only-on-interaction hidden>
@@ -82,12 +81,23 @@ export default {
     return {
       defaultFacts,
       textLineB: {
-        fontWeight: defaultSettingsBack.textLineC.fontWeight,
-        fontWidth: defaultSettingsBack.textLineC.fontWidth,
-        fontGrade: defaultSettingsBack.textLineC.fontGrade,
-        fontSlant: defaultSettingsBack.textLineC.fontSlant,
+        fontWeight: defaultSettingsBack.textLineB.fontWeight,
+        fontWidth: defaultSettingsBack.textLineB.fontWidth,
+        fontGrade: defaultSettingsBack.textLineB.fontGrade,
+        fontSlant: defaultSettingsBack.textLineB.fontSlant,
       },
     };
+  },
+  computed: {
+    textLineBProps() {
+      return {
+        //"--color": this.textLine1.color,
+        "--fontweight": this.textLineB.fontWeight,
+        "--fontwidth": this.textLineB.fontWidth,
+        "--fontgrade": this.textLineB.fontGrade,
+        "--fontslant": this.textLineB.fontSlant,
+      };
+    },
   },
 };
 </script>
@@ -211,8 +221,9 @@ textarea {
   overflow: hidden;
   text-overflow: ellipsis;
   font-size: 1.6rem;
-  font-variation-settings: "wght" 100, "wdth" 50, "opsz" 25, "GRAD" 1, "slnt" 0,
-    "YTLC" 400, "YTUC" 400, "YTAS" 400;
+  font-variation-settings: "wght" var(--fontweight), "wdth" var(--fontwidth),
+    "opsz" 33, "GRAD" var(--fontgrade), "slnt" var(--fontslant), "YTLC" 500,
+    "YTUC" 500, "YTAS" 500;
   line-height: 0.8;
 }
 </style>
