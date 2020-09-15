@@ -2,7 +2,7 @@
   <header>
     <div class="row row--topmost">
       <!-- i dont think label is necessarily correct here -->
-      <label class="">
+      <label class="backHeader__label--topmost">
         <h1 class="">
           <input
             type="text"
@@ -11,13 +11,67 @@
             placeholder="Firstname Lastname"
             spellcheck="false"
           />
-          <!--<TextSlider />-->
+          <div data-show-only-on-interaction hidden>
+            <div class="row row--grow space-between row--textControls">
+              <label class="rangeUI__label">
+                <span
+                  >Weight: <output :value="textLineA.fontWeight"></output
+                ></span>
+
+                <input
+                  class="rangeUI__input"
+                  v-model="textLineA.fontWeight"
+                  type="range"
+                  min="150"
+                  max="800"
+                />
+              </label>
+              <label class="rangeUI__label">
+                <span
+                  >Width: <output :value="textLineA.fontWidth"></output
+                ></span>
+                <input
+                  class="rangeUI__input"
+                  v-model="textLineA.fontWidth"
+                  type="range"
+                  min="35"
+                  max="100"
+                />
+              </label>
+            </div>
+            <div class="row row--grow space-between">
+              <label class="rangeUI__label">
+                <span
+                  >Slant: <output :value="textLineA.fontSlant"></output
+                ></span>
+                <input
+                  class="rangeUI__input"
+                  v-model="textLineA.fontSlant"
+                  type="range"
+                  min="-10"
+                  max="0"
+                />
+              </label>
+              <label class="rangeUI__label">
+                <span
+                  >Grade: <output :value="textLineA.fontGrade"></output
+                ></span>
+                <input
+                  class="rangeUI__input"
+                  v-model="textLineA.fontGrade"
+                  type="range"
+                  min="0"
+                  max="1"
+                  step=".1"
+                />
+              </label>
+            </div>
+          </div>
         </h1>
       </label>
       <label>
         <span>
           <input type="text" v-model="defaultFacts.info.info_3" />
-          <!--<TextSlider />-->
         </span>
       </label>
     </div>
@@ -53,6 +107,7 @@
 
 <script>
 import defaultFacts from "/json/default-facts.json";
+import defaultSettingsBack from "/json/default-settings-back.json";
 //import TextSlider from "../InputChildComponents/TextSlider.vue";
 export default {
   components: {
@@ -63,6 +118,12 @@ export default {
     return {
       defaultFacts,
       //TextSlider
+      textLineA: {
+        fontWeight: defaultSettingsBack.textLineA.fontWeight,
+        fontWidth: defaultSettingsBack.textLineA.fontWidth,
+        fontGrade: defaultSettingsBack.textLineA.fontGrade,
+        fontSlant: defaultSettingsBack.textLineA.fontSlant,
+      },
     };
   },
 };
@@ -72,6 +133,14 @@ export default {
 // consider moving this
 
 //preserve heights
+
+.backHeader__label--topmost {
+  &:focus-within {
+    [data-show-only-on-interaction] {
+      visibility: visible;
+    }
+  }
+}
 
 .row--topmost {
   input[type="text"] {
@@ -141,33 +210,29 @@ h1 {
       }
     }
   }
-  &:first-child {
+  &--topmost {
     label {
-      &:first-child {
+      &--topmost {
         flex-grow: 1;
         h1,
-        input {
+        input[type="text"] {
           display: flex;
           flex-grow: 1;
         }
       }
-      &:last-child {
-        //flex-grow: 0;
-        //flex-shrink: 1;
-        flex-basis: 25%;
+      + label {
         span {
           display: flex;
         }
-        input {
-          display: flex;
-          max-width: 100px;
-          //flex-grow: 0;
-          //flex-shrink: 1;
-        }
+      }
+    }
+    .rangeUI__label {
+      span {
+        width: 100%;
       }
     }
   }
-  &:nth-child(2) {
+  &--stacked {
     span {
       display: flex;
       flex-direction: column;
@@ -193,26 +258,6 @@ h1 {
       }
     }
   }
-  // &:nth-of-type(3) {
-  //   //min-height: var(--min-touch-target-height);
-  //   label {
-  //     //min-height: var(--min-touch-target-height);
-  //     display: inline-flex;
-  //     &:nth-child(2) {
-  //       text-align: center;
-  //       input[type="text"] {
-  //         text-align: inherit;
-  //       }
-  //     }
-  //   }
-  //   input[type="text"] {
-  //     width: 100%;
-  //     height: var(--min-touch-target-height-half);
-
-  //     display: inline-flex;
-  //     min-height: inherit;
-  //   }
-  // }
 }
 
 .stripe--dark {

@@ -11,6 +11,62 @@
             :style="cssAsideProps"
             v-model="defaultFacts.info.facts[0].text"
           ></textarea>
+          <div data-show-only-on-interaction hidden>
+            <div class="row row--grow space-between row--textControls">
+              <label class="rangeUI__label">
+                <span
+                  >Weight: <output :value="textLineB.fontWeight"></output
+                ></span>
+
+                <input
+                  class="rangeUI__input"
+                  v-model="textLineB.fontWeight"
+                  type="range"
+                  min="150"
+                  max="800"
+                />
+              </label>
+              <label class="rangeUI__label">
+                <span
+                  >Width: <output :value="textLineB.fontWidth"></output
+                ></span>
+                <input
+                  class="rangeUI__input"
+                  v-model="textLineB.fontWidth"
+                  type="range"
+                  min="35"
+                  max="100"
+                />
+              </label>
+            </div>
+            <div class="row row--grow space-between">
+              <label class="rangeUI__label">
+                <span
+                  >Slant: <output :value="textLineB.fontSlant"></output
+                ></span>
+                <input
+                  class="rangeUI__input"
+                  v-model="textLineB.fontSlant"
+                  type="range"
+                  min="-10"
+                  max="0"
+                />
+              </label>
+              <label class="rangeUI__label">
+                <span
+                  >Grade: <output :value="textLineB.fontGrade"></output
+                ></span>
+                <input
+                  class="rangeUI__input"
+                  v-model="textLineB.fontGrade"
+                  type="range"
+                  min="0"
+                  max="1"
+                  step=".1"
+                />
+              </label>
+            </div>
+          </div>
         </span>
       </span>
     </blockquote>
@@ -19,10 +75,19 @@
 
 <script>
 import defaultFacts from "/json/default-facts.json";
+import defaultSettingsBack from "/json/default-settings-back.json";
 
 export default {
   data: function () {
-    return { defaultFacts };
+    return {
+      defaultFacts,
+      textLineB: {
+        fontWeight: defaultSettingsBack.textLineC.fontWeight,
+        fontWidth: defaultSettingsBack.textLineC.fontWidth,
+        fontGrade: defaultSettingsBack.textLineC.fontGrade,
+        fontSlant: defaultSettingsBack.textLineC.fontSlant,
+      },
+    };
   },
 };
 </script>
@@ -32,10 +97,12 @@ export default {
   --textareaheight: auto;
   --textareapadding: 0;
   --headlineheight: 2.4rem;
+  --maxwidthforasidetextcontrols: none;
   @media (min-width: 400px) {
     --textareaheight: calc(100% - 6.4rem);
     --textareapadding: 0 1rem;
     --headlineheight: 3.6rem;
+    --maxwidthforasidetextcontrols: 32rem;
   }
 }
 
@@ -54,7 +121,6 @@ aside {
   height: 100%;
   //min-height: var(--min-touch-target);
   //width: 100%;
-  //background-color: rgba(0, 0, 0, 0.05);
 }
 
 .aside__wrapper--inner {
@@ -62,15 +128,45 @@ aside {
   position: relative;
 
   height: calc(100% - var(--headlineheight));
+  [data-show-only-on-interaction] {
+    position: fixed;
+    max-width: var(--maxwidthforasidetextcontrols);
+    top: auto;
+    // super imperative...
+    bottom: 5.2rem;
+    .rangeUI__label {
+      padding: 0.4rem 0.4rem;
+    }
+  }
+  &:focus-within {
+    [data-show-only-on-interaction] {
+      visibility: visible;
+    }
+  }
 }
 
 blockquote {
   display: block;
+  position: relative;
   width: 100%;
   height: auto;
   padding: 0 1.6rem 0 1.6rem;
   margin: 0;
   background-color: rgba(0, 0, 0, 0.05);
+
+  //&:before {
+  //  content: "";
+  //  position: absolute;
+  //  top: 0;
+  //  left: 0;
+  //  width: 100%;
+  //  height: 100%;
+  //  opacity: 0.5;
+  //  background-color: var(--colorinrgb);
+  //  filter: contrast(0.6666);
+  //  z-index: -1;
+  //  //mix-blend-mode: hard-light;
+  //}
 }
 
 span {

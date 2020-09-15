@@ -4,8 +4,6 @@
 
 BACK/STATS TABLE
 
-- (this really applies most when card is black) rather than just darkening aside/footer/tablestats, USE LIGHTEN AND DARKEN filtering -- could be done with a css filter even if not a scss function. it should be intensifying contrast (so make lighter than color or darker depening on contrast function -- use hur rotate for instance or a css variable. for instance shouldn't all dark have charcola regions just like all white ha some grey boxes? yah
-
 - finish wiring up sliders / styling quasimodal bg.
 - header ths: -after editing they shape shift slightly (look this up)... do i need to make these a fixed size and weight, and then just allow overflow? May need to sketch this out.
   th hard to click (maybe beucase ther's an absolute and a translate and no min height or something)
@@ -56,6 +54,9 @@ so really it's just an upload button... I want it to match the logo image icon. 
 
 ### 2nd release
 
+- back header needs serious refactor
+- color behind table headers? There's a highlighted
+- (this really applies most when card is black) rather than just darkening aside/footer/tablestats, USE LIGHTEN AND DARKEN filtering -- could be done with a css filter even if not a scss function. it should be intensifying contrast (so make lighter than color or darker depening on contrast function -- use hur rotate for instance or a css variable. for instance shouldn't all dark have charcola regions just like all white ha some grey boxes? yah
 - refine top tabs type variations
 
 refactor icon color stoke fill -- code is a mess but...

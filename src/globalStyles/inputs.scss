@@ -493,6 +493,16 @@ input {
   visibility: hidden;
   overflow: visible;
   z-index: 2;
+  background-color: rgba(0, 0, 0, 0.5);
+  .rangeUI__label {
+    width: 50%;
+    &:first-of-type {
+      padding-left: 3.2rem;
+    }
+    &:last-of-type {
+      padding-right: 3.2rem;
+    }
+  }
 
   // this should NOT have to be explicit -- missing a rul somewhere
   label {

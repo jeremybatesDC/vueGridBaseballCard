@@ -12,12 +12,62 @@
         v-model="defaultFacts.info.facts[1].text"
       ></textarea>
     </fieldset>
+    <div data-show-only-on-interaction hidden>
+      <div class="row row--grow space-between row--textControls">
+        <label class="rangeUI__label">
+          <span>Weight: <output :value="textLineC.fontWeight"></output></span>
+
+          <input
+            class="rangeUI__input"
+            v-model="textLineC.fontWeight"
+            type="range"
+            min="150"
+            max="800"
+          />
+        </label>
+        <label class="rangeUI__label">
+          <span>Width: <output :value="textLineC.fontWidth"></output></span>
+          <input
+            class="rangeUI__input"
+            v-model="textLineC.fontWidth"
+            type="range"
+            min="35"
+            max="100"
+          />
+        </label>
+      </div>
+      <div class="row row--grow space-between">
+        <label class="rangeUI__label">
+          <span>Slant: <output :value="textLineC.fontSlant"></output></span>
+          <input
+            class="rangeUI__input"
+            v-model="textLineC.fontSlant"
+            type="range"
+            min="-10"
+            max="0"
+          />
+        </label>
+        <label class="rangeUI__label">
+          <span>Grade: <output :value="textLineC.fontGrade"></output></span>
+          <input
+            class="rangeUI__input"
+            v-model="textLineC.fontGrade"
+            type="range"
+            min="0"
+            max="1"
+            step=".1"
+          />
+        </label>
+      </div>
+    </div>
   </footer>
 </template>
 
 <script>
 import defaultFacts from "/json/default-facts.json";
 //import TextSlider from "../InputChildComponents/TextSlider.vue";
+import defaultSettingsBack from "/json/default-settings-back.json";
+
 export default {
   components: {
     //TextSlider,
@@ -26,7 +76,13 @@ export default {
   data: function () {
     return {
       defaultFacts,
-      //TextSlider
+      //TextSlider,
+      textLineC: {
+        fontWeight: defaultSettingsBack.textLineC.fontWeight,
+        fontWidth: defaultSettingsBack.textLineC.fontWidth,
+        fontGrade: defaultSettingsBack.textLineC.fontGrade,
+        fontSlant: defaultSettingsBack.textLineC.fontSlant,
+      },
     };
   },
 };
@@ -52,19 +108,10 @@ footer {
     padding-top: 0.4rem;
   }
   &:focus-within {
-    textarea {
-      //transform: scale(2);
-      //background-color: #fff;
-      background-color: var(--backgroundcolorback);
-    }
-    &:before {
-      content: "";
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0, 0, 0, 0.5);
+    [data-show-only-on-interaction] {
+      visibility: visible;
+      top: auto;
+      bottom: var(--min-touch-target);
     }
   }
 }

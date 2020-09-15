@@ -1,4 +1,22 @@
 {
   "backgroundColor": "#9a8b7c",
-  "gumShowing": "gumShowing"
+  "gumShowing": "gumShowing",
+  "textLineA": {
+    "fontWeight": "600",
+    "fontWidth": "90",
+    "fontGrade": "1",
+    "fontSlant": "0"
+  },
+  "textLineB": {
+    "fontWeight": "200",
+    "fontWidth": "50",
+    "fontGrade": ".5",
+    "fontSlant": "0"
+  },
+  "textLineC": {
+    "fontWeight": "200",
+    "fontWidth": "50",
+    "fontGrade": ".5",
+    "fontSlant": "-5"
+  }
 }
