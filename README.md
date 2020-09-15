@@ -4,12 +4,15 @@
 
 BACK/STATS TABLE
 
-- finish wiring up sliders / styling quasimodal bg.
-- header ths: -after editing they shape shift slightly (look this up)... do i need to make these a fixed size and weight, and then just allow overflow? May need to sketch this out.
-  th hard to click (maybe beucase ther's an absolute and a translate and no min height or something)
-- prevent 3rd line on table back headers (char count(12, done), height combination, plus overflow hidden -- should these be monospaced?)
+the curve logo position equation needs to be tweaked because in the in=between values there's still gap showing
+
+turn off autocomplete to get shorter keyboard?
+-- hihlighting rightmost th input does weird things to the scroll on ios (forces it left/ chnages view somehow (safari doesn't support focus preventscrtoll yet) -- squash with media quesry if needed for i dunno like overflow or something
+
+- refine padding in specific textslider like the aside.
 
 ASIDE & FOOTER
+focus color is ugly
 
 - because it may not be feasible to alwasy vertically center the aside and footer textareas without ever clipping text, consider adding a visual florish / bottom box shadow that would be obscured by the text (maybe with a text background color or something) if there was a 2nd line of text, but visible if there is only 1 line. I think that is doable. A char max-length could help too. YES. A char counter will help some fields (thinking textareas in particular)
 

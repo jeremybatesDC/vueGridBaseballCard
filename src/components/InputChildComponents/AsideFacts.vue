@@ -9,6 +9,7 @@
           <textarea
             rows="3"
             v-model="defaultFacts.info.facts[0].text"
+            spellcheck="false"
           ></textarea>
           <div data-show-only-on-interaction hidden>
             <div class="row row--grow space-between row--textControls">
@@ -107,12 +108,23 @@ export default {
   --textareaheight: auto;
   --textareapadding: 0;
   --headlineheight: 2.4rem;
-  --maxwidthforasidetextcontrols: none;
+  --widthforasidetextcontrols: 100%;
+  --minwidthforasidetextcontrols: 100%;
+  --asidetop: 5.4rem;
+  --asideright: 0;
+  --asidebottom: auto;
+  --asideleft: auto;
+
   @media (min-width: 400px) {
     --textareaheight: calc(100% - 6.4rem);
     --textareapadding: 0 1rem;
     --headlineheight: 3.6rem;
-    --maxwidthforasidetextcontrols: 32rem;
+    --widthforasidetextcontrols: 100%;
+    --minwidthforasidetextcontrols: 32rem;
+    --asidetop: 3.2rem;
+    --asideright: calc(100% + 1.6rem);
+    --asidebottom: auto;
+    --asideleft: auto;
   }
 }
 
@@ -139,11 +151,16 @@ aside {
 
   height: calc(100% - var(--headlineheight));
   [data-show-only-on-interaction] {
-    position: fixed;
-    max-width: var(--maxwidthforasidetextcontrols);
-    top: auto;
-    // super imperative...
-    bottom: 5.2rem;
+    position: absolute;
+    width: var(--widthforasidetextcontrols);
+    min-width: var(--minwidthforasidetextcontrols);
+    top: var(--asidetop);
+    right: var(--asideright);
+    bottom: var(--asidebottom);
+    left: var(--asideleft);
+    padding-right: 1.6rem;
+    padding-left: 1.6rem;
+    outline: 1.6rem solid rgba(0, 0, 0, 0.5);
     .rangeUI__label {
       padding: 0.4rem 0.4rem;
     }

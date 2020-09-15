@@ -8,7 +8,6 @@
         rows="2"
         class=""
         spellcheck="false"
-        :style=""
         v-model="defaultFacts.info.facts[1].text"
       ></textarea>
     </fieldset>
