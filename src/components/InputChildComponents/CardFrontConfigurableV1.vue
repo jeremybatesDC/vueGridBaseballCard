@@ -156,7 +156,7 @@
           />
 
           <div data-show-only-on-interaction hidden>
-            <div class="row row--grow space-between">
+            <div class="row row--grow space-between row--textControls">
               <label class="rangeUI__label">
                 <span
                   >Weight: <output :value="textLine1.fontWeight"></output
@@ -183,7 +183,7 @@
                 />
               </label>
             </div>
-            <div class="row row--grow space-between">
+            <div class="row row--grow space-between row--textControls">
               <label class="rangeUI__label">
                 <span
                   >Slant: <output :value="textLine1.fontSlant"></output
@@ -255,7 +255,7 @@
           />
           <!--<TextSlider v-model="textLine2"></TextSlider>-->
           <div data-show-only-on-interaction hidden>
-            <div class="row row--grow space-between">
+            <div class="row row--grow space-between row--textControls">
               <label class="rangeUI__label">
                 <span
                   >Weight: <output :value="textLine2.fontWeight"></output
@@ -282,7 +282,7 @@
                 />
               </label>
             </div>
-            <div class="row row--grow space-between">
+            <div class="row row--grow space-between row--textControls">
               <label class="rangeUI__label">
                 <span
                   >Slant: <output :value="textLine2.fontSlant"></output
@@ -322,7 +322,7 @@
           />
           <!--<TextSlider v-model="textPlayerPosition"></TextSlider>-->
           <div data-show-only-on-interaction hidden>
-            <div class="row row--grow space-between">
+            <div class="row row--grow space-between row--textControls">
               <label class="rangeUI__label">
                 <span
                   >Weight:
@@ -350,7 +350,7 @@
                 />
               </label>
             </div>
-            <div class="row row--grow space-between">
+            <div class="row row--grow space-between row--textControls">
               <label class="rangeUI__label">
                 <span
                   >Slant: <output :value="textPlayerPosition.fontSlant"></output
@@ -1262,16 +1262,7 @@ h3 {
     //top: 50%;
     //transform: translateY(-50%);
     //height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    .rangeUI__label {
-      width: 50%;
-      &:first-of-type {
-        padding-left: 3.2rem;
-      }
-      &:last-of-type {
-        padding-right: 3.2rem;
-      }
-    }
+    //background-color: rgba(0, 0, 0, 0.5);
   }
   &:focus-within {
     [data-show-only-on-interaction] {

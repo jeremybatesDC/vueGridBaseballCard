@@ -39,7 +39,7 @@
                 />
               </label>
             </div>
-            <div class="row row--grow space-between">
+            <div class="row row--grow space-between row--textControls">
               <label class="rangeUI__label">
                 <span
                   >Slant: <output :value="textLineB.fontSlant"></output
@@ -158,12 +158,9 @@ aside {
     right: var(--asideright);
     bottom: var(--asidebottom);
     left: var(--asideleft);
-    padding-right: 1.6rem;
-    padding-left: 1.6rem;
-    outline: 1.6rem solid rgba(0, 0, 0, 0.5);
-    .rangeUI__label {
-      padding: 0.4rem 0.4rem;
-    }
+    //padding-right: 1.6rem;
+    //padding-left: 1.6rem;
+    box-shadow: 100% 0 red;
   }
   &:focus-within {
     [data-show-only-on-interaction] {

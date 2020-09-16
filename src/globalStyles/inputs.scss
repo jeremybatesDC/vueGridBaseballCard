@@ -493,18 +493,7 @@ input {
   visibility: hidden;
   overflow: visible;
   z-index: 2;
-  background-color: rgba(0, 0, 0, 0.5);
-  .rangeUI__label {
-    width: 50%;
-    &:first-of-type {
-      padding-left: 3.2rem;
-    }
-    &:last-of-type {
-      padding-right: 3.2rem;
-    }
-  }
-
-  // this should NOT have to be explicit -- missing a rul somewhere
+  background-color: rgba(0, 0, 0, 0.6666);
   label {
     display: flex;
     flex-wrap: wrap;
@@ -513,10 +502,23 @@ input {
     font-size: 1.6rem;
     padding: 1.6rem;
     //color: #fff;
+    // keep padding on LABEL so thereS no gap in focus targets that will close quasi modal
     &.rangeUI__label {
       color: #fff;
+      width: 50%;
+      padding: 0;
+      &:first-of-type {
+        padding-left: 2rem;
+        padding-right: 1rem;
+      }
+      &:last-of-type {
+        padding-left: 1rem;
+        padding-right: 2rem;
+      }
     }
   }
+
+  // this should NOT have to be explicit -- missing a rul somewhere
 
   &.playerImage__controls {
     top: 0;
@@ -530,6 +532,20 @@ input {
 
   .card-back & {
     top: var(--min-touch-target);
+  }
+  .row--textControls {
+    &:first-of-type {
+      .rangeUI__label {
+        padding-top: 0.8rem;
+        padding-bottom: 0.4rem;
+      }
+    }
+    &:last-of-type {
+      .rangeUI__label {
+        padding-top: 0.4rem;
+        padding-bottom: 0.8rem;
+      }
+    }
   }
 }
 

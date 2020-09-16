@@ -13,13 +13,14 @@
               :data-col="index"
             >
               <span>
-                <textarea
+                <!--<textarea
                   wrap="hard"
                   rows="2"
                   spellcheck="false"
                   maxlength="12"
                   :value="value"
-                ></textarea>
+                ></textarea>-->
+                <input type="text" :value="value" maxlength="9" />
               </span>
             </th>
           </tr>
@@ -647,7 +648,7 @@ th {
     //margin-top: -2.4rem;
     //margin-left: 1rem;
     //margin-right: 1rem;
-    textarea {
+    input[type="text"] {
       font-variation-settings: "wght" 300, "wdth" 25, "opsz" 35, "GRAD" 1,
         "slnt" 0, "YTLC" 500, "YTUC" 500, "YTFI" 500;
       line-height: 0.65;
@@ -658,13 +659,13 @@ th {
       width: 100%;
       min-width: 4.4rem;
       // might need min height to prevent cutoff after editing
-      min-height: 1.6rem;
-      white-space: pre-wrap;
-      word-break: break-word;
+      min-height: 2.4rem;
+      //white-space: pre-wrap;
+      //word-break: break-word;
       //text-align: left;
       text-transform: uppercase;
-      text-indent: -1rem;
-      padding-left: 1rem;
+      //text-indent: -1rem;
+      //padding-left: 1rem;
 
       // safari mobile seems to struggle with first-line
     }
@@ -674,9 +675,9 @@ th {
     span {
       vertical-align: top;
       margin-left: -1.6rem;
-      textarea {
-        text-indent: -0.4rem;
-        padding-left: 2rem;
+      input[type="text"] {
+        //text-indent: -0.4rem;
+        //padding-left: 2rem;
       }
     }
   }

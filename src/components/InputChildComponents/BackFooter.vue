@@ -35,7 +35,7 @@
           />
         </label>
       </div>
-      <div class="row row--grow space-between">
+      <div class="row row--grow space-between row--textControls">
         <label class="rangeUI__label">
           <span>Slant: <output :value="textLineC.fontSlant"></output></span>
           <input
