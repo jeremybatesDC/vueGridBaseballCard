@@ -4,6 +4,7 @@
 
 BACK/STATS TABLE
 
+realign th now that simplified with 1-line input instead of text area (really spent too much time on that)
 the curve logo position equation needs to be tweaked because in the in=between values there's still gap showing
 
 turn off autocomplete to get shorter keyboard?

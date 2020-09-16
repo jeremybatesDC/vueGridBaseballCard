@@ -1,12 +1,12 @@
 {
   "fields": {
     "year": "Year",
-    "homeCity": "Home City",
-    "racesCycled": "Races Cycled",
-    "milesCycled": "Miles Cycled",
-    "avgSpeed": "Avg Speed",
+    "homeCity": "City",
+    "racesCycled": "Races",
+    "milesCycled": "Miles",
+    "avgSpeed": "Speed",
     "falls": "Falls",
-    "beersTasted": "Beers Tasted"
+    "beersTasted": "Beers"
   },
   "seasons": [
     {

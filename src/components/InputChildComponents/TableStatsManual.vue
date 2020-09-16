@@ -12,16 +12,9 @@
               scope="col"
               :data-col="index"
             >
-              <span>
-                <!--<textarea
-                  wrap="hard"
-                  rows="2"
-                  spellcheck="false"
-                  maxlength="12"
-                  :value="value"
-                ></textarea>-->
+              <label>
                 <input type="text" :value="value" maxlength="9" />
-              </span>
+              </label>
             </th>
           </tr>
         </thead>
@@ -625,12 +618,22 @@ thead {
   //box-shadow: 0 1px #000;
   th {
     position: relative;
-    height: 3.2rem;
+    height: 2.4rem;
+    padding: 0;
     vertical-align: middle;
-    span {
-      margin-left: 3.2rem;
-      //min-height: 1.6rem;
+    label {
+      height: 2.4rem;
       position: relative;
+    }
+    input {
+      height: 2.4rem;
+      text-align: right;
+    }
+    &:first-child,
+    &:nth-child(2) {
+      input {
+        text-align: left;
+      }
     }
   }
 }
@@ -640,45 +643,32 @@ th {
 
   //text-align: right;
 
-  span {
+  label {
     display: flex;
-    //padding-left: 1rem;
-    transform: rotate(-40deg);
-    //transform-origin: 0 0;
-    //margin-top: -2.4rem;
-    //margin-left: 1rem;
-    //margin-right: 1rem;
+
     input[type="text"] {
       font-variation-settings: "wght" 300, "wdth" 25, "opsz" 35, "GRAD" 1,
         "slnt" 0, "YTLC" 500, "YTUC" 500, "YTFI" 500;
-      line-height: 0.65;
+      line-height: 1.1;
       display: flex;
+
+      // removing this absolute positioinig has bad effects on iOS (didn't see in chrome dev tools)
       position: absolute;
       top: 0;
       left: 0;
       width: 100%;
       min-width: 4.4rem;
       // might need min height to prevent cutoff after editing
-      min-height: 2.4rem;
+      //min-height: 2.4rem;
       //white-space: pre-wrap;
       //word-break: break-word;
-      //text-align: left;
       text-transform: uppercase;
+      //transform: rotate(-40deg);
+
       //text-indent: -1rem;
       //padding-left: 1rem;
 
       // safari mobile seems to struggle with first-line
-    }
-  }
-  &:first-child,
-  &:nth-child(2) {
-    span {
-      vertical-align: top;
-      margin-left: -1.6rem;
-      input[type="text"] {
-        //text-indent: -0.4rem;
-        //padding-left: 2rem;
-      }
     }
   }
 }
