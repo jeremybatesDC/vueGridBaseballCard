@@ -1,7 +1,7 @@
 <template>
   <div class="stats__wrapper--outer" @focusin="putCursorAtEnd">
     <!--  -->
-    <form class="stats__form">
+    <form>
       <table class="">
         <!--<caption>Career Stats</caption>-->
         <thead>
@@ -570,6 +570,15 @@ export default {
 </script>
 
 <style scoped lang="scss">
+.stats__wrapper--outer {
+  --tablewrapheight: 100%;
+  --tableheight: 100%;
+  @media (min-width: 400px) {
+    --tablewrapheight: calc(100% - 6.4rem);
+    --tableheight: 100%;
+  }
+}
+
 [data-col="1"] {
   width: 3ch;
   white-space: nowrap;
@@ -589,11 +598,13 @@ export default {
 
 form {
   width: 100%;
+  height: var(--tablewrapheight);
 }
 
 table {
   width: 100%;
   max-width: calc(100vw - 3.2rem);
+  height: var(--tableheight);
   margin: 0 auto;
   font-size: 1.6rem;
   // i just learned that line-height of exactly 1 gets rejected by brower on inputs and then falls back on a larger value of normal (1.2 i think)
