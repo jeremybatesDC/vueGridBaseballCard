@@ -1246,6 +1246,12 @@ input {
 .text__line--second {
   justify-content: space-between;
   align-items: center;
+  h1 {
+    width: 66.6666%;
+  }
+  h3 {
+    width: 33.3333%;
+  }
 }
 
 h1,

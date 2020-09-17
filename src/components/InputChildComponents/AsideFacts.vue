@@ -110,10 +110,11 @@ export default {
   --headlineheight: 2.4rem;
   --widthforasidetextcontrols: 100%;
   --minwidthforasidetextcontrols: 100%;
-  --asidetop: 5.4rem;
+  --asidetop: 4.4rem;
   --asideright: 0;
   --asidebottom: auto;
   --asideleft: auto;
+  --boxshadowaside: 100px 0 rgba(0, 0, 0, 0.667), -100px 0 rgba(0, 0, 0, 0.667);
 
   @media (min-width: 400px) {
     --textareaheight: calc(100% - 6.4rem);
@@ -121,10 +122,12 @@ export default {
     --headlineheight: 3.6rem;
     --widthforasidetextcontrols: 100%;
     --minwidthforasidetextcontrols: 32rem;
-    --asidetop: 3.2rem;
+    --asidetop: 0;
     --asideright: calc(100% + 1.6rem);
-    --asidebottom: auto;
+    --asidebottom: 0;
     --asideleft: auto;
+    --boxshadowaside: 1.2rem 0 rgba(0, 0, 0, 0.667),
+      -2.4rem 0 rgba(0, 0, 0, 0.667);
   }
 }
 
@@ -158,9 +161,20 @@ aside {
     right: var(--asideright);
     bottom: var(--asidebottom);
     left: var(--asideleft);
-    //padding-right: 1.6rem;
-    //padding-left: 1.6rem;
-    box-shadow: 100% 0 red;
+    padding-right: 0;
+    padding-left: 0;
+    box-shadow: var(--boxshadowaside);
+    .rangeUI__label {
+      //padding: 0;
+      &:first-of-type {
+        padding-left: 0.4rem;
+        padding-right: 1rem;
+      }
+      &:last-of-type {
+        padding-left: 1rem;
+        padding-right: 0.4rem;
+      }
+    }
   }
   &:focus-within {
     [data-show-only-on-interaction] {

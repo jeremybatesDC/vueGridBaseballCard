@@ -1,6 +1,6 @@
 <template>
   <header>
-    <div class="row row--topmost">
+    <div class="row row--topmost space-between">
       <!-- i dont think label is necessarily correct here -->
       <label class="backHeader__label--topmost">
         <h1 class="">
@@ -69,7 +69,7 @@
           </div>
         </h1>
       </label>
-      <label>
+      <label class="backHeader__label--topmost">
         <span>
           <input type="text" v-model="defaultFacts.info.info_3" />
         </span>
@@ -77,10 +77,10 @@
     </div>
 
     <!-- hard to loop since distinct lists may help... Although... -->
-    <div class="row row--stacked">
+    <div class="row row--stacked space-between">
       <span class="">
         <!-- nested row -->
-        <div class="row row--stripe stripe--dark">
+        <div class="row row--stripe stripe--dark space-between">
           <label>
             <input class="" type="email" v-model="defaultFacts.info.info_0" />
           </label>
@@ -89,12 +89,16 @@
             <input class="" type="text" v-model="defaultFacts.info.info_1" />
           </label>
         </div>
-        <div class="row row--bottommost">
+        <div class="row row--bottommost space-between">
           <label>
             <input class="" type="text" v-model="defaultFacts.info.info_4" />
           </label>
           <label>
-            <input class="" type="text" v-model="defaultFacts.info.info_5" />
+            <input
+              class="text-center"
+              type="text"
+              v-model="defaultFacts.info.info_5"
+            />
           </label>
           <label>
             <input class="" type="text" v-model="defaultFacts.info.info_6" />
@@ -135,9 +139,22 @@ export default {
 //preserve heights
 
 .backHeader__label--topmost {
-  &:focus-within {
-    [data-show-only-on-interaction] {
-      visibility: visible;
+  &:first-of-type {
+    //flex-grow: 1;
+    width: 66.6666%;
+    &:focus-within {
+      [data-show-only-on-interaction] {
+        visibility: visible;
+      }
+    }
+  }
+  &:nth-of-type(2) {
+    width: 33.3333%;
+    input {
+      // not sure why iOS was haing trouble with this
+      width: 100%;
+      //max-width: 100%;
+      //min-width: 0;
     }
   }
 }
@@ -193,7 +210,6 @@ h1 {
 }
 
 .row {
-  justify-content: space-between;
   label {
     display: flex;
     flex-direction: column;
@@ -213,11 +229,10 @@ h1 {
   &--topmost {
     label {
       &--topmost {
-        flex-grow: 1;
+        //flex-grow: 1;
         h1,
         input[type="text"] {
           display: flex;
-          flex-grow: 1;
         }
       }
       + label {
@@ -239,9 +254,7 @@ h1 {
       flex-grow: 1;
     }
     label {
-      &:first-child {
-        flex-grow: 1;
-      }
+      flex-grow: 1;
     }
 
     input {
@@ -257,6 +270,8 @@ h1 {
       &:focus {
       }
     }
+  }
+  &--bottommost {
   }
 }
 

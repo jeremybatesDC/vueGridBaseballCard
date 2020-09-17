@@ -2,17 +2,11 @@
 
 ## To Do
 
-ALL -- some input fileds are getting clipped -- test with longer content
-
-BACK
-the type email isn't picking up styles ya know?
-NAN prevention
-
 ASIDE & FOOTER
 
-text-sliders for career highlights is now a tad off given slight changes this morning
-
-- b/c may not be feasible to alwasy vertically center textareas w/out ever clipping text, consider adding a visual florish / bottom box shadow that would be obscured by a 2nd/3rd etc line of text (maybe with a text background color or something)
+textareas content strategy/testing:
+a) maxlength?
+b) b/c may not be feasible to alwasy vertically center textareas w/out ever clipping text, consider adding a visual florish / bottom box shadow that would be obscured by a 2nd/3rd etc line of text (maybe with a text background color or something)
 
 ---
 
@@ -54,6 +48,8 @@ and, after considering it, i donT think i need a table plugin. If I can properly
 so really it's just an upload button... I want it to match the logo image icon. And since image player icon can't be a mountain, and logo image prob shouldn't be a person, then need to generalize morereplace filepicker player image upload button with an icon of a picture that feautures a person not a mountian: something like: https://iconmonstr.com/picture-4-svg/
 
 ### 2nd release
+
+more NAN prevention
 
 consider giving front text sliders left right padding to align with outer border
 

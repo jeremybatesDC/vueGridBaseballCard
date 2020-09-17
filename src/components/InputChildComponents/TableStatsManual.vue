@@ -91,6 +91,7 @@
                 v-model="seasons.yr1.numericStats.racesCycled"
                 size="5"
                 maxlength="5"
+                placeholder="0"
               />
             </td>
 
@@ -102,6 +103,7 @@
                 v-model="seasons.yr1.numericStats.milesCycled"
                 size="5"
                 maxlength="5"
+                placeholder="0"
               />
             </td>
             <td class="stats-table__tbody__td">
@@ -112,6 +114,7 @@
                 v-model="seasons.yr1.numericStats.avgSpeed"
                 size="5"
                 maxlength="5"
+                placeholder="0"
               />
             </td>
             <td class="stats-table__tbody__td">
@@ -122,6 +125,7 @@
                 v-model="seasons.yr1.numericStats.falls"
                 size="5"
                 maxlength="5"
+                placeholder="0"
               />
             </td>
             <td class="stats-table__tbody__td">
@@ -132,6 +136,7 @@
                 v-model="seasons.yr1.numericStats.beersTasted"
                 size="5"
                 maxlength="5"
+                placeholder="0"
               />
             </td>
           </tr>
@@ -173,6 +178,7 @@
                 v-model="seasons.yr2.numericStats.racesCycled"
                 size="5"
                 maxlength="5"
+                placeholder="0"
               />
             </td>
 
@@ -184,6 +190,7 @@
                 v-model="seasons.yr2.numericStats.milesCycled"
                 size="5"
                 maxlength="5"
+                placeholder="0"
               />
             </td>
             <td class="stats-table__tbody__td">
@@ -194,6 +201,7 @@
                 v-model="seasons.yr2.numericStats.avgSpeed"
                 size="5"
                 maxlength="5"
+                placeholder="0"
               />
             </td>
             <td class="stats-table__tbody__td">
@@ -204,6 +212,7 @@
                 v-model="seasons.yr2.numericStats.falls"
                 size="5"
                 maxlength="5"
+                placeholder="0"
               />
             </td>
             <td class="stats-table__tbody__td">
@@ -214,6 +223,7 @@
                 v-model="seasons.yr2.numericStats.beersTasted"
                 size="5"
                 maxlength="5"
+                placeholder="0"
               />
             </td>
           </tr>
@@ -255,6 +265,7 @@
                 v-model="seasons.yr3.numericStats.racesCycled"
                 size="5"
                 maxlength="5"
+                placeholder="0"
               />
             </td>
 
@@ -266,6 +277,7 @@
                 v-model="seasons.yr3.numericStats.milesCycled"
                 size="5"
                 maxlength="5"
+                placeholder="0"
               />
             </td>
             <td class="stats-table__tbody__td">
@@ -276,6 +288,7 @@
                 v-model="seasons.yr3.numericStats.avgSpeed"
                 size="5"
                 maxlength="5"
+                placeholder="0"
               />
             </td>
             <td class="stats-table__tbody__td">
@@ -286,6 +299,7 @@
                 v-model="seasons.yr3.numericStats.falls"
                 size="5"
                 maxlength="5"
+                placeholder="0"
               />
             </td>
             <td class="stats-table__tbody__td">
@@ -296,6 +310,7 @@
                 v-model="seasons.yr3.numericStats.beersTasted"
                 size="5"
                 maxlength="5"
+                placeholder="0"
               />
             </td>
           </tr>
@@ -337,6 +352,7 @@
                 v-model="seasons.yr4.numericStats.racesCycled"
                 size="5"
                 maxlength="5"
+                placeholder="0"
               />
             </td>
 
@@ -348,6 +364,7 @@
                 v-model="seasons.yr4.numericStats.milesCycled"
                 size="5"
                 maxlength="5"
+                placeholder="0"
               />
             </td>
             <td class="stats-table__tbody__td">
@@ -358,6 +375,7 @@
                 v-model="seasons.yr4.numericStats.avgSpeed"
                 size="5"
                 maxlength="5"
+                placeholder="0"
               />
             </td>
             <td class="stats-table__tbody__td">
@@ -368,6 +386,7 @@
                 v-model="seasons.yr4.numericStats.falls"
                 size="5"
                 maxlength="5"
+                placeholder="0"
               />
             </td>
             <td class="stats-table__tbody__td">
@@ -378,6 +397,7 @@
                 v-model="seasons.yr4.numericStats.beersTasted"
                 size="5"
                 maxlength="5"
+                placeholder="0"
               />
             </td>
           </tr>
@@ -419,6 +439,7 @@
                 v-model="seasons.yr5.numericStats.racesCycled"
                 size="5"
                 maxlength="5"
+                placeholder="0"
               />
             </td>
 
@@ -430,6 +451,7 @@
                 v-model="seasons.yr5.numericStats.milesCycled"
                 size="5"
                 maxlength="5"
+                placeholder="0"
               />
             </td>
             <td class="stats-table__tbody__td">
@@ -440,6 +462,7 @@
                 v-model="seasons.yr5.numericStats.avgSpeed"
                 size="5"
                 maxlength="5"
+                placeholder="0"
               />
             </td>
             <td class="stats-table__tbody__td">
@@ -450,6 +473,7 @@
                 v-model="seasons.yr5.numericStats.falls"
                 size="5"
                 maxlength="5"
+                placeholder="0"
               />
             </td>
             <td class="stats-table__tbody__td">
@@ -460,6 +484,7 @@
                 v-model="seasons.yr5.numericStats.beersTasted"
                 size="5"
                 maxlength="5"
+                placeholder="0"
               />
             </td>
           </tr>
@@ -594,7 +619,7 @@ export default {
       let colNumsArray = [];
       for (let i = 0; i < 5; i++) {
         let yrString = `yr${i + 1}`;
-        colNumsArray.push(this.seasons[yrString].numericStats[statCol]);
+        colNumsArray.push(+this.seasons[yrString].numericStats[statCol]);
       }
       return colNumsArray.reduce(rdcrSum);
     },
