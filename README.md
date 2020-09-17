@@ -144,6 +144,9 @@ consider extending thead and tfoot (if possible) so there's no visual margin bet
   http://beautifytools.com/excel-to-json-converter.php
   https://www.npmjs.com/package/xlsx-to-json
 
+--> there could be associated routes for each pre-configuation
+
+- birthday cards
   -- untappt cards
   -- github cards
   -- genealogy cards
