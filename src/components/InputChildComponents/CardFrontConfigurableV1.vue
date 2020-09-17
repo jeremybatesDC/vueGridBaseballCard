@@ -125,7 +125,7 @@
 
         <label class="rangeUI__label">
           <span
-            >Curve
+            >Border Curve
             <!-- : <output :value="borderInner.curve"></output> -->
           </span>
 
@@ -1336,13 +1336,13 @@ h2 {
 
 h3 {
   font-size: 1.6rem;
-  font-variation-settings: "wght" var(--fontweight), "wdth" var(--fontwidth),
-    "GRAD" var(--fontgrade), "slnt" var(--fontslant), "YTLC" 500, "YTUC" 500,
-    "YTFI" 500;
+  //font-variation-settings: "wght" var(--fontweight), "wdth" var(--fontwidth),
+  //  "GRAD" var(--fontgrade), "slnt" var(--fontslant), "YTLC" 500, "YTUC" 500,
+  //  "YTFI" 500;
   text-align: right;
 
   input {
-    font-variation-settings: inherit;
+    //font-variation-settings: inherit;
     text-align: inherit;
   }
 }

@@ -6,14 +6,39 @@
         <!--<caption>Career Stats</caption>-->
         <thead>
           <tr>
-            <th
-              v-for="(value, name, index) in defaultStats.fields"
-              :key="value"
-              scope="col"
-              :data-col="index"
-            >
+            <th scope="col" data-col="0">
               <label>
-                <input type="text" :value="value" maxlength="9" />
+                <input type="text" v-model="fields.year" maxlength="9" />
+              </label>
+            </th>
+            <th scope="col" data-col="1">
+              <label>
+                <input type="text" v-model="fields.homeCity" maxlength="9" />
+              </label>
+            </th>
+            <th scope="col" data-col="2">
+              <label>
+                <input type="text" v-model="fields.racesCycled" maxlength="9" />
+              </label>
+            </th>
+            <th scope="col" data-col="3">
+              <label>
+                <input type="text" v-model="fields.milesCycled" maxlength="9" />
+              </label>
+            </th>
+            <th scope="col" data-col="4">
+              <label>
+                <input type="text" v-model="fields.avgSpeed" maxlength="9" />
+              </label>
+            </th>
+            <th scope="col" data-col="5">
+              <label>
+                <input type="text" v-model="fields.falls" maxlength="9" />
+              </label>
+            </th>
+            <th scope="col" data-col="6">
+              <label>
+                <input type="text" v-model="fields.beersTasted" maxlength="9" />
               </label>
             </th>
           </tr>
@@ -492,6 +517,15 @@ export default {
   data() {
     return {
       defaultStats,
+      fields: {
+        year: "Year",
+        homeCity: "City",
+        racesCycled: "Races",
+        milesCycled: "Miles",
+        avgSpeed: "Speed",
+        falls: "Falls",
+        beersTasted: "Beers",
+      },
       seasons: {
         yr1: {
           year: "2015",
