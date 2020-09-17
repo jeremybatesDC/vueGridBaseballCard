@@ -2,8 +2,7 @@
 
 ## To Do
 
-ASIDE & FOOTER
-
+ASIDE & FOOTER!
 textareas content strategy/testing:
 a) maxlength?
 b) b/c may not be feasible to alwasy vertically center textareas w/out ever clipping text, consider adding a visual florish / bottom box shadow that would be obscured by a 2nd/3rd etc line of text (maybe with a text background color or something)
