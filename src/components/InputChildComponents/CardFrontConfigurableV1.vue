@@ -1201,8 +1201,8 @@ input {
     align-items: flex-start;
     .figure--logo {
       transform: translate(
-        calc(var(--borderinnercurve) / -3.5),
-        calc(var(--borderinnercurve) / -3.5)
+        calc(var(--borderinnercurve) / -3.6666),
+        calc(var(--borderinnercurve) / -3.6666)
       );
     }
   }
@@ -1212,8 +1212,8 @@ input {
     align-items: flex-start;
     .figure--logo {
       transform: translate(
-        calc(var(--borderinnercurve) / 3.5),
-        calc(var(--borderinnercurve) / -3.5)
+        calc(var(--borderinnercurve) / 3.6666),
+        calc(var(--borderinnercurve) / -3.6666)
       );
     }
   }
@@ -1222,8 +1222,8 @@ input {
     align-items: flex-end;
     .figure--logo {
       transform: translate(
-        calc(var(--borderinnercurve) / -3.5),
-        calc(var(--borderinnercurve) / 3.5)
+        calc(var(--borderinnercurve) / -3.6666),
+        calc(var(--borderinnercurve) / 3.6666)
       );
     }
   }
@@ -1232,9 +1232,13 @@ input {
     align-items: flex-end;
     .figure--logo {
       transform: translate(
-        calc(var(--borderinnercurve) / 3.5),
-        calc(var(--borderinnercurve) / 3.5)
+        calc(var(--borderinnercurve) / 3.6666),
+        calc(var(--borderinnercurve) / 3.6666)
       );
+      //transform: translate(
+      //  calc(8px - (var(--borderinnercurve) / 3)),
+      //  calc(8px - (var(--borderinnercurve) / 3))
+      //);
     }
   }
 }

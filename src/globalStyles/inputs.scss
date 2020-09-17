@@ -44,6 +44,20 @@ input {
       //z-index: 2;
     }
   }
+
+  &[type="text"],
+  &[type="email"],
+  &[type="tel"] {
+    &:focus {
+      outline: 2px solid royalblue;
+    }
+  }
+}
+
+textarea {
+  &:focus {
+    outline: 2px solid royalblue;
+  }
 }
 
 .rangeUI {
@@ -524,6 +538,7 @@ input {
     top: 0;
     padding-top: 0;
     flex-wrap: nowrap;
+    background-color: transparent;
     .filePicker__label {
       flex-grow: 1;
       padding: 0 1.6rem;

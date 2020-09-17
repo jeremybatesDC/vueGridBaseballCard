@@ -2,20 +2,17 @@
 
 ## To Do
 
-BACK/STATS TABLE
+ALL -- some input fileds are getting clipped -- test with longer content
 
-realign th now that simplified with 1-line input instead of text area (really spent too much time on that)
-the curve logo position equation needs to be tweaked because in the in=between values there's still gap showing
-
-turn off autocomplete to get shorter keyboard?
--- hihlighting rightmost th input does weird things to the scroll on ios (forces it left/ chnages view somehow (safari doesn't support focus preventscrtoll yet) -- squash with media quesry if needed for i dunno like overflow or something
-
-- refine padding in specific textslider like the aside.
+BACK
+the type email isn't picking up styles ya know?
+NAN prevention
 
 ASIDE & FOOTER
-focus color is ugly
 
-- because it may not be feasible to alwasy vertically center the aside and footer textareas without ever clipping text, consider adding a visual florish / bottom box shadow that would be obscured by the text (maybe with a text background color or something) if there was a 2nd line of text, but visible if there is only 1 line. I think that is doable. A char max-length could help too. YES. A char counter will help some fields (thinking textareas in particular)
+text-sliders for career highlights is now a tad off given slight changes this morning
+
+- b/c may not be feasible to alwasy vertically center textareas w/out ever clipping text, consider adding a visual florish / bottom box shadow that would be obscured by a 2nd/3rd etc line of text (maybe with a text background color or something)
 
 ---
 
@@ -58,6 +55,23 @@ so really it's just an upload button... I want it to match the logo image icon. 
 
 ### 2nd release
 
+consider giving front text sliders left right padding to align with outer border
+
+A char counter will help some fields (thinking textareas in particular)
+
+the back view is cheating and it's kinda square...
+
+the curve logo position equation needs to be tweaked because in the in=between values there's still gap showing
+
+turn off autocomplete to get shorter keyboard? the github phone app i have did that kind of input. Maybe is pattern?
+
+focus colors: consider making consistent across browsers
+
+add more years
+
+perf: is it having to process initial image each time? can we go back to json or static something for load? Would like the skeleton to show immediately...
+
+- re-introduce diagonal table headers
 - back header needs serious refactor
 - color behind table headers? There's a highlighted
 - (this really applies most when card is black) rather than just darkening aside/footer/tablestats, USE LIGHTEN AND DARKEN filtering -- could be done with a css filter even if not a scss function. it should be intensifying contrast (so make lighter than color or darker depening on contrast function -- use hur rotate for instance or a css variable. for instance shouldn't all dark have charcola regions just like all white ha some grey boxes? yah

@@ -441,8 +441,8 @@
         </tbody>
         <tfoot>
           <tr>
-            <th scope="row" data-col="0">TOT</th>
-            <td data-col="1"></td>
+            <th scope="row" data-col="0" colspan="2">TOTALS</th>
+            <!--<td data-col="1"></td>-->
             <!-- a bit too imperative but it is good that we are not doing a v-if in a v-for-->
             <td scope="col">
               <output class="tfoot__output--totals">{{
@@ -579,10 +579,16 @@ export default {
   }
 }
 
-[data-col="1"] {
-  width: 3ch;
-  white-space: nowrap;
-  overflow: visible;
+thead,
+tbody {
+  [data-col="0"] {
+    width: 4ch;
+  }
+  [data-col="1"] {
+    width: 4ch;
+    white-space: nowrap;
+    overflow: visible;
+  }
 }
 
 .stats__wrapper--outer {
@@ -638,6 +644,7 @@ thead {
     }
     input {
       height: 2.4rem;
+      //max-width: 4.5rem;
       text-align: right;
     }
     &:first-child,
@@ -668,7 +675,7 @@ th {
       top: 0;
       left: 0;
       width: 100%;
-      min-width: 4.4rem;
+      //min-width: 4.4rem;
       // might need min height to prevent cutoff after editing
       //min-height: 2.4rem;
       //white-space: pre-wrap;
