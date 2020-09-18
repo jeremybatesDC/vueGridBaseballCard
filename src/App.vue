@@ -155,9 +155,9 @@ h3 {
 }
 
 // there are some hard to iron out differences between filters when they are overtop of images
-.svg--textureOverlay {
+//.svg--textureOverlay {
   //z-index: -1;
-}
+//}
 
 .masthead--center {
   font-size: 1.2rem;
@@ -180,21 +180,17 @@ h3 {
   }
 }
 
-.form--cardDesign {
-}
+
 details {
   padding: 1rem;
 }
 summary {
   display: flex;
 }
-fieldset {
-}
+
 legend {
   font-family: inherit;
-  //font-weight: bold;
   text-align: center;
-  //padding: 0 0.4rem;
   font-size: 1.6rem;
 }
 label {
