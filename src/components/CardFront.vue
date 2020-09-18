@@ -780,11 +780,6 @@
   </div>
 </template>
 
-
-
-
-
-
 <script>
 import defaultSettings from "/json/default-settings.json";
 //import TextSlider from "./TextSlider.vue";
@@ -792,9 +787,9 @@ import defaultSettings from "/json/default-settings.json";
 var webWorkerEncode = new Worker("./workers/web-worker-encode.js", {
   type: "module",
 });
-var webWorkerFetch = new Worker("./workers/web-worker-fetch.js", {
-  type: "module",
-});
+//var webWorkerFetch = new Worker("./workers/web-worker-fetch.js", {
+//  type: "module",
+//});
 
 // any reason not to fire up web worker at the beginning?
 
@@ -825,21 +820,16 @@ async function encodeImage(event) {
   let evntTrgtID = event.target.id;
   let filesProp = this.$refs[evntTrgtID].files;
   let usrfile = filesProp[0];
-  //console.log(usrfile);
-  // correct through here
 
   //validateImage();
 
   if (filesProp && usrfile) {
     //console.log(this);
     webWorkerEncode.postMessage(usrfile);
-
     this.$emit("input", usrfile);
-
     // hard to pass through the refernce
-
+    // REFACTOR
     let testFunction = null;
-
     if (evntTrgtID === "playerImageFileInput") {
       testFunction = (strng) => {
         this.playerImageURLorDataString = strng;
@@ -849,10 +839,10 @@ async function encodeImage(event) {
         this.teamLogoURL = strng;
       };
     }
-
     webWorkerEncode.onmessage = function (event) {
       testFunction(event.data);
     };
+    // END REFACTOR
   }
 }
 
@@ -861,7 +851,7 @@ export default {
     return {
       encodeImage,
       webWorkerEncode,
-      webWorkerFetch,
+      //webWorkerFetch,
     };
   },
   data() {
@@ -991,7 +981,6 @@ export default {
   },
 };
 </script>
-
 
 <style scoped lang="scss">
 .cardFront__wrapper--outermost {

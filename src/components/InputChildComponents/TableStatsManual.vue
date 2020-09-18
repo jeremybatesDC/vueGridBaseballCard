@@ -760,6 +760,13 @@ tbody {
       text-align: right;
     }
   }
+  input {
+    &[type="tel"] {
+      &::placeholder {
+        color: var(--calcColor);
+      }
+    }
+  }
 }
 tfoot {
   font-variation-settings: "wght" 200, "wdth" 25, "opsz" 30, "GRAD" 1, "slnt" 0,

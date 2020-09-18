@@ -2,6 +2,8 @@
 
 ## To Do
 
+can i tree shake vue? Vite says it's optimizable and i do think the entire thing is loading... hmmm
+
 might get too slow with huge photos
 
 after editing career highlights, sometimes hard ot click table stats without triggering career highlights again
@@ -54,11 +56,15 @@ so really it's just an upload button... I want it to match the logo image icon. 
 
 ### 2nd release
 
+the placeholder for 0 is grey again why?
+
+have one color function becuase there's double the needed amount of js i think
+
 add {set{ idb key val back (didnT want it as dependecy in v1)}
 
 finish getting rid of options API
 
-does cache storage keep doubling? Ummm...
+does cache storage keep doubling? Ummm... at least each time i reload... hmmmmmmmm
 
 consider moving truly global css vars to index if it'll work and slim the css file
 
