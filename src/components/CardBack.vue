@@ -59,34 +59,32 @@
 <script lang="ts">
 import defaultFacts from "/json/default-facts.json";
 import defaultSettingsBack from "/json/default-settings-back.json";
-import { set } from "idb-keyval";
+//import { set } from "idb-keyval";
 //import TextSlider from "./InputChildComponents/TextSlider.vue";
 import TableStatsManual from "./InputChildComponents/TableStatsManual.vue";
 import BackHeader from "./InputChildComponents/BackHeader.vue";
 import BackFooter from "./InputChildComponents/BackFooter.vue";
 import AsideFacts from "./InputChildComponents/AsideFacts.vue";
 
-const webWorkerCardBack = new Worker("./workers/web-worker-idb.js", {
-  type: "module",
-});
+//const webWorkerCardBack = new Worker("./workers/web-worker-idb.js", {
+//  type: "module",
+//});
 
-async function setFunc() {
-  // loop here over keys
-  webWorkerCardBack.postMessage(this.aside.fontGrade);
-  webWorkerCardBack.onmessage = function (event) {
-    console.log("received message here is ", event.data);
-  };
-
-  set("footerFontWeight", this.footer.fontWeight)
-    .then(() => console.log("woohoo!"))
-    .catch((err) => console.log("doh!", err));
-}
+//async function setFunc() {
+//  webWorkerCardBack.postMessage(this.aside.fontGrade);
+//  webWorkerCardBack.onmessage = function (event) {
+//    console.log("received message here is ", event.data);
+//  };
+//  set("footerFontWeight", this.footer.fontWeight)
+//    .then(() => console.log("woohoo!"))
+//    .catch((err) => console.log("doh!", err));
+//}
 
 export default {
   // intentionally avoiding arrow functions here
-  setup: function () {
-    return { setFunc };
-  },
+  //setup() {
+  //  return { };
+  //},
 
   // do I nest props to send to child components in here?
   components: {
@@ -97,7 +95,7 @@ export default {
     AsideFacts,
   },
 
-  data: function () {
+  data() {
     return {
       defaultFacts,
       defaultSettingsBack: {
@@ -123,9 +121,6 @@ export default {
         fontGrade: 24,
       },
     };
-  },
-  mounted: function () {
-    this.setFunc();
   },
   computed: {
     cssCardBackProps() {

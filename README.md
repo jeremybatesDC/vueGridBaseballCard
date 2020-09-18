@@ -54,6 +54,14 @@ so really it's just an upload button... I want it to match the logo image icon. 
 
 ### 2nd release
 
+add {set{ idb key val back (didnT want it as dependecy in v1)}
+
+finish getting rid of options API
+
+does cache storage keep doubling? Ummm...
+
+consider moving truly global css vars to index if it'll work and slim the css file
+
 postCSS
 
 decrease bundle size -- split front and back at minimum i think -- ROLLUP BUNDLE ANALYZER

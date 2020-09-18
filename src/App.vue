@@ -51,26 +51,25 @@
 </template>
 
 <script>
-// learning about async components...
-// import { defineAsyncComponent } from "vue";
 import CardFront from "./components/CardFront.vue";
 
 import CardBack from "./components/CardBack.vue";
+import { onMounted } from "vue";
 
 async function registerServiceWorker() {
   navigator.serviceWorker.register("/sw.js");
 }
 
 export default {
-  setup: function () {
+  setup() {
+    onMounted(() => {
+      registerServiceWorker();
+    });
     return { registerServiceWorker };
   },
   components: {
     CardFront,
     CardBack,
-  },
-  mounted() {
-    registerServiceWorker();
   },
   data() {
     return {
@@ -156,7 +155,7 @@ h3 {
 
 // there are some hard to iron out differences between filters when they are overtop of images
 //.svg--textureOverlay {
-  //z-index: -1;
+//z-index: -1;
 //}
 
 .masthead--center {
@@ -179,7 +178,6 @@ h3 {
     font-size: 1.6rem;
   }
 }
-
 
 details {
   padding: 1rem;

@@ -808,16 +808,6 @@ var webWorkerFetch = new Worker("./workers/web-worker-fetch.js", {
 //     );
 //   };
 // }
-async function saveHandler() {
-  console.log("this should force a save to localstorage");
-}
-function setFromLocalStorage() {
-  for (let key in localStorage) {
-    if (localStorage[key]) {
-      this[key] = localStorage[key];
-    }
-  }
-}
 
 // can constrain the ACCEPT attribute  https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file
 
@@ -861,35 +851,20 @@ async function encodeImage(event) {
     }
 
     webWorkerEncode.onmessage = function (event) {
-      //console.log("received message here");
-      //console.log(event.data);
-
       testFunction(event.data);
     };
   }
 }
 
-function receivedWorkerMessage(event) {}
-// function updateLocalStorage(fieldname, newPlayerName) {
-//   localStorage[fieldname] = newPlayerName;
-// }
-
 export default {
-  setup: function () {
+  setup() {
     return {
-      //endpointURL,
-      //postData,
-      saveHandler,
-      setFromLocalStorage,
       encodeImage,
       webWorkerEncode,
       webWorkerFetch,
-      //receivedWorkerMessage
-      //validateImage
-      //updateLocalStorage
     };
   },
-  data: function () {
+  data() {
     return {
       cardBackgroundColor: defaultSettings.cardBackgroundColor,
       cardTextColor: defaultSettings.cardTextColor,
@@ -1011,23 +986,6 @@ export default {
         "--borderinnercolor": this.borderInner.color,
         //"--borderinnerhexplusalpha": `${this.borderInner.color}${this.borderInner.opacity}`,
         "--borderinnerwidth": `${this.borderInner.width}px`,
-      };
-    },
-  },
-  mounted: function () {
-    //this one needs THIS (refactor -- arrow func here not what i want i think)
-    this.setFromLocalStorage();
-  },
-  methods: {
-    submitHandler: async function (event) {
-      // note the $
-      this.webWorkerFetch.postMessage(JSON.stringify(this.$data));
-
-      this.webWorkerFetch.onmessage = function (event) {
-        console.log(
-          event.data,
-          "card front here thanking web worker fetch for its help"
-        );
       };
     },
   },
