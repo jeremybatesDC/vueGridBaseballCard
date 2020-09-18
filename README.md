@@ -2,8 +2,6 @@
 
 ## To Do
 
-any :value left?
-
 might get too slow with huge photos
 
 after editing career highlights, sometimes hard ot click table stats without triggering career highlights again
