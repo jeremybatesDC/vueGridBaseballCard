@@ -56,6 +56,8 @@ so really it's just an upload button... I want it to match the logo image icon. 
 
 ### 2nd release
 
+retry gum mix blend mode -- there was problem on ios when background color dark
+
 the placeholder for 0 is grey again why?
 
 have one color function becuase there's double the needed amount of js i think

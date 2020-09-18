@@ -239,7 +239,7 @@ article {
       opacity: 0.15;
       border-radius: 3px 5px 7px 9px;
       transform: rotate(-33deg) translateX(-8rem) translateY(-4rem);
-      mix-blend-mode: hard-light;
+      //mix-blend-mode: hard-light;
       filter: blur(2px);
       pointer-events: none;
     }
