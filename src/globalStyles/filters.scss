@@ -11,9 +11,7 @@
       contrast(125%);
     //filter: url(#vintage);
   }
-  &posterize {
-    filter: url(#posterize);
-  }
+
   &faded {
     filter: url(#faded);
   }

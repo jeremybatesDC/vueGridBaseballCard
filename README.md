@@ -4,8 +4,6 @@
 
 logo image could match upload logo icon for more of a visual hint!
 
-SERVICE WORKER TURN BACK ON
-
 ASIDE & FOOTER!
 textareas content strategy/testing:
 a) maxlength?
@@ -51,6 +49,21 @@ and, after considering it, i donT think i need a table plugin. If I can properly
 so really it's just an upload button... I want it to match the logo image icon. And since image player icon can't be a mountain, and logo image prob shouldn't be a person, then need to generalize morereplace filepicker player image upload button with an icon of a picture that feautures a person not a mountian: something like: https://iconmonstr.com/picture-4-svg/
 
 ### 2nd release
+
+postCSS
+
+decrease bundle size -- split front and back at minimum i think
+each front & back could be its own app maybe even. Easy split there.
+remember which side user was on last.
+
+also can we server side render at all so that all the markup doesn't have to exist in the JS file? Is that a thing?
+
+for saving, consider using screenshot api: https://developer.mozilla.org/en-US/docs/Web/API/Screen_Capture_API/Using_Screen_Capture
+iOS support is different but there i think (hopefully can get OS or Safari to prompt user)
+Although canvas might be best no? Yeah prob. There's a lib called
+
+- html2canvas (there is a vue version but is that actually needed here?)
+- rasterizeHTML.js
 
 more NAN prevention
 
