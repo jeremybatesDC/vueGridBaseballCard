@@ -2,6 +2,10 @@
 
 ## To Do
 
+logo image could match upload logo icon for more of a visual hint!
+
+SERVICE WORKER TURN BACK ON
+
 ASIDE & FOOTER!
 textareas content strategy/testing:
 a) maxlength?

@@ -54,6 +54,7 @@
 // learning about async components...
 // import { defineAsyncComponent } from "vue";
 import CardFront from "./components/CardFront.vue";
+
 import CardBack from "./components/CardBack.vue";
 
 async function registerServiceWorker() {
@@ -68,13 +69,10 @@ export default {
     CardFront,
     CardBack,
   },
-  mounted: function () {
-    //registerServiceWorker();
-    console.log(
-      "remember to uncomment this service worker. Also, work on an envar"
-    );
+  mounted() {
+    registerServiceWorker();
   },
-  data: function () {
+  data() {
     return {
       frontshowing: true,
     };
@@ -83,14 +81,7 @@ export default {
 </script>
 
 <style lang="scss">
-//not working as expected
-//$minTouchTargetHeight: 4.4rem;
-// vite is really setup to use CSS custom props instead of CSS vars
-
-// is there an advantage to putting this in index...
 :root {
-  // having trouble this morning with calc and scss math with variable and didn't want to get too stuck
-  // wtaf ?
   --unit: 1.6rem;
   --min-touch-target: 4.4rem;
   --min-touch-target-half: 2.2rem;
@@ -150,8 +141,6 @@ h3 {
   }
 }
 
-// .baseballCard__wrapper {
-// }
 .controls--l2 {
   height: 7.2rem;
 }
@@ -163,11 +152,6 @@ h3 {
   height: 100%;
   width: 100%;
   opacity: 0;
-}
-
-.baseballCard__wrapper--mid {
-  // display: flex;
-  // justify-content: center;
 }
 
 // there are some hard to iron out differences between filters when they are overtop of images
@@ -214,24 +198,16 @@ legend {
   font-size: 1.6rem;
 }
 label {
-  //display: block;
   font-family: inherit;
 
   input {
-    //display: block;
     font-family: inherit;
     font-size: inherit;
-    // &:not([type="color"]) {
-    //   width: 100%;
-    // }
   }
   select {
     display: block;
     font-family: inherit;
     font-size: 1.6rem;
-  }
-  .baseballCard__wrapper & {
-    //margin-bottom: 1.6rem;
   }
 }
 
