@@ -121,7 +121,6 @@ import defaultStats from "/json/default-stats.json";
 
 function putCursorAtEnd(event) {
   event.target.setSelectionRange(99, 99);
-  console.log(event.target, "place cursor");
 }
 
 export default {
@@ -195,7 +194,6 @@ export default {
   computed: {
     sumCol2() {
       const rdcr = (acum, curVal) => {
-        console.log(this.seasons[0].numericStats.racesCycled);
         return parseFloat(acum) + parseFloat(curVal);
       };
 

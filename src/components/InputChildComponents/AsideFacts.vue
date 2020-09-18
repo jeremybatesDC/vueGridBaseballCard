@@ -135,17 +135,12 @@ aside {
   display: flex;
   flex-grow: 1;
   flex-basis: 25%;
-  //width: auto;
   min-height: 5.4rem;
-  //background: rgba(0, 0, 0, 0.2);
-  //min-height: calc(var(--min-touch-target-height) + 3.2rem);
 }
 
 .aside__wrapper--outer {
   display: block;
   height: 100%;
-  //min-height: var(--min-touch-target);
-  //width: 100%;
 }
 
 .aside__wrapper--inner {
@@ -165,7 +160,6 @@ aside {
     padding-left: 0;
     box-shadow: var(--boxshadowaside);
     .rangeUI__label {
-      //padding: 0;
       &:first-of-type {
         padding-left: 0.4rem;
         padding-right: 1rem;
@@ -191,20 +185,6 @@ blockquote {
   padding: 0 1.6rem 0 1.6rem;
   margin: 0;
   background-color: rgba(0, 0, 0, 0.05);
-
-  //&:before {
-  //  content: "";
-  //  position: absolute;
-  //  top: 0;
-  //  left: 0;
-  //  width: 100%;
-  //  height: 100%;
-  //  opacity: 0.5;
-  //  background-color: var(--colorinrgb);
-  //  filter: contrast(0.6666);
-  //  z-index: -1;
-  //  //mix-blend-mode: hard-light;
-  //}
 }
 
 span {

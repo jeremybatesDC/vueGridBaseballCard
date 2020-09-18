@@ -1,9 +1,6 @@
 <template>
   <footer class="" :style="textLineCProps">
     <fieldset class="">
-      <!-- <h2>
-            <input type="text" v-model="defaultFacts.info.facts[1].headline" />
-      </h2>-->
       <textarea
         rows="2"
         class=""
@@ -64,18 +61,12 @@
 
 <script>
 import defaultFacts from "/json/default-facts.json";
-//import TextSlider from "../InputChildComponents/TextSlider.vue";
 import defaultSettingsBack from "/json/default-settings-back.json";
 
 export default {
-  components: {
-    //TextSlider,
-  },
-
   data: function () {
     return {
       defaultFacts,
-      //TextSlider,
       textLineC: {
         fontWeight: defaultSettingsBack.textLineC.fontWeight,
         fontWidth: defaultSettingsBack.textLineC.fontWidth,
@@ -87,7 +78,6 @@ export default {
   computed: {
     textLineCProps() {
       return {
-        //"--color": this.textLine1.color,
         "--fontweight": this.textLineC.fontWeight,
         "--fontwidth": this.textLineC.fontWidth,
         "--fontgrade": this.textLineC.fontGrade,
@@ -105,7 +95,6 @@ footer {
   position: relative;
   font-size: 1.6rem;
   padding: 0 1.6rem;
-  //background-color: rgba(0, 0, 0, 0.2);
 
   input[type="text"] {
     padding: 0;

@@ -253,7 +253,6 @@
             maxlength="48"
             spellcheck="false"
           />
-          <!--<TextSlider v-model="textLine2"></TextSlider>-->
           <div data-show-only-on-interaction hidden>
             <div class="row row--grow space-between row--textControls">
               <label class="rangeUI__label">
@@ -320,7 +319,6 @@
             maxlength="48"
             spellcheck="false"
           />
-          <!--<TextSlider v-model="textPlayerPosition"></TextSlider>-->
           <div data-show-only-on-interaction hidden>
             <div class="row row--grow space-between row--textControls">
               <label class="rangeUI__label">
@@ -837,13 +835,13 @@ async function encodeImage(event) {
   let evntTrgtID = event.target.id;
   let filesProp = this.$refs[evntTrgtID].files;
   let usrfile = filesProp[0];
-  console.log(usrfile);
+  //console.log(usrfile);
   // correct through here
 
   //validateImage();
 
   if (filesProp && usrfile) {
-    console.log(this);
+    //console.log(this);
     webWorkerEncode.postMessage(usrfile);
 
     this.$emit("input", usrfile);
@@ -863,9 +861,9 @@ async function encodeImage(event) {
     }
 
     webWorkerEncode.onmessage = function (event) {
-      console.log("received message here");
-      console.log(event.data);
-      //
+      //console.log("received message here");
+      //console.log(event.data);
+
       testFunction(event.data);
     };
   }
@@ -1017,13 +1015,11 @@ export default {
     },
   },
   mounted: function () {
-    //this one needs THIS
+    //this one needs THIS (refactor -- arrow func here not what i want i think)
     this.setFromLocalStorage();
   },
   methods: {
     submitHandler: async function (event) {
-      console.log(this);
-
       // note the $
       this.webWorkerFetch.postMessage(JSON.stringify(this.$data));
 
@@ -1033,10 +1029,6 @@ export default {
           "card front here thanking web worker fetch for its help"
         );
       };
-      // gives proper access to THIS i believe
-      // persist() {
-      // 	localStorage.playerName = this.playerName;
-      // 	localStorage.teamName = this.teamName;
     },
   },
 };
@@ -1118,12 +1110,6 @@ export default {
   .row--middle--forDesign {
     order: 0;
   }
-
-  //preserve space because fui moves things
-  //.text__line--first,
-  //.text__line--second {
-  //  height: var(--min-touch-target);
-  //}
 }
 .zero-two {
   justify-content: flex-end;
@@ -1133,10 +1119,6 @@ export default {
     order: -1;
   }
 
-  //.text__line--first,
-  //.text__line--second {
-  //  height: 3.2rem;
-  //}
   .text__line--first {
     padding-top: 0.8rem;
   }
@@ -1151,10 +1133,7 @@ export default {
   .row--middle--forDesign {
     order: 1;
   }
-  //.text__line--first,
-  //.text__line--second {
-  //  height: 3.2rem;
-  //}
+
   .text__line--first {
     padding-top: 0.8rem;
   }
@@ -1182,20 +1161,14 @@ input {
   display: flex;
   position: var(--playerimagebleedorboxed);
   flex-grow: 1;
-  //border: 1px solid blue;
-  // make configurable
+
   border-width: var(--borderinnerwidth);
   border-style: var(--borderinnerstyle);
 
-  //border-color: var(--borderinnercolor);
   border-color: var(--calcColor);
 
   border-radius: var(--borderinnercurve);
-  // trying a trick
 
-  //overflow: hidden;
-  // imperative way of handling full bleed
-  //filter: var(--playerimagefiltereffect);
   &.topLeft {
     justify-content: flex-start;
     align-items: flex-start;
@@ -1235,10 +1208,6 @@ input {
         calc(var(--borderinnercurve) / 3.6666),
         calc(var(--borderinnercurve) / 3.6666)
       );
-      //transform: translate(
-      //  calc(8px - (var(--borderinnercurve) / 3)),
-      //  calc(8px - (var(--borderinnercurve) / 3))
-      //);
     }
   }
 }
@@ -1268,12 +1237,6 @@ h6 {
 h1,
 h2,
 h3 {
-  [data-show-only-on-interaction] {
-    //top: 50%;
-    //transform: translateY(-50%);
-    //height: 100%;
-    //background-color: rgba(0, 0, 0, 0.5);
-  }
   &:focus-within {
     [data-show-only-on-interaction] {
       visibility: visible;
@@ -1331,24 +1294,14 @@ h2 {
   font-size: 1.8rem;
   display: flex;
   flex-grow: 1;
-  input[type="text"] {
-    // still mulling this over
-    //text-shadow: 1px 0 0 rgba(black, 0.5), 1px 0 0 rgba(cyan, 0.8),
-    //1px 0 0 rgba(magenta, 0.8), 1px 0 0 rgba(yellow, 0.8);
-
-    //filter: drop-shadow(1px 1px 1px 1px cyan),drop-shadow(1px 1px 1px 1px magenta), drop-shadow(1px 1px 1px 1px yellow);
-  }
 }
 
 h3 {
   font-size: 1.6rem;
-  //font-variation-settings: "wght" var(--fontweight), "wdth" var(--fontwidth),
-  //  "GRAD" var(--fontgrade), "slnt" var(--fontslant), "YTLC" 500, "YTUC" 500,
-  //  "YTFI" 500;
+
   text-align: right;
 
   input {
-    //font-variation-settings: inherit;
     text-align: inherit;
   }
 }
@@ -1410,16 +1363,12 @@ h3 {
       }
       &:last-child {
         padding-top: var(--unit);
-        label {
-          //justify-content: flex-end;
-        }
       }
     }
     .col {
       width: min-content;
       &:not(:first-child) {
         margin-left: var(--touch-target-spacing);
-        //text-align: right;
       }
       // in case i ever add more
       &:last-child {
@@ -1430,12 +1379,9 @@ h3 {
     input {
       &[type="radio"],
       &[type="checkmark"] {
-        //position: absolute;
-        //top: 50%;
         width: var(--min-touch-target-width);
         height: var(--min-touch-target-height);
-        //left: 50%;
-        //transform: translateY(-50%);
+
         display: flex;
         align-self: center;
         justify-self: center;

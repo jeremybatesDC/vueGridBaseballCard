@@ -5,8 +5,6 @@
         <fieldset
           class="cardBack__fieldset colorPicker__fieldset align-self-center"
         >
-          <!--<legend>Background</legend>-->
-
           <label class="colorPicker__label colorPicker__label--textOverlap">
             <span>Color</span>
             <input
@@ -15,9 +13,6 @@
               v-model="defaultSettingsBack.backgroundColor"
             />
           </label>
-          <!--<small class="helperText colorPicker__helperText"
-              >Text color adjusts to maintain contrast</small
-            >-->
         </fieldset>
         <fieldset class="checkRadioButtons__fieldset">
           <legend class="checkRadioButtons__legend text-left">Gum Stain</legend>
@@ -51,13 +46,8 @@
     <div class="card-back">
       <article :class="defaultSettingsBack.gumShowing">
         <BackHeader />
-
         <section>
-          <!-- columns: min 2, max 6? -->
-          <!-- tbody rows: min 0 (leaving only tfoot totals), max 10? -->
-
           <TableStatsManual />
-
           <AsideFacts />
         </section>
         <BackFooter />
@@ -201,10 +191,6 @@ export default {
     )
   );
 }
-//
-//.cardBack__controls {
-//  padding: 0.4rem 0;
-//}
 
 // cheat
 .colorPicker__label--textOverlap {
@@ -265,24 +251,6 @@ article {
   }
   &.has-crease {
   }
-
-  //crease consider svg
-  /*&:before {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: -200px;
-    height: 2px;
-    width: 100%;
-    background-color: rgba(0, 0, 0, 0.25);
-    transform: rotate(45deg) scaleX(2);
-    //transform-origin: center top;
-    z-index: 1;
-    //outline: 1px dashed rgba(0, 0, 0, 0.25);
-    box-shadow: 1px 0 rgba(0, 0, 0, 1);
-    //border-image:url();
-  }*/
-  //gum
 }
 
 h2 {

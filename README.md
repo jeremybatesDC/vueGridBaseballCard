@@ -2,6 +2,12 @@
 
 ## To Do
 
+any :value left?
+
+might get too slow with huge photos
+
+after editing career highlights, sometimes hard ot click table stats without triggering career highlights again
+
 logo image could match upload logo icon for more of a visual hint!
 
 ASIDE & FOOTER!
@@ -52,7 +58,7 @@ so really it's just an upload button... I want it to match the logo image icon. 
 
 postCSS
 
-decrease bundle size -- split front and back at minimum i think
+decrease bundle size -- split front and back at minimum i think -- ROLLUP BUNDLE ANALYZER
 each front & back could be its own app maybe even. Easy split there.
 remember which side user was on last.
 

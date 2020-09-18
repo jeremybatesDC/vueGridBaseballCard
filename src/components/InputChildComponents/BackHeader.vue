@@ -1,5 +1,5 @@
 <template>
-  <header>
+  <header :style="textLineAProps">
     <div class="row row--topmost space-between">
       <!-- i dont think label is necessarily correct here -->
       <label class="backHeader__label--topmost">
@@ -112,16 +112,10 @@
 <script>
 import defaultFacts from "/json/default-facts.json";
 import defaultSettingsBack from "/json/default-settings-back.json";
-//import TextSlider from "../InputChildComponents/TextSlider.vue";
 export default {
-  components: {
-    //TextSlider,
-  },
-
-  data: function () {
+  data() {
     return {
       defaultFacts,
-      //TextSlider
       textLineA: {
         fontWeight: defaultSettingsBack.textLineA.fontWeight,
         fontWidth: defaultSettingsBack.textLineA.fontWidth,
@@ -130,17 +124,22 @@ export default {
       },
     };
   },
+  computed: {
+    textLineAProps() {
+      return {
+        "--fontweight": this.textLineA.fontWeight,
+        "--fontwidth": this.textLineA.fontWidth,
+        "--fontgrade": this.textLineA.fontGrade,
+        "--fontslant": this.textLineA.fontSlant,
+      };
+    },
+  },
 };
 </script>
 
 <style lang="scss" scoped>
-// consider moving this
-
-//preserve heights
-
 .backHeader__label--topmost {
   &:first-of-type {
-    //flex-grow: 1;
     width: 66.6666%;
     &:focus-within {
       [data-show-only-on-interaction] {
@@ -153,8 +152,6 @@ export default {
     input {
       // not sure why iOS was haing trouble with this
       width: 100%;
-      //max-width: 100%;
-      //min-width: 0;
     }
   }
 }
@@ -176,8 +173,6 @@ export default {
   height: 3.2rem;
 }
 
-// scoped to header
-
 input {
   text-transform: uppercase;
 }
@@ -194,8 +189,10 @@ h1 {
   flex-grow: 1;
   font-size: 2.4rem;
   padding-bottom: 0;
-  font-variation-settings: "wght" 900, "wdth" 50, "opsz" 25, "GRAD" 1,
-    "slnt" -10, "YTLC" 800, "YTUC" 800, "YTAS" 800;
+  font-variation-settings: "wght" var(--fontweight), "wdth" var(--fontwidth),
+    "opsz" 25, "GRAD" var(--fontgrade), "slnt" var(--fontslant), "YTLC" 800,
+    "YTUC" 800, "YTAS" 800;
+
   width: 100%;
   input[type="text"] {
     height: var(--min-touch-target-height);
@@ -229,7 +226,6 @@ h1 {
   &--topmost {
     label {
       &--topmost {
-        //flex-grow: 1;
         h1,
         input[type="text"] {
           display: flex;
@@ -260,11 +256,9 @@ h1 {
     input {
       color: inherit;
       width: 100%;
-      // can prevent iOS zoom with 16px or higher PRE-FOCUS
       height: calc(var(--min-touch-target-height-half) + 0.8rem);
       font-size: 1.6rem;
       padding: 0;
-      // as of july 27, 2020, font-variation settings can be used to achieve desired smaller appearance
       font-variation-settings: "wght" 400, "wdth" 25, "opsz" 50, "GRAD" 48,
         "slnt" 0, "YTLC" 200, "YTUC" 200, "YTAS" 700;
       &:focus {
@@ -278,9 +272,7 @@ h1 {
 .stripe--dark {
   padding: 0;
   flex-wrap: nowrap;
-  //height: var(--min-touch-target-height);
-  // iOS wants min height hmmmm
-  //min-height: var(--min-touch-target-height);
+
   background: var(--calcColor);
   color: var(--backgroundcolorback);
   box-shadow: 1.6rem 0 var(--calcColor), -1.6rem 0 var(--calcColor);
@@ -288,10 +280,7 @@ h1 {
     text-transform: uppercase;
   }
   label {
-    //height: var(--min-touch-target-height);
-    // iOS wants this explicit
     align-items: center;
-    //filter: invert(1);
     input {
       height: calc(var(--min-touch-target-height-half) + 0.8rem);
       width: 100%;
@@ -301,7 +290,6 @@ h1 {
     &:first-child {
       flex-grow: 1;
       flex-basis: 50%;
-      // why does safari mobile need this input padding to be explicit?
     }
     &:nth-child(2) {
       input {

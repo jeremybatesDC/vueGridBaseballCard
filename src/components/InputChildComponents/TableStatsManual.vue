@@ -532,7 +532,6 @@ import defaultStats from "/json/default-stats.json";
 
 function putCursorAtEnd(event) {
   event.target.setSelectionRange(99, 99);
-  console.log(event.target, "place cursor");
 }
 
 export default {
@@ -716,10 +715,6 @@ thead {
 }
 // some ths are in tbody and tfoot
 th {
-  //padding: 3.2rem 0 0 0;
-
-  //text-align: right;
-
   label {
     display: flex;
 
@@ -728,24 +723,12 @@ th {
         "slnt" 0, "YTLC" 500, "YTUC" 500, "YTFI" 500;
       line-height: 1.1;
       display: flex;
-
       // removing this absolute positioinig has bad effects on iOS (didn't see in chrome dev tools)
       position: absolute;
       top: 0;
       left: 0;
       width: 100%;
-      //min-width: 4.4rem;
-      // might need min height to prevent cutoff after editing
-      //min-height: 2.4rem;
-      //white-space: pre-wrap;
-      //word-break: break-word;
       text-transform: uppercase;
-      //transform: rotate(-40deg);
-
-      //text-indent: -1rem;
-      //padding-left: 1rem;
-
-      // safari mobile seems to struggle with first-line
     }
   }
 }
