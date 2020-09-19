@@ -14,13 +14,13 @@
             />
           </label>
         </fieldset>
-        <fieldset class="checkRadioButtons__fieldset">
-          <legend class="checkRadioButtons__legend text-left">Gum Stain</legend>
-          <div class="checkRadioButtons__wrapper--inner">
-            <label class="checkRadioButtons__label">
+        <fieldset class="radioBtns__fieldset">
+          <legend class="radioBtns__legend text-left">Gum Stain</legend>
+          <div class="radioBtns__wrapper--inner">
+            <label class="radioBtns__label">
               <input
                 type="radio"
-                class="checkRadioButtons__input hidden--visually"
+                class="radioBtns__input hidden--visually"
                 name="gumradio"
                 v-model="defaultSettingsBack.gumShowing"
                 value="gumShowing"
@@ -28,10 +28,10 @@
               <span>Show</span>
             </label>
 
-            <label class="checkRadioButtons__label">
+            <label class="radioBtns__label">
               <input
                 type="radio"
-                class="checkRadioButtons__input hidden--visually"
+                class="radioBtns__input hidden--visually"
                 name="gumradio"
                 v-model="defaultSettingsBack.gumShowing"
                 value="gumHidden"

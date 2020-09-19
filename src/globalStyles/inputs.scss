@@ -185,7 +185,7 @@ textarea {
   }
 }
 
-.checkRadioButtons {
+.radioBtns {
   &__fieldset {
     display: flex;
     flex-direction: column;
@@ -233,7 +233,7 @@ textarea {
       font-size: 1.6rem;
     }
 
-    &.checkRadioButtons__label.checkRadioButtons__label {
+    &.radioBtns__label.radioBtns__label {
       padding: 0;
     }
 

@@ -22,13 +22,13 @@
           />
         </label>
 
-        <fieldset class="checkRadioButtons__fieldset">
-          <legend class="checkRadioButtons__legend text-left">Layout</legend>
-          <div class="checkRadioButtons__wrapper--inner">
-            <label class="checkRadioButtons__label">
+        <fieldset class="radioBtns__fieldset">
+          <legend class="radioBtns__legend text-left">Layout</legend>
+          <div class="radioBtns__wrapper--inner">
+            <label class="radioBtns__label">
               <input
                 type="radio"
-                class="checkRadioButtons__input hidden--visually"
+                class="radioBtns__input hidden--visually"
                 v-model="cardLayout"
                 value="one-one"
               />
@@ -61,10 +61,10 @@
               ></span>
             </label>
 
-            <label class="checkRadioButtons__label">
+            <label class="radioBtns__label">
               <input
                 type="radio"
-                class="checkRadioButtons__input hidden--visually"
+                class="radioBtns__input hidden--visually"
                 v-model="cardLayout"
                 value="zero-two"
               />
@@ -91,10 +91,10 @@
               ></span>
             </label>
 
-            <label class="checkRadioButtons__label">
+            <label class="radioBtns__label">
               <input
                 type="radio"
-                class="checkRadioButtons__input hidden--visually"
+                class="radioBtns__input hidden--visually"
                 v-model="cardLayout"
                 value="two-zero"
               />
@@ -461,52 +461,52 @@
             </form>
           </div>
           <div class="row space-between row--full-width">
-            <fieldset class="checkRadioButtons__fieldset">
-              <legend class="checkRadioButtons__legend">Filters</legend>
-              <div class="checkRadioButtons__wrapper--inner">
-                <label class="checkRadioButtons__label">
+            <fieldset class="radioBtns__fieldset">
+              <legend class="radioBtns__legend">Filters</legend>
+              <div class="radioBtns__wrapper--inner">
+                <label class="radioBtns__label">
                   <input
                     type="radio"
-                    class="checkRadioButtons__input hidden--visually"
+                    class="radioBtns__input hidden--visually"
                     v-model="playerImageFilterEffect"
                     value="noFilterEffect"
                   />
                   <span>None</span>
                 </label>
 
-                <label class="checkRadioButtons__label">
+                <label class="radioBtns__label">
                   <input
                     type="radio"
-                    class="checkRadioButtons__input hidden--visually"
+                    class="radioBtns__input hidden--visually"
                     v-model="playerImageFilterEffect"
                     value="filterbw"
                   />
                   <span>B&amp;W</span>
                 </label>
 
-                <label class="checkRadioButtons__label">
+                <label class="radioBtns__label">
                   <input
                     type="radio"
-                    class="checkRadioButtons__input hidden--visually"
+                    class="radioBtns__input hidden--visually"
                     v-model="playerImageFilterEffect"
                     value="filtersepia"
                   />
                   <span>Sepia</span>
                 </label>
 
-                <label class="checkRadioButtons__label">
+                <label class="radioBtns__label">
                   <input
                     type="radio"
-                    class="checkRadioButtons__input hidden--visually"
+                    class="radioBtns__input hidden--visually"
                     v-model="playerImageFilterEffect"
                     value="filtervintage"
                   />
                   <span>1920</span>
                 </label>
-                <label class="checkRadioButtons__label">
+                <label class="radioBtns__label">
                   <input
                     type="radio"
-                    class="checkRadioButtons__input hidden--visually"
+                    class="radioBtns__input hidden--visually"
                     v-model="playerImageFilterEffect"
                     value="filterfaded"
                   />
@@ -515,13 +515,13 @@
               </div>
             </fieldset>
 
-            <fieldset class="checkRadioButtons__fieldset">
-              <legend class="checkRadioButtons__legend">Logo</legend>
-              <div class="checkRadioButtons__wrapper--inner">
-                <label class="checkRadioButtons__label">
+            <fieldset class="radioBtns__fieldset">
+              <legend class="radioBtns__legend">Logo</legend>
+              <div class="radioBtns__wrapper--inner">
+                <label class="radioBtns__label">
                   <input
                     type="radio"
-                    class="checkRadioButtons__input hidden--visually"
+                    class="radioBtns__input hidden--visually"
                     v-model="logo.position"
                     value="topLeft"
                     aria-label="Top Left"
@@ -576,10 +576,10 @@
                   </span>
                 </label>
 
-                <label class="checkRadioButtons__label">
+                <label class="radioBtns__label">
                   <input
                     type="radio"
-                    class="checkRadioButtons__input hidden--visually"
+                    class="radioBtns__input hidden--visually"
                     v-model="logo.position"
                     value="topRight"
                     aria-label="Top Right"
@@ -634,10 +634,10 @@
                   </span>
                 </label>
 
-                <label class="checkRadioButtons__label">
+                <label class="radioBtns__label">
                   <input
                     type="radio"
-                    class="checkRadioButtons__input hidden--visually"
+                    class="radioBtns__input hidden--visually"
                     v-model="logo.position"
                     value="bottomLeft"
                     aria-label="Bottom Left"
@@ -692,10 +692,10 @@
                   </span>
                 </label>
 
-                <label class="checkRadioButtons__label">
+                <label class="radioBtns__label">
                   <input
                     type="radio"
-                    class="checkRadioButtons__input hidden--visually"
+                    class="radioBtns__input hidden--visually"
                     v-model="logo.position"
                     value="bottomRight"
                     aria-label="Bottom Right"
@@ -750,10 +750,10 @@
                   </span>
                 </label>
 
-                <label class="checkRadioButtons__label">
+                <label class="radioBtns__label">
                   <input
                     type="radio"
-                    class="checkRadioButtons__input hidden--visually"
+                    class="radioBtns__input hidden--visually"
                     v-model="logo.position"
                     value="hideLogo"
                     aria-label="Bottom Right"

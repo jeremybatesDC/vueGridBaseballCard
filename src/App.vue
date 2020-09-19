@@ -2,10 +2,10 @@
   <main>
     <div class="tabs">
       <div role="tablist">
-        <fieldset class="checkRadioButtons__fieldset width--100">
-          <div class="checkRadioButtons__wrapper--inner row">
+        <fieldset class="radioBtns__fieldset width--100">
+          <div class="radioBtns__wrapper--inner row">
             <label
-              class="checkRadioButtons__label align-items-stretch"
+              class="radioBtns__label align-items-stretch"
               role="tab"
               aria-selected
               aria-controls
@@ -13,7 +13,7 @@
             >
               <input
                 type="radio"
-                class="checkRadioButtons__input hidden--visually"
+                class="radioBtns__input hidden--visually"
                 v-model="frontshowing"
                 :value="true"
               />
@@ -21,7 +21,7 @@
             </label>
 
             <label
-              class="checkRadioButtons__label align-items-stretch"
+              class="radioBtns__label align-items-stretch"
               role="tab"
               aria-selected
               aria-controls
@@ -29,7 +29,7 @@
             >
               <input
                 type="radio"
-                class="checkRadioButtons__input hidden--visually"
+                class="radioBtns__input hidden--visually"
                 v-model="frontshowing"
                 :value="false"
               />

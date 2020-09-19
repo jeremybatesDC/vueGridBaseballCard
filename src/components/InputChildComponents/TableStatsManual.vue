@@ -44,19 +44,13 @@
           </tr>
         </thead>
         <tbody>
-          <tr class="stats-table__tbody__tr">
+          <tr>
             <!-- i really don't want to do a loop in a loop, do I? Space/time complexity wise, it's better to loop twice -->
             <!-- this one doesnT expect index until 3rd argument. Is that because itS nested? Maybe itS the kind of object -->
 
             <!-- making first col a TH scope row -->
-            <th
-              scope="row"
-              class="stats-table__tbody__th"
-              data-col="0"
-              data-row="0"
-            >
+            <th scope="row" data-col="0" data-row="0">
               <input
-                class="stats-table__tbody__input"
                 type="tel"
                 inputmode="decimal"
                 v-model="seasons.yr1.year"
@@ -66,9 +60,8 @@
                 data-row="0"
               />
             </th>
-            <td class="stats-table__tbody__td" data-col="1" data-row="0">
+            <td data-col="1" data-row="0">
               <input
-                class="stats-table__tbody__input"
                 type="tel"
                 inputmode="decimal"
                 v-model="seasons.yr1.homeCity"
@@ -83,9 +76,8 @@
 
             <!--v-model="season.numericStats[indexInner]"-->
             <!-- :value="theStat" -->
-            <td class="stats-table__tbody__td">
+            <td>
               <input
-                class="stats-table__tbody__input"
                 type="tel"
                 inputmode="decimal"
                 v-model="seasons.yr1.numericStats.racesCycled"
@@ -95,9 +87,8 @@
               />
             </td>
 
-            <td class="stats-table__tbody__td">
+            <td>
               <input
-                class="stats-table__tbody__input"
                 type="tel"
                 inputmode="decimal"
                 v-model="seasons.yr1.numericStats.milesCycled"
@@ -106,9 +97,8 @@
                 placeholder="0"
               />
             </td>
-            <td class="stats-table__tbody__td">
+            <td>
               <input
-                class="stats-table__tbody__input"
                 type="tel"
                 inputmode="decimal"
                 v-model="seasons.yr1.numericStats.avgSpeed"
@@ -117,9 +107,8 @@
                 placeholder="0"
               />
             </td>
-            <td class="stats-table__tbody__td">
+            <td>
               <input
-                class="stats-table__tbody__input"
                 type="tel"
                 inputmode="decimal"
                 v-model="seasons.yr1.numericStats.falls"
@@ -128,9 +117,8 @@
                 placeholder="0"
               />
             </td>
-            <td class="stats-table__tbody__td">
+            <td>
               <input
-                class="stats-table__tbody__input"
                 type="tel"
                 inputmode="decimal"
                 v-model="seasons.yr1.numericStats.beersTasted"
@@ -140,15 +128,9 @@
               />
             </td>
           </tr>
-          <tr class="stats-table__tbody__tr">
-            <th
-              scope="row"
-              class="stats-table__tbody__th"
-              data-col="0"
-              data-row="0"
-            >
+          <tr>
+            <th scope="row" data-col="0" data-row="0">
               <input
-                class="stats-table__tbody__input"
                 type="tel"
                 inputmode="decimal"
                 v-model="seasons.yr2.year"
@@ -158,9 +140,8 @@
                 data-row="0"
               />
             </th>
-            <td class="stats-table__tbody__td" data-col="1" data-row="0">
+            <td data-col="1" data-row="0">
               <input
-                class="stats-table__tbody__input"
                 type="tel"
                 inputmode="decimal"
                 v-model="seasons.yr2.homeCity"
@@ -170,9 +151,8 @@
                 data-row="0"
               />
             </td>
-            <td class="stats-table__tbody__td">
+            <td>
               <input
-                class="stats-table__tbody__input"
                 type="tel"
                 inputmode="decimal"
                 v-model="seasons.yr2.numericStats.racesCycled"
@@ -182,9 +162,8 @@
               />
             </td>
 
-            <td class="stats-table__tbody__td">
+            <td>
               <input
-                class="stats-table__tbody__input"
                 type="tel"
                 inputmode="decimal"
                 v-model="seasons.yr2.numericStats.milesCycled"
@@ -193,9 +172,8 @@
                 placeholder="0"
               />
             </td>
-            <td class="stats-table__tbody__td">
+            <td>
               <input
-                class="stats-table__tbody__input"
                 type="tel"
                 inputmode="decimal"
                 v-model="seasons.yr2.numericStats.avgSpeed"
@@ -204,9 +182,8 @@
                 placeholder="0"
               />
             </td>
-            <td class="stats-table__tbody__td">
+            <td>
               <input
-                class="stats-table__tbody__input"
                 type="tel"
                 inputmode="decimal"
                 v-model="seasons.yr2.numericStats.falls"
@@ -215,9 +192,8 @@
                 placeholder="0"
               />
             </td>
-            <td class="stats-table__tbody__td">
+            <td>
               <input
-                class="stats-table__tbody__input"
                 type="tel"
                 inputmode="decimal"
                 v-model="seasons.yr2.numericStats.beersTasted"
@@ -227,15 +203,9 @@
               />
             </td>
           </tr>
-          <tr class="stats-table__tbody__tr">
-            <th
-              scope="row"
-              class="stats-table__tbody__th"
-              data-col="0"
-              data-row="0"
-            >
+          <tr>
+            <th scope="row" data-col="0" data-row="0">
               <input
-                class="stats-table__tbody__input"
                 type="tel"
                 inputmode="decimal"
                 v-model="seasons.yr3.year"
@@ -245,9 +215,8 @@
                 data-row="0"
               />
             </th>
-            <td class="stats-table__tbody__td" data-col="1" data-row="0">
+            <td data-col="1" data-row="0">
               <input
-                class="stats-table__tbody__input"
                 type="tel"
                 inputmode="decimal"
                 v-model="seasons.yr3.homeCity"
@@ -257,9 +226,8 @@
                 data-row="0"
               />
             </td>
-            <td class="stats-table__tbody__td">
+            <td>
               <input
-                class="stats-table__tbody__input"
                 type="tel"
                 inputmode="decimal"
                 v-model="seasons.yr3.numericStats.racesCycled"
@@ -269,9 +237,8 @@
               />
             </td>
 
-            <td class="stats-table__tbody__td">
+            <td>
               <input
-                class="stats-table__tbody__input"
                 type="tel"
                 inputmode="decimal"
                 v-model="seasons.yr3.numericStats.milesCycled"
@@ -280,9 +247,8 @@
                 placeholder="0"
               />
             </td>
-            <td class="stats-table__tbody__td">
+            <td>
               <input
-                class="stats-table__tbody__input"
                 type="tel"
                 inputmode="decimal"
                 v-model="seasons.yr3.numericStats.avgSpeed"
@@ -291,9 +257,8 @@
                 placeholder="0"
               />
             </td>
-            <td class="stats-table__tbody__td">
+            <td>
               <input
-                class="stats-table__tbody__input"
                 type="tel"
                 inputmode="decimal"
                 v-model="seasons.yr3.numericStats.falls"
@@ -302,9 +267,8 @@
                 placeholder="0"
               />
             </td>
-            <td class="stats-table__tbody__td">
+            <td>
               <input
-                class="stats-table__tbody__input"
                 type="tel"
                 inputmode="decimal"
                 v-model="seasons.yr3.numericStats.beersTasted"
@@ -314,15 +278,9 @@
               />
             </td>
           </tr>
-          <tr class="stats-table__tbody__tr">
-            <th
-              scope="row"
-              class="stats-table__tbody__th"
-              data-col="0"
-              data-row="0"
-            >
+          <tr>
+            <th scope="row" data-col="0" data-row="0">
               <input
-                class="stats-table__tbody__input"
                 type="tel"
                 inputmode="decimal"
                 v-model="seasons.yr4.year"
@@ -332,9 +290,8 @@
                 data-row="0"
               />
             </th>
-            <td class="stats-table__tbody__td" data-col="1" data-row="0">
+            <td data-col="1" data-row="0">
               <input
-                class="stats-table__tbody__input"
                 type="tel"
                 inputmode="decimal"
                 v-model="seasons.yr4.homeCity"
@@ -344,9 +301,8 @@
                 data-row="0"
               />
             </td>
-            <td class="stats-table__tbody__td">
+            <td>
               <input
-                class="stats-table__tbody__input"
                 type="tel"
                 inputmode="decimal"
                 v-model="seasons.yr4.numericStats.racesCycled"
@@ -356,9 +312,8 @@
               />
             </td>
 
-            <td class="stats-table__tbody__td">
+            <td>
               <input
-                class="stats-table__tbody__input"
                 type="tel"
                 inputmode="decimal"
                 v-model="seasons.yr4.numericStats.milesCycled"
@@ -367,9 +322,8 @@
                 placeholder="0"
               />
             </td>
-            <td class="stats-table__tbody__td">
+            <td>
               <input
-                class="stats-table__tbody__input"
                 type="tel"
                 inputmode="decimal"
                 v-model="seasons.yr4.numericStats.avgSpeed"
@@ -378,9 +332,8 @@
                 placeholder="0"
               />
             </td>
-            <td class="stats-table__tbody__td">
+            <td>
               <input
-                class="stats-table__tbody__input"
                 type="tel"
                 inputmode="decimal"
                 v-model="seasons.yr4.numericStats.falls"
@@ -389,9 +342,8 @@
                 placeholder="0"
               />
             </td>
-            <td class="stats-table__tbody__td">
+            <td>
               <input
-                class="stats-table__tbody__input"
                 type="tel"
                 inputmode="decimal"
                 v-model="seasons.yr4.numericStats.beersTasted"
@@ -401,15 +353,9 @@
               />
             </td>
           </tr>
-          <tr class="stats-table__tbody__tr">
-            <th
-              scope="row"
-              class="stats-table__tbody__th"
-              data-col="0"
-              data-row="0"
-            >
+          <tr>
+            <th scope="row" data-col="0" data-row="0">
               <input
-                class="stats-table__tbody__input"
                 type="tel"
                 inputmode="decimal"
                 v-model="seasons.yr5.year"
@@ -419,9 +365,8 @@
                 data-row="0"
               />
             </th>
-            <td class="stats-table__tbody__td" data-col="1" data-row="0">
+            <td data-col="1" data-row="0">
               <input
-                class="stats-table__tbody__input"
                 type="tel"
                 inputmode="decimal"
                 v-model="seasons.yr5.homeCity"
@@ -431,9 +376,8 @@
                 data-row="0"
               />
             </td>
-            <td class="stats-table__tbody__td">
+            <td>
               <input
-                class="stats-table__tbody__input"
                 type="tel"
                 inputmode="decimal"
                 v-model="seasons.yr5.numericStats.racesCycled"
@@ -443,9 +387,8 @@
               />
             </td>
 
-            <td class="stats-table__tbody__td">
+            <td>
               <input
-                class="stats-table__tbody__input"
                 type="tel"
                 inputmode="decimal"
                 v-model="seasons.yr5.numericStats.milesCycled"
@@ -454,9 +397,8 @@
                 placeholder="0"
               />
             </td>
-            <td class="stats-table__tbody__td">
+            <td>
               <input
-                class="stats-table__tbody__input"
                 type="tel"
                 inputmode="decimal"
                 v-model="seasons.yr5.numericStats.avgSpeed"
@@ -465,9 +407,8 @@
                 placeholder="0"
               />
             </td>
-            <td class="stats-table__tbody__td">
+            <td>
               <input
-                class="stats-table__tbody__input"
                 type="tel"
                 inputmode="decimal"
                 v-model="seasons.yr5.numericStats.falls"
@@ -476,9 +417,8 @@
                 placeholder="0"
               />
             </td>
-            <td class="stats-table__tbody__td">
+            <td>
               <input
-                class="stats-table__tbody__input"
                 type="tel"
                 inputmode="decimal"
                 v-model="seasons.yr5.numericStats.beersTasted"
