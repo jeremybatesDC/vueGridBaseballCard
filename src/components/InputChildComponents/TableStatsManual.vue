@@ -623,7 +623,6 @@ export default {
       return colNumsArray.reduce(rdcrSum);
     },
   },
-  computed: {},
 };
 </script>
 

@@ -64,7 +64,7 @@ import defaultFacts from "/json/default-facts.json";
 import defaultSettingsBack from "/json/default-settings-back.json";
 
 export default {
-  data: function () {
+  data() {
     return {
       defaultFacts,
       textLineC: {

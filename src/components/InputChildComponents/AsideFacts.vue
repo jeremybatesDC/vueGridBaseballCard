@@ -187,9 +187,6 @@ blockquote {
   background-color: rgba(0, 0, 0, 0.05);
 }
 
-span {
-}
-
 h3 {
   //position: absolute;
   top: 0;

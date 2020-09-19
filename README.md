@@ -8,7 +8,7 @@ might get too slow with huge photos
 
 after editing career highlights, sometimes hard ot click table stats without triggering career highlights again
 
-logo image could match upload logo icon for more of a visual hint!
+logo image could match upload logo icon for more of a visual hint! plus it's super digitized8
 
 ASIDE & FOOTER!
 textareas content strategy/testing:
@@ -55,6 +55,10 @@ and, after considering it, i donT think i need a table plugin. If I can properly
 so really it's just an upload button... I want it to match the logo image icon. And since image player icon can't be a mountain, and logo image prob shouldn't be a person, then need to generalize morereplace filepicker player image upload button with an icon of a picture that feautures a person not a mountian: something like: https://iconmonstr.com/picture-4-svg/
 
 ### 2nd release
+
+shorten class names
+
+if in installed full screen mode can take advantage of more space or at least have a gradient or something
 
 retry gum mix blend mode -- there was problem on ios when background color dark
 

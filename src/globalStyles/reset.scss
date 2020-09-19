@@ -22,18 +22,6 @@ th {
   font-weight: normal;
 }
 
-.hidden--visually {
-  position: absolute;
-  top: -9999px;
-  left: -9999px;
-  width: 1px !important;
-  height: 1px !important;
-  clip: rect(0 0 0 0);
-  overflow: hidden;
-  border: 0;
-  white-space: nowrap;
-}
-
 //root and body styles canT go in scoped
 //so either put those in sep style tag above, and leave below scoped
 //or just be clear donT use it

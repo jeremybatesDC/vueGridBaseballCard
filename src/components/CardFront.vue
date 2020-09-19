@@ -1036,20 +1036,6 @@ export default {
 
 .playerImage__controls {
   height: 100%;
-  .radioUI__fieldset {
-    background-color: var(--background-for-overlay-controls);
-  }
-  .radioUI__label {
-    display: flex;
-    flex-direction: column;
-    flex-grow: 0;
-    flex-wrap: nowrap;
-    padding: 0;
-    color: #000;
-    span {
-      columns: inherit;
-    }
-  }
 }
 
 .one-one {

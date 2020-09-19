@@ -52,7 +52,6 @@
 
 <script>
 import CardFront from "./components/CardFront.vue";
-
 import CardBack from "./components/CardBack.vue";
 import { onMounted } from "vue";
 
@@ -61,16 +60,17 @@ async function registerServiceWorker() {
 }
 
 export default {
+  components: {
+    CardFront,
+    CardBack,
+  },
   setup() {
     onMounted(() => {
       registerServiceWorker();
     });
     return { registerServiceWorker };
   },
-  components: {
-    CardFront,
-    CardBack,
-  },
+
   data() {
     return {
       frontshowing: true,
