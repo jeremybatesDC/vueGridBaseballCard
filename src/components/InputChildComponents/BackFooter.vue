@@ -8,7 +8,7 @@
         v-model="defaultFacts.info.facts[1].text"
       ></textarea>
     </fieldset>
-    <div data-show-only-on-interaction hidden>
+    <div data-soi hidden>
       <div class="row row--grow space-between row--textControls">
         <label class="rangeUI__label">
           <span>Weight: <output :value="textLineC.fontWeight"></output></span>
@@ -108,7 +108,7 @@ footer {
     padding-top: 0.4rem;
   }
   &:focus-within {
-    [data-show-only-on-interaction] {
+    [data-soi] {
       visibility: visible;
       top: auto;
       bottom: var(--min-touch-target);

@@ -616,6 +616,7 @@ export default {
         return parseFloat(acum) + parseFloat(curVal);
       };
       let colNumsArray = [];
+      //hardcoded at present so must refactor
       for (let i = 0; i < 5; i++) {
         let yrString = `yr${i + 1}`;
         colNumsArray.push(+this.seasons[yrString].numericStats[statCol]);

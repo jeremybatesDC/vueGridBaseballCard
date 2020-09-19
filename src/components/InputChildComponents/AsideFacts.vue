@@ -11,7 +11,7 @@
             v-model="defaultFacts.info.facts[0].text"
             spellcheck="false"
           ></textarea>
-          <div data-show-only-on-interaction hidden>
+          <div data-soi hidden>
             <div class="row row--grow space-between row--textControls">
               <label class="rangeUI__label">
                 <span
@@ -148,7 +148,7 @@ aside {
   position: relative;
 
   height: calc(100% - var(--headlineheight));
-  [data-show-only-on-interaction] {
+  [data-soi] {
     position: absolute;
     width: var(--widthforasidetextcontrols);
     min-width: var(--minwidthforasidetextcontrols);
@@ -171,7 +171,7 @@ aside {
     }
   }
   &:focus-within {
-    [data-show-only-on-interaction] {
+    [data-soi] {
       visibility: visible;
     }
   }

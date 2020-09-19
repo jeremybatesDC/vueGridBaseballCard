@@ -425,7 +425,7 @@ textarea {
   }
 }
 
-[data-show-only-on-interaction] {
+[data-soi] {
   position: absolute;
   display: flex;
   flex-wrap: wrap;
@@ -531,7 +531,7 @@ textarea {
 
 .checkbox--forReveal {
   &:checked {
-    + [data-show-only-on-interaction] {
+    + [data-soi] {
       visibility: visible;
     }
     ~ .omniClose {
@@ -582,7 +582,7 @@ textarea {
 //        background-color: var(--cardbackgroundcolor);
 //      }
 //    }
-//    [data-show-only-on-interaction] {
+//    [data-soi] {
 //      visibility: visible;
 //    }
 //

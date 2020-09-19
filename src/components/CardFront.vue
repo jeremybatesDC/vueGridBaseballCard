@@ -155,7 +155,7 @@
             spellcheck="false"
           />
 
-          <div data-show-only-on-interaction hidden>
+          <div data-soi hidden>
             <div class="row row--grow space-between row--textControls">
               <label class="rangeUI__label">
                 <span
@@ -253,7 +253,7 @@
             maxlength="48"
             spellcheck="false"
           />
-          <div data-show-only-on-interaction hidden>
+          <div data-soi hidden>
             <div class="row row--grow space-between row--textControls">
               <label class="rangeUI__label">
                 <span
@@ -319,7 +319,7 @@
             maxlength="48"
             spellcheck="false"
           />
-          <div data-show-only-on-interaction hidden>
+          <div data-soi hidden>
             <div class="row row--grow space-between row--textControls">
               <label class="rangeUI__label">
                 <span
@@ -385,7 +385,7 @@
       />
 
       <!-- QuasiModal (heh)-->
-      <div class="playerImage__controls" data-show-only-on-interaction>
+      <div class="playerImage__controls" data-soi>
         <div class="col flex-start">
           <div class="row row--full-width">
             <form class="filePicker__form">
@@ -1171,7 +1171,7 @@ h1,
 h2,
 h3 {
   &:focus-within {
-    [data-show-only-on-interaction] {
+    [data-soi] {
       visibility: visible;
     }
   }
@@ -1179,14 +1179,14 @@ h3 {
 
 .one-one {
   .text__line--first {
-    [data-show-only-on-interaction] {
+    [data-soi] {
       top: var(--min-touch-target);
       bottom: auto;
     }
   }
 
   .text__line--second {
-    [data-show-only-on-interaction] {
+    [data-soi] {
       top: auto;
       bottom: var(--min-touch-target);
     }
@@ -1195,13 +1195,13 @@ h3 {
 
 .zero-two {
   .text__line--first {
-    [data-show-only-on-interaction] {
+    [data-soi] {
       top: auto;
       bottom: 6.4rem;
     }
   }
   .text__line--second {
-    [data-show-only-on-interaction] {
+    [data-soi] {
       top: auto;
       bottom: 6.4rem;
     }
@@ -1210,13 +1210,13 @@ h3 {
 
 .two-zero {
   .text__line--first {
-    [data-show-only-on-interaction] {
+    [data-soi] {
       top: 6.4rem;
       bottom: auto;
     }
   }
   .text__line--second {
-    [data-show-only-on-interaction] {
+    [data-soi] {
       top: 6.4rem;
       bottom: auto;
     }
@@ -1281,50 +1281,5 @@ h3 {
 
 .image--logo {
   border-radius: var(--logoborderradius);
-}
-
-.control {
-  &--fourSquare {
-    // width should be touch targets with adequate space
-    width: fit-content;
-    border: 1px solid blue;
-    .row {
-      justify-content: space-between;
-      padding: var(--touch-target-spacing);
-      &:first-child {
-        padding-bottom: var(--unit);
-      }
-      &:last-child {
-        padding-top: var(--unit);
-      }
-    }
-    .col {
-      width: min-content;
-      &:not(:first-child) {
-        margin-left: var(--touch-target-spacing);
-      }
-      // in case i ever add more
-      &:last-child {
-        align-items: flex-end;
-      }
-    }
-
-    input {
-      &[type="radio"],
-      &[type="checkmark"] {
-        width: var(--min-touch-target-width);
-        height: var(--min-touch-target-height);
-
-        display: flex;
-        align-self: center;
-        justify-self: center;
-        &:checked {
-          + label {
-            background-color: pink;
-          }
-        }
-      }
-    }
-  }
 }
 </style>

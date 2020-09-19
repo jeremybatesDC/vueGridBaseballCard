@@ -244,15 +244,8 @@ article {
       pointer-events: none;
     }
   }
-  &.has-crease {
-  }
-}
-
-h2 {
-  font-size: 1.6rem;
-  line-height: var(--min-touch-target-height);
-  padding-bottom: 0;
-  font-variation-settings: "slnt" -10;
+  //&.has-crease {
+  //}
 }
 
 // set EXPLICIT font variation settings for the table

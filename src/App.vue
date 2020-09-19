@@ -144,47 +144,12 @@ h3 {
   height: 7.2rem;
 }
 
-.fileInput--fullContainerSize {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-  opacity: 0;
-}
-
-// there are some hard to iron out differences between filters when they are overtop of images
-//.svg--textureOverlay {
-//z-index: -1;
+//details {
+//  padding: 1rem;
 //}
-
-.masthead--center {
-  font-size: 1.2rem;
-  align-self: center;
-}
-
-.footer--playerName {
-  font-size: 1.6rem;
-  align-self: center;
-}
-.footer--playerPosition {
-  align-self: center;
-
-  h3,
-  input {
-    text-align: right;
-  }
-  input {
-    font-size: 1.6rem;
-  }
-}
-
-details {
-  padding: 1rem;
-}
-summary {
-  display: flex;
-}
+//summary {
+//  display: flex;
+//}
 
 legend {
   font-family: inherit;

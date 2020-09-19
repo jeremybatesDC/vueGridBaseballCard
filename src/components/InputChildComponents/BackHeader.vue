@@ -11,7 +11,7 @@
             placeholder="Firstname Lastname"
             spellcheck="false"
           />
-          <div data-show-only-on-interaction hidden>
+          <div data-soi hidden>
             <div class="row row--grow space-between row--textControls">
               <label class="rangeUI__label">
                 <span
@@ -142,7 +142,7 @@ export default {
   &:first-of-type {
     width: 66.6666%;
     &:focus-within {
-      [data-show-only-on-interaction] {
+      [data-soi] {
         visibility: visible;
       }
     }
