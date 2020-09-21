@@ -817,9 +817,12 @@ var webWorkerEncode = new Worker("./workers/web-worker-encode.js", {
 
 // need this to encode whatever image is passed to it right?
 async function encodeImage(event) {
-  let evntTrgtID = event.target.id;
-  let filesProp = this.$refs[evntTrgtID].files;
+  console.log(event);
+  //let evntTrgtID = event.target.id;
+  let filesProp = event.target.files;
   let usrfile = filesProp[0];
+
+  console.log(usrfile);
 
   //validateImage();
 

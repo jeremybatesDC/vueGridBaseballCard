@@ -2,6 +2,10 @@
 
 ## To Do
 
+there seems to be a breaking change in the encode script: let filesProp = this.\$refs[evntTrgtID].files;
+
+PUT SERVICE WORKER BACK AFTER DEV -- really want env var here
+
 touch indicator at least on initial load for logo image
 emphasize those image upload buttons more. Thumbprint icon? in v2 i could try to graduate them.
 

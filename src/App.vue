@@ -56,7 +56,8 @@ import CardBack from "./components/CardBack.vue";
 import { onMounted } from "vue";
 
 async function registerServiceWorker() {
-  navigator.serviceWorker.register("/sw.js");
+  console.log("put service worker back");
+  //navigator.serviceWorker.register("/sw.js");
 }
 
 export default {
