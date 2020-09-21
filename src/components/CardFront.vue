@@ -782,75 +782,47 @@
 
 <script>
 import defaultSettings from "/json/default-settings.json";
-//import TextSlider from "./TextSlider.vue";
-
-var webWorkerEncode = new Worker("./workers/web-worker-encode.js", {
-  type: "module",
-});
-//var webWorkerFetch = new Worker("./workers/web-worker-fetch.js", {
-//  type: "module",
-//});
-
-// any reason not to fire up web worker at the beginning?
-
-// async function submitHandler() {
-//   console.log(event);
-//   webWorkerFetch.postMessage(defaultSettings, this.data);
-//   webWorkerFetch.onmessage = function(event) {
-//     console.log(
-//       event.data,
-//       "card front here thanking web worker fetch for its help"
-//     );
-//   };
-// }
-
-// can constrain the ACCEPT attribute  https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file
-
-// async function validateImage(imageFileToValidate) {
-//   const maxFileSize = 1;
-//   if (imageFileToValidate.size < maxFileSize) {
-//     console.log("okay go ahead");
-//   } else {
-//     console.log("too heavy");
-//   }
-// }
-
-// need this to encode whatever image is passed to it right?
-async function encodeImage(event) {
-  console.log(event);
-  //let evntTrgtID = event.target.id;
-  let filesProp = event.target.files;
-  let usrfile = filesProp[0];
-
-  console.log(usrfile);
-
-  //validateImage();
-
-  if (filesProp && usrfile) {
-    //console.log(this);
-    webWorkerEncode.postMessage(usrfile);
-    this.$emit("input", usrfile);
-    // hard to pass through the refernce
-    // REFACTOR
-    let testFunction = null;
-    if (evntTrgtID === "playerImageFileInput") {
-      testFunction = (strng) => {
-        this.playerImageURLorDataString = strng;
-      };
-    } else {
-      testFunction = (strng) => {
-        this.teamLogoURL = strng;
-      };
-    }
-    webWorkerEncode.onmessage = function (event) {
-      testFunction(event.data);
-    };
-    // END REFACTOR
-  }
-}
 
 export default {
-  setup() {
+  // writing sytax of 'setup()' was giving me a prob with 'this'
+  setup: function () {
+    var webWorkerEncode = new Worker("./workers/web-worker-encode.js", {
+      type: "module",
+    });
+
+    // need this to encode whatever image is passed to it right?
+    async function encodeImage(event) {
+      console.log(event);
+      let evntTrgtID = event.target.id;
+      let filesProp = event.target.files;
+      let usrfile = filesProp[0];
+
+      console.log(usrfile);
+
+      //validateImage();
+
+      if (filesProp && usrfile) {
+        webWorkerEncode.postMessage(usrfile);
+
+        this.$emit("input", usrfile);
+        // hard to pass through the refernce
+        // REFACTOR
+        let testFunction = null;
+        if (evntTrgtID === "playerImageFileInput") {
+          testFunction = (strng) => {
+            this.playerImageURLorDataString = strng;
+          };
+        } else {
+          testFunction = (strng) => {
+            this.teamLogoURL = strng;
+          };
+        }
+        webWorkerEncode.onmessage = function (event) {
+          testFunction(event.data);
+        };
+        // END REFACTOR
+      }
+    }
     return {
       encodeImage,
       webWorkerEncode,
