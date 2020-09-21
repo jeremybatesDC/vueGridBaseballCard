@@ -1,52 +1,55 @@
 .row {
   display: flex;
+  flex-direction: row;
   //justify-content: space-evenly;
+  &--wrap {
+    flex-wrap: wrap;
+  }
+  &--grow {
+    flex-grow: 1;
+    width: 100%;
+  }
+  &--full-width {
+    width: 100%;
+  }
 }
 
-.gridParent {
-  display: grid;
-  grid-template-columns: 2.4rem 1fr 1fr 1fr 1fr 2.4rem;
-  grid-template-rows: 4.8rem 1fr 7.2rem;
-  grid-column-gap: 0px;
-  grid-row-gap: 0px;
-  height: 100%;
+.col {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  align-items: center;
+  justify-content: center;
 }
-.corner--top--left {
-  grid-area: 1 / 1 / 2 / 2;
+
+.space-between {
+  justify-content: space-between;
 }
-.masthead--center {
-  grid-area: 1 / 2 / 2 / 6;
+
+.space-around {
+  justify-content: space-around;
 }
-.corner--top--right {
-  grid-area: 1 / 6 / 2 / 7;
+
+.align-center {
+  align-items: center;
 }
-.sidebar--left {
-  grid-area: 2 / 1 / 3 / 2;
+
+.align-self-center {
+  align-self: center;
 }
-.image__container {
-  grid-area: 2 / 2 / 3 / 6;
+
+.flex-end {
+  justify-content: flex-end;
 }
-.sidebar--right {
-  grid-area: 2 / 6 / 3 / 7;
+
+.flex-start {
+  justify-content: flex-start;
 }
-.corner--bottom--left {
-  grid-area: 3 / 1 / 4 / 2;
+
+.width--100 {
+  width: 100% !important;
 }
-.footer--playerName {
-  grid-area: 3 / 2 / 4 / 5;
-}
-.footer--playerPosition {
-  grid-area: 3 / 5 / 4 / 6;
-}
-.footer--teamLogo {
-  /*overlap*/
-  grid-area: 2 / 5 / 3 / 6;
-  text-align: right;
-  position: relative;
-}
-.corner--bottom--right {
-  grid-area: 3 / 6 / 4 / 7;
-}
-.svg--textureOverlay {
-  grid-area: 1 / 1 / 4 / 7;
+
+.height--100 {
+  height: 100% !important;
 }

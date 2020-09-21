@@ -1,7 +1,7 @@
 const endpointURL = "https://reqres.in/api/users";
 
 onmessage = function (event) {
-  console.log(event.data);
+  //console.log(event.data);
   var dataReceived = event.data;
   postData(endpointURL, dataReceived)
     .then((data) => {

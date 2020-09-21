@@ -1,36 +1,128 @@
 <template>
   <main>
-    <CardBack />
-    <CardFront />
+    <div class="tabs">
+      <div role="tablist">
+        <fieldset class="radioBtns__fieldset width--100">
+          <div class="radioBtns__wrapper--inner row">
+            <label
+              class="radioBtns__label align-items-stretch"
+              role="tab"
+              aria-selected
+              aria-controls
+              id
+            >
+              <input
+                type="radio"
+                class="radioBtns__input hidden--visually"
+                v-model="frontshowing"
+                :value="true"
+              />
+              <span>Front</span>
+            </label>
+
+            <label
+              class="radioBtns__label align-items-stretch"
+              role="tab"
+              aria-selected
+              aria-controls
+              id
+            >
+              <input
+                type="radio"
+                class="radioBtns__input hidden--visually"
+                v-model="frontshowing"
+                :value="false"
+              />
+              <span>Back</span>
+            </label>
+          </div>
+        </fieldset>
+      </div>
+      <div>
+        <div role="tabpanel" id aria-labelledby v-show="frontshowing">
+          <CardFront />
+        </div>
+        <div role="tabpanel" id aria-labelledby v-show="!frontshowing">
+          <CardBack />
+        </div>
+      </div>
+    </div>
   </main>
 </template>
 
 <script>
 import CardFront from "./components/CardFront.vue";
 import CardBack from "./components/CardBack.vue";
+import { onMounted } from "vue";
+
+async function registerServiceWorker() {
+  navigator.serviceWorker.register("/sw.js");
+}
 
 export default {
-  setup: () => {
-    //return { registerServiceWorker };
-  },
   components: {
     CardFront,
     CardBack,
   },
-  mounted: () => {
-    //registerServiceWorker();
+  setup() {
+    onMounted(() => {
+      registerServiceWorker();
+    });
+    return { registerServiceWorker };
   },
-  //data
-  //should i move data into parent component? Yes, I think so.
+
+  data() {
+    return {
+      frontshowing: true,
+    };
+  },
 };
 </script>
 
 <style lang="scss">
-//root and body styles canT go in scoped
-//so either put those in sep style tag above, and leave below scoped
-//or just be clear donT use it
+:root {
+  --unit: 1.6rem;
+  --min-touch-target: 4.4rem;
+  --min-touch-target-half: 2.2rem;
+  --min-touch-target-height: 4.4rem;
+  --min-touch-target-width: var(--min-touch-target-height);
+  --min-touch-target-height-half: 2.2rem;
+  --min-touch-target-height-double: 8.8rem;
+  --touch-target-48: 4.8rem;
+  --touch-target-large: 6rem;
+  --touch-target-spacing: 3.2rem;
+  --touch-target-spacing-small: 2.4rem;
+  --text-short-wide: "wght" 400, "wdth" 25, "opsz" 25, "GRAD" 1, "slnt" 0,
+    "YTLC" 400, "YTUC" 400, "YTFI" 400;
+  --text-shortest-wide: "wght" 400, "wdth" 30, "opsz" 30, "GRAD" 1, "slnt" 0,
+    "YTLC" 100, "YTUC" 100, "YTFI" 100;
+  --text-squeeze: "wght" 175, "wdth" 1, "opsz" 27, "GRAD" 1, "slnt" 0,
+    "YTLC" 600, "YTUC" 600, "YTFI" 600;
+  --text-tall-narrow: "wght" 200, "wdth" 1, "opsz" 25, "GRAD" 0, "slnt" 0,
+    "YTLC" 400, "YTUC" 400, "YTFI" 400;
+  --text-tall-narrow-active: "wght" 200, "wdth" 1, "opsz" 25, "GRAD" 1, "slnt" 0,
+    "YTLC" 400, "YTUC" 400, "YTFI" 400;
+  --text-big-bold: "wght" 400, "wdth" 75, "opsz" 1, "GRAD" 1, "slnt" 0;
 
-// also look at dunbar and decorvar
+  --logoborderradius: "50%";
+  //--cmyk-misalign: 1px 0 0 cyan, -1px 0 0 magenta, 0 1px 0 yellow;
+  --contrast-threshold-for-card: 0.4;
+  --contrast-threshold-for-controls: 0.9;
+  --border-threshold: 0.8;
+  --grey-for-controls: #c7c7c7;
+  --background-for-overlay: rgba(0, 0, 0, 0.75);
+  --background-for-overlay-controls: rgba(175, 175, 175, 0.9);
+  --color-for-svgs: #000;
+  --active-color-for-svgs: #fff;
+  --transparent-for-svgs: none;
+}
+/* theme color variables to use in RGB declarations */
+
+//
+
+body {
+  background-color: #eee;
+}
 
 h1,
 h2,
@@ -39,7 +131,6 @@ h3 {
     font-family: inherit;
     font-size: inherit;
     line-height: inherit;
-
     color: inherit;
     display: inherit;
     width: 100%;
@@ -49,135 +140,56 @@ h3 {
   }
 }
 
-.baseballCard__wrapper {
-  //padding: 3.2rem;
-}
-
-.fileInput--fullContainerSize {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-  opacity: 0;
-}
-
-.baseballCard__wrapper--inner {
-  display: inline-block;
-  width: 36rem;
-  //yes, hard height here because
-  height: 50.4rem;
-  background-color: var(--cardbackgroundcolor, #eee);
-  color: var(--cardtextcolor, #000);
-  // i really don't understand at all why wdth is not working
-  margin-bottom: 7.2rem;
-  font-variation-settings: "wght" var(--cardtextfontweight),
-    "wdth" var(--cardtextfontwidth), "opsz" var(--cardtextfontoptsize),
-    "GRAD" var(--cardtextfontgrade), "slnt" var(--cardtextfontslant);
-
-  // slnt
-  // some x / y height stuff
-  // consider PRESETS
-
-  //https://typetools.typenetwork.com/
-
-  //  "slnt" 0,"XTRA" 468, "XOPQ" 151, "YOPQ" 47, "YTLC" 514, "YTUC" 712, "YTAS" 750, "YTDE" -203, "YTFI" 738;
-}
-
-// there are some hard to iron out differences between filters when they are overtop of images
-.svg--textureOverlay {
-  z-index: -1;
-}
-
-.masthead--center {
-  font-size: 1.2rem;
-  align-self: center;
-}
-.image__container {
-  display: flex;
-  position: relative;
-}
-.footer--playerName {
-  font-size: 1.6rem;
-  align-self: center;
-}
-.footer--playerPosition {
-  align-self: center;
-
-  h3,
-  input {
-    text-align: right;
-  }
-}
-.footer--teamLogo {
-  display: flex;
-  justify-content: flex-end;
-}
-.image--teamLogo {
-  object-fit: cover;
-  width: 7.2rem;
+.controls--l2 {
   height: 7.2rem;
-  border-radius: 50%;
-  align-self: var(--logoPosition);
-  //justify-self: flex-end;
-  z-index: 1;
 }
 
-.image--player {
-  object-fit: cover;
-  object-position: 0 50%;
-  //width: 100%;
-  //height: auto;
-  //max-height: 38.4rem;
-  border: 3px solid var(--cardbordercolor, #000);
-  border-radius: var(--cardbordercurve, 0);
-  filter: #{"grayscale(var(--cardgrayscale, 0))"} brightness(
-      var(--cardbrightness, 1)
-    ) sepia(var(--cardsepia, 0));
-}
+//details {
+//  padding: 1rem;
+//}
+//summary {
+//  display: flex;
+//}
 
-.form--cardDesign {
-  display: inline-block;
-  vertical-align: top;
-  width: 32rem;
-  padding-left: 3.2rem;
-}
-details {
-  padding: 1rem;
-}
-summary {
-  display: flex;
-}
-fieldset {
-  padding: 0;
-  margin-bottom: 1.6rem;
-}
 legend {
   font-family: inherit;
-  //font-weight: bold;
   text-align: center;
-  padding: 0 0.4rem;
   font-size: 1.6rem;
 }
 label {
-  //display: block;
   font-family: inherit;
 
   input {
-    //display: block;
     font-family: inherit;
     font-size: inherit;
-    // &:not([type="color"]) {
-    //   width: 100%;
-    // }
   }
   select {
     display: block;
     font-family: inherit;
     font-size: 1.6rem;
   }
-  .baseballCard__wrapper & {
-    margin-bottom: 1.6rem;
+}
+
+[role="tablist"] {
+  display: flex;
+  //margin-bottom: 1.6rem;
+  background-color: var(--grey-for-controls);
+}
+
+[role="tab"] {
+  font-size: 1.6rem;
+  display: flex;
+  flex-grow: 1;
+  align-items: stretch;
+  justify-content: center;
+  height: var(--min-touch-target);
+  padding: 0;
+  // in case ever have more than just 2 tabs
+  &:not(:first-child) {
+    box-shadow: -1px 0 #000;
+  }
+  [type="radio"] {
+    margin-right: 1rem;
   }
 }
 </style>

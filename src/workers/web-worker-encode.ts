@@ -5,7 +5,6 @@ onmessage = function (event) {
 
   reader.onload = (e) => {
     let stringToReturn = e.target.result;
-    console.log(stringToReturn);
     postMessage(stringToReturn);
   };
 };

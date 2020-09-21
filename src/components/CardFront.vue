@@ -1,433 +1,1285 @@
 <template>
-  <div id="vueCardApp" class="baseballCard__wrapper" :style="cssProps">
-    <!-- would like to use async and suspense if beneficial -->
-    <div class="baseballCard__wrapper--inner">
-      <article class="gridParent">
-        <aside class="corner--top--left"></aside>
-        <header class="masthead--center">
-          <h2>
-            <input v-model="teamName" type="text" placeholder maxlength="42" />
-            <!-- {{ teamName }} -->
-          </h2>
-        </header>
-        <aside class="corner--top--right"></aside>
-
-        <aside class="sidebar--left"></aside>
-        <section class="image__container">
-          <!-- Edit this and the preview will update automatically. -->
-
-          <img
-            width="312"
-            height="384"
-            loading="lazy"
-            class="image--player"
-            :src="playerImageURLorDataString"
-            :alt="playerName + ' being awesome'"
+  <div
+    class="cardFront__wrapper--outermost"
+    :style="[
+      cssColorContrastProps,
+      cssCardDesignProps,
+      cssLogoProps,
+      cssBorderInnerProps,
+    ]"
+  >
+    <div class="cardFront__controls controls--l2">
+      <div class="row space-around height--100">
+        <label
+          v-show="playerImageBleedOrBoxed !== 'static'"
+          class="colorPicker__label colorPicker__label--textOverlap align-self-center"
+        >
+          <span>Color</span>
+          <input
+            class="colorPicker__input"
+            type="color"
+            v-model="cardBackgroundColor"
           />
-        </section>
-        <aside class="sidebar--right"></aside>
+        </label>
 
-        <aside class="corner--bottom--left"></aside>
-        <section class="footer--playerName">
-          <h1>
-            <input v-model="playerName" type="text" placeholder maxlength="48" />
-          </h1>
-        </section>
-        <section class="footer--playerPosition">
-          <h3>
-            <input v-model="playerPosition" type="text" placeholder maxlength="48" />
-          </h3>
-        </section>
-        <section class="footer--teamLogo">
-          <img
-            width="72"
-            height="72"
-            loading="lazy"
-            class="image--teamLogo {{logoPosition}}"
-            :src="teamLogoURL"
-            :alt="teamLogoAltText"
-          />
-
-          <!-- <input
-            class="fileInput--fullContainerSize"
-            type="file"
-            id="logoFileInput"
-            name="logoFileInput"
-            accept="image/*"
-          />-->
-        </section>
-        <aside class="corner--bottom--right"></aside>
-
-        <svg class="svg--textureOverlay" width="320" height="448">
-          <g>
-            <rect
-              width="320"
-              height="448"
-              :filter="`url(#${cardBackgroundTexture})`"
-              :fill="`url(#${cardBackgroundTexture})`"
-              opacity="1"
-            />
-          </g>
-        </svg>
-      </article>
-    </div>
-    <form class="form--cardDesign">
-      <fieldset>
-        <details open>
-          <summary>
-            <legend>Layout</legend>
-          </summary>
-          <div>2up 0 bottom, 1-and-1, 0up 2button</div>
-        </details>
-      </fieldset>
-      <fieldset>
-        <details open>
-          <summary>
-            <legend>Card Images</legend>
-          </summary>
-          <div>
-            <label>
-              Player Image (URL or upload):
+        <fieldset class="radioBtns__fieldset">
+          <legend class="radioBtns__legend text-left">Layout</legend>
+          <div class="radioBtns__wrapper--inner">
+            <label class="radioBtns__label">
               <input
-                v-model="playerImageURLorDataString"
-                type="text"
-                placeholder
+                type="radio"
+                class="radioBtns__input hidden--visually"
+                v-model="cardLayout"
+                value="one-one"
               />
-              <br />
-              <input
-                class
-                type="file"
-                id="playerImageFileInput"
-                ref="playerImageFileInput"
-                name="playerImageFileInput"
-                accept="image/*"
-                @input="encodeImage"
-              />
+              <span
+                ><svg width="32" height="32" viewBox="0 0 32 32">
+                  <g>
+                    <rect
+                      x="6.4855"
+                      y="2"
+                      width="19"
+                      height="28"
+                      fill="none"
+                      stroke="#000"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                    />
+                    <path
+                      d="M6.4855,26h19"
+                      fill="none"
+                      stroke="#000"
+                      stroke-width="2"
+                    />
+                    <path
+                      d="M6.6217,6h19"
+                      fill="none"
+                      stroke="#000"
+                      stroke-width="2"
+                    />
+                  </g></svg
+              ></span>
             </label>
 
-            <div class="row">
-              <label>
-                Brightness
+            <label class="radioBtns__label">
+              <input
+                type="radio"
+                class="radioBtns__input hidden--visually"
+                v-model="cardLayout"
+                value="zero-two"
+              />
+              <span
+                ><svg viewBox="0 0 32 32" width="32" height="32">
+                  <g>
+                    <rect
+                      x="6.4855"
+                      y="2"
+                      width="19"
+                      height="28"
+                      fill="none"
+                      stroke="#000"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                    />
+                    <path
+                      d="M6.4855,24.0566h19"
+                      fill="none"
+                      stroke="#000"
+                      stroke-width="2"
+                    />
+                  </g></svg
+              ></span>
+            </label>
+
+            <label class="radioBtns__label">
+              <input
+                type="radio"
+                class="radioBtns__input hidden--visually"
+                v-model="cardLayout"
+                value="two-zero"
+              />
+              <span
+                ><svg viewBox="0 0 32 32" width="32" height="32">
+                  <g>
+                    <rect
+                      x="6.4855"
+                      y="2"
+                      width="19"
+                      height="28"
+                      fill="none"
+                      stroke="#000"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                    />
+                    <path
+                      d="M25.4855,7.9434h-19"
+                      fill="none"
+                      stroke="#000"
+                      stroke-width="2"
+                    />
+                  </g></svg
+              ></span>
+            </label>
+          </div>
+        </fieldset>
+
+        <label class="rangeUI__label">
+          <span
+            >Border Curve
+            <!-- : <output :value="borderInner.curve"></output> -->
+          </span>
+
+          <input
+            class="rangeUI__input"
+            v-model="borderInner.curve"
+            type="range"
+            min="0"
+            max="24"
+          />
+        </label>
+      </div>
+    </div>
+    <!-- end controls-->
+    <div
+      class="card__container--front"
+      :class="[cardLayout, playerImageBleedOrBoxed]"
+    >
+      <div class="text__line--first row">
+        <h2 :style="cssTextLine1Props" class="">
+          <input
+            class=""
+            v-model="teamName"
+            type="text"
+            placeholder
+            maxlength="42"
+            spellcheck="false"
+          />
+
+          <div data-soi hidden>
+            <div class="row row--grow space-between row--textControls">
+              <label class="rangeUI__label">
+                <span
+                  >Weight: <output :value="textLine1.fontWeight"></output
+                ></span>
+
                 <input
-                  v-model="cardBrightness"
+                  class="rangeUI__input"
+                  v-model="textLine1.fontWeight"
                   type="range"
-                  min="1"
-                  max="1.3"
-                  step="0.01"
+                  min="150"
+                  max="800"
                 />
               </label>
-              <label>
-                Sepia
-                <input v-model="cardSepia" type="range" min="0" max="50" />
-              </label>
-              <label>
-                Greyscale
-                <input v-model="cardGrayScale" type="range" min="0" max="100" />
+              <label class="rangeUI__label">
+                <span
+                  >Width: <output :value="textLine1.fontWidth"></output
+                ></span>
+                <input
+                  class="rangeUI__input"
+                  v-model="textLine1.fontWidth"
+                  type="range"
+                  min="35"
+                  max="100"
+                />
               </label>
             </div>
-            <label>
-              Team Logo Image (URL):
-              <input v-model="teamLogoURL" type="url " placeholder />
-              <!-- <input type="file" id="logoFileInput" name="logoFileInput" accept="image/*" /> -->
-            </label>
-            <label>
-              Logo Position
-              <select v-model="logoPosition">
-                <option value="flex-end">Bottom Right</option>
-                <option value="flex-start">Top Right</option>
-              </select>
-            </label>
+            <div class="row row--grow space-between row--textControls">
+              <label class="rangeUI__label">
+                <span
+                  >Slant: <output :value="textLine1.fontSlant"></output
+                ></span>
+                <input
+                  class="rangeUI__input"
+                  v-model="textLine1.fontSlant"
+                  type="range"
+                  min="-10"
+                  max="0"
+                />
+              </label>
+              <label class="rangeUI__label">
+                <span
+                  >Grade: <output :value="textLine1.fontGrade"></output
+                ></span>
+                <input
+                  class="rangeUI__input"
+                  v-model="textLine1.fontGrade"
+                  type="range"
+                  min="0"
+                  max="1"
+                  step=".1"
+                />
+              </label>
+            </div>
           </div>
-        </details>
-      </fieldset>
-      <fieldset>
-        <details open>
-          <summary>
-            <legend>Typography</legend>
-          </summary>
-          <div class="row">
-            <label>
-              Text Color
-              <input v-model="cardTextColor" type="color" />
-            </label>
-            <label>
-              Font Weight
-              <input v-model="cardTextFontWeight" type="range" min="100" max="900" />
-            </label>
-            <label>
-              Font Width
-              <input v-model="cardTextFontWidth" type="range" min="35" max="100" />
-            </label>
-          </div>
-          <div class="row">
-            <label>
-              Font Slant
-              <input v-model="cardTextFontSlant" type="range" min="-10" max="0" />
-            </label>
-            <label>
-              Font Grade
-              <input v-model="cardTextFontGrade" type="range" min="0" max="48" />
-            </label>
-            <!-- <label>
-              Font Optical Size (inverse)
-              <input
-                v-model="cardTextFontOptSize"
-                type="range"
-                min="10"
-                max="72"
-              />
-            </label>-->
-          </div>
-        </details>
-      </fieldset>
-      <fieldset>
-        <details open>
-          <summary>
-            <legend>Design</legend>
-          </summary>
-          <div class="row">
-            <label>
-              Background
-              <input v-model="cardBackgroundColor" type="color" />
-            </label>
-            <label>
-              Texture
-              <select v-model="cardBackgroundTexture">
-                <option>no texture</option>
-                <option value="filterfabric">Fabric</option>
-                <option value="filterpaper">Paper</option>
-                <option value="filternoise">Noise</option>
-              </select>
-            </label>
-          </div>
-        </details>
-      </fieldset>
+        </h2>
+      </div>
+      <div
+        :class="`row--middle--forDesign row ${logo.position} ${borderInner.style} ${playerImageFilterEffect}`"
+      >
+        <figure class="figure--player">
+          <label class="figure--player__label" for="inputTriggerFocusUI_0">
+            <img
+              loading="lazy"
+              class="image--player"
+              :src="playerImageURLorDataString"
+              alt
+            />
+          </label>
+        </figure>
 
-      <fieldset>
-        <details open>
-          <summary>
-            <legend>Border Styles</legend>
-          </summary>
-          <div class="row">
-            <label>
-              Border Color
-              <input v-model="cardBorderColor" type="color" />
-            </label>
-            <label>
-              Border Curve
-              <input v-model="cardBorderCurve" type="range" min="0" max="24" />
-            </label>
-          </div>
-        </details>
-      </fieldset>
-      <fieldset>
-        <details open>
-          <summary>
-            <legend>Imperfections</legend>
-          </summary>
-          <div>Creases</div>
-        </details>
-      </fieldset>
-      <fieldset>
-        <details open>
-          <summary>
-            <legend>Superlatives</legend>
-          </summary>
-          <div>All Star</div>
-        </details>
-      </fieldset>
+        <!-- make rounded corner optional -->
+        <!-- using css filter drop shadow could work -->
+        <figure
+          class="figure--logo"
+          v-show="logo.showing && logo.position !== 'hideLogo'"
+        >
+          <img
+            loading="lazy"
+            class="image--logo"
+            :src="teamLogoURL"
+            alt
+            width="72"
+            height="72"
+          />
+        </figure>
+      </div>
+      <div class="text__line--second row">
+        <h1 :style="cssTextLine2Props" class="">
+          <input
+            class=""
+            v-model="playerName"
+            type="text"
+            placeholder
+            maxlength="48"
+            spellcheck="false"
+          />
+          <div data-soi hidden>
+            <div class="row row--grow space-between row--textControls">
+              <label class="rangeUI__label">
+                <span
+                  >Weight: <output :value="textLine2.fontWeight"></output
+                ></span>
 
-      <!-- mmust be type button so it doesn't fight with submit-->
-      <button type="button" @click="saveHandler">Save</button>
-      <button type="button" @click="submitHandler">Submit</button>
-    </form>
+                <input
+                  class="rangeUI__input"
+                  v-model="textLine2.fontWeight"
+                  type="range"
+                  min="150"
+                  max="800"
+                />
+              </label>
+              <label class="rangeUI__label">
+                <span
+                  >Width: <output :value="textLine2.fontWidth"></output
+                ></span>
+                <input
+                  class="rangeUI__input"
+                  v-model="textLine2.fontWidth"
+                  type="range"
+                  min="35"
+                  max="100"
+                />
+              </label>
+            </div>
+            <div class="row row--grow space-between row--textControls">
+              <label class="rangeUI__label">
+                <span
+                  >Slant: <output :value="textLine2.fontSlant"></output
+                ></span>
+                <input
+                  class="rangeUI__input"
+                  v-model="textLine2.fontSlant"
+                  type="range"
+                  min="-10"
+                  max="0"
+                />
+              </label>
+              <label class="rangeUI__label">
+                <span
+                  >Grade: <output :value="textLine2.fontGrade"></output
+                ></span>
+                <input
+                  class="rangeUI__input"
+                  v-model="textLine2.fontGrade"
+                  type="range"
+                  min="0"
+                  max="1"
+                  step=".1"
+                />
+              </label>
+            </div>
+          </div>
+        </h1>
+        <h3 :style="cssTextPlayerPositionProps" class="">
+          <input
+            class=""
+            v-model="playerPosition"
+            type="text"
+            placeholder
+            maxlength="48"
+            spellcheck="false"
+          />
+          <div data-soi hidden>
+            <div class="row row--grow space-between row--textControls">
+              <label class="rangeUI__label">
+                <span
+                  >Weight:
+                  <output :value="textPlayerPosition.fontWeight"></output
+                ></span>
+
+                <input
+                  class="rangeUI__input"
+                  v-model="textPlayerPosition.fontWeight"
+                  type="range"
+                  min="150"
+                  max="800"
+                />
+              </label>
+              <label class="rangeUI__label">
+                <span
+                  >Width: <output :value="textPlayerPosition.fontWidth"></output
+                ></span>
+                <input
+                  class="rangeUI__input"
+                  v-model="textPlayerPosition.fontWidth"
+                  type="range"
+                  min="35"
+                  max="100"
+                />
+              </label>
+            </div>
+            <div class="row row--grow space-between row--textControls">
+              <label class="rangeUI__label">
+                <span
+                  >Slant: <output :value="textPlayerPosition.fontSlant"></output
+                ></span>
+                <input
+                  class="rangeUI__input"
+                  v-model="textPlayerPosition.fontSlant"
+                  type="range"
+                  min="-10"
+                  max="0"
+                />
+              </label>
+              <label class="rangeUI__label">
+                <span
+                  >Grade: <output :value="textPlayerPosition.fontGrade"></output
+                ></span>
+                <input
+                  class="rangeUI__input"
+                  v-model="textPlayerPosition.fontGrade"
+                  type="range"
+                  min="0"
+                  max="1"
+                  step=".1"
+                />
+              </label>
+            </div>
+          </div>
+        </h3>
+      </div>
+      <input
+        id="inputTriggerFocusUI_0"
+        class="checkbox--forReveal hidden--visually"
+        type="checkbox"
+      />
+
+      <!-- QuasiModal (heh)-->
+      <div class="playerImage__controls" data-soi>
+        <div class="col flex-start">
+          <div class="row row--full-width">
+            <form class="filePicker__form">
+              <fieldset class="filePicker__fieldset">
+                <!--<legend class="filePicker__legend text-left">
+                  Player Image
+                </legend>-->
+                <div class="filePicker__wrapper">
+                  <input
+                    id="playerImageFileInput"
+                    ref="playerImageFileInput"
+                    name="playerImageFileInput"
+                    class="hidden--visually filePicker__input"
+                    type="file"
+                    accept="image/*"
+                    @input="encodeImage"
+                  />
+                  <label
+                    for="playerImageFileInput"
+                    class="filePicker__label"
+                    aria-label="Upload Image"
+                  >
+                    <svg
+                      viewBox="0 0 32 32"
+                      width="32"
+                      height="32"
+                      fill="none"
+                      stroke="currentcolor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                    >
+                      <use xlink:href="#iconportraitadd"></use>
+                    </svg>
+
+                    <span>Upload Pic</span>
+                  </label>
+                </div>
+              </fieldset>
+              <fieldset class="filePicker__fieldset">
+                <!--<legend class="filePicker__legend text-right">Logo</legend>-->
+                <div class="filePicker__wrapper">
+                  <input
+                    id="logoFileInput"
+                    ref="logoFileInput"
+                    name="logoFileInput"
+                    class="hidden--visually filePicker__input"
+                    type="file"
+                    accept="image/*"
+                    @input="encodeImage"
+                  />
+
+                  <label
+                    for="logoFileInput"
+                    class="filePicker__label"
+                    aria-label="Upload Logo Image"
+                  >
+                    <span>Upload Logo</span>
+                    <svg
+                      viewBox="0 0 32 32"
+                      width="32"
+                      height="32"
+                      fill="none"
+                      stroke="currentcolor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                    >
+                      <use xlink:href="#iconphotoadd"></use></svg
+                  ></label>
+                </div>
+              </fieldset>
+            </form>
+          </div>
+          <div class="row space-between row--full-width">
+            <fieldset class="radioBtns__fieldset">
+              <legend class="radioBtns__legend">Filters</legend>
+              <div class="radioBtns__wrapper--inner">
+                <label class="radioBtns__label">
+                  <input
+                    type="radio"
+                    class="radioBtns__input hidden--visually"
+                    v-model="playerImageFilterEffect"
+                    value="noFilterEffect"
+                  />
+                  <span>None</span>
+                </label>
+
+                <label class="radioBtns__label">
+                  <input
+                    type="radio"
+                    class="radioBtns__input hidden--visually"
+                    v-model="playerImageFilterEffect"
+                    value="filterbw"
+                  />
+                  <span>B&amp;W</span>
+                </label>
+
+                <label class="radioBtns__label">
+                  <input
+                    type="radio"
+                    class="radioBtns__input hidden--visually"
+                    v-model="playerImageFilterEffect"
+                    value="filtersepia"
+                  />
+                  <span>Sepia</span>
+                </label>
+
+                <label class="radioBtns__label">
+                  <input
+                    type="radio"
+                    class="radioBtns__input hidden--visually"
+                    v-model="playerImageFilterEffect"
+                    value="filtervintage"
+                  />
+                  <span>1920</span>
+                </label>
+                <label class="radioBtns__label">
+                  <input
+                    type="radio"
+                    class="radioBtns__input hidden--visually"
+                    v-model="playerImageFilterEffect"
+                    value="filterfaded"
+                  />
+                  <span>Faded</span>
+                </label>
+              </div>
+            </fieldset>
+
+            <fieldset class="radioBtns__fieldset">
+              <legend class="radioBtns__legend">Logo</legend>
+              <div class="radioBtns__wrapper--inner">
+                <label class="radioBtns__label">
+                  <input
+                    type="radio"
+                    class="radioBtns__input hidden--visually"
+                    v-model="logo.position"
+                    value="topLeft"
+                    aria-label="Top Left"
+                  />
+                  <span>
+                    <svg
+                      width="32"
+                      height="32"
+                      viewBox="0 0 32 32"
+                      class="icon__foursquare icon__foursquare--topLeft"
+                    >
+                      <rect
+                        x="3.9351"
+                        y="4.0328"
+                        width="12"
+                        height="12"
+                        stroke="#000"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                      />
+                      <rect
+                        x="16.0649"
+                        y="4.0328"
+                        width="12"
+                        height="12"
+                        fill="none"
+                        stroke="#000"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                      />
+                      <rect
+                        x="16.0649"
+                        y="15.9672"
+                        width="12"
+                        height="12"
+                        fill="none"
+                        stroke="#000"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                      />
+                      <rect
+                        x="3.9351"
+                        y="15.9672"
+                        width="12"
+                        height="12"
+                        fill="none"
+                        stroke="#000"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                      />
+                    </svg>
+                  </span>
+                </label>
+
+                <label class="radioBtns__label">
+                  <input
+                    type="radio"
+                    class="radioBtns__input hidden--visually"
+                    v-model="logo.position"
+                    value="topRight"
+                    aria-label="Top Right"
+                  />
+                  <span
+                    ><svg
+                      width="32"
+                      height="32"
+                      viewBox="0 0 32 32"
+                      class="icon__foursquare icon__foursquare--topRight"
+                    >
+                      <rect
+                        x="3.9351"
+                        y="4.0328"
+                        width="12"
+                        height="12"
+                        stroke="#000"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                      />
+                      <rect
+                        x="16.0649"
+                        y="4.0328"
+                        width="12"
+                        height="12"
+                        fill="none"
+                        stroke="#000"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                      />
+                      <rect
+                        x="16.0649"
+                        y="15.9672"
+                        width="12"
+                        height="12"
+                        fill="none"
+                        stroke="#000"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                      />
+                      <rect
+                        x="3.9351"
+                        y="15.9672"
+                        width="12"
+                        height="12"
+                        fill="none"
+                        stroke="#000"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                      />
+                    </svg>
+                  </span>
+                </label>
+
+                <label class="radioBtns__label">
+                  <input
+                    type="radio"
+                    class="radioBtns__input hidden--visually"
+                    v-model="logo.position"
+                    value="bottomLeft"
+                    aria-label="Bottom Left"
+                  />
+                  <span
+                    ><svg
+                      width="32"
+                      height="32"
+                      viewBox="0 0 32 32"
+                      class="icon__foursquare icon__foursquare--bottomLeft"
+                    >
+                      <rect
+                        x="3.9351"
+                        y="4.0328"
+                        width="12"
+                        height="12"
+                        stroke="#000"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                      />
+                      <rect
+                        x="16.0649"
+                        y="4.0328"
+                        width="12"
+                        height="12"
+                        fill="none"
+                        stroke="#000"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                      />
+                      <rect
+                        x="16.0649"
+                        y="15.9672"
+                        width="12"
+                        height="12"
+                        fill="none"
+                        stroke="#000"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                      />
+                      <rect
+                        x="3.9351"
+                        y="15.9672"
+                        width="12"
+                        height="12"
+                        fill="none"
+                        stroke="#000"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                      />
+                    </svg>
+                  </span>
+                </label>
+
+                <label class="radioBtns__label">
+                  <input
+                    type="radio"
+                    class="radioBtns__input hidden--visually"
+                    v-model="logo.position"
+                    value="bottomRight"
+                    aria-label="Bottom Right"
+                  />
+                  <span
+                    ><svg
+                      width="32"
+                      height="32"
+                      viewBox="0 0 32 32"
+                      class="icon__foursquare icon__foursquare--bottomRight"
+                    >
+                      <rect
+                        x="3.9351"
+                        y="4.0328"
+                        width="12"
+                        height="12"
+                        stroke="#000"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                      />
+                      <rect
+                        x="16.0649"
+                        y="4.0328"
+                        width="12"
+                        height="12"
+                        fill="none"
+                        stroke="#000"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                      />
+                      <rect
+                        x="16.0649"
+                        y="15.9672"
+                        width="12"
+                        height="12"
+                        fill="none"
+                        stroke="#000"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                      />
+                      <rect
+                        x="3.9351"
+                        y="15.9672"
+                        width="12"
+                        height="12"
+                        fill="none"
+                        stroke="#000"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                      />
+                    </svg>
+                  </span>
+                </label>
+
+                <label class="radioBtns__label">
+                  <input
+                    type="radio"
+                    class="radioBtns__input hidden--visually"
+                    v-model="logo.position"
+                    value="hideLogo"
+                    aria-label="Bottom Right"
+                  />
+                  <span> None </span>
+                </label>
+              </div>
+            </fieldset>
+          </div>
+          <label
+            for="inputTriggerFocusUI_0"
+            class="omniClose__label omniClose__label--inside"
+          ></label>
+        </div>
+      </div>
+      <!-- end QuasiModal-->
+      <label
+        class="omniClose__label omniClose__label--outside"
+        for="inputTriggerFocusUI_0"
+      ></label>
+    </div>
+
+    <!-- end card -->
   </div>
 </template>
 
-<script lang="ts">
-// typescript working out of box in vite
+<script>
+import defaultSettings from "/json/default-settings.json";
+//import TextSlider from "./TextSlider.vue";
 
-// can we make this import ASYNC?
-//import placeholderEncodedImage from "../json/placeholder-image.json";
-import defaultSettings from "../json/default-settings.json";
+var webWorkerEncode = new Worker("./workers/web-worker-encode.js", {
+  type: "module",
+});
+//var webWorkerFetch = new Worker("./workers/web-worker-fetch.js", {
+//  type: "module",
+//});
+
+// any reason not to fire up web worker at the beginning?
+
+// async function submitHandler() {
+//   console.log(event);
+//   webWorkerFetch.postMessage(defaultSettings, this.data);
+//   webWorkerFetch.onmessage = function(event) {
+//     console.log(
+//       event.data,
+//       "card front here thanking web worker fetch for its help"
+//     );
+//   };
+// }
+
+// can constrain the ACCEPT attribute  https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file
+
+// async function validateImage(imageFileToValidate) {
+//   const maxFileSize = 1;
+//   if (imageFileToValidate.size < maxFileSize) {
+//     console.log("okay go ahead");
+//   } else {
+//     console.log("too heavy");
+//   }
+// }
+
+// need this to encode whatever image is passed to it right?
+async function encodeImage(event) {
+  let evntTrgtID = event.target.id;
+  let filesProp = this.$refs[evntTrgtID].files;
+  let usrfile = filesProp[0];
+
+  //validateImage();
+
+  if (filesProp && usrfile) {
+    //console.log(this);
+    webWorkerEncode.postMessage(usrfile);
+    this.$emit("input", usrfile);
+    // hard to pass through the refernce
+    // REFACTOR
+    let testFunction = null;
+    if (evntTrgtID === "playerImageFileInput") {
+      testFunction = (strng) => {
+        this.playerImageURLorDataString = strng;
+      };
+    } else {
+      testFunction = (strng) => {
+        this.teamLogoURL = strng;
+      };
+    }
+    webWorkerEncode.onmessage = function (event) {
+      testFunction(event.data);
+    };
+    // END REFACTOR
+  }
+}
 
 export default {
-  setup: () => {
-    // any reason not to fire up web worker at the beginning?
-    var webWorkerEncode = new Worker("./workers/web-worker-encode.js", {
-      type: "module"
-    });
-    var webWorkerFetch = new Worker("./workers/web-worker-fetch.js", {
-      type: "module"
-    });
-
-    // async function submitHandler() {
-    //   console.log(event);
-    //   webWorkerFetch.postMessage(defaultSettings, this.data);
-    //   webWorkerFetch.onmessage = function(event) {
-    //     console.log(
-    //       event.data,
-    //       "card front here thanking web worker fetch for its help"
-    //     );
-    //   };
-    // }
-    async function saveHandler() {
-      console.log("this should force a save to localstorage");
-    }
-    function setFromLocalStorage() {
-      for (let key in localStorage) {
-        if (localStorage[key]) {
-          this[key] = localStorage[key];
-        }
-      }
-    }
-
-    // can constrain the ACCEPT attribute  https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file
-
-    // async function validateImage(imageFileToValidate) {
-    //   const maxFileSize = 1;
-    //   if (imageFileToValidate.size < maxFileSize) {
-    //     console.log("okay go ahead");
-    //   } else {
-    //     console.log("too heavy");
-    //   }
-    // }
-
-    async function encodeImage() {
-      let filesProp = this.$refs.playerImageFileInput.files;
-      let usrfile = filesProp[0];
-
-      //async await
-
-      //validateImage();
-
-      if (filesProp && usrfile) {
-        let theThis = this;
-        webWorkerEncode.postMessage(usrfile);
-        theThis.$emit("input", usrfile);
-
-        // 'this' gets changed
-
-        function testFunction(strng) {
-          theThis.playerImageURLorDataString = strng;
-        }
-        webWorkerEncode.onmessage = function(event) {
-          console.log("received message here");
-          //this.playerImageURLorDataString = event.data;
-          //
-          testFunction(event.data);
-        };
-      }
-    }
-
-    function receivedWorkerMessage(event) {}
-    // function updateLocalStorage(fieldname, newPlayerName) {
-    //   localStorage[fieldname] = newPlayerName;
-    // }
-
+  setup() {
     return {
-      //endpointURL,
-      //postData,
-      saveHandler,
-      setFromLocalStorage,
       encodeImage,
       webWorkerEncode,
-      webWorkerFetch
-      //receivedWorkerMessage
-      //validateImage
-      //updateLocalStorage
+      //webWorkerFetch,
     };
   },
-  data: function() {
+  data() {
     return {
-      // playerImageURLorDataString:
-      //   placeholderEncodedImage.endcodedimagedatastring,
-      playerImageURLorDataString: defaultSettings.playerImageURLorDataString,
-      playerName: defaultSettings.playerName,
-      playerPosition: defaultSettings.playerPosition,
-      teamLogoAltText: defaultSettings.teamLogoAltText,
-      teamLogoURL: defaultSettings.teamLogoURL,
-      teamName: defaultSettings.teamName,
       cardBackgroundColor: defaultSettings.cardBackgroundColor,
-      cardBackgroundTexture: defaultSettings.cardBackgroundTexture,
-      cardBorderColor: defaultSettings.cardBorderColor,
-      cardBorderCurve: defaultSettings.cardBorderCurve,
-      cardBrightness: defaultSettings.cardBrightness,
       cardTextColor: defaultSettings.cardTextColor,
-      cardTextFontWeight: defaultSettings.cardTextFontWeight,
-      cardTextFontWidth: defaultSettings.cardTextFontWidth,
-      cardTextFontOptSize: defaultSettings.cardTextFontOptSize,
-      cardTextFontGrade: defaultSettings.cardTextFontGrade,
-      cardTextFontSlant: defaultSettings.cardTextFontSlant,
+      cardBrightness: defaultSettings.cardBrightness,
       cardSepia: defaultSettings.cardSepia,
       cardGrayScale: defaultSettings.cardGrayScale,
-      logoPosition: defaultSettings.logoPosition
+      cardLayout: defaultSettings.cardLayout,
+      teamLogoURL: defaultSettings.teamLogoURL,
+      playerImageURLorDataString: defaultSettings.playerImageURLorDataString,
+      playerImageBleedOrBoxed: defaultSettings.playerImageBleedOrBoxed,
+      playerImageFilterEffect: defaultSettings.playerImageFilterEffect,
+      playerName: defaultSettings.playerName,
+      playerPosition: defaultSettings.playerPosition,
+      teamName: defaultSettings.teamName,
+      borderInner: {
+        color: defaultSettings.borderInner.color,
+        curve: defaultSettings.borderInner.curve,
+        style: defaultSettings.borderInner.style,
+        opacity: defaultSettings.borderInner.opacity,
+        width: defaultSettings.borderInner.width,
+      },
+      logo: {
+        showing: defaultSettings.logo.showing,
+        borderRadius: defaultSettings.logo.borderRadius,
+        position: defaultSettings.logo.position,
+      },
+      textLine1: {
+        fontWeight: defaultSettings.textLine1.fontWeight,
+        fontWidth: defaultSettings.textLine1.fontWidth,
+        fontGrade: defaultSettings.textLine1.fontGrade,
+        fontSlant: defaultSettings.textLine1.fontSlant,
+      },
+      textLine2: {
+        fontWeight: defaultSettings.textLine2.fontWeight,
+        fontWidth: defaultSettings.textLine2.fontWidth,
+        fontGrade: defaultSettings.textLine2.fontGrade,
+        fontSlant: defaultSettings.textLine2.fontSlant,
+      },
+      textPlayerPosition: {
+        fontWeight: defaultSettings.textPlayerPosition.fontWeight,
+        fontWidth: defaultSettings.textPlayerPosition.fontWidth,
+        fontGrade: defaultSettings.textPlayerPosition.fontGrade,
+        fontSlant: defaultSettings.textPlayerPosition.fontSlant,
+      },
     };
   },
-  methods: {
-    submitHandler: async function(event) {
-      console.log(this);
-
-      // note the $
-      this.webWorkerFetch.postMessage(JSON.stringify(this.$data));
-
-      this.webWorkerFetch.onmessage = function(event) {
-        console.log(
-          event.data,
-          "card front here thanking web worker fetch for its help"
-        );
-      };
-      // gives proper access to THIS i believe
-      // persist() {
-      // 	localStorage.playerName = this.playerName;
-      // 	localStorage.teamName = this.teamName;
-    }
-  },
   computed: {
-    cssProps() {
+    cssColorContrastProps() {
+      let redVal = 0;
+      let greenVal = 0;
+      let blueVal = 0;
+      function hexToDesiredColorSpace(hex) {
+        redVal = parseInt("0x" + hex[1] + hex[2]);
+        greenVal = parseInt("0x" + hex[3] + hex[4]);
+        blueVal = parseInt("0x" + hex[5] + hex[6]);
+        return `rgb(${redVal},${greenVal},${blueVal})`;
+      }
+
+      return {
+        "--backgroundcolorback": hexToDesiredColorSpace(
+          this.cardBackgroundColor
+        ),
+
+        "--red": redVal,
+        "--green": greenVal,
+        "--blue": blueVal,
+      };
+    },
+    cssCardDesignProps() {
       return {
         "--cardbackgroundcolor": this.cardBackgroundColor,
-        "--cardtextcolor": this.cardTextColor,
-        "--cardbordercolor": this.cardBorderColor,
-        "--cardbordercurve": `${this.cardBorderCurve}px`,
-        "--cardtextfontweight": this.cardTextFontWeight,
-        "--cardtextfontwidth": this.cardTextFontWidth,
-        "--cardtextfontoptsize": this.cardTextFontOptSize,
-        "--cardtextfontgrade": this.cardTextFontGrade,
-        "--cardtextfontslant": this.cardTextFontSlant,
+        "--cardTextColor": this.cardTextColor,
         "--cardsepia": `${this.cardSepia}%`,
         "--cardbrightness": this.cardBrightness,
         "--cardgrayscale": `${this.cardGrayScale}%`,
-        "--logoPosition": this.logoPosition
-        //donT put encoded image in here. But this could/sjhould be a property somewhere
-        // "--playerimageencoded": `${this.playerImagePreview}%`
+        "--cardlayout": this.cardLayout,
+        "--playerimagebleedorboxed": this.playerImageBleedOrBoxed,
+        //"--playerimagefiltereffect": this.playerImageFilterEffect,
       };
-    }
+    },
+    cssTextLine1Props() {
+      return {
+        //"--color": this.textLine1.color,
+        "--fontweight": this.textLine1.fontWeight,
+        "--fontwidth": this.textLine1.fontWidth,
+        "--fontgrade": this.textLine1.fontGrade,
+        "--fontslant": this.textLine1.fontSlant,
+      };
+    },
+    cssTextLine2Props() {
+      return {
+        //"--color": this.textLine2.color,
+        "--fontweight": this.textLine2.fontWeight,
+        "--fontwidth": this.textLine2.fontWidth,
+        "--fontgrade": this.textLine2.fontGrade,
+        "--fontslant": this.textLine2.fontSlant,
+      };
+    },
+    cssTextPlayerPositionProps() {
+      return {
+        //"--color": this.textLine2.color,
+        "--fontweight": this.textPlayerPosition.fontWeight,
+        "--fontwidth": this.textPlayerPosition.fontWidth,
+        "--fontgrade": this.textPlayerPosition.fontGrade,
+        "--fontslant": this.textPlayerPosition.fontSlant,
+      };
+    },
+    cssLogoProps() {
+      return {
+        "--logoposition": this.logo.position,
+        "--logoborderradius": `${this.logo.borderRadius}%`,
+      };
+    },
+    cssBorderInnerProps() {
+      return {
+        "--borderinnercurve": `${this.borderInner.curve}px`,
+        "--borderinnerstyle": this.borderInner.style,
+        "--borderinneropacity": this.borderInner.opacity,
+        "--borderinnercolor": this.borderInner.color,
+        //"--borderinnerhexplusalpha": `${this.borderInner.color}${this.borderInner.opacity}`,
+        "--borderinnerwidth": `${this.borderInner.width}px`,
+      };
+    },
   },
-  mounted: function() {
-    this.setFromLocalStorage();
-  },
-  // watch stuff and updatefor localStorage
-
-  watch: {
-    // CURRENTLY FIRING ON EVERY KEYSTROKE
-    // put this in an async function so it can save to localstorage when the call stack is for sure clear
-    // or throttle/debounce
-    playerName(newPlayerName) {
-      localStorage.playerName = newPlayerName;
-    },
-    teamName(newTeamName) {
-      localStorage.teamName = newTeamName;
-    },
-    playerPosition(newPlayerPosition) {
-      localStorage.playerPosition = newPlayerPosition;
-    },
-    playerImageURLorDataString(newplayerImageURLorDataString) {
-      localStorage.playerImageURLorDataString = newplayerImageURLorDataString;
-    },
-    teamLogoURL(newteamLogoURL) {
-      localStorage.teamLogoURL = newteamLogoURL;
-    }
-  }
 };
 </script>
+
+<style scoped lang="scss">
+.cardFront__wrapper--outermost {
+  --r: calc(var(--red) * 0.2126);
+  --g: calc(var(--green) * 0.7152);
+  --b: calc(var(--blue) * 0.0722);
+  --sum: calc(var(--r) + var(--g) + var(--b));
+  --perceived-lightness: calc(var(--sum) / 255);
+  --border-alpha: calc(
+    (var(--perceived-lightness) - var(--border-threshold)) * 100
+  );
+  --calcColor: hsl(
+    0,
+    0%,
+    calc(
+      (var(--perceived-lightness) - var(--contrast-threshold-for-card)) *
+        -10000000%
+    )
+  );
+
+  overflow: hidden;
+}
+
+.card__container--front {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 36rem;
+  //yes, hard height here because
+  height: 50.4rem;
+  margin: 0 auto;
+  padding: 0 1.6rem;
+  color: var(--calcColor);
+  background-color: var(--cardbackgroundcolor);
+
+  border: 1px solid rgba(0, 0, 0, 0.3333);
+
+  // may need this again...
+  //overflow: hidden;
+
+  z-index: 0;
+}
+
+.cardFront__controls {
+  position: relative;
+  //padding: 0.8rem 0;
+  .colorPicker__label--textOverlap {
+    span {
+      color: var(--calcColor);
+    }
+  }
+}
+
+.playerImage__controls {
+  height: 100%;
+}
+
+.one-one {
+  justify-content: space-between;
+  .row--middle--forDesign {
+    order: 0;
+  }
+}
+.zero-two {
+  justify-content: flex-end;
+  padding-top: 1.6rem;
+  padding-bottom: 0;
+  .row--middle--forDesign {
+    order: -1;
+  }
+
+  .text__line--first {
+    padding-top: 0.8rem;
+  }
+  .text__line--second {
+    padding-bottom: 0.8rem;
+  }
+}
+.two-zero {
+  justify-content: flex-start;
+  padding-top: 0;
+  padding-bottom: 1.6rem;
+  .row--middle--forDesign {
+    order: 1;
+  }
+
+  .text__line--first {
+    padding-top: 0.8rem;
+  }
+  .text__line--second {
+    padding-bottom: 0.8rem;
+  }
+}
+
+input {
+  &[type="text"] {
+    .one-one & {
+      height: var(--min-touch-target-height);
+    }
+    //reason that iM ok here with less than 44px is that when they are next to each other, focus UI makes it less of a huge deal if user taps the adjascent box. Not ideal but also still clickable
+    .two-zero & {
+      height: 2.4rem;
+    }
+    .zero-two & {
+      height: 2.4rem;
+    }
+  }
+}
+
+.row--middle--forDesign {
+  display: flex;
+  position: var(--playerimagebleedorboxed);
+  flex-grow: 1;
+
+  border-width: var(--borderinnerwidth);
+  border-style: var(--borderinnerstyle);
+
+  border-color: var(--calcColor);
+
+  border-radius: var(--borderinnercurve);
+
+  &.topLeft {
+    justify-content: flex-start;
+    align-items: flex-start;
+    .figure--logo {
+      transform: translate(
+        calc(var(--borderinnercurve) / -3.6666),
+        calc(var(--borderinnercurve) / -3.6666)
+      );
+    }
+  }
+  &.topRight {
+    justify-content: flex-end;
+
+    align-items: flex-start;
+    .figure--logo {
+      transform: translate(
+        calc(var(--borderinnercurve) / 3.6666),
+        calc(var(--borderinnercurve) / -3.6666)
+      );
+    }
+  }
+  &.bottomLeft {
+    justify-content: flex-start;
+    align-items: flex-end;
+    .figure--logo {
+      transform: translate(
+        calc(var(--borderinnercurve) / -3.6666),
+        calc(var(--borderinnercurve) / 3.6666)
+      );
+    }
+  }
+  &.bottomRight {
+    justify-content: flex-end;
+    align-items: flex-end;
+    .figure--logo {
+      transform: translate(
+        calc(var(--borderinnercurve) / 3.6666),
+        calc(var(--borderinnercurve) / 3.6666)
+      );
+    }
+  }
+}
+
+.text__line--second {
+  justify-content: space-between;
+  align-items: center;
+  h1 {
+    width: 66.6666%;
+  }
+  h3 {
+    width: 33.3333%;
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--color);
+  font-variation-settings: "wght" var(--fontweight), "wdth" var(--fontwidth),
+    "GRAD" var(--fontgrade), "slnt" var(--fontslant);
+}
+
+h1,
+h2,
+h3 {
+  &:focus-within {
+    [data-soi] {
+      visibility: visible;
+    }
+  }
+}
+
+.one-one {
+  .text__line--first {
+    [data-soi] {
+      top: var(--min-touch-target);
+      bottom: auto;
+    }
+  }
+
+  .text__line--second {
+    [data-soi] {
+      top: auto;
+      bottom: var(--min-touch-target);
+    }
+  }
+}
+
+.zero-two {
+  .text__line--first {
+    [data-soi] {
+      top: auto;
+      bottom: 6.4rem;
+    }
+  }
+  .text__line--second {
+    [data-soi] {
+      top: auto;
+      bottom: 6.4rem;
+    }
+  }
+}
+
+.two-zero {
+  .text__line--first {
+    [data-soi] {
+      top: 6.4rem;
+      bottom: auto;
+    }
+  }
+  .text__line--second {
+    [data-soi] {
+      top: 6.4rem;
+      bottom: auto;
+    }
+  }
+}
+
+h2 {
+  font-size: 1.8rem;
+  display: flex;
+  flex-grow: 1;
+}
+
+h3 {
+  font-size: 1.6rem;
+
+  text-align: right;
+
+  input {
+    text-align: inherit;
+  }
+}
+
+.figure--player {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  //background-color: var(--cardbackgroundcolor);
+  border-radius: var(--borderinnercurve);
+  .static & {
+    border-radius: 0;
+    z-index: -1;
+  }
+  .figure--player__label {
+    flex-grow: 1;
+  }
+}
+
+.image--player {
+  background-color: #fff;
+  // depending on layout might want to make object-position managable yarh
+  object-position: 0 50%;
+  width: 100%;
+  // donT think i need this height value but
+  height: 100%;
+  border-radius: calc(var(--borderinnercurve) - var(--borderinnerwidth));
+}
+
+.playerImage__fieldset {
+  flex-grow: 1;
+}
+
+.figure--logo {
+  position: absolute;
+  display: flex;
+  filter: #{"grayscale(var(--cardgrayscale))"} brightness(var(--cardbrightness))
+    sepia(var(--cardsepia));
+  pointer-events: none;
+}
+
+.image--logo {
+  border-radius: var(--logoborderradius);
+}
+</style>

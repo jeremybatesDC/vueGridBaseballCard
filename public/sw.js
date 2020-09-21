@@ -5,7 +5,15 @@ const RUNTIME = "runtime";
 const PRECACHE_URLS = [
   "/",
   "/fonts/RobotoFlex-VF.ttf",
-  //'styles.css',
+  "/favicon.ico",
+  "/manifest.json",
+  "/workers/web-worker-encode.js",
+  //"/workers/web-worker-fetch.js",
+  //"/workers/web-worker-idb.js",
+  "/json/default-settings.json",
+  "/json/default-stats.json",
+  "/images/playerDefault.jpg",
+  "/images/logoDefault.jpg",
 ];
 
 // The install handler takes care of precaching the resources we always need.
@@ -46,7 +54,7 @@ self.addEventListener("activate", (event) => {
 // If no response is found, it populates the runtime cache with the response
 // from the network before returning it to the page.
 self.addEventListener("fetch", (event) => {
-  console.log("service worker intercepting fetch");
+  //console.log("service worker intercepting fetch");
   // Skip cross-origin requests, like those for Google Analytics.
   if (event.request.url.startsWith(self.location.origin)) {
     event.respondWith(
