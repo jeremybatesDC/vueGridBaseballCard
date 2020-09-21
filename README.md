@@ -2,6 +2,9 @@
 
 ## To Do
 
+touch indicator at least on initial load for logo image
+emphasize those image upload buttons more. Thumbprint icon? in v2 i could try to graduate them.
+
 can i tree shake vue? Vite says it's optimizable and i do think the entire thing is loading... hmmm
 
 might get too slow with huge photos
@@ -55,6 +58,10 @@ and, after considering it, i donT think i need a table plugin. If I can properly
 so really it's just an upload button... I want it to match the logo image icon. And since image player icon can't be a mountain, and logo image prob shouldn't be a person, then need to generalize morereplace filepicker player image upload button with an icon of a picture that feautures a person not a mountian: something like: https://iconmonstr.com/picture-4-svg/
 
 ### 2nd release
+
+don't need TRUE icons for font sliders -- just style a capital A with the relevant hard-coded font variation settings
+
+also, consider relabelling axes because doesnT always make sense to user
 
 shorten class names
 
