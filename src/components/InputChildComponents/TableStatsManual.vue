@@ -1,8 +1,8 @@
 <template>
   <div class="stats__wrapper--outer" @focusin="putCursorAtEnd">
     <!--  -->
-    <form>
-      <table class="">
+    <form class="stats__form">
+      <table class="stats__table">
         <!--<caption>Career Stats</caption>-->
         <thead>
           <tr>
@@ -567,7 +567,7 @@ export default {
 };
 </script>
 
-<style scoped lang="scss">
+<style lang="scss">
 .stats__wrapper--outer {
   --tablewrapheight: 100%;
   --tableheight: 100%;
@@ -600,12 +600,12 @@ tbody {
   //padding-right: 1.6rem;
 }
 
-form {
+.stats__form {
   width: 100%;
   height: var(--tablewrapheight);
 }
 
-table {
+.stats__table {
   width: 100%;
   max-width: calc(100vw - 3.2rem);
   height: var(--tableheight);

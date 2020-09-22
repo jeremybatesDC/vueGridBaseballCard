@@ -1,9 +1,9 @@
 <template>
-  <header :style="textLineAProps">
+  <header class="card-back__header" :style="textLineAProps">
     <div class="row row--topmost space-between">
       <!-- i dont think label is necessarily correct here -->
       <label class="backHeader__label--topmost">
-        <h1 class="">
+        <h1 class="card-back__h1">
           <input
             type="text"
             class=""
@@ -137,8 +137,11 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .backHeader__label--topmost {
+  input {
+    text-transform: uppercase;
+  }
   &:first-of-type {
     width: 66.6666%;
     &:focus-within {
@@ -173,18 +176,104 @@ export default {
   height: 3.2rem;
 }
 
-input {
-  text-transform: uppercase;
-}
-
-header {
+.card-back__header {
   display: flex;
   flex-direction: column;
 
   padding: 0 1.6rem;
+  .row {
+    label {
+      display: flex;
+      flex-direction: column;
+      font-size: 1.6rem;
+      font-variation-settings: "wght" 400, "wdth" 25, "opsz" 50, "GRAD" 48,
+        "slnt" 0, "YTLC" 200, "YTUC" 200, "YTAS" 700;
+      align-items: center;
+      justify-content: center;
+      &:last-child {
+        align-items: flex-end;
+        input[type="text"] {
+          text-align: right;
+          padding-right: 0;
+        }
+      }
+    }
+
+    &--topmost {
+      label {
+        &--topmost {
+          h1,
+          input[type="text"] {
+            display: flex;
+          }
+        }
+        + label {
+          span {
+            display: flex;
+          }
+        }
+      }
+      .rangeUI__label {
+        span {
+          width: 100%;
+        }
+      }
+    }
+    &--stacked {
+      span {
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+      }
+      label {
+        flex-grow: 1;
+      }
+
+      input {
+        color: inherit;
+        width: 100%;
+        height: calc(var(--min-touch-target-height-half) + 0.8rem);
+        font-size: 1.6rem;
+        padding: 0;
+        font-variation-settings: "wght" 400, "wdth" 25, "opsz" 50, "GRAD" 48,
+          "slnt" 0, "YTLC" 200, "YTUC" 200, "YTAS" 700;
+        &:focus {
+        }
+      }
+    }
+    &.stripe--dark {
+      padding: 0;
+      flex-wrap: nowrap;
+
+      background: var(--calcColor);
+      color: var(--backgroundcolorback);
+      box-shadow: 1.6rem 0 var(--calcColor), -1.6rem 0 var(--calcColor);
+      input {
+        text-transform: uppercase;
+      }
+      label {
+        align-items: center;
+        input {
+          height: calc(var(--min-touch-target-height-half) + 0.8rem);
+          width: 100%;
+          padding-right: 0;
+          padding-left: 0;
+        }
+        &:first-child {
+          flex-grow: 1;
+          flex-basis: 50%;
+        }
+        &:nth-child(2) {
+          input {
+            text-align: right;
+          }
+        }
+      }
+    }
+  }
 }
 
-h1 {
+.card-back__h1 {
   display: flex;
   flex-grow: 1;
   font-size: 2.4rem;
@@ -202,99 +291,6 @@ h1 {
     width: 100%;
     &:focus {
       background-color: var(--backgroundcolorback);
-    }
-  }
-}
-
-.row {
-  label {
-    display: flex;
-    flex-direction: column;
-    font-size: 1.6rem;
-    font-variation-settings: "wght" 400, "wdth" 25, "opsz" 50, "GRAD" 48,
-      "slnt" 0, "YTLC" 200, "YTUC" 200, "YTAS" 700;
-    align-items: center;
-    justify-content: center;
-    &:last-child {
-      align-items: flex-end;
-      input[type="text"] {
-        text-align: right;
-        padding-right: 0;
-      }
-    }
-  }
-  &--topmost {
-    label {
-      &--topmost {
-        h1,
-        input[type="text"] {
-          display: flex;
-        }
-      }
-      + label {
-        span {
-          display: flex;
-        }
-      }
-    }
-    .rangeUI__label {
-      span {
-        width: 100%;
-      }
-    }
-  }
-  &--stacked {
-    span {
-      display: flex;
-      flex-direction: column;
-      flex-grow: 1;
-    }
-    label {
-      flex-grow: 1;
-    }
-
-    input {
-      color: inherit;
-      width: 100%;
-      height: calc(var(--min-touch-target-height-half) + 0.8rem);
-      font-size: 1.6rem;
-      padding: 0;
-      font-variation-settings: "wght" 400, "wdth" 25, "opsz" 50, "GRAD" 48,
-        "slnt" 0, "YTLC" 200, "YTUC" 200, "YTAS" 700;
-      &:focus {
-      }
-    }
-  }
-  &--bottommost {
-  }
-}
-
-.stripe--dark {
-  padding: 0;
-  flex-wrap: nowrap;
-
-  background: var(--calcColor);
-  color: var(--backgroundcolorback);
-  box-shadow: 1.6rem 0 var(--calcColor), -1.6rem 0 var(--calcColor);
-  input {
-    text-transform: uppercase;
-  }
-  label {
-    align-items: center;
-    input {
-      height: calc(var(--min-touch-target-height-half) + 0.8rem);
-      width: 100%;
-      padding-right: 0;
-      padding-left: 0;
-    }
-    &:first-child {
-      flex-grow: 1;
-      flex-basis: 50%;
-    }
-    &:nth-child(2) {
-      input {
-        text-align: right;
-      }
     }
   }
 }

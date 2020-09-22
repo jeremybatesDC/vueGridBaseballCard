@@ -1,6 +1,6 @@
 <template>
-  <footer class="" :style="textLineCProps">
-    <fieldset class="">
+  <footer class="card-back__footer" :style="textLineCProps">
+    <fieldset class="card-back__fieldset">
       <textarea
         rows="2"
         class=""
@@ -88,8 +88,8 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-footer {
+<style lang="scss">
+.card-back__footer {
   display: flex;
   flex-direction: column;
   position: relative;
@@ -116,7 +116,7 @@ footer {
   }
 }
 
-fieldset {
+.card-back__fieldset {
   display: flex;
   flex-direction: column;
   position: relative;
