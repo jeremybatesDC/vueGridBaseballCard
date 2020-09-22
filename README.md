@@ -2,7 +2,7 @@
 
 ## To Do
 
-there seems to be a breaking change in the encode script: let filesProp = this.\$refs[evntTrgtID].files;
+logo position squares active white color--restore
 
 PUT SERVICE WORKER BACK AFTER DEV -- really want env var here
 
