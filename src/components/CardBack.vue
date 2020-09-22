@@ -44,9 +44,12 @@
     </div>
 
     <div class="card-back">
-      <article :class="defaultSettingsBack.gumShowing">
+      <article
+        :data-gum="defaultSettingsBack.gumShowing"
+        class="card-back__article"
+      >
         <BackHeader />
-        <section>
+        <section class="card-back__section">
           <TableStatsManual />
           <AsideFacts />
         </section>
@@ -164,7 +167,7 @@ export default {
 };
 </script>
 
-<style scoped lang="scss">
+<style lang="scss">
 // if can keep square stats table, will allow switch between vert and horz
 
 .cardBack__wrapper--outermost {
@@ -187,11 +190,6 @@ export default {
   );
 }
 
-// cheat
-.colorPicker__label--textOverlap {
-  color: var(--calcColor);
-}
-
 .card-back {
   display: flex;
   //flex-direction: column;
@@ -210,57 +208,48 @@ export default {
   color: var(--calcColor);
   filter: drop-shadow(0 1px 0 #000) drop-shadow(0 -1px 0 #000)
     drop-shadow(1px 0 0 #000) drop-shadow(-1px 0 0 #000);
-}
+  &__section {
+    // if this part is restricted to vert width, then it'll definitely fit on horz
+    display: flex;
+    flex-grow: 1;
+    align-items: stretch;
+    flex-direction: row;
+    flex-wrap: wrap-reverse;
+    padding: 0;
+    background: rgba(0, 0, 0, 0.1);
+  }
+  &__article {
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
 
-article {
-  display: flex;
-  flex-grow: 1;
-  flex-direction: column;
-  justify-content: space-between;
-  position: relative;
+    //background-color: rgba(#9c2c1a, 0.25);
+    // using outline here so that it'll just be clipped on small devices automatically
+    outline: 1.6rem solid var(--calcColor);
+    overflow: hidden;
 
-  //background-color: rgba(#9c2c1a, 0.25);
-  // using outline here so that it'll just be clipped on small devices automatically
-  outline: 1.6rem solid var(--calcColor);
-  overflow: hidden;
+    // need to figure this out -- prob need another wrapper
 
-  // need to figure this out -- prob need another wrapper
-
-  &.gumShowing {
-    &:after {
-      // svg gum image maybe
-      content: "";
-      position: absolute;
-      top: 0;
-      right: 0;
-      width: 10rem;
-      height: 30rem;
-      background-color: var(--calcColor);
-      opacity: 0.15;
-      border-radius: 3px 5px 7px 9px;
-      transform: rotate(-33deg) translateX(-8rem) translateY(-4rem);
-      //mix-blend-mode: hard-light;
-      filter: blur(2px);
-      pointer-events: none;
+    &[data-gum="gumShowing"] {
+      &:after {
+        // svg gum image maybe
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 10rem;
+        height: 30rem;
+        background-color: var(--calcColor);
+        opacity: 0.15;
+        border-radius: 3px 5px 7px 9px;
+        transform: rotate(-33deg) translateX(-8rem) translateY(-4rem);
+        //mix-blend-mode: hard-light;
+        filter: blur(2px);
+        pointer-events: none;
+      }
     }
   }
-  //&.has-crease {
-  //}
 }
-
-// set EXPLICIT font variation settings for the table
-section {
-  // if this part is restricted to vert width, then it'll definitely fit on horz
-  display: flex;
-  flex-grow: 1;
-  align-items: stretch;
-  flex-direction: row;
-  flex-wrap: wrap-reverse;
-  padding: 0;
-  background: rgba(0, 0, 0, 0.1);
-}
-
-// rather imperative here, but having table as child of flex element was kinda odd... ooooh
-
-//
 </style>

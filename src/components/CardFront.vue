@@ -145,7 +145,7 @@
       :class="[cardLayout, playerImageBleedOrBoxed]"
     >
       <div class="text__line--first row">
-        <h2 :style="cssTextLine1Props" class="">
+        <h2 :style="cssTextLine1Props" class="card-front__h2">
           <input
             class=""
             v-model="teamName"
@@ -244,7 +244,7 @@
         </figure>
       </div>
       <div class="text__line--second row">
-        <h1 :style="cssTextLine2Props" class="">
+        <h1 :style="cssTextLine2Props" class="card-front__h1">
           <input
             class=""
             v-model="playerName"
@@ -310,7 +310,7 @@
             </div>
           </div>
         </h1>
-        <h3 :style="cssTextPlayerPositionProps" class="">
+        <h3 :style="cssTextPlayerPositionProps" class="card-front__h3">
           <input
             class=""
             v-model="playerPosition"
@@ -785,7 +785,7 @@ export default {
 };
 </script>
 
-<style scoped lang="scss">
+<style lang="scss">
 .cardFront__wrapper--outermost {
   --r: calc(var(--red) * 0.2126);
   --g: calc(var(--green) * 0.7152);
@@ -830,11 +830,6 @@ export default {
 .cardFront__controls {
   position: relative;
   //padding: 0.8rem 0;
-  .colorPicker__label--textOverlap {
-    span {
-      color: var(--calcColor);
-    }
-  }
 }
 
 .playerImage__controls {
@@ -843,52 +838,81 @@ export default {
 
 .one-one {
   justify-content: space-between;
+  input {
+    &[type="text"] {
+      height: var(--min-touch-target-height);
+    }
+  }
   .row--middle--forDesign {
     order: 0;
+  }
+  .text__line--first {
+    [data-soi] {
+      top: var(--min-touch-target);
+      bottom: auto;
+    }
+  }
+
+  .text__line--second {
+    [data-soi] {
+      top: auto;
+      bottom: var(--min-touch-target);
+    }
   }
 }
 .zero-two {
   justify-content: flex-end;
   padding-top: 1.6rem;
   padding-bottom: 0;
+  input {
+    &[type="text"] {
+      height: 2.4rem;
+    }
+  }
   .row--middle--forDesign {
     order: -1;
   }
 
   .text__line--first {
     padding-top: 0.8rem;
+    [data-soi] {
+      top: auto;
+      bottom: 6.4rem;
+    }
   }
   .text__line--second {
     padding-bottom: 0.8rem;
+    [data-soi] {
+      top: auto;
+      bottom: 6.4rem;
+    }
   }
 }
 .two-zero {
   justify-content: flex-start;
   padding-top: 0;
   padding-bottom: 1.6rem;
+  input {
+    &[type="text"] {
+      height: 2.4rem;
+    }
+  }
   .row--middle--forDesign {
     order: 1;
   }
 
   .text__line--first {
     padding-top: 0.8rem;
+    [data-soi] {
+      top: 6.4rem;
+      bottom: auto;
+    }
   }
   .text__line--second {
     padding-bottom: 0.8rem;
-  }
-}
-
-input {
-  &[type="text"] {
-    .one-one & {
-      height: var(--min-touch-target-height);
-    }
-    //reason that iM ok here with less than 44px is that when they are next to each other, focus UI makes it less of a huge deal if user taps the adjascent box. Not ideal but also still clickable
-    .two-zero & {
-      height: 2.4rem;
-    }
-    .zero-two & {
-      height: 2.4rem;
+    [data-soi] {
+      top: 6.4rem;
+      bottom: auto;
     }
   }
 }
@@ -959,20 +983,12 @@ input {
   }
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+.card-front__h1,
+.card-front__h2,
+.card-front__h3 {
   color: var(--color);
   font-variation-settings: "wght" var(--fontweight), "wdth" var(--fontwidth),
     "GRAD" var(--fontgrade), "slnt" var(--fontslant);
-}
-
-h1,
-h2,
-h3 {
   &:focus-within {
     [data-soi] {
       visibility: visible;
@@ -980,59 +996,13 @@ h3 {
   }
 }
 
-.one-one {
-  .text__line--first {
-    [data-soi] {
-      top: var(--min-touch-target);
-      bottom: auto;
-    }
-  }
-
-  .text__line--second {
-    [data-soi] {
-      top: auto;
-      bottom: var(--min-touch-target);
-    }
-  }
-}
-
-.zero-two {
-  .text__line--first {
-    [data-soi] {
-      top: auto;
-      bottom: 6.4rem;
-    }
-  }
-  .text__line--second {
-    [data-soi] {
-      top: auto;
-      bottom: 6.4rem;
-    }
-  }
-}
-
-.two-zero {
-  .text__line--first {
-    [data-soi] {
-      top: 6.4rem;
-      bottom: auto;
-    }
-  }
-  .text__line--second {
-    [data-soi] {
-      top: 6.4rem;
-      bottom: auto;
-    }
-  }
-}
-
-h2 {
+.card-front__h2 {
   font-size: 1.8rem;
   display: flex;
   flex-grow: 1;
 }
 
-h3 {
+.card-front__h3 {
   font-size: 1.6rem;
 
   text-align: right;

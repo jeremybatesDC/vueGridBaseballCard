@@ -2,6 +2,8 @@
 
 ## To Do
 
+scoped really adds a lot of css...
+
 logo position squares active white color--restore
 
 PUT SERVICE WORKER BACK AFTER DEV -- really want env var here
