@@ -395,16 +395,16 @@
                 </legend>-->
                 <div class="filePicker__wrapper">
                   <input
-                    id="playerImageFileInput"
-                    ref="playerImageFileInput"
-                    name="playerImageFileInput"
+                    id="playerImageURLorDataString"
+                    ref="playerImageURLorDataString"
+                    name="playerImageURLorDataString"
                     class="hidden--visually filePicker__input"
                     type="file"
                     accept="image/*"
                     @input="encodeImage"
                   />
                   <label
-                    for="playerImageFileInput"
+                    for="playerImageURLorDataString"
                     class="filePicker__label"
                     aria-label="Upload Image"
                   >
@@ -429,9 +429,9 @@
                 <!--<legend class="filePicker__legend text-right">Logo</legend>-->
                 <div class="filePicker__wrapper">
                   <input
-                    id="logoFileInput"
-                    ref="logoFileInput"
-                    name="logoFileInput"
+                    id="teamLogoURL"
+                    ref="teamLogoURL"
+                    name="teamLogoURL"
                     class="hidden--visually filePicker__input"
                     type="file"
                     accept="image/*"
@@ -439,7 +439,7 @@
                   />
 
                   <label
-                    for="logoFileInput"
+                    for="teamLogoURL"
                     class="filePicker__label"
                     aria-label="Upload Logo Image"
                   >
@@ -618,39 +618,24 @@ export default {
       type: "module",
     });
 
-    // need this to encode whatever image is passed to it right?
     async function encodeImage(event) {
-      console.log(event);
-      let evntTrgtID = event.target.id;
+      let theField = event.target.id;
       let filesProp = event.target.files;
       let usrfile = filesProp[0];
-
-      console.log(usrfile);
-
       //validateImage();
-
+      let insertImgFunc = (strng, theField) => {
+        this[theField] = strng;
+      };
+      // can i use optional chaining here?
       if (filesProp && usrfile) {
         webWorkerEncode.postMessage(usrfile);
-
         this.$emit("input", usrfile);
-        // hard to pass through the refernce
-        // REFACTOR
-        let testFunction = null;
-        if (evntTrgtID === "playerImageFileInput") {
-          testFunction = (strng) => {
-            this.playerImageURLorDataString = strng;
-          };
-        } else {
-          testFunction = (strng) => {
-            this.teamLogoURL = strng;
-          };
-        }
-        webWorkerEncode.onmessage = function (event) {
-          testFunction(event.data);
+        webWorkerEncode.onmessage = (theMessage) => {
+          insertImgFunc(theMessage.data, theField);
         };
-        // END REFACTOR
       }
     }
+
     return {
       encodeImage,
       webWorkerEncode,

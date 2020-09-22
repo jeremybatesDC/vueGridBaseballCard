@@ -621,13 +621,7 @@ tbody {
   // need to address making this fit on portrait
   //overflow: hidden;
 }
-caption {
-  //background: rgba(#9c2c1a, 0.25);
-  text-align: left;
-  padding: 0.5rem;
-  // learned something new
-  //caption-side: bottom;
-}
+
 thead {
   background: rgba(0, 0, 0, 0.05);
   //box-shadow: 0 1px #000;

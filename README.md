@@ -2,9 +2,9 @@
 
 ## To Do
 
-scoped really adds a lot of css...
+more helpful defualt text
 
-logo position squares active white color--restore
+logo position squares active white color--RESTORE AFTER HAVING MOVED IT TO INDEX.html
 
 PUT SERVICE WORKER BACK AFTER DEV -- really want env var here
 
