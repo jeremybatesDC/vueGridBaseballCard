@@ -1,6 +1,6 @@
 <template>
   <div
-    class="cardFront__wrapper--outermost"
+    class="cf__wrapper--outermost"
     :style="[
       cssColorContrastProps,
       cssCardDesignProps,
@@ -8,7 +8,7 @@
       cssBorderInnerProps,
     ]"
   >
-    <div class="cardFront__controls controls--l2">
+    <div class="cf__controls controls--l2">
       <div class="row space-around height--100">
         <label
           class="colorPicker__label colorPicker__label--textOverlap align-self-center"
@@ -144,7 +144,7 @@
       :class="[cardLayout, playerImageBleedOrBoxed]"
     >
       <div class="text__line--first row">
-        <h2 :style="cssTextLine1Props" class="card-front__h2">
+        <h2 :style="cssTextLine1Props" class="cf__h2">
           <input
             class=""
             v-model="teamName"
@@ -243,7 +243,7 @@
         </figure>
       </div>
       <div class="text__line--second row">
-        <h1 :style="cssTextLine2Props" class="card-front__h1">
+        <h1 :style="cssTextLine2Props" class="cf__h1">
           <input
             class=""
             v-model="playerName"
@@ -309,7 +309,7 @@
             </div>
           </div>
         </h1>
-        <h3 :style="cssTextPlayerPositionProps" class="card-front__h3">
+        <h3 :style="cssTextPlayerPositionProps" class="cf__h3">
           <input
             class=""
             v-model="playerPosition"
@@ -608,7 +608,7 @@
 </template>
 
 <script>
-import defaultSettings from "/json/default-settings.json";
+import opts from "/json/default-settings.json";
 
 export default {
   // writing sytax of 'setup()' was giving me a prob with 'this'
@@ -643,48 +643,48 @@ export default {
   },
   data() {
     return {
-      cardBackgroundColor: defaultSettings.cardBackgroundColor,
-      cardTextColor: defaultSettings.cardTextColor,
-      cardBrightness: defaultSettings.cardBrightness,
-      cardSepia: defaultSettings.cardSepia,
-      cardGrayScale: defaultSettings.cardGrayScale,
-      cardLayout: defaultSettings.cardLayout,
-      teamLogoURL: defaultSettings.teamLogoURL,
-      playerImageURLorDataString: defaultSettings.playerImageURLorDataString,
-      playerImageBleedOrBoxed: defaultSettings.playerImageBleedOrBoxed,
-      playerImageFilterEffect: defaultSettings.playerImageFilterEffect,
-      playerName: defaultSettings.playerName,
-      playerPosition: defaultSettings.playerPosition,
-      teamName: defaultSettings.teamName,
+      cardBackgroundColor: opts.cardBackgroundColor,
+      cardTextColor: opts.cardTextColor,
+      cardBrightness: opts.cardBrightness,
+      cardSepia: opts.cardSepia,
+      cardGrayScale: opts.cardGrayScale,
+      cardLayout: opts.cardLayout,
+      teamLogoURL: opts.teamLogoURL,
+      playerImageURLorDataString: opts.playerImageURLorDataString,
+      playerImageBleedOrBoxed: opts.playerImageBleedOrBoxed,
+      playerImageFilterEffect: opts.playerImageFilterEffect,
+      playerName: opts.playerName,
+      playerPosition: opts.playerPosition,
+      teamName: opts.teamName,
       borderInner: {
-        color: defaultSettings.borderInner.color,
-        curve: defaultSettings.borderInner.curve,
-        style: defaultSettings.borderInner.style,
-        opacity: defaultSettings.borderInner.opacity,
-        width: defaultSettings.borderInner.width,
+        color: opts.borderInner.color,
+        curve: opts.borderInner.curve,
+        style: opts.borderInner.style,
+        opacity: opts.borderInner.opacity,
+        width: opts.borderInner.width,
       },
       logo: {
-        showing: defaultSettings.logo.showing,
-        borderRadius: defaultSettings.logo.borderRadius,
-        position: defaultSettings.logo.position,
+        showing: opts.logo.showing,
+        borderRadius: opts.logo.borderRadius,
+        position: opts.logo.position,
       },
       textLine1: {
-        fontWeight: defaultSettings.textLine1.fontWeight,
-        fontWidth: defaultSettings.textLine1.fontWidth,
-        fontGrade: defaultSettings.textLine1.fontGrade,
-        fontSlant: defaultSettings.textLine1.fontSlant,
+        fontWeight: opts.textLine1.fontWeight,
+        fontWidth: opts.textLine1.fontWidth,
+        fontGrade: opts.textLine1.fontGrade,
+        fontSlant: opts.textLine1.fontSlant,
       },
       textLine2: {
-        fontWeight: defaultSettings.textLine2.fontWeight,
-        fontWidth: defaultSettings.textLine2.fontWidth,
-        fontGrade: defaultSettings.textLine2.fontGrade,
-        fontSlant: defaultSettings.textLine2.fontSlant,
+        fontWeight: opts.textLine2.fontWeight,
+        fontWidth: opts.textLine2.fontWidth,
+        fontGrade: opts.textLine2.fontGrade,
+        fontSlant: opts.textLine2.fontSlant,
       },
       textPlayerPosition: {
-        fontWeight: defaultSettings.textPlayerPosition.fontWeight,
-        fontWidth: defaultSettings.textPlayerPosition.fontWidth,
-        fontGrade: defaultSettings.textPlayerPosition.fontGrade,
-        fontSlant: defaultSettings.textPlayerPosition.fontSlant,
+        fontWeight: opts.textPlayerPosition.fontWeight,
+        fontWidth: opts.textPlayerPosition.fontWidth,
+        fontGrade: opts.textPlayerPosition.fontGrade,
+        fontSlant: opts.textPlayerPosition.fontSlant,
       },
     };
   },
@@ -766,7 +766,7 @@ export default {
 </script>
 
 <style lang="scss">
-.cardFront__wrapper--outermost {
+.cf__wrapper--outermost {
   --r: calc(var(--red) * 0.2126);
   --g: calc(var(--green) * 0.7152);
   --b: calc(var(--blue) * 0.0722);
@@ -807,7 +807,7 @@ export default {
   z-index: 0;
 }
 
-.cardFront__controls {
+.cf__controls {
   position: relative;
   //padding: 0.8rem 0;
 }
@@ -960,9 +960,9 @@ export default {
   }
 }
 
-.card-front__h1,
-.card-front__h2,
-.card-front__h3 {
+.cf__h1,
+.cf__h2,
+.cf__h3 {
   color: var(--color);
   font-variation-settings: "wght" var(--fontweight), "wdth" var(--fontwidth),
     "GRAD" var(--fontgrade), "slnt" var(--fontslant);
@@ -973,13 +973,13 @@ export default {
   }
 }
 
-.card-front__h2 {
+.cf__h2 {
   font-size: 1.8rem;
   display: flex;
   flex-grow: 1;
 }
 
-.card-front__h3 {
+.cf__h3 {
   font-size: 1.6rem;
 
   text-align: right;

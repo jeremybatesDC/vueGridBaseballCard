@@ -5,7 +5,7 @@
 }
 
 .card__container--front,
-.card-back {
+.cb {
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
   // does this transition need to go on parent?

@@ -76,17 +76,17 @@
 
 <script>
 import defaultFacts from "/json/default-facts.json";
-import defaultSettingsBack from "/json/default-settings-back.json";
+import optsBack from "/json/default-settings-back.json";
 
 export default {
   data() {
     return {
       defaultFacts,
       textLineB: {
-        fontWeight: defaultSettingsBack.textLineB.fontWeight,
-        fontWidth: defaultSettingsBack.textLineB.fontWidth,
-        fontGrade: defaultSettingsBack.textLineB.fontGrade,
-        fontSlant: defaultSettingsBack.textLineB.fontSlant,
+        fontWeight: optsBack.textLineB.fontWeight,
+        fontWidth: optsBack.textLineB.fontWidth,
+        fontGrade: optsBack.textLineB.fontGrade,
+        fontSlant: optsBack.textLineB.fontSlant,
       },
     };
   },

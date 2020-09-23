@@ -10,7 +10,7 @@
             <input
               class="colorPicker__input"
               type="color"
-              v-model="defaultSettingsBack.backgroundColor"
+              v-model="optsBack.backgroundColor"
             />
           </label>
         </fieldset>
@@ -22,7 +22,7 @@
                 type="radio"
                 class="radioBtns__input hidden--visually"
                 name="gumradio"
-                v-model="defaultSettingsBack.gumShowing"
+                v-model="optsBack.gumShowing"
                 value="gumShowing"
               />
               <span>Show</span>
@@ -33,7 +33,7 @@
                 type="radio"
                 class="radioBtns__input hidden--visually"
                 name="gumradio"
-                v-model="defaultSettingsBack.gumShowing"
+                v-model="optsBack.gumShowing"
                 value="gumHidden"
               />
               <span>Hide</span>
@@ -43,13 +43,10 @@
       </div>
     </div>
 
-    <div class="card-back">
-      <article
-        :data-gum="defaultSettingsBack.gumShowing"
-        class="card-back__article"
-      >
+    <div class="cb">
+      <article :data-gum="optsBack.gumShowing" class="cb__article">
         <BackHeader />
-        <section class="card-back__section">
+        <section class="cb__section">
           <TableStatsManual />
           <AsideFacts />
         </section>
@@ -61,7 +58,7 @@
 
 <script lang="ts">
 import defaultFacts from "/json/default-facts.json";
-import defaultSettingsBack from "/json/default-settings-back.json";
+import optsBack from "/json/default-settings-back.json";
 //import { set } from "idb-keyval";
 //import TextSlider from "./InputChildComponents/TextSlider.vue";
 import TableStatsManual from "./InputChildComponents/TableStatsManual.vue";
@@ -82,13 +79,13 @@ export default {
   data() {
     return {
       defaultFacts,
-      defaultSettingsBack: {
-        backgroundColor: defaultSettingsBack.backgroundColor,
+      optsBack: {
+        backgroundColor: optsBack.backgroundColor,
 
         redVal: 200,
         greenVal: 60,
         blueVal: 255,
-        gumShowing: defaultSettingsBack.gumShowing,
+        gumShowing: optsBack.gumShowing,
       },
       // would love to be equally declarative with footer and aside stuff too...
       // move these footer defaults to json
@@ -120,7 +117,7 @@ export default {
 
       return {
         "--backgroundcolorback": hexToDesiredColorSpace(
-          this.defaultSettingsBack.backgroundColor
+          this.optsBack.backgroundColor
         ),
 
         "--red": redVal,
@@ -171,7 +168,7 @@ export default {
   );
 }
 
-.card-back {
+.cb {
   display: flex;
   //flex-direction: column;
   position: relative;

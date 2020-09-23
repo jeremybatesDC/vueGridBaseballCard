@@ -2,15 +2,24 @@
 
 ## To Do
 
+## App
+
+i stupidly removed previous xcode when installing beta xcode. Nativescript appearently isn't expecting the beta... restore that, but maybe not now on bad internet connection
+
+-- i already have an apple dev account it seems -- upgrading xcode now... The vue3 feature of making it "easier to target native" seems to have evaporated
+
 more helpful defualt text
 
 logo position squares active white color--RESTORE AFTER HAVING MOVED IT TO INDEX.html
+
+off option(s) to lower creative burden stats-wise
 
 PUT SERVICE WORKER BACK AFTER DEV -- really want env var here
 
 css code coverage in dev tools
 
 refactor inputs.scss -- too nested
+refactor cardfront css
 
 touch indicator at least on initial load for logo image
 emphasize those image upload buttons more. Thumbprint icon? in v2 i could try to graduate them.

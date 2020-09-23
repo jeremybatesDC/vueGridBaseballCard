@@ -1,9 +1,9 @@
 <template>
-  <header class="card-back__header" :style="textLineAProps">
+  <header class="cb__header" :style="textLineAProps">
     <div class="row row--topmost space-between">
       <!-- i dont think label is necessarily correct here -->
       <label class="backHeader__label--topmost">
-        <h1 class="card-back__h1">
+        <h1 class="cb__h1">
           <input
             type="text"
             class=""
@@ -111,16 +111,16 @@
 
 <script>
 import defaultFacts from "/json/default-facts.json";
-import defaultSettingsBack from "/json/default-settings-back.json";
+import optsBack from "/json/default-settings-back.json";
 export default {
   data() {
     return {
       defaultFacts,
       textLineA: {
-        fontWeight: defaultSettingsBack.textLineA.fontWeight,
-        fontWidth: defaultSettingsBack.textLineA.fontWidth,
-        fontGrade: defaultSettingsBack.textLineA.fontGrade,
-        fontSlant: defaultSettingsBack.textLineA.fontSlant,
+        fontWeight: optsBack.textLineA.fontWeight,
+        fontWidth: optsBack.textLineA.fontWidth,
+        fontGrade: optsBack.textLineA.fontGrade,
+        fontSlant: optsBack.textLineA.fontSlant,
       },
     };
   },
@@ -176,7 +176,7 @@ export default {
   height: 3.2rem;
 }
 
-.card-back__header {
+.cb__header {
   display: flex;
   flex-direction: column;
 
@@ -273,7 +273,7 @@ export default {
   }
 }
 
-.card-back__h1 {
+.cb__h1 {
   display: flex;
   flex-grow: 1;
   font-size: 2.4rem;

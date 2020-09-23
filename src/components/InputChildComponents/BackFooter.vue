@@ -1,8 +1,8 @@
 <template>
-  <footer class="card-back__footer" :style="textLineCProps">
-    <fieldset class="card-back__fieldset">
+  <footer class="cb__footer" :style="textLineCProps">
+    <fieldset class="cb__fieldset">
       <textarea
-        class="card-back__footer__textarea"
+        class="cb__footer__textarea"
         rows="2"
         spellcheck="false"
         v-model="defaultFacts.info.facts[1].text"
@@ -61,17 +61,17 @@
 
 <script>
 import defaultFacts from "/json/default-facts.json";
-import defaultSettingsBack from "/json/default-settings-back.json";
+import optsBack from "/json/default-settings-back.json";
 
 export default {
   data() {
     return {
       defaultFacts,
       textLineC: {
-        fontWeight: defaultSettingsBack.textLineC.fontWeight,
-        fontWidth: defaultSettingsBack.textLineC.fontWidth,
-        fontGrade: defaultSettingsBack.textLineC.fontGrade,
-        fontSlant: defaultSettingsBack.textLineC.fontSlant,
+        fontWeight: optsBack.textLineC.fontWeight,
+        fontWidth: optsBack.textLineC.fontWidth,
+        fontGrade: optsBack.textLineC.fontGrade,
+        fontSlant: optsBack.textLineC.fontSlant,
       },
     };
   },
@@ -89,7 +89,7 @@ export default {
 </script>
 
 <style lang="scss">
-.card-back__footer {
+.cb__footer {
   display: flex;
   flex-direction: column;
   position: relative;
@@ -105,7 +105,7 @@ export default {
   }
 }
 
-.card-back__footer__textarea {
+.cb__footer__textarea {
   min-height: var(--min-touch-target-height);
   font-variation-settings: "wght" var(--fontweight), "wdth" var(--fontwidth),
     "opsz" 33, "GRAD" var(--fontgrade), "slnt" var(--fontslant), "YTLC" 500,
@@ -114,7 +114,7 @@ export default {
   padding-top: 0.4rem;
 }
 
-.card-back__fieldset {
+.cb__fieldset {
   display: flex;
   flex-direction: column;
   position: relative;
