@@ -33,30 +33,7 @@
               />
               <span
                 ><svg width="32" height="32" viewBox="0 0 32 32">
-                  <g>
-                    <rect
-                      x="6.4855"
-                      y="2"
-                      width="19"
-                      height="28"
-                      fill="none"
-                      stroke="#000"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                    />
-                    <path
-                      d="M6.4855,26h19"
-                      fill="none"
-                      stroke="#000"
-                      stroke-width="2"
-                    />
-                    <path
-                      d="M6.6217,6h19"
-                      fill="none"
-                      stroke="#000"
-                      stroke-width="2"
-                    />
-                  </g></svg
+                  <use xlink:href="#oneone"></use></svg
               ></span>
             </label>
 
@@ -69,24 +46,7 @@
               />
               <span
                 ><svg viewBox="0 0 32 32" width="32" height="32">
-                  <g>
-                    <rect
-                      x="6.4855"
-                      y="2"
-                      width="19"
-                      height="28"
-                      fill="none"
-                      stroke="#000"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                    />
-                    <path
-                      d="M6.4855,24.0566h19"
-                      fill="none"
-                      stroke="#000"
-                      stroke-width="2"
-                    />
-                  </g></svg
+                  <use xlink:href="#zerotwo"></use></svg
               ></span>
             </label>
 
@@ -99,24 +59,7 @@
               />
               <span
                 ><svg viewBox="0 0 32 32" width="32" height="32">
-                  <g>
-                    <rect
-                      x="6.4855"
-                      y="2"
-                      width="19"
-                      height="28"
-                      fill="none"
-                      stroke="#000"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                    />
-                    <path
-                      d="M25.4855,7.9434h-19"
-                      fill="none"
-                      stroke="#000"
-                      stroke-width="2"
-                    />
-                  </g></svg
+                  <use xlink:href="#twozero"></use></svg
               ></span>
             </label>
           </div>

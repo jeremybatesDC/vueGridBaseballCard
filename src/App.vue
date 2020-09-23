@@ -105,30 +105,10 @@ h3 {
   height: 7.2rem;
 }
 
-//details {
-//  padding: 1rem;
-//}
-//summary {
-//  display: flex;
-//}
-
 legend {
   font-family: inherit;
   text-align: center;
   font-size: 1.6rem;
-}
-label {
-  font-family: inherit;
-
-  input {
-    font-family: inherit;
-    font-size: inherit;
-  }
-  select {
-    display: block;
-    font-family: inherit;
-    font-size: 1.6rem;
-  }
 }
 
 [role="tablist"] {
