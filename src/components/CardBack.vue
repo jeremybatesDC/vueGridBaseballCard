@@ -69,26 +69,7 @@ import BackHeader from "./InputChildComponents/BackHeader.vue";
 import BackFooter from "./InputChildComponents/BackFooter.vue";
 import AsideFacts from "./InputChildComponents/AsideFacts.vue";
 
-//const webWorkerCardBack = new Worker("./workers/web-worker-idb.js", {
-//  type: "module",
-//});
-
-//async function setFunc() {
-//  webWorkerCardBack.postMessage(this.aside.fontGrade);
-//  webWorkerCardBack.onmessage = function (event) {
-//    console.log("received message here is ", event.data);
-//  };
-//  set("footerFontWeight", this.footer.fontWeight)
-//    .then(() => console.log("woohoo!"))
-//    .catch((err) => console.log("doh!", err));
-//}
-
 export default {
-  // intentionally avoiding arrow functions here
-  //setup() {
-  //  return { };
-  //},
-
   // do I nest props to send to child components in here?
   components: {
     //TextSlider,
@@ -231,25 +212,25 @@ export default {
     overflow: hidden;
 
     // need to figure this out -- prob need another wrapper
+  }
+}
 
-    &[data-gum="gumShowing"] {
-      &:after {
-        // svg gum image maybe
-        content: "";
-        position: absolute;
-        top: 0;
-        right: 0;
-        width: 10rem;
-        height: 30rem;
-        background-color: var(--calcColor);
-        opacity: 0.15;
-        border-radius: 3px 5px 7px 9px;
-        transform: rotate(-33deg) translateX(-8rem) translateY(-4rem);
-        //mix-blend-mode: hard-light;
-        filter: blur(2px);
-        pointer-events: none;
-      }
-    }
+[data-gum="gumShowing"] {
+  &:after {
+    // svg gum image maybe
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 10rem;
+    height: 30rem;
+    background-color: var(--calcColor);
+    opacity: 0.15;
+    border-radius: 3px 5px 7px 9px;
+    transform: rotate(-33deg) translateX(-8rem) translateY(-4rem);
+    //mix-blend-mode: hard-light;
+    filter: blur(2px);
+    pointer-events: none;
   }
 }
 </style>

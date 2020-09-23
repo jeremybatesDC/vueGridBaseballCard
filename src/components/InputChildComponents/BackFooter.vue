@@ -2,8 +2,8 @@
   <footer class="card-back__footer" :style="textLineCProps">
     <fieldset class="card-back__fieldset">
       <textarea
+        class="card-back__footer__textarea"
         rows="2"
-        class=""
         spellcheck="false"
         v-model="defaultFacts.info.facts[1].text"
       ></textarea>
@@ -96,17 +96,6 @@ export default {
   font-size: 1.6rem;
   padding: 0 1.6rem;
 
-  input[type="text"] {
-    padding: 0;
-  }
-  textarea {
-    min-height: var(--min-touch-target-height);
-    font-variation-settings: "wght" var(--fontweight), "wdth" var(--fontwidth),
-      "opsz" 33, "GRAD" var(--fontgrade), "slnt" var(--fontslant), "YTLC" 500,
-      "YTUC" 500, "YTAS" 500;
-    line-height: 0.8;
-    padding-top: 0.4rem;
-  }
   &:focus-within {
     [data-soi] {
       visibility: visible;
@@ -114,6 +103,15 @@ export default {
       bottom: var(--min-touch-target);
     }
   }
+}
+
+.card-back__footer__textarea {
+  min-height: var(--min-touch-target-height);
+  font-variation-settings: "wght" var(--fontweight), "wdth" var(--fontwidth),
+    "opsz" 33, "GRAD" var(--fontgrade), "slnt" var(--fontslant), "YTLC" 500,
+    "YTUC" 500, "YTAS" 500;
+  line-height: 0.8;
+  padding-top: 0.4rem;
 }
 
 .card-back__fieldset {

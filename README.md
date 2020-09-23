@@ -8,6 +8,10 @@ logo position squares active white color--RESTORE AFTER HAVING MOVED IT TO INDEX
 
 PUT SERVICE WORKER BACK AFTER DEV -- really want env var here
 
+css code coverage in dev tools
+
+refactor inputs.scss -- too nested
+
 touch indicator at least on initial load for logo image
 emphasize those image upload buttons more. Thumbprint icon? in v2 i could try to graduate them.
 

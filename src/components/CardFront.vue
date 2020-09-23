@@ -11,7 +11,6 @@
     <div class="cardFront__controls controls--l2">
       <div class="row space-around height--100">
         <label
-          v-show="playerImageBleedOrBoxed !== 'static'"
           class="colorPicker__label colorPicker__label--textOverlap align-self-center"
         >
           <span>Color</span>
@@ -214,7 +213,7 @@
         </h2>
       </div>
       <div
-        :class="`row--middle--forDesign row ${logo.position} ${borderInner.style} ${playerImageFilterEffect}`"
+        :class="`row--hasImgs row ${logo.position} ${borderInner.style} ${playerImageFilterEffect}`"
       >
         <figure class="figure--player">
           <label class="figure--player__label" for="inputTriggerFocusUI_0">
@@ -720,12 +719,10 @@ export default {
         "--cardgrayscale": `${this.cardGrayScale}%`,
         "--cardlayout": this.cardLayout,
         "--playerimagebleedorboxed": this.playerImageBleedOrBoxed,
-        //"--playerimagefiltereffect": this.playerImageFilterEffect,
       };
     },
     cssTextLine1Props() {
       return {
-        //"--color": this.textLine1.color,
         "--fontweight": this.textLine1.fontWeight,
         "--fontwidth": this.textLine1.fontWidth,
         "--fontgrade": this.textLine1.fontGrade,
@@ -734,7 +731,6 @@ export default {
     },
     cssTextLine2Props() {
       return {
-        //"--color": this.textLine2.color,
         "--fontweight": this.textLine2.fontWeight,
         "--fontwidth": this.textLine2.fontWidth,
         "--fontgrade": this.textLine2.fontGrade,
@@ -743,7 +739,6 @@ export default {
     },
     cssTextPlayerPositionProps() {
       return {
-        //"--color": this.textLine2.color,
         "--fontweight": this.textPlayerPosition.fontWeight,
         "--fontwidth": this.textPlayerPosition.fontWidth,
         "--fontgrade": this.textPlayerPosition.fontGrade,
@@ -753,7 +748,7 @@ export default {
     cssLogoProps() {
       return {
         "--logoposition": this.logo.position,
-        "--logoborderradius": `${this.logo.borderRadius}%`,
+        //"--logoborderradius": `${this.logo.borderRadius}%`,
       };
     },
     cssBorderInnerProps() {
@@ -828,7 +823,7 @@ export default {
       height: var(--min-touch-target-height);
     }
   }
-  .row--middle--forDesign {
+  .row--hasImgs {
     order: 0;
   }
   .text__line--first {
@@ -854,7 +849,7 @@ export default {
       height: 2.4rem;
     }
   }
-  .row--middle--forDesign {
+  .row--hasImgs {
     order: -1;
   }
 
@@ -882,7 +877,7 @@ export default {
       height: 2.4rem;
     }
   }
-  .row--middle--forDesign {
+  .row--hasImgs {
     order: 1;
   }
 
@@ -902,16 +897,13 @@ export default {
   }
 }
 
-.row--middle--forDesign {
+.row--hasImgs {
   display: flex;
   position: var(--playerimagebleedorboxed);
   flex-grow: 1;
-
   border-width: var(--borderinnerwidth);
   border-style: var(--borderinnerstyle);
-
   border-color: var(--calcColor);
-
   border-radius: var(--borderinnercurve);
 
   &.topLeft {
@@ -1006,10 +998,10 @@ export default {
   display: flex;
   //background-color: var(--cardbackgroundcolor);
   border-radius: var(--borderinnercurve);
-  .static & {
-    border-radius: 0;
-    z-index: -1;
-  }
+  //.static & {
+  //  border-radius: 0;
+  //  z-index: -1;
+  //}
   .figure--player__label {
     flex-grow: 1;
   }
@@ -1032,8 +1024,7 @@ export default {
 .figure--logo {
   position: absolute;
   display: flex;
-  filter: #{"grayscale(var(--cardgrayscale))"} brightness(var(--cardbrightness))
-    sepia(var(--cardsepia));
+
   pointer-events: none;
 }
 
