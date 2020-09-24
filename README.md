@@ -2,17 +2,7 @@
 
 ## To Do
 
-## App
-
-verify no input field zoom following this lightrefactor
-
-reafcotr container classes? long words
-
-logo position squares AND layout icons: active white color--RESTORE AFTER HAVING MOVED IT TO INDEX.html
-
-i stupidly removed previous xcode when installing beta xcode. Nativescript appearently isn't expecting the beta... restore that, but maybe not now on bad internet connection
-
--- i already have an apple dev account it seems -- upgrading xcode now... The vue3 feature of making it "easier to target native" seems to have evaporated
+push latest for terps!
 
 more helpful defualt text
 
@@ -79,6 +69,18 @@ the way to make a mask is via computed and watchers, set/get. No need for a mask
 and, after considering it, i donT think i need a table plugin. If I can properly tag columns then doing math on them shouldnT take any special code really. It would just be a formula, and probably use the Computed method
 
 so really it's just an upload button... I want it to match the logo image icon. And since image player icon can't be a mountain, and logo image prob shouldn't be a person, then need to generalize morereplace filepicker player image upload button with an icon of a picture that feautures a person not a mountian: something like: https://iconmonstr.com/picture-4-svg/
+
+## App
+
+verify no input field zoom following this lightrefactor
+
+reafcotr container classes? long words
+
+logo position squares AND layout icons: active white color--RESTORE AFTER HAVING MOVED IT TO INDEX.html
+
+i stupidly removed previous xcode when installing beta xcode. Nativescript appearently isn't expecting the beta... restore that, but maybe not now on bad internet connection
+
+-- i already have an apple dev account it seems -- upgrading xcode now... The vue3 feature of making it "easier to target native" seems to have evaporated
 
 ### 2nd release
 
