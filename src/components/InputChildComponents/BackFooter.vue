@@ -1,13 +1,13 @@
 <template>
-  <footer class="" :style="textLineCProps">
-    <fieldset class="">
+  <footer class="cb__footer" :style="textLineCProps">
+    <span class="footTextWrap">
       <textarea
+        class="cb__footer__textarea"
         rows="2"
-        class=""
         spellcheck="false"
-        v-model="defaultFacts.info.facts[1].text"
+        v-model="footerText"
       ></textarea>
-    </fieldset>
+    </span>
     <div data-soi hidden>
       <div class="row row--grow space-between row--textControls">
         <label class="rangeUI__label">
@@ -60,18 +60,18 @@
 </template>
 
 <script>
-import defaultFacts from "/json/default-facts.json";
-import defaultSettingsBack from "/json/default-settings-back.json";
+import optsBack from "/json/default-settings-back.json";
 
 export default {
   data() {
     return {
-      defaultFacts,
+      footerText:
+        "Did you know? Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.",
       textLineC: {
-        fontWeight: defaultSettingsBack.textLineC.fontWeight,
-        fontWidth: defaultSettingsBack.textLineC.fontWidth,
-        fontGrade: defaultSettingsBack.textLineC.fontGrade,
-        fontSlant: defaultSettingsBack.textLineC.fontSlant,
+        fontWeight: optsBack.textLineC.fontWeight,
+        fontWidth: optsBack.textLineC.fontWidth,
+        fontGrade: optsBack.textLineC.fontGrade,
+        fontSlant: optsBack.textLineC.fontSlant,
       },
     };
   },
@@ -88,25 +88,14 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-footer {
+<style lang="scss">
+.cb__footer {
   display: flex;
   flex-direction: column;
   position: relative;
   font-size: 1.6rem;
   padding: 0 1.6rem;
 
-  input[type="text"] {
-    padding: 0;
-  }
-  textarea {
-    min-height: var(--min-touch-target-height);
-    font-variation-settings: "wght" var(--fontweight), "wdth" var(--fontwidth),
-      "opsz" 33, "GRAD" var(--fontgrade), "slnt" var(--fontslant), "YTLC" 500,
-      "YTUC" 500, "YTAS" 500;
-    line-height: 0.8;
-    padding-top: 0.4rem;
-  }
   &:focus-within {
     [data-soi] {
       visibility: visible;
@@ -116,13 +105,19 @@ footer {
   }
 }
 
-fieldset {
+.cb__footer__textarea {
+  min-height: var(--min-touch-target-height);
+  font-variation-settings: "wght" var(--fontweight), "wdth" var(--fontwidth),
+    "opsz" 33, "GRAD" var(--fontgrade), "slnt" var(--fontslant), "YTLC" 500,
+    "YTUC" 500, "YTAS" 500;
+  line-height: 0.8;
+  padding-top: 0.4rem;
+}
+
+.footTextWrap {
   display: flex;
   flex-direction: column;
   position: relative;
-  border: none;
-  box-shadow: none;
   padding: 0.8rem 0 0 0;
-  margin: 0;
 }
 </style>

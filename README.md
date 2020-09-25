@@ -2,21 +2,16 @@
 
 ## To Do
 
-touch indicator at least on initial load for logo image
-emphasize those image upload buttons more. Thumbprint icon? in v2 i could try to graduate them.
+push latest for terps!
 
-can i tree shake vue? Vite says it's optimizable and i do think the entire thing is loading... hmmm
+more helpful defualt text
 
-might get too slow with huge photos
+PUT SERVICE WORKER BACK AFTER DEV -- really want env var here
 
-after editing career highlights, sometimes hard ot click table stats without triggering career highlights again
-
+emphasize those image upload buttons more.
 logo image could match upload logo icon for more of a visual hint! plus it's super digitized8
 
-ASIDE & FOOTER!
-textareas content strategy/testing:
-a) maxlength?
-b) b/c may not be feasible to alwasy vertically center textareas w/out ever clipping text, consider adding a visual florish / bottom box shadow that would be obscured by a 2nd/3rd etc line of text (maybe with a text background color or something)
+decrease size further i think by having back aside and footer not import the whole facts json files
 
 ---
 
@@ -57,7 +52,49 @@ and, after considering it, i donT think i need a table plugin. If I can properly
 
 so really it's just an upload button... I want it to match the logo image icon. And since image player icon can't be a mountain, and logo image prob shouldn't be a person, then need to generalize morereplace filepicker player image upload button with an icon of a picture that feautures a person not a mountian: something like: https://iconmonstr.com/picture-4-svg/
 
+## App
+
+gets too slow with huge photos (does the same happen after you change photos 100times even with small images? is it a pure memory issue?)
+
+Nativescript-Vue is the way to go... everything just seems to be between versions right now. I starred 8 repos though
+
+verify no input field zoom following this lightrefactor
+
+reafcotr container classes? long words
+
+logo position squares AND layout icons: active white color--RESTORE AFTER HAVING MOVED IT TO INDEX.html
+
+i stupidly removed previous xcode when installing beta xcode. Nativescript appearently isn't expecting the beta... restore that, but maybe not now on bad internet connection
+
+-- i already have an apple dev account it seems -- upgrading xcode now... The vue3 feature of making it "easier to target native" seems to have evaporated
+
 ### 2nd release
+
+graduate image upload buttons to l2?
+
+after editing career highlights, sometimes hard ot click table stats without triggering career highlights again
+
+ASIDE & FOOTER!
+textareas content strategy/testing:
+a) maxlength?
+b) b/c may not be feasible to alwasy vertically center textareas w/out ever clipping text, consider adding a visual florish / bottom box shadow that would be obscured by a 2nd/3rd etc line of text (maybe with a text background color or something)
+
+refactor inputs.scss -- too nested
+refactor cardfront css
+
+css code coverage in dev tools
+
+offer option(s) to lower creative burden stats-wise
+
+touch indicator at least on initial load for logo image
+
+tour?
+
+once css is less than 14kb, have it inserted into head rather than chunked into file... Service worker caches the index page, so... consider
+
+can i tree shake vue? Vite says it's optimizable and i do think the entire thing is loading... hmmm
+
+consider chunking apart front and back apps -- although they SHOULD ideally data...
 
 don't need TRUE icons for font sliders -- just style a capital A with the relevant hard-coded font variation settings
 

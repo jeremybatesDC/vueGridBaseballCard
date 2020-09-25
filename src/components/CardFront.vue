@@ -1,6 +1,6 @@
 <template>
   <div
-    class="cardFront__wrapper--outermost"
+    class="cf__wrapper--outermost"
     :style="[
       cssColorContrastProps,
       cssCardDesignProps,
@@ -8,18 +8,13 @@
       cssBorderInnerProps,
     ]"
   >
-    <div class="cardFront__controls controls--l2">
+    <div class="cf__controls controls--l2">
       <div class="row space-around height--100">
         <label
-          v-show="playerImageBleedOrBoxed !== 'static'"
           class="colorPicker__label colorPicker__label--textOverlap align-self-center"
         >
           <span>Color</span>
-          <input
-            class="colorPicker__input"
-            type="color"
-            v-model="cardBackgroundColor"
-          />
+          <input class="colorPicker__input" type="color" v-model="bgCol" />
         </label>
 
         <fieldset class="radioBtns__fieldset">
@@ -34,30 +29,7 @@
               />
               <span
                 ><svg width="32" height="32" viewBox="0 0 32 32">
-                  <g>
-                    <rect
-                      x="6.4855"
-                      y="2"
-                      width="19"
-                      height="28"
-                      fill="none"
-                      stroke="#000"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                    />
-                    <path
-                      d="M6.4855,26h19"
-                      fill="none"
-                      stroke="#000"
-                      stroke-width="2"
-                    />
-                    <path
-                      d="M6.6217,6h19"
-                      fill="none"
-                      stroke="#000"
-                      stroke-width="2"
-                    />
-                  </g></svg
+                  <use xlink:href="#oneone"></use></svg
               ></span>
             </label>
 
@@ -70,24 +42,7 @@
               />
               <span
                 ><svg viewBox="0 0 32 32" width="32" height="32">
-                  <g>
-                    <rect
-                      x="6.4855"
-                      y="2"
-                      width="19"
-                      height="28"
-                      fill="none"
-                      stroke="#000"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                    />
-                    <path
-                      d="M6.4855,24.0566h19"
-                      fill="none"
-                      stroke="#000"
-                      stroke-width="2"
-                    />
-                  </g></svg
+                  <use xlink:href="#zerotwo"></use></svg
               ></span>
             </label>
 
@@ -100,24 +55,7 @@
               />
               <span
                 ><svg viewBox="0 0 32 32" width="32" height="32">
-                  <g>
-                    <rect
-                      x="6.4855"
-                      y="2"
-                      width="19"
-                      height="28"
-                      fill="none"
-                      stroke="#000"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                    />
-                    <path
-                      d="M25.4855,7.9434h-19"
-                      fill="none"
-                      stroke="#000"
-                      stroke-width="2"
-                    />
-                  </g></svg
+                  <use xlink:href="#twozero"></use></svg
               ></span>
             </label>
           </div>
@@ -140,15 +78,12 @@
       </div>
     </div>
     <!-- end controls-->
-    <div
-      class="card__container--front"
-      :class="[cardLayout, playerImageBleedOrBoxed]"
-    >
+    <div class="card__container--front" :class="[cardLayout, boxOrbleed]">
       <div class="text__line--first row">
-        <h2 :style="cssTextLine1Props" class="">
+        <h2 :style="cssTxtLn1Props" class="cf__h2">
           <input
             class=""
-            v-model="teamName"
+            v-model="team"
             type="text"
             placeholder
             maxlength="42"
@@ -159,24 +94,22 @@
             <div class="row row--grow space-between row--textControls">
               <label class="rangeUI__label">
                 <span
-                  >Weight: <output :value="textLine1.fontWeight"></output
+                  >Weight: <output :value="txtLn1.fontWeight"></output
                 ></span>
 
                 <input
                   class="rangeUI__input"
-                  v-model="textLine1.fontWeight"
+                  v-model="txtLn1.fontWeight"
                   type="range"
                   min="150"
                   max="800"
                 />
               </label>
               <label class="rangeUI__label">
-                <span
-                  >Width: <output :value="textLine1.fontWidth"></output
-                ></span>
+                <span>Width: <output :value="txtLn1.fontWidth"></output></span>
                 <input
                   class="rangeUI__input"
-                  v-model="textLine1.fontWidth"
+                  v-model="txtLn1.fontWidth"
                   type="range"
                   min="35"
                   max="100"
@@ -185,24 +118,20 @@
             </div>
             <div class="row row--grow space-between row--textControls">
               <label class="rangeUI__label">
-                <span
-                  >Slant: <output :value="textLine1.fontSlant"></output
-                ></span>
+                <span>Slant: <output :value="txtLn1.fontSlant"></output></span>
                 <input
                   class="rangeUI__input"
-                  v-model="textLine1.fontSlant"
+                  v-model="txtLn1.fontSlant"
                   type="range"
                   min="-10"
                   max="0"
                 />
               </label>
               <label class="rangeUI__label">
-                <span
-                  >Grade: <output :value="textLine1.fontGrade"></output
-                ></span>
+                <span>Grade: <output :value="txtLn1.fontGrade"></output></span>
                 <input
                   class="rangeUI__input"
-                  v-model="textLine1.fontGrade"
+                  v-model="txtLn1.fontGrade"
                   type="range"
                   min="0"
                   max="1"
@@ -214,16 +143,11 @@
         </h2>
       </div>
       <div
-        :class="`row--middle--forDesign row ${logo.position} ${borderInner.style} ${playerImageFilterEffect}`"
+        :class="`row--hasImgs row ${logo.position} ${borderInner.style} ${filterEffect}`"
       >
         <figure class="figure--player">
           <label class="figure--player__label" for="inputTriggerFocusUI_0">
-            <img
-              loading="lazy"
-              class="image--player"
-              :src="playerImageURLorDataString"
-              alt
-            />
+            <img loading="lazy" class="image--player" :src="pic" alt />
           </label>
         </figure>
 
@@ -236,7 +160,7 @@
           <img
             loading="lazy"
             class="image--logo"
-            :src="teamLogoURL"
+            :src="logoPic"
             alt
             width="72"
             height="72"
@@ -244,7 +168,7 @@
         </figure>
       </div>
       <div class="text__line--second row">
-        <h1 :style="cssTextLine2Props" class="">
+        <h1 :style="cssTxtLn2Props" class="cf__h1">
           <input
             class=""
             v-model="playerName"
@@ -257,24 +181,22 @@
             <div class="row row--grow space-between row--textControls">
               <label class="rangeUI__label">
                 <span
-                  >Weight: <output :value="textLine2.fontWeight"></output
+                  >Weight: <output :value="txtLn2.fontWeight"></output
                 ></span>
 
                 <input
                   class="rangeUI__input"
-                  v-model="textLine2.fontWeight"
+                  v-model="txtLn2.fontWeight"
                   type="range"
                   min="150"
                   max="800"
                 />
               </label>
               <label class="rangeUI__label">
-                <span
-                  >Width: <output :value="textLine2.fontWidth"></output
-                ></span>
+                <span>Width: <output :value="txtLn2.fontWidth"></output></span>
                 <input
                   class="rangeUI__input"
-                  v-model="textLine2.fontWidth"
+                  v-model="txtLn2.fontWidth"
                   type="range"
                   min="35"
                   max="100"
@@ -283,24 +205,20 @@
             </div>
             <div class="row row--grow space-between row--textControls">
               <label class="rangeUI__label">
-                <span
-                  >Slant: <output :value="textLine2.fontSlant"></output
-                ></span>
+                <span>Slant: <output :value="txtLn2.fontSlant"></output></span>
                 <input
                   class="rangeUI__input"
-                  v-model="textLine2.fontSlant"
+                  v-model="txtLn2.fontSlant"
                   type="range"
                   min="-10"
                   max="0"
                 />
               </label>
               <label class="rangeUI__label">
-                <span
-                  >Grade: <output :value="textLine2.fontGrade"></output
-                ></span>
+                <span>Grade: <output :value="txtLn2.fontGrade"></output></span>
                 <input
                   class="rangeUI__input"
-                  v-model="textLine2.fontGrade"
+                  v-model="txtLn2.fontGrade"
                   type="range"
                   min="0"
                   max="1"
@@ -310,10 +228,10 @@
             </div>
           </div>
         </h1>
-        <h3 :style="cssTextPlayerPositionProps" class="">
+        <h3 :style="cssTextplayerPosProps" class="cf__h3">
           <input
             class=""
-            v-model="playerPosition"
+            v-model="playerPos"
             type="text"
             placeholder
             maxlength="48"
@@ -323,13 +241,12 @@
             <div class="row row--grow space-between row--textControls">
               <label class="rangeUI__label">
                 <span
-                  >Weight:
-                  <output :value="textPlayerPosition.fontWeight"></output
+                  >Weight: <output :value="textplayerPos.fontWeight"></output
                 ></span>
 
                 <input
                   class="rangeUI__input"
-                  v-model="textPlayerPosition.fontWeight"
+                  v-model="textplayerPos.fontWeight"
                   type="range"
                   min="150"
                   max="800"
@@ -337,11 +254,11 @@
               </label>
               <label class="rangeUI__label">
                 <span
-                  >Width: <output :value="textPlayerPosition.fontWidth"></output
+                  >Width: <output :value="textplayerPos.fontWidth"></output
                 ></span>
                 <input
                   class="rangeUI__input"
-                  v-model="textPlayerPosition.fontWidth"
+                  v-model="textplayerPos.fontWidth"
                   type="range"
                   min="35"
                   max="100"
@@ -351,11 +268,11 @@
             <div class="row row--grow space-between row--textControls">
               <label class="rangeUI__label">
                 <span
-                  >Slant: <output :value="textPlayerPosition.fontSlant"></output
+                  >Slant: <output :value="textplayerPos.fontSlant"></output
                 ></span>
                 <input
                   class="rangeUI__input"
-                  v-model="textPlayerPosition.fontSlant"
+                  v-model="textplayerPos.fontSlant"
                   type="range"
                   min="-10"
                   max="0"
@@ -363,11 +280,11 @@
               </label>
               <label class="rangeUI__label">
                 <span
-                  >Grade: <output :value="textPlayerPosition.fontGrade"></output
+                  >Grade: <output :value="textplayerPos.fontGrade"></output
                 ></span>
                 <input
                   class="rangeUI__input"
-                  v-model="textPlayerPosition.fontGrade"
+                  v-model="textplayerPos.fontGrade"
                   type="range"
                   min="0"
                   max="1"
@@ -395,16 +312,16 @@
                 </legend>-->
                 <div class="filePicker__wrapper">
                   <input
-                    id="playerImageFileInput"
-                    ref="playerImageFileInput"
-                    name="playerImageFileInput"
+                    id="pic"
+                    ref="pic"
+                    name="pic"
                     class="hidden--visually filePicker__input"
                     type="file"
                     accept="image/*"
                     @input="encodeImage"
                   />
                   <label
-                    for="playerImageFileInput"
+                    for="pic"
                     class="filePicker__label"
                     aria-label="Upload Image"
                   >
@@ -429,9 +346,9 @@
                 <!--<legend class="filePicker__legend text-right">Logo</legend>-->
                 <div class="filePicker__wrapper">
                   <input
-                    id="logoFileInput"
-                    ref="logoFileInput"
-                    name="logoFileInput"
+                    id="logoPic"
+                    ref="logoPic"
+                    name="logoPic"
                     class="hidden--visually filePicker__input"
                     type="file"
                     accept="image/*"
@@ -439,7 +356,7 @@
                   />
 
                   <label
-                    for="logoFileInput"
+                    for="logoPic"
                     class="filePicker__label"
                     aria-label="Upload Logo Image"
                   >
@@ -468,7 +385,7 @@
                   <input
                     type="radio"
                     class="radioBtns__input hidden--visually"
-                    v-model="playerImageFilterEffect"
+                    v-model="filterEffect"
                     value="noFilterEffect"
                   />
                   <span>None</span>
@@ -478,7 +395,7 @@
                   <input
                     type="radio"
                     class="radioBtns__input hidden--visually"
-                    v-model="playerImageFilterEffect"
+                    v-model="filterEffect"
                     value="filterbw"
                   />
                   <span>B&amp;W</span>
@@ -488,7 +405,7 @@
                   <input
                     type="radio"
                     class="radioBtns__input hidden--visually"
-                    v-model="playerImageFilterEffect"
+                    v-model="filterEffect"
                     value="filtersepia"
                   />
                   <span>Sepia</span>
@@ -498,7 +415,7 @@
                   <input
                     type="radio"
                     class="radioBtns__input hidden--visually"
-                    v-model="playerImageFilterEffect"
+                    v-model="filterEffect"
                     value="filtervintage"
                   />
                   <span>1920</span>
@@ -507,7 +424,7 @@
                   <input
                     type="radio"
                     class="radioBtns__input hidden--visually"
-                    v-model="playerImageFilterEffect"
+                    v-model="filterEffect"
                     value="filterfaded"
                   />
                   <span>Faded</span>
@@ -527,51 +444,8 @@
                     aria-label="Top Left"
                   />
                   <span>
-                    <svg
-                      width="32"
-                      height="32"
-                      viewBox="0 0 32 32"
-                      class="icon__foursquare icon__foursquare--topLeft"
-                    >
-                      <rect
-                        x="3.9351"
-                        y="4.0328"
-                        width="12"
-                        height="12"
-                        stroke="#000"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                      />
-                      <rect
-                        x="16.0649"
-                        y="4.0328"
-                        width="12"
-                        height="12"
-                        fill="none"
-                        stroke="#000"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                      />
-                      <rect
-                        x="16.0649"
-                        y="15.9672"
-                        width="12"
-                        height="12"
-                        fill="none"
-                        stroke="#000"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                      />
-                      <rect
-                        x="3.9351"
-                        y="15.9672"
-                        width="12"
-                        height="12"
-                        fill="none"
-                        stroke="#000"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                      />
+                    <svg width="32" height="32" viewBox="0 0 32 32">
+                      <use xlink:href="#squaretopleft"></use>
                     </svg>
                   </span>
                 </label>
@@ -585,51 +459,8 @@
                     aria-label="Top Right"
                   />
                   <span
-                    ><svg
-                      width="32"
-                      height="32"
-                      viewBox="0 0 32 32"
-                      class="icon__foursquare icon__foursquare--topRight"
-                    >
-                      <rect
-                        x="3.9351"
-                        y="4.0328"
-                        width="12"
-                        height="12"
-                        stroke="#000"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                      />
-                      <rect
-                        x="16.0649"
-                        y="4.0328"
-                        width="12"
-                        height="12"
-                        fill="none"
-                        stroke="#000"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                      />
-                      <rect
-                        x="16.0649"
-                        y="15.9672"
-                        width="12"
-                        height="12"
-                        fill="none"
-                        stroke="#000"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                      />
-                      <rect
-                        x="3.9351"
-                        y="15.9672"
-                        width="12"
-                        height="12"
-                        fill="none"
-                        stroke="#000"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                      />
+                    ><svg width="32" height="32" viewBox="0 0 32 32">
+                      <use xlink:href="#squaretopright"></use>
                     </svg>
                   </span>
                 </label>
@@ -643,51 +474,8 @@
                     aria-label="Bottom Left"
                   />
                   <span
-                    ><svg
-                      width="32"
-                      height="32"
-                      viewBox="0 0 32 32"
-                      class="icon__foursquare icon__foursquare--bottomLeft"
-                    >
-                      <rect
-                        x="3.9351"
-                        y="4.0328"
-                        width="12"
-                        height="12"
-                        stroke="#000"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                      />
-                      <rect
-                        x="16.0649"
-                        y="4.0328"
-                        width="12"
-                        height="12"
-                        fill="none"
-                        stroke="#000"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                      />
-                      <rect
-                        x="16.0649"
-                        y="15.9672"
-                        width="12"
-                        height="12"
-                        fill="none"
-                        stroke="#000"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                      />
-                      <rect
-                        x="3.9351"
-                        y="15.9672"
-                        width="12"
-                        height="12"
-                        fill="none"
-                        stroke="#000"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                      />
+                    ><svg width="32" height="32" viewBox="0 0 32 32">
+                      <use xlink:href="#squarebotleft"></use>
                     </svg>
                   </span>
                 </label>
@@ -701,51 +489,8 @@
                     aria-label="Bottom Right"
                   />
                   <span
-                    ><svg
-                      width="32"
-                      height="32"
-                      viewBox="0 0 32 32"
-                      class="icon__foursquare icon__foursquare--bottomRight"
-                    >
-                      <rect
-                        x="3.9351"
-                        y="4.0328"
-                        width="12"
-                        height="12"
-                        stroke="#000"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                      />
-                      <rect
-                        x="16.0649"
-                        y="4.0328"
-                        width="12"
-                        height="12"
-                        fill="none"
-                        stroke="#000"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                      />
-                      <rect
-                        x="16.0649"
-                        y="15.9672"
-                        width="12"
-                        height="12"
-                        fill="none"
-                        stroke="#000"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                      />
-                      <rect
-                        x="3.9351"
-                        y="15.9672"
-                        width="12"
-                        height="12"
-                        fill="none"
-                        stroke="#000"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                      />
+                    ><svg width="32" height="32" viewBox="0 0 32 32">
+                      <use xlink:href="#squarebotright"></use>
                     </svg>
                   </span>
                 </label>
@@ -781,73 +526,33 @@
 </template>
 
 <script>
-import defaultSettings from "/json/default-settings.json";
-//import TextSlider from "./TextSlider.vue";
-
-var webWorkerEncode = new Worker("./workers/web-worker-encode.js", {
-  type: "module",
-});
-//var webWorkerFetch = new Worker("./workers/web-worker-fetch.js", {
-//  type: "module",
-//});
-
-// any reason not to fire up web worker at the beginning?
-
-// async function submitHandler() {
-//   console.log(event);
-//   webWorkerFetch.postMessage(defaultSettings, this.data);
-//   webWorkerFetch.onmessage = function(event) {
-//     console.log(
-//       event.data,
-//       "card front here thanking web worker fetch for its help"
-//     );
-//   };
-// }
-
-// can constrain the ACCEPT attribute  https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file
-
-// async function validateImage(imageFileToValidate) {
-//   const maxFileSize = 1;
-//   if (imageFileToValidate.size < maxFileSize) {
-//     console.log("okay go ahead");
-//   } else {
-//     console.log("too heavy");
-//   }
-// }
-
-// need this to encode whatever image is passed to it right?
-async function encodeImage(event) {
-  let evntTrgtID = event.target.id;
-  let filesProp = this.$refs[evntTrgtID].files;
-  let usrfile = filesProp[0];
-
-  //validateImage();
-
-  if (filesProp && usrfile) {
-    //console.log(this);
-    webWorkerEncode.postMessage(usrfile);
-    this.$emit("input", usrfile);
-    // hard to pass through the refernce
-    // REFACTOR
-    let testFunction = null;
-    if (evntTrgtID === "playerImageFileInput") {
-      testFunction = (strng) => {
-        this.playerImageURLorDataString = strng;
-      };
-    } else {
-      testFunction = (strng) => {
-        this.teamLogoURL = strng;
-      };
-    }
-    webWorkerEncode.onmessage = function (event) {
-      testFunction(event.data);
-    };
-    // END REFACTOR
-  }
-}
+import opts from "/json/default-settings.json";
 
 export default {
-  setup() {
+  // writing sytax of 'setup()' was giving me a prob with 'this'
+  setup: function () {
+    var webWorkerEncode = new Worker("./workers/web-worker-encode.js", {
+      type: "module",
+    });
+
+    async function encodeImage(event) {
+      let theField = event.target.id;
+      let filesProp = event.target.files;
+      let usrfile = filesProp[0];
+      //validateImage();
+      let insertImgFunc = (strng, theField) => {
+        this[theField] = strng;
+      };
+      // can i use optional chaining here?
+      if (filesProp && usrfile) {
+        webWorkerEncode.postMessage(usrfile);
+        this.$emit("input", usrfile);
+        webWorkerEncode.onmessage = (theMessage) => {
+          insertImgFunc(theMessage.data, theField);
+        };
+      }
+    }
+
     return {
       encodeImage,
       webWorkerEncode,
@@ -856,48 +561,48 @@ export default {
   },
   data() {
     return {
-      cardBackgroundColor: defaultSettings.cardBackgroundColor,
-      cardTextColor: defaultSettings.cardTextColor,
-      cardBrightness: defaultSettings.cardBrightness,
-      cardSepia: defaultSettings.cardSepia,
-      cardGrayScale: defaultSettings.cardGrayScale,
-      cardLayout: defaultSettings.cardLayout,
-      teamLogoURL: defaultSettings.teamLogoURL,
-      playerImageURLorDataString: defaultSettings.playerImageURLorDataString,
-      playerImageBleedOrBoxed: defaultSettings.playerImageBleedOrBoxed,
-      playerImageFilterEffect: defaultSettings.playerImageFilterEffect,
-      playerName: defaultSettings.playerName,
-      playerPosition: defaultSettings.playerPosition,
-      teamName: defaultSettings.teamName,
+      bgCol: opts.bgCol,
+      textCol: opts.textCol,
+      cardBright: opts.cardBright,
+      cardSepia: opts.cardSepia,
+      cardGrey: opts.cardGrey,
+      cardLayout: opts.cardLayout,
+      logoPic: opts.logoPic,
+      pic: opts.pic,
+      boxOrbleed: opts.boxOrbleed,
+      filterEffect: opts.filterEffect,
+      playerName: opts.playerName,
+      playerPos: opts.playerPos,
+      team: opts.team,
       borderInner: {
-        color: defaultSettings.borderInner.color,
-        curve: defaultSettings.borderInner.curve,
-        style: defaultSettings.borderInner.style,
-        opacity: defaultSettings.borderInner.opacity,
-        width: defaultSettings.borderInner.width,
+        color: opts.borderInner.color,
+        curve: opts.borderInner.curve,
+        style: opts.borderInner.style,
+        opacity: opts.borderInner.opacity,
+        width: opts.borderInner.width,
       },
       logo: {
-        showing: defaultSettings.logo.showing,
-        borderRadius: defaultSettings.logo.borderRadius,
-        position: defaultSettings.logo.position,
+        showing: opts.logo.showing,
+        borderRadius: opts.logo.borderRadius,
+        position: opts.logo.position,
       },
-      textLine1: {
-        fontWeight: defaultSettings.textLine1.fontWeight,
-        fontWidth: defaultSettings.textLine1.fontWidth,
-        fontGrade: defaultSettings.textLine1.fontGrade,
-        fontSlant: defaultSettings.textLine1.fontSlant,
+      txtLn1: {
+        fontWeight: opts.txtLn1.fontWeight,
+        fontWidth: opts.txtLn1.fontWidth,
+        fontGrade: opts.txtLn1.fontGrade,
+        fontSlant: opts.txtLn1.fontSlant,
       },
-      textLine2: {
-        fontWeight: defaultSettings.textLine2.fontWeight,
-        fontWidth: defaultSettings.textLine2.fontWidth,
-        fontGrade: defaultSettings.textLine2.fontGrade,
-        fontSlant: defaultSettings.textLine2.fontSlant,
+      txtLn2: {
+        fontWeight: opts.txtLn2.fontWeight,
+        fontWidth: opts.txtLn2.fontWidth,
+        fontGrade: opts.txtLn2.fontGrade,
+        fontSlant: opts.txtLn2.fontSlant,
       },
-      textPlayerPosition: {
-        fontWeight: defaultSettings.textPlayerPosition.fontWeight,
-        fontWidth: defaultSettings.textPlayerPosition.fontWidth,
-        fontGrade: defaultSettings.textPlayerPosition.fontGrade,
-        fontSlant: defaultSettings.textPlayerPosition.fontSlant,
+      textplayerPos: {
+        fontWeight: opts.textplayerPos.fontWeight,
+        fontWidth: opts.textplayerPos.fontWidth,
+        fontGrade: opts.textplayerPos.fontGrade,
+        fontSlant: opts.textplayerPos.fontSlant,
       },
     };
   },
@@ -914,9 +619,7 @@ export default {
       }
 
       return {
-        "--backgroundcolorback": hexToDesiredColorSpace(
-          this.cardBackgroundColor
-        ),
+        "--backgroundcolorback": hexToDesiredColorSpace(this.bgCol),
 
         "--red": redVal,
         "--green": greenVal,
@@ -925,47 +628,43 @@ export default {
     },
     cssCardDesignProps() {
       return {
-        "--cardbackgroundcolor": this.cardBackgroundColor,
-        "--cardTextColor": this.cardTextColor,
+        "--bgCol": this.bgCol,
+        "--textCol": this.textCol,
         "--cardsepia": `${this.cardSepia}%`,
-        "--cardbrightness": this.cardBrightness,
-        "--cardgrayscale": `${this.cardGrayScale}%`,
+        "--cardBright": this.cardBright,
+        "--cardGrey": `${this.cardGrey}%`,
         "--cardlayout": this.cardLayout,
-        "--playerimagebleedorboxed": this.playerImageBleedOrBoxed,
-        //"--playerimagefiltereffect": this.playerImageFilterEffect,
+        "--boxOrbleed": this.boxOrbleed,
       };
     },
-    cssTextLine1Props() {
+    cssTxtLn1Props() {
       return {
-        //"--color": this.textLine1.color,
-        "--fontweight": this.textLine1.fontWeight,
-        "--fontwidth": this.textLine1.fontWidth,
-        "--fontgrade": this.textLine1.fontGrade,
-        "--fontslant": this.textLine1.fontSlant,
+        "--fontweight": this.txtLn1.fontWeight,
+        "--fontwidth": this.txtLn1.fontWidth,
+        "--fontgrade": this.txtLn1.fontGrade,
+        "--fontslant": this.txtLn1.fontSlant,
       };
     },
-    cssTextLine2Props() {
+    cssTxtLn2Props() {
       return {
-        //"--color": this.textLine2.color,
-        "--fontweight": this.textLine2.fontWeight,
-        "--fontwidth": this.textLine2.fontWidth,
-        "--fontgrade": this.textLine2.fontGrade,
-        "--fontslant": this.textLine2.fontSlant,
+        "--fontweight": this.txtLn2.fontWeight,
+        "--fontwidth": this.txtLn2.fontWidth,
+        "--fontgrade": this.txtLn2.fontGrade,
+        "--fontslant": this.txtLn2.fontSlant,
       };
     },
-    cssTextPlayerPositionProps() {
+    cssTextplayerPosProps() {
       return {
-        //"--color": this.textLine2.color,
-        "--fontweight": this.textPlayerPosition.fontWeight,
-        "--fontwidth": this.textPlayerPosition.fontWidth,
-        "--fontgrade": this.textPlayerPosition.fontGrade,
-        "--fontslant": this.textPlayerPosition.fontSlant,
+        "--fontweight": this.textplayerPos.fontWeight,
+        "--fontwidth": this.textplayerPos.fontWidth,
+        "--fontgrade": this.textplayerPos.fontGrade,
+        "--fontslant": this.textplayerPos.fontSlant,
       };
     },
     cssLogoProps() {
       return {
         "--logoposition": this.logo.position,
-        "--logoborderradius": `${this.logo.borderRadius}%`,
+        //"--logoborderradius": `${this.logo.borderRadius}%`,
       };
     },
     cssBorderInnerProps() {
@@ -982,8 +681,8 @@ export default {
 };
 </script>
 
-<style scoped lang="scss">
-.cardFront__wrapper--outermost {
+<style lang="scss">
+.cf__wrapper--outermost {
   --r: calc(var(--red) * 0.2126);
   --g: calc(var(--green) * 0.7152);
   --b: calc(var(--blue) * 0.0722);
@@ -1009,29 +708,20 @@ export default {
   display: flex;
   flex-direction: column;
   width: 36rem;
-  //yes, hard height here because
   height: 50.4rem;
   margin: 0 auto;
   padding: 0 1.6rem;
   color: var(--calcColor);
-  background-color: var(--cardbackgroundcolor);
-
+  background-color: var(--bgCol);
   border: 1px solid rgba(0, 0, 0, 0.3333);
-
   // may need this again...
   //overflow: hidden;
-
   z-index: 0;
 }
 
-.cardFront__controls {
+.cf__controls {
   position: relative;
   //padding: 0.8rem 0;
-  .colorPicker__label--textOverlap {
-    span {
-      color: var(--calcColor);
-    }
-  }
 }
 
 .playerImage__controls {
@@ -1040,66 +730,92 @@ export default {
 
 .one-one {
   justify-content: space-between;
-  .row--middle--forDesign {
+  input {
+    &[type="text"] {
+      height: var(--min-touch-target-height);
+    }
+  }
+  .row--hasImgs {
     order: 0;
+  }
+  .text__line--first {
+    [data-soi] {
+      top: var(--min-touch-target);
+      bottom: auto;
+    }
+  }
+
+  .text__line--second {
+    [data-soi] {
+      top: auto;
+      bottom: var(--min-touch-target);
+    }
   }
 }
 .zero-two {
   justify-content: flex-end;
   padding-top: 1.6rem;
   padding-bottom: 0;
-  .row--middle--forDesign {
+  input {
+    &[type="text"] {
+      height: 2.4rem;
+    }
+  }
+  .row--hasImgs {
     order: -1;
   }
 
   .text__line--first {
     padding-top: 0.8rem;
+    [data-soi] {
+      top: auto;
+      bottom: 6.4rem;
+    }
   }
   .text__line--second {
     padding-bottom: 0.8rem;
+    [data-soi] {
+      top: auto;
+      bottom: 6.4rem;
+    }
   }
 }
 .two-zero {
   justify-content: flex-start;
   padding-top: 0;
   padding-bottom: 1.6rem;
-  .row--middle--forDesign {
+  input {
+    &[type="text"] {
+      height: 2.4rem;
+    }
+  }
+  .row--hasImgs {
     order: 1;
   }
 
   .text__line--first {
     padding-top: 0.8rem;
+    [data-soi] {
+      top: 6.4rem;
+      bottom: auto;
+    }
   }
   .text__line--second {
     padding-bottom: 0.8rem;
-  }
-}
-
-input {
-  &[type="text"] {
-    .one-one & {
-      height: var(--min-touch-target-height);
-    }
-    //reason that iM ok here with less than 44px is that when they are next to each other, focus UI makes it less of a huge deal if user taps the adjascent box. Not ideal but also still clickable
-    .two-zero & {
-      height: 2.4rem;
-    }
-    .zero-two & {
-      height: 2.4rem;
+    [data-soi] {
+      top: 6.4rem;
+      bottom: auto;
     }
   }
 }
 
-.row--middle--forDesign {
+.row--hasImgs {
   display: flex;
-  position: var(--playerimagebleedorboxed);
+  position: var(--boxOrbleed);
   flex-grow: 1;
-
   border-width: var(--borderinnerwidth);
   border-style: var(--borderinnerstyle);
-
   border-color: var(--calcColor);
-
   border-radius: var(--borderinnercurve);
 
   &.topLeft {
@@ -1156,20 +872,12 @@ input {
   }
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+.cf__h1,
+.cf__h2,
+.cf__h3 {
   color: var(--color);
   font-variation-settings: "wght" var(--fontweight), "wdth" var(--fontwidth),
     "GRAD" var(--fontgrade), "slnt" var(--fontslant);
-}
-
-h1,
-h2,
-h3 {
   &:focus-within {
     [data-soi] {
       visibility: visible;
@@ -1177,59 +885,13 @@ h3 {
   }
 }
 
-.one-one {
-  .text__line--first {
-    [data-soi] {
-      top: var(--min-touch-target);
-      bottom: auto;
-    }
-  }
-
-  .text__line--second {
-    [data-soi] {
-      top: auto;
-      bottom: var(--min-touch-target);
-    }
-  }
-}
-
-.zero-two {
-  .text__line--first {
-    [data-soi] {
-      top: auto;
-      bottom: 6.4rem;
-    }
-  }
-  .text__line--second {
-    [data-soi] {
-      top: auto;
-      bottom: 6.4rem;
-    }
-  }
-}
-
-.two-zero {
-  .text__line--first {
-    [data-soi] {
-      top: 6.4rem;
-      bottom: auto;
-    }
-  }
-  .text__line--second {
-    [data-soi] {
-      top: 6.4rem;
-      bottom: auto;
-    }
-  }
-}
-
-h2 {
+.cf__h2 {
   font-size: 1.8rem;
   display: flex;
   flex-grow: 1;
 }
 
-h3 {
+.cf__h3 {
   font-size: 1.6rem;
 
   text-align: right;
@@ -1246,12 +908,12 @@ h3 {
   bottom: 0;
   left: 0;
   display: flex;
-  //background-color: var(--cardbackgroundcolor);
+  //background-color: var(--bgCol);
   border-radius: var(--borderinnercurve);
-  .static & {
-    border-radius: 0;
-    z-index: -1;
-  }
+  //.static & {
+  //  border-radius: 0;
+  //  z-index: -1;
+  //}
   .figure--player__label {
     flex-grow: 1;
   }
@@ -1274,8 +936,7 @@ h3 {
 .figure--logo {
   position: absolute;
   display: flex;
-  filter: #{"grayscale(var(--cardgrayscale))"} brightness(var(--cardbrightness))
-    sepia(var(--cardsepia));
+
   pointer-events: none;
 }
 

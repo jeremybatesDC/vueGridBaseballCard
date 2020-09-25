@@ -1,17 +1,17 @@
 {
   "name": "baseballcardcreator",
-  "version": "3.0.0",
+  "version": "4.0.0",
   "license": "MIT",
   "scripts": {
     "dev": "vite",
     "build": "vite build"
   },
   "dependencies": {
-    "vue": "^3.0.0-beta.14"
+    "vue": "^3.0.0"
   },
   "devDependencies": {
-    "@vue/compiler-sfc": "^3.0.0-beta.14",
-    "sass": "^1.26.8",
-    "vite": "^1.0.0-beta.4"
+    "@vue/compiler-sfc": "3.0.0",
+    "sass": "1.26.11",
+    "vite": "1.0.0-rc.4"
   }
 }

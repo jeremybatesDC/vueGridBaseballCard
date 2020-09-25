@@ -22,10 +22,279 @@
         -webkit-font-smoothing: subpixel-antialiased;
         -moz-osx-font-smoothing: grayscale;
         text-rendering: optimizeLegibility;
+        --unit: 1.6rem;
+        --min-touch-target: 4.4rem;
+        --min-touch-target-half: 2.2rem;
+        --min-touch-target-height: 4.4rem;
+        --min-touch-target-width: var(--min-touch-target-height);
+        --min-touch-target-height-half: 2.2rem;
+        --min-touch-target-height-double: 8.8rem;
+        --touch-target-48: 4.8rem;
+        --touch-target-large: 6rem;
+        --touch-target-spacing: 3.2rem;
+        --touch-target-spacing-small: 2.4rem;
+        --text-short-wide: "wght" 400, "wdth" 25, "opsz" 25, "GRAD" 1, "slnt" 0,
+          "YTLC" 400, "YTUC" 400, "YTFI" 400;
+        --text-shortest-wide: "wght" 400, "wdth" 30, "opsz" 30, "GRAD" 1,
+          "slnt" 0, "YTLC" 100, "YTUC" 100, "YTFI" 100;
+        --text-squeeze: "wght" 175, "wdth" 1, "opsz" 27, "GRAD" 1, "slnt" 0,
+          "YTLC" 600, "YTUC" 600, "YTFI" 600;
+        --text-tall-narrow: "wght" 200, "wdth" 1, "opsz" 25, "GRAD" 0, "slnt" 0,
+          "YTLC" 400, "YTUC" 400, "YTFI" 400;
+        --text-tall-narrow-active: "wght" 200, "wdth" 1, "opsz" 25, "GRAD" 1,
+          "slnt" 0, "YTLC" 400, "YTUC" 400, "YTFI" 400;
+        --text-big-bold: "wght" 400, "wdth" 75, "opsz" 1, "GRAD" 1, "slnt" 0;
+
+        --logoborderradius: 50%;
+        --contrast-threshold-for-card: 0.4;
+        --contrast-threshold-for-controls: 0.9;
+        --border-threshold: 0.8;
+        --grey-for-controls: #c7c7c7;
+        --background-for-overlay: rgba(0, 0, 0, 0.75);
+        --background-for-overlay-controls: rgba(175, 175, 175, 0.9);
+        --color-for-svgs: #000;
+        --active-color-for-svgs: #fff;
+        --transparent-for-svgs: none;
       }
     </style>
     <svg class="hidden--visually">
       <defs>
+        <symbol id="oneone">
+          <g>
+            <rect
+              x="6.4855"
+              y="2"
+              width="19"
+              height="28"
+              fill="none"
+              stroke="#000"
+              stroke-linejoin="round"
+              stroke-width="2"
+            />
+            <path
+              d="M6.4855,26h19"
+              fill="none"
+              stroke="#000"
+              stroke-width="2"
+            />
+            <path d="M6.6217,6h19" fill="none" stroke="#000" stroke-width="2" />
+          </g>
+        </symbol>
+
+        <symbol id="zerotwo">
+          <g>
+            <rect
+              x="6.4855"
+              y="2"
+              width="19"
+              height="28"
+              fill="none"
+              stroke="#000"
+              stroke-linejoin="round"
+              stroke-width="2"
+            />
+            <path
+              d="M6.4855,24.0566h19"
+              fill="none"
+              stroke="#000"
+              stroke-width="2"
+            />
+          </g>
+        </symbol>
+        <symbol id="twozero">
+          <g>
+            <rect
+              x="6.4855"
+              y="2"
+              width="19"
+              height="28"
+              fill="none"
+              stroke="#000"
+              stroke-linejoin="round"
+              stroke-width="2"
+            />
+            <path
+              d="M25.4855,7.9434h-19"
+              fill="none"
+              stroke="#000"
+              stroke-width="2"
+            />
+          </g>
+        </symbol>
+        <symbol id="squaretopleft">
+          <rect
+            x="3.9351"
+            y="4.0328"
+            width="12"
+            height="12"
+            stroke="#000"
+            stroke-linejoin="round"
+            stroke-width="2"
+          />
+          <rect
+            x="16.0649"
+            y="4.0328"
+            width="12"
+            height="12"
+            fill="none"
+            stroke="#000"
+            stroke-linejoin="round"
+            stroke-width="2"
+          />
+          <rect
+            x="16.0649"
+            y="15.9672"
+            width="12"
+            height="12"
+            fill="none"
+            stroke="#000"
+            stroke-linejoin="round"
+            stroke-width="2"
+          />
+          <rect
+            x="3.9351"
+            y="15.9672"
+            width="12"
+            height="12"
+            fill="none"
+            stroke="#000"
+            stroke-linejoin="round"
+            stroke-width="2"
+          />
+        </symbol>
+        <symbol
+          id="squaretopright"
+          class="icon__foursquare icon__foursquare--topRight"
+        >
+          <rect
+            x="3.9351"
+            y="4.0328"
+            width="12"
+            height="12"
+            stroke="#000"
+            stroke-linejoin="round"
+            stroke-width="2"
+          />
+          <rect
+            x="16.0649"
+            y="4.0328"
+            width="12"
+            height="12"
+            fill="none"
+            stroke="#000"
+            stroke-linejoin="round"
+            stroke-width="2"
+          />
+          <rect
+            x="16.0649"
+            y="15.9672"
+            width="12"
+            height="12"
+            fill="none"
+            stroke="#000"
+            stroke-linejoin="round"
+            stroke-width="2"
+          />
+          <rect
+            x="3.9351"
+            y="15.9672"
+            width="12"
+            height="12"
+            fill="none"
+            stroke="#000"
+            stroke-linejoin="round"
+            stroke-width="2"
+          />
+        </symbol>
+        <symbol
+          id="squarebotleft"
+          class="icon__foursquare icon__foursquare--bottomLeft"
+        >
+          <rect
+            x="3.9351"
+            y="4.0328"
+            width="12"
+            height="12"
+            stroke="#000"
+            stroke-linejoin="round"
+            stroke-width="2"
+          />
+          <rect
+            x="16.0649"
+            y="4.0328"
+            width="12"
+            height="12"
+            fill="none"
+            stroke="#000"
+            stroke-linejoin="round"
+            stroke-width="2"
+          />
+          <rect
+            x="16.0649"
+            y="15.9672"
+            width="12"
+            height="12"
+            fill="none"
+            stroke="#000"
+            stroke-linejoin="round"
+            stroke-width="2"
+          />
+          <rect
+            x="3.9351"
+            y="15.9672"
+            width="12"
+            height="12"
+            fill="none"
+            stroke="#000"
+            stroke-linejoin="round"
+            stroke-width="2"
+          />
+        </symbol>
+        <symbol
+          id="squarebotright"
+          class="icon__foursquare icon__foursquare--bottomRight"
+        >
+          <rect
+            x="3.9351"
+            y="4.0328"
+            width="12"
+            height="12"
+            stroke="#000"
+            stroke-linejoin="round"
+            stroke-width="2"
+          />
+          <rect
+            x="16.0649"
+            y="4.0328"
+            width="12"
+            height="12"
+            fill="none"
+            stroke="#000"
+            stroke-linejoin="round"
+            stroke-width="2"
+          />
+          <rect
+            x="16.0649"
+            y="15.9672"
+            width="12"
+            height="12"
+            fill="none"
+            stroke="#000"
+            stroke-linejoin="round"
+            stroke-width="2"
+          />
+          <rect
+            x="3.9351"
+            y="15.9672"
+            width="12"
+            height="12"
+            fill="none"
+            stroke="#000"
+            stroke-linejoin="round"
+            stroke-width="2"
+          />
+        </symbol>
+
         <symbol id="iconportraitadd">
           <rect
             x="3.7677"

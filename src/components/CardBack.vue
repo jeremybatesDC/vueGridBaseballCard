@@ -10,7 +10,7 @@
             <input
               class="colorPicker__input"
               type="color"
-              v-model="defaultSettingsBack.backgroundColor"
+              v-model="optsBack.backgroundColor"
             />
           </label>
         </fieldset>
@@ -22,7 +22,7 @@
                 type="radio"
                 class="radioBtns__input hidden--visually"
                 name="gumradio"
-                v-model="defaultSettingsBack.gumShowing"
+                v-model="optsBack.gumShowing"
                 value="gumShowing"
               />
               <span>Show</span>
@@ -33,7 +33,7 @@
                 type="radio"
                 class="radioBtns__input hidden--visually"
                 name="gumradio"
-                v-model="defaultSettingsBack.gumShowing"
+                v-model="optsBack.gumShowing"
                 value="gumHidden"
               />
               <span>Hide</span>
@@ -43,10 +43,10 @@
       </div>
     </div>
 
-    <div class="card-back">
-      <article :class="defaultSettingsBack.gumShowing">
+    <div class="cb">
+      <article :data-gum="optsBack.gumShowing" class="cb__article">
         <BackHeader />
-        <section>
+        <section class="cb__section">
           <TableStatsManual />
           <AsideFacts />
         </section>
@@ -58,7 +58,7 @@
 
 <script lang="ts">
 import defaultFacts from "/json/default-facts.json";
-import defaultSettingsBack from "/json/default-settings-back.json";
+import optsBack from "/json/default-settings-back.json";
 //import { set } from "idb-keyval";
 //import TextSlider from "./InputChildComponents/TextSlider.vue";
 import TableStatsManual from "./InputChildComponents/TableStatsManual.vue";
@@ -66,26 +66,7 @@ import BackHeader from "./InputChildComponents/BackHeader.vue";
 import BackFooter from "./InputChildComponents/BackFooter.vue";
 import AsideFacts from "./InputChildComponents/AsideFacts.vue";
 
-//const webWorkerCardBack = new Worker("./workers/web-worker-idb.js", {
-//  type: "module",
-//});
-
-//async function setFunc() {
-//  webWorkerCardBack.postMessage(this.aside.fontGrade);
-//  webWorkerCardBack.onmessage = function (event) {
-//    console.log("received message here is ", event.data);
-//  };
-//  set("footerFontWeight", this.footer.fontWeight)
-//    .then(() => console.log("woohoo!"))
-//    .catch((err) => console.log("doh!", err));
-//}
-
 export default {
-  // intentionally avoiding arrow functions here
-  //setup() {
-  //  return { };
-  //},
-
   // do I nest props to send to child components in here?
   components: {
     //TextSlider,
@@ -98,13 +79,13 @@ export default {
   data() {
     return {
       defaultFacts,
-      defaultSettingsBack: {
-        backgroundColor: defaultSettingsBack.backgroundColor,
+      optsBack: {
+        backgroundColor: optsBack.backgroundColor,
 
         redVal: 200,
         greenVal: 60,
         blueVal: 255,
-        gumShowing: defaultSettingsBack.gumShowing,
+        gumShowing: optsBack.gumShowing,
       },
       // would love to be equally declarative with footer and aside stuff too...
       // move these footer defaults to json
@@ -136,7 +117,7 @@ export default {
 
       return {
         "--backgroundcolorback": hexToDesiredColorSpace(
-          this.defaultSettingsBack.backgroundColor
+          this.optsBack.backgroundColor
         ),
 
         "--red": redVal,
@@ -164,7 +145,7 @@ export default {
 };
 </script>
 
-<style scoped lang="scss">
+<style lang="scss">
 // if can keep square stats table, will allow switch between vert and horz
 
 .cardBack__wrapper--outermost {
@@ -187,12 +168,7 @@ export default {
   );
 }
 
-// cheat
-.colorPicker__label--textOverlap {
-  color: var(--calcColor);
-}
-
-.card-back {
+.cb {
   display: flex;
   //flex-direction: column;
   position: relative;
@@ -210,57 +186,48 @@ export default {
   color: var(--calcColor);
   filter: drop-shadow(0 1px 0 #000) drop-shadow(0 -1px 0 #000)
     drop-shadow(1px 0 0 #000) drop-shadow(-1px 0 0 #000);
-}
-
-article {
-  display: flex;
-  flex-grow: 1;
-  flex-direction: column;
-  justify-content: space-between;
-  position: relative;
-
-  //background-color: rgba(#9c2c1a, 0.25);
-  // using outline here so that it'll just be clipped on small devices automatically
-  outline: 1.6rem solid var(--calcColor);
-  overflow: hidden;
-
-  // need to figure this out -- prob need another wrapper
-
-  &.gumShowing {
-    &:after {
-      // svg gum image maybe
-      content: "";
-      position: absolute;
-      top: 0;
-      right: 0;
-      width: 10rem;
-      height: 30rem;
-      background-color: var(--calcColor);
-      opacity: 0.15;
-      border-radius: 3px 5px 7px 9px;
-      transform: rotate(-33deg) translateX(-8rem) translateY(-4rem);
-      //mix-blend-mode: hard-light;
-      filter: blur(2px);
-      pointer-events: none;
-    }
+  &__section {
+    // if this part is restricted to vert width, then it'll definitely fit on horz
+    display: flex;
+    flex-grow: 1;
+    align-items: stretch;
+    flex-direction: row;
+    flex-wrap: wrap-reverse;
+    padding: 0;
+    background: rgba(0, 0, 0, 0.1);
   }
-  //&.has-crease {
-  //}
+  &__article {
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+
+    //background-color: rgba(#9c2c1a, 0.25);
+    // using outline here so that it'll just be clipped on small devices automatically
+    outline: 1.6rem solid var(--calcColor);
+    overflow: hidden;
+
+    // need to figure this out -- prob need another wrapper
+  }
 }
 
-// set EXPLICIT font variation settings for the table
-section {
-  // if this part is restricted to vert width, then it'll definitely fit on horz
-  display: flex;
-  flex-grow: 1;
-  align-items: stretch;
-  flex-direction: row;
-  flex-wrap: wrap-reverse;
-  padding: 0;
-  background: rgba(0, 0, 0, 0.1);
+[data-gum="gumShowing"] {
+  &:after {
+    // svg gum image maybe
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 10rem;
+    height: 30rem;
+    background-color: var(--calcColor);
+    opacity: 0.15;
+    border-radius: 3px 5px 7px 9px;
+    transform: rotate(-33deg) translateX(-8rem) translateY(-4rem);
+    //mix-blend-mode: hard-light;
+    filter: blur(2px);
+    pointer-events: none;
+  }
 }
-
-// rather imperative here, but having table as child of flex element was kinda odd... ooooh
-
-//
 </style>
