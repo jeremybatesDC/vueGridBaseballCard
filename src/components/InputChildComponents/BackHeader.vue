@@ -71,7 +71,7 @@
       </label>
       <label class="backHeader__label--topmost">
         <span>
-          <input type="text" v-model="defaultFacts.info.info_3" />
+          <input type="text" v-model="defaultFacts.info_3" />
         </span>
       </label>
     </div>
@@ -85,7 +85,7 @@
             <input
               class="stripe__input"
               type="email"
-              v-model="defaultFacts.info.info_0"
+              v-model="defaultFacts.info_0"
             />
           </label>
 
@@ -93,23 +93,23 @@
             <input
               class="stripe__input"
               type="text"
-              v-model="defaultFacts.info.info_1"
+              v-model="defaultFacts.info_1"
             />
           </label>
         </div>
         <div class="row row--bottommost space-between">
           <label>
-            <input class="" type="text" v-model="defaultFacts.info.info_4" />
+            <input class="" type="text" v-model="defaultFacts.info_4" />
           </label>
           <label>
             <input
               class="text-center"
               type="text"
-              v-model="defaultFacts.info.info_5"
+              v-model="defaultFacts.info_5"
             />
           </label>
           <label>
-            <input class="" type="text" v-model="defaultFacts.info.info_6" />
+            <input class="" type="text" v-model="defaultFacts.info_6" />
           </label>
         </div>
       </span>

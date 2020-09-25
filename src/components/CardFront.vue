@@ -14,11 +14,7 @@
           class="colorPicker__label colorPicker__label--textOverlap align-self-center"
         >
           <span>Color</span>
-          <input
-            class="colorPicker__input"
-            type="color"
-            v-model="cardBackgroundColor"
-          />
+          <input class="colorPicker__input" type="color" v-model="bgCol" />
         </label>
 
         <fieldset class="radioBtns__fieldset">
@@ -82,15 +78,12 @@
       </div>
     </div>
     <!-- end controls-->
-    <div
-      class="card__container--front"
-      :class="[cardLayout, playerImageBleedOrBoxed]"
-    >
+    <div class="card__container--front" :class="[cardLayout, boxOrbleed]">
       <div class="text__line--first row">
-        <h2 :style="cssTextLine1Props" class="cf__h2">
+        <h2 :style="cssTxtLn1Props" class="cf__h2">
           <input
             class=""
-            v-model="teamName"
+            v-model="team"
             type="text"
             placeholder
             maxlength="42"
@@ -101,24 +94,22 @@
             <div class="row row--grow space-between row--textControls">
               <label class="rangeUI__label">
                 <span
-                  >Weight: <output :value="textLine1.fontWeight"></output
+                  >Weight: <output :value="txtLn1.fontWeight"></output
                 ></span>
 
                 <input
                   class="rangeUI__input"
-                  v-model="textLine1.fontWeight"
+                  v-model="txtLn1.fontWeight"
                   type="range"
                   min="150"
                   max="800"
                 />
               </label>
               <label class="rangeUI__label">
-                <span
-                  >Width: <output :value="textLine1.fontWidth"></output
-                ></span>
+                <span>Width: <output :value="txtLn1.fontWidth"></output></span>
                 <input
                   class="rangeUI__input"
-                  v-model="textLine1.fontWidth"
+                  v-model="txtLn1.fontWidth"
                   type="range"
                   min="35"
                   max="100"
@@ -127,24 +118,20 @@
             </div>
             <div class="row row--grow space-between row--textControls">
               <label class="rangeUI__label">
-                <span
-                  >Slant: <output :value="textLine1.fontSlant"></output
-                ></span>
+                <span>Slant: <output :value="txtLn1.fontSlant"></output></span>
                 <input
                   class="rangeUI__input"
-                  v-model="textLine1.fontSlant"
+                  v-model="txtLn1.fontSlant"
                   type="range"
                   min="-10"
                   max="0"
                 />
               </label>
               <label class="rangeUI__label">
-                <span
-                  >Grade: <output :value="textLine1.fontGrade"></output
-                ></span>
+                <span>Grade: <output :value="txtLn1.fontGrade"></output></span>
                 <input
                   class="rangeUI__input"
-                  v-model="textLine1.fontGrade"
+                  v-model="txtLn1.fontGrade"
                   type="range"
                   min="0"
                   max="1"
@@ -156,16 +143,11 @@
         </h2>
       </div>
       <div
-        :class="`row--hasImgs row ${logo.position} ${borderInner.style} ${playerImageFilterEffect}`"
+        :class="`row--hasImgs row ${logo.position} ${borderInner.style} ${filterEffect}`"
       >
         <figure class="figure--player">
           <label class="figure--player__label" for="inputTriggerFocusUI_0">
-            <img
-              loading="lazy"
-              class="image--player"
-              :src="playerImageURLorDataString"
-              alt
-            />
+            <img loading="lazy" class="image--player" :src="pic" alt />
           </label>
         </figure>
 
@@ -178,7 +160,7 @@
           <img
             loading="lazy"
             class="image--logo"
-            :src="teamLogoURL"
+            :src="logoPic"
             alt
             width="72"
             height="72"
@@ -186,7 +168,7 @@
         </figure>
       </div>
       <div class="text__line--second row">
-        <h1 :style="cssTextLine2Props" class="cf__h1">
+        <h1 :style="cssTxtLn2Props" class="cf__h1">
           <input
             class=""
             v-model="playerName"
@@ -199,24 +181,22 @@
             <div class="row row--grow space-between row--textControls">
               <label class="rangeUI__label">
                 <span
-                  >Weight: <output :value="textLine2.fontWeight"></output
+                  >Weight: <output :value="txtLn2.fontWeight"></output
                 ></span>
 
                 <input
                   class="rangeUI__input"
-                  v-model="textLine2.fontWeight"
+                  v-model="txtLn2.fontWeight"
                   type="range"
                   min="150"
                   max="800"
                 />
               </label>
               <label class="rangeUI__label">
-                <span
-                  >Width: <output :value="textLine2.fontWidth"></output
-                ></span>
+                <span>Width: <output :value="txtLn2.fontWidth"></output></span>
                 <input
                   class="rangeUI__input"
-                  v-model="textLine2.fontWidth"
+                  v-model="txtLn2.fontWidth"
                   type="range"
                   min="35"
                   max="100"
@@ -225,24 +205,20 @@
             </div>
             <div class="row row--grow space-between row--textControls">
               <label class="rangeUI__label">
-                <span
-                  >Slant: <output :value="textLine2.fontSlant"></output
-                ></span>
+                <span>Slant: <output :value="txtLn2.fontSlant"></output></span>
                 <input
                   class="rangeUI__input"
-                  v-model="textLine2.fontSlant"
+                  v-model="txtLn2.fontSlant"
                   type="range"
                   min="-10"
                   max="0"
                 />
               </label>
               <label class="rangeUI__label">
-                <span
-                  >Grade: <output :value="textLine2.fontGrade"></output
-                ></span>
+                <span>Grade: <output :value="txtLn2.fontGrade"></output></span>
                 <input
                   class="rangeUI__input"
-                  v-model="textLine2.fontGrade"
+                  v-model="txtLn2.fontGrade"
                   type="range"
                   min="0"
                   max="1"
@@ -252,10 +228,10 @@
             </div>
           </div>
         </h1>
-        <h3 :style="cssTextPlayerPositionProps" class="cf__h3">
+        <h3 :style="cssTextplayerPosProps" class="cf__h3">
           <input
             class=""
-            v-model="playerPosition"
+            v-model="playerPos"
             type="text"
             placeholder
             maxlength="48"
@@ -265,13 +241,12 @@
             <div class="row row--grow space-between row--textControls">
               <label class="rangeUI__label">
                 <span
-                  >Weight:
-                  <output :value="textPlayerPosition.fontWeight"></output
+                  >Weight: <output :value="textplayerPos.fontWeight"></output
                 ></span>
 
                 <input
                   class="rangeUI__input"
-                  v-model="textPlayerPosition.fontWeight"
+                  v-model="textplayerPos.fontWeight"
                   type="range"
                   min="150"
                   max="800"
@@ -279,11 +254,11 @@
               </label>
               <label class="rangeUI__label">
                 <span
-                  >Width: <output :value="textPlayerPosition.fontWidth"></output
+                  >Width: <output :value="textplayerPos.fontWidth"></output
                 ></span>
                 <input
                   class="rangeUI__input"
-                  v-model="textPlayerPosition.fontWidth"
+                  v-model="textplayerPos.fontWidth"
                   type="range"
                   min="35"
                   max="100"
@@ -293,11 +268,11 @@
             <div class="row row--grow space-between row--textControls">
               <label class="rangeUI__label">
                 <span
-                  >Slant: <output :value="textPlayerPosition.fontSlant"></output
+                  >Slant: <output :value="textplayerPos.fontSlant"></output
                 ></span>
                 <input
                   class="rangeUI__input"
-                  v-model="textPlayerPosition.fontSlant"
+                  v-model="textplayerPos.fontSlant"
                   type="range"
                   min="-10"
                   max="0"
@@ -305,11 +280,11 @@
               </label>
               <label class="rangeUI__label">
                 <span
-                  >Grade: <output :value="textPlayerPosition.fontGrade"></output
+                  >Grade: <output :value="textplayerPos.fontGrade"></output
                 ></span>
                 <input
                   class="rangeUI__input"
-                  v-model="textPlayerPosition.fontGrade"
+                  v-model="textplayerPos.fontGrade"
                   type="range"
                   min="0"
                   max="1"
@@ -337,16 +312,16 @@
                 </legend>-->
                 <div class="filePicker__wrapper">
                   <input
-                    id="playerImageURLorDataString"
-                    ref="playerImageURLorDataString"
-                    name="playerImageURLorDataString"
+                    id="pic"
+                    ref="pic"
+                    name="pic"
                     class="hidden--visually filePicker__input"
                     type="file"
                     accept="image/*"
                     @input="encodeImage"
                   />
                   <label
-                    for="playerImageURLorDataString"
+                    for="pic"
                     class="filePicker__label"
                     aria-label="Upload Image"
                   >
@@ -371,9 +346,9 @@
                 <!--<legend class="filePicker__legend text-right">Logo</legend>-->
                 <div class="filePicker__wrapper">
                   <input
-                    id="teamLogoURL"
-                    ref="teamLogoURL"
-                    name="teamLogoURL"
+                    id="logoPic"
+                    ref="logoPic"
+                    name="logoPic"
                     class="hidden--visually filePicker__input"
                     type="file"
                     accept="image/*"
@@ -381,7 +356,7 @@
                   />
 
                   <label
-                    for="teamLogoURL"
+                    for="logoPic"
                     class="filePicker__label"
                     aria-label="Upload Logo Image"
                   >
@@ -410,7 +385,7 @@
                   <input
                     type="radio"
                     class="radioBtns__input hidden--visually"
-                    v-model="playerImageFilterEffect"
+                    v-model="filterEffect"
                     value="noFilterEffect"
                   />
                   <span>None</span>
@@ -420,7 +395,7 @@
                   <input
                     type="radio"
                     class="radioBtns__input hidden--visually"
-                    v-model="playerImageFilterEffect"
+                    v-model="filterEffect"
                     value="filterbw"
                   />
                   <span>B&amp;W</span>
@@ -430,7 +405,7 @@
                   <input
                     type="radio"
                     class="radioBtns__input hidden--visually"
-                    v-model="playerImageFilterEffect"
+                    v-model="filterEffect"
                     value="filtersepia"
                   />
                   <span>Sepia</span>
@@ -440,7 +415,7 @@
                   <input
                     type="radio"
                     class="radioBtns__input hidden--visually"
-                    v-model="playerImageFilterEffect"
+                    v-model="filterEffect"
                     value="filtervintage"
                   />
                   <span>1920</span>
@@ -449,7 +424,7 @@
                   <input
                     type="radio"
                     class="radioBtns__input hidden--visually"
-                    v-model="playerImageFilterEffect"
+                    v-model="filterEffect"
                     value="filterfaded"
                   />
                   <span>Faded</span>
@@ -586,19 +561,19 @@ export default {
   },
   data() {
     return {
-      cardBackgroundColor: opts.cardBackgroundColor,
-      cardTextColor: opts.cardTextColor,
-      cardBrightness: opts.cardBrightness,
+      bgCol: opts.bgCol,
+      textCol: opts.textCol,
+      cardBright: opts.cardBright,
       cardSepia: opts.cardSepia,
-      cardGrayScale: opts.cardGrayScale,
+      cardGrey: opts.cardGrey,
       cardLayout: opts.cardLayout,
-      teamLogoURL: opts.teamLogoURL,
-      playerImageURLorDataString: opts.playerImageURLorDataString,
-      playerImageBleedOrBoxed: opts.playerImageBleedOrBoxed,
-      playerImageFilterEffect: opts.playerImageFilterEffect,
+      logoPic: opts.logoPic,
+      pic: opts.pic,
+      boxOrbleed: opts.boxOrbleed,
+      filterEffect: opts.filterEffect,
       playerName: opts.playerName,
-      playerPosition: opts.playerPosition,
-      teamName: opts.teamName,
+      playerPos: opts.playerPos,
+      team: opts.team,
       borderInner: {
         color: opts.borderInner.color,
         curve: opts.borderInner.curve,
@@ -611,23 +586,23 @@ export default {
         borderRadius: opts.logo.borderRadius,
         position: opts.logo.position,
       },
-      textLine1: {
-        fontWeight: opts.textLine1.fontWeight,
-        fontWidth: opts.textLine1.fontWidth,
-        fontGrade: opts.textLine1.fontGrade,
-        fontSlant: opts.textLine1.fontSlant,
+      txtLn1: {
+        fontWeight: opts.txtLn1.fontWeight,
+        fontWidth: opts.txtLn1.fontWidth,
+        fontGrade: opts.txtLn1.fontGrade,
+        fontSlant: opts.txtLn1.fontSlant,
       },
-      textLine2: {
-        fontWeight: opts.textLine2.fontWeight,
-        fontWidth: opts.textLine2.fontWidth,
-        fontGrade: opts.textLine2.fontGrade,
-        fontSlant: opts.textLine2.fontSlant,
+      txtLn2: {
+        fontWeight: opts.txtLn2.fontWeight,
+        fontWidth: opts.txtLn2.fontWidth,
+        fontGrade: opts.txtLn2.fontGrade,
+        fontSlant: opts.txtLn2.fontSlant,
       },
-      textPlayerPosition: {
-        fontWeight: opts.textPlayerPosition.fontWeight,
-        fontWidth: opts.textPlayerPosition.fontWidth,
-        fontGrade: opts.textPlayerPosition.fontGrade,
-        fontSlant: opts.textPlayerPosition.fontSlant,
+      textplayerPos: {
+        fontWeight: opts.textplayerPos.fontWeight,
+        fontWidth: opts.textplayerPos.fontWidth,
+        fontGrade: opts.textplayerPos.fontGrade,
+        fontSlant: opts.textplayerPos.fontSlant,
       },
     };
   },
@@ -644,9 +619,7 @@ export default {
       }
 
       return {
-        "--backgroundcolorback": hexToDesiredColorSpace(
-          this.cardBackgroundColor
-        ),
+        "--backgroundcolorback": hexToDesiredColorSpace(this.bgCol),
 
         "--red": redVal,
         "--green": greenVal,
@@ -655,37 +628,37 @@ export default {
     },
     cssCardDesignProps() {
       return {
-        "--cardbackgroundcolor": this.cardBackgroundColor,
-        "--cardTextColor": this.cardTextColor,
+        "--bgCol": this.bgCol,
+        "--textCol": this.textCol,
         "--cardsepia": `${this.cardSepia}%`,
-        "--cardbrightness": this.cardBrightness,
-        "--cardgrayscale": `${this.cardGrayScale}%`,
+        "--cardBright": this.cardBright,
+        "--cardGrey": `${this.cardGrey}%`,
         "--cardlayout": this.cardLayout,
-        "--playerimagebleedorboxed": this.playerImageBleedOrBoxed,
+        "--boxOrbleed": this.boxOrbleed,
       };
     },
-    cssTextLine1Props() {
+    cssTxtLn1Props() {
       return {
-        "--fontweight": this.textLine1.fontWeight,
-        "--fontwidth": this.textLine1.fontWidth,
-        "--fontgrade": this.textLine1.fontGrade,
-        "--fontslant": this.textLine1.fontSlant,
+        "--fontweight": this.txtLn1.fontWeight,
+        "--fontwidth": this.txtLn1.fontWidth,
+        "--fontgrade": this.txtLn1.fontGrade,
+        "--fontslant": this.txtLn1.fontSlant,
       };
     },
-    cssTextLine2Props() {
+    cssTxtLn2Props() {
       return {
-        "--fontweight": this.textLine2.fontWeight,
-        "--fontwidth": this.textLine2.fontWidth,
-        "--fontgrade": this.textLine2.fontGrade,
-        "--fontslant": this.textLine2.fontSlant,
+        "--fontweight": this.txtLn2.fontWeight,
+        "--fontwidth": this.txtLn2.fontWidth,
+        "--fontgrade": this.txtLn2.fontGrade,
+        "--fontslant": this.txtLn2.fontSlant,
       };
     },
-    cssTextPlayerPositionProps() {
+    cssTextplayerPosProps() {
       return {
-        "--fontweight": this.textPlayerPosition.fontWeight,
-        "--fontwidth": this.textPlayerPosition.fontWidth,
-        "--fontgrade": this.textPlayerPosition.fontGrade,
-        "--fontslant": this.textPlayerPosition.fontSlant,
+        "--fontweight": this.textplayerPos.fontWeight,
+        "--fontwidth": this.textplayerPos.fontWidth,
+        "--fontgrade": this.textplayerPos.fontGrade,
+        "--fontslant": this.textplayerPos.fontSlant,
       };
     },
     cssLogoProps() {
@@ -735,18 +708,14 @@ export default {
   display: flex;
   flex-direction: column;
   width: 36rem;
-  //yes, hard height here because
   height: 50.4rem;
   margin: 0 auto;
   padding: 0 1.6rem;
   color: var(--calcColor);
-  background-color: var(--cardbackgroundcolor);
-
+  background-color: var(--bgCol);
   border: 1px solid rgba(0, 0, 0, 0.3333);
-
   // may need this again...
   //overflow: hidden;
-
   z-index: 0;
 }
 
@@ -842,7 +811,7 @@ export default {
 
 .row--hasImgs {
   display: flex;
-  position: var(--playerimagebleedorboxed);
+  position: var(--boxOrbleed);
   flex-grow: 1;
   border-width: var(--borderinnerwidth);
   border-style: var(--borderinnerstyle);
@@ -939,7 +908,7 @@ export default {
   bottom: 0;
   left: 0;
   display: flex;
-  //background-color: var(--cardbackgroundcolor);
+  //background-color: var(--bgCol);
   border-radius: var(--borderinnercurve);
   //.static & {
   //  border-radius: 0;

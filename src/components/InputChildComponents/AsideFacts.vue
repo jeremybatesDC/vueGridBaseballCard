@@ -3,13 +3,13 @@
     <blockquote class="aside__blockquote">
       <span class="aside__wrapper--outer">
         <h3 class="aside__h3">
-          <input type="text" v-model="defaultFacts.info.facts[0].headline" />
+          <input type="text" v-model="asideHeadline" />
         </h3>
         <span class="aside__wrapper--inner">
           <textarea
             class="aside__textarea"
             rows="3"
-            v-model="defaultFacts.info.facts[0].text"
+            v-model="asideText"
             spellcheck="false"
           ></textarea>
           <div data-soi hidden>
@@ -75,13 +75,14 @@
 </template>
 
 <script>
-import defaultFacts from "/json/default-facts.json";
 import optsBack from "/json/default-settings-back.json";
 
 export default {
   data() {
     return {
-      defaultFacts,
+      asideHeadline: "CAREER HIGHLIGHTS",
+      asideText:
+        "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.",
       textLineB: {
         fontWeight: optsBack.textLineB.fontWeight,
         fontWidth: optsBack.textLineB.fontWidth,

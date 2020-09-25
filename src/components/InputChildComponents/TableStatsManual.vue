@@ -528,17 +528,17 @@ export default {
       },
     };
   },
-  // using a method instead of computerd MIGHT allow me to pass in the column-number...
+
   methods: {
     sumNumericCol(statCol) {
       const rdcrSum = (acum, curVal) => {
         return parseFloat(acum) + parseFloat(curVal);
       };
       let colNumsArray = [];
-      for (let i = 0; i < Object.keys(this.seasons).length; i++) {
+      Object.keys(this.seasons).map((season, i) => {
         let yrString = `yr${i}`;
         colNumsArray.push(+this.seasons[yrString].stats[statCol]);
-      }
+      });
       return colNumsArray.reduce(rdcrSum);
     },
   },
@@ -665,14 +665,10 @@ tbody {
         text-align: left;
       }
     }
-
-    input {
-      //display: block;
-      padding: 0;
-      text-align: right;
-    }
   }
   input {
+    padding: 0;
+    text-align: right;
     &[type="tel"] {
       &::placeholder {
         color: var(--calcColor);
@@ -684,14 +680,14 @@ tfoot {
   font-variation-settings: "wght" 200, "wdth" 25, "opsz" 30, "GRAD" 1, "slnt" 0,
     "YTLC" 500, "YTUC" 500, "YTFI" 500;
   background: rgba(0, 0, 0, 0.05);
-  //box-shadow: 0 1px #000, 1px 0 #000, -1px 0 #000;
   td,
   th {
     padding: 0.1rem 0 0.1rem 0.1rem;
+  }
+  th {
     &:first-child {
       text-align: left;
     }
   }
-  //box-shadow: 0 1px #000;
 }
 </style>

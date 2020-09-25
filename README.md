@@ -6,30 +6,12 @@ push latest for terps!
 
 more helpful defualt text
 
-off option(s) to lower creative burden stats-wise
-
 PUT SERVICE WORKER BACK AFTER DEV -- really want env var here
 
-css code coverage in dev tools
-
-refactor inputs.scss -- too nested
-refactor cardfront css
-
-touch indicator at least on initial load for logo image
-emphasize those image upload buttons more. Thumbprint icon? in v2 i could try to graduate them.
-
-can i tree shake vue? Vite says it's optimizable and i do think the entire thing is loading... hmmm
-
-might get too slow with huge photos
-
-after editing career highlights, sometimes hard ot click table stats without triggering career highlights again
-
+emphasize those image upload buttons more.
 logo image could match upload logo icon for more of a visual hint! plus it's super digitized8
 
-ASIDE & FOOTER!
-textareas content strategy/testing:
-a) maxlength?
-b) b/c may not be feasible to alwasy vertically center textareas w/out ever clipping text, consider adding a visual florish / bottom box shadow that would be obscured by a 2nd/3rd etc line of text (maybe with a text background color or something)
+decrease size further i think by having back aside and footer not import the whole facts json files
 
 ---
 
@@ -72,6 +54,10 @@ so really it's just an upload button... I want it to match the logo image icon. 
 
 ## App
 
+gets too slow with huge photos (does the same happen after you change photos 100times even with small images? is it a pure memory issue?)
+
+Nativescript-Vue is the way to go... everything just seems to be between versions right now. I starred 8 repos though
+
 verify no input field zoom following this lightrefactor
 
 reafcotr container classes? long words
@@ -83,6 +69,32 @@ i stupidly removed previous xcode when installing beta xcode. Nativescript appea
 -- i already have an apple dev account it seems -- upgrading xcode now... The vue3 feature of making it "easier to target native" seems to have evaporated
 
 ### 2nd release
+
+graduate image upload buttons to l2?
+
+after editing career highlights, sometimes hard ot click table stats without triggering career highlights again
+
+ASIDE & FOOTER!
+textareas content strategy/testing:
+a) maxlength?
+b) b/c may not be feasible to alwasy vertically center textareas w/out ever clipping text, consider adding a visual florish / bottom box shadow that would be obscured by a 2nd/3rd etc line of text (maybe with a text background color or something)
+
+refactor inputs.scss -- too nested
+refactor cardfront css
+
+css code coverage in dev tools
+
+offer option(s) to lower creative burden stats-wise
+
+touch indicator at least on initial load for logo image
+
+tour?
+
+once css is less than 14kb, have it inserted into head rather than chunked into file... Service worker caches the index page, so... consider
+
+can i tree shake vue? Vite says it's optimizable and i do think the entire thing is loading... hmmm
+
+consider chunking apart front and back apps -- although they SHOULD ideally data...
 
 don't need TRUE icons for font sliders -- just style a capital A with the relevant hard-coded font variation settings
 

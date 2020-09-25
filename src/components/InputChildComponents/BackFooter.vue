@@ -1,13 +1,13 @@
 <template>
   <footer class="cb__footer" :style="textLineCProps">
-    <fieldset class="cb__fieldset">
+    <span class="footTextWrap">
       <textarea
         class="cb__footer__textarea"
         rows="2"
         spellcheck="false"
-        v-model="defaultFacts.info.facts[1].text"
+        v-model="footerText"
       ></textarea>
-    </fieldset>
+    </span>
     <div data-soi hidden>
       <div class="row row--grow space-between row--textControls">
         <label class="rangeUI__label">
@@ -60,13 +60,13 @@
 </template>
 
 <script>
-import defaultFacts from "/json/default-facts.json";
 import optsBack from "/json/default-settings-back.json";
 
 export default {
   data() {
     return {
-      defaultFacts,
+      footerText:
+        "Did you know? Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.",
       textLineC: {
         fontWeight: optsBack.textLineC.fontWeight,
         fontWidth: optsBack.textLineC.fontWidth,
@@ -114,13 +114,10 @@ export default {
   padding-top: 0.4rem;
 }
 
-.cb__fieldset {
+.footTextWrap {
   display: flex;
   flex-direction: column;
   position: relative;
-  border: none;
-  box-shadow: none;
   padding: 0.8rem 0 0 0;
-  margin: 0;
 }
 </style>
