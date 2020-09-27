@@ -556,11 +556,10 @@ export default {
         return parseFloat(acum) + parseFloat(curVal);
       };
       let colNumsArray = [];
-      //hardcoded at present so must refactor
-      for (let i = 0; i < 5; i++) {
-        let yrString = `yr${i + 1}`;
-        colNumsArray.push(+this.seasons[yrString].numericStats[statCol]);
-      }
+      Object.keys(this.seasons).map((season, i) => {
+        let yrString = `yr${i}`;
+        colNumsArray.push(+this.seasons[yrString].stats[statCol]);
+      });
       return colNumsArray.reduce(rdcrSum);
     },
   },
