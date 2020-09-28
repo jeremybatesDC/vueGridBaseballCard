@@ -11,7 +11,6 @@
     <div class="cardFront__controls controls--l2">
       <div class="row space-around height--100">
         <label
-          v-show="playerImageBleedOrBoxed !== 'static'"
           class="colorPicker__label colorPicker__label--textOverlap align-self-center"
         >
           <span>Color</span>
@@ -88,7 +87,7 @@
       :class="[cardLayout, playerImageBleedOrBoxed]"
     >
       <div class="text__line--first row">
-        <h2 :style="cssTextLine1Props" class="">
+        <h2 :style="cssTextLine1Props" class="cf__h2">
           <input
             class=""
             v-model="teamName"
@@ -187,7 +186,7 @@
         </figure>
       </div>
       <div class="text__line--second row">
-        <h1 :style="cssTextLine2Props" class="">
+        <h1 :style="cssTextLine2Props" class="cf__h1">
           <input
             class=""
             v-model="playerName"
@@ -253,7 +252,7 @@
             </div>
           </div>
         </h1>
-        <h3 :style="cssTextPlayerPositionProps" class="">
+        <h3 :style="cssTextPlayerPositionProps" class="cf__h3">
           <input
             class=""
             v-model="playerPosition"
@@ -938,10 +937,10 @@ input {
 .text__line--second {
   justify-content: space-between;
   align-items: center;
-  h1 {
+  .cf__h1 {
     width: 66.6666%;
   }
-  h3 {
+  .cf__h3 {
     width: 33.3333%;
   }
 }
@@ -956,10 +955,9 @@ h6 {
   font-variation-settings: "wght" var(--fontwght), "wdth" var(--fontwidth),
     "GRAD" var(--fontgrade), "slnt" var(--fontslant);
 }
-
-h1,
-h2,
-h3 {
+.cf__h1,
+.cf__h2,
+.cf__h3 {
   &:focus-within {
     [data-soi] {
       visibility: visible;
@@ -1013,13 +1011,13 @@ h3 {
   }
 }
 
-h2 {
+.cf__h2 {
   font-size: 1.8rem;
   display: flex;
   flex-grow: 1;
 }
 
-h3 {
+.cf__h3 {
   font-size: 1.6rem;
 
   text-align: right;
@@ -1038,10 +1036,10 @@ h3 {
   display: flex;
   //background-color: var(--cardbackgroundcolor);
   border-radius: var(--borderinnercurve);
-  .static & {
-    border-radius: 0;
-    z-index: -1;
-  }
+  //.static & {
+  //  border-radius: 0;
+  //  z-index: -1;
+  //}
   .figure--player__label {
     flex-grow: 1;
   }
