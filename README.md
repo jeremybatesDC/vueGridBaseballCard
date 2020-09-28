@@ -2,11 +2,13 @@
 
 ## To Do
 
+review readme in v4 for additional ideas i may have added at some poeint
+
+bettwe click outside to close like underneath on desktop? it doesn't take up full height...
+
 more helpful defualt text
 
 PUT SERVICE WORKER BACK AFTER DEV -- really want env var here
-
-card front image kinda warps on load
 
 touch indicator at least on initial load for logo image
 emphasize those image upload buttons more. Thumbprint icon? in v2 i could try to graduate them.
@@ -74,6 +76,7 @@ i stupidly removed previous xcode when installing beta xcode. Nativescript appea
 
 ### 2nd release
 
+tabs the Vue way: https://codepen.io/team/Vue/pen/jOPjZOe
 ASIDE & FOOTER!
 textareas content strategy/testing:
 a) maxlength?

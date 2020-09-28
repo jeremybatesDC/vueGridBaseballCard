@@ -4,17 +4,11 @@
   "playerImageFilterEffect": "noFilterEffect",
   "playerName": "Anthony Rendon",
   "playerPosition": "Third Base",
-  "teamLogoAltText": "Nats Curley W Logo",
   "teamLogoURL": "/images/logoDefault.jpg",
   "teamName": "Washington Nationals",
   "cardBackgroundColor": "#ffffff",
-  "cardBackgroundTexture": "filterfabric",
   "cardBrightness": "1",
   "cardTextColor": "#000000",
-  "cardTextFontWidth": "90",
-  "cardTextFontOptSize": "25",
-  "cardTextFontGrade": "0",
-  "cardTextFontSlant": "0",
   "cardSepia": "0",
   "cardGrayScale": "0",
   "cardLayout": "one-one",
@@ -31,21 +25,18 @@
     "position": "bottomRight"
   },
   "textLine1": {
-    "color": "#123456",
     "fontWght": "600",
     "fontWidth": "90",
     "fontGrade": "1",
     "fontSlant": "0"
   },
   "textLine2": {
-    "color": "#345abc",
     "fontWght": "200",
     "fontWidth": "50",
     "fontGrade": ".5",
     "fontSlant": "0"
   },
   "textPlayerPosition": {
-    "color": "#345abc",
     "fontWght": "200",
     "fontWidth": "50",
     "fontGrade": ".5",

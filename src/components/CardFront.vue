@@ -161,6 +161,8 @@
         <figure class="figure--player">
           <label class="figure--player__label" for="inputTriggerFocusUI_0">
             <img
+              width="320"
+              height="408"
               loading="lazy"
               class="image--player"
               :src="playerImageURLorDataString"
@@ -576,33 +578,6 @@ import opts from "/json/default-settings.json";
 var webWorkerEncode = new Worker("./workers/web-worker-encode.js", {
   type: "module",
 });
-//var webWorkerFetch = new Worker("./workers/web-worker-fetch.js", {
-//  type: "module",
-//});
-
-// any reason not to fire up web worker at the beginning?
-
-// async function submitHandler() {
-//   console.log(event);
-//   webWorkerFetch.postMessage(opts, this.data);
-//   webWorkerFetch.onmessage = function(event) {
-//     console.log(
-//       event.data,
-//       "card front here thanking web worker fetch for its help"
-//     );
-//   };
-// }
-
-// can constrain the ACCEPT attribute  https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file
-
-// async function validateImage(imageFileToValidate) {
-//   const maxFileSize = 1;
-//   if (imageFileToValidate.size < maxFileSize) {
-//     console.log("okay go ahead");
-//   } else {
-//     console.log("too heavy");
-//   }
-// }
 
 // need this to encode whatever image is passed to it right?
 async function encodeImage(event) {
@@ -721,12 +696,10 @@ export default {
         "--cardgrayscale": `${this.cardGrayScale}%`,
         "--cardlayout": this.cardLayout,
         "--playerimagebleedorboxed": this.playerImageBleedOrBoxed,
-        //"--playerimagefiltereffect": this.playerImageFilterEffect,
       };
     },
     cssTextLine1Props() {
       return {
-        //"--color": this.textLine1.color,
         "--fontwght": this.textLine1.fontWght,
         "--fontwidth": this.textLine1.fontWidth,
         "--fontgrade": this.textLine1.fontGrade,
@@ -735,7 +708,6 @@ export default {
     },
     cssTextLine2Props() {
       return {
-        //"--color": this.textLine2.color,
         "--fontwght": this.textLine2.fontWght,
         "--fontwidth": this.textLine2.fontWidth,
         "--fontgrade": this.textLine2.fontGrade,
@@ -744,7 +716,6 @@ export default {
     },
     cssTextPlayerPositionProps() {
       return {
-        //"--color": this.textLine2.color,
         "--fontwght": this.textPlayerPosition.fontWght,
         "--fontwidth": this.textPlayerPosition.fontWidth,
         "--fontgrade": this.textPlayerPosition.fontGrade,
@@ -771,7 +742,7 @@ export default {
 };
 </script>
 
-<style scoped lang="scss">
+<style lang="scss">
 .cardFront__wrapper--outermost {
   --r: calc(var(--red) * 0.2126);
   --g: calc(var(--green) * 0.7152);
@@ -789,8 +760,6 @@ export default {
         -10000000%
     )
   );
-
-  overflow: hidden;
 }
 
 .card__container--front {
@@ -945,19 +914,12 @@ input {
   }
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  color: var(--color);
-  font-variation-settings: "wght" var(--fontwght), "wdth" var(--fontwidth),
-    "GRAD" var(--fontgrade), "slnt" var(--fontslant);
-}
 .cf__h1,
 .cf__h2,
 .cf__h3 {
+  color: var(--color);
+  font-variation-settings: "wght" var(--fontwght), "wdth" var(--fontwidth),
+    "GRAD" var(--fontgrade), "slnt" var(--fontslant);
   &:focus-within {
     [data-soi] {
       visibility: visible;

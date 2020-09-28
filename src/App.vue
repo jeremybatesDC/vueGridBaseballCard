@@ -85,6 +85,11 @@ body {
   background-color: #eee;
 }
 
+main {
+  //height: 100vh;
+  overflow: hidden;
+}
+
 h1,
 h2,
 h3 {
@@ -105,13 +110,6 @@ h3 {
   height: 7.2rem;
 }
 
-//details {
-//  padding: 1rem;
-//}
-//summary {
-//  display: flex;
-//}
-
 legend {
   font-family: inherit;
   text-align: center;
@@ -128,7 +126,6 @@ label {
 
 [role="tablist"] {
   display: flex;
-  //margin-bottom: 1.6rem;
   background-color: var(--grey-for-controls);
 }
 
