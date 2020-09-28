@@ -60,7 +60,7 @@
 </template>
 
 <script>
-import optsBack from "/json/default-settings-back.json";
+//import optsBack from "/json/default-settings-back.json";
 
 export default {
   data() {
@@ -68,10 +68,10 @@ export default {
       footerText:
         "Did you know? Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.",
       textLineC: {
-        fontWght: optsBack.textLineC.fontWght,
-        fontWidth: optsBack.textLineC.fontWidth,
-        fontGrade: optsBack.textLineC.fontGrade,
-        fontSlant: optsBack.textLineC.fontSlant,
+        fontWght: "200",
+        fontWidth: "50",
+        fontGrade: ".5",
+        fontSlant: "-5",
       },
     };
   },

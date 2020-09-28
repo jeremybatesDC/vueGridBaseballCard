@@ -2,21 +2,20 @@
 
 ## To Do
 
+more helpful defualt text
+
+PUT SERVICE WORKER BACK AFTER DEV -- really want env var here
+
+card front image kinda warps on load
+
 touch indicator at least on initial load for logo image
 emphasize those image upload buttons more. Thumbprint icon? in v2 i could try to graduate them.
 
 can i tree shake vue? Vite says it's optimizable and i do think the entire thing is loading... hmmm
 
-might get too slow with huge photos
-
 after editing career highlights, sometimes hard ot click table stats without triggering career highlights again
 
 logo image could match upload logo icon for more of a visual hint! plus it's super digitized8
-
-ASIDE & FOOTER!
-textareas content strategy/testing:
-a) maxlength?
-b) b/c may not be feasible to alwasy vertically center textareas w/out ever clipping text, consider adding a visual florish / bottom box shadow that would be obscured by a 2nd/3rd etc line of text (maybe with a text background color or something)
 
 ---
 
@@ -57,7 +56,30 @@ and, after considering it, i donT think i need a table plugin. If I can properly
 
 so really it's just an upload button... I want it to match the logo image icon. And since image player icon can't be a mountain, and logo image prob shouldn't be a person, then need to generalize morereplace filepicker player image upload button with an icon of a picture that feautures a person not a mountian: something like: https://iconmonstr.com/picture-4-svg/
 
+## App
+
+gets too slow with huge photos (does the same happen after you change photos 100times even with small images? is it a pure memory issue?)
+
+Nativescript-Vue is the way to go... everything just seems to be between versions right now. I starred 8 repos though
+
+verify no input field zoom following this lightrefactor
+
+reafcotr container classes? long words
+
+logo position squares AND layout icons: active white color--RESTORE AFTER HAVING MOVED IT TO INDEX.html
+
+i stupidly removed previous xcode when installing beta xcode. Nativescript appearently isn't expecting the beta... restore that, but maybe not now on bad internet connection
+
+-- i already have an apple dev account it seems -- upgrading xcode now... The vue3 feature of making it "easier to target native" seems to have evaporated
+
 ### 2nd release
+
+ASIDE & FOOTER!
+textareas content strategy/testing:
+a) maxlength?
+b) b/c may not be feasible to alwasy vertically center textareas w/out ever clipping text, consider adding a visual florish / bottom box shadow that would be obscured by a 2nd/3rd etc line of text (maybe with a text background color or something)
+
+might get too slow with huge photos
 
 don't need TRUE icons for font sliders -- just style a capital A with the relevant hard-coded font variation settings
 

@@ -11,8 +11,6 @@
   "cardBackgroundTexture": "filterfabric",
   "cardBrightness": "1",
   "cardTextColor": "#000000",
-
-  "cardTextFontWeight": "400",
   "cardTextFontWidth": "90",
   "cardTextFontOptSize": "25",
   "cardTextFontGrade": "0",

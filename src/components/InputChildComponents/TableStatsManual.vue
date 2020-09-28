@@ -447,7 +447,7 @@
   </div>
 </template>
 <script>
-import defaultStats from "/json/default-stats.json";
+//import defaultStats from "/json/default-stats.json";
 
 function putCursorAtEnd(event) {
   event.target.setSelectionRange(99, 99);
@@ -459,7 +459,7 @@ export default {
   },
   data() {
     return {
-      defaultStats,
+      //defaultStats,
       fields: {
         year: "Year",
         homeCity: "City",

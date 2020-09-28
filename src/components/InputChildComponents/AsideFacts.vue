@@ -75,8 +75,6 @@
 </template>
 
 <script>
-import optsBack from "/json/default-settings-back.json";
-
 export default {
   data() {
     return {
@@ -84,10 +82,10 @@ export default {
       asideText:
         "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.",
       textLineB: {
-        fontWght: optsBack.textLineB.fontWght,
-        fontWidth: optsBack.textLineB.fontWidth,
-        fontGrade: optsBack.textLineB.fontGrade,
-        fontSlant: optsBack.textLineB.fontSlant,
+        fontWght: "200",
+        fontWidth: "50",
+        fontGrade: ".5",
+        fontSlant: "0",
       },
     };
   },

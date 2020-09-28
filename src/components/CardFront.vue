@@ -780,7 +780,7 @@
 </template>
 
 <script>
-import defaultSettings from "/json/default-settings.json";
+import opts from "/json/default-settings.json";
 //import TextSlider from "./TextSlider.vue";
 
 var webWorkerEncode = new Worker("./workers/web-worker-encode.js", {
@@ -794,7 +794,7 @@ var webWorkerEncode = new Worker("./workers/web-worker-encode.js", {
 
 // async function submitHandler() {
 //   console.log(event);
-//   webWorkerFetch.postMessage(defaultSettings, this.data);
+//   webWorkerFetch.postMessage(opts, this.data);
 //   webWorkerFetch.onmessage = function(event) {
 //     console.log(
 //       event.data,
@@ -855,48 +855,48 @@ export default {
   },
   data() {
     return {
-      cardBackgroundColor: defaultSettings.cardBackgroundColor,
-      cardTextColor: defaultSettings.cardTextColor,
-      cardBrightness: defaultSettings.cardBrightness,
-      cardSepia: defaultSettings.cardSepia,
-      cardGrayScale: defaultSettings.cardGrayScale,
-      cardLayout: defaultSettings.cardLayout,
-      teamLogoURL: defaultSettings.teamLogoURL,
-      playerImageURLorDataString: defaultSettings.playerImageURLorDataString,
-      playerImageBleedOrBoxed: defaultSettings.playerImageBleedOrBoxed,
-      playerImageFilterEffect: defaultSettings.playerImageFilterEffect,
-      playerName: defaultSettings.playerName,
-      playerPosition: defaultSettings.playerPosition,
-      teamName: defaultSettings.teamName,
+      cardBackgroundColor: opts.cardBackgroundColor,
+      cardTextColor: opts.cardTextColor,
+      cardBrightness: opts.cardBrightness,
+      cardSepia: opts.cardSepia,
+      cardGrayScale: opts.cardGrayScale,
+      cardLayout: opts.cardLayout,
+      teamLogoURL: opts.teamLogoURL,
+      playerImageURLorDataString: opts.playerImageURLorDataString,
+      playerImageBleedOrBoxed: opts.playerImageBleedOrBoxed,
+      playerImageFilterEffect: opts.playerImageFilterEffect,
+      playerName: opts.playerName,
+      playerPosition: opts.playerPosition,
+      teamName: opts.teamName,
       borderInner: {
-        color: defaultSettings.borderInner.color,
-        curve: defaultSettings.borderInner.curve,
-        style: defaultSettings.borderInner.style,
-        opacity: defaultSettings.borderInner.opacity,
-        width: defaultSettings.borderInner.width,
+        color: opts.borderInner.color,
+        curve: opts.borderInner.curve,
+        style: opts.borderInner.style,
+        opacity: opts.borderInner.opacity,
+        width: opts.borderInner.width,
       },
       logo: {
-        showing: defaultSettings.logo.showing,
-        borderRadius: defaultSettings.logo.borderRadius,
-        position: defaultSettings.logo.position,
+        showing: opts.logo.showing,
+        borderRadius: opts.logo.borderRadius,
+        position: opts.logo.position,
       },
       textLine1: {
-        fontWght: defaultSettings.textLine1.fontWght,
-        fontWidth: defaultSettings.textLine1.fontWidth,
-        fontGrade: defaultSettings.textLine1.fontGrade,
-        fontSlant: defaultSettings.textLine1.fontSlant,
+        fontWght: opts.textLine1.fontWght,
+        fontWidth: opts.textLine1.fontWidth,
+        fontGrade: opts.textLine1.fontGrade,
+        fontSlant: opts.textLine1.fontSlant,
       },
       textLine2: {
-        fontWght: defaultSettings.textLine2.fontWght,
-        fontWidth: defaultSettings.textLine2.fontWidth,
-        fontGrade: defaultSettings.textLine2.fontGrade,
-        fontSlant: defaultSettings.textLine2.fontSlant,
+        fontWght: opts.textLine2.fontWght,
+        fontWidth: opts.textLine2.fontWidth,
+        fontGrade: opts.textLine2.fontGrade,
+        fontSlant: opts.textLine2.fontSlant,
       },
       textPlayerPosition: {
-        fontWght: defaultSettings.textPlayerPosition.fontWght,
-        fontWidth: defaultSettings.textPlayerPosition.fontWidth,
-        fontGrade: defaultSettings.textPlayerPosition.fontGrade,
-        fontSlant: defaultSettings.textPlayerPosition.fontSlant,
+        fontWght: opts.textPlayerPosition.fontWght,
+        fontWidth: opts.textPlayerPosition.fontWidth,
+        fontGrade: opts.textPlayerPosition.fontGrade,
+        fontSlant: opts.textPlayerPosition.fontSlant,
       },
     };
   },
