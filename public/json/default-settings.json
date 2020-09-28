@@ -34,21 +34,21 @@
   },
   "textLine1": {
     "color": "#123456",
-    "fontWeight": "600",
+    "fontWght": "600",
     "fontWidth": "90",
     "fontGrade": "1",
     "fontSlant": "0"
   },
   "textLine2": {
     "color": "#345abc",
-    "fontWeight": "200",
+    "fontWght": "200",
     "fontWidth": "50",
     "fontGrade": ".5",
     "fontSlant": "0"
   },
   "textPlayerPosition": {
     "color": "#345abc",
-    "fontWeight": "200",
+    "fontWght": "200",
     "fontWidth": "50",
     "fontGrade": ".5",
     "fontSlant": "-5"

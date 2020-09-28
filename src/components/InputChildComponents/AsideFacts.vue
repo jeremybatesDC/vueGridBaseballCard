@@ -16,12 +16,12 @@
             <div class="row row--grow space-between row--textControls">
               <label class="rangeUI__label">
                 <span
-                  >Weight: <output :value="textLineB.fontWeight"></output
+                  >Weight: <output :value="textLineB.fontWght"></output
                 ></span>
 
                 <input
                   class="rangeUI__input"
-                  v-model="textLineB.fontWeight"
+                  v-model="textLineB.fontWght"
                   type="range"
                   min="150"
                   max="800"
@@ -84,7 +84,7 @@ export default {
       asideText:
         "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.",
       textLineB: {
-        fontWeight: optsBack.textLineB.fontWeight,
+        fontWght: optsBack.textLineB.fontWght,
         fontWidth: optsBack.textLineB.fontWidth,
         fontGrade: optsBack.textLineB.fontGrade,
         fontSlant: optsBack.textLineB.fontSlant,
@@ -94,7 +94,7 @@ export default {
   computed: {
     textLineBProps() {
       return {
-        "--fontweight": this.textLineB.fontWeight,
+        "--fontwght": this.textLineB.fontWght,
         "--fontwidth": this.textLineB.fontWidth,
         "--fontgrade": this.textLineB.fontGrade,
         "--fontslant": this.textLineB.fontSlant,
@@ -226,7 +226,7 @@ export default {
   overflow: hidden;
   text-overflow: ellipsis;
   font-size: 1.6rem;
-  font-variation-settings: "wght" var(--fontweight), "wdth" var(--fontwidth),
+  font-variation-settings: "wght" var(--fontwght), "wdth" var(--fontwidth),
     "opsz" 33, "GRAD" var(--fontgrade), "slnt" var(--fontslant), "YTLC" 500,
     "YTUC" 500, "YTAS" 500;
   line-height: 0.8;

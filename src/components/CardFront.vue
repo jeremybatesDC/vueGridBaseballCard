@@ -159,12 +159,12 @@
             <div class="row row--grow space-between row--textControls">
               <label class="rangeUI__label">
                 <span
-                  >Weight: <output :value="textLine1.fontWeight"></output
+                  >Weight: <output :value="textLine1.fontWght"></output
                 ></span>
 
                 <input
                   class="rangeUI__input"
-                  v-model="textLine1.fontWeight"
+                  v-model="textLine1.fontWght"
                   type="range"
                   min="150"
                   max="800"
@@ -257,12 +257,12 @@
             <div class="row row--grow space-between row--textControls">
               <label class="rangeUI__label">
                 <span
-                  >Weight: <output :value="textLine2.fontWeight"></output
+                  >Weight: <output :value="textLine2.fontWght"></output
                 ></span>
 
                 <input
                   class="rangeUI__input"
-                  v-model="textLine2.fontWeight"
+                  v-model="textLine2.fontWght"
                   type="range"
                   min="150"
                   max="800"
@@ -323,13 +323,12 @@
             <div class="row row--grow space-between row--textControls">
               <label class="rangeUI__label">
                 <span
-                  >Weight:
-                  <output :value="textPlayerPosition.fontWeight"></output
+                  >Weight: <output :value="textPlayerPosition.fontWght"></output
                 ></span>
 
                 <input
                   class="rangeUI__input"
-                  v-model="textPlayerPosition.fontWeight"
+                  v-model="textPlayerPosition.fontWght"
                   type="range"
                   min="150"
                   max="800"
@@ -882,19 +881,19 @@ export default {
         position: defaultSettings.logo.position,
       },
       textLine1: {
-        fontWeight: defaultSettings.textLine1.fontWeight,
+        fontWght: defaultSettings.textLine1.fontWght,
         fontWidth: defaultSettings.textLine1.fontWidth,
         fontGrade: defaultSettings.textLine1.fontGrade,
         fontSlant: defaultSettings.textLine1.fontSlant,
       },
       textLine2: {
-        fontWeight: defaultSettings.textLine2.fontWeight,
+        fontWght: defaultSettings.textLine2.fontWght,
         fontWidth: defaultSettings.textLine2.fontWidth,
         fontGrade: defaultSettings.textLine2.fontGrade,
         fontSlant: defaultSettings.textLine2.fontSlant,
       },
       textPlayerPosition: {
-        fontWeight: defaultSettings.textPlayerPosition.fontWeight,
+        fontWght: defaultSettings.textPlayerPosition.fontWght,
         fontWidth: defaultSettings.textPlayerPosition.fontWidth,
         fontGrade: defaultSettings.textPlayerPosition.fontGrade,
         fontSlant: defaultSettings.textPlayerPosition.fontSlant,
@@ -938,7 +937,7 @@ export default {
     cssTextLine1Props() {
       return {
         //"--color": this.textLine1.color,
-        "--fontweight": this.textLine1.fontWeight,
+        "--fontwght": this.textLine1.fontWght,
         "--fontwidth": this.textLine1.fontWidth,
         "--fontgrade": this.textLine1.fontGrade,
         "--fontslant": this.textLine1.fontSlant,
@@ -947,7 +946,7 @@ export default {
     cssTextLine2Props() {
       return {
         //"--color": this.textLine2.color,
-        "--fontweight": this.textLine2.fontWeight,
+        "--fontwght": this.textLine2.fontWght,
         "--fontwidth": this.textLine2.fontWidth,
         "--fontgrade": this.textLine2.fontGrade,
         "--fontslant": this.textLine2.fontSlant,
@@ -956,7 +955,7 @@ export default {
     cssTextPlayerPositionProps() {
       return {
         //"--color": this.textLine2.color,
-        "--fontweight": this.textPlayerPosition.fontWeight,
+        "--fontwght": this.textPlayerPosition.fontWght,
         "--fontwidth": this.textPlayerPosition.fontWidth,
         "--fontgrade": this.textPlayerPosition.fontGrade,
         "--fontslant": this.textPlayerPosition.fontSlant,
@@ -1163,7 +1162,7 @@ h4,
 h5,
 h6 {
   color: var(--color);
-  font-variation-settings: "wght" var(--fontweight), "wdth" var(--fontwidth),
+  font-variation-settings: "wght" var(--fontwght), "wdth" var(--fontwidth),
     "GRAD" var(--fontgrade), "slnt" var(--fontslant);
 }
 

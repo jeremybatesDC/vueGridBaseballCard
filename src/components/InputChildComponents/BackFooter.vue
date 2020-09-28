@@ -11,11 +11,11 @@
     <div data-soi hidden>
       <div class="row row--grow space-between row--textControls">
         <label class="rangeUI__label">
-          <span>Weight: <output :value="textLineC.fontWeight"></output></span>
+          <span>Weight: <output :value="textLineC.fontWght"></output></span>
 
           <input
             class="rangeUI__input"
-            v-model="textLineC.fontWeight"
+            v-model="textLineC.fontWght"
             type="range"
             min="150"
             max="800"
@@ -68,7 +68,7 @@ export default {
       footerText:
         "Did you know? Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.",
       textLineC: {
-        fontWeight: optsBack.textLineC.fontWeight,
+        fontWght: optsBack.textLineC.fontWght,
         fontWidth: optsBack.textLineC.fontWidth,
         fontGrade: optsBack.textLineC.fontGrade,
         fontSlant: optsBack.textLineC.fontSlant,
@@ -78,7 +78,7 @@ export default {
   computed: {
     textLineCProps() {
       return {
-        "--fontweight": this.textLineC.fontWeight,
+        "--fontwght": this.textLineC.fontWght,
         "--fontwidth": this.textLineC.fontWidth,
         "--fontgrade": this.textLineC.fontGrade,
         "--fontslant": this.textLineC.fontSlant,
@@ -107,7 +107,7 @@ export default {
 
 .cb__footer__textarea {
   min-height: var(--min-touch-target-height);
-  font-variation-settings: "wght" var(--fontweight), "wdth" var(--fontwidth),
+  font-variation-settings: "wght" var(--fontwght), "wdth" var(--fontwidth),
     "opsz" 33, "GRAD" var(--fontgrade), "slnt" var(--fontslant), "YTLC" 500,
     "YTUC" 500, "YTAS" 500;
   line-height: 0.8;

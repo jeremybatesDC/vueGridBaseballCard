@@ -75,7 +75,7 @@ import AsideFacts from "./InputChildComponents/AsideFacts.vue";
 //  webWorkerCardBack.onmessage = function (event) {
 //    console.log("received message here is ", event.data);
 //  };
-//  set("footerFontWeight", this.footer.fontWeight)
+//  set("footerFontWeight", this.footer.fontWght)
 //    .then(() => console.log("woohoo!"))
 //    .catch((err) => console.log("doh!", err));
 //}
@@ -109,13 +109,13 @@ export default {
       // would love to be equally declarative with footer and aside stuff too...
       // move these footer defaults to json
       footer: {
-        fontWeight: 400,
+        fontWght: 400,
         fontWidth: 100,
         fontSlant: 5,
         fontGrade: 24,
       },
       aside: {
-        fontWeight: 400,
+        fontWght: 400,
         fontWidth: 100,
         fontSlant: 5,
         fontGrade: 24,
@@ -146,7 +146,7 @@ export default {
     },
     cssFooterProps() {
       return {
-        "--fontweight": this.footer.fontWeight,
+        "--fontwght": this.footer.fontWght,
         "--fontwidth": this.footer.fontWidth,
         "--fontslant": this.footer.fontSlant,
         "--fontgrade": this.footer.fontGrade,
@@ -154,7 +154,7 @@ export default {
     },
     cssAsideProps() {
       return {
-        "--fontweight": this.aside.fontWeight,
+        "--fontwght": this.aside.fontWght,
         "--fontwidth": this.aside.fontWidth,
         "--fontslant": this.aside.fontSlant,
         "--fontgrade": this.aside.fontGrade,

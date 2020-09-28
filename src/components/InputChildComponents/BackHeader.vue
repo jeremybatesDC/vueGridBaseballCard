@@ -15,12 +15,12 @@
             <div class="row row--grow space-between row--textControls">
               <label class="rangeUI__label">
                 <span
-                  >Weight: <output :value="textLineA.fontWeight"></output
+                  >Weight: <output :value="textLineA.fontWght"></output
                 ></span>
 
                 <input
                   class="rangeUI__input"
-                  v-model="textLineA.fontWeight"
+                  v-model="textLineA.fontWght"
                   type="range"
                   min="150"
                   max="800"
@@ -117,7 +117,7 @@ export default {
     return {
       defaultFacts,
       textLineA: {
-        fontWeight: defaultSettingsBack.textLineA.fontWeight,
+        fontWght: defaultSettingsBack.textLineA.fontWght,
         fontWidth: defaultSettingsBack.textLineA.fontWidth,
         fontGrade: defaultSettingsBack.textLineA.fontGrade,
         fontSlant: defaultSettingsBack.textLineA.fontSlant,
@@ -127,7 +127,7 @@ export default {
   computed: {
     textLineAProps() {
       return {
-        "--fontweight": this.textLineA.fontWeight,
+        "--fontwght": this.textLineA.fontWght,
         "--fontwidth": this.textLineA.fontWidth,
         "--fontgrade": this.textLineA.fontGrade,
         "--fontslant": this.textLineA.fontSlant,
@@ -189,7 +189,7 @@ h1 {
   flex-grow: 1;
   font-size: 2.4rem;
   padding-bottom: 0;
-  font-variation-settings: "wght" var(--fontweight), "wdth" var(--fontwidth),
+  font-variation-settings: "wght" var(--fontwght), "wdth" var(--fontwidth),
     "opsz" 25, "GRAD" var(--fontgrade), "slnt" var(--fontslant), "YTLC" 800,
     "YTUC" 800, "YTAS" 800;
 
