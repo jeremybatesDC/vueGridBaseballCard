@@ -34,30 +34,7 @@
               />
               <span
                 ><svg width="32" height="32" viewBox="0 0 32 32">
-                  <g>
-                    <rect
-                      x="6.4855"
-                      y="2"
-                      width="19"
-                      height="28"
-                      fill="none"
-                      stroke="#000"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                    />
-                    <path
-                      d="M6.4855,26h19"
-                      fill="none"
-                      stroke="#000"
-                      stroke-width="2"
-                    />
-                    <path
-                      d="M6.6217,6h19"
-                      fill="none"
-                      stroke="#000"
-                      stroke-width="2"
-                    />
-                  </g></svg
+                  <use xlink:href="#iconlayoutoneone"></use></svg
               ></span>
             </label>
 
@@ -70,24 +47,7 @@
               />
               <span
                 ><svg viewBox="0 0 32 32" width="32" height="32">
-                  <g>
-                    <rect
-                      x="6.4855"
-                      y="2"
-                      width="19"
-                      height="28"
-                      fill="none"
-                      stroke="#000"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                    />
-                    <path
-                      d="M6.4855,24.0566h19"
-                      fill="none"
-                      stroke="#000"
-                      stroke-width="2"
-                    />
-                  </g></svg
+                  <use xlink:href="#iconlayoutzerotwo"></use></svg
               ></span>
             </label>
 
@@ -100,24 +60,7 @@
               />
               <span
                 ><svg viewBox="0 0 32 32" width="32" height="32">
-                  <g>
-                    <rect
-                      x="6.4855"
-                      y="2"
-                      width="19"
-                      height="28"
-                      fill="none"
-                      stroke="#000"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                    />
-                    <path
-                      d="M25.4855,7.9434h-19"
-                      fill="none"
-                      stroke="#000"
-                      stroke-width="2"
-                    />
-                  </g></svg
+                  <use xlink:href="#iconlayouttwozero"></use></svg
               ></span>
             </label>
           </div>
@@ -532,45 +475,7 @@
                       viewBox="0 0 32 32"
                       class="icon__foursquare icon__foursquare--topLeft"
                     >
-                      <rect
-                        x="3.9351"
-                        y="4.0328"
-                        width="12"
-                        height="12"
-                        stroke="#000"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                      />
-                      <rect
-                        x="16.0649"
-                        y="4.0328"
-                        width="12"
-                        height="12"
-                        fill="none"
-                        stroke="#000"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                      />
-                      <rect
-                        x="16.0649"
-                        y="15.9672"
-                        width="12"
-                        height="12"
-                        fill="none"
-                        stroke="#000"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                      />
-                      <rect
-                        x="3.9351"
-                        y="15.9672"
-                        width="12"
-                        height="12"
-                        fill="none"
-                        stroke="#000"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                      />
+                      <use xlink:href="#iconlogotopleft"></use>
                     </svg>
                   </span>
                 </label>
@@ -590,45 +495,7 @@
                       viewBox="0 0 32 32"
                       class="icon__foursquare icon__foursquare--topRight"
                     >
-                      <rect
-                        x="3.9351"
-                        y="4.0328"
-                        width="12"
-                        height="12"
-                        stroke="#000"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                      />
-                      <rect
-                        x="16.0649"
-                        y="4.0328"
-                        width="12"
-                        height="12"
-                        fill="none"
-                        stroke="#000"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                      />
-                      <rect
-                        x="16.0649"
-                        y="15.9672"
-                        width="12"
-                        height="12"
-                        fill="none"
-                        stroke="#000"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                      />
-                      <rect
-                        x="3.9351"
-                        y="15.9672"
-                        width="12"
-                        height="12"
-                        fill="none"
-                        stroke="#000"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                      />
+                      <use xlink:href="#iconlogotopright"></use>
                     </svg>
                   </span>
                 </label>
@@ -648,45 +515,7 @@
                       viewBox="0 0 32 32"
                       class="icon__foursquare icon__foursquare--bottomLeft"
                     >
-                      <rect
-                        x="3.9351"
-                        y="4.0328"
-                        width="12"
-                        height="12"
-                        stroke="#000"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                      />
-                      <rect
-                        x="16.0649"
-                        y="4.0328"
-                        width="12"
-                        height="12"
-                        fill="none"
-                        stroke="#000"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                      />
-                      <rect
-                        x="16.0649"
-                        y="15.9672"
-                        width="12"
-                        height="12"
-                        fill="none"
-                        stroke="#000"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                      />
-                      <rect
-                        x="3.9351"
-                        y="15.9672"
-                        width="12"
-                        height="12"
-                        fill="none"
-                        stroke="#000"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                      />
+                      <use xlink:href="#iconlogobotleft"></use>
                     </svg>
                   </span>
                 </label>
@@ -706,45 +535,7 @@
                       viewBox="0 0 32 32"
                       class="icon__foursquare icon__foursquare--bottomRight"
                     >
-                      <rect
-                        x="3.9351"
-                        y="4.0328"
-                        width="12"
-                        height="12"
-                        stroke="#000"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                      />
-                      <rect
-                        x="16.0649"
-                        y="4.0328"
-                        width="12"
-                        height="12"
-                        fill="none"
-                        stroke="#000"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                      />
-                      <rect
-                        x="16.0649"
-                        y="15.9672"
-                        width="12"
-                        height="12"
-                        fill="none"
-                        stroke="#000"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                      />
-                      <rect
-                        x="3.9351"
-                        y="15.9672"
-                        width="12"
-                        height="12"
-                        fill="none"
-                        stroke="#000"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                      />
+                      <use xlink:href="#iconlogobotright"></use>
                     </svg>
                   </span>
                 </label>

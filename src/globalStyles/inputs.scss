@@ -150,41 +150,6 @@ textarea {
   justify-content: center;
 }
 
-.icon__foursquare {
-  rect {
-    stroke: #000;
-    fill: none;
-  }
-  &--topLeft {
-    rect {
-      &:nth-child(1) {
-        fill: #000;
-      }
-    }
-  }
-  &--topRight {
-    rect {
-      &:nth-child(2) {
-        fill: #000;
-      }
-    }
-  }
-  &--bottomRight {
-    rect {
-      &:nth-child(3) {
-        fill: #000;
-      }
-    }
-  }
-  &--bottomLeft {
-    rect {
-      &:nth-child(4) {
-        fill: #000;
-      }
-    }
-  }
-}
-
 .radioBtns {
   &__fieldset {
     display: flex;
@@ -263,49 +228,6 @@ textarea {
       + span {
         color: #fff;
         background-color: royalblue;
-        svg {
-          rect {
-            stroke: var(--active-color-for-svgs);
-          }
-          path {
-            stroke: var(--active-color-for-svgs);
-          }
-          &.icon__foursquare {
-            rect {
-              //stroke: #000;
-              fill: none;
-            }
-            &--topLeft {
-              rect {
-                &:nth-child(1) {
-                  fill: var(--active-color-for-svgs);
-                }
-              }
-            }
-
-            &--topRight {
-              rect {
-                &:nth-child(2) {
-                  fill: var(--active-color-for-svgs);
-                }
-              }
-            }
-            &--bottomRight {
-              rect {
-                &:nth-child(3) {
-                  fill: var(--active-color-for-svgs);
-                }
-              }
-            }
-            &--bottomLeft {
-              rect {
-                &:nth-child(4) {
-                  fill: var(--active-color-for-svgs);
-                }
-              }
-            }
-          }
-        }
       }
     }
   }
