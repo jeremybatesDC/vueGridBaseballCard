@@ -2,6 +2,10 @@
 
 ## To Do
 
+make cardback async
+
+re-refactor inputs scss per v4
+
 review readme in v4 for additional ideas i may have added at some poeint
 
 bettwe click outside to close like underneath on desktop? it doesn't take up full height...
