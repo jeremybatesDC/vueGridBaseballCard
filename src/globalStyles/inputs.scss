@@ -129,11 +129,12 @@ textarea {
         position: absolute;
         left: 0;
         top: 50%;
+        // width 100% was contributing to CLS i think
+        width: var(--min-touch-target);
         line-height: 1;
         padding: 0;
 
         transform: translateY(-50%);
-        width: 100%;
         font-variation-settings: var(--text-squeeze);
       }
     }
