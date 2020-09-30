@@ -539,7 +539,6 @@ export default {
       const rdcrSum = (acum, curVal) => {
         return parseFloat(acum) + parseFloat(curVal);
       };
-      const initialVals = { avg: 0, n: 0 };
       const rdcrAvg = ({ avg, n }, curVal) => {
         return {
           avg: (curVal + n * avg) / (n + 1),
@@ -549,6 +548,8 @@ export default {
       if (sumOrAvg === "sum") {
         return colNumsArray.reduce(rdcrSum);
       } else if (sumOrAvg === "avg") {
+        const initialVals = { avg: 0, n: 0 };
+
         return parseFloat(
           colNumsArray.reduce(rdcrAvg, initialVals).avg
         ).toFixed(1);
