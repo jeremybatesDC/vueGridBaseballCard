@@ -21,7 +21,7 @@
 
                 <input
                   class="rangeUI__input"
-                  v-model="textLineB.fontWght"
+                  v-model.number="textLineB.fontWght"
                   type="range"
                   min="150"
                   max="800"
@@ -33,7 +33,7 @@
                 ></span>
                 <input
                   class="rangeUI__input"
-                  v-model="textLineB.fontWidth"
+                  v-model.number="textLineB.fontWidth"
                   type="range"
                   min="35"
                   max="100"
@@ -47,7 +47,7 @@
                 ></span>
                 <input
                   class="rangeUI__input"
-                  v-model="textLineB.fontSlant"
+                  v-model.number="textLineB.fontSlant"
                   type="range"
                   min="-10"
                   max="0"
@@ -59,7 +59,7 @@
                 ></span>
                 <input
                   class="rangeUI__input"
-                  v-model="textLineB.fontGrade"
+                  v-model.number="textLineB.fontGrade"
                   type="range"
                   min="0"
                   max="1"
@@ -82,10 +82,10 @@ export default {
       asideText:
         "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.",
       textLineB: {
-        fontWght: "200",
-        fontWidth: "50",
-        fontGrade: ".5",
-        fontSlant: "0",
+        fontWght: 200,
+        fontWidth: 50,
+        fontGrade: 0.5,
+        fontSlant: 0,
       },
     };
   },

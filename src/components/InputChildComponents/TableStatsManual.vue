@@ -7,37 +7,41 @@
           <tr>
             <th scope="col" data-col="0">
               <label>
-                <input type="text" v-model="fields.year" maxlength="9" />
+                <input type="text" v-model.trim="fields.year" maxlength="9" />
               </label>
             </th>
             <th scope="col" data-col="1">
               <label>
-                <input type="text" v-model="fields.homeCity" maxlength="9" />
+                <input
+                  type="text"
+                  v-model.trim="fields.homeCity"
+                  maxlength="9"
+                />
               </label>
             </th>
             <th scope="col" data-col="2">
               <label>
-                <input type="text" v-model="fields.field0" maxlength="9" />
+                <input type="text" v-model.trim="fields.field0" maxlength="9" />
               </label>
             </th>
             <th scope="col" data-col="3">
               <label>
-                <input type="text" v-model="fields.field1" maxlength="9" />
+                <input type="text" v-model.trim="fields.field1" maxlength="9" />
               </label>
             </th>
             <th scope="col" data-col="4">
               <label>
-                <input type="text" v-model="fields.field2" maxlength="9" />
+                <input type="text" v-model.trim="fields.field2" maxlength="9" />
               </label>
             </th>
             <th scope="col" data-col="5">
               <label>
-                <input type="text" v-model="fields.field3" maxlength="9" />
+                <input type="text" v-model.trim="fields.field3" maxlength="9" />
               </label>
             </th>
             <th scope="col" data-col="6">
               <label>
-                <input type="text" v-model="fields.field4" maxlength="9" />
+                <input type="text" v-model.trim="fields.field4" maxlength="9" />
               </label>
             </th>
           </tr>
@@ -59,7 +63,7 @@
               <input
                 type="tel"
                 inputmode="decimal"
-                v-model="seasons.yr0.homeCity"
+                v-model.trim="seasons.yr0.homeCity"
                 size="4"
                 maxlength="4"
                 data-col="1"
@@ -69,7 +73,7 @@
               <input
                 type="tel"
                 inputmode="decimal"
-                v-model="seasons.yr0.stats.stat0"
+                v-model.number="seasons.yr0.stats.stat0"
                 size="5"
                 maxlength="5"
                 placeholder="0"
@@ -80,7 +84,7 @@
               <input
                 type="tel"
                 inputmode="decimal"
-                v-model="seasons.yr0.stats.stat1"
+                v-model.number="seasons.yr0.stats.stat1"
                 size="5"
                 maxlength="5"
                 placeholder="0"
@@ -90,7 +94,7 @@
               <input
                 type="tel"
                 inputmode="decimal"
-                v-model="seasons.yr0.stats.stat2"
+                v-model.number="seasons.yr0.stats.stat2"
                 size="5"
                 maxlength="5"
                 placeholder="0"
@@ -100,7 +104,7 @@
               <input
                 type="tel"
                 inputmode="decimal"
-                v-model="seasons.yr0.stats.stat3"
+                v-model.number="seasons.yr0.stats.stat3"
                 size="5"
                 maxlength="5"
                 placeholder="0"
@@ -110,7 +114,7 @@
               <input
                 type="tel"
                 inputmode="decimal"
-                v-model="seasons.yr0.stats.stat4"
+                v-model.number="seasons.yr0.stats.stat4"
                 size="5"
                 maxlength="5"
                 placeholder="0"
@@ -132,7 +136,7 @@
               <input
                 type="tel"
                 inputmode="decimal"
-                v-model="seasons.yr1.homeCity"
+                v-model.trim="seasons.yr1.homeCity"
                 size="4"
                 maxlength="4"
                 data-col="1"
@@ -142,7 +146,7 @@
               <input
                 type="tel"
                 inputmode="decimal"
-                v-model="seasons.yr1.stats.stat0"
+                v-model.number="seasons.yr1.stats.stat0"
                 size="5"
                 maxlength="5"
                 placeholder="0"
@@ -153,7 +157,7 @@
               <input
                 type="tel"
                 inputmode="decimal"
-                v-model="seasons.yr1.stats.stat1"
+                v-model.number="seasons.yr1.stats.stat1"
                 size="5"
                 maxlength="5"
                 placeholder="0"
@@ -163,7 +167,7 @@
               <input
                 type="tel"
                 inputmode="decimal"
-                v-model="seasons.yr1.stats.stat2"
+                v-model.number="seasons.yr1.stats.stat2"
                 size="5"
                 maxlength="5"
                 placeholder="0"
@@ -173,7 +177,7 @@
               <input
                 type="tel"
                 inputmode="decimal"
-                v-model="seasons.yr1.stats.stat3"
+                v-model.number="seasons.yr1.stats.stat3"
                 size="5"
                 maxlength="5"
                 placeholder="0"
@@ -183,7 +187,7 @@
               <input
                 type="tel"
                 inputmode="decimal"
-                v-model="seasons.yr1.stats.stat4"
+                v-model.number="seasons.yr1.stats.stat4"
                 size="5"
                 maxlength="5"
                 placeholder="0"
@@ -205,7 +209,7 @@
               <input
                 type="tel"
                 inputmode="decimal"
-                v-model="seasons.yr2.homeCity"
+                v-model.trim="seasons.yr2.homeCity"
                 size="4"
                 maxlength="4"
                 data-col="1"
@@ -215,7 +219,7 @@
               <input
                 type="tel"
                 inputmode="decimal"
-                v-model="seasons.yr2.stats.stat0"
+                v-model.number="seasons.yr2.stats.stat0"
                 size="5"
                 maxlength="5"
                 placeholder="0"
@@ -226,7 +230,7 @@
               <input
                 type="tel"
                 inputmode="decimal"
-                v-model="seasons.yr2.stats.stat1"
+                v-model.number="seasons.yr2.stats.stat1"
                 size="5"
                 maxlength="5"
                 placeholder="0"
@@ -236,7 +240,7 @@
               <input
                 type="tel"
                 inputmode="decimal"
-                v-model="seasons.yr2.stats.stat2"
+                v-model.number="seasons.yr2.stats.stat2"
                 size="5"
                 maxlength="5"
                 placeholder="0"
@@ -246,7 +250,7 @@
               <input
                 type="tel"
                 inputmode="decimal"
-                v-model="seasons.yr2.stats.stat3"
+                v-model.number="seasons.yr2.stats.stat3"
                 size="5"
                 maxlength="5"
                 placeholder="0"
@@ -256,7 +260,7 @@
               <input
                 type="tel"
                 inputmode="decimal"
-                v-model="seasons.yr2.stats.stat4"
+                v-model.number="seasons.yr2.stats.stat4"
                 size="5"
                 maxlength="5"
                 placeholder="0"
@@ -278,7 +282,7 @@
               <input
                 type="tel"
                 inputmode="decimal"
-                v-model="seasons.yr3.homeCity"
+                v-model.trim="seasons.yr3.homeCity"
                 size="4"
                 maxlength="4"
                 data-col="1"
@@ -288,7 +292,7 @@
               <input
                 type="tel"
                 inputmode="decimal"
-                v-model="seasons.yr3.stats.stat0"
+                v-model.number="seasons.yr3.stats.stat0"
                 size="5"
                 maxlength="5"
                 placeholder="0"
@@ -299,7 +303,7 @@
               <input
                 type="tel"
                 inputmode="decimal"
-                v-model="seasons.yr3.stats.stat1"
+                v-model.number="seasons.yr3.stats.stat1"
                 size="5"
                 maxlength="5"
                 placeholder="0"
@@ -309,7 +313,7 @@
               <input
                 type="tel"
                 inputmode="decimal"
-                v-model="seasons.yr3.stats.stat2"
+                v-model.number="seasons.yr3.stats.stat2"
                 size="5"
                 maxlength="5"
                 placeholder="0"
@@ -319,7 +323,7 @@
               <input
                 type="tel"
                 inputmode="decimal"
-                v-model="seasons.yr3.stats.stat3"
+                v-model.number="seasons.yr3.stats.stat3"
                 size="5"
                 maxlength="5"
                 placeholder="0"
@@ -329,7 +333,7 @@
               <input
                 type="tel"
                 inputmode="decimal"
-                v-model="seasons.yr3.stats.stat4"
+                v-model.number="seasons.yr3.stats.stat4"
                 size="5"
                 maxlength="5"
                 placeholder="0"
@@ -351,7 +355,7 @@
               <input
                 type="tel"
                 inputmode="decimal"
-                v-model="seasons.yr4.homeCity"
+                v-model.trim="seasons.yr4.homeCity"
                 size="4"
                 maxlength="4"
                 data-col="1"
@@ -361,7 +365,7 @@
               <input
                 type="tel"
                 inputmode="decimal"
-                v-model="seasons.yr4.stats.stat0"
+                v-model.number="seasons.yr4.stats.stat0"
                 size="5"
                 maxlength="5"
                 placeholder="0"
@@ -372,7 +376,7 @@
               <input
                 type="tel"
                 inputmode="decimal"
-                v-model="seasons.yr4.stats.stat1"
+                v-model.number="seasons.yr4.stats.stat1"
                 size="5"
                 maxlength="5"
                 placeholder="0"
@@ -382,7 +386,7 @@
               <input
                 type="tel"
                 inputmode="decimal"
-                v-model="seasons.yr4.stats.stat2"
+                v-model.number="seasons.yr4.stats.stat2"
                 size="5"
                 maxlength="5"
                 placeholder="0"
@@ -392,7 +396,7 @@
               <input
                 type="tel"
                 inputmode="decimal"
-                v-model="seasons.yr4.stats.stat3"
+                v-model.number="seasons.yr4.stats.stat3"
                 size="5"
                 maxlength="5"
                 placeholder="0"
@@ -402,7 +406,7 @@
               <input
                 type="tel"
                 inputmode="decimal"
-                v-model="seasons.yr4.stats.stat4"
+                v-model.number="seasons.yr4.stats.stat4"
                 size="5"
                 maxlength="5"
                 placeholder="0"

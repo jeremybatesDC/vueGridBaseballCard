@@ -2,6 +2,16 @@
 
 ## To Do
 
+consider trimming whitespace with .trim
+
+can't use v-model.lazy on text fields with sliders because bad
+
+more helpful defualt text
+
+smooth load fade in?
+
+to toFixed on the average reducer funciton -- that should LIMIT the num of deimila places to 2, but i want to allow 0 places instrad of .0
+
 can try inline worker
 
 i think i'm forcing setup wrong if i need THIS. I'm not following the composition pattern. But thatS ok and in this case maybe preferable
@@ -13,8 +23,6 @@ re-refactor inputs scss per v4
 review readme in v4 for additional ideas i may have added at some poeint
 
 bettwe click outside to close like underneath on desktop? it doesn't take up full height...
-
-more helpful defualt text
 
 PUT SERVICE WORKER BACK AFTER DEV -- really want env var here
 

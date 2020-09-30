@@ -15,7 +15,7 @@
 
           <input
             class="rangeUI__input"
-            v-model="textLineC.fontWght"
+            v-model.number="textLineC.fontWght"
             type="range"
             min="150"
             max="800"
@@ -25,7 +25,7 @@
           <span>Width: <output :value="textLineC.fontWidth"></output></span>
           <input
             class="rangeUI__input"
-            v-model="textLineC.fontWidth"
+            v-model.number="textLineC.fontWidth"
             type="range"
             min="35"
             max="100"
@@ -37,7 +37,7 @@
           <span>Slant: <output :value="textLineC.fontSlant"></output></span>
           <input
             class="rangeUI__input"
-            v-model="textLineC.fontSlant"
+            v-model.number="textLineC.fontSlant"
             type="range"
             min="-10"
             max="0"
@@ -47,7 +47,7 @@
           <span>Grade: <output :value="textLineC.fontGrade"></output></span>
           <input
             class="rangeUI__input"
-            v-model="textLineC.fontGrade"
+            v-model.number="textLineC.fontGrade"
             type="range"
             min="0"
             max="1"
@@ -68,10 +68,10 @@ export default {
       footerText:
         "Did you know? Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.",
       textLineC: {
-        fontWght: "200",
-        fontWidth: "50",
-        fontGrade: ".5",
-        fontSlant: "-5",
+        fontWght: 200,
+        fontWidth: 50,
+        fontGrade: 0.5,
+        fontSlant: -5,
       },
     };
   },

@@ -160,14 +160,8 @@
       >
         <figure class="figure--player">
           <label class="figure--player__label" for="inputTriggerFocusUI_0">
-            <img
-              width="320"
-              height="408"
-              loading="lazy"
-              class="image--player"
-              :src="pic"
-              alt
-            />
+            <!--  width="320"  height="408"-->
+            <img loading="lazy" class="image--player" :src="pic" alt />
           </label>
         </figure>
 
@@ -549,7 +543,7 @@
                     value="hideLogo"
                     aria-label="Bottom Right"
                   />
-                  <span> None </span>
+                  <span> HIDE </span>
                 </label>
               </div>
             </fieldset>
@@ -727,6 +721,19 @@ export default {
       };
     },
   },
+  watch: {
+    cardLayout(newLayout, oldLayout) {
+      console.log(this.cardLayout);
+    },
+    cardBackgroundColor(newColor, oldColor) {
+      console.log(this.cardBackgroundColor);
+    },
+  },
+  //created() {
+  //  this.$watch("cardLayout", () => {
+  //    console.log(this.cardLayout);
+  //  });
+  //},
 };
 </script>
 

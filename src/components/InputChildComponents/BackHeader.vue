@@ -20,7 +20,7 @@
 
                 <input
                   class="rangeUI__input"
-                  v-model="textLineA.fontWght"
+                  v-model.number="textLineA.fontWght"
                   type="range"
                   min="150"
                   max="800"
@@ -32,7 +32,7 @@
                 ></span>
                 <input
                   class="rangeUI__input"
-                  v-model="textLineA.fontWidth"
+                  v-model.number="textLineA.fontWidth"
                   type="range"
                   min="35"
                   max="100"
@@ -46,7 +46,7 @@
                 ></span>
                 <input
                   class="rangeUI__input"
-                  v-model="textLineA.fontSlant"
+                  v-model.number="textLineA.fontSlant"
                   type="range"
                   min="-10"
                   max="0"
@@ -58,7 +58,7 @@
                 ></span>
                 <input
                   class="rangeUI__input"
-                  v-model="textLineA.fontGrade"
+                  v-model.number="textLineA.fontGrade"
                   type="range"
                   min="0"
                   max="1"
@@ -125,10 +125,10 @@ export default {
     return {
       defaultFacts,
       textLineA: {
-        fontWght: "900",
-        fontWidth: "50",
-        fontGrade: "1",
-        fontSlant: "-10",
+        fontWght: 800,
+        fontWidth: 50,
+        fontGrade: 1,
+        fontSlant: -10,
       },
     };
   },
