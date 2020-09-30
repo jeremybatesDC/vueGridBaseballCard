@@ -1,5 +1,5 @@
 {
-  "playerImageURLorDataString": "/images/playerDefault.jpg",
+  "pic": "/images/playerDefault.jpg",
   "playerImageBleedOrBoxed": "relative",
   "playerImageFilterEffect": "noFilterEffect",
   "playerName": "Anthony Rendon",

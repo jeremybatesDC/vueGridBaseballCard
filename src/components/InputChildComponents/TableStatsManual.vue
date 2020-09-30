@@ -417,27 +417,27 @@
             <!-- a bit too imperative but it is good that we are not doing a v-if in a v-for-->
             <td scope="col">
               <output class="tfoot__output--totals">{{
-                sumNumericCol("stat0")
+                tabulate("sum", "stat0")
               }}</output>
             </td>
             <td scope="col">
               <output class="tfoot__output--totals">{{
-                sumNumericCol("stat1")
+                tabulate("sum", "stat1")
               }}</output>
             </td>
             <td scope="col">
               <output class="tfoot__output--totals">{{
-                sumNumericCol("stat2")
+                tabulate("avg", "stat2")
               }}</output>
             </td>
             <td scope="col">
               <output class="tfoot__output--totals">{{
-                sumNumericCol("stat3")
+                tabulate("sum", "stat3")
               }}</output>
             </td>
             <td scope="col">
               <output class="tfoot__output--totals">{{
-                sumNumericCol("stat4")
+                tabulate("sum", "stat4")
               }}</output>
             </td>
           </tr>
@@ -530,16 +530,30 @@ export default {
   },
 
   methods: {
-    sumNumericCol(statCol) {
-      const rdcrSum = (acum, curVal) => {
-        return parseFloat(acum) + parseFloat(curVal);
-      };
+    tabulate(sumOrAvg, statCol) {
       let colNumsArray = [];
       Object.keys(this.seasons).map((season, i) => {
         let yrString = `yr${i}`;
         colNumsArray.push(+this.seasons[yrString].stats[statCol]);
       });
-      return colNumsArray.reduce(rdcrSum);
+      if (sumOrAvg === "sum") {
+        const rdcrSum = (acum, curVal) => {
+          return parseFloat(acum) + parseFloat(curVal);
+        };
+        return colNumsArray.reduce(rdcrSum);
+      } else if (sumOrAvg === "avg") {
+        const initialVals = { avg: 0, n: 0 };
+        const rdcrAvg = ({ avg, n }, curVal) => {
+          return {
+            avg: (curVal + n * avg) / (n + 1),
+            n: n + 1,
+          };
+        };
+
+        return parseFloat(
+          colNumsArray.reduce(rdcrAvg, initialVals).avg
+        ).toFixed(1);
+      }
     },
   },
 };

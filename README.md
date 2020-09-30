@@ -2,6 +2,10 @@
 
 ## To Do
 
+can try inline worker
+
+i think i'm forcing setup wrong if i need THIS. I'm not following the composition pattern. But thatS ok and in this case maybe preferable
+
 make cardback async
 
 re-refactor inputs scss per v4

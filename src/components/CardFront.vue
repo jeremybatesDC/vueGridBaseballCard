@@ -165,7 +165,7 @@
               height="408"
               loading="lazy"
               class="image--player"
-              :src="playerImageURLorDataString"
+              :src="pic"
               alt
             />
           </label>
@@ -180,7 +180,7 @@
           <img
             loading="lazy"
             class="image--logo"
-            :src="teamLogoURL"
+            :src="logoPic"
             alt
             width="72"
             height="72"
@@ -338,16 +338,16 @@
                 </legend>-->
                 <div class="filePicker__wrapper">
                   <input
-                    id="playerImageFileInput"
-                    ref="playerImageFileInput"
-                    name="playerImageFileInput"
+                    id="pic"
+                    ref="pic"
+                    name="pic"
                     class="hidden--visually filePicker__input"
                     type="file"
                     accept="image/*"
                     @input="encodeImage"
                   />
                   <label
-                    for="playerImageFileInput"
+                    for="pic"
                     class="filePicker__label"
                     aria-label="Upload Image"
                   >
@@ -372,9 +372,9 @@
                 <!--<legend class="filePicker__legend text-right">Logo</legend>-->
                 <div class="filePicker__wrapper">
                   <input
-                    id="logoFileInput"
-                    ref="logoFileInput"
-                    name="logoFileInput"
+                    id="logoPic"
+                    ref="logoPic"
+                    name="logoPic"
                     class="hidden--visually filePicker__input"
                     type="file"
                     accept="image/*"
@@ -382,7 +382,7 @@
                   />
 
                   <label
-                    for="logoFileInput"
+                    for="logoPic"
                     class="filePicker__label"
                     aria-label="Upload Logo Image"
                   >
@@ -575,43 +575,31 @@
 import opts from "/json/default-settings.json";
 //import TextSlider from "./TextSlider.vue";
 
-var webWorkerEncode = new Worker("./workers/web-worker-encode.js", {
-  type: "module",
-});
-
-// need this to encode whatever image is passed to it right?
-async function encodeImage(event) {
-  let evntTrgtID = event.target.id;
-  let filesProp = this.$refs[evntTrgtID].files;
-  let usrfile = filesProp[0];
-
-  //validateImage();
-
-  if (filesProp && usrfile) {
-    //console.log(this);
-    webWorkerEncode.postMessage(usrfile);
-    this.$emit("input", usrfile);
-    // hard to pass through the refernce
-    // REFACTOR
-    let testFunction = null;
-    if (evntTrgtID === "playerImageFileInput") {
-      testFunction = (strng) => {
-        this.playerImageURLorDataString = strng;
-      };
-    } else {
-      testFunction = (strng) => {
-        this.teamLogoURL = strng;
-      };
-    }
-    webWorkerEncode.onmessage = function (event) {
-      testFunction(event.data);
-    };
-    // END REFACTOR
-  }
-}
-
 export default {
-  setup() {
+  setup: function () {
+    const webWorkerEncode = new Worker("./workers/web-worker-encode.js", {
+      type: "module",
+    });
+
+    async function encodeImage(event) {
+      let theField = event.target.id;
+      let filesProp = event.target.files;
+      let usrfile = filesProp[0];
+      //validateImage();
+      let insertImgFunc = (strng, theField) => {
+        this[theField] = strng;
+      };
+      // can i use optional chaining here?
+      if (filesProp && usrfile) {
+        console.log(usrfile);
+
+        webWorkerEncode.postMessage(usrfile);
+        this.$emit("input", usrfile);
+        webWorkerEncode.onmessage = function (theMessage) {
+          insertImgFunc(theMessage.data, theField);
+        };
+      }
+    }
     return {
       encodeImage,
       webWorkerEncode,
@@ -626,8 +614,8 @@ export default {
       cardSepia: opts.cardSepia,
       cardGrayScale: opts.cardGrayScale,
       cardLayout: opts.cardLayout,
-      teamLogoURL: opts.teamLogoURL,
-      playerImageURLorDataString: opts.playerImageURLorDataString,
+      logoPic: opts.teamLogoURL,
+      pic: opts.pic,
       playerImageBleedOrBoxed: opts.playerImageBleedOrBoxed,
       playerImageFilterEffect: opts.playerImageFilterEffect,
       playerName: opts.playerName,

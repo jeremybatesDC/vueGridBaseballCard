@@ -115,14 +115,6 @@ legend {
   text-align: center;
   font-size: 1.6rem;
 }
-label {
-  font-family: inherit;
-
-  input {
-    font-family: inherit;
-    font-size: inherit;
-  }
-}
 
 [role="tablist"] {
   display: flex;
