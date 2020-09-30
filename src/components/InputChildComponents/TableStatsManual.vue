@@ -536,20 +536,19 @@ export default {
         let yrString = `yr${i}`;
         colNumsArray.push(+this.seasons[yrString].stats[statCol]);
       });
-      if (sumOrAvg === "sum") {
-        const rdcrSum = (acum, curVal) => {
-          return parseFloat(acum) + parseFloat(curVal);
+      const rdcrSum = (acum, curVal) => {
+        return parseFloat(acum) + parseFloat(curVal);
+      };
+      const initialVals = { avg: 0, n: 0 };
+      const rdcrAvg = ({ avg, n }, curVal) => {
+        return {
+          avg: (curVal + n * avg) / (n + 1),
+          n: n + 1,
         };
+      };
+      if (sumOrAvg === "sum") {
         return colNumsArray.reduce(rdcrSum);
       } else if (sumOrAvg === "avg") {
-        const initialVals = { avg: 0, n: 0 };
-        const rdcrAvg = ({ avg, n }, curVal) => {
-          return {
-            avg: (curVal + n * avg) / (n + 1),
-            n: n + 1,
-          };
-        };
-
         return parseFloat(
           colNumsArray.reduce(rdcrAvg, initialVals).avg
         ).toFixed(1);
