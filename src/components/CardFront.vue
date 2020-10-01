@@ -17,7 +17,7 @@
           <input
             class="colorPicker__input"
             type="color"
-            v-model="cardBackgroundColor"
+            v-model="cardDesign.cardBackgroundColor"
           />
         </label>
 
@@ -28,7 +28,7 @@
               <input
                 type="radio"
                 class="radioBtns__input hidden--visually"
-                v-model="cardLayout"
+                v-model="cardDesign.cardLayout"
                 value="one-one"
               />
               <span
@@ -41,7 +41,7 @@
               <input
                 type="radio"
                 class="radioBtns__input hidden--visually"
-                v-model="cardLayout"
+                v-model="cardDesign.cardLayout"
                 value="zero-two"
               />
               <span
@@ -54,7 +54,7 @@
               <input
                 type="radio"
                 class="radioBtns__input hidden--visually"
-                v-model="cardLayout"
+                v-model="cardDesign.cardLayout"
                 value="two-zero"
               />
               <span
@@ -68,12 +68,12 @@
         <label class="rangeUI__label">
           <span
             >Border Curve
-            <!-- : <output :value="borderInner.curve"></output> -->
+            <!-- : <output :value="""></output> -->
           </span>
 
           <input
             class="rangeUI__input"
-            v-model="borderInner.curve"
+            v-model.number="cardDesign.borderInnerCurve"
             type="range"
             min="0"
             max="24"
@@ -84,13 +84,13 @@
     <!-- end controls-->
     <div
       class="card__container--front"
-      :class="[cardLayout, playerImageBleedOrBoxed]"
+      :class="[cardDesign.cardLayout, cardDesign.playerImageBleedOrBoxed]"
     >
       <div class="text__line--first row">
         <h2 :style="cssTextLine1Props" class="cf__h2">
           <input
             class=""
-            v-model="teamName"
+            v-model="cardText.textLine1.teamName"
             type="text"
             placeholder
             maxlength="42"
@@ -101,12 +101,12 @@
             <div class="row row--grow space-between row--textControls">
               <label class="rangeUI__label">
                 <span
-                  >Weight: <output :value="textLine1.fontWght"></output
+                  >Weight: <output :value="cardText.textLine1.fontWght"></output
                 ></span>
 
                 <input
                   class="rangeUI__input"
-                  v-model="textLine1.fontWght"
+                  v-model.number="cardText.textLine1.fontWght"
                   type="range"
                   min="150"
                   max="800"
@@ -114,11 +114,11 @@
               </label>
               <label class="rangeUI__label">
                 <span
-                  >Width: <output :value="textLine1.fontWidth"></output
+                  >Width: <output :value="cardText.textLine1.fontWidth"></output
                 ></span>
                 <input
                   class="rangeUI__input"
-                  v-model="textLine1.fontWidth"
+                  v-model.number="cardText.textLine1.fontWidth"
                   type="range"
                   min="35"
                   max="100"
@@ -128,11 +128,11 @@
             <div class="row row--grow space-between row--textControls">
               <label class="rangeUI__label">
                 <span
-                  >Slant: <output :value="textLine1.fontSlant"></output
+                  >Slant: <output :value="cardText.textLine1.fontSlant"></output
                 ></span>
                 <input
                   class="rangeUI__input"
-                  v-model="textLine1.fontSlant"
+                  v-model.number="cardText.textLine1.fontSlant"
                   type="range"
                   min="-10"
                   max="0"
@@ -140,11 +140,11 @@
               </label>
               <label class="rangeUI__label">
                 <span
-                  >Grade: <output :value="textLine1.fontGrade"></output
+                  >Grade: <output :value="cardText.textLine1.fontGrade"></output
                 ></span>
                 <input
                   class="rangeUI__input"
-                  v-model="textLine1.fontGrade"
+                  v-model.number="cardText.textLine1.fontGrade"
                   type="range"
                   min="0"
                   max="1"
@@ -156,12 +156,17 @@
         </h2>
       </div>
       <div
-        :class="`row--middle--forDesign row ${logo.position} ${borderInner.style} ${playerImageFilterEffect}`"
+        :class="`row--middle--forDesign row ${cardDesign.logo.position} ${cardDesign.playerImageFilterEffect}`"
       >
         <figure class="figure--player">
           <label class="figure--player__label" for="inputTriggerFocusUI_0">
             <!--  width="320"  height="408"-->
-            <img loading="lazy" class="image--player" :src="pic" alt />
+            <img
+              loading="lazy"
+              class="image--player"
+              :src="images.playerPic"
+              alt
+            />
           </label>
         </figure>
 
@@ -169,12 +174,14 @@
         <!-- using css filter drop shadow could work -->
         <figure
           class="figure--logo"
-          v-show="logo.showing && logo.position !== 'hideLogo'"
+          v-show="
+            cardDesign.logo.showing && cardDesign.logo.position !== 'hideLogo'
+          "
         >
           <img
             loading="lazy"
             class="image--logo"
-            :src="logoPic"
+            :src="images.logoPic"
             alt
             width="72"
             height="72"
@@ -185,7 +192,7 @@
         <h1 :style="cssTextLine2Props" class="cf__h1">
           <input
             class=""
-            v-model="playerName"
+            v-model="cardText.textLine2.playerName"
             type="text"
             placeholder
             maxlength="48"
@@ -195,12 +202,12 @@
             <div class="row row--grow space-between row--textControls">
               <label class="rangeUI__label">
                 <span
-                  >Weight: <output :value="textLine2.fontWght"></output
+                  >Weight: <output :value="cardText.textLine2.fontWght"></output
                 ></span>
 
                 <input
                   class="rangeUI__input"
-                  v-model="textLine2.fontWght"
+                  v-model.number="cardText.textLine2.fontWght"
                   type="range"
                   min="150"
                   max="800"
@@ -208,11 +215,11 @@
               </label>
               <label class="rangeUI__label">
                 <span
-                  >Width: <output :value="textLine2.fontWidth"></output
+                  >Width: <output :value="cardText.textLine2.fontWidth"></output
                 ></span>
                 <input
                   class="rangeUI__input"
-                  v-model="textLine2.fontWidth"
+                  v-model.number="cardText.textLine2.fontWidth"
                   type="range"
                   min="35"
                   max="100"
@@ -222,11 +229,11 @@
             <div class="row row--grow space-between row--textControls">
               <label class="rangeUI__label">
                 <span
-                  >Slant: <output :value="textLine2.fontSlant"></output
+                  >Slant: <output :value="cardText.textLine2.fontSlant"></output
                 ></span>
                 <input
                   class="rangeUI__input"
-                  v-model="textLine2.fontSlant"
+                  v-model.number="cardText.textLine2.fontSlant"
                   type="range"
                   min="-10"
                   max="0"
@@ -234,11 +241,11 @@
               </label>
               <label class="rangeUI__label">
                 <span
-                  >Grade: <output :value="textLine2.fontGrade"></output
+                  >Grade: <output :value="cardText.textLine2.fontGrade"></output
                 ></span>
                 <input
                   class="rangeUI__input"
-                  v-model="textLine2.fontGrade"
+                  v-model.number="cardText.textLine2.fontGrade"
                   type="range"
                   min="0"
                   max="1"
@@ -251,7 +258,7 @@
         <h3 :style="cssTextPlayerPositionProps" class="cf__h3">
           <input
             class=""
-            v-model="playerPosition"
+            v-model="cardText.textPlayerPosition.playerPosition"
             type="text"
             placeholder
             maxlength="48"
@@ -261,12 +268,13 @@
             <div class="row row--grow space-between row--textControls">
               <label class="rangeUI__label">
                 <span
-                  >Weight: <output :value="textPlayerPosition.fontWght"></output
+                  >Weight:
+                  <output :value="cardText.textPlayerPosition.fontWght"></output
                 ></span>
 
                 <input
                   class="rangeUI__input"
-                  v-model="textPlayerPosition.fontWght"
+                  v-model.number="cardText.textPlayerPosition.fontWght"
                   type="range"
                   min="150"
                   max="800"
@@ -274,11 +282,14 @@
               </label>
               <label class="rangeUI__label">
                 <span
-                  >Width: <output :value="textPlayerPosition.fontWidth"></output
+                  >Width:
+                  <output
+                    :value="cardText.textPlayerPosition.fontWidth"
+                  ></output
                 ></span>
                 <input
                   class="rangeUI__input"
-                  v-model="textPlayerPosition.fontWidth"
+                  v-model.number="cardText.textPlayerPosition.fontWidth"
                   type="range"
                   min="35"
                   max="100"
@@ -288,11 +299,14 @@
             <div class="row row--grow space-between row--textControls">
               <label class="rangeUI__label">
                 <span
-                  >Slant: <output :value="textPlayerPosition.fontSlant"></output
+                  >Slant:
+                  <output
+                    :value="cardText.textPlayerPosition.fontSlant"
+                  ></output
                 ></span>
                 <input
                   class="rangeUI__input"
-                  v-model="textPlayerPosition.fontSlant"
+                  v-model.number="cardText.textPlayerPosition.fontSlant"
                   type="range"
                   min="-10"
                   max="0"
@@ -300,11 +314,14 @@
               </label>
               <label class="rangeUI__label">
                 <span
-                  >Grade: <output :value="textPlayerPosition.fontGrade"></output
+                  >Grade:
+                  <output
+                    :value="cardText.textPlayerPosition.fontGrade"
+                  ></output
                 ></span>
                 <input
                   class="rangeUI__input"
-                  v-model="textPlayerPosition.fontGrade"
+                  v-model.number="cardText.textPlayerPosition.fontGrade"
                   type="range"
                   min="0"
                   max="1"
@@ -332,16 +349,16 @@
                 </legend>-->
                 <div class="filePicker__wrapper">
                   <input
-                    id="pic"
-                    ref="pic"
-                    name="pic"
+                    id="playerPic"
+                    ref="playerPic"
+                    name="playerPic"
                     class="hidden--visually filePicker__input"
                     type="file"
                     accept="image/*"
                     @input="encodeImage"
                   />
                   <label
-                    for="pic"
+                    for="playerPic"
                     class="filePicker__label"
                     aria-label="Upload Image"
                   >
@@ -405,7 +422,7 @@
                   <input
                     type="radio"
                     class="radioBtns__input hidden--visually"
-                    v-model="playerImageFilterEffect"
+                    v-model="cardDesign.playerImageFilterEffect"
                     value="noFilterEffect"
                   />
                   <span>None</span>
@@ -415,7 +432,7 @@
                   <input
                     type="radio"
                     class="radioBtns__input hidden--visually"
-                    v-model="playerImageFilterEffect"
+                    v-model="cardDesign.playerImageFilterEffect"
                     value="filterbw"
                   />
                   <span>B&amp;W</span>
@@ -425,7 +442,7 @@
                   <input
                     type="radio"
                     class="radioBtns__input hidden--visually"
-                    v-model="playerImageFilterEffect"
+                    v-model="cardDesign.playerImageFilterEffect"
                     value="filtersepia"
                   />
                   <span>Sepia</span>
@@ -435,7 +452,7 @@
                   <input
                     type="radio"
                     class="radioBtns__input hidden--visually"
-                    v-model="playerImageFilterEffect"
+                    v-model="cardDesign.playerImageFilterEffect"
                     value="filtervintage"
                   />
                   <span>1920</span>
@@ -444,7 +461,7 @@
                   <input
                     type="radio"
                     class="radioBtns__input hidden--visually"
-                    v-model="playerImageFilterEffect"
+                    v-model="cardDesign.playerImageFilterEffect"
                     value="filterfaded"
                   />
                   <span>Faded</span>
@@ -459,7 +476,7 @@
                   <input
                     type="radio"
                     class="radioBtns__input hidden--visually"
-                    v-model="logo.position"
+                    v-model="cardDesign.logo.position"
                     value="topLeft"
                     aria-label="Top Left"
                   />
@@ -479,7 +496,7 @@
                   <input
                     type="radio"
                     class="radioBtns__input hidden--visually"
-                    v-model="logo.position"
+                    v-model="cardDesign.logo.position"
                     value="topRight"
                     aria-label="Top Right"
                   />
@@ -499,7 +516,7 @@
                   <input
                     type="radio"
                     class="radioBtns__input hidden--visually"
-                    v-model="logo.position"
+                    v-model="cardDesign.logo.position"
                     value="bottomLeft"
                     aria-label="Bottom Left"
                   />
@@ -519,7 +536,7 @@
                   <input
                     type="radio"
                     class="radioBtns__input hidden--visually"
-                    v-model="logo.position"
+                    v-model="cardDesign.logo.position"
                     value="bottomRight"
                     aria-label="Bottom Right"
                   />
@@ -539,7 +556,7 @@
                   <input
                     type="radio"
                     class="radioBtns__input hidden--visually"
-                    v-model="logo.position"
+                    v-model="cardDesign.logo.position"
                     value="hideLogo"
                     aria-label="Bottom Right"
                   />
@@ -581,7 +598,7 @@ export default {
       let usrfile = filesProp[0];
       //validateImage();
       let insertImgFunc = (strng, theField) => {
-        this[theField] = strng;
+        this.images[theField] = strng;
       };
       // can i use optional chaining here?
       if (filesProp && usrfile) {
@@ -602,48 +619,49 @@ export default {
   },
   data() {
     return {
-      cardBackgroundColor: opts.cardBackgroundColor,
-      cardTextColor: opts.cardTextColor,
-      cardBrightness: opts.cardBrightness,
-      cardSepia: opts.cardSepia,
-      cardGrayScale: opts.cardGrayScale,
-      cardLayout: opts.cardLayout,
-      logoPic: opts.teamLogoURL,
-      pic: opts.pic,
-      playerImageBleedOrBoxed: opts.playerImageBleedOrBoxed,
-      playerImageFilterEffect: opts.playerImageFilterEffect,
-      playerName: opts.playerName,
-      playerPosition: opts.playerPosition,
-      teamName: opts.teamName,
-      borderInner: {
-        color: opts.borderInner.color,
-        curve: opts.borderInner.curve,
-        style: opts.borderInner.style,
-        opacity: opts.borderInner.opacity,
-        width: opts.borderInner.width,
+      images: {
+        playerPic: opts.playerPic,
+        logoPic: opts.teamLogoURL,
       },
-      logo: {
-        showing: opts.logo.showing,
-        borderRadius: opts.logo.borderRadius,
-        position: opts.logo.position,
+      cardDesign: {
+        playerImageBleedOrBoxed: opts.playerImageBleedOrBoxed,
+        cardBackgroundColor: opts.cardBackgroundColor,
+        cardLayout: opts.cardLayout,
+        cardBrightness: opts.cardBrightness,
+        cardSepia: opts.cardSepia,
+        cardGrayScale: opts.cardGrayScale,
+        playerImageFilterEffect: opts.playerImageFilterEffect,
+        borderInnerCurve: opts.borderInner.curve,
+        borderInnerWidth: opts.borderInner.width,
+        logo: {
+          showing: opts.logo.showing,
+          borderRadius: opts.logo.borderRadius,
+          position: opts.logo.position,
+        },
       },
-      textLine1: {
-        fontWght: opts.textLine1.fontWght,
-        fontWidth: opts.textLine1.fontWidth,
-        fontGrade: opts.textLine1.fontGrade,
-        fontSlant: opts.textLine1.fontSlant,
-      },
-      textLine2: {
-        fontWght: opts.textLine2.fontWght,
-        fontWidth: opts.textLine2.fontWidth,
-        fontGrade: opts.textLine2.fontGrade,
-        fontSlant: opts.textLine2.fontSlant,
-      },
-      textPlayerPosition: {
-        fontWght: opts.textPlayerPosition.fontWght,
-        fontWidth: opts.textPlayerPosition.fontWidth,
-        fontGrade: opts.textPlayerPosition.fontGrade,
-        fontSlant: opts.textPlayerPosition.fontSlant,
+
+      cardText: {
+        textLine1: {
+          teamName: opts.teamName,
+          fontWght: opts.textLine1.fontWght,
+          fontWidth: opts.textLine1.fontWidth,
+          fontGrade: opts.textLine1.fontGrade,
+          fontSlant: opts.textLine1.fontSlant,
+        },
+        textLine2: {
+          playerName: opts.playerName,
+          fontWght: opts.textLine2.fontWght,
+          fontWidth: opts.textLine2.fontWidth,
+          fontGrade: opts.textLine2.fontGrade,
+          fontSlant: opts.textLine2.fontSlant,
+        },
+        textPlayerPosition: {
+          playerPosition: opts.playerPosition,
+          fontWght: opts.textPlayerPosition.fontWght,
+          fontWidth: opts.textPlayerPosition.fontWidth,
+          fontGrade: opts.textPlayerPosition.fontGrade,
+          fontSlant: opts.textPlayerPosition.fontSlant,
+        },
       },
     };
   },
@@ -661,7 +679,7 @@ export default {
 
       return {
         "--backgroundcolorback": hexToDesiredColorSpace(
-          this.cardBackgroundColor
+          this.cardDesign.cardBackgroundColor
         ),
 
         "--red": redVal,
@@ -671,69 +689,82 @@ export default {
     },
     cssCardDesignProps() {
       return {
-        "--cardbackgroundcolor": this.cardBackgroundColor,
-        "--cardTextColor": this.cardTextColor,
-        "--cardsepia": `${this.cardSepia}%`,
-        "--cardbrightness": this.cardBrightness,
-        "--cardgrayscale": `${this.cardGrayScale}%`,
-        "--cardlayout": this.cardLayout,
-        "--playerimagebleedorboxed": this.playerImageBleedOrBoxed,
+        "--cardbackgroundcolor": this.cardDesign.cardBackgroundColor,
+        "--cardsepia": `${this.cardDesign.cardSepia}%`,
+        "--cardbrightness": this.cardDesign.cardBrightness,
+        "--cardgrayscale": `${this.cardDesign.cardGrayScale}%`,
+        "--cardlayout": this.cardDesign.cardLayout,
+        "--playerimagebleedorboxed": this.cardDesign.playerImageBleedOrBoxed,
       };
     },
     cssTextLine1Props() {
       return {
-        "--fontwght": this.textLine1.fontWght,
-        "--fontwidth": this.textLine1.fontWidth,
-        "--fontgrade": this.textLine1.fontGrade,
-        "--fontslant": this.textLine1.fontSlant,
+        "--fontwght": this.cardText.textLine1.fontWght,
+        "--fontwidth": this.cardText.textLine1.fontWidth,
+        "--fontgrade": this.cardText.textLine1.fontGrade,
+        "--fontslant": this.cardText.textLine1.fontSlant,
       };
     },
     cssTextLine2Props() {
       return {
-        "--fontwght": this.textLine2.fontWght,
-        "--fontwidth": this.textLine2.fontWidth,
-        "--fontgrade": this.textLine2.fontGrade,
-        "--fontslant": this.textLine2.fontSlant,
+        "--fontwght": this.cardText.textLine2.fontWght,
+        "--fontwidth": this.cardText.textLine2.fontWidth,
+        "--fontgrade": this.cardText.textLine2.fontGrade,
+        "--fontslant": this.cardText.textLine2.fontSlant,
       };
     },
     cssTextPlayerPositionProps() {
       return {
-        "--fontwght": this.textPlayerPosition.fontWght,
-        "--fontwidth": this.textPlayerPosition.fontWidth,
-        "--fontgrade": this.textPlayerPosition.fontGrade,
-        "--fontslant": this.textPlayerPosition.fontSlant,
+        "--fontwght": this.cardText.textPlayerPosition.fontWght,
+        "--fontwidth": this.cardText.textPlayerPosition.fontWidth,
+        "--fontgrade": this.cardText.textPlayerPosition.fontGrade,
+        "--fontslant": this.cardText.textPlayerPosition.fontSlant,
       };
     },
     cssLogoProps() {
       return {
-        "--logoposition": this.logo.position,
-        "--logoborderradius": `${this.logo.borderRadius}%`,
+        "--logoposition": this.cardDesign.logo.position,
+        "--logoborderradius": `${this.cardDesign.logo.borderRadius}%`,
       };
     },
     cssBorderInnerProps() {
       return {
-        "--borderinnercurve": `${this.borderInner.curve}px`,
-        "--borderinnerstyle": this.borderInner.style,
-        "--borderinneropacity": this.borderInner.opacity,
-        "--borderinnercolor": this.borderInner.color,
-        //"--borderinnerhexplusalpha": `${this.borderInner.color}${this.borderInner.opacity}`,
-        "--borderinnerwidth": `${this.borderInner.width}px`,
+        "--borderinnercurve": `${this.cardDesign.borderInnerCurve}px`,
+        "--borderinnerwidth": `${this.cardDesign.borderInnerWidth}px`,
       };
     },
   },
-  watch: {
-    cardLayout(newLayout, oldLayout) {
-      console.log(this.cardLayout);
-    },
-    cardBackgroundColor(newColor, oldColor) {
-      console.log(this.cardBackgroundColor);
-    },
+
+  created() {
+    // presently watching everything except the image uploaders
+    this.$watch(
+      "cardText",
+      () => {
+        console.log(this.cardText);
+      },
+      {
+        deep: true,
+      }
+    );
+    this.$watch(
+      "cardDesign",
+      () => {
+        console.log(this.cardDesign);
+      },
+      {
+        deep: true,
+      }
+    );
+    this.$watch(
+      "images",
+      () => {
+        console.log("um");
+      },
+      {
+        deep: true,
+      }
+    );
   },
-  //created() {
-  //  this.$watch("cardLayout", () => {
-  //    console.log(this.cardLayout);
-  //  });
-  //},
 };
 </script>
 
@@ -768,18 +799,14 @@ export default {
   padding: 0 1.6rem;
   color: var(--calcColor);
   background-color: var(--cardbackgroundcolor);
-
   border: 1px solid rgba(0, 0, 0, 0.3333);
-
   // may need this again...
   //overflow: hidden;
-
   z-index: 0;
 }
 
 .cardFront__controls {
   position: relative;
-  //padding: 0.8rem 0;
   .colorPicker__label--textOverlap {
     span {
       color: var(--calcColor);
@@ -793,52 +820,81 @@ export default {
 
 .one-one {
   justify-content: space-between;
+  input {
+    &[type="text"] {
+      height: var(--min-touch-target-height);
+    }
+  }
   .row--middle--forDesign {
     order: 0;
+  }
+  .text__line--first {
+    [data-soi] {
+      top: var(--min-touch-target);
+      bottom: auto;
+    }
+  }
+
+  .text__line--second {
+    [data-soi] {
+      top: auto;
+      bottom: var(--min-touch-target);
+    }
   }
 }
 .zero-two {
   justify-content: flex-end;
   padding-top: 1.6rem;
   padding-bottom: 0;
+  input {
+    &[type="text"] {
+      height: 2.4rem;
+    }
+  }
   .row--middle--forDesign {
     order: -1;
   }
 
   .text__line--first {
     padding-top: 0.8rem;
+    [data-soi] {
+      top: auto;
+      bottom: 6.4rem;
+    }
   }
   .text__line--second {
     padding-bottom: 0.8rem;
+    [data-soi] {
+      top: auto;
+      bottom: 6.4rem;
+    }
   }
 }
 .two-zero {
   justify-content: flex-start;
   padding-top: 0;
   padding-bottom: 1.6rem;
+  input {
+    &[type="text"] {
+      height: 2.4rem;
+    }
+  }
   .row--middle--forDesign {
     order: 1;
   }
 
   .text__line--first {
     padding-top: 0.8rem;
+    [data-soi] {
+      top: 6.4rem;
+      bottom: auto;
+    }
   }
   .text__line--second {
     padding-bottom: 0.8rem;
-  }
-}
-
-input {
-  &[type="text"] {
-    .one-one & {
-      height: var(--min-touch-target-height);
-    }
-    //reason that iM ok here with less than 44px is that when they are next to each other, focus UI makes it less of a huge deal if user taps the adjascent box. Not ideal but also still clickable
-    .two-zero & {
-      height: 2.4rem;
-    }
-    .zero-two & {
-      height: 2.4rem;
+    [data-soi] {
+      top: 6.4rem;
+      bottom: auto;
     }
   }
 }
@@ -847,54 +903,27 @@ input {
   display: flex;
   position: var(--playerimagebleedorboxed);
   flex-grow: 1;
-
   border-width: var(--borderinnerwidth);
-  border-style: var(--borderinnerstyle);
-
+  border-style: solid;
   border-color: var(--calcColor);
-
   border-radius: var(--borderinnercurve);
 
   &.topLeft {
     justify-content: flex-start;
     align-items: flex-start;
-    .figure--logo {
-      transform: translate(
-        calc(var(--borderinnercurve) / -3.6666),
-        calc(var(--borderinnercurve) / -3.6666)
-      );
-    }
   }
   &.topRight {
     justify-content: flex-end;
 
     align-items: flex-start;
-    .figure--logo {
-      transform: translate(
-        calc(var(--borderinnercurve) / 3.6666),
-        calc(var(--borderinnercurve) / -3.6666)
-      );
-    }
   }
   &.bottomLeft {
     justify-content: flex-start;
     align-items: flex-end;
-    .figure--logo {
-      transform: translate(
-        calc(var(--borderinnercurve) / -3.6666),
-        calc(var(--borderinnercurve) / 3.6666)
-      );
-    }
   }
   &.bottomRight {
     justify-content: flex-end;
     align-items: flex-end;
-    .figure--logo {
-      transform: translate(
-        calc(var(--borderinnercurve) / 3.6666),
-        calc(var(--borderinnercurve) / 3.6666)
-      );
-    }
   }
 }
 
@@ -922,52 +951,6 @@ input {
   }
 }
 
-.one-one {
-  .text__line--first {
-    [data-soi] {
-      top: var(--min-touch-target);
-      bottom: auto;
-    }
-  }
-
-  .text__line--second {
-    [data-soi] {
-      top: auto;
-      bottom: var(--min-touch-target);
-    }
-  }
-}
-
-.zero-two {
-  .text__line--first {
-    [data-soi] {
-      top: auto;
-      bottom: 6.4rem;
-    }
-  }
-  .text__line--second {
-    [data-soi] {
-      top: auto;
-      bottom: 6.4rem;
-    }
-  }
-}
-
-.two-zero {
-  .text__line--first {
-    [data-soi] {
-      top: 6.4rem;
-      bottom: auto;
-    }
-  }
-  .text__line--second {
-    [data-soi] {
-      top: 6.4rem;
-      bottom: auto;
-    }
-  }
-}
-
 .cf__h2 {
   font-size: 1.8rem;
   display: flex;
@@ -976,9 +959,7 @@ input {
 
 .cf__h3 {
   font-size: 1.6rem;
-
   text-align: right;
-
   input {
     text-align: inherit;
   }
@@ -991,7 +972,6 @@ input {
   bottom: 0;
   left: 0;
   display: flex;
-  //background-color: var(--cardbackgroundcolor);
   border-radius: var(--borderinnercurve);
   //.static & {
   //  border-radius: 0;
@@ -1019,12 +999,34 @@ input {
 .figure--logo {
   position: absolute;
   display: flex;
-  filter: #{"grayscale(var(--cardgrayscale))"} brightness(var(--cardbrightness))
-    sepia(var(--cardsepia));
   pointer-events: none;
 }
 
 .image--logo {
   border-radius: var(--logoborderradius);
+  .topLeft & {
+    transform: translate(
+      calc(var(--borderinnercurve) / -3.6666),
+      calc(var(--borderinnercurve) / -3.6666)
+    );
+  }
+  .topRight & {
+    transform: translate(
+      calc(var(--borderinnercurve) / 3.6666),
+      calc(var(--borderinnercurve) / -3.6666)
+    );
+  }
+  .bottomLeft & {
+    transform: translate(
+      calc(var(--borderinnercurve) / -3.6666),
+      calc(var(--borderinnercurve) / 3.6666)
+    );
+  }
+  .bottomRight & {
+    transform: translate(
+      calc(var(--borderinnercurve) / 3.6666),
+      calc(var(--borderinnercurve) / 3.6666)
+    );
+  }
 }
 </style>

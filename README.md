@@ -2,13 +2,7 @@
 
 ## To Do
 
-consider trimming whitespace with .trim
-
-can't use v-model.lazy on text fields with sliders because bad
-
-more helpful defualt text
-
-smooth load fade in?
+GRAD is making ugly letters...
 
 to toFixed on the average reducer funciton -- that should LIMIT the num of deimila places to 2, but i want to allow 0 places instrad of .0
 
@@ -38,6 +32,8 @@ logo image could match upload logo icon for more of a visual hint! plus it's sup
 ---
 
 ### Notes
+
+    //reason that iM ok here with less than 44px is that when they are next to each other, focus UI makes it less of a huge deal if user taps the adjascent box. Not ideal but also still clickable
 
 - group/team bulk stats upload
 - sell to youth sports leagues

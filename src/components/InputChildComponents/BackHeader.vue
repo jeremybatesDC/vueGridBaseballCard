@@ -7,7 +7,7 @@
           <input
             type="text"
             class=""
-            value="WONDER WOMAN"
+            v-model="playerName"
             placeholder="Firstname Lastname"
             spellcheck="false"
           />
@@ -124,6 +124,7 @@ export default {
   data() {
     return {
       defaultFacts,
+      playerName: "Casey Charleston",
       textLineA: {
         fontWght: 800,
         fontWidth: 50,
