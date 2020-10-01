@@ -174,9 +174,7 @@
         <!-- using css filter drop shadow could work -->
         <figure
           class="figure--logo"
-          v-show="
-            cardDesign.logo.showing && cardDesign.logo.position !== 'hideLogo'
-          "
+          v-show="cardDesign.logo.position !== 'hideLogo'"
         >
           <img
             loading="lazy"
@@ -634,7 +632,6 @@ export default {
         borderInnerCurve: opts.borderInner.curve,
         borderInnerWidth: opts.borderInner.width,
         logo: {
-          showing: opts.logo.showing,
           borderRadius: opts.logo.borderRadius,
           position: opts.logo.position,
         },
@@ -740,7 +737,7 @@ export default {
     this.$watch(
       "cardText",
       () => {
-        console.log(this.cardText);
+        console.log("yo");
       },
       {
         deep: true,
@@ -749,7 +746,7 @@ export default {
     this.$watch(
       "cardDesign",
       () => {
-        console.log(this.cardDesign);
+        console.log("hey");
       },
       {
         deep: true,

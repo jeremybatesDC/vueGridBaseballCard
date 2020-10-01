@@ -7,7 +7,7 @@
   "teamLogoURL": "/images/logoDefault.jpg",
   "teamName": "Mudville Meteors",
   "cardBackgroundColor": "#ffffff",
-  "cardBrightness": "1",
+  "cardBrightness": 1,
   "cardSepia": 0,
   "cardGrayScale": 0,
   "cardLayout": "one-one",
@@ -19,7 +19,6 @@
     "width": 3
   },
   "logo": {
-    "showing": "true",
     "borderRadius": 50,
     "position": "bottomRight"
   },
