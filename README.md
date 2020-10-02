@@ -2,6 +2,10 @@
 
 ## To Do
 
+paw is good for logo and logo button
+
+avoid watching sliders so much potential for making cpu fan explode
+
 GRAD is making ugly letters...
 
 to toFixed on the average reducer funciton -- that should LIMIT the num of deimila places to 2, but i want to allow 0 places instrad of .0

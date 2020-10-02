@@ -90,7 +90,7 @@
         <h2 :style="cssTextLine1Props" class="cf__h2">
           <input
             class=""
-            v-model="cardText.textLine1.teamName"
+            v-model.trim="cardText.textLine1.teamName"
             type="text"
             placeholder
             maxlength="42"
@@ -190,7 +190,7 @@
         <h1 :style="cssTextLine2Props" class="cf__h1">
           <input
             class=""
-            v-model="cardText.textLine2.playerName"
+            v-model.trim="cardText.textLine2.playerName"
             type="text"
             placeholder
             maxlength="48"
@@ -256,7 +256,7 @@
         <h3 :style="cssTextPlayerPositionProps" class="cf__h3">
           <input
             class=""
-            v-model="cardText.textPlayerPosition.playerPosition"
+            v-model.trim="cardText.textPlayerPosition.playerPosition"
             type="text"
             placeholder
             maxlength="48"
@@ -581,7 +581,7 @@
 </template>
 
 <script>
-import opts from "/json/default-settings.json";
+//import opts from "/json/default-settings.json";
 //import TextSlider from "./TextSlider.vue";
 
 export default {
@@ -618,46 +618,46 @@ export default {
   data() {
     return {
       images: {
-        playerPic: opts.playerPic,
-        logoPic: opts.teamLogoURL,
+        playerPic: "/images/playerDefault.jpg",
+        logoPic: "/images/logoDefault.svg",
       },
       cardDesign: {
-        playerImageBleedOrBoxed: opts.playerImageBleedOrBoxed,
-        cardBackgroundColor: opts.cardBackgroundColor,
-        cardLayout: opts.cardLayout,
-        cardBrightness: opts.cardBrightness,
-        cardSepia: opts.cardSepia,
-        cardGrayScale: opts.cardGrayScale,
-        playerImageFilterEffect: opts.playerImageFilterEffect,
-        borderInnerCurve: opts.borderInner.curve,
-        borderInnerWidth: opts.borderInner.width,
+        playerImageBleedOrBoxed: "relative",
+        cardBackgroundColor: "#ffffff",
+        cardLayout: "one-one",
+        cardBrightness: 1,
+        cardSepia: 0,
+        cardGrayScale: 0,
+        playerImageFilterEffect: "noFilterEffect",
+        borderInnerCurve: 0,
+        borderInnerWidth: 3,
         logo: {
-          borderRadius: opts.logo.borderRadius,
-          position: opts.logo.position,
+          borderRadius: 50,
+          position: "bottomRight",
         },
       },
 
       cardText: {
         textLine1: {
-          teamName: opts.teamName,
-          fontWght: opts.textLine1.fontWght,
-          fontWidth: opts.textLine1.fontWidth,
-          fontGrade: opts.textLine1.fontGrade,
-          fontSlant: opts.textLine1.fontSlant,
+          teamName: "Mudville Mountain Lions",
+          fontWght: 600,
+          fontWidth: 90,
+          fontGrade: 1,
+          fontSlant: 0,
         },
         textLine2: {
-          playerName: opts.playerName,
-          fontWght: opts.textLine2.fontWght,
-          fontWidth: opts.textLine2.fontWidth,
-          fontGrade: opts.textLine2.fontGrade,
-          fontSlant: opts.textLine2.fontSlant,
+          playerName: "Casey Charleston",
+          fontWght: 200,
+          fontWidth: 50,
+          fontGrade: 0.5,
+          fontSlant: 0,
         },
         textPlayerPosition: {
-          playerPosition: opts.playerPosition,
-          fontWght: opts.textPlayerPosition.fontWght,
-          fontWidth: opts.textPlayerPosition.fontWidth,
-          fontGrade: opts.textPlayerPosition.fontGrade,
-          fontSlant: opts.textPlayerPosition.fontSlant,
+          playerPosition: "Dad, Pitcher",
+          fontWght: 200,
+          fontWidth: 50,
+          fontGrade: 0.5,
+          fontSlant: -5,
         },
       },
     };
@@ -733,7 +733,7 @@ export default {
   },
 
   created() {
-    // presently watching everything except the image uploaders
+    // might not even want to use watch for desired data flow -- still learning/thinking
     this.$watch(
       "cardText",
       () => {
