@@ -1,56 +1,43 @@
 {
-  "playerImageURLorDataString": "/images/playerDefault.jpg",
+  "playerPic": "/images/playerDefault.jpg",
   "playerImageBleedOrBoxed": "relative",
   "playerImageFilterEffect": "noFilterEffect",
-  "playerName": "Anthony Rendon",
-  "playerPosition": "Third Base",
-  "teamLogoAltText": "Nats Curley W Logo",
+  "playerName": "Casey Charleston",
+  "playerPosition": "Dad, Pitcher",
   "teamLogoURL": "/images/logoDefault.jpg",
-  "teamName": "Washington Nationals",
+  "teamName": "Mudville Meteors",
   "cardBackgroundColor": "#ffffff",
-  "cardBackgroundTexture": "filterfabric",
-  "cardBrightness": "1",
-  "cardTextColor": "#000000",
-
-  "cardTextFontWeight": "400",
-  "cardTextFontWidth": "90",
-  "cardTextFontOptSize": "25",
-  "cardTextFontGrade": "0",
-  "cardTextFontSlant": "0",
-  "cardSepia": "0",
-  "cardGrayScale": "0",
+  "cardBrightness": 1,
+  "cardSepia": 0,
+  "cardGrayScale": 0,
   "cardLayout": "one-one",
   "borderInner": {
-    "curve": "0",
+    "curve": 0,
     "style": "solid",
-    "opacity": "1",
+    "opacity": 1,
     "color": "#000000",
-    "width": "3"
+    "width": 3
   },
   "logo": {
-    "showing": "true",
-    "borderRadius": "50",
+    "borderRadius": 50,
     "position": "bottomRight"
   },
   "textLine1": {
-    "color": "#123456",
-    "fontWeight": "600",
-    "fontWidth": "90",
-    "fontGrade": "1",
-    "fontSlant": "0"
+    "fontWght": 600,
+    "fontWidth": 90,
+    "fontGrade": 1,
+    "fontSlant": 0
   },
   "textLine2": {
-    "color": "#345abc",
-    "fontWeight": "200",
-    "fontWidth": "50",
-    "fontGrade": ".5",
-    "fontSlant": "0"
+    "fontWght": 200,
+    "fontWidth": 50,
+    "fontGrade": 0.5,
+    "fontSlant": 0
   },
   "textPlayerPosition": {
-    "color": "#345abc",
-    "fontWeight": "200",
-    "fontWidth": "50",
-    "fontGrade": ".5",
-    "fontSlant": "-5"
+    "fontWght": 200,
+    "fontWidth": 50,
+    "fontGrade": 0.5,
+    "fontSlant": -5
   }
 }

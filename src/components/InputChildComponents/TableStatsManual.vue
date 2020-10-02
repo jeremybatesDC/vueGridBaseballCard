@@ -1,55 +1,128 @@
 <template>
   <div class="stats__wrapper--outer" @focusin="putCursorAtEnd">
-    <!--  -->
-    <form>
-      <table class="">
+    <form class="stats__form">
+      <table class="stats__table">
         <!--<caption>Career Stats</caption>-->
         <thead>
           <tr>
             <th scope="col" data-col="0">
               <label>
-                <input type="text" v-model="fields.year" maxlength="9" />
+                <input type="text" v-model.trim="fields.year" maxlength="9" />
               </label>
             </th>
             <th scope="col" data-col="1">
               <label>
-                <input type="text" v-model="fields.homeCity" maxlength="9" />
+                <input
+                  type="text"
+                  v-model.trim="fields.homeCity"
+                  maxlength="9"
+                />
               </label>
             </th>
             <th scope="col" data-col="2">
               <label>
-                <input type="text" v-model="fields.racesCycled" maxlength="9" />
+                <input type="text" v-model.trim="fields.field0" maxlength="9" />
               </label>
             </th>
             <th scope="col" data-col="3">
               <label>
-                <input type="text" v-model="fields.milesCycled" maxlength="9" />
+                <input type="text" v-model.trim="fields.field1" maxlength="9" />
               </label>
             </th>
             <th scope="col" data-col="4">
               <label>
-                <input type="text" v-model="fields.avgSpeed" maxlength="9" />
+                <input type="text" v-model.trim="fields.field2" maxlength="9" />
               </label>
             </th>
             <th scope="col" data-col="5">
               <label>
-                <input type="text" v-model="fields.falls" maxlength="9" />
+                <input type="text" v-model.trim="fields.field3" maxlength="9" />
               </label>
             </th>
             <th scope="col" data-col="6">
               <label>
-                <input type="text" v-model="fields.beersTasted" maxlength="9" />
+                <input type="text" v-model.trim="fields.field4" maxlength="9" />
               </label>
             </th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <!-- i really don't want to do a loop in a loop, do I? Space/time complexity wise, it's better to loop twice -->
-            <!-- this one doesnT expect index until 3rd argument. Is that because itS nested? Maybe itS the kind of object -->
-
             <!-- making first col a TH scope row -->
-            <th scope="row" data-col="0" data-row="0">
+            <th scope="row" data-col="0">
+              <input
+                type="tel"
+                inputmode="decimal"
+                v-model="seasons.yr0.year"
+                size="4"
+                maxlength="4"
+                data-col="0"
+              />
+            </th>
+            <td data-col="1">
+              <input
+                type="tel"
+                inputmode="decimal"
+                v-model.trim="seasons.yr0.homeCity"
+                size="4"
+                maxlength="4"
+                data-col="1"
+              />
+            </td>
+            <td>
+              <input
+                type="tel"
+                inputmode="decimal"
+                v-model.number="seasons.yr0.stats.stat0"
+                size="5"
+                maxlength="5"
+                placeholder="0"
+              />
+            </td>
+
+            <td>
+              <input
+                type="tel"
+                inputmode="decimal"
+                v-model.number="seasons.yr0.stats.stat1"
+                size="5"
+                maxlength="5"
+                placeholder="0"
+              />
+            </td>
+            <td>
+              <input
+                type="tel"
+                inputmode="decimal"
+                v-model.number="seasons.yr0.stats.stat2"
+                size="5"
+                maxlength="5"
+                placeholder="0"
+              />
+            </td>
+            <td>
+              <input
+                type="tel"
+                inputmode="decimal"
+                v-model.number="seasons.yr0.stats.stat3"
+                size="5"
+                maxlength="5"
+                placeholder="0"
+              />
+            </td>
+            <td>
+              <input
+                type="tel"
+                inputmode="decimal"
+                v-model.number="seasons.yr0.stats.stat4"
+                size="5"
+                maxlength="5"
+                placeholder="0"
+              />
+            </td>
+          </tr>
+          <tr>
+            <th scope="row" data-col="0">
               <input
                 type="tel"
                 inputmode="decimal"
@@ -57,30 +130,23 @@
                 size="4"
                 maxlength="4"
                 data-col="0"
-                data-row="0"
               />
             </th>
-            <td data-col="1" data-row="0">
+            <td data-col="1">
               <input
                 type="tel"
                 inputmode="decimal"
-                v-model="seasons.yr1.homeCity"
+                v-model.trim="seasons.yr1.homeCity"
                 size="4"
                 maxlength="4"
                 data-col="1"
-                data-row="0"
               />
             </td>
-
-            <!-- type number continues to be annoying AF. Trying to move down a cell with an arrow key shouldn't accidentally alter the stats -->
-
-            <!--v-model="season.numericStats[indexInner]"-->
-            <!-- :value="theStat" -->
             <td>
               <input
                 type="tel"
                 inputmode="decimal"
-                v-model="seasons.yr1.numericStats.racesCycled"
+                v-model.number="seasons.yr1.stats.stat0"
                 size="5"
                 maxlength="5"
                 placeholder="0"
@@ -91,7 +157,7 @@
               <input
                 type="tel"
                 inputmode="decimal"
-                v-model="seasons.yr1.numericStats.milesCycled"
+                v-model.number="seasons.yr1.stats.stat1"
                 size="5"
                 maxlength="5"
                 placeholder="0"
@@ -101,7 +167,7 @@
               <input
                 type="tel"
                 inputmode="decimal"
-                v-model="seasons.yr1.numericStats.avgSpeed"
+                v-model.number="seasons.yr1.stats.stat2"
                 size="5"
                 maxlength="5"
                 placeholder="0"
@@ -111,7 +177,7 @@
               <input
                 type="tel"
                 inputmode="decimal"
-                v-model="seasons.yr1.numericStats.falls"
+                v-model.number="seasons.yr1.stats.stat3"
                 size="5"
                 maxlength="5"
                 placeholder="0"
@@ -121,7 +187,7 @@
               <input
                 type="tel"
                 inputmode="decimal"
-                v-model="seasons.yr1.numericStats.beersTasted"
+                v-model.number="seasons.yr1.stats.stat4"
                 size="5"
                 maxlength="5"
                 placeholder="0"
@@ -129,7 +195,7 @@
             </td>
           </tr>
           <tr>
-            <th scope="row" data-col="0" data-row="0">
+            <th scope="row" data-col="0">
               <input
                 type="tel"
                 inputmode="decimal"
@@ -137,25 +203,23 @@
                 size="4"
                 maxlength="4"
                 data-col="0"
-                data-row="0"
               />
             </th>
-            <td data-col="1" data-row="0">
+            <td data-col="1">
               <input
                 type="tel"
                 inputmode="decimal"
-                v-model="seasons.yr2.homeCity"
+                v-model.trim="seasons.yr2.homeCity"
                 size="4"
                 maxlength="4"
                 data-col="1"
-                data-row="0"
               />
             </td>
             <td>
               <input
                 type="tel"
                 inputmode="decimal"
-                v-model="seasons.yr2.numericStats.racesCycled"
+                v-model.number="seasons.yr2.stats.stat0"
                 size="5"
                 maxlength="5"
                 placeholder="0"
@@ -166,7 +230,7 @@
               <input
                 type="tel"
                 inputmode="decimal"
-                v-model="seasons.yr2.numericStats.milesCycled"
+                v-model.number="seasons.yr2.stats.stat1"
                 size="5"
                 maxlength="5"
                 placeholder="0"
@@ -176,7 +240,7 @@
               <input
                 type="tel"
                 inputmode="decimal"
-                v-model="seasons.yr2.numericStats.avgSpeed"
+                v-model.number="seasons.yr2.stats.stat2"
                 size="5"
                 maxlength="5"
                 placeholder="0"
@@ -186,7 +250,7 @@
               <input
                 type="tel"
                 inputmode="decimal"
-                v-model="seasons.yr2.numericStats.falls"
+                v-model.number="seasons.yr2.stats.stat3"
                 size="5"
                 maxlength="5"
                 placeholder="0"
@@ -196,7 +260,7 @@
               <input
                 type="tel"
                 inputmode="decimal"
-                v-model="seasons.yr2.numericStats.beersTasted"
+                v-model.number="seasons.yr2.stats.stat4"
                 size="5"
                 maxlength="5"
                 placeholder="0"
@@ -204,7 +268,7 @@
             </td>
           </tr>
           <tr>
-            <th scope="row" data-col="0" data-row="0">
+            <th scope="row" data-col="0">
               <input
                 type="tel"
                 inputmode="decimal"
@@ -212,25 +276,23 @@
                 size="4"
                 maxlength="4"
                 data-col="0"
-                data-row="0"
               />
             </th>
-            <td data-col="1" data-row="0">
+            <td data-col="1">
               <input
                 type="tel"
                 inputmode="decimal"
-                v-model="seasons.yr3.homeCity"
+                v-model.trim="seasons.yr3.homeCity"
                 size="4"
                 maxlength="4"
                 data-col="1"
-                data-row="0"
               />
             </td>
             <td>
               <input
                 type="tel"
                 inputmode="decimal"
-                v-model="seasons.yr3.numericStats.racesCycled"
+                v-model.number="seasons.yr3.stats.stat0"
                 size="5"
                 maxlength="5"
                 placeholder="0"
@@ -241,7 +303,7 @@
               <input
                 type="tel"
                 inputmode="decimal"
-                v-model="seasons.yr3.numericStats.milesCycled"
+                v-model.number="seasons.yr3.stats.stat1"
                 size="5"
                 maxlength="5"
                 placeholder="0"
@@ -251,7 +313,7 @@
               <input
                 type="tel"
                 inputmode="decimal"
-                v-model="seasons.yr3.numericStats.avgSpeed"
+                v-model.number="seasons.yr3.stats.stat2"
                 size="5"
                 maxlength="5"
                 placeholder="0"
@@ -261,7 +323,7 @@
               <input
                 type="tel"
                 inputmode="decimal"
-                v-model="seasons.yr3.numericStats.falls"
+                v-model.number="seasons.yr3.stats.stat3"
                 size="5"
                 maxlength="5"
                 placeholder="0"
@@ -271,7 +333,7 @@
               <input
                 type="tel"
                 inputmode="decimal"
-                v-model="seasons.yr3.numericStats.beersTasted"
+                v-model.number="seasons.yr3.stats.stat4"
                 size="5"
                 maxlength="5"
                 placeholder="0"
@@ -279,7 +341,7 @@
             </td>
           </tr>
           <tr>
-            <th scope="row" data-col="0" data-row="0">
+            <th scope="row" data-col="0">
               <input
                 type="tel"
                 inputmode="decimal"
@@ -287,25 +349,23 @@
                 size="4"
                 maxlength="4"
                 data-col="0"
-                data-row="0"
               />
             </th>
-            <td data-col="1" data-row="0">
+            <td data-col="1">
               <input
                 type="tel"
                 inputmode="decimal"
-                v-model="seasons.yr4.homeCity"
+                v-model.trim="seasons.yr4.homeCity"
                 size="4"
                 maxlength="4"
                 data-col="1"
-                data-row="0"
               />
             </td>
             <td>
               <input
                 type="tel"
                 inputmode="decimal"
-                v-model="seasons.yr4.numericStats.racesCycled"
+                v-model.number="seasons.yr4.stats.stat0"
                 size="5"
                 maxlength="5"
                 placeholder="0"
@@ -316,7 +376,7 @@
               <input
                 type="tel"
                 inputmode="decimal"
-                v-model="seasons.yr4.numericStats.milesCycled"
+                v-model.number="seasons.yr4.stats.stat1"
                 size="5"
                 maxlength="5"
                 placeholder="0"
@@ -326,7 +386,7 @@
               <input
                 type="tel"
                 inputmode="decimal"
-                v-model="seasons.yr4.numericStats.avgSpeed"
+                v-model.number="seasons.yr4.stats.stat2"
                 size="5"
                 maxlength="5"
                 placeholder="0"
@@ -336,7 +396,7 @@
               <input
                 type="tel"
                 inputmode="decimal"
-                v-model="seasons.yr4.numericStats.falls"
+                v-model.number="seasons.yr4.stats.stat3"
                 size="5"
                 maxlength="5"
                 placeholder="0"
@@ -346,82 +406,7 @@
               <input
                 type="tel"
                 inputmode="decimal"
-                v-model="seasons.yr4.numericStats.beersTasted"
-                size="5"
-                maxlength="5"
-                placeholder="0"
-              />
-            </td>
-          </tr>
-          <tr>
-            <th scope="row" data-col="0" data-row="0">
-              <input
-                type="tel"
-                inputmode="decimal"
-                v-model="seasons.yr5.year"
-                size="4"
-                maxlength="4"
-                data-col="0"
-                data-row="0"
-              />
-            </th>
-            <td data-col="1" data-row="0">
-              <input
-                type="tel"
-                inputmode="decimal"
-                v-model="seasons.yr5.homeCity"
-                size="4"
-                maxlength="4"
-                data-col="1"
-                data-row="0"
-              />
-            </td>
-            <td>
-              <input
-                type="tel"
-                inputmode="decimal"
-                v-model="seasons.yr5.numericStats.racesCycled"
-                size="5"
-                maxlength="5"
-                placeholder="0"
-              />
-            </td>
-
-            <td>
-              <input
-                type="tel"
-                inputmode="decimal"
-                v-model="seasons.yr5.numericStats.milesCycled"
-                size="5"
-                maxlength="5"
-                placeholder="0"
-              />
-            </td>
-            <td>
-              <input
-                type="tel"
-                inputmode="decimal"
-                v-model="seasons.yr5.numericStats.avgSpeed"
-                size="5"
-                maxlength="5"
-                placeholder="0"
-              />
-            </td>
-            <td>
-              <input
-                type="tel"
-                inputmode="decimal"
-                v-model="seasons.yr5.numericStats.falls"
-                size="5"
-                maxlength="5"
-                placeholder="0"
-              />
-            </td>
-            <td>
-              <input
-                type="tel"
-                inputmode="decimal"
-                v-model="seasons.yr5.numericStats.beersTasted"
+                v-model.number="seasons.yr4.stats.stat4"
                 size="5"
                 maxlength="5"
                 placeholder="0"
@@ -436,27 +421,27 @@
             <!-- a bit too imperative but it is good that we are not doing a v-if in a v-for-->
             <td scope="col">
               <output class="tfoot__output--totals">{{
-                sumNumericCol("racesCycled")
+                tabulate("sum", "stat0")
               }}</output>
             </td>
             <td scope="col">
               <output class="tfoot__output--totals">{{
-                sumNumericCol("milesCycled")
+                tabulate("sum", "stat1")
               }}</output>
             </td>
             <td scope="col">
               <output class="tfoot__output--totals">{{
-                sumNumericCol("avgSpeed")
+                tabulate("avg", "stat2")
               }}</output>
             </td>
             <td scope="col">
               <output class="tfoot__output--totals">{{
-                sumNumericCol("falls")
+                tabulate("sum", "stat3")
               }}</output>
             </td>
             <td scope="col">
               <output class="tfoot__output--totals">{{
-                sumNumericCol("beersTasted")
+                tabulate("sum", "stat4")
               }}</output>
             </td>
           </tr>
@@ -466,9 +451,7 @@
   </div>
 </template>
 <script>
-import defaultStats from "/json/default-stats.json";
-
-// can use COMPUTED to "filter" or "mask" out unwanted valuesbundleRenderer.renderToStream https://v3.https://www.vuemastery.com/conferences/vueconf-us-2019/building-fast-and-semantic-input-masks-in-vuejs/
+//import defaultStats from "/json/default-stats.json";
 
 function putCursorAtEnd(event) {
   event.target.setSelectionRange(99, 99);
@@ -480,94 +463,107 @@ export default {
   },
   data() {
     return {
-      defaultStats,
+      //defaultStats,
       fields: {
         year: "Year",
         homeCity: "City",
-        racesCycled: "Races",
-        milesCycled: "Miles",
-        avgSpeed: "Speed",
-        falls: "Falls",
-        beersTasted: "Beers",
+        field0: "Races",
+        field1: "Miles",
+        field2: "Speed",
+        field3: "Falls",
+        field4: "Beers",
       },
       seasons: {
-        yr1: {
+        yr0: {
           year: "2015",
           homeCity: "DC",
-          numericStats: {
-            racesCycled: 11,
-            milesCycled: 905,
-            avgSpeed: 29,
-            falls: 12,
-            beersTasted: 112,
+          stats: {
+            stat0: 11,
+            stat1: 905,
+            stat2: 29,
+            stat3: 12,
+            stat4: 112,
+          },
+        },
+        yr1: {
+          year: "2016",
+          homeCity: "NYC",
+          stats: {
+            stat0: 25,
+            stat1: 1005,
+            stat2: 28.5,
+            stat3: 6,
+            stat4: 118,
           },
         },
         yr2: {
-          year: "2016",
-          homeCity: "NYC",
-          numericStats: {
-            racesCycled: 25,
-            milesCycled: 1005,
-            avgSpeed: 28.5,
-            falls: 6,
-            beersTasted: 118,
+          year: "2017",
+          homeCity: "SF",
+          stats: {
+            stat0: 1,
+            stat1: 4,
+            stat2: 8.5,
+            stat3: 1,
+            stat4: 398,
           },
         },
         yr3: {
-          year: "2017",
+          year: "2018",
           homeCity: "SF",
-          numericStats: {
-            racesCycled: 1,
-            milesCycled: 4,
-            avgSpeed: 8.5,
-            falls: 1,
-            beersTasted: 398,
+          stats: {
+            stat0: 102,
+            stat1: 9876,
+            stat2: 42,
+            stat3: 11,
+            stat4: 77,
           },
         },
         yr4: {
-          year: "2018",
-          homeCity: "SF",
-          numericStats: {
-            racesCycled: 102,
-            milesCycled: 9876,
-            avgSpeed: 42,
-            falls: 11,
-            beersTasted: 77,
-          },
-        },
-        yr5: {
           year: "2019",
           homeCity: "LA",
-          numericStats: {
-            racesCycled: 29,
-            milesCycled: 3201,
-            avgSpeed: 101,
-            falls: 0,
-            beersTasted: 27,
+          stats: {
+            stat0: 29,
+            stat1: 3201,
+            stat2: 101,
+            stat3: 0,
+            stat4: 27,
           },
         },
       },
     };
   },
-  // using a method instead of computerd MIGHT allow me to pass in the column-number...
+
   methods: {
-    sumNumericCol(statCol) {
+    tabulate(sumOrAvg, statCol) {
+      let colNumsArray = [];
+      Object.keys(this.seasons).map((season, i) => {
+        let yrString = `yr${i}`;
+        colNumsArray.push(+this.seasons[yrString].stats[statCol]);
+      });
       const rdcrSum = (acum, curVal) => {
         return parseFloat(acum) + parseFloat(curVal);
       };
-      let colNumsArray = [];
-      //hardcoded at present so must refactor
-      for (let i = 0; i < 5; i++) {
-        let yrString = `yr${i + 1}`;
-        colNumsArray.push(+this.seasons[yrString].numericStats[statCol]);
+      const rdcrAvg = ({ avg, n }, curVal) => {
+        return {
+          avg: (curVal + n * avg) / (n + 1),
+          n: n + 1,
+        };
+      };
+      if (sumOrAvg === "sum") {
+        return colNumsArray.reduce(rdcrSum);
+      } else if (sumOrAvg === "avg") {
+        const initialVals = { avg: 0, n: 0 };
+
+        return parseFloat(
+          colNumsArray.reduce(rdcrAvg, initialVals).avg
+        ).toFixed(1);
       }
-      return colNumsArray.reduce(rdcrSum);
     },
   },
 };
 </script>
 
-<style scoped lang="scss">
+<style lang="scss">
 .stats__wrapper--outer {
   --tablewrapheight: 100%;
   --tableheight: 100%;
@@ -600,12 +596,12 @@ tbody {
   //padding-right: 1.6rem;
 }
 
-form {
+.stats__form {
   width: 100%;
   height: var(--tablewrapheight);
 }
 
-table {
+.stats__table {
   width: 100%;
   max-width: calc(100vw - 3.2rem);
   height: var(--tableheight);
@@ -621,13 +617,7 @@ table {
   // need to address making this fit on portrait
   //overflow: hidden;
 }
-caption {
-  //background: rgba(#9c2c1a, 0.25);
-  text-align: left;
-  padding: 0.5rem;
-  // learned something new
-  //caption-side: bottom;
-}
+
 thead {
   background: rgba(0, 0, 0, 0.05);
   //box-shadow: 0 1px #000;
@@ -693,14 +683,10 @@ tbody {
         text-align: left;
       }
     }
-
-    input {
-      //display: block;
-      padding: 0;
-      text-align: right;
-    }
   }
   input {
+    padding: 0;
+    text-align: right;
     &[type="tel"] {
       &::placeholder {
         color: var(--calcColor);
@@ -712,14 +698,14 @@ tfoot {
   font-variation-settings: "wght" 200, "wdth" 25, "opsz" 30, "GRAD" 1, "slnt" 0,
     "YTLC" 500, "YTUC" 500, "YTFI" 500;
   background: rgba(0, 0, 0, 0.05);
-  //box-shadow: 0 1px #000, 1px 0 #000, -1px 0 #000;
   td,
   th {
     padding: 0.1rem 0 0.1rem 0.1rem;
+  }
+  th {
     &:first-child {
       text-align: left;
     }
   }
-  //box-shadow: 0 1px #000;
 }
 </style>

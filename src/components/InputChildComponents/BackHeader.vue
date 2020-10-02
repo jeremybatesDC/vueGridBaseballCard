@@ -1,13 +1,13 @@
 <template>
-  <header :style="textLineAProps">
+  <header class="cb__header" :style="textLineAProps">
     <div class="row row--topmost space-between">
       <!-- i dont think label is necessarily correct here -->
       <label class="backHeader__label--topmost">
-        <h1 class="">
+        <h1 class="cb__h1">
           <input
             type="text"
             class=""
-            value="WONDER WOMAN"
+            v-model="playerName"
             placeholder="Firstname Lastname"
             spellcheck="false"
           />
@@ -15,12 +15,12 @@
             <div class="row row--grow space-between row--textControls">
               <label class="rangeUI__label">
                 <span
-                  >Weight: <output :value="textLineA.fontWeight"></output
+                  >Weight: <output :value="textLineA.fontWght"></output
                 ></span>
 
                 <input
                   class="rangeUI__input"
-                  v-model="textLineA.fontWeight"
+                  v-model.number="textLineA.fontWght"
                   type="range"
                   min="150"
                   max="800"
@@ -32,7 +32,7 @@
                 ></span>
                 <input
                   class="rangeUI__input"
-                  v-model="textLineA.fontWidth"
+                  v-model.number="textLineA.fontWidth"
                   type="range"
                   min="35"
                   max="100"
@@ -46,7 +46,7 @@
                 ></span>
                 <input
                   class="rangeUI__input"
-                  v-model="textLineA.fontSlant"
+                  v-model.number="textLineA.fontSlant"
                   type="range"
                   min="-10"
                   max="0"
@@ -58,7 +58,7 @@
                 ></span>
                 <input
                   class="rangeUI__input"
-                  v-model="textLineA.fontGrade"
+                  v-model.number="textLineA.fontGrade"
                   type="range"
                   min="0"
                   max="1"
@@ -81,12 +81,20 @@
       <span class="">
         <!-- nested row -->
         <div class="row row--stripe stripe--dark space-between">
-          <label>
-            <input class="" type="email" v-model="defaultFacts.info.info_0" />
+          <label class="stripe__label">
+            <input
+              class="stripe__input"
+              type="email"
+              v-model="defaultFacts.info.info_0"
+            />
           </label>
 
-          <label>
-            <input class="" type="text" v-model="defaultFacts.info.info_1" />
+          <label class="stripe__label">
+            <input
+              class="stripe__input"
+              type="text"
+              v-model="defaultFacts.info.info_1"
+            />
           </label>
         </div>
         <div class="row row--bottommost space-between">
@@ -111,23 +119,24 @@
 
 <script>
 import defaultFacts from "/json/default-facts.json";
-import defaultSettingsBack from "/json/default-settings-back.json";
+//import optsBack from "/json/default-settings-back.json";
 export default {
   data() {
     return {
       defaultFacts,
+      playerName: "Casey Charleston",
       textLineA: {
-        fontWeight: defaultSettingsBack.textLineA.fontWeight,
-        fontWidth: defaultSettingsBack.textLineA.fontWidth,
-        fontGrade: defaultSettingsBack.textLineA.fontGrade,
-        fontSlant: defaultSettingsBack.textLineA.fontSlant,
+        fontWght: 800,
+        fontWidth: 50,
+        fontGrade: 1,
+        fontSlant: -10,
       },
     };
   },
   computed: {
     textLineAProps() {
       return {
-        "--fontweight": this.textLineA.fontWeight,
+        "--fontwght": this.textLineA.fontWght,
         "--fontwidth": this.textLineA.fontWidth,
         "--fontgrade": this.textLineA.fontGrade,
         "--fontslant": this.textLineA.fontSlant,
@@ -137,7 +146,7 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .backHeader__label--topmost {
   &:first-of-type {
     width: 66.6666%;
@@ -156,63 +165,21 @@ export default {
   }
 }
 
-.row--topmost {
-  input[type="text"] {
-    height: var(--min-touch-target);
-  }
-}
-
-.row--stripe {
-  height: 2.4rem;
-}
-
-.row--stacked {
-  height: 5.4rem;
-}
-.row--bottommost {
-  height: 3.2rem;
-}
-
-input {
-  text-transform: uppercase;
-}
-
-header {
+.cb__header {
   display: flex;
   flex-direction: column;
 
   padding: 0 1.6rem;
-}
-
-h1 {
-  display: flex;
-  flex-grow: 1;
-  font-size: 2.4rem;
-  padding-bottom: 0;
-  font-variation-settings: "wght" var(--fontweight), "wdth" var(--fontwidth),
-    "opsz" 25, "GRAD" var(--fontgrade), "slnt" var(--fontslant), "YTLC" 800,
-    "YTUC" 800, "YTAS" 800;
-
-  width: 100%;
-  input[type="text"] {
-    height: var(--min-touch-target-height);
-    font-variation-settings: inherit;
-    padding-top: 0;
-    padding-bottom: 0;
-    width: 100%;
-    &:focus {
-      background-color: var(--backgroundcolorback);
-    }
+  input {
+    font-variation-settings: "wght" 400, "wdth" 40, "opsz" 38, "GRAD" 1,
+      "slnt" 0, "YTLC" 400, "YTUC" 400, "YTAS" 400;
+    text-transform: uppercase;
   }
-}
-
-.row {
   label {
     display: flex;
     flex-direction: column;
     font-size: 1.6rem;
-    font-variation-settings: "wght" 400, "wdth" 25, "opsz" 50, "GRAD" 48,
-      "slnt" 0, "YTLC" 200, "YTUC" 200, "YTAS" 700;
+
     align-items: center;
     justify-content: center;
     &:last-child {
@@ -223,6 +190,9 @@ h1 {
       }
     }
   }
+}
+
+.row {
   &--topmost {
     label {
       &--topmost {
@@ -237,6 +207,10 @@ h1 {
         }
       }
     }
+    // wait what about type email?
+    input[type="text"] {
+      height: var(--min-touch-target);
+    }
     .rangeUI__label {
       span {
         width: 100%;
@@ -244,6 +218,8 @@ h1 {
     }
   }
   &--stacked {
+    height: 5.4rem;
+
     span {
       display: flex;
       flex-direction: column;
@@ -259,42 +235,38 @@ h1 {
       height: calc(var(--min-touch-target-height-half) + 0.8rem);
       font-size: 1.6rem;
       padding: 0;
-      font-variation-settings: "wght" 400, "wdth" 25, "opsz" 50, "GRAD" 48,
-        "slnt" 0, "YTLC" 200, "YTUC" 200, "YTAS" 700;
-      &:focus {
-      }
     }
   }
+  &--stripe {
+    height: 2.4rem;
+    padding: 0;
+    flex-wrap: nowrap;
+    background: var(--calcColor);
+    color: var(--backgroundcolorback);
+    box-shadow: 1.6rem 0 var(--calcColor), -1.6rem 0 var(--calcColor);
+  }
   &--bottommost {
+    height: 3.2rem;
   }
 }
 
-.stripe--dark {
-  padding: 0;
-  flex-wrap: nowrap;
+.cb__h1 {
+  display: flex;
+  flex-grow: 1;
+  font-size: 2.4rem;
+  padding-bottom: 0;
 
-  background: var(--calcColor);
-  color: var(--backgroundcolorback);
-  box-shadow: 1.6rem 0 var(--calcColor), -1.6rem 0 var(--calcColor);
-  input {
-    text-transform: uppercase;
-  }
-  label {
-    align-items: center;
-    input {
-      height: calc(var(--min-touch-target-height-half) + 0.8rem);
-      width: 100%;
-      padding-right: 0;
-      padding-left: 0;
-    }
-    &:first-child {
-      flex-grow: 1;
-      flex-basis: 50%;
-    }
-    &:nth-child(2) {
-      input {
-        text-align: right;
-      }
+  width: 100%;
+  input[type="text"] {
+    height: var(--min-touch-target-height);
+    font-variation-settings: "wght" var(--fontwght), "wdth" var(--fontwidth),
+      "opsz" 25, "GRAD" var(--fontgrade), "slnt" var(--fontslant), "YTLC" 800,
+      "YTUC" 800, "YTAS" 800;
+    padding-top: 0;
+    padding-bottom: 0;
+    width: 100%;
+    &:focus {
+      background-color: var(--backgroundcolorback);
     }
   }
 }

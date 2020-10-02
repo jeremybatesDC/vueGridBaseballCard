@@ -1,26 +1,27 @@
 <template>
   <aside class="stats__aside" :style="textLineBProps">
-    <blockquote>
+    <blockquote class="aside__blockquote">
       <span class="aside__wrapper--outer">
-        <h3>
-          <input type="text" v-model="defaultFacts.info.facts[0].headline" />
+        <h3 class="aside__h3">
+          <input type="text" v-model="asideHeadline" />
         </h3>
         <span class="aside__wrapper--inner">
           <textarea
+            class="aside__textarea"
             rows="3"
-            v-model="defaultFacts.info.facts[0].text"
+            v-model="asideText"
             spellcheck="false"
           ></textarea>
           <div data-soi hidden>
             <div class="row row--grow space-between row--textControls">
               <label class="rangeUI__label">
                 <span
-                  >Weight: <output :value="textLineB.fontWeight"></output
+                  >Weight: <output :value="textLineB.fontWght"></output
                 ></span>
 
                 <input
                   class="rangeUI__input"
-                  v-model="textLineB.fontWeight"
+                  v-model.number="textLineB.fontWght"
                   type="range"
                   min="150"
                   max="800"
@@ -32,7 +33,7 @@
                 ></span>
                 <input
                   class="rangeUI__input"
-                  v-model="textLineB.fontWidth"
+                  v-model.number="textLineB.fontWidth"
                   type="range"
                   min="35"
                   max="100"
@@ -46,7 +47,7 @@
                 ></span>
                 <input
                   class="rangeUI__input"
-                  v-model="textLineB.fontSlant"
+                  v-model.number="textLineB.fontSlant"
                   type="range"
                   min="-10"
                   max="0"
@@ -58,7 +59,7 @@
                 ></span>
                 <input
                   class="rangeUI__input"
-                  v-model="textLineB.fontGrade"
+                  v-model.number="textLineB.fontGrade"
                   type="range"
                   min="0"
                   max="1"
@@ -74,26 +75,24 @@
 </template>
 
 <script>
-import defaultFacts from "/json/default-facts.json";
-import defaultSettingsBack from "/json/default-settings-back.json";
-
 export default {
-  data: function () {
+  data() {
     return {
-      defaultFacts,
+      asideHeadline: "CAREER HIGHLIGHTS",
+      asideText:
+        "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.",
       textLineB: {
-        fontWeight: defaultSettingsBack.textLineB.fontWeight,
-        fontWidth: defaultSettingsBack.textLineB.fontWidth,
-        fontGrade: defaultSettingsBack.textLineB.fontGrade,
-        fontSlant: defaultSettingsBack.textLineB.fontSlant,
+        fontWght: 200,
+        fontWidth: 50,
+        fontGrade: 0.5,
+        fontSlant: 0,
       },
     };
   },
   computed: {
     textLineBProps() {
       return {
-        //"--color": this.textLine1.color,
-        "--fontweight": this.textLineB.fontWeight,
+        "--fontwght": this.textLineB.fontWght,
         "--fontwidth": this.textLineB.fontWidth,
         "--fontgrade": this.textLineB.fontGrade,
         "--fontslant": this.textLineB.fontSlant,
@@ -103,7 +102,7 @@ export default {
 };
 </script>
 
-<style scoped lang="scss">
+<style lang="scss">
 .stats__aside {
   --textareaheight: auto;
   --textareapadding: 0;
@@ -131,11 +130,18 @@ export default {
   }
 }
 
-aside {
+.stats__aside {
   display: flex;
   flex-grow: 1;
   flex-basis: 25%;
   min-height: 5.4rem;
+  input[type="text"] {
+    display: block;
+    font-size: 1.6rem;
+    //width: 100%;
+    text-align: center;
+    font-variation-settings: var(--text-short-wide);
+  }
 }
 
 .aside__wrapper--outer {
@@ -177,7 +183,7 @@ aside {
   }
 }
 
-blockquote {
+.aside__blockquote {
   display: block;
   position: relative;
   width: 100%;
@@ -187,7 +193,7 @@ blockquote {
   background-color: rgba(0, 0, 0, 0.05);
 }
 
-h3 {
+.aside__h3 {
   //position: absolute;
   top: 0;
   left: 0;
@@ -202,16 +208,8 @@ h3 {
   }
 }
 
-input[type="text"] {
-  display: block;
-  font-size: 1.6rem;
-  //width: 100%;
-  text-align: center;
-  font-variation-settings: var(--text-short-wide);
-}
-
 // absolute needs to be on the text-area element to keep it from growing I have found
-textarea {
+.aside__textarea {
   position: absolute;
   top: 50%;
   left: 0;
@@ -226,7 +224,7 @@ textarea {
   overflow: hidden;
   text-overflow: ellipsis;
   font-size: 1.6rem;
-  font-variation-settings: "wght" var(--fontweight), "wdth" var(--fontwidth),
+  font-variation-settings: "wght" var(--fontwght), "wdth" var(--fontwidth),
     "opsz" 33, "GRAD" var(--fontgrade), "slnt" var(--fontslant), "YTLC" 500,
     "YTUC" 500, "YTAS" 500;
   line-height: 0.8;
