@@ -25,19 +25,19 @@
   "textLine1": {
     "fontWght": 600,
     "fontWidth": 90,
-    "fontGrade": 1,
+    "fontGrade": 0,
     "fontSlant": 0
   },
   "textLine2": {
     "fontWght": 200,
     "fontWidth": 50,
-    "fontGrade": 0.5,
+    "fontGrade": 0,
     "fontSlant": 0
   },
   "textPlayerPosition": {
     "fontWght": 200,
     "fontWidth": 50,
-    "fontGrade": 0.5,
+    "fontGrade": 0,
     "fontSlant": -5
   }
 }

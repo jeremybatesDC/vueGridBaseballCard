@@ -51,13 +51,30 @@
 </template>
 
 <script>
+import { get } from "idb-keyval";
+
 import CardFront from "./components/CardFront.vue";
 import CardBack from "./components/CardBack.vue";
-import { onMounted } from "vue";
+// import { onMounted } from "vue";
 
 async function registerServiceWorker() {
   console.log("restore service worker");
   //navigator.serviceWorker.register("/sw.js");
+}
+
+async function checkForLocalData() {
+  // missing val undfined
+  get("testFieldFromWebWorker2").then((val) => {
+    if (val) {
+      console.log(
+        "yes there is local data to use so pull those values into vm instance ok using setFunc?"
+      );
+    } else {
+      console.log(
+        "no, thereS no local data to use, so load defaults importing from json"
+      );
+    }
+  });
 }
 
 export default {
@@ -66,10 +83,11 @@ export default {
     CardBack,
   },
   setup() {
-    onMounted(() => {
-      registerServiceWorker();
-    });
-    return { registerServiceWorker };
+    registerServiceWorker();
+    checkForLocalData();
+
+    //setFunc();
+    return { registerServiceWorker, checkForLocalData };
   },
 
   data() {

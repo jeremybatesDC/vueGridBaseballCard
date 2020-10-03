@@ -156,7 +156,7 @@
         </h2>
       </div>
       <div
-        :class="`row--middle--forDesign row ${cardDesign.logo.position} ${cardDesign.playerImageFilterEffect}`"
+        :class="`row--middle--forDesign row ${cardDesign.logoPosition} ${cardDesign.playerImageFilterEffect}`"
       >
         <figure class="figure--player">
           <label class="figure--player__label" for="inputTriggerFocusUI_0">
@@ -174,7 +174,7 @@
         <!-- using css filter drop shadow could work -->
         <figure
           class="figure--logo"
-          v-show="cardDesign.logo.position !== 'hideLogo'"
+          v-show="cardDesign.logoPosition !== 'hideLogo'"
         >
           <img
             loading="lazy"
@@ -474,7 +474,7 @@
                   <input
                     type="radio"
                     class="radioBtns__input hidden--visually"
-                    v-model="cardDesign.logo.position"
+                    v-model="cardDesign.logoPosition"
                     value="topLeft"
                     aria-label="Top Left"
                   />
@@ -494,7 +494,7 @@
                   <input
                     type="radio"
                     class="radioBtns__input hidden--visually"
-                    v-model="cardDesign.logo.position"
+                    v-model="cardDesign.logoPosition"
                     value="topRight"
                     aria-label="Top Right"
                   />
@@ -514,7 +514,7 @@
                   <input
                     type="radio"
                     class="radioBtns__input hidden--visually"
-                    v-model="cardDesign.logo.position"
+                    v-model="cardDesign.logoPosition"
                     value="bottomLeft"
                     aria-label="Bottom Left"
                   />
@@ -534,7 +534,7 @@
                   <input
                     type="radio"
                     class="radioBtns__input hidden--visually"
-                    v-model="cardDesign.logo.position"
+                    v-model="cardDesign.logoPosition"
                     value="bottomRight"
                     aria-label="Bottom Right"
                   />
@@ -554,7 +554,7 @@
                   <input
                     type="radio"
                     class="radioBtns__input hidden--visually"
-                    v-model="cardDesign.logo.position"
+                    v-model="cardDesign.logoPosition"
                     value="hideLogo"
                     aria-label="Bottom Right"
                   />
@@ -584,36 +584,24 @@
 //import opts from "/json/default-settings.json";
 //import TextSlider from "./TextSlider.vue";
 
+// remember to try inline worker
+const webWorkerEncode = new Worker("./workers/web-worker-encode.js", {
+  type: "module",
+});
+
+const webWorkerIDB = new Worker("./workers/web-worker-idb.js", {
+  type: "module",
+});
+
+// needs context -- how does a function called in a life-cycle hook within setup acces the data?
+async function setFunc() {}
+
 export default {
-  setup: function () {
-    const webWorkerEncode = new Worker("./workers/web-worker-encode.js", {
-      type: "module",
-    });
-
-    async function encodeImage(event) {
-      let theField = event.target.id;
-      let filesProp = event.target.files;
-      let usrfile = filesProp[0];
-      //validateImage();
-      let insertImgFunc = (strng, theField) => {
-        this.images[theField] = strng;
-      };
-      // can i use optional chaining here?
-      if (filesProp && usrfile) {
-        console.log(usrfile);
-
-        webWorkerEncode.postMessage(usrfile);
-        this.$emit("input", usrfile);
-        webWorkerEncode.onmessage = function (theMessage) {
-          insertImgFunc(theMessage.data, theField);
-        };
-      }
-    }
-    return {
-      encodeImage,
-      webWorkerEncode,
-      //webWorkerFetch,
-    };
+  setup() {
+    //return {
+    //  webWorkerEncode,
+    //  webWorkerIDB,
+    //};
   },
   data() {
     return {
@@ -631,32 +619,32 @@ export default {
         playerImageFilterEffect: "noFilterEffect",
         borderInnerCurve: 0,
         borderInnerWidth: 3,
+        logoPosition: "bottomRight",
+
         logo: {
-          borderRadius: 50,
           position: "bottomRight",
         },
       },
-
       cardText: {
         textLine1: {
           teamName: "Mudville Mountain Lions",
           fontWght: 600,
           fontWidth: 90,
-          fontGrade: 1,
+          fontGrade: 0,
           fontSlant: 0,
         },
         textLine2: {
           playerName: "Casey Charleston",
           fontWght: 200,
           fontWidth: 50,
-          fontGrade: 0.5,
+          fontGrade: 0,
           fontSlant: 0,
         },
         textPlayerPosition: {
           playerPosition: "Dad, Pitcher",
           fontWght: 200,
           fontWidth: 50,
-          fontGrade: 0.5,
+          fontGrade: 0,
           fontSlant: -5,
         },
       },
@@ -720,8 +708,7 @@ export default {
     },
     cssLogoProps() {
       return {
-        "--logoposition": this.cardDesign.logo.position,
-        "--logoborderradius": `${this.cardDesign.logo.borderRadius}%`,
+        "--logoposition": this.cardDesign.logoPosition,
       };
     },
     cssBorderInnerProps() {
@@ -731,13 +718,52 @@ export default {
       };
     },
   },
+  methods: {
+    async encodeImage(event) {
+      let theField = event.target.id;
+      let filesProp = event.target.files;
+      let usrfile = filesProp[0];
+      //validateImage();
+      let insertImgFunc = (strng, theField) => {
+        this.images[theField] = strng;
+      };
+      // can i use optional chaining here?
+      if (filesProp && usrfile) {
+        console.log(usrfile);
+
+        webWorkerEncode.postMessage(usrfile);
+        this.$emit("input", usrfile);
+        webWorkerEncode.onmessage = (theMessage) => {
+          insertImgFunc(theMessage.data, theField);
+        };
+      }
+    },
+    saveDataLocally(whatToSave) {
+      // should this just set, as opposed to sending to worker to
+      // can i destructure? stringfiy? Spelling this out a 3rd time seems crazy to me
+      webWorkerIDB.postMessage({
+        cardText: {
+          textLine1: {
+            fontWght: this.cardText.textLine1.fontWght,
+            fontWidth: this.cardText.textLine1.fontWidth,
+            fontGrade: this.cardText.textLine1.fontGrade,
+            fontSlant: this.cardText.textLine1.fontSlant,
+          },
+        },
+      });
+      webWorkerIDB.onmessage = (event) => {
+        console.log("received message is: ", event.data);
+      };
+    },
+  },
 
   created() {
     // might not even want to use watch for desired data flow -- still learning/thinking
+
     this.$watch(
       "cardText",
       () => {
-        console.log("yo");
+        console.log("cardTextWatchHandler");
       },
       {
         deep: true,
@@ -755,7 +781,7 @@ export default {
     this.$watch(
       "images",
       () => {
-        console.log("um");
+        this.saveDataLocally(this.$data);
       },
       {
         deep: true,
@@ -938,9 +964,13 @@ export default {
 .cf__h1,
 .cf__h2,
 .cf__h3 {
-  color: var(--color);
-  font-variation-settings: "wght" var(--fontwght), "wdth" var(--fontwidth),
-    "GRAD" var(--fontgrade), "slnt" var(--fontslant);
+  input {
+    &[type="text"] {
+      font-variation-settings: "wght" var(--fontwght), "wdth" var(--fontwidth),
+        "GRAD" var(--fontgrade), "slnt" var(--fontslant);
+    }
+  }
+
   &:focus-within {
     [data-soi] {
       visibility: visible;
@@ -987,6 +1017,7 @@ export default {
   // donT think i need this height value but
   height: 100%;
   border-radius: calc(var(--borderinnercurve) - var(--borderinnerwidth));
+  -webkit-tap-highlight-color: transparent;
 }
 
 .playerImage__fieldset {
@@ -1001,28 +1032,30 @@ export default {
 
 .image--logo {
   border-radius: var(--logoborderradius);
+  -webkit-tap-highlight-color: transparent;
+
   .topLeft & {
     transform: translate(
-      calc(var(--borderinnercurve) / -3.6666),
-      calc(var(--borderinnercurve) / -3.6666)
+      calc(var(--borderinnercurve) / -3.5),
+      calc(var(--borderinnercurve) / -3.5)
     );
   }
   .topRight & {
     transform: translate(
-      calc(var(--borderinnercurve) / 3.6666),
-      calc(var(--borderinnercurve) / -3.6666)
+      calc(var(--borderinnercurve) / 3.5),
+      calc(var(--borderinnercurve) / -3.5)
     );
   }
   .bottomLeft & {
     transform: translate(
-      calc(var(--borderinnercurve) / -3.6666),
-      calc(var(--borderinnercurve) / 3.6666)
+      calc(var(--borderinnercurve) / -3.5),
+      calc(var(--borderinnercurve) / 3.5)
     );
   }
   .bottomRight & {
     transform: translate(
-      calc(var(--borderinnercurve) / 3.6666),
-      calc(var(--borderinnercurve) / 3.6666)
+      calc(var(--borderinnercurve) / 3.5),
+      calc(var(--borderinnercurve) / 3.5)
     );
   }
 }

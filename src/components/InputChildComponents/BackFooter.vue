@@ -70,7 +70,7 @@ export default {
       textLineC: {
         fontWght: 200,
         fontWidth: 50,
-        fontGrade: 0.5,
+        fontGrade: 0,
         fontSlant: -5,
       },
     };

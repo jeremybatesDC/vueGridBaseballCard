@@ -2,6 +2,21 @@
 
 ## To Do
 
+re-punch up cardback after removing grad. Text too thin
+
+either remove/repalace grad or just rename it "extraboldness" for now...
+
+create exact same schema in json, data() and indexdb
+
+would ismplest thing be to super throttle a watch function and re-save? I think maybe so let's try
+using handlers thiugh also seems fiddly.
+
+pass data via props into cardFront and cardBack from App based on whether local data exists yet or not. Makes sense at the App level to me.
+although, thinking this through, user may have doen side front bu tnot back.
+Ah, but back would always at least have the name and position, right?
+
+logo image should be made small on encode
+
 paw is good for logo and logo button
 
 avoid watching sliders so much potential for making cpu fan explode

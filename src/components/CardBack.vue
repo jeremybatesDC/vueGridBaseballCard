@@ -57,7 +57,7 @@
 </template>
 
 <script lang="ts">
-import { onMounted } from "vue";
+//import { onMounted } from "vue";
 
 //import { set } from "idb-keyval";
 //import TextSlider from "./InputChildComponents/TextSlider.vue";
@@ -65,21 +65,6 @@ import TableStatsManual from "./InputChildComponents/TableStatsManual.vue";
 import BackHeader from "./InputChildComponents/BackHeader.vue";
 import BackFooter from "./InputChildComponents/BackFooter.vue";
 import AsideFacts from "./InputChildComponents/AsideFacts.vue";
-
-const webWorkerCardBack = new Worker("./workers/web-worker-idb.js", {
-  type: "module",
-});
-
-// needs context -- how does a function called in a life-cycle hook within setup acces the data?
-async function setFunc() {
-  webWorkerCardBack.postMessage("hi");
-  webWorkerCardBack.onmessage = (event) => {
-    console.log("received message is: ", event.data);
-  };
-  //set("gumShowingField", "chew")
-  //  .then(() => console.log("woohoo!"))
-  //  .catch((err) => console.log("doh!", err));
-}
 
 export default {
   components: {
@@ -90,10 +75,8 @@ export default {
     AsideFacts,
   },
   setup() {
-    onMounted(() => {
-      setFunc();
-    });
-    return { setFunc };
+    //  setFunc();
+    // return { setFunc };
   },
   data() {
     return {

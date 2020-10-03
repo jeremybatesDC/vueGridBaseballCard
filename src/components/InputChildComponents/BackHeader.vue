@@ -128,7 +128,7 @@ export default {
       textLineA: {
         fontWght: 800,
         fontWidth: 50,
-        fontGrade: 1,
+        fontGrade: 0,
         fontSlant: -10,
       },
     };
@@ -171,7 +171,7 @@ export default {
 
   padding: 0 1.6rem;
   input {
-    font-variation-settings: "wght" 400, "wdth" 40, "opsz" 38, "GRAD" 1,
+    font-variation-settings: "wght" 400, "wdth" 40, "opsz" 38, "GRAD" 0,
       "slnt" 0, "YTLC" 400, "YTUC" 400, "YTAS" 400;
     text-transform: uppercase;
   }
