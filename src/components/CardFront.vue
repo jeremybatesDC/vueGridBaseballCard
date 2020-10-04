@@ -161,12 +161,14 @@
         <figure class="figure--player">
           <label class="figure--player__label" for="inputTriggerFocusUI_0">
             <!--  width="320"  height="408"-->
-            <img
+            <canvas id="canvas" class="image--player"></canvas>
+
+            <!--<img
               loading="lazy"
               class="image--player"
               :src="images.playerPic"
               alt
-            />
+            />-->
           </label>
         </figure>
 
@@ -720,6 +722,30 @@ export default {
   },
   methods: {
     async encodeImage(event) {
+      const $canvas = document.getElementById("canvas");
+      const ctx = $canvas.getContext("2d");
+      const reader = new FileReader();
+      const image = new Image();
+      const size = 320;
+      const input = event.target;
+      if (input.files && input.files[0]) {
+        reader.readAsDataURL(input.files[0]);
+      }
+      reader.onload = (event) => {
+        image.src = event.target.result;
+      };
+      image.onload = () => {
+        console.log(image.width, image.height);
+        $canvas.width = size;
+        $canvas.height = $canvas.width * (image.height / image.width);
+        const oc = document.createElement("canvas");
+        const octx = oc.getContext("2d");
+        oc.width = $canvas.width;
+        oc.height = $canvas.height;
+        octx.drawImage(image, 0, 0, oc.width, oc.height);
+        ctx.drawImage(oc, 0, 0, oc.width, oc.height, 0, 0, oc.width, oc.height);
+      };
+
       let theField = event.target.id;
       let filesProp = event.target.files;
       let usrfile = filesProp[0];
@@ -738,6 +764,7 @@ export default {
         };
       }
     },
+
     saveDataLocally(whatToSave) {
       // should this just set, as opposed to sending to worker to
       // can i destructure? stringfiy? Spelling this out a 3rd time seems crazy to me
@@ -1006,16 +1033,20 @@ export default {
   //}
   .figure--player__label {
     flex-grow: 1;
+    overflow: hidden;
   }
 }
 
 .image--player {
-  background-color: #fff;
+  //background-color: #fff;
   // depending on layout might want to make object-position managable yarh
-  object-position: 0 50%;
-  width: 100%;
+  //object-position: 0 50%;
+  //width: 100%;
   // donT think i need this height value but
-  height: 100%;
+  //height: 100%;
+
+  // temporary (i hope)
+  min-height: 408px;
   border-radius: calc(var(--borderinnercurve) - var(--borderinnerwidth));
   -webkit-tap-highlight-color: transparent;
 }

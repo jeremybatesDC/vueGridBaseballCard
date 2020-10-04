@@ -2,6 +2,21 @@
 
 ## To Do
 
+uploading a logo presently just populates the single canvas for player image... need another canvas in logo figure div and have function accept/handle that ref/id
+
+exciting that canvas is working -- i bet that i can still use the worker for the blob/reader, as long as that wouldn't actually make it slower
+
+consider down keys in table colummns
+
+cat paw logo could be over the outline of astate... or, for instance, the outline of brooklyn
+
+adding Pica or an even more proven canvas image resizer that addresses the many image quality issues that arise when doing this for first time yourself
+but what about zoom/crop? since my mom already asked for that fnctionality, and i was thinking about it, maybe there is a single solution.
+https://github.com/blueimp/JavaScript-Load-Image -- only problem is that the file is huge (176kb unpacked)
+Pica is also enormous
+
+i think i'm doing too much work with computed AND watch -- harnessing one way, then behaving accordingly, is prob better
+
 re-punch up cardback after removing grad. Text too thin
 
 either remove/repalace grad or just rename it "extraboldness" for now...
