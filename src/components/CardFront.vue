@@ -161,7 +161,7 @@
         <figure class="figure--player">
           <label class="figure--player__label" for="inputTriggerFocusUI_0">
             <!--  width="320"  height="408"-->
-            <canvas id="canvas" class="image--player"></canvas>
+            <canvas id="canvasPlayer" class="image--player"></canvas>
 
             <!--<img
               loading="lazy"
@@ -178,14 +178,15 @@
           class="figure--logo"
           v-show="cardDesign.logoPosition !== 'hideLogo'"
         >
-          <img
+          <canvas id="canvasLogo" class="image--logo"></canvas>
+          <!--<img
             loading="lazy"
             class="image--logo"
             :src="images.logoPic"
             alt
             width="72"
             height="72"
-          />
+          />-->
         </figure>
       </div>
       <div class="text__line--second row">
@@ -352,6 +353,8 @@
                     id="playerPic"
                     ref="playerPic"
                     name="playerPic"
+                    data-which-canvas="canvasPlayer"
+                    data-canvas-width="640"
                     class="hidden--visually filePicker__input"
                     type="file"
                     accept="image/*"
@@ -386,6 +389,8 @@
                     id="logoPic"
                     ref="logoPic"
                     name="logoPic"
+                    data-which-canvas="canvasLogo"
+                    data-canvas-width="144"
                     class="hidden--visually filePicker__input"
                     type="file"
                     accept="image/*"
@@ -722,47 +727,30 @@ export default {
   },
   methods: {
     async encodeImage(event) {
-      const $canvas = document.getElementById("canvas");
-      const ctx = $canvas.getContext("2d");
+      // maybe i should be using refs maybe here not IDs
+      const input = event.target;
+      const targetCanvas = document.getElementById(input.dataset.whichCanvas);
+      const ctx = targetCanvas.getContext("2d");
       const reader = new FileReader();
       const image = new Image();
-      const size = 320;
-      const input = event.target;
-      if (input.files && input.files[0]) {
-        reader.readAsDataURL(input.files[0]);
+      const userFile = input.files[0];
+      // need print resolution, and 2x really seems to address quality issues
+      if (input.files && userFile) {
+        reader.readAsDataURL(userFile);
       }
-      reader.onload = (event) => {
+      reader.onload = async (event) => {
         image.src = event.target.result;
       };
-      image.onload = () => {
-        console.log(image.width, image.height);
-        $canvas.width = size;
-        $canvas.height = $canvas.width * (image.height / image.width);
+      image.onload = async (event) => {
         const oc = document.createElement("canvas");
         const octx = oc.getContext("2d");
-        oc.width = $canvas.width;
-        oc.height = $canvas.height;
+        targetCanvas.width = input.dataset.canvasWidth;
+        targetCanvas.height = targetCanvas.width * (image.height / image.width);
+        oc.width = targetCanvas.width;
+        oc.height = targetCanvas.height;
         octx.drawImage(image, 0, 0, oc.width, oc.height);
         ctx.drawImage(oc, 0, 0, oc.width, oc.height, 0, 0, oc.width, oc.height);
       };
-
-      let theField = event.target.id;
-      let filesProp = event.target.files;
-      let usrfile = filesProp[0];
-      //validateImage();
-      let insertImgFunc = (strng, theField) => {
-        this.images[theField] = strng;
-      };
-      // can i use optional chaining here?
-      if (filesProp && usrfile) {
-        console.log(usrfile);
-
-        webWorkerEncode.postMessage(usrfile);
-        this.$emit("input", usrfile);
-        webWorkerEncode.onmessage = (theMessage) => {
-          insertImgFunc(theMessage.data, theField);
-        };
-      }
     },
 
     saveDataLocally(whatToSave) {
@@ -782,6 +770,25 @@ export default {
         console.log("received message is: ", event.data);
       };
     },
+    //legacyEncode(){
+    //      let theField = event.target.id;
+    //      let filesProp = event.target.files;
+    //      let usrfile = filesProp[0];
+    //      //validateImage();
+    //      let insertImgFunc = (strng, theField) => {
+    //        this.images[theField] = strng;
+    //      };
+    //      // can i use optional chaining here?
+    //      if (filesProp && usrfile) {
+    //        console.log(usrfile);
+    //
+    //        webWorkerEncode.postMessage(usrfile);
+    //        this.$emit("input", usrfile);
+    //        webWorkerEncode.onmessage = (theMessage) => {
+    //          insertImgFunc(theMessage.data, theField);
+    //        };
+    //      }
+    //}
   },
 
   created() {
@@ -1026,7 +1033,8 @@ export default {
   bottom: 0;
   left: 0;
   display: flex;
-  border-radius: var(--borderinnercurve);
+  border-radius: calc(var(--borderinnercurve) - var(--borderinnerwidth));
+  overflow: hidden;
   //.static & {
   //  border-radius: 0;
   //  z-index: -1;
@@ -1038,15 +1046,10 @@ export default {
 }
 
 .image--player {
-  //background-color: #fff;
-  // depending on layout might want to make object-position managable yarh
-  //object-position: 0 50%;
-  //width: 100%;
-  // donT think i need this height value but
-  //height: 100%;
-
-  // temporary (i hope)
-  min-height: 408px;
+  max-width: 100%;
+  min-height: 100%;
+  object-fit: cover;
+  object-position: center;
   border-radius: calc(var(--borderinnercurve) - var(--borderinnerwidth));
   -webkit-tap-highlight-color: transparent;
 }
@@ -1057,11 +1060,16 @@ export default {
 
 .figure--logo {
   position: absolute;
-  display: flex;
   pointer-events: none;
+  width: 7.2rem;
+  height: 7.2rem;
 }
 
 .image--logo {
+  width: 7.2rem;
+  height: 7.2rem;
+  object-fit: cover;
+  object-position: center;
   border-radius: var(--logoborderradius);
   -webkit-tap-highlight-color: transparent;
 

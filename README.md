@@ -2,6 +2,17 @@
 
 ## To Do
 
+slight gap with rounded borders -- may need to adjust the calc by width of border...
+
+is canvas really the way to go? The resizing is good so that ultimately there won't be too much data. And the controls do get sluggish with ultra heavy images...
+
+640px is significantly better -- not sure YET how to center the canvas if wider than container
+
+filter instead of loop for column tabulation
+
+canvas image quality:
+https://stackoverflow.com/questions/18922880/html5-canvas-resize-downscale-image-high-quality
+
 uploading a logo presently just populates the single canvas for player image... need another canvas in logo figure div and have function accept/handle that ref/id
 
 exciting that canvas is working -- i bet that i can still use the worker for the blob/reader, as long as that wouldn't actually make it slower
