@@ -2,29 +2,15 @@
 
 ## To Do
 
-slight gap with rounded borders -- may need to adjust the calc by width of border...
-
-is canvas really the way to go? The resizing is good so that ultimately there won't be too much data. And the controls do get sluggish with ultra heavy images...
-
-640px is significantly better -- not sure YET how to center the canvas if wider than container
+slight gap if you look really close, especially on mobile. Probably bordrer related
 
 filter instead of loop for column tabulation
-
-canvas image quality:
-https://stackoverflow.com/questions/18922880/html5-canvas-resize-downscale-image-high-quality
-
-uploading a logo presently just populates the single canvas for player image... need another canvas in logo figure div and have function accept/handle that ref/id
 
 exciting that canvas is working -- i bet that i can still use the worker for the blob/reader, as long as that wouldn't actually make it slower
 
 consider down keys in table colummns
 
 cat paw logo could be over the outline of astate... or, for instance, the outline of brooklyn
-
-adding Pica or an even more proven canvas image resizer that addresses the many image quality issues that arise when doing this for first time yourself
-but what about zoom/crop? since my mom already asked for that fnctionality, and i was thinking about it, maybe there is a single solution.
-https://github.com/blueimp/JavaScript-Load-Image -- only problem is that the file is huge (176kb unpacked)
-Pica is also enormous
 
 i think i'm doing too much work with computed AND watch -- harnessing one way, then behaving accordingly, is prob better
 
@@ -132,6 +118,11 @@ i stupidly removed previous xcode when installing beta xcode. Nativescript appea
 -- i already have an apple dev account it seems -- upgrading xcode now... The vue3 feature of making it "easier to target native" seems to have evaporated
 
 ### 2nd release
+
+if features expland, consider adding Pica or an even more proven canvas image resizer that addresses the many image quality issues that arise when doing this for first time yourself
+but what about zoom/crop? since my mom already asked for that fnctionality, and i was thinking about it, maybe there is a single solution.
+https://github.com/blueimp/JavaScript-Load-Image -- only problem is that the file is huge (176kb unpacked)
+Pica is also enormous
 
 tabs the Vue way: https://codepen.io/team/Vue/pen/jOPjZOe
 ASIDE & FOOTER!
