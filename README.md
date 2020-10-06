@@ -2,6 +2,19 @@
 
 ## To Do
 
+    // have this return rather than use a side effect array
+    // unless thereS other stuff to do with it.
+    // overly complex to integrate it into the reduce?
+
+the logo/border curve alignment is fiddly still -- TRY a before/after square element. Easier than try to align curves
+
+the cleanest way to treat the default images MIGHT be just to treat them as data. Does the canvas ever become empty? I don't thnik so...
+
+vanilla js animate spring transitions -- i could image spending 16 hours on this, with a really smooth, natural and enjoyable result.
+https://joshwcomeau.com/animation/a-friendly-introduction-to-spring-physics/
+
+handle crop/zoom just with object position/fit (OBJECT FIT NONE MAYbe)
+
 slight gap if you look really close, especially on mobile. Probably bordrer related
 
 filter instead of loop for column tabulation

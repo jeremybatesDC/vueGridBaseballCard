@@ -161,14 +161,7 @@
         <figure class="figure--player">
           <label class="figure--player__label" for="inputTriggerFocusUI_0">
             <!--  width="320"  height="408"-->
-            <canvas id="canvasPlayer" class="image--player"></canvas>
-
-            <!--<img
-              loading="lazy"
-              class="image--player"
-              :src="images.playerPic"
-              alt
-            />-->
+            <canvas id="canvasPlayer" class="image--player">hey</canvas>
           </label>
         </figure>
 
@@ -178,15 +171,7 @@
           class="figure--logo"
           v-show="cardDesign.logoPosition !== 'hideLogo'"
         >
-          <canvas id="canvasLogo" class="image--logo"></canvas>
-          <!--<img
-            loading="lazy"
-            class="image--logo"
-            :src="images.logoPic"
-            alt
-            width="72"
-            height="72"
-          />-->
+          <canvas id="canvasLogo" class="image--logo"> </canvas>
         </figure>
       </div>
       <div class="text__line--second row">
@@ -592,9 +577,9 @@
 //import TextSlider from "./TextSlider.vue";
 
 // remember to try inline worker
-const webWorkerEncode = new Worker("./workers/web-worker-encode.js", {
-  type: "module",
-});
+//const webWorkerEncode = new Worker("./workers/web-worker-encode.js", {
+//  type: "module",
+//});
 
 const webWorkerIDB = new Worker("./workers/web-worker-idb.js", {
   type: "module",
@@ -634,7 +619,7 @@ export default {
       },
       cardText: {
         textLine1: {
-          teamName: "Mudville Mountain Lions",
+          teamName: "Mudville Madcats",
           fontWght: 600,
           fontWidth: 90,
           fontGrade: 0,
@@ -1039,19 +1024,27 @@ export default {
   //  border-radius: 0;
   //  z-index: -1;
   //}
-  .figure--player__label {
-    flex-grow: 1;
-    overflow: hidden;
-  }
+}
+.figure--player__label {
+  flex-grow: 1;
+  overflow: hidden;
 }
 
 .image--player {
+  background-image: red;
   max-width: 100%;
   min-height: 100%;
   object-fit: cover;
   object-position: center;
   border-radius: calc(var(--borderinnercurve) - var(--borderinnerwidth));
   -webkit-tap-highlight-color: transparent;
+  // there is a way to make this accessible
+  &:before {
+    content: "Add Image";
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
 }
 
 .playerImage__fieldset {
@@ -1066,6 +1059,7 @@ export default {
 }
 
 .image--logo {
+  // background-image isn't going to work considering i wonT take away form user ability to have transparent logo image.
   width: 7.2rem;
   height: 7.2rem;
   object-fit: cover;
