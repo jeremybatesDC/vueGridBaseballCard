@@ -534,11 +534,14 @@ export default {
   },
 
   methods: {
+    // have this return rather than use a side effect array
+    // unless thereS other stuff to do with it.
+    // overly complex to integrate it into the reduce?
     tabulate(sumOrAvg, statCol) {
-      let colNumsArray = [];
-      Object.keys(this.seasons).map((season, i) => {
+      let colArrayRefactor = [];
+      Object.keys(this.seasons).filter((item, i) => {
         let yrString = `yr${i}`;
-        colNumsArray.push(+this.seasons[yrString].stats[statCol]);
+        colArrayRefactor.push(Number(this.seasons[yrString].stats[statCol]));
       });
       const rdcrSum = (acum, curVal) => {
         return parseFloat(acum) + parseFloat(curVal);
@@ -550,12 +553,12 @@ export default {
         };
       };
       if (sumOrAvg === "sum") {
-        return colNumsArray.reduce(rdcrSum);
+        return colArrayRefactor.reduce(rdcrSum);
       } else if (sumOrAvg === "avg") {
         const initialVals = { avg: 0, n: 0 };
 
         return parseFloat(
-          colNumsArray.reduce(rdcrAvg, initialVals).avg
+          colArrayRefactor.reduce(rdcrAvg, initialVals).avg
         ).toFixed(1);
       }
     },
