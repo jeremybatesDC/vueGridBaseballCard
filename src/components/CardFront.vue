@@ -720,6 +720,7 @@ export default {
       const image = new Image();
       const userFile = input.files[0];
       // need print resolution, and 2x really seems to address quality issues
+      // can i use optional chaining // nullish coalscing or whatever i mean to say here?
       if (input.files && userFile) {
         reader.readAsDataURL(userFile);
       }
@@ -756,23 +757,13 @@ export default {
       };
     },
     //legacyEncode(){
-    //      let theField = event.target.id;
-    //      let filesProp = event.target.files;
-    //      let usrfile = filesProp[0];
-    //      //validateImage();
-    //      let insertImgFunc = (strng, theField) => {
-    //        this.images[theField] = strng;
-    //      };
-    //      // can i use optional chaining here?
-    //      if (filesProp && usrfile) {
-    //        console.log(usrfile);
-    //
+    //      validateImage();
+
     //        webWorkerEncode.postMessage(usrfile);
     //        this.$emit("input", usrfile);
     //        webWorkerEncode.onmessage = (theMessage) => {
     //          insertImgFunc(theMessage.data, theField);
     //        };
-    //      }
     //}
   },
 

@@ -17,7 +17,7 @@ handle crop/zoom just with object position/fit (OBJECT FIT NONE MAYbe)
 
 slight gap if you look really close, especially on mobile. Probably bordrer related
 
-filter instead of loop for column tabulation
+refactor tabulation
 
 exciting that canvas is working -- i bet that i can still use the worker for the blob/reader, as long as that wouldn't actually make it slower
 

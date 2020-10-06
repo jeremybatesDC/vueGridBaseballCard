@@ -534,15 +534,7 @@ export default {
   },
 
   methods: {
-    // have this return rather than use a side effect array
-    // unless thereS other stuff to do with it.
-    // overly complex to integrate it into the reduce?
     tabulate(sumOrAvg, statCol) {
-      let colArrayRefactor = [];
-      Object.keys(this.seasons).filter((item, i) => {
-        let yrString = `yr${i}`;
-        colArrayRefactor.push(Number(this.seasons[yrString].stats[statCol]));
-      });
       const rdcrSum = (acum, curVal) => {
         return parseFloat(acum) + parseFloat(curVal);
       };
@@ -552,13 +544,31 @@ export default {
           n: n + 1,
         };
       };
+
+      // keep integating -- yes, i could store as variable.
+      // But i think this is an opportunity for a super slick single pass
+      //let colArrayRefactor = Object.keys(this.seasons).map((item, i) => {
+      //  return Number(this.seasons[`yr${i}`].stats[statCol]);
+      //});
       if (sumOrAvg === "sum") {
-        return colArrayRefactor.reduce(rdcrSum);
+        return (
+          Object.keys(this.seasons)
+            .map((item, i) => {
+              return Number(this.seasons[`yr${i}`].stats[statCol]);
+            })
+            // only using one of 4 allowed args and confident can combine these ifs
+            // and just do single pass
+            .reduce(rdcrSum)
+        );
       } else if (sumOrAvg === "avg") {
         const initialVals = { avg: 0, n: 0 };
 
         return parseFloat(
-          colArrayRefactor.reduce(rdcrAvg, initialVals).avg
+          Object.keys(this.seasons)
+            .map((item, i) => {
+              return Number(this.seasons[`yr${i}`].stats[statCol]);
+            })
+            .reduce(rdcrAvg, initialVals).avg
         ).toFixed(1);
       }
     },
