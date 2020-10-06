@@ -2,9 +2,20 @@
 
 ## To Do
 
-    // have this return rather than use a side effect array
-    // unless thereS other stuff to do with it.
-    // overly complex to integrate it into the reduce?
+tabs at bottom of UI? There's a way to tuck controls into the L1 tabs... 72+44 total -- i think i can shave this shorter.
+Maybe 44+44? Or 44 + 60...  
+can i graduate the add logo button on
+maybe can shorten layour icons and integrate with the label -- same with border curve?
+
+choose default color with more contrast against background so it's more instantly clear that the colorpicker is for card background color
+
+should border curve basically be a toggle? it almost looks like a broken toggle if it's not allowed to grow wide
+plus i might want to graduate upload logo
+
+then, touching on the actual logo could give you logo only options, and the player image could give playerimage only settings...
+but is that realistic? A sticking point is the filter... it kinda neds to apply to both player image and logo otherwise come on...
+
+can i graduate img upload?
 
 the logo/border curve alignment is fiddly still -- TRY a before/after square element. Easier than try to align curves
 

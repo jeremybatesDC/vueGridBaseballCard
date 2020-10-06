@@ -11,16 +11,25 @@
     <div class="cardFront__controls controls--l2">
       <div class="row space-around height--100">
         <label
-          class="colorPicker__label colorPicker__label--textOverlap align-self-center"
+          for="playerPic"
+          class="filePicker__label"
+          aria-label="Upload Image"
         >
-          <span>Color</span>
-          <input
-            class="colorPicker__input"
-            type="color"
-            v-model="cardDesign.cardBackgroundColor"
-          />
-        </label>
+          <!--<svg
+            viewBox="0 0 32 32"
+            width="32"
+            height="32"
+            fill="none"
+            stroke="currentcolor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+          >
+            <use xlink:href="#iconportraitadd"></use>
+          </svg>-->
 
+          <span> Add Pic</span>
+        </label>
         <fieldset class="radioBtns__fieldset">
           <legend class="radioBtns__legend text-left">Layout</legend>
           <div class="radioBtns__wrapper--inner">
@@ -64,6 +73,16 @@
             </label>
           </div>
         </fieldset>
+        <label
+          class="colorPicker__label colorPicker__label--textOverlap align-self-center"
+        >
+          <span>Color</span>
+          <input
+            class="colorPicker__input"
+            type="color"
+            v-model="cardDesign.cardBackgroundColor"
+          />
+        </label>
 
         <label class="rangeUI__label">
           <span
@@ -840,9 +859,19 @@ export default {
 
 .cardFront__controls {
   position: relative;
+  .filePicker__label {
+    flex-grow: 0;
+    width: var(--min-touch-target);
+    height: var(--min-touch-target);
+  }
   .colorPicker__label--textOverlap {
     span {
       color: var(--calcColor);
+    }
+  }
+  input {
+    &[type="range"] {
+      max-width: 9.6rem;
     }
   }
 }
