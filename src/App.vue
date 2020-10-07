@@ -4,37 +4,74 @@
       <div role="tablist">
         <fieldset class="radioBtns__fieldset width--100">
           <div class="radioBtns__wrapper--inner row">
-            <label
-              class="radioBtns__label align-items-stretch"
-              role="tab"
-              aria-selected
-              aria-controls
-              id
-            >
-              <input
-                type="radio"
-                class="radioBtns__input hidden--visually"
-                v-model="frontshowing"
-                :value="true"
-              />
-              <span>Front</span>
-            </label>
+            <div class="radioBtns__wrapper--each">
+              <label
+                class="radioBtns__label align-items-stretch"
+                role="tab"
+                aria-selected
+                aria-controls
+                id
+              >
+                <input
+                  type="radio"
+                  class="radioBtns__input hidden--visually"
+                  v-model="frontshowing"
+                  :value="true"
+                />
+                <span>Card Front</span>
+              </label>
 
-            <label
-              class="radioBtns__label align-items-stretch"
-              role="tab"
-              aria-selected
-              aria-controls
-              id
-            >
-              <input
-                type="radio"
-                class="radioBtns__input hidden--visually"
-                v-model="frontshowing"
-                :value="false"
-              />
-              <span>Back</span>
-            </label>
+              <label
+                for="playerPic"
+                class="filePicker__label"
+                aria-label="Upload Image"
+              >
+                <span> Add Pic</span>
+              </label>
+              <label
+                for="logoPic"
+                class="filePicker__label"
+                aria-label="Upload Logo Image"
+              >
+                <span>Add Logo</span>
+              </label>
+              <label
+                class="colorPicker__label colorPicker__label--textOverlap align-self-center"
+              >
+                <span>Color</span>
+                <input
+                  class="colorPicker__input"
+                  type="color"
+                  v-model="cardBackgroundColor"
+                />
+              </label>
+            </div>
+
+            <div class="radioBtns__wrapper--each">
+              <label
+                class="radioBtns__label align-items-stretch"
+                role="tab"
+                aria-selected
+                aria-controls
+                id
+              >
+                <input
+                  type="radio"
+                  class="radioBtns__input hidden--visually"
+                  v-model="frontshowing"
+                  :value="false"
+                />
+                <span>Card Back</span>
+              </label>
+              <label class="colorPicker__label colorPicker__label--textOverlap">
+                <span>Color</span>
+                <input
+                  class="colorPicker__input"
+                  type="color"
+                  v-model="cardBackgroundColorBack"
+                />
+              </label>
+            </div>
           </div>
         </fieldset>
       </div>
@@ -93,6 +130,8 @@ export default {
   data() {
     return {
       frontshowing: true,
+      cardBackgroundColor: "#ffffff",
+      cardBackgroundColorBack: "#9a8b7c",
     };
   },
 };

@@ -547,29 +547,23 @@ export default {
 
       // keep integating -- yes, i could store as variable.
       // But i think this is an opportunity for a super slick single pass
-      //let colArrayRefactor = Object.keys(this.seasons).map((item, i) => {
-      //  return Number(this.seasons[`yr${i}`].stats[statCol]);
-      //});
+      // can this be simpler? Mark the column. Then maybe filter easy
+      // but iM going back to the model for this
+
+      let colArray = Object.keys(this.seasons).map((item, i) => {
+        return Number(this.seasons[`yr${i}`].stats[statCol]);
+      });
+
       if (sumOrAvg === "sum") {
         return (
-          Object.keys(this.seasons)
-            .map((item, i) => {
-              return Number(this.seasons[`yr${i}`].stats[statCol]);
-            })
-            // only using one of 4 allowed args and confident can combine these ifs
-            // and just do single pass
-            .reduce(rdcrSum)
+          // only using one of 4 allowed args and confident can combine these ifs
+          // and just do single pass
+          colArray.reduce(rdcrSum)
         );
       } else if (sumOrAvg === "avg") {
         const initialVals = { avg: 0, n: 0 };
 
-        return parseFloat(
-          Object.keys(this.seasons)
-            .map((item, i) => {
-              return Number(this.seasons[`yr${i}`].stats[statCol]);
-            })
-            .reduce(rdcrAvg, initialVals).avg
-        ).toFixed(1);
+        return parseFloat(colArray.reduce(rdcrAvg, initialVals).avg).toFixed(1);
       }
     },
   },

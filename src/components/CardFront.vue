@@ -10,26 +10,6 @@
   >
     <div class="cardFront__controls controls--l2">
       <div class="row space-around height--100">
-        <label
-          for="playerPic"
-          class="filePicker__label"
-          aria-label="Upload Image"
-        >
-          <!--<svg
-            viewBox="0 0 32 32"
-            width="32"
-            height="32"
-            fill="none"
-            stroke="currentcolor"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-          >
-            <use xlink:href="#iconportraitadd"></use>
-          </svg>-->
-
-          <span> Add Pic</span>
-        </label>
         <fieldset class="radioBtns__fieldset">
           <legend class="radioBtns__legend text-left">Layout</legend>
           <div class="radioBtns__wrapper--inner">
@@ -817,6 +797,13 @@ export default {
       }
     );
   },
+  mounted() {
+    // need a ref
+    // this.encodeImage(HMMMM);
+    console.log(
+      "here i want to encode images currently in model... at present am only doing that via clik input handlers, which then need event targets yo see where Im going with this"
+    );
+  },
 };
 </script>
 
@@ -869,11 +856,11 @@ export default {
       color: var(--calcColor);
     }
   }
-  input {
-    &[type="range"] {
-      max-width: 9.6rem;
-    }
-  }
+  //input {
+  //  &[type="range"] {
+  //    max-width: 9.6rem;
+  //  }
+  //}
 }
 
 .playerImage__controls {
@@ -1047,11 +1034,17 @@ export default {
 }
 .figure--player__label {
   flex-grow: 1;
+  position: relative;
   overflow: hidden;
+  //&::before {
+  //  content: "yo";
+  //  position: absolute;
+  //  z-index: -1;
+  //}
 }
 
 .image--player {
-  background-image: red;
+  //background-color: var(--cardbackgroundcolor);
   max-width: 100%;
   min-height: 100%;
   object-fit: cover;
@@ -1059,12 +1052,12 @@ export default {
   border-radius: calc(var(--borderinnercurve) - var(--borderinnerwidth));
   -webkit-tap-highlight-color: transparent;
   // there is a way to make this accessible
-  &:before {
-    content: "Add Image";
-    position: absolute;
-    top: 0;
-    left: 0;
-  }
+  //&:before {
+  //  content: "Add Image";
+  //  position: absolute;
+  //  top: 0;
+  //  left: 0;
+  //}
 }
 
 .playerImage__fieldset {

@@ -65,7 +65,11 @@ textarea {
     font-size: 1.6rem;
     display: flex;
     flex-direction: column;
-
+    .controls--l2 & {
+      flex-grow: 1;
+      flex-basis: 33.3333%;
+      max-width: 20rem;
+    }
     span {
       display: flex;
       text-transform: uppercase;
@@ -190,6 +194,12 @@ textarea {
         padding-top: 0.4rem;
       }
     }
+    &--each {
+      display: flex;
+      &:last-of-type {
+        flex-direction: row-reverse;
+      }
+    }
   }
   &__label {
     display: inline-flex;
@@ -200,6 +210,7 @@ textarea {
       font-size: 1.6rem;
     }
 
+    //cheat
     &.radioBtns__label.radioBtns__label {
       padding: 0;
     }

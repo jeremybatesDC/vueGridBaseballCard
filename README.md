@@ -2,37 +2,30 @@
 
 ## To Do
 
-tabs at bottom of UI? There's a way to tuck controls into the L1 tabs... 72+44 total -- i think i can shave this shorter.
-Maybe 44+44? Or 44 + 60...  
-can i graduate the add logo button on
-maybe can shorten layour icons and integrate with the label -- same with border curve?
+if used methods watchers computeed maybe instaed of input event for encode, that might be cleaner and easier to trigger on load... hmmm, can i feed an initital value?
+
+force self to use aria attrs for tabs, incluing tab styling. Use [aria selected
+
+only show side-specific top level options when a given side is active
+
+the copy for front/back labels ins't quite right. But I had to had to had to better indicate the meaning of BACK when it has such a specific web meaning already...
+
+wire-up top level color pickers... the add pic and logo are working and i need to reason through again why that is. pass necessary data to child components
+
+hover over footer total should give disabled cursor or pointer -- NOT misleading symbol indicating edit
 
 choose default color with more contrast against background so it's more instantly clear that the colorpicker is for card background color
 
-should border curve basically be a toggle? it almost looks like a broken toggle if it's not allowed to grow wide
-plus i might want to graduate upload logo
-
 then, touching on the actual logo could give you logo only options, and the player image could give playerimage only settings...
 but is that realistic? A sticking point is the filter... it kinda neds to apply to both player image and logo otherwise come on...
-
-can i graduate img upload?
 
 the logo/border curve alignment is fiddly still -- TRY a before/after square element. Easier than try to align curves
 
 the cleanest way to treat the default images MIGHT be just to treat them as data. Does the canvas ever become empty? I don't thnik so...
 
-vanilla js animate spring transitions -- i could image spending 16 hours on this, with a really smooth, natural and enjoyable result.
-https://joshwcomeau.com/animation/a-friendly-introduction-to-spring-physics/
-
-handle crop/zoom just with object position/fit (OBJECT FIT NONE MAYbe)
-
 slight gap if you look really close, especially on mobile. Probably bordrer related
 
-refactor tabulation
-
-exciting that canvas is working -- i bet that i can still use the worker for the blob/reader, as long as that wouldn't actually make it slower
-
-consider down keys in table colummns
+finish refactoring tabulation. Nearly certain i can get a single pass function. I'm not sure whther the current setup adds of saves the brower work. I think it adds.
 
 cat paw logo could be over the outline of astate... or, for instance, the outline of brooklyn
 
@@ -88,6 +81,8 @@ logo image could match upload logo icon for more of a visual hint! plus it's sup
 
 ### Notes
 
+the wider the range input is, the less it looks like a toggle. Achieving this now. should border curve basically be a toggle? it almost looks like a broken toggle if it's not allowed to grow wide
+
     //reason that iM ok here with less than 44px is that when they are next to each other, focus UI makes it less of a huge deal if user taps the adjascent box. Not ideal but also still clickable
 
 - group/team bulk stats upload
@@ -125,9 +120,13 @@ and, after considering it, i donT think i need a table plugin. If I can properly
 
 so really it's just an upload button... I want it to match the logo image icon. And since image player icon can't be a mountain, and logo image prob shouldn't be a person, then need to generalize morereplace filepicker player image upload button with an icon of a picture that feautures a person not a mountian: something like: https://iconmonstr.com/picture-4-svg/
 
-## App
+Is this still tru after cavnas? The (canvas) encoding is definitely faster than before (worker), Feels fast to me, albeit on powerful devices. Note: worker can't use canvas, but it can still handle reader blobs. I just don't think the overall result will be less UI thread work.
 
 gets too slow with huge photos (does the same happen after you change photos 100times even with small images? is it a pure memory issue?)
+
+## App
+
+Vue-Nativescript, a port of React Native, has a ton of stars and MIGHT make it easier than {N}-Vue
 
 Nativescript-Vue is the way to go... everything just seems to be between versions right now. I starred 8 repos though
 
@@ -141,7 +140,16 @@ i stupidly removed previous xcode when installing beta xcode. Nativescript appea
 
 -- i already have an apple dev account it seems -- upgrading xcode now... The vue3 feature of making it "easier to target native" seems to have evaporated
 
-### 2nd release
+### Next release
+
+worker pass reader blob to canvas? measure worker times for the blob/reader, as long as that wouldn't actually make it slower
+
+consider down keys in table colummns
+
+vanilla js animate spring transitions -- i could image spending 16 hours on this, with a really smooth, natural and enjoyable result.
+https://joshwcomeau.com/animation/a-friendly-introduction-to-spring-physics/
+
+handle crop/zoom just with object position/fit (OBJECT FIT NONE MAYbe)
 
 if features expland, consider adding Pica or an even more proven canvas image resizer that addresses the many image quality issues that arise when doing this for first time yourself
 but what about zoom/crop? since my mom already asked for that fnctionality, and i was thinking about it, maybe there is a single solution.
