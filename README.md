@@ -2,6 +2,62 @@
 
 ## To Do
 
+omf powerline icons -- I need more icons: anchor icon missing and there are some other annoying red things..
+
+remove inject provide
+
+or maybe 1 year with "Add Seasons" option... hmmm or maybe X over 5 column inisinal layout so user can obvi remove some... dunno...
+
+what about sum or avg? Super cool feature i think. Rather professional
+
+stats table 5x5: type number isT great for iOS. Maybe even Select:
+Years:
+0: hide stats entirely
+0: Rookie card!
+1
+2
+3
+4
+5 --> default
+
+card front/back still i think not \*quite same. Hard to tell until L2s are restored and are same height front and back
+
+actually i don't think i want to use provide/inject for everthing. There could be a master object MAYBE that front and back emit to. But data can be split between front and back, and if anything I need to decouple them more so chunking them apart for asyn purposes would be simpler (yes, can load back async -- but, if a returning user's data is frontshowing: false, then load back right away, and front AYSNC. I think thatS achievable. Card Front and back really shouldnT share anything. Even the name should AT MOST maybe auto-inherit, but not sync. If it syncs then i have to think about which line on the cardfront is actually NAME and also possibly provide author with ability to decouple the fields. So if it's just really that one field, maybe inject is perfect for that one field...
+So state can/should live in front/back. Myabe... I need to keep mulling this.
+
+can i go an inject on mounted?
+
+ensure name atteibutes for radios unless clashes wiht v-model -- do thye clash / have to match? I'd prefer they matched but is that just actually shadowing?
+
+Per updated vue docs: mabe this addresses the issues i had with loops (specifically inputt ype ranges weren't initializing with proper value until one is interacted with... Maybe this:)
+key usage on
+
+```
+<template v-for>
+```
+
+and non-v-for nodes has changed
+
+---
+
+i think the image buttons on the front l1 controls work because they are labels and the actual input in inside component.
+that's opposed to colorpicker, which an input element and tied into the component until pass props (which is straightforward)
+
+after making front and back same size effectively using outline and box-shadow,
+need to adjust image filter and logo poistion controls
+orientation icons
+
+adjust spacing for vertical orientation
+
+tap highlight select transparent in tabs -- i see quick flash
+
+on back, just go ahead and give orientation option. The sytlse should already be fine.
+itll be int3eresting to match media query because the container size of the card will change, as opposed to viewport... Some adjustments coukd be needed but really this is already built to work. And we need to fill that control space anywya to lend some balance to card back functionality
+
+on cardback L@ controls, show number of years and number of column options (standard spreadsheet type input ) [ input ] x [input ]
+
+could give more control over table type (like # of columns, # of years)
+
 if used methods watchers computeed maybe instaed of input event for encode, that might be cleaner and easier to trigger on load... hmmm, can i feed an initital value?
 
 force self to use aria attrs for tabs, incluing tab styling. Use [aria selected
@@ -141,6 +197,8 @@ i stupidly removed previous xcode when installing beta xcode. Nativescript appea
 -- i already have an apple dev account it seems -- upgrading xcode now... The vue3 feature of making it "easier to target native" seems to have evaporated
 
 ### Next release
+
+new cpntent bnutton to prompt user to refresh -- best preactice PWA pattern at this point
 
 worker pass reader blob to canvas? measure worker times for the blob/reader, as long as that wouldn't actually make it slower
 

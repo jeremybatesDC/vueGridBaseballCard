@@ -133,6 +133,8 @@ export default {
       },
     };
   },
+  // can be used if App exposes via provide provide()
+  //inject: ["allDataReactive"],
   computed: {
     textLineAProps() {
       return {
@@ -143,6 +145,9 @@ export default {
       };
     },
   },
+  //created() {
+  //  console.log(this.allDataReactive);
+  //},
 };
 </script>
 

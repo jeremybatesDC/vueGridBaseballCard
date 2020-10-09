@@ -831,14 +831,17 @@ export default {
   position: relative;
   display: flex;
   flex-direction: column;
-  width: 36rem;
+  width: 100%;
+  max-width: 32.8rem;
   //yes, hard height here because
   height: 50.4rem;
   margin: 0 auto;
-  padding: 0 1.6rem;
+  //padding: 0 1.6rem;
   color: var(--calcColor);
   background-color: var(--cardbackgroundcolor);
-  border: 1px solid rgba(0, 0, 0, 0.3333);
+  box-shadow: -1.6rem 0 var(--cardbackgroundcolor),
+    1.6rem 0 var(--cardbackgroundcolor);
+  //border: 1px solid rgba(0, 0, 0, 0.3333);
   // may need this again...
   //overflow: hidden;
   z-index: 0;

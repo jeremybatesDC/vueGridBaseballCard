@@ -15,6 +15,38 @@
           </label>
         </fieldset>
         <fieldset class="radioBtns__fieldset">
+          <legend class="radioBtns__legend text-left">Orientation</legend>
+          <div class="radioBtns__wrapper--inner">
+            <label class="radioBtns__label">
+              <input
+                type="radio"
+                class="radioBtns__input hidden--visually"
+                name=""
+                v-model="optsBack.cardBackOrientation"
+                value="horizontal"
+              />
+              <span
+                ><svg width="32" height="32" viewBox="0 0 32 32">
+                  <use xlink:href="#iconorientationhorz"></use></svg
+              ></span>
+            </label>
+
+            <label class="radioBtns__label">
+              <input
+                type="radio"
+                class="radioBtns__input hidden--visually"
+                name=""
+                v-model="optsBack.cardBackOrientation"
+                value="vertical"
+              />
+              <span
+                ><svg width="32" height="32" viewBox="0 0 32 32">
+                  <use xlink:href="#iconorientationvert"></use></svg
+              ></span>
+            </label>
+          </div>
+        </fieldset>
+        <fieldset class="radioBtns__fieldset">
           <legend class="radioBtns__legend text-left">Gum Stain</legend>
           <div class="radioBtns__wrapper--inner">
             <label class="radioBtns__label">
@@ -43,7 +75,10 @@
       </div>
     </div>
 
-    <div class="card-back">
+    <div
+      class="card-back"
+      :data-card-back-orientation="optsBack.cardBackOrientation"
+    >
       <article :data-gum="optsBack.gumShowing" class="card-back__article">
         <BackHeader />
         <section class="card-back__section">
@@ -81,6 +116,7 @@ export default {
   data() {
     return {
       optsBack: {
+        cardBackOrientation: "horizontal",
         backgroundColor: "#9a8b7c",
         gumShowing: "gumShowing",
         redVal: 200,
@@ -149,13 +185,22 @@ export default {
   background-color: var(--colorinrgb);
   flex-basis: 100%;
   width: 100%;
-  max-width: 50.4rem;
-  height: 36rem;
+
+  &[data-card-back-orientation="horizontal"] {
+    max-width: 50.4rem;
+    height: 36rem;
+  }
+  &[data-card-back-orientation="vertical"] {
+    max-width: 36rem;
+    height: 50.4rem;
+  }
+
   // i detest top margins but
   margin: 1.6rem auto 3.2rem auto;
   color: var(--calcColor);
   filter: drop-shadow(0 1px 0 #000) drop-shadow(0 -1px 0 #000)
     drop-shadow(1px 0 0 #000) drop-shadow(-1px 0 0 #000);
+
   &__section {
     // if this part is restricted to vert width, then it'll definitely fit on horz
     display: flex;
