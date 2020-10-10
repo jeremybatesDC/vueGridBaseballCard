@@ -29,9 +29,9 @@ input {
     background-color: #888888;
     height: var(--min-touch-target-height);
     border-radius: var(--min-touch-target-half);
-    &:focus {
-      //outline: none;
-    }
+    //&:focus {
+    //outline: none;
+    //}
     &::-webkit-slider-thumb {
       //position: relative;
       -webkit-appearance: none;
@@ -233,9 +233,6 @@ textarea {
       align-items: center;
       text-transform: uppercase;
       font-variation-settings: var(--text-short-wide);
-      [role="tablist"] & {
-        font-variation-settings: var(--text-big-bold);
-      }
     }
     &:checked {
       + span {
