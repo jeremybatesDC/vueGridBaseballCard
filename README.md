@@ -4,7 +4,11 @@
 
 omf powerline icons -- I need more icons: anchor icon missing and there are some other annoying red things..
 
-remove inject provide
+tabs: REMOVE OLD TABS AND ALL ASSOCIATED CSS fun
+
+1. presently using pointer events none on tab that is aria-selected. Feels hacky, yet at the same time achieves what i want...
+
+2. must retain state bin model (not hash)
 
 or maybe 1 year with "Add Seasons" option... hmmm or maybe X over 5 column inisinal layout so user can obvi remove some... dunno...
 

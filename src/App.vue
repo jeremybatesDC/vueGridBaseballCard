@@ -1,16 +1,13 @@
 <template>
   <main>
     <div class="tabs">
-      <div role="tablist">
+      <div >
         <fieldset class="radioBtns__fieldset width--100">
           <div class="radioBtns__wrapper--inner row">
             <div class="radioBtns__wrapper--each">
               <label
                 class="radioBtns__label align-items-stretch"
-                role="tab"
-                aria-selected
-                aria-controls
-                id
+  
               >
                 <input
                   type="radio"
@@ -21,39 +18,13 @@
                 <span>Card Front</span>
               </label>
 
-              <label
-                for="playerPic"
-                class="filePicker__label"
-                aria-label="Upload Image"
-              >
-                <span> Add Pic</span>
-              </label>
-              <label
-                for="logoPic"
-                class="filePicker__label"
-                aria-label="Upload Logo Image"
-              >
-                <span>Add Logo</span>
-              </label>
-              <label
-                class="colorPicker__label colorPicker__label--textOverlap align-self-center"
-              >
-                <span>Color</span>
-                <input
-                  class="colorPicker__input"
-                  type="color"
-                  v-model="cardBackgroundColor"
-                />
-              </label>
+             
             </div>
 
             <div class="radioBtns__wrapper--each">
               <label
                 class="radioBtns__label align-items-stretch"
-                role="tab"
-                aria-selected
-                aria-controls
-                id
+
               >
                 <input
                   type="radio"
@@ -63,27 +34,64 @@
                 />
                 <span>Card Back</span>
               </label>
-              <label class="colorPicker__label colorPicker__label--textOverlap">
+             
+            </div>
+          </div>
+        </fieldset>
+      </div>
+    </div>
+
+
+
+<div class="tabsGood">
+  <div role="tablist" aria-label="Card Side">
+    <button role="tab" aria-selected="true" aria-controls="panelCardFront" id="triggerFront" tabindex="0" aria-label="Front" @click="changeTabs">Card Front</button>
+    <span class="showOnlyForSelectedTab">
+       <label
+          for="playerPic"
+          class="filePicker__label"
+          aria-label="Upload Image"
+        >
+          <span> Add Pic</span>
+        </label>
+        <label
+          for="logoPic"
+          class="filePicker__label"
+          aria-label="Upload Logo Image"
+        >
+          <span>Add Logo</span>
+        </label>
+        <label
+          class="colorPicker__label colorPicker__label--textOverlap align-self-center"
+        >
+          <span>Color</span>
+          <input
+            class="colorPicker__input"
+            type="color"
+            v-model="cardBackgroundColor"
+          />
+        </label>
+    </span>
+    <button role="tab" aria-selected="false" aria-controls="panelCardBack" id="triggerBack" tabindex="-1" aria-label="Back" @click="changeTabs">Card Back</button>
+    <span class="showOnlyForSelectedTab"> <label class="colorPicker__label colorPicker__label--textOverlap">
                 <span>Color</span>
                 <input
                   class="colorPicker__input"
                   type="color"
                   v-model="cardBackgroundColorBack"
                 />
-              </label>
-            </div>
-          </div>
-        </fieldset>
-      </div>
-      <div>
-        <div role="tabpanel" id aria-labelledby v-show="frontshowing">
-          <CardFront />
-        </div>
-        <div role="tabpanel" id aria-labelledby v-show="!frontshowing">
-          <CardBack />
-        </div>
-      </div>
-    </div>
+              </label></span>
+
+  </div>
+  <div id="panelCardFront" role="tabpanel" tabindex="0" aria-labelledby="triggerFront">
+     <CardFront />
+  </div>
+  <div id="panelCardBack" role="tabpanel" tabindex="0" aria-labelledby="triggerBack" hidden>
+   <CardBack />
+  </div>
+
+</div>
+
   </main>
 </template>
 
@@ -114,6 +122,11 @@ async function checkForLocalData() {
   });
 }
 
+// this can be made like 2 lines of code...espec since only 2
+ 
+
+
+
 export default {
   components: {
     CardFront,
@@ -134,7 +147,27 @@ export default {
       cardBackgroundColorBack: "#9a8b7c",
     };
   },
+  methods: {
+    async changeTabs(event) {
+      const targetBtn = event.target;
+      // move where these can be collected once and only once...   
+      const tabsWrap = document.querySelector('.tabsGood');
+      const tabs = [...tabsWrap.querySelectorAll('[role="tab"]')];
+      const tabPanels = [...tabsWrap.querySelectorAll('[role="tabpanel"]')];
+      const idOfTargetPanel = targetBtn.getAttribute("aria-controls");
+      tabs.map(tab => tab.setAttribute("aria-selected", false));
+      tabPanels.map(panel => panel.setAttribute("hidden", true));
+      targetBtn.setAttribute("aria-selected", true);
+      document.getElementById(`${idOfTargetPanel}`).removeAttribute("hidden");
+    }
+  },
 };
+
+// ok now factor-in.
+// there are 2. And there are meant to be 2. Loop might be silly.
+ 
+
+
 </script>
 
 <style lang="scss">
@@ -180,18 +213,39 @@ legend {
 
 [role="tab"] {
   font-size: 1.6rem;
+   font-variation-settings: var(--text-big-bold);
   display: flex;
   flex-grow: 1;
   align-items: stretch;
   justify-content: center;
   height: var(--min-touch-target);
   padding: 0;
+  text-transform: uppercase;
   // in case ever have more than just 2 tabs
   &:not(:first-child) {
     box-shadow: -1px 0 #000;
+    order:99;
   }
-  [type="radio"] {
-    margin-right: 1rem;
+  &[aria-selected="true"]{
+    background:royalblue;
+    color:#fff;
   }
 }
+
+
+
+
+
+.showOnlyForSelectedTab {
+  display: none;
+}
+
+[aria-selected="true"]{
+  pointer-events: none;
+  + .showOnlyForSelectedTab {
+  display: block;
+}
+}
+
+
 </style>
