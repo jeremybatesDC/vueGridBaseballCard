@@ -580,6 +580,8 @@
 //  type: "module",
 //});
 
+//import { onMounted, onUpdated } from "vue";
+
 const webWorkerIDB = new Worker("./workers/web-worker-idb.js", {
   type: "module",
 });
@@ -588,12 +590,9 @@ const webWorkerIDB = new Worker("./workers/web-worker-idb.js", {
 async function setFunc() {}
 
 export default {
-  setup() {
-    //return {
-    //  webWorkerEncode,
-    //  webWorkerIDB,
-    //};
-  },
+  //setup() {
+  //
+  //},
   data() {
     return {
       images: {

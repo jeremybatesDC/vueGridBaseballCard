@@ -2,6 +2,7 @@
 
 ## To Do
 
+is something in tabs card front, maybe add pic or add logo, allowing/causing zoom? sometihing maybe less than 16px?
 omf powerline icons -- I need more icons: anchor icon missing and there are some other annoying red things..
 
 tabs: REMOVE OLD TABS AND ALL ASSOCIATED CSS fun
