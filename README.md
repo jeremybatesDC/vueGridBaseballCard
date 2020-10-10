@@ -8,7 +8,7 @@ tabs: REMOVE OLD TABS AND ALL ASSOCIATED CSS fun
 
 1. presently using pointer events none on tab that is aria-selected. Feels hacky, yet at the same time achieves what i want...
 
-2. must retain state bin model (not hash)
+2. must retain tab state in model (not hash) -- AND, 'aria-selected' and 'disabled' will need to be tied into this modal no big deal really :disabled=""
 
 or maybe 1 year with "Add Seasons" option... hmmm or maybe X over 5 column inisinal layout so user can obvi remove some... dunno...
 
