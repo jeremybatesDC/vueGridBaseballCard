@@ -2,67 +2,68 @@
   <main>
     <div class="tabsGood">
       <div role="tablist" aria-label="Card Side">
-        <span>
-          <button
-            disabled
-            role="tab"
-            aria-selected="true"
-            aria-controls="panelCardFront"
-            id="triggerFront"
-            tabindex="0"
-            aria-label="Front"
-            @click="changeTabs"
+        <!--<div class="tab__wrapper">-->
+        <button
+          disabled
+          role="tab"
+          aria-selected="true"
+          aria-controls="panelCardFront"
+          id="triggerFront"
+          tabindex="0"
+          aria-label="Front"
+          @click="changeTabs"
+        >
+          Card Front
+        </button>
+        <span class="showOnlyForSelectedTab">
+          <label
+            for="playerPic"
+            class="filePicker__label"
+            aria-label="Upload Image"
           >
-            Card Front
-          </button>
-          <span class="showOnlyForSelectedTab">
-            <label
-              for="playerPic"
-              class="filePicker__label"
-              aria-label="Upload Image"
-            >
-              <span> Add Pic</span>
-            </label>
-            <label
-              for="logoPic"
-              class="filePicker__label"
-              aria-label="Upload Logo Image"
-            >
-              <span>Add Logo</span>
-            </label>
-            <label
-              class="colorPicker__label colorPicker__label--textOverlap align-self-center"
-            >
-              <span>Color</span>
-              <input
-                class="colorPicker__input"
-                type="color"
-                v-model="cardBackgroundColor"
-              />
-            </label>
-          </span>
+            <span> Add Pic</span>
+          </label>
+          <label
+            for="logoPic"
+            class="filePicker__label"
+            aria-label="Upload Logo Image"
+          >
+            <span>Add Logo</span>
+          </label>
+          <label
+            class="colorPicker__label colorPicker__label--textOverlap align-self-center"
+          >
+            <span>Color</span>
+            <input
+              class="colorPicker__input"
+              type="color"
+              v-model="cardBackgroundColor"
+            />
+          </label>
         </span>
-        <span>
-          <button
-            role="tab"
-            aria-selected="false"
-            aria-controls="panelCardBack"
-            id="triggerBack"
-            tabindex="-1"
-            aria-label="Back"
-            @click="changeTabs"
-          >
-            Card Back
-          </button>
-          <span class="showOnlyForSelectedTab">
-            <label class="colorPicker__label colorPicker__label--textOverlap">
-              <span>Color</span>
-              <input
-                class="colorPicker__input"
-                type="color"
-                v-model="cardBackgroundColorBack"
-              /> </label></span
+        <!--</div>
+        <div class="tab__wrapper">-->
+        <button
+          role="tab"
+          aria-selected="false"
+          aria-controls="panelCardBack"
+          id="triggerBack"
+          tabindex="-1"
+          aria-label="Back"
+          @click="changeTabs"
+        >
+          Card Back
+        </button>
+        <span class="showOnlyForSelectedTab">
+          <label class="colorPicker__label colorPicker__label--textOverlap">
+            <span>Color</span>
+            <input
+              class="colorPicker__input"
+              type="color"
+              v-model="cardBackgroundColorBack"
+            /> </label
         ></span>
+        <!--</div>-->
       </div>
       <div
         id="panelCardFront"
@@ -200,6 +201,15 @@ legend {
   display: flex;
   background-color: var(--grey-for-controls);
 }
+//
+//.tab__wrapper {
+//  font-size: 1.6rem;
+//  display: flex;
+//  flex-direction: row;
+//  &:last-of-type {
+//    flex-direction: row-reverse;
+//  }
+//}
 
 [role="tab"] {
   font-size: 1.6rem;
@@ -219,17 +229,14 @@ legend {
   &[aria-selected="true"] {
     background: royalblue;
     color: #fff;
+    pointer-events: none;
   }
 }
 
 .showOnlyForSelectedTab {
   display: none;
-}
-
-[aria-selected="true"] {
-  //pointer-events: none;
-  + .showOnlyForSelectedTab {
-    display: block;
+  [aria-selected="true"] + & {
+    display: flex;
   }
 }
 </style>
