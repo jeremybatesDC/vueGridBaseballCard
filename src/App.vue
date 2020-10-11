@@ -8,7 +8,6 @@
           aria-selected="true"
           aria-controls="panelCardFront"
           id="triggerFront"
-          tabindex="0"
           aria-label="Front"
           @click="changeTabs"
         >
@@ -47,7 +46,6 @@
           aria-selected="false"
           aria-controls="panelCardBack"
           id="triggerBack"
-          tabindex="-1"
           aria-label="Back"
           @click="changeTabs"
         >
@@ -64,18 +62,12 @@
         ></span>
         <!--</div>-->
       </div>
-      <div
-        id="panelCardFront"
-        role="tabpanel"
-        tabindex="0"
-        aria-labelledby="triggerFront"
-      >
+      <div id="panelCardFront" role="tabpanel" aria-labelledby="triggerFront">
         <CardFront />
       </div>
       <div
         id="panelCardBack"
         role="tabpanel"
-        tabindex="0"
         aria-labelledby="triggerBack"
         hidden
       >
@@ -176,15 +168,7 @@ h1,
 h2,
 h3 {
   input {
-    font-family: inherit;
-    font-size: inherit;
-    line-height: inherit;
-    color: inherit;
-    display: inherit;
     width: 100%;
-    background: inherit;
-    border: inherit;
-    box-shadow: inherit;
   }
 }
 
@@ -200,6 +184,7 @@ legend {
 
 [role="tablist"] {
   display: flex;
+  justify-content: space-between;
   background-color: var(--grey-for-controls);
 }
 
@@ -212,8 +197,8 @@ legend {
 
   align-items: stretch;
   justify-content: center;
-  width: var(--min-touch-target);
-  height: var(--min-touch-target);
+  width: var(--touch-target-large);
+  height: var(--touch-target-large);
   padding: 0;
   text-transform: uppercase;
   // in case ever have more than just 2 tabs
@@ -230,8 +215,10 @@ legend {
 
 .showOnlyForSelectedTab {
   display: none;
-  // after flex-grow here, there is some gap thatS letting a tap click through and zoom on iOS... grrr
+  //flex-shrink: 0;
+  // after flex-grow 1 OR width 100% here, there is some gap thatS letting a tap click through and zoom on iOS... grrr
   //flex-grow: 1;
+  //width: 100%;
   background-color: royalblue;
   [aria-selected="true"] + & {
     display: flex;

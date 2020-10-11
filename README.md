@@ -2,12 +2,15 @@
 
 ## To Do
 
+tree shake vue? i think must only look at vue code coverage after build
+
+L1 controls should really be 48
+
+test tab-throughs.
+
 is something in tabs card front, maybe add pic or add logo, allowing/causing zoom? sometihing maybe less than 16px?
-omf powerline icons -- I need more icons: anchor icon missing and there are some other annoying red things..
 
-tabs: REMOVE OLD TABS AND ALL ASSOCIATED CSS fun
-
-1. presently using pointer events none on tab that is aria-selected. Feels hacky, yet at the same time achieves what i want...
+remove unused css vars from index and i guess elsewhere too eh
 
 2. must retain tab state in model (not hash) -- AND, 'aria-selected' and 'disabled' will need to be tied into this modal no big deal really :disabled=""
 
@@ -64,8 +67,6 @@ on cardback L@ controls, show number of years and number of column options (stan
 could give more control over table type (like # of columns, # of years)
 
 if used methods watchers computeed maybe instaed of input event for encode, that might be cleaner and easier to trigger on load... hmmm, can i feed an initital value?
-
-force self to use aria attrs for tabs, incluing tab styling. Use [aria selected
 
 only show side-specific top level options when a given side is active
 
@@ -219,7 +220,6 @@ but what about zoom/crop? since my mom already asked for that fnctionality, and 
 https://github.com/blueimp/JavaScript-Load-Image -- only problem is that the file is huge (176kb unpacked)
 Pica is also enormous
 
-tabs the Vue way: https://codepen.io/team/Vue/pen/jOPjZOe
 ASIDE & FOOTER!
 textareas content strategy/testing:
 a) maxlength?
@@ -429,10 +429,6 @@ indicate whether a field can have its font manipulated
 - Calculations and column stat type -- have user define what kind of stat it is (to make calculation in footer proedictable and logical -- if user wants to add up all the miles per hour, fine, but that can be an override of a sensible defualt)
 
 --> in addition to preventing jumps by taking up space (the focus UI needs this), CONSIDER a simple ANIMATION to show that a field is opening up to be edited and then is closing back down.
-
-- TABS: on screens that are wide enough, consider splitting front/back buttons to sides ( for thumbs holding a phone in landscape, for instance). Goal here is to have user se 100% all content needed without having to scroll
-  --> make sure tab state is saved locally
-  --> use hashes so BACK works as user expects
 
 icon for logo placement can be just one def with a single class applied to determine fill.
 
