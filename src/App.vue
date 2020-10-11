@@ -91,7 +91,7 @@ import { get } from "idb-keyval";
 
 import CardFront from "./components/CardFront.vue";
 import CardBack from "./components/CardBack.vue";
-// import { onMounted } from "vue";
+//import { onMounted } from "vue";
 
 async function registerServiceWorker() {
   console.log("restore service worker");
@@ -125,7 +125,11 @@ export default {
     checkForLocalData();
 
     //setFunc();
-    return { registerServiceWorker, checkForLocalData };
+
+    return {
+      registerServiceWorker,
+      checkForLocalData,
+    };
   },
 
   data() {
@@ -136,29 +140,31 @@ export default {
     };
   },
   methods: {
+    // removed loops to make this a dead simple 2 tab thing.
+    // but really my challenge is where to put variables that i want made availble.
+    // i tried initializing variables as null in setup and setting their values with queies on mounted. But I need to try again...
+
     async changeTabs(event) {
-      // move where these variables somewhere they can be collected once and only once...   Mounted?
-      const tabsWrap = document.querySelector(".tabsGood");
-      const tabs = [...tabsWrap.querySelectorAll('[role="tab"]')];
-      const tabPanels = [...tabsWrap.querySelectorAll('[role="tabpanel"]')];
+      const targetBtn = event.target,
+        activeTab = document.querySelector('[aria-selected="true"]'),
+        inactiveTab = document.querySelector('[aria-selected="false"]'),
+        activePanel = document.querySelector('[role="tabpanel"]:not([hidden])'),
+        inactivePanel = document.getElementById(
+          targetBtn.getAttribute("aria-controls")
+        );
 
-      const targetBtn = event.target;
-      const idOfTargetPanel = targetBtn.getAttribute("aria-controls");
-
-      tabs.map((tab) => {
-        tab.setAttribute("aria-selected", false);
-        tab.removeAttribute("disabled");
-      });
-      tabPanels.map((panel) => panel.setAttribute("hidden", true));
+      activeTab.setAttribute("aria-selected", false);
+      activeTab.removeAttribute("disabled");
       targetBtn.setAttribute("aria-selected", true);
       targetBtn.setAttribute("disabled", true);
-      document.getElementById(`${idOfTargetPanel}`).removeAttribute("hidden");
+      activePanel.setAttribute("hidden", true);
+      inactivePanel.removeAttribute("hidden");
     },
   },
+  //mounted() {
+  //
+  //},
 };
-
-// ok now factor-in.
-// there are 2. And there are meant to be 2. Loop might be silly.
 </script>
 
 <style lang="scss">
@@ -201,23 +207,17 @@ legend {
   display: flex;
   background-color: var(--grey-for-controls);
 }
-//
-//.tab__wrapper {
-//  font-size: 1.6rem;
-//  display: flex;
-//  flex-direction: row;
-//  &:last-of-type {
-//    flex-direction: row-reverse;
-//  }
-//}
 
 [role="tab"] {
   font-size: 1.6rem;
   font-variation-settings: var(--text-big-bold);
   display: flex;
-  flex-grow: 1;
+
+  //flex-grow: 1;
+
   align-items: stretch;
   justify-content: center;
+  width: var(--min-touch-target);
   height: var(--min-touch-target);
   padding: 0;
   text-transform: uppercase;
@@ -235,6 +235,9 @@ legend {
 
 .showOnlyForSelectedTab {
   display: none;
+  // after flex-grow here, there is some gap thatS letting a tap click through and zoom on iOS... grrr
+  //flex-grow: 1;
+  background-color: royalblue;
   [aria-selected="true"] + & {
     display: flex;
   }
