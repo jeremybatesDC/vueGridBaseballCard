@@ -4,7 +4,6 @@
       <div role="tablist" aria-label="Card Side">
         <!--<div class="tab__wrapper">-->
         <button
-          disabled
           role="tab"
           aria-selected="true"
           aria-controls="panelCardFront"
@@ -147,16 +146,12 @@ export default {
     async changeTabs(event) {
       const targetBtn = event.target,
         activeTab = document.querySelector('[aria-selected="true"]'),
-        inactiveTab = document.querySelector('[aria-selected="false"]'),
         activePanel = document.querySelector('[role="tabpanel"]:not([hidden])'),
         inactivePanel = document.getElementById(
           targetBtn.getAttribute("aria-controls")
         );
-
       activeTab.setAttribute("aria-selected", false);
-      activeTab.removeAttribute("disabled");
       targetBtn.setAttribute("aria-selected", true);
-      targetBtn.setAttribute("disabled", true);
       activePanel.setAttribute("hidden", true);
       inactivePanel.removeAttribute("hidden");
     },
