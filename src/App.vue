@@ -114,9 +114,7 @@ export default {
   setup() {
     registerServiceWorker();
     checkForLocalData();
-
     //setFunc();
-
     return {
       registerServiceWorker,
       checkForLocalData,
@@ -131,21 +129,19 @@ export default {
     };
   },
   methods: {
-    // removed loops to make this a dead simple 2 tab thing.
-    // but really my challenge is where to put variables that i want made availble.
-    // i tried initializing variables as null in setup and setting their values with queies on mounted. But I need to try again...
-
-    async changeTabs(event) {
-      const targetBtn = event.target,
-        activeTab = document.querySelector('[aria-selected="true"]'),
-        activePanel = document.querySelector('[role="tabpanel"]:not([hidden])'),
-        inactivePanel = document.getElementById(
-          targetBtn.getAttribute("aria-controls")
-        );
-      activeTab.setAttribute("aria-selected", false);
+    // removed async attr - reasoning us that user would expect nothing else to be prioritzed over their desired action of switching tabs ( i think )
+    changeTabs(event) {
+      const targetBtn = event.target;
+      document
+        .querySelector('[aria-selected="true"]')
+        .setAttribute("aria-selected", false);
       targetBtn.setAttribute("aria-selected", true);
-      activePanel.setAttribute("hidden", true);
-      inactivePanel.removeAttribute("hidden");
+      document
+        .querySelector('[role="tabpanel"]:not([hidden])')
+        .setAttribute("hidden", true);
+      document
+        .getElementById(targetBtn.getAttribute("aria-controls"))
+        .removeAttribute("hidden");
     },
   },
   //mounted() {

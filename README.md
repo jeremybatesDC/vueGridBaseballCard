@@ -2,7 +2,8 @@
 
 ## To Do
 
-tree shake vue? i think must only look at vue code coverage after build
+tree shake vue? i think must only look at vue code coverage after build. V\*\*\* looks like Vite optimizes the fuck out of vue.
+and my code coverage is pretty good indeed. Fun to explore that
 
 L1 controls should really be 48
 
