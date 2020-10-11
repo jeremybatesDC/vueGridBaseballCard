@@ -2,10 +2,11 @@
 
 ## To Do
 
-tree shake vue? i think must only look at vue code coverage after build. V\*\*\* looks like Vite optimizes the fuck out of vue.
-and my code coverage is pretty good indeed. Fun to explore that
-
-L1 controls should really be 48
+    // removed async attr - reasoning us that user would expect nothing else to be prioritzed over their desired action of switching tabs ( i think )
+    // could use a ref here maybe for the wrapper perhaps
+    // then could query that ref
+    // also, *use model here, right?*
+    // :hidden :aria-selected
 
 test tab-throughs.
 
@@ -17,7 +18,7 @@ remove unused css vars from index and i guess elsewhere too eh
 
 or maybe 1 year with "Add Seasons" option... hmmm or maybe X over 5 column inisinal layout so user can obvi remove some... dunno...
 
-what about sum or avg? Super cool feature i think. Rather professional
+UI for sum or average on a given field and then how to display difference in stat table so itS clear that 3 seasons of 1 hr each doesn't equal 3 total, but 1 avg. Why set up for mistakes?
 
 stats table 5x5: type number isT great for iOS. Maybe even Select:
 Years:
@@ -143,6 +144,9 @@ logo image could match upload logo icon for more of a visual hint! plus it's sup
 ---
 
 ### Notes
+
+tree shake vue? i think must only look at vue code coverage after build. V\*\*\* looks like Vite optimizes the fuck out of vue.
+and my code coverage is pretty good indeed. Fun to explore that
 
 the wider the range input is, the less it looks like a toggle. Achieving this now. should border curve basically be a toggle? it almost looks like a broken toggle if it's not allowed to grow wide
 

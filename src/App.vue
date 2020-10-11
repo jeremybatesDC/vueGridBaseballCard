@@ -129,7 +129,6 @@ export default {
     };
   },
   methods: {
-    // removed async attr - reasoning us that user would expect nothing else to be prioritzed over their desired action of switching tabs ( i think )
     changeTabs(event) {
       const targetBtn = event.target;
       document.body
