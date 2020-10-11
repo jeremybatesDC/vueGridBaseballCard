@@ -132,11 +132,11 @@ export default {
     // removed async attr - reasoning us that user would expect nothing else to be prioritzed over their desired action of switching tabs ( i think )
     changeTabs(event) {
       const targetBtn = event.target;
-      document
+      document.body
         .querySelector('[aria-selected="true"]')
         .setAttribute("aria-selected", false);
       targetBtn.setAttribute("aria-selected", true);
-      document
+      document.body
         .querySelector('[role="tabpanel"]:not([hidden])')
         .setAttribute("hidden", true);
       document
