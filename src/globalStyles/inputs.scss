@@ -108,7 +108,7 @@ textarea {
     display: flex;
     font-size: 1.6rem;
     //flex-direction: column;
-    //width: var(--min-touch-target);
+    width: var(--touch-target-large);
     height: var(--touch-target-large);
     //background-color: var(--backgroundcolorback);
     align-items: center;
@@ -126,7 +126,7 @@ textarea {
         left: 0;
         top: 50%;
         // width 100% was contributing to CLS i think
-        width: var();
+        width: var(--touch-target-large);
         line-height: 1;
         padding: 0;
 
