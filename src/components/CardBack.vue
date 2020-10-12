@@ -119,9 +119,6 @@ export default {
         cardBackOrientation: "horizontal",
         backgroundColor: "#9a8b7c",
         gumShowing: "gumShowing",
-        redVal: 200,
-        greenVal: 60,
-        blueVal: 255,
       },
     };
   },

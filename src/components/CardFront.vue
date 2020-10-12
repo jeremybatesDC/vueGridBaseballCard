@@ -873,7 +873,7 @@ export default {
   justify-content: space-between;
   input {
     &[type="text"] {
-      height: var(--min-touch-target-height);
+      height: var(--min-touch-target);
     }
   }
   .row--middle--forDesign {

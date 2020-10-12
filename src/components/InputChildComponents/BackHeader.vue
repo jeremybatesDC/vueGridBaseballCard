@@ -263,7 +263,7 @@ export default {
 
   width: 100%;
   input[type="text"] {
-    height: var(--min-touch-target-height);
+    height: var(--min-touch-target);
     font-variation-settings: "wght" var(--fontwght), "wdth" var(--fontwidth),
       "opsz" 25, "GRAD" var(--fontgrade), "slnt" var(--fontslant), "YTLC" 800,
       "YTUC" 800, "YTAS" 800;

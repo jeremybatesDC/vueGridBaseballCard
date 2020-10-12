@@ -106,7 +106,7 @@ export default {
 }
 
 .cb__footer__textarea {
-  min-height: var(--min-touch-target-height);
+  min-height: var(--min-touch-target);
   font-variation-settings: "wght" var(--fontwght), "wdth" var(--fontwidth),
     "opsz" 33, "GRAD" var(--fontgrade), "slnt" var(--fontslant), "YTLC" 500,
     "YTUC" 500, "YTAS" 500;

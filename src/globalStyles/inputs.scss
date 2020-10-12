@@ -15,8 +15,8 @@ input {
     //-webkit-appearance: none;
     font-size: 1.6rem; // prevents ios zoom
     display: flex;
-    width: var(--min-touch-target);
-    height: var(--min-touch-target);
+    width: var(--touch-target-large);
+    height: var(--touch-target-large);
     //border-radius: 50%;
     //border: 1px solid transparent;
     border: none;
@@ -27,7 +27,7 @@ input {
     display: flex;
     -webkit-appearance: none;
     background-color: #888888;
-    height: var(--min-touch-target-height);
+    height: var(--min-touch-target);
     border-radius: var(--min-touch-target-half);
     //&:focus {
     //outline: none;
@@ -109,32 +109,24 @@ textarea {
     font-size: 1.6rem;
     //flex-direction: column;
     //width: var(--min-touch-target);
-    height: var(--min-touch-target);
-    background-color: var(--backgroundcolorback);
+    height: var(--touch-target-large);
+    //background-color: var(--backgroundcolorback);
     align-items: center;
     text-align: center;
     text-transform: uppercase;
     span {
-      //font-size: 1.6rem;
-      //padding: 0 0 0.4rem 0;
       font-variation-settings: var(--text-short-wide);
     }
-    //&--textAbove {
-    //  width: var(--min-touch-target);
-    //  flex-direction: column;
-    //  span {
-    //    padding: 0;
-    //  }
-    //}
+
     &--textOverlap {
-      width: var(--min-touch-target);
+      width: var(--touch-target-large);
       position: relative;
       span {
         position: absolute;
         left: 0;
         top: 50%;
         // width 100% was contributing to CLS i think
-        width: var(--min-touch-target);
+        width: var();
         line-height: 1;
         padding: 0;
 
@@ -261,7 +253,6 @@ textarea {
     flex-grow: 1;
     position: relative;
     //padding: 0 0.8rem;
-    //width: var(--min-touch-target);
     //border: 1px solid #000;
     overflow: hidden;
     align-items: center;
@@ -322,8 +313,8 @@ textarea {
     display: flex;
     flex-direction: column;
     flex-grow: 1;
-    min-width: var(--min-touch-target);
-    height: var(--min-touch-target);
+    min-width: var(--touch-target-large);
+    height: var(--touch-target-large);
     text-transform: uppercase;
     justify-content: center;
     align-items: center;

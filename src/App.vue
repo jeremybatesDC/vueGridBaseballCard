@@ -9,7 +9,7 @@
           aria-controls="panelCardFront"
           id="triggerFront"
           aria-label="Front"
-          @click="changeTabs"
+          @click="chngTbz"
         >
           Card Front
         </button>
@@ -47,7 +47,7 @@
           aria-controls="panelCardBack"
           id="triggerBack"
           aria-label="Back"
-          @click="changeTabs"
+          @click="chngTbz"
         >
           Card Back
         </button>
@@ -129,17 +129,16 @@ export default {
     };
   },
   methods: {
-    changeTabs(event) {
-      const targetBtn = event.target;
+    chngTbz(e) {
       document.body
         .querySelector('[aria-selected="true"]')
         .setAttribute("aria-selected", false);
-      targetBtn.setAttribute("aria-selected", true);
+      e.target.setAttribute("aria-selected", true);
       document.body
         .querySelector('[role="tabpanel"]:not([hidden])')
         .setAttribute("hidden", true);
       document
-        .getElementById(targetBtn.getAttribute("aria-controls"))
+        .getElementById(e.target.getAttribute("aria-controls"))
         .removeAttribute("hidden");
     },
   },
