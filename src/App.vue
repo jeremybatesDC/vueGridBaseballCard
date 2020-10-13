@@ -228,6 +228,14 @@ main {
   overflow: hidden;
 }
 
+//#panelCardFront{
+//
+//}
+//
+//#panelCardBack{
+//
+//}
+
 h1,
 h2,
 h3 {

@@ -247,7 +247,7 @@ export default {
     padding: 0;
     flex-wrap: nowrap;
     background: var(--calcColorBack);
-    color: var(--backgroundcolorback);
+    color: var(--bgcb);
     box-shadow: 1.6rem 0 var(--calcColorBack), -1.6rem 0 var(--calcColorBack);
   }
   &--bottommost {
@@ -271,7 +271,7 @@ export default {
     padding-bottom: 0;
     width: 100%;
     &:focus {
-      background-color: var(--backgroundcolorback);
+      background-color: var(--bgcb);
     }
   }
 }
