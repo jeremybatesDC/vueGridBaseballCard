@@ -1,19 +1,7 @@
 <template>
-  <div class="cardBack__wrapper--outermost" :style="cssCardBackProps">
+  <div class="cardBack__wrapper--outermost">
     <div class="cardBack__controls controls--l2">
       <div class="row space-around height--100">
-        <fieldset
-          class="cardBack__fieldset colorPicker__fieldset align-self-center"
-        >
-          <label class="colorPicker__label colorPicker__label--textOverlap">
-            <span>Color</span>
-            <input
-              class="colorPicker__input"
-              type="color"
-              v-model="optsBack.backgroundColor"
-            />
-          </label>
-        </fieldset>
         <fieldset class="radioBtns__fieldset">
           <legend class="radioBtns__legend text-left">Orientation</legend>
           <div class="radioBtns__wrapper--inner">
@@ -122,64 +110,16 @@ export default {
       },
     };
   },
-
-  computed: {
-    cssCardBackProps() {
-      let redVal = 0;
-      let greenVal = 0;
-      let blueVal = 0;
-      function hexToDesiredColorSpace(hex) {
-        redVal = parseInt("0x" + hex[1] + hex[2]);
-        greenVal = parseInt("0x" + hex[3] + hex[4]);
-        blueVal = parseInt("0x" + hex[5] + hex[6]);
-        return `rgb(${redVal},${greenVal},${blueVal})`;
-      }
-
-      return {
-        "--backgroundcolorback": hexToDesiredColorSpace(
-          this.optsBack.backgroundColor
-        ),
-
-        "--red": redVal,
-        "--green": greenVal,
-        "--blue": blueVal,
-      };
-    },
-  },
 };
 </script>
 
 <style lang="scss">
 // if can keep square stats table, will allow switch between vert and horz
 
-.cardBack__wrapper--outermost {
-  --r: calc(var(--red) * 0.2126);
-  --g: calc(var(--green) * 0.7152);
-  --b: calc(var(--blue) * 0.0722);
-  --sum: calc(var(--r) + var(--g) + var(--b));
-  --perceived-lightness: calc(var(--sum) / 255);
-  --border-alpha: calc(
-    (var(--perceived-lightness) - var(--border-threshold)) * 100
-  );
-  --colorinrgb: rgb(var(--red), var(--green), var(--blue));
-  --calcColor: hsl(
-    0,
-    0%,
-    calc(
-      (var(--perceived-lightness) - var(--contrast-threshold-for-card)) *
-        -10000000%
-    )
-  );
-  // cheat
-  .colorPicker__label--textOverlap {
-    color: var(--calcColor);
-  }
-}
-
 .card-back {
   display: flex;
   position: relative;
-  background-color: var(--colorinrgb);
+  background-color: var(--bgcb);
   flex-basis: 100%;
   width: 100%;
 
@@ -194,7 +134,7 @@ export default {
 
   // i detest top margins but
   margin: 1.6rem auto 3.2rem auto;
-  color: var(--calcColor);
+  color: var(--calcColorBack);
   filter: drop-shadow(0 1px 0 #000) drop-shadow(0 -1px 0 #000)
     drop-shadow(1px 0 0 #000) drop-shadow(-1px 0 0 #000);
 
@@ -217,7 +157,7 @@ export default {
 
     //background-color: rgba(#9c2c1a, 0.25);
     // using outline here so that it'll just be clipped on small devices automatically
-    outline: 1.6rem solid var(--calcColor);
+    outline: 1.6rem solid var(--calcColorBack);
     overflow: hidden;
   }
 }
@@ -231,7 +171,7 @@ export default {
     right: 0;
     width: 10rem;
     height: 30rem;
-    background-color: var(--calcColor);
+    background-color: var(--calcColorBack);
     opacity: 0.15;
     border-radius: 3px 5px 7px 9px;
     transform: rotate(-33deg) translateX(-8rem) translateY(-4rem);

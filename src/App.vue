@@ -1,5 +1,5 @@
 <template>
-  <main>
+  <main :style="[colorContrastVars, colorContrastVarsBack]">
     <div class="tabsGood">
       <div role="tablist" aria-label="Card Side">
         <!--<div class="tab__wrapper">-->
@@ -29,14 +29,10 @@
             <span>Add Logo</span>
           </label>
           <label
-            class="colorPicker__label colorPicker__label--textOverlap align-self-center"
+            class="colorPicker__label colorPicker__label--front colorPicker__label--textOverlap align-self-center"
           >
             <span>Color</span>
-            <input
-              class="colorPicker__input"
-              type="color"
-              v-model="cardBackgroundColor"
-            />
+            <input class="colorPicker__input" type="color" v-model="bgcf" />
           </label>
         </span>
         <!--</div>
@@ -52,12 +48,14 @@
           Card Back
         </button>
         <span class="showOnlyForSelectedTab">
-          <label class="colorPicker__label colorPicker__label--textOverlap">
+          <label
+            class="colorPicker__label colorPicker__label--back colorPicker__label--textOverlap"
+          >
             <span>Color</span>
             <input
               class="colorPicker__input"
               type="color"
-              v-model="cardBackgroundColorBack"
+              v-model="bgcb"
             /> </label
         ></span>
         <!--</div>-->
@@ -126,6 +124,8 @@ export default {
       frontshowing: true,
       cardBackgroundColor: "#ffffff",
       cardBackgroundColorBack: "#9a8b7c",
+      bgcf: "#ffffff",
+      bgcb: "#9a8b7c",
     };
   },
   methods: {
@@ -142,6 +142,42 @@ export default {
         .removeAttribute("hidden");
     },
   },
+  computed: {
+    colorContrastVars() {
+      let redVal = 0;
+      let greenVal = 0;
+      let blueVal = 0;
+      function hexToRGB(hex) {
+        redVal = parseInt("0x" + hex[1] + hex[2]);
+        greenVal = parseInt("0x" + hex[3] + hex[4]);
+        blueVal = parseInt("0x" + hex[5] + hex[6]);
+        return `rgb(${redVal},${greenVal},${blueVal})`;
+      }
+      return {
+        "--bgcf": hexToRGB(this.bgcf),
+        "--redfront": redVal,
+        "--greenfront": greenVal,
+        "--bluefront": blueVal,
+      };
+    },
+    colorContrastVarsBack() {
+      let redValBack = 0;
+      let greenValBack = 0;
+      let blueValBack = 0;
+      function hexToRGB(hex) {
+        redValBack = parseInt("0x" + hex[1] + hex[2]);
+        greenValBack = parseInt("0x" + hex[3] + hex[4]);
+        blueValBack = parseInt("0x" + hex[5] + hex[6]);
+        return `rgb(${redValBack},${greenValBack},${blueValBack})`;
+      }
+      return {
+        "--bgcb": hexToRGB(this.bgcb),
+        "--redback": redValBack,
+        "--greenback": greenValBack,
+        "--blueback": blueValBack,
+      };
+    },
+  },
   //mounted() {
   //
   //},
@@ -149,12 +185,46 @@ export default {
 </script>
 
 <style lang="scss">
+#panelCardFront {
+}
+
+#panelCardBack {
+}
+
 body {
   background-color: #eee;
 }
 
 main {
-  //height: 100vh;
+  --rfront: calc(var(--redfront) * 0.2126);
+  --gfront: calc(var(--greenfront) * 0.7152);
+  --bfront: calc(var(--bluefront) * 0.0722);
+  --sumfront: calc(var(--rfront) + var(--gfront) + var(--bfront));
+  --perceived-lightness-front: calc(var(--sumfront) / 255);
+
+  --calcColorFront: hsl(
+    0,
+    0%,
+    calc(
+      (var(--perceived-lightness-front) - var(--contrast-threshold-for-card)) *
+        -10000000%
+    )
+  );
+  --rback: calc(var(--redback) * 0.2126);
+  --gback: calc(var(--greenback) * 0.7152);
+  --bback: calc(var(--blueback) * 0.0722);
+  --sumback: calc(var(--rback) + var(--gback) + var(--bback));
+  --perceived-lightness-back: calc(var(--sumback) / 255);
+
+  --calcColorBack: hsl(
+    0,
+    0%,
+    calc(
+      (var(--perceived-lightness-back) - var(--contrast-threshold-for-card)) *
+        -10000000%
+    )
+  );
+
   overflow: hidden;
 }
 
@@ -216,6 +286,19 @@ legend {
   background-color: royalblue;
   [aria-selected="true"] + & {
     display: flex;
+  }
+}
+
+.colorPicker__label {
+  &--front {
+    span {
+      color: var(--calcColorFront);
+    }
+  }
+  &--back {
+    span {
+      color: var(--calcColorBack);
+    }
   }
 }
 </style>

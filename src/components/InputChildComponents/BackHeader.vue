@@ -246,9 +246,9 @@ export default {
     height: 2.4rem;
     padding: 0;
     flex-wrap: nowrap;
-    background: var(--calcColor);
+    background: var(--calcColorBack);
     color: var(--backgroundcolorback);
-    box-shadow: 1.6rem 0 var(--calcColor), -1.6rem 0 var(--calcColor);
+    box-shadow: 1.6rem 0 var(--calcColorBack), -1.6rem 0 var(--calcColorBack);
   }
   &--bottommost {
     height: 3.2rem;

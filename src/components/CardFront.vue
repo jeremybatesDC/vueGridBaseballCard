@@ -53,16 +53,6 @@
             </label>
           </div>
         </fieldset>
-        <label
-          class="colorPicker__label colorPicker__label--textOverlap align-self-center"
-        >
-          <span>Color</span>
-          <input
-            class="colorPicker__input"
-            type="color"
-            v-model="cardDesign.cardBackgroundColor"
-          />
-        </label>
 
         <label class="rangeUI__label">
           <span
@@ -807,25 +797,6 @@ export default {
 </script>
 
 <style lang="scss">
-.cardFront__wrapper--outermost {
-  --r: calc(var(--red) * 0.2126);
-  --g: calc(var(--green) * 0.7152);
-  --b: calc(var(--blue) * 0.0722);
-  --sum: calc(var(--r) + var(--g) + var(--b));
-  --perceived-lightness: calc(var(--sum) / 255);
-  --border-alpha: calc(
-    (var(--perceived-lightness) - var(--border-threshold)) * 100
-  );
-  --calcColor: hsl(
-    0,
-    0%,
-    calc(
-      (var(--perceived-lightness) - var(--contrast-threshold-for-card)) *
-        -10000000%
-    )
-  );
-}
-
 .card__container--front {
   position: relative;
   display: flex;
@@ -836,10 +807,9 @@ export default {
   height: 50.4rem;
   margin: 0 auto;
   //padding: 0 1.6rem;
-  color: var(--calcColor);
-  background-color: var(--cardbackgroundcolor);
-  box-shadow: -1.6rem 0 var(--cardbackgroundcolor),
-    1.6rem 0 var(--cardbackgroundcolor);
+  color: var(--calcColorFront);
+  background-color: var(--bgcf);
+  box-shadow: -1.6rem 0 var(--bgcf), 1.6rem 0 var(--bgcf);
   //border: 1px solid rgba(0, 0, 0, 0.3333);
   // may need this again...
   //overflow: hidden;
@@ -956,7 +926,7 @@ export default {
   flex-grow: 1;
   border-width: var(--borderinnerwidth);
   border-style: solid;
-  border-color: var(--calcColor);
+  border-color: var(--calcColorFront);
   border-radius: var(--borderinnercurve);
 
   &.topLeft {

@@ -696,7 +696,7 @@ tbody {
     text-align: right;
     &[type="tel"] {
       &::placeholder {
-        color: var(--calcColor);
+        color: var(--calcColorBack);
       }
     }
   }

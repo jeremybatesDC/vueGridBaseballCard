@@ -2,6 +2,9 @@
 
 ## To Do
 
+ok so in composition API, the data object isn't so broken out... ahhh... i missed that bit... Or did it just get moved to one of their reputposables?
+https://v3.vuejs.org/guide/composition-api-introduction.html#standalone-computed-properties
+
 GUESSING that the bug reulted in a 0 or 1 or whatever the caluculation was, making it black, but not for the right reason. Correcting the bug seems to have the text defalt to white... Does that mean it's not performaing the caluculation correctly up front? Even if text turns white, need to work through and correct this bug. But still though, why/how does FRONT care at all? Maybe it shouldn't but because there's a bug it somehow does. Oof. Ok, i can rebuild just need to focus
 
 i created a bug and a tanlge.
