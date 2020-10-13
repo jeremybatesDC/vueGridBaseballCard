@@ -1,5 +1,5 @@
 <template>
-  <main :style="[colorContrastVars, colorContrastVarsBack]">
+  <main :style="[colorContrastVarsFront, colorContrastVarsBack]">
     <div class="tabsGood">
       <div role="tablist" aria-label="Card Side">
         <!--<div class="tab__wrapper">-->
@@ -109,13 +109,13 @@ let redValBack;
 let greenValBack;
 let blueValBack;
 
-let redEq = (hex) => {
+const redEq = (hex) => {
   return parseInt("0x" + hex[1] + hex[2]);
 };
-let greenEq = (hex) => {
+const greenEq = (hex) => {
   return parseInt("0x" + hex[3] + hex[4]);
 };
-let blueEq = (hex) => {
+const blueEq = (hex) => {
   return parseInt("0x" + hex[5] + hex[6]);
 };
 
@@ -178,7 +178,7 @@ export default {
     },
   },
   computed: {
-    colorContrastVars() {
+    colorContrastVarsFront() {
       return {
         "--bgcf": hexToRGB(this.bgcf, "front"),
         "--redfront": redValFront,

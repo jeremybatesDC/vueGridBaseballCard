@@ -1,12 +1,7 @@
 <template>
   <div
     class="cardFront__wrapper--outermost"
-    :style="[
-      cssColorContrastProps,
-      cssCardDesignProps,
-      cssLogoProps,
-      cssBorderInnerProps,
-    ]"
+    :style="[cssCardDesignProps, cssLogoProps, cssBorderInnerProps]"
   >
     <div class="cardFront__controls controls--l2">
       <div class="row space-around height--100">
@@ -631,27 +626,6 @@ export default {
     };
   },
   computed: {
-    cssColorContrastProps() {
-      let redVal = 0;
-      let greenVal = 0;
-      let blueVal = 0;
-      function hexToDesiredColorSpace(hex) {
-        redVal = parseInt("0x" + hex[1] + hex[2]);
-        greenVal = parseInt("0x" + hex[3] + hex[4]);
-        blueVal = parseInt("0x" + hex[5] + hex[6]);
-        return `rgb(${redVal},${greenVal},${blueVal})`;
-      }
-
-      return {
-        "--backgroundcolorback": hexToDesiredColorSpace(
-          this.cardDesign.cardBackgroundColor
-        ),
-
-        "--red": redVal,
-        "--green": greenVal,
-        "--blue": blueVal,
-      };
-    },
     cssCardDesignProps() {
       return {
         "--cardbackgroundcolor": this.cardDesign.cardBackgroundColor,
