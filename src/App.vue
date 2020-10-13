@@ -102,7 +102,41 @@ async function checkForLocalData() {
   });
 }
 
-// this can be made like 2 lines of code...espec since only 2
+let redValFront;
+let greenValFront;
+let blueValFront;
+let redValBack;
+let greenValBack;
+let blueValBack;
+
+let redEq = (hex) => {
+  return parseInt("0x" + hex[1] + hex[2]);
+};
+let greenEq = (hex) => {
+  return parseInt("0x" + hex[3] + hex[4]);
+};
+let blueEq = (hex) => {
+  return parseInt("0x" + hex[5] + hex[6]);
+};
+
+// i can make this smaller. Also I'm creating side effects. On prupose I guess but be careful
+// this can fire so fast that maybe it would be good to have 2 different functions. That way thereS no if fork.
+function hexToRGB(hex, frontOrBack) {
+  setSideEffects(hex, frontOrBack);
+  return `rgb(${redEq(hex)},${greenEq(hex)},${blueEq(hex)})`;
+}
+
+function setSideEffects(hex, frontOrBack) {
+  if (frontOrBack === "front") {
+    redValFront = redEq(hex);
+    greenValFront = greenEq(hex);
+    blueValFront = blueEq(hex);
+  } else if (frontOrBack === "back") {
+    redValBack = redEq(hex);
+    greenValBack = greenEq(hex);
+    blueValBack = blueEq(hex);
+  }
+}
 
 export default {
   components: {
@@ -116,6 +150,7 @@ export default {
     return {
       registerServiceWorker,
       checkForLocalData,
+      hexToRGB,
     };
   },
 
@@ -144,34 +179,16 @@ export default {
   },
   computed: {
     colorContrastVars() {
-      let redVal = 0;
-      let greenVal = 0;
-      let blueVal = 0;
-      function hexToRGB(hex) {
-        redVal = parseInt("0x" + hex[1] + hex[2]);
-        greenVal = parseInt("0x" + hex[3] + hex[4]);
-        blueVal = parseInt("0x" + hex[5] + hex[6]);
-        return `rgb(${redVal},${greenVal},${blueVal})`;
-      }
       return {
-        "--bgcf": hexToRGB(this.bgcf),
-        "--redfront": redVal,
-        "--greenfront": greenVal,
-        "--bluefront": blueVal,
+        "--bgcf": hexToRGB(this.bgcf, "front"),
+        "--redfront": redValFront,
+        "--greenfront": greenValFront,
+        "--bluefront": blueValFront,
       };
     },
     colorContrastVarsBack() {
-      let redValBack = 0;
-      let greenValBack = 0;
-      let blueValBack = 0;
-      function hexToRGB(hex) {
-        redValBack = parseInt("0x" + hex[1] + hex[2]);
-        greenValBack = parseInt("0x" + hex[3] + hex[4]);
-        blueValBack = parseInt("0x" + hex[5] + hex[6]);
-        return `rgb(${redValBack},${greenValBack},${blueValBack})`;
-      }
       return {
-        "--bgcb": hexToRGB(this.bgcb),
+        "--bgcb": hexToRGB(this.bgcb, "back"),
         "--redback": redValBack,
         "--greenback": greenValBack,
         "--blueback": blueValBack,
