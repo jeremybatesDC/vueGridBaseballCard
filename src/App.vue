@@ -102,40 +102,14 @@ async function checkForLocalData() {
   });
 }
 
-let redValFront;
-let greenValFront;
-let blueValFront;
-let redValBack;
-let greenValBack;
-let blueValBack;
-
-const redEq = (hex) => {
-  return parseInt("0x" + hex[1] + hex[2]);
-};
-const greenEq = (hex) => {
-  return parseInt("0x" + hex[3] + hex[4]);
-};
-const blueEq = (hex) => {
-  return parseInt("0x" + hex[5] + hex[6]);
-};
-
 // i can make this smaller. Also I'm creating side effects. On prupose I guess but be careful
 // this can fire so fast that maybe it would be good to have 2 different functions. That way thereS no if fork.
-function hexToRGB(hex, frontOrBack) {
-  setSideEffects(hex, frontOrBack);
-  return `rgb(${redEq(hex)},${greenEq(hex)},${blueEq(hex)})`;
-}
-
-function setSideEffects(hex, frontOrBack) {
-  if (frontOrBack === "front") {
-    redValFront = redEq(hex);
-    greenValFront = greenEq(hex);
-    blueValFront = blueEq(hex);
-  } else if (frontOrBack === "back") {
-    redValBack = redEq(hex);
-    greenValBack = greenEq(hex);
-    blueValBack = blueEq(hex);
-  }
+function hexToRGB(hex) {
+  return [
+    parseInt("0x" + hex[1] + hex[2]),
+    parseInt("0x" + hex[3] + hex[4]),
+    parseInt("0x" + hex[5] + hex[6]),
+  ];
 }
 
 export default {
@@ -179,25 +153,25 @@ export default {
   },
   computed: {
     colorContrastVarsFront() {
+      console.log(hexToRGB(this.bgcf));
+      let theHex = hexToRGB(this.bgcf);
       return {
-        "--bgcf": hexToRGB(this.bgcf, "front"),
-        "--redfront": redValFront,
-        "--greenfront": greenValFront,
-        "--bluefront": blueValFront,
+        "--bgcf": `rgb(${theHex[0]},${theHex[1]},${theHex[2]})`,
+        "--redfront": theHex[0],
+        "--greenfront": theHex[1],
+        "--bluefront": theHex[2],
       };
     },
     colorContrastVarsBack() {
+      let theHex = hexToRGB(this.bgcb);
       return {
-        "--bgcb": hexToRGB(this.bgcb, "back"),
-        "--redback": redValBack,
-        "--greenback": greenValBack,
-        "--blueback": blueValBack,
+        "--bgcb": `rgb(${theHex[0]},${theHex[1]},${theHex[2]})`,
+        "--redback": theHex[0],
+        "--greenback": theHex[1],
+        "--blueback": theHex[2],
       };
     },
   },
-  //mounted() {
-  //
-  //},
 };
 </script>
 
