@@ -122,19 +122,6 @@
                   max="0"
                 />
               </label>
-              <label class="rangeUI__label">
-                <span
-                  >Grade: <output :value="cardText.textLine1.fontGrade"></output
-                ></span>
-                <input
-                  class="rangeUI__input"
-                  v-model.number="cardText.textLine1.fontGrade"
-                  type="range"
-                  min="0"
-                  max="1"
-                  step=".1"
-                />
-              </label>
             </div>
           </div>
         </h2>
@@ -209,19 +196,6 @@
                   max="0"
                 />
               </label>
-              <label class="rangeUI__label">
-                <span
-                  >Grade: <output :value="cardText.textLine2.fontGrade"></output
-                ></span>
-                <input
-                  class="rangeUI__input"
-                  v-model.number="cardText.textLine2.fontGrade"
-                  type="range"
-                  min="0"
-                  max="1"
-                  step=".1"
-                />
-              </label>
             </div>
           </div>
         </h1>
@@ -280,22 +254,6 @@
                   type="range"
                   min="-10"
                   max="0"
-                />
-              </label>
-              <label class="rangeUI__label">
-                <span
-                  >Grade:
-                  <output
-                    :value="cardText.textPlayerPosition.fontGrade"
-                  ></output
-                ></span>
-                <input
-                  class="rangeUI__input"
-                  v-model.number="cardText.textPlayerPosition.fontGrade"
-                  type="range"
-                  min="0"
-                  max="1"
-                  step=".1"
                 />
               </label>
             </div>
@@ -605,21 +563,18 @@ export default {
           teamName: "Mudville Madcats",
           fontWght: 600,
           fontWidth: 90,
-          fontGrade: 0,
           fontSlant: 0,
         },
         textLine2: {
           playerName: "Casey Charleston",
           fontWght: 200,
           fontWidth: 50,
-          fontGrade: 0,
           fontSlant: 0,
         },
         textPlayerPosition: {
           playerPosition: "Dad, Pitcher",
           fontWght: 200,
           fontWidth: 50,
-          fontGrade: 0,
           fontSlant: -5,
         },
       },
@@ -640,7 +595,6 @@ export default {
       return {
         "--fontwght": this.cardText.textLine1.fontWght,
         "--fontwidth": this.cardText.textLine1.fontWidth,
-        "--fontgrade": this.cardText.textLine1.fontGrade,
         "--fontslant": this.cardText.textLine1.fontSlant,
       };
     },
@@ -648,7 +602,6 @@ export default {
       return {
         "--fontwght": this.cardText.textLine2.fontWght,
         "--fontwidth": this.cardText.textLine2.fontWidth,
-        "--fontgrade": this.cardText.textLine2.fontGrade,
         "--fontslant": this.cardText.textLine2.fontSlant,
       };
     },
@@ -656,7 +609,6 @@ export default {
       return {
         "--fontwght": this.cardText.textPlayerPosition.fontWght,
         "--fontwidth": this.cardText.textPlayerPosition.fontWidth,
-        "--fontgrade": this.cardText.textPlayerPosition.fontGrade,
         "--fontslant": this.cardText.textPlayerPosition.fontSlant,
       };
     },
@@ -709,7 +661,6 @@ export default {
           textLine1: {
             fontWght: this.cardText.textLine1.fontWght,
             fontWidth: this.cardText.textLine1.fontWidth,
-            fontGrade: this.cardText.textLine1.fontGrade,
             fontSlant: this.cardText.textLine1.fontSlant,
           },
         },
@@ -939,7 +890,7 @@ export default {
   input {
     &[type="text"] {
       font-variation-settings: "wght" var(--fontwght), "wdth" var(--fontwidth),
-        "GRAD" var(--fontgrade), "slnt" var(--fontslant);
+        "slnt" var(--fontslant);
     }
   }
 

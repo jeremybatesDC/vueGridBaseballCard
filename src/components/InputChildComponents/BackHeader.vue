@@ -52,19 +52,6 @@
                   max="0"
                 />
               </label>
-              <label class="rangeUI__label">
-                <span
-                  >Grade: <output :value="textLineA.fontGrade"></output
-                ></span>
-                <input
-                  class="rangeUI__input"
-                  v-model.number="textLineA.fontGrade"
-                  type="range"
-                  min="0"
-                  max="1"
-                  step=".1"
-                />
-              </label>
             </div>
           </div>
         </h1>
@@ -128,7 +115,6 @@ export default {
       textLineA: {
         fontWght: 800,
         fontWidth: 50,
-        fontGrade: 0,
         fontSlant: -10,
       },
     };
@@ -140,7 +126,6 @@ export default {
       return {
         "--fontwght": this.textLineA.fontWght,
         "--fontwidth": this.textLineA.fontWidth,
-        "--fontgrade": this.textLineA.fontGrade,
         "--fontslant": this.textLineA.fontSlant,
       };
     },
@@ -176,8 +161,8 @@ export default {
 
   padding: 0 1.6rem;
   input {
-    font-variation-settings: "wght" 400, "wdth" 40, "opsz" 38, "GRAD" 0,
-      "slnt" 0, "YTLC" 400, "YTUC" 400, "YTAS" 400;
+    font-variation-settings: "wght" 400, "wdth" 40, "opsz" 38, "slnt" 0,
+      "YTLC" 400, "YTUC" 400, "YTAS" 400;
     text-transform: uppercase;
   }
   label {
@@ -265,8 +250,7 @@ export default {
   input[type="text"] {
     height: var(--min-touch-target);
     font-variation-settings: "wght" var(--fontwght), "wdth" var(--fontwidth),
-      "opsz" 25, "GRAD" var(--fontgrade), "slnt" var(--fontslant), "YTLC" 800,
-      "YTUC" 800, "YTAS" 800;
+      "opsz" 25, "slnt" var(--fontslant), "YTLC" 800, "YTUC" 800, "YTAS" 800;
     padding-top: 0;
     padding-bottom: 0;
     width: 100%;

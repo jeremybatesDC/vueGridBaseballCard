@@ -43,17 +43,6 @@
             max="0"
           />
         </label>
-        <label class="rangeUI__label">
-          <span>Grade: <output :value="textLineC.fontGrade"></output></span>
-          <input
-            class="rangeUI__input"
-            v-model.number="textLineC.fontGrade"
-            type="range"
-            min="0"
-            max="1"
-            step=".1"
-          />
-        </label>
       </div>
     </div>
   </footer>
@@ -70,7 +59,6 @@ export default {
       textLineC: {
         fontWght: 200,
         fontWidth: 50,
-        fontGrade: 0,
         fontSlant: -5,
       },
     };
@@ -80,7 +68,6 @@ export default {
       return {
         "--fontwght": this.textLineC.fontWght,
         "--fontwidth": this.textLineC.fontWidth,
-        "--fontgrade": this.textLineC.fontGrade,
         "--fontslant": this.textLineC.fontSlant,
       };
     },
@@ -108,8 +95,7 @@ export default {
 .cb__footer__textarea {
   min-height: var(--min-touch-target);
   font-variation-settings: "wght" var(--fontwght), "wdth" var(--fontwidth),
-    "opsz" 33, "GRAD" var(--fontgrade), "slnt" var(--fontslant), "YTLC" 500,
-    "YTUC" 500, "YTAS" 500;
+    "opsz" 33, "slnt" var(--fontslant), "YTLC" 500, "YTUC" 500, "YTAS" 500;
   line-height: 0.8;
   padding-top: 0.4rem;
 }

@@ -2,17 +2,13 @@
 
 ## To Do
 
-how hard is it to subset roboto flex??? Other fonts like RECURSIVE let you subet and specify range or specific value. Cool right?
-Can I afford Degular? It's \$419 and has the precise 3 metrics I want: width (optical size), weight and slant. Grade gets messy and is confusing term for user.
+does the WOFF2, as opposed to the TTF, have the tabular setting? It looks really clean, so if it's there but only in ttf should prob switch
 
-consider (choose based on price and size)
+where possible CONSIDER (re)flattening data -- it's going to save cycles at some point maybe
 
-https://v-fonts.com/fonts/grtsk-variable
-https://ohnotype.co/fonts/degular
-https://v-fonts.com/fonts/adelphi-pe-variable
-https://v-fonts.com/fonts/halvar-flex
-https://v-fonts.com/fonts/adapter
-https://v-fonts.com/fonts/etc-anybody
+The Anybody font is a HUGE win. Credit goes to etceteratype and to the github commit's of sursly (https://github.com/sursly). Saved 881kb and now my overall proj is down to like 230 kb before images, or down to 120kbb bortli before images...
+
+Adjust font parameters for Anybody. For instance, the max or min values allowed on range inputs are based on roboto not Anybody, which has wider values...
 
 ok so in composition API, the data object isn't so broken out... ahhh... i missed that bit... Or did it just get moved to one of their reputposables?
 https://v3.vuejs.org/guide/composition-api-introduction.html#standalone-computed-properties

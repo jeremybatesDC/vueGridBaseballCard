@@ -671,7 +671,7 @@ th {
 }
 tbody {
   //box-shadow: 0 1px #000;
-  font-variation-settings: "wght" 200, "wdth" 25, "opsz" 35, "GRAD" 0, "slnt" 0,
+  font-variation-settings: "wght" 200, "wdth" 25, "opsz" 35, "slnt" 0,
     "XTRA" 500, "YTLC" 500, "YTUC" 500, "YTFI" 500;
   background: rgba(255, 255, 255, 0.1);
 
@@ -702,7 +702,7 @@ tbody {
   }
 }
 tfoot {
-  font-variation-settings: "wght" 300, "wdth" 25, "opsz" 30, "GRAD" 0, "slnt" 0,
+  font-variation-settings: "wght" 300, "wdth" 25, "opsz" 30, "slnt" 0,
     "YTLC" 500, "YTUC" 500, "YTFI" 500;
   background: rgba(0, 0, 0, 0.05);
   td,

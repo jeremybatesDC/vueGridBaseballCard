@@ -53,19 +53,6 @@
                   max="0"
                 />
               </label>
-              <label class="rangeUI__label">
-                <span
-                  >Grade: <output :value="textLineB.fontGrade"></output
-                ></span>
-                <input
-                  class="rangeUI__input"
-                  v-model.number="textLineB.fontGrade"
-                  type="range"
-                  min="0"
-                  max="1"
-                  step=".1"
-                />
-              </label>
             </div>
           </div>
         </span>
@@ -84,7 +71,6 @@ export default {
       textLineB: {
         fontWght: 200,
         fontWidth: 50,
-        fontGrade: 0,
         fontSlant: 0,
       },
     };
@@ -94,7 +80,6 @@ export default {
       return {
         "--fontwght": this.textLineB.fontWght,
         "--fontwidth": this.textLineB.fontWidth,
-        "--fontgrade": this.textLineB.fontGrade,
         "--fontslant": this.textLineB.fontSlant,
       };
     },
@@ -225,8 +210,7 @@ export default {
   text-overflow: ellipsis;
   font-size: 1.6rem;
   font-variation-settings: "wght" var(--fontwght), "wdth" var(--fontwidth),
-    "opsz" 33, "GRAD" var(--fontgrade), "slnt" var(--fontslant), "YTLC" 500,
-    "YTUC" 500, "YTAS" 500;
+    "opsz" 33, "slnt" var(--fontslant), "YTLC" 500, "YTUC" 500, "YTAS" 500;
   line-height: 0.8;
 }
 </style>
