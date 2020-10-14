@@ -2,13 +2,22 @@
 
 ## To Do
 
+how hard is it to subset roboto flex??? Other fonts like RECURSIVE let you subet and specify range or specific value. Cool right?
+Can I afford Degular? It's \$419 and has the precise 3 metrics I want: width (optical size), weight and slant. Grade gets messy and is confusing term for user.
+
+consider (choose based on price and size)
+
+https://v-fonts.com/fonts/grtsk-variable
+https://ohnotype.co/fonts/degular
+https://v-fonts.com/fonts/adelphi-pe-variable
+https://v-fonts.com/fonts/halvar-flex
+https://v-fonts.com/fonts/adapter
+https://v-fonts.com/fonts/etc-anybody
+
 ok so in composition API, the data object isn't so broken out... ahhh... i missed that bit... Or did it just get moved to one of their reputposables?
 https://v3.vuejs.org/guide/composition-api-introduction.html#standalone-computed-properties
 
-GUESSING that the bug reulted in a 0 or 1 or whatever the caluculation was, making it black, but not for the right reason. Correcting the bug seems to have the text defalt to white... Does that mean it's not performaing the caluculation correctly up front? Even if text turns white, need to work through and correct this bug. But still though, why/how does FRONT care at all? Maybe it shouldn't but because there's a bug it somehow does. Oof. Ok, i can rebuild just need to focus
-
-i created a bug and a tanlge.
-in cardfront, there is a cardcolorback value that seems only to matter on card back -- a mistake, ight? But when i rmove it, everything on the front goes white... hmmmmm
+GUESSING that the b
 
     // removed async attr - reasoning us that user would expect nothing else to be prioritzed over their desired action of switching tabs ( i think )
     // could use a ref here maybe for the wrapper perhaps
@@ -38,12 +47,7 @@ Years:
 4
 5 --> default
 
-card front/back still i think not \*quite same. Hard to tell until L2s are restored and are same height front and back
-
-actually i don't think i want to use provide/inject for everthing. There could be a master object MAYBE that front and back emit to. But data can be split between front and back, and if anything I need to decouple them more so chunking them apart for asyn purposes would be simpler (yes, can load back async -- but, if a returning user's data is frontshowing: false, then load back right away, and front AYSNC. I think thatS achievable. Card Front and back really shouldnT share anything. Even the name should AT MOST maybe auto-inherit, but not sync. If it syncs then i have to think about which line on the cardfront is actually NAME and also possibly provide author with ability to decouple the fields. So if it's just really that one field, maybe inject is perfect for that one field...
-So state can/should live in front/back. Myabe... I need to keep mulling this.
-
-can i go an inject on mounted?
+card front/back still i think not quite same. Hard to tell until L2s are restored and are same height front and back
 
 ensure name atteibutes for radios unless clashes wiht v-model -- do thye clash / have to match? I'd prefer they matched but is that just actually shadowing?
 
@@ -69,20 +73,13 @@ adjust spacing for vertical orientation
 
 tap highlight select transparent in tabs -- i see quick flash
 
-on back, just go ahead and give orientation option. The sytlse should already be fine.
-itll be int3eresting to match media query because the container size of the card will change, as opposed to viewport... Some adjustments coukd be needed but really this is already built to work. And we need to fill that control space anywya to lend some balance to card back functionality
-
-on cardback L@ controls, show number of years and number of column options (standard spreadsheet type input ) [ input ] x [input ]
+on cardback L2 controls, show number of years and number of column options (standard spreadsheet type input ) [ input ] x [input ]
 
 could give more control over table type (like # of columns, # of years)
 
 if used methods watchers computeed maybe instaed of input event for encode, that might be cleaner and easier to trigger on load... hmmm, can i feed an initital value?
 
-only show side-specific top level options when a given side is active
-
 the copy for front/back labels ins't quite right. But I had to had to had to better indicate the meaning of BACK when it has such a specific web meaning already...
-
-wire-up top level color pickers... the add pic and logo are working and i need to reason through again why that is. pass necessary data to child components
 
 hover over footer total should give disabled cursor or pointer -- NOT misleading symbol indicating edit
 
@@ -98,10 +95,6 @@ the cleanest way to treat the default images MIGHT be just to treat them as data
 slight gap if you look really close, especially on mobile. Probably bordrer related
 
 finish refactoring tabulation. Nearly certain i can get a single pass function. I'm not sure whther the current setup adds of saves the brower work. I think it adds.
-
-cat paw logo could be over the outline of astate... or, for instance, the outline of brooklyn
-
-i think i'm doing too much work with computed AND watch -- harnessing one way, then behaving accordingly, is prob better
 
 re-punch up cardback after removing grad. Text too thin
 
@@ -153,7 +146,16 @@ logo image could match upload logo icon for more of a visual hint! plus it's sup
 
 ### Notes
 
-tree shake vue? i think must only look at vue code coverage after build. V\*\*\* looks like Vite optimizes the fuck out of vue.
+cat paw logo could be over the outline of astate... or, for instance, the outline of brooklyn
+
+i think i'm doing too much work with computed AND watch -- harnessing one way, then behaving accordingly, is prob better
+
+actually i don't think i want to use provide/inject for everthing. There could be a master object MAYBE that front and back emit to. But data can be split between front and back, and if anything I need to decouple them more so chunking them apart for asyn purposes would be simpler (yes, can load back async -- but, if a returning user's data is frontshowing: false, then load back right away, and front AYSNC. I think thatS achievable. Card Front and back really shouldnT share anything. Even the name should AT MOST maybe auto-inherit, but not sync. If it syncs then i have to think about which line on the cardfront is actually NAME and also possibly provide author with ability to decouple the fields. So if it's just really that one field, maybe inject is perfect for that one field...
+So state can/should live in front/back. Myabe... I need to keep mulling this.
+
+can i go an inject on mounted?
+
+tree shake vue? i think must only look at vue code coverage after build.VUE ooks like Vite optimizes the fuck out of vue.
 and my code coverage is pretty good indeed. Fun to explore that
 
 the wider the range input is, the less it looks like a toggle. Achieving this now. should border curve basically be a toggle? it almost looks like a broken toggle if it's not allowed to grow wide

@@ -104,6 +104,9 @@ async function checkForLocalData() {
 
 // i can make this smaller. Also I'm creating side effects. On prupose I guess but be careful
 // this can fire so fast that maybe it would be good to have 2 different functions. That way thereS no if fork.
+
+// resist urge to carve up this function in name of golf
+// reason is this is a very clear pure function and can be repurposed
 function hexToRGB(hex) {
   return [
     parseInt("0x" + hex[1] + hex[2]),
@@ -152,23 +155,23 @@ export default {
     },
   },
   computed: {
+    // can we combine into single function? try composition API here
     colorContrastVarsFront() {
-      console.log(hexToRGB(this.bgcf));
-      let theHex = hexToRGB(this.bgcf);
+      let theRGB = hexToRGB(this.bgcf);
       return {
-        "--bgcf": `rgb(${theHex[0]},${theHex[1]},${theHex[2]})`,
-        "--redfront": theHex[0],
-        "--greenfront": theHex[1],
-        "--bluefront": theHex[2],
+        "--bgcf": `rgb(${theRGB[0]},${theRGB[1]},${theRGB[2]})`,
+        "--redfront": theRGB[0],
+        "--greenfront": theRGB[1],
+        "--bluefront": theRGB[2],
       };
     },
     colorContrastVarsBack() {
-      let theHex = hexToRGB(this.bgcb);
+      let theRGB = hexToRGB(this.bgcb);
       return {
-        "--bgcb": `rgb(${theHex[0]},${theHex[1]},${theHex[2]})`,
-        "--redback": theHex[0],
-        "--greenback": theHex[1],
-        "--blueback": theHex[2],
+        "--bgcb": `rgb(${theRGB[0]},${theRGB[1]},${theRGB[2]})`,
+        "--redback": theRGB[0],
+        "--greenback": theRGB[1],
+        "--blueback": theRGB[2],
       };
     },
   },
