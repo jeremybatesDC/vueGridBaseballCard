@@ -82,47 +82,44 @@
           />
 
           <div data-soi hidden>
-            <div class="row row--grow space-between row--textControls">
-              <label class="rangeUI__label">
-                <span
-                  >Weight: <output :value="cardText.textLine1.fontWght"></output
-                ></span>
+            <label class="rangeUI__label">
+              <span
+                >Weight: <output :value="cardText.textLine1.fontWght"></output
+              ></span>
 
-                <input
-                  class="rangeUI__input"
-                  v-model.number="cardText.textLine1.fontWght"
-                  type="range"
-                  min="150"
-                  max="800"
-                />
-              </label>
-              <label class="rangeUI__label">
-                <span
-                  >Width: <output :value="cardText.textLine1.fontWidth"></output
-                ></span>
-                <input
-                  class="rangeUI__input"
-                  v-model.number="cardText.textLine1.fontWidth"
-                  type="range"
-                  min="35"
-                  max="100"
-                />
-              </label>
-            </div>
-            <div class="row row--grow space-between row--textControls">
-              <label class="rangeUI__label">
-                <span
-                  >Slant: <output :value="cardText.textLine1.fontSlant"></output
-                ></span>
-                <input
-                  class="rangeUI__input"
-                  v-model.number="cardText.textLine1.fontSlant"
-                  type="range"
-                  min="-10"
-                  max="0"
-                />
-              </label>
-            </div>
+              <input
+                class="rangeUI__input"
+                v-model.number="cardText.textLine1.fontWght"
+                type="range"
+                min="100"
+                max="900"
+              />
+            </label>
+            <label class="rangeUI__label">
+              <span
+                >Width: <output :value="cardText.textLine1.fontWidth"></output
+              ></span>
+              <input
+                class="rangeUI__input"
+                v-model.number="cardText.textLine1.fontWidth"
+                type="range"
+                min="75"
+                max="150"
+              />
+            </label>
+
+            <label class="rangeUI__label">
+              <span
+                >Slant: <output :value="cardText.textLine1.fontSlant"></output
+              ></span>
+              <input
+                class="rangeUI__input"
+                v-model.number="cardText.textLine1.fontSlant"
+                type="range"
+                min="-10"
+                max="0"
+              />
+            </label>
           </div>
         </h2>
       </div>
@@ -156,47 +153,44 @@
             spellcheck="false"
           />
           <div data-soi hidden>
-            <div class="row row--grow space-between row--textControls">
-              <label class="rangeUI__label">
-                <span
-                  >Weight: <output :value="cardText.textLine2.fontWght"></output
-                ></span>
+            <label class="rangeUI__label">
+              <span
+                >Weight: <output :value="cardText.textLine2.fontWght"></output
+              ></span>
 
-                <input
-                  class="rangeUI__input"
-                  v-model.number="cardText.textLine2.fontWght"
-                  type="range"
-                  min="150"
-                  max="800"
-                />
-              </label>
-              <label class="rangeUI__label">
-                <span
-                  >Width: <output :value="cardText.textLine2.fontWidth"></output
-                ></span>
-                <input
-                  class="rangeUI__input"
-                  v-model.number="cardText.textLine2.fontWidth"
-                  type="range"
-                  min="35"
-                  max="100"
-                />
-              </label>
-            </div>
-            <div class="row row--grow space-between row--textControls">
-              <label class="rangeUI__label">
-                <span
-                  >Slant: <output :value="cardText.textLine2.fontSlant"></output
-                ></span>
-                <input
-                  class="rangeUI__input"
-                  v-model.number="cardText.textLine2.fontSlant"
-                  type="range"
-                  min="-10"
-                  max="0"
-                />
-              </label>
-            </div>
+              <input
+                class="rangeUI__input"
+                v-model.number="cardText.textLine2.fontWght"
+                type="range"
+                min="100"
+                max="900"
+              />
+            </label>
+            <label class="rangeUI__label">
+              <span
+                >Width: <output :value="cardText.textLine2.fontWidth"></output
+              ></span>
+              <input
+                class="rangeUI__input"
+                v-model.number="cardText.textLine2.fontWidth"
+                type="range"
+                min="75"
+                max="150"
+              />
+            </label>
+
+            <label class="rangeUI__label">
+              <span
+                >Slant: <output :value="cardText.textLine2.fontSlant"></output
+              ></span>
+              <input
+                class="rangeUI__input"
+                v-model.number="cardText.textLine2.fontSlant"
+                type="range"
+                min="-10"
+                max="0"
+              />
+            </label>
           </div>
         </h1>
         <h3 :style="cssTextPlayerPositionProps" class="cf__h3">
@@ -209,54 +203,47 @@
             spellcheck="false"
           />
           <div data-soi hidden>
-            <div class="row row--grow space-between row--textControls">
-              <label class="rangeUI__label">
-                <span
-                  >Weight:
-                  <output :value="cardText.textPlayerPosition.fontWght"></output
-                ></span>
+            <label class="rangeUI__label">
+              <span
+                >Weight:
+                <output :value="cardText.textPlayerPosition.fontWght"></output
+              ></span>
 
-                <input
-                  class="rangeUI__input"
-                  v-model.number="cardText.textPlayerPosition.fontWght"
-                  type="range"
-                  min="150"
-                  max="800"
-                />
-              </label>
-              <label class="rangeUI__label">
-                <span
-                  >Width:
-                  <output
-                    :value="cardText.textPlayerPosition.fontWidth"
-                  ></output
-                ></span>
-                <input
-                  class="rangeUI__input"
-                  v-model.number="cardText.textPlayerPosition.fontWidth"
-                  type="range"
-                  min="35"
-                  max="100"
-                />
-              </label>
-            </div>
-            <div class="row row--grow space-between row--textControls">
-              <label class="rangeUI__label">
-                <span
-                  >Slant:
-                  <output
-                    :value="cardText.textPlayerPosition.fontSlant"
-                  ></output
-                ></span>
-                <input
-                  class="rangeUI__input"
-                  v-model.number="cardText.textPlayerPosition.fontSlant"
-                  type="range"
-                  min="-10"
-                  max="0"
-                />
-              </label>
-            </div>
+              <input
+                class="rangeUI__input"
+                v-model.number="cardText.textPlayerPosition.fontWght"
+                type="range"
+                min="100"
+                max="900"
+              />
+            </label>
+            <label class="rangeUI__label">
+              <span
+                >Width:
+                <output :value="cardText.textPlayerPosition.fontWidth"></output
+              ></span>
+              <input
+                class="rangeUI__input"
+                v-model.number="cardText.textPlayerPosition.fontWidth"
+                type="range"
+                min="75"
+                max="150"
+              />
+            </label>
+
+            <label class="rangeUI__label">
+              <span
+                >Slant:
+                <output :value="cardText.textPlayerPosition.fontSlant"></output
+              ></span>
+              <input
+                class="rangeUI__input"
+                v-model.number="cardText.textPlayerPosition.fontSlant"
+                type="range"
+                min="-10"
+                max="0"
+              />
+            </label>
           </div>
         </h3>
       </div>
@@ -562,19 +549,19 @@ export default {
         textLine1: {
           teamName: "Mudville Madcats",
           fontWght: 600,
-          fontWidth: 90,
+          fontWidth: 125,
           fontSlant: 0,
         },
         textLine2: {
           playerName: "Casey Charleston",
           fontWght: 200,
-          fontWidth: 50,
+          fontWidth: 100,
           fontSlant: 0,
         },
         textPlayerPosition: {
           playerPosition: "Dad, Pitcher",
           fontWght: 200,
-          fontWidth: 50,
+          fontWidth: 100,
           fontSlant: -5,
         },
       },

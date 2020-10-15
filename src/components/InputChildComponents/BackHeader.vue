@@ -12,47 +12,38 @@
             spellcheck="false"
           />
           <div data-soi hidden>
-            <div class="row row--grow space-between row--textControls">
-              <label class="rangeUI__label">
-                <span
-                  >Weight: <output :value="textLineA.fontWght"></output
-                ></span>
+            <label class="rangeUI__label">
+              <span>Weight: <output :value="textLineA.fontWght"></output></span>
 
-                <input
-                  class="rangeUI__input"
-                  v-model.number="textLineA.fontWght"
-                  type="range"
-                  min="150"
-                  max="800"
-                />
-              </label>
-              <label class="rangeUI__label">
-                <span
-                  >Width: <output :value="textLineA.fontWidth"></output
-                ></span>
-                <input
-                  class="rangeUI__input"
-                  v-model.number="textLineA.fontWidth"
-                  type="range"
-                  min="35"
-                  max="100"
-                />
-              </label>
-            </div>
-            <div class="row row--grow space-between row--textControls">
-              <label class="rangeUI__label">
-                <span
-                  >Slant: <output :value="textLineA.fontSlant"></output
-                ></span>
-                <input
-                  class="rangeUI__input"
-                  v-model.number="textLineA.fontSlant"
-                  type="range"
-                  min="-10"
-                  max="0"
-                />
-              </label>
-            </div>
+              <input
+                class="rangeUI__input"
+                v-model.number="textLineA.fontWght"
+                type="range"
+                min="100"
+                max="900"
+              />
+            </label>
+            <label class="rangeUI__label">
+              <span>Width: <output :value="textLineA.fontWidth"></output></span>
+              <input
+                class="rangeUI__input"
+                v-model.number="textLineA.fontWidth"
+                type="range"
+                min="75"
+                max="150"
+              />
+            </label>
+
+            <label class="rangeUI__label">
+              <span>Slant: <output :value="textLineA.fontSlant"></output></span>
+              <input
+                class="rangeUI__input"
+                v-model.number="textLineA.fontSlant"
+                type="range"
+                min="-10"
+                max="0"
+              />
+            </label>
           </div>
         </h1>
       </label>
@@ -114,7 +105,7 @@ export default {
       playerName: "Casey Charleston",
       textLineA: {
         fontWght: 800,
-        fontWidth: 50,
+        fontWidth: 90,
         fontSlant: -10,
       },
     };
@@ -161,8 +152,7 @@ export default {
 
   padding: 0 1.6rem;
   input {
-    font-variation-settings: "wght" 400, "wdth" 40, "opsz" 38, "slnt" 0,
-      "YTLC" 400, "YTUC" 400, "YTAS" 400;
+    font-variation-settings: "wght" 400, "wdth" 75, "slnt" 0;
     text-transform: uppercase;
   }
   label {
@@ -250,7 +240,7 @@ export default {
   input[type="text"] {
     height: var(--min-touch-target);
     font-variation-settings: "wght" var(--fontwght), "wdth" var(--fontwidth),
-      "opsz" 25, "slnt" var(--fontslant), "YTLC" 800, "YTUC" 800, "YTAS" 800;
+      "slnt" var(--fontslant);
     padding-top: 0;
     padding-bottom: 0;
     width: 100%;

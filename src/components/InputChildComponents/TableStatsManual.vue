@@ -618,7 +618,7 @@ tbody {
   // so, a value of 1.1 actually results in a shorter line height than 1
   line-height: 1.1;
   font-family: inherit;
-  font-variant-numeric: lining-nums tabular-nums;
+
   text-align: right;
 
   // need to address making this fit on portrait
@@ -656,8 +656,7 @@ th {
     display: flex;
 
     input[type="text"] {
-      font-variation-settings: "wght" 300, "wdth" 25, "opsz" 35, "GRAD" 1,
-        "slnt" 0, "YTLC" 500, "YTUC" 500, "YTFI" 500;
+      font-variation-settings: "wght" 300, "wdth" 75, "slnt" 0;
       line-height: 1.1;
       display: flex;
       // removing this absolute positioinig has bad effects on iOS (didn't see in chrome dev tools)
@@ -671,8 +670,7 @@ th {
 }
 tbody {
   //box-shadow: 0 1px #000;
-  font-variation-settings: "wght" 200, "wdth" 25, "opsz" 35, "slnt" 0,
-    "XTRA" 500, "YTLC" 500, "YTUC" 500, "YTFI" 500;
+  font-variation-settings: "wght" 300, "wdth" 75, "slnt" 0;
   background: rgba(255, 255, 255, 0.1);
 
   td,
@@ -694,6 +692,7 @@ tbody {
   input {
     padding: 0;
     text-align: right;
+    font-variant-numeric: lining-nums tabular-nums;
     &[type="tel"] {
       &::placeholder {
         color: var(--calcColorBack);
@@ -702,8 +701,7 @@ tbody {
   }
 }
 tfoot {
-  font-variation-settings: "wght" 300, "wdth" 25, "opsz" 30, "slnt" 0,
-    "YTLC" 500, "YTUC" 500, "YTFI" 500;
+  font-variation-settings: "wght" 300, "wdth" 75, "slnt" 0;
   background: rgba(0, 0, 0, 0.05);
   td,
   th {
@@ -713,6 +711,9 @@ tfoot {
     &:first-child {
       text-align: left;
     }
+  }
+  output {
+    font-variant-numeric: lining-nums tabular-nums;
   }
 }
 </style>

@@ -29,12 +29,12 @@
   },
   "textLine2": {
     "fontWght": 200,
-    "fontWidth": 50,
+    "fontWidth": 75,
     "fontSlant": 0
   },
   "textPlayerPosition": {
     "fontWght": 200,
-    "fontWidth": 50,
+    "fontWidth": 75,
     "fontSlant": -5
   }
 }

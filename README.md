@@ -2,7 +2,8 @@
 
 ## To Do
 
-does the WOFF2, as opposed to the TTF, have the tabular setting? It looks really clean, so if it's there but only in ttf should prob switch
+adjust radio buttons for image filters too big
+orientation portrait on back has wonkey text slider positioning for aside career highightlights text sliders
 
 where possible CONSIDER (re)flattening data -- it's going to save cycles at some point maybe
 

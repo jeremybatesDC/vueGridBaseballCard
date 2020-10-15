@@ -205,6 +205,8 @@ textarea {
     //cheat
     &.radioBtns__label.radioBtns__label {
       padding: 0;
+      width: var(--touch-target-large);
+      height: var(--touch-target-large);
     }
 
     &:not(:first-of-type) {
@@ -374,16 +376,8 @@ textarea {
     // keep padding on LABEL so thereS no gap in focus targets that will close quasi modal
     &.rangeUI__label {
       color: #fff;
-      width: 50%;
+      width: 100%;
       padding: 0;
-      &:first-of-type {
-        padding-left: 2rem;
-        padding-right: 1rem;
-      }
-      &:last-of-type {
-        padding-left: 1rem;
-        padding-right: 2rem;
-      }
     }
   }
 
@@ -402,20 +396,6 @@ textarea {
 
   .card-back & {
     top: var(--min-touch-target);
-  }
-  .row--textControls {
-    &:first-of-type {
-      .rangeUI__label {
-        padding-top: 0.8rem;
-        padding-bottom: 0.4rem;
-      }
-    }
-    &:last-of-type {
-      .rangeUI__label {
-        padding-top: 0.4rem;
-        padding-bottom: 0.8rem;
-      }
-    }
   }
 }
 
