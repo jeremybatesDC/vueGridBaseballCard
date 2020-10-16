@@ -2,12 +2,14 @@
 
 ## To Do
 
+prepopulate canvas with blob for initial load? Ok, I added placehodler img element that becomes after a user-inputted image is rendered onto the canvas.
+
+consider touch target 44 like var(--touchtarget) for small screens, and 4.8 at min something like 414... BE careful though because trying to keep card dimensions unaffected -- this would be for L1 & L2
+
 meditate on how card back horizontal can truly show horizontal. It
 
 if possible on non-tiny screens, lower interaction cost of discovering image filters/ logo position... maybe they always should be visible on non-tiny scrrens
 but might need to speararte them because maybe there is an appropraite UI to tie to clicking the image (as opposed to nothing)
-
-consider touch target 44 like var(--touchtarget) for small screens, and 4.8 at min something like 414...
 
 consider max-width 399 because that's more the idea
 
@@ -19,8 +21,6 @@ adjust radio buttons for image filters too big
 orientation portrait on back has wonkey text slider positioning for aside career highightlights text sliders
 
 where possible CONSIDER (re)flattening data -- it's going to save cycles at some point maybe
-
-The Anybody font is a HUGE win. Credit goes to etceteratype and to the github commit's of sursly (https://github.com/sursly). Saved 881kb and now my overall proj is down to like 230 kb before images, or down to 120kbb bortli before images...
 
 Adjust font parameters for Anybody. For instance, the max or min values allowed on range inputs are based on roboto not Anybody, which has wider values...
 
@@ -155,6 +155,8 @@ logo image could match upload logo icon for more of a visual hint! plus it's sup
 ---
 
 ### Notes
+
+The Anybody font is a HUGE win. Credit goes to etceteratype and to the github commit's of sursly (https://github.com/sursly). Saved 881kb and now my overall proj is down to like 230 kb before images, or down to 120kbb bortli before images...
 
 dimensions of card: 2.5 x 3.5 in: 6.4 cm by 8.9 cm
 

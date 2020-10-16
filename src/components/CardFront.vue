@@ -129,7 +129,13 @@
         <figure class="figure--player">
           <label class="figure--player__label" for="inputTriggerFocusUI_0">
             <!--  width="320"  height="408"-->
-            <canvas id="canvasPlayer" class="image--player">hey</canvas>
+            <canvas id="canvasPlayer" class="image--player"></canvas>
+            <img
+              loading="lazy"
+              class="image--player imagePlaceholder"
+              :src="images.playerPic"
+              alt="This default player looks great!"
+            />
           </label>
         </figure>
 
@@ -140,6 +146,12 @@
           v-show="cardDesign.logoPosition !== 'hideLogo'"
         >
           <canvas id="canvasLogo" class="image--logo"> </canvas>
+          <img
+            loading="lazy"
+            class="image--logo imagePlaceholder"
+            :src="images.logoPic"
+            alt="This default logo looks terrific!"
+          />
         </figure>
       </div>
       <div class="text__line--second row">
@@ -467,6 +479,12 @@ const webWorkerIDB = new Worker("./workers/web-worker-idb.js", {
 // needs context -- how does a function called in a life-cycle hook within setup acces the data?
 async function setFunc() {}
 
+async function loadInitalPlaceHolderImages() {
+  console.log(
+    "ok how load inital images? I can solve this cleanly. I guess just draw a canvas right? I can draw it on setup."
+  );
+}
+
 export default {
   //setup() {
   //
@@ -585,6 +603,9 @@ export default {
         oc.height = targetCanvas.height;
         octx.drawImage(image, 0, 0, oc.width, oc.height);
         ctx.drawImage(oc, 0, 0, oc.width, oc.height, 0, 0, oc.width, oc.height);
+
+        // refactor
+        targetCanvas.nextElementSibling.setAttribute("hidden", "true");
       };
     },
 
@@ -936,5 +957,14 @@ export default {
       calc(var(--borderinnercurve) / 3.5)
     );
   }
+}
+
+.imagePlaceholder {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 </style>

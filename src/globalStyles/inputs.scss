@@ -161,7 +161,7 @@ textarea {
       background-color: transparent;
     }
     .playerImage__controls & {
-      max-width: var(--min-touch-target);
+      max-width: var(--touch-target-large);
       padding-top: 0.4rem;
       text-align: center;
       overflow: hidden;
@@ -218,8 +218,8 @@ textarea {
     }
 
     .playerImage__controls & {
-      width: var(--min-touch-target);
-      height: var(--min-touch-target);
+      width: var(--touch-target-large);
+      height: var(--touch-target-large);
       box-shadow: 0 -1px rgba(0, 0, 0, 0.1);
     }
   }
@@ -230,7 +230,7 @@ textarea {
       justify-content: center;
       align-items: center;
       text-transform: uppercase;
-      font-variation-settings: var(--text-narrow);
+      font-variation-settings: var(--text-narrower);
     }
     &:checked {
       + span {
@@ -263,9 +263,6 @@ textarea {
     overflow: hidden;
     align-items: center;
     text-align: center;
-    //&:not(:first-of-type) {
-    //  margin-left: var(--touch-target-spacing);
-    //}
   }
 
   &__fieldset {
