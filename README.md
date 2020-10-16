@@ -2,6 +2,19 @@
 
 ## To Do
 
+meditate on how card back horizontal can truly show horizontal. It
+
+if possible on non-tiny screens, lower interaction cost of discovering image filters/ logo position... maybe they always should be visible on non-tiny scrrens
+but might need to speararte them because maybe there is an appropraite UI to tie to clicking the image (as opposed to nothing)
+
+consider touch target 44 like var(--touchtarget) for small screens, and 4.8 at min something like 414...
+
+consider max-width 399 because that's more the idea
+
+web tap highlight annoying when touching image div, at least when image is absent
+
+with such little CSS (less than 4kb compressed, which is what matters for this particualr decision), it \*might be best for build to INLINE css on html page... save a request and kep index less than 14
+
 adjust radio buttons for image filters too big
 orientation portrait on back has wonkey text slider positioning for aside career highightlights text sliders
 
@@ -142,6 +155,11 @@ logo image could match upload logo icon for more of a visual hint! plus it's sup
 ---
 
 ### Notes
+
+dimensions of card: 2.5 x 3.5 in: 6.4 cm by 8.9 cm
+
+so 320 x 448px but adjusted up to
+but i went with doing 360 x 504. I think because everything dived niceley vertically
 
 cat paw logo could be over the outline of astate... or, for instance, the outline of brooklyn
 

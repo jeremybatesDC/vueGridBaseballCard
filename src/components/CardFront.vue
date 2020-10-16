@@ -255,83 +255,31 @@
 
       <!-- QuasiModal (heh)-->
       <div class="playerImage__controls" data-soi>
-        <div class="col flex-start">
+        <div class="col">
           <div class="row row--full-width">
-            <form class="filePicker__form">
-              <fieldset class="filePicker__fieldset">
-                <!--<legend class="filePicker__legend text-left">
-                  Player Image
-                </legend>-->
-                <div class="filePicker__wrapper">
-                  <input
-                    id="playerPic"
-                    ref="playerPic"
-                    name="playerPic"
-                    data-which-canvas="canvasPlayer"
-                    data-canvas-width="640"
-                    class="hidden--visually filePicker__input"
-                    type="file"
-                    accept="image/*"
-                    @input="encodeImage"
-                  />
-                  <label
-                    for="playerPic"
-                    class="filePicker__label"
-                    aria-label="Upload Image"
-                  >
-                    <svg
-                      viewBox="0 0 32 32"
-                      width="32"
-                      height="32"
-                      fill="none"
-                      stroke="currentcolor"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                    >
-                      <use xlink:href="#iconportraitadd"></use>
-                    </svg>
+            <input
+              id="playerPic"
+              ref="playerPic"
+              name="playerPic"
+              data-which-canvas="canvasPlayer"
+              data-canvas-width="640"
+              class="hidden--visually filePicker__input"
+              type="file"
+              accept="image/*"
+              @input="encodeImage"
+            />
 
-                    <span>Upload Pic</span>
-                  </label>
-                </div>
-              </fieldset>
-              <fieldset class="filePicker__fieldset">
-                <!--<legend class="filePicker__legend text-right">Logo</legend>-->
-                <div class="filePicker__wrapper">
-                  <input
-                    id="logoPic"
-                    ref="logoPic"
-                    name="logoPic"
-                    data-which-canvas="canvasLogo"
-                    data-canvas-width="144"
-                    class="hidden--visually filePicker__input"
-                    type="file"
-                    accept="image/*"
-                    @input="encodeImage"
-                  />
-
-                  <label
-                    for="logoPic"
-                    class="filePicker__label"
-                    aria-label="Upload Logo Image"
-                  >
-                    <span>Upload Logo</span>
-                    <svg
-                      viewBox="0 0 32 32"
-                      width="32"
-                      height="32"
-                      fill="none"
-                      stroke="currentcolor"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                    >
-                      <use xlink:href="#iconphotoadd"></use></svg
-                  ></label>
-                </div>
-              </fieldset>
-            </form>
+            <input
+              id="logoPic"
+              ref="logoPic"
+              name="logoPic"
+              data-which-canvas="canvasLogo"
+              data-canvas-width="144"
+              class="hidden--visually filePicker__input"
+              type="file"
+              accept="image/*"
+              @input="encodeImage"
+            />
           </div>
           <div class="row space-between row--full-width">
             <fieldset class="radioBtns__fieldset">
@@ -709,6 +657,14 @@ export default {
 </script>
 
 <style lang="scss">
+.cardFront__wrapper--outermost {
+  --imgEditControlsOffset: 0;
+  // refactor
+  @media (min-width: 400px) {
+    --imgEditControlsOffset: -4rem;
+  }
+}
+
 .card__container--front {
   position: relative;
   display: flex;

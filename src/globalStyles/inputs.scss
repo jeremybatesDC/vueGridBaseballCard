@@ -73,7 +73,7 @@ textarea {
     span {
       display: flex;
       text-transform: uppercase;
-      font-variation-settings: var(--text-short-wide);
+      font-variation-settings: var(--text-narrow);
       //padding-bottom: 0.4rem;
     }
     //output {
@@ -161,12 +161,14 @@ textarea {
       background-color: transparent;
     }
     .playerImage__controls & {
+      max-width: var(--min-touch-target);
       padding-top: 0.4rem;
       text-align: center;
+      overflow: hidden;
     }
   }
   &__legend {
-    font-variation-settings: var(--text-short-wide);
+    font-variation-settings: var(--text-narrow);
     .playerImage__controls & {
       // unfortch display contents here makes this click throguh able... and closes the quasi modal
       // display: contents;
@@ -174,6 +176,7 @@ textarea {
       padding-top: 0.4rem;
       background-color: var(--background-for-overlay-controls);
       width: 100%;
+
       text-align: center;
     }
 
@@ -197,16 +200,15 @@ textarea {
     display: inline-flex;
     width: var(--min-touch-target);
     height: var(--min-touch-target);
-    // cheat
+    padding: 0;
     .controls--l2 & {
       font-size: 1.6rem;
+      padding: 0;
     }
 
     //cheat
     &.radioBtns__label.radioBtns__label {
       padding: 0;
-      width: var(--touch-target-large);
-      height: var(--touch-target-large);
     }
 
     &:not(:first-of-type) {
@@ -216,6 +218,8 @@ textarea {
     }
 
     .playerImage__controls & {
+      width: var(--min-touch-target);
+      height: var(--min-touch-target);
       box-shadow: 0 -1px rgba(0, 0, 0, 0.1);
     }
   }
@@ -226,7 +230,7 @@ textarea {
       justify-content: center;
       align-items: center;
       text-transform: uppercase;
-      font-variation-settings: var(--text-short-wide);
+      font-variation-settings: var(--text-narrow);
     }
     &:checked {
       + span {
@@ -325,15 +329,6 @@ textarea {
     span {
       font-variation-settings: var(--text-short-wide);
     }
-    //&--fullTargetTransparent {
-    //  position: absolute;
-    //  top: 0;
-    //  right: 0;
-    //  bottom: 0;
-    //  left: 0;
-    //  width: 100%;
-    //  height: 100%;
-    //}
   }
   &__icon {
     font-size: 6rem;
@@ -355,9 +350,10 @@ textarea {
   display: flex;
   flex-wrap: wrap;
   //flex-direction: column;
-  width: 100%;
+  //width: 100%;
   top: 100%;
   left: 0;
+  right: 0;
   //background: rgba(0, 0, 0, 0.5);
   //width: 100%;
   padding: 0;
@@ -385,6 +381,8 @@ textarea {
 
   &.playerImage__controls {
     top: 0;
+    left: var(--imgEditControlsOffset);
+    right: var(--imgEditControlsOffset);
     padding-top: 0;
     flex-wrap: nowrap;
     background-color: transparent;
