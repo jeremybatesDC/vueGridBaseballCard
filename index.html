@@ -50,9 +50,18 @@
         --color-for-svgs: #000;
         --active-color-for-svgs: #fff;
         --transparent-for-svgs: none;
+        --imgEditControlsOffset: 0;
 
 
       }
+      @media(min-width: 400px) {
+        html {
+        --imgEditControlsOffset: -4rem;
+        }
+      }
+        
+
+
     </style>
     <svg class="hidden--visually">
       <defs>

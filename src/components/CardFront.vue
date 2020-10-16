@@ -657,14 +657,6 @@ export default {
 </script>
 
 <style lang="scss">
-.cardFront__wrapper--outermost {
-  --imgEditControlsOffset: 0;
-  // refactor
-  @media (min-width: 400px) {
-    --imgEditControlsOffset: -4rem;
-  }
-}
-
 .card__container--front {
   position: relative;
   display: flex;
