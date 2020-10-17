@@ -2,6 +2,8 @@
 
 ## To Do
 
+paige image; may need to airbrush out hat logo and maybe jersey.. a) so it doesn't clash with the ficition team and b) for any copyright whatever, despite the fact athat image itself is in common domain
+
 prepopulate canvas with blob for initial load? Ok, I added placehodler img element that becomes after a user-inputted image is rendered onto the canvas.
 
 consider touch target 44 like var(--touchtarget) for small screens, and 4.8 at min something like 414... BE careful though because trying to keep card dimensions unaffected -- this would be for L1 & L2

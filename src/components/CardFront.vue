@@ -492,7 +492,7 @@ export default {
   data() {
     return {
       images: {
-        playerPic: "/images/playerDefault.jpg",
+        playerPic: "/images/Paige.webp",
         logoPic: "/images/logoDefault.svg",
       },
       cardDesign: {
@@ -519,7 +519,7 @@ export default {
           fontSlant: 0,
         },
         textLine2: {
-          playerName: "Casey Charleston",
+          playerName: "Leroy Casey",
           fontWght: 200,
           fontWidth: 100,
           fontSlant: 0,
