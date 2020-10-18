@@ -492,8 +492,8 @@ export default {
   data() {
     return {
       images: {
-        playerPic: "/images/Paige.webp",
-        logoPic: "/images/logoDefault.svg",
+        playerPic: "/images/LeroyColorGood.webp",
+        logoPic: "/images/logo.svg",
       },
       cardDesign: {
         playerImageBleedOrBoxed: "relative",
@@ -966,5 +966,9 @@ export default {
   width: 100%;
   height: 100%;
   object-fit: cover;
+
+  &.image--logo {
+    box-shadow: inset 0 0 0 1.6rem var(--calcColorFront);
+  }
 }
 </style>

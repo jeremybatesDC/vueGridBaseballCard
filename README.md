@@ -2,16 +2,23 @@
 
 ## To Do
 
-paige image; may need to airbrush out hat logo and maybe jersey.. a) so it doesn't clash with the ficition team and b) for any copyright whatever, despite the fact athat image itself is in common domain
+16px margins on card front seem a hair thin...
 
-prepopulate canvas with blob for initial load? Ok, I added placehodler img element that becomes after a user-inputted image is rendered onto the canvas.
+Demo #2: week after election day, so like Nov something... That's 3 weeks, right? So like 60+ hours? Let's do this.
+
+Super doable and can be very polished.
+
+PUT SERVICE WORKER BACK AFTER DEV -- really want env var here
+
+implement indexxedbd
+
+paige image; may need to airbrush out hat logo and maybe jersey.. a) so it doesn't clash with the ficition team and b) for any copyright whatever, despite the fact athat image itself is in common domain
 
 consider touch target 44 like var(--touchtarget) for small screens, and 4.8 at min something like 414... BE careful though because trying to keep card dimensions unaffected -- this would be for L1 & L2
 
 meditate on how card back horizontal can truly show horizontal. It
 
-if possible on non-tiny screens, lower interaction cost of discovering image filters/ logo position... maybe they always should be visible on non-tiny scrrens
-but might need to speararte them because maybe there is an appropraite UI to tie to clicking the image (as opposed to nothing)
+if possible on non-tiny screens, lower interaction cost of discovering image filters/ logo position... maybe they always should be visible on non-tiny scrrens, but might need to speararte them because maybe there is an appropraite UI to tie to clicking the image (as opposed to nothing)
 
 consider max-width 399 because that's more the idea
 
@@ -19,17 +26,16 @@ web tap highlight annoying when touching image div, at least when image is absen
 
 with such little CSS (less than 4kb compressed, which is what matters for this particualr decision), it \*might be best for build to INLINE css on html page... save a request and kep index less than 14
 
-adjust radio buttons for image filters too big
 orientation portrait on back has wonkey text slider positioning for aside career highightlights text sliders
 
 where possible CONSIDER (re)flattening data -- it's going to save cycles at some point maybe
 
-Adjust font parameters for Anybody. For instance, the max or min values allowed on range inputs are based on roboto not Anybody, which has wider values...
+finish adjusting font parameters for Anybody. For instance, the max or min values allowed on range inputs are based on roboto not Anybody, which has wider values...
 
 ok so in composition API, the data object isn't so broken out... ahhh... i missed that bit... Or did it just get moved to one of their reputposables?
 https://v3.vuejs.org/guide/composition-api-introduction.html#standalone-computed-properties
 
-GUESSING that the b
+Tabs: must retain tab state in model (not hash) -- AND, 'aria-selected' and 'disabled' will need to be tied into this modal no big deal really :disabled=""
 
     // removed async attr - reasoning us that user would expect nothing else to be prioritzed over their desired action of switching tabs ( i think )
     // could use a ref here maybe for the wrapper perhaps
@@ -40,10 +46,6 @@ GUESSING that the b
 test tab-throughs.
 
 is something in tabs card front, maybe add pic or add logo, allowing/causing zoom? sometihing maybe less than 16px?
-
-remove unused css vars from index and i guess elsewhere too eh
-
-2. must retain tab state in model (not hash) -- AND, 'aria-selected' and 'disabled' will need to be tied into this modal no big deal really :disabled=""
 
 or maybe 1 year with "Add Seasons" option... hmmm or maybe X over 5 column inisinal layout so user can obvi remove some... dunno...
 
@@ -59,7 +61,7 @@ Years:
 4
 5 --> default
 
-card front/back still i think not quite same. Hard to tell until L2s are restored and are same height front and back
+verify card front/back being size . Hard to tell until L2s are restored and are same height front and back
 
 ensure name atteibutes for radios unless clashes wiht v-model -- do thye clash / have to match? I'd prefer they matched but is that just actually shadowing?
 
@@ -143,12 +145,8 @@ review readme in v4 for additional ideas i may have added at some poeint
 
 bettwe click outside to close like underneath on desktop? it doesn't take up full height...
 
-PUT SERVICE WORKER BACK AFTER DEV -- really want env var here
-
 touch indicator at least on initial load for logo image
 emphasize those image upload buttons more. Thumbprint icon? in v2 i could try to graduate them.
-
-can i tree shake vue? Vite says it's optimizable and i do think the entire thing is loading... hmmm
 
 after editing career highlights, sometimes hard ot click table stats without triggering career highlights again
 
