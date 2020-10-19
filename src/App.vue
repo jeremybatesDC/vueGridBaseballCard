@@ -203,12 +203,6 @@ export default {
 </script>
 
 <style lang="scss">
-#panelCardFront {
-}
-
-#panelCardBack {
-}
-
 body {
   font-size: 1.6rem;
   background-color: #eee;
@@ -321,19 +315,6 @@ legend {
   }
   &:last-of-type {
     justify-content: flex-end;
-  }
-}
-
-.colorPicker__label {
-  &--front {
-    span {
-      color: var(--calcColorFront);
-    }
-  }
-  &--back {
-    span {
-      color: var(--calcColorBack);
-    }
   }
 }
 </style>

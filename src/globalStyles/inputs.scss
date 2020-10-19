@@ -117,7 +117,16 @@ textarea {
     span {
       font-variation-settings: var(--text-short-wide);
     }
-
+    &--front {
+      span {
+        color: var(--calcColorFront);
+      }
+    }
+    &--back {
+      span {
+        color: var(--calcColorBack);
+      }
+    }
     &--textOverlap {
       width: var(--touch-target-large);
       position: relative;
