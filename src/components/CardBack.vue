@@ -120,15 +120,6 @@ export default {
   flex-basis: 100%;
   width: 100%;
 
-  &[data-card-back-orientation="horizontal"] {
-    max-width: 50.4rem;
-    height: 36rem;
-  }
-  &[data-card-back-orientation="vertical"] {
-    max-width: 36rem;
-    height: 50.4rem;
-  }
-
   // i detest top margins but
   margin: 1.6rem auto 3.2rem auto;
   color: var(--calcColorBack);
@@ -157,6 +148,15 @@ export default {
     outline: 1.6rem solid var(--calcColorBack);
     overflow: hidden;
   }
+}
+
+[data-card-back-orientation="horizontal"] {
+  max-width: 50.4rem;
+  height: 36rem;
+}
+[data-card-back-orientation="vertical"] {
+  max-width: 36rem;
+  height: 50.4rem;
 }
 
 [data-gum="gumShowing"] {

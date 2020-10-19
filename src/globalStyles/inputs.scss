@@ -256,9 +256,6 @@ textarea {
     height: var(--min-touch-target);
     //padding: 0 6.4rem;
     //background-color: var(--background-for-overlay-controls);
-    .playerImage__controls & {
-      margin-bottom: calc(2 * var(--min-touch-target));
-    }
   }
   &__wrapper {
     display: flex;
@@ -280,9 +277,6 @@ textarea {
     border: none;
     &:not(:first-of-type) {
       box-shadow: -1px 0 #666666;
-    }
-    .playerImage__controls & {
-      padding: 0;
     }
 
     // refactor in v2
