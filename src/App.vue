@@ -37,7 +37,7 @@
             >
               <use xlink:href="#iconportraitadd"></use>
             </svg>
-            <span> Add Pic</span>
+            <span> Add<br />Pic</span>
           </label>
           <label
             for="logoPic"
@@ -56,7 +56,7 @@
             >
               <use xlink:href="#iconlogoadd"></use>
             </svg>
-            <span>Add Logo</span>
+            <span>Add<br />Logo</span>
           </label>
         </span>
         <!--</div>
@@ -258,7 +258,11 @@ h3 {
 }
 
 .controls--l2 {
-  height: 7.2rem;
+  //height: 7.2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0.4rem 0.8rem 0.8rem 0.8rem;
 }
 
 legend {
@@ -288,7 +292,7 @@ legend {
   text-transform: uppercase;
   // in case ever have more than just 2 tabs
   &:not(:first-child) {
-    box-shadow: -1px 0 #000;
+    //box-shadow: -1px 0 #000;
     order: 99;
   }
   &[aria-selected="true"] {
@@ -305,6 +309,7 @@ legend {
 
 .showOnlyForSelectedTab {
   display: none;
+  align-items: center;
   //flex-shrink: 0;
   // after flex-grow 1 OR width 100% here, there is some gap thatS letting a tap click through and zoom on iOS... grrr
   flex-grow: 1;

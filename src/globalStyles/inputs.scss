@@ -120,9 +120,11 @@ textarea {
 
     &--front {
       color: var(--calcColorFront);
+      margin-left: 1rem;
     }
     &--back {
       color: var(--calcColorBack);
+      margin-right: 1rem;
     }
     span {
       position: absolute;
@@ -146,12 +148,6 @@ textarea {
   //&__helperText {
   //  max-width: 32ch;
   //}
-}
-
-.controls--l2 {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
 }
 
 .radioBtns {
@@ -318,20 +314,17 @@ textarea {
     //flex-grow: 1;
     min-width: var(--touch-target-large);
     height: var(--touch-target-large);
+    margin-left: 2rem;
     text-transform: uppercase;
     justify-content: center;
     align-items: center;
     color: #fff;
-    box-shadow: -1px 0 #fff, 1px 0 #fff;
+    //box-shadow: -1px 0 #fff, 1px 0 #fff;
     cursor: pointer;
-    //    &--addPic {
-    //    }
-    //
-    //    &--addLogo {
-    //    }
 
     span {
       font-variation-settings: var(--text-squeeze);
+      text-align: center;
     }
   }
   &__icon {
@@ -390,10 +383,6 @@ textarea {
     padding-top: 0;
     flex-wrap: nowrap;
     background-color: transparent;
-    .filePicker__label {
-      flex-grow: 1;
-      padding: 0 1.6rem;
-    }
   }
 
   .card-back & {

@@ -709,10 +709,15 @@ export default {
 
 .cardFront__controls {
   position: relative;
+
   .filePicker__label {
     flex-grow: 0;
     width: var(--min-touch-target);
     height: var(--min-touch-target);
+  }
+  // i donT like this but...
+  .rangeUI__label {
+    margin-left: 1.6rem;
   }
 }
 

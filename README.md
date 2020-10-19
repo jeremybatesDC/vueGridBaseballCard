@@ -2,6 +2,12 @@
 
 ## To Do
 
+max-width of app on desktop and stuff... not sure what best to do
+
+add pic images dont get tabbed
+
+focus styles on the cardfront/cardback buttons
+
 slight gap in image editing fielset legends
 
 work on filters -- for instances, faded doesnt do anything i don't think on a photo user uploads -- seems broken...
