@@ -10,7 +10,7 @@
                 type="radio"
                 class="radioBtns__input hidden--visually"
                 name=""
-                v-model="optsBack.cardBackOrientation"
+                v-model="backOrient"
                 value="horizontal"
               />
               <span
@@ -24,7 +24,7 @@
                 type="radio"
                 class="radioBtns__input hidden--visually"
                 name=""
-                v-model="optsBack.cardBackOrientation"
+                v-model="backOrient"
                 value="vertical"
               />
               <span
@@ -42,7 +42,7 @@
                 type="radio"
                 class="radioBtns__input hidden--visually"
                 name="gumradio"
-                v-model="optsBack.gumShowing"
+                v-model="gumShowing"
                 value="gumShowing"
               />
               <span>Show</span>
@@ -53,7 +53,7 @@
                 type="radio"
                 class="radioBtns__input hidden--visually"
                 name="gumradio"
-                v-model="optsBack.gumShowing"
+                v-model="gumShowing"
                 value="gumHidden"
               />
               <span>Hide</span>
@@ -63,11 +63,8 @@
       </div>
     </div>
 
-    <div
-      class="card-back"
-      :data-card-back-orientation="optsBack.cardBackOrientation"
-    >
-      <article :data-gum="optsBack.gumShowing" class="card-back__article">
+    <div class="card-back" :data-card-back-orientation="backOrient">
+      <article :data-gum="gumShowing" class="card-back__article">
         <BackHeader />
         <section class="card-back__section">
           <TableStatsManual />
@@ -97,17 +94,17 @@ export default {
     BackFooter,
     AsideFacts,
   },
-  setup() {
-    //  setFunc();
-    // return { setFunc };
-  },
+  //setup() {
+  //  setFunc();
+  // return { setFunc };
+  //},
   data() {
     return {
-      optsBack: {
-        cardBackOrientation: "horizontal",
-        backgroundColor: "#9a8b7c",
-        gumShowing: "gumShowing",
-      },
+      //optsBack: {
+      backOrient: "horizontal",
+      backgroundColor: "#9a8b7c",
+      gumShowing: "gumShowing",
+      // },
     };
   },
 };
