@@ -135,6 +135,9 @@ textarea {
       }
     }
   }
+  &__input {
+    background-color: inherit;
+  }
   // arbitarary right now
 
   //&__helperText {
@@ -314,17 +317,24 @@ textarea {
   }
   &__label {
     display: flex;
-    flex-direction: column;
-    flex-grow: 1;
+    flex-direction: row;
+    //flex-grow: 1;
     min-width: var(--touch-target-large);
     height: var(--touch-target-large);
     text-transform: uppercase;
     justify-content: center;
     align-items: center;
-    color: #000;
+    color: #fff;
+    box-shadow: -1px 0 #fff, 1px 0 #fff;
     cursor: pointer;
+    //    &--addPic {
+    //    }
+    //
+    //    &--addLogo {
+    //    }
+
     span {
-      font-variation-settings: var(--text-short-wide);
+      font-variation-settings: var(--text-squeeze);
     }
   }
   &__icon {

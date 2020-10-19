@@ -15,24 +15,48 @@
         </button>
         <span class="showOnlyForSelectedTab">
           <label
+            class="colorPicker__label colorPicker__label--front colorPicker__label--textOverlap align-self-center"
+          >
+            <span>Front Color</span>
+            <input class="colorPicker__input" type="color" v-model="bgcf" />
+          </label>
+          <label
             for="playerPic"
-            class="filePicker__label"
+            class="filePicker__label filePicker__label--addPic"
             aria-label="Upload Image"
           >
+            <svg
+              viewBox="0 0 32 32"
+              width="32"
+              height="32"
+              fill="none"
+              stroke="currentcolor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+            >
+              <use xlink:href="#iconportraitadd"></use>
+            </svg>
             <span> Add Pic</span>
           </label>
           <label
             for="logoPic"
-            class="filePicker__label"
+            class="filePicker__label filePicker__label--addLogo"
             aria-label="Upload Logo Image"
           >
+            <svg
+              viewBox="0 0 32 32"
+              width="32"
+              height="32"
+              fill="none"
+              stroke="currentcolor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+            >
+              <use xlink:href="#iconlogoadd"></use>
+            </svg>
             <span>Add Logo</span>
-          </label>
-          <label
-            class="colorPicker__label colorPicker__label--front colorPicker__label--textOverlap align-self-center"
-          >
-            <span>Color</span>
-            <input class="colorPicker__input" type="color" v-model="bgcf" />
           </label>
         </span>
         <!--</div>
@@ -51,7 +75,7 @@
           <label
             class="colorPicker__label colorPicker__label--back colorPicker__label--textOverlap"
           >
-            <span>Color</span>
+            <span>Back Color</span>
             <input
               class="colorPicker__input"
               type="color"
@@ -186,6 +210,7 @@ export default {
 }
 
 body {
+  font-size: 1.6rem;
   background-color: #eee;
 }
 
@@ -251,7 +276,7 @@ legend {
 [role="tablist"] {
   display: flex;
   justify-content: space-between;
-  background-color: var(--grey-for-controls);
+  background-color: royalblue;
 }
 
 [role="tab"] {
@@ -261,7 +286,7 @@ legend {
 
   //flex-grow: 1;
 
-  align-items: stretch;
+  align-items: center;
   justify-content: center;
   width: var(--touch-target-large);
   height: var(--touch-target-large);
@@ -277,17 +302,25 @@ legend {
     color: #fff;
     pointer-events: none;
   }
+  &[aria-selected="false"] {
+    background: var(--grey-for-controls);
+    //color: #fff;
+    //pointer-events: none;
+  }
 }
 
 .showOnlyForSelectedTab {
   display: none;
   //flex-shrink: 0;
   // after flex-grow 1 OR width 100% here, there is some gap thatS letting a tap click through and zoom on iOS... grrr
-  //flex-grow: 1;
+  flex-grow: 1;
   //width: 100%;
   background-color: royalblue;
   [aria-selected="true"] + & {
     display: flex;
+  }
+  &:last-of-type {
+    justify-content: flex-end;
   }
 }
 

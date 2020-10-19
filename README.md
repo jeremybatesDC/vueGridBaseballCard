@@ -2,21 +2,34 @@
 
 ## To Do
 
+slight gap in image editing fielset legends
+
+work on filters -- for instances, faded doesnt do anything i don't think on a photo user uploads -- seems broken...
+and 1920 -- is that accurate? Can I offer at least 2 decacde filters? Maybe using more svgs than css filters, although...
+
+if overlay color picker with same texture it'll match: if top were 44 and L2 60 -- that saves lkike 18px and we're halfway there... But can't quite get all the way there, user may have to scroll anyway and effort to achieve questionable benefit for subset of users with tiny screens who resent scrolling? Not a good use of time... Scrolling is good and fine... Maybe sticky could be cool...
+
+on iphone 5, for instance, any way we can ensure the bottommost text row shows? We're short like 48 px
+
+nov 6 demo 2 (if people are in good mood after election)
+
+be wary of current color on placeholder logo until you're ready to offer that deature to user (might not want to default to it since a user's logo may already have its own border) -- would be a good feature but v2? I really like the effect though. If...
+
 16px margins on card front seem a hair thin...
-
-Demo #2: week after election day, so like Nov something... That's 3 weeks, right? So like 60+ hours? Let's do this.
-
-Super doable and can be very polished.
 
 PUT SERVICE WORKER BACK AFTER DEV -- really want env var here
 
 implement indexxedbd
 
-paige image; may need to airbrush out hat logo and maybe jersey.. a) so it doesn't clash with the ficition team and b) for any copyright whatever, despite the fact athat image itself is in common domain
+paige image: hat logo is now an O but that goes with nothing.
+
+it doesn't clash with the ficition team and b) for any copyright whatever, despite the fact athat image itself is in common domain
 
 consider touch target 44 like var(--touchtarget) for small screens, and 4.8 at min something like 414... BE careful though because trying to keep card dimensions unaffected -- this would be for L1 & L2
 
-meditate on how card back horizontal can truly show horizontal. It
+meditate on how card back horizontal can truly show horizontal.
+
+- table spacing like for city -- tighten that, natch
 
 if possible on non-tiny screens, lower interaction cost of discovering image filters/ logo position... maybe they always should be visible on non-tiny scrrens, but might need to speararte them because maybe there is an appropraite UI to tie to clicking the image (as opposed to nothing)
 
@@ -44,8 +57,6 @@ Tabs: must retain tab state in model (not hash) -- AND, 'aria-selected' and 'dis
     // :hidden :aria-selected
 
 test tab-throughs.
-
-is something in tabs card front, maybe add pic or add logo, allowing/causing zoom? sometihing maybe less than 16px?
 
 or maybe 1 year with "Add Seasons" option... hmmm or maybe X over 5 column inisinal layout so user can obvi remove some... dunno...
 
@@ -150,8 +161,6 @@ emphasize those image upload buttons more. Thumbprint icon? in v2 i could try to
 
 after editing career highlights, sometimes hard ot click table stats without triggering career highlights again
 
-logo image could match upload logo icon for more of a visual hint! plus it's super digitized8
-
 ---
 
 ### Notes
@@ -211,8 +220,6 @@ can i offer a 48px touch target (off to the side perhaps) while maintaining tigh
 
 the way to make a mask is via computed and watchers, set/get. No need for a mask plugin.
 and, after considering it, i donT think i need a table plugin. If I can properly tag columns then doing math on them shouldnT take any special code really. It would just be a formula, and probably use the Computed method
-
-so really it's just an upload button... I want it to match the logo image icon. And since image player icon can't be a mountain, and logo image prob shouldn't be a person, then need to generalize morereplace filepicker player image upload button with an icon of a picture that feautures a person not a mountian: something like: https://iconmonstr.com/picture-4-svg/
 
 Is this still tru after cavnas? The (canvas) encoding is definitely faster than before (worker), Feels fast to me, albeit on powerful devices. Note: worker can't use canvas, but it can still handle reader blobs. I just don't think the overall result will be less UI thread work.
 

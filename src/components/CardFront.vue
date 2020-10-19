@@ -70,6 +70,16 @@
       class="card__container--front"
       :class="[cardDesign.cardLayout, cardDesign.playerImageBleedOrBoxed]"
     >
+      <!--<svg width="360" height="504">
+        <rect
+          x="0"
+          y="0"
+          width="100%"
+          height="100%"
+          filter="url(#roughpaper)"
+          fill="none"
+        ></rect>
+      </svg>-->
       <div class="text__line--first row">
         <h2 :style="cssTextLine1Props" class="cf__h2">
           <input
@@ -857,6 +867,9 @@ export default {
   }
 }
 
+.cf__h1 {
+  font-size: 2.2rem;
+}
 .cf__h2 {
   font-size: 1.8rem;
   display: flex;
