@@ -107,6 +107,7 @@ textarea {
   &__label {
     display: flex;
     font-size: 1.6rem;
+    font-variation-settings: var(--text-short-wide);
     //flex-direction: column;
     width: var(--touch-target-large);
     height: var(--touch-target-large);
@@ -114,36 +115,29 @@ textarea {
     align-items: center;
     text-align: center;
     text-transform: uppercase;
-    span {
-      font-variation-settings: var(--text-short-wide);
-    }
+    width: var(--touch-target-large);
+    position: relative;
+
     &--front {
-      span {
-        color: var(--calcColorFront);
-      }
+      color: var(--calcColorFront);
     }
     &--back {
-      span {
-        color: var(--calcColorBack);
-      }
+      color: var(--calcColorBack);
     }
-    &--textOverlap {
+    span {
+      position: absolute;
+      left: 0;
+      top: 50%;
+      // width 100% was contributing to CLS i think
       width: var(--touch-target-large);
-      position: relative;
-      span {
-        position: absolute;
-        left: 0;
-        top: 50%;
-        // width 100% was contributing to CLS i think
-        width: var(--touch-target-large);
-        line-height: 1;
-        padding: 0;
-
-        transform: translateY(-50%);
-        font-variation-settings: var(--text-squeeze);
-      }
+      line-height: 1;
+      padding: 0;
+      color: inherit;
+      transform: translateY(-50%);
+      font-variation-settings: var(--text-squeeze);
     }
   }
+
   &__input {
     background-color: inherit;
   }

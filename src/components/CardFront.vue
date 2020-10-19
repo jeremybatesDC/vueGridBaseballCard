@@ -714,16 +714,6 @@ export default {
     width: var(--min-touch-target);
     height: var(--min-touch-target);
   }
-  .colorPicker__label--textOverlap {
-    span {
-      color: var(--calcColor);
-    }
-  }
-  //input {
-  //  &[type="range"] {
-  //    max-width: 9.6rem;
-  //  }
-  //}
 }
 
 .playerImage__controls {
