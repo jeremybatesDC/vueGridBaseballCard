@@ -2,6 +2,14 @@
 
 ## To Do
 
+refactor data soi -- not sure i need/want the data-attr since i \*may need a class anyway
+
+re-style slider containers
+
+continue polishing input font variation settings
+
+wtaf happened to yarn? i reinstalled but basically it vanished and re-adding it to path did nothing because it was gone... i think... oof.
+
 max-width of app on desktop and stuff... not sure what best to do
 
 add pic images dont get tabbed

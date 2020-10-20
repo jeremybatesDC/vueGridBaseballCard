@@ -11,7 +11,7 @@
             placeholder="Firstname Lastname"
             spellcheck="false"
           />
-          <div data-soi hidden>
+          <div data-soi class="soi--textSlider" hidden>
             <label class="rangeUI__label">
               <span>Weight: <output :value="textLineA.fontWght"></output></span>
 

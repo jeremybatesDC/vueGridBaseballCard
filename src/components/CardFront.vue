@@ -91,7 +91,7 @@
             spellcheck="false"
           />
 
-          <div data-soi hidden>
+          <div data-soi class="soi--textSlider" hidden>
             <label class="rangeUI__label">
               <span
                 >Weight: <output :value="cardText.textLine1.fontWght"></output
@@ -174,7 +174,7 @@
             maxlength="48"
             spellcheck="false"
           />
-          <div data-soi hidden>
+          <div data-soi class="soi--textSlider" hidden>
             <label class="rangeUI__label">
               <span
                 >Weight: <output :value="cardText.textLine2.fontWght"></output
@@ -224,7 +224,7 @@
             maxlength="48"
             spellcheck="false"
           />
-          <div data-soi hidden>
+          <div data-soi class="soi--textSlider" hidden>
             <label class="rangeUI__label">
               <span
                 >Weight:

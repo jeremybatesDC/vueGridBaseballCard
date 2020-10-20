@@ -12,7 +12,7 @@
             v-model="asideText"
             spellcheck="false"
           ></textarea>
-          <div data-soi hidden>
+          <div data-soi class="soi--textSlider" hidden>
             <label class="rangeUI__label">
               <span>Weight: <output :value="textLineB.fontWght"></output></span>
 

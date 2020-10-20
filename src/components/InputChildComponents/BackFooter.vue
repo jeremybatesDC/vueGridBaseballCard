@@ -8,7 +8,7 @@
         v-model="footerText"
       ></textarea>
     </span>
-    <div data-soi hidden>
+    <div data-soi class="soi--textSlider" hidden>
       <label class="rangeUI__label">
         <span>Weight: <output :value="textLineC.fontWght"></output></span>
 

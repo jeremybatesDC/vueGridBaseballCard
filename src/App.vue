@@ -262,7 +262,7 @@ h3 {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 0.4rem 0.8rem 0.8rem 0.8rem;
+  padding: 0.8rem;
 }
 
 legend {
@@ -278,7 +278,8 @@ legend {
 }
 
 [role="tab"] {
-  font-size: 1.6rem;
+  font-size: 2rem;
+  line-height: 0.8;
   font-variation-settings: var(--text-big-bold);
   display: flex;
 

@@ -72,6 +72,7 @@ textarea {
     }
     span {
       display: flex;
+      line-height: 0.8;
       text-transform: uppercase;
       font-variation-settings: var(--text-narrow);
       //padding-bottom: 0.4rem;
@@ -132,7 +133,7 @@ textarea {
       top: 50%;
       // width 100% was contributing to CLS i think
       width: var(--touch-target-large);
-      line-height: 1;
+      line-height: 0.9;
       padding: 0;
       color: inherit;
       transform: translateY(-50%);
@@ -170,6 +171,8 @@ textarea {
     }
   }
   &__legend {
+    line-height: 0.8;
+
     font-variation-settings: var(--text-narrow);
     .playerImage__controls & {
       // unfortch display contents here makes this click throguh able... and closes the quasi modal
@@ -358,19 +361,26 @@ textarea {
   overflow: visible;
   z-index: 2;
   background-color: rgba(0, 0, 0, 0.6666);
+
   label {
     display: flex;
     flex-wrap: wrap;
     //flex-basis: 50%;
     //width: 50%;
     font-size: 1.6rem;
-    padding: 1.6rem;
+    //padding: 1.6rem;
     //color: #fff;
     // keep padding on LABEL so thereS no gap in focus targets that will close quasi modal
     &.rangeUI__label {
       color: #fff;
       width: 100%;
-      padding: 0;
+      padding: 0.8rem 1.6rem;
+      &:first-child {
+        padding-top: 1.6rem;
+      }
+      &:last-of-type {
+        padding-bottom: 1.6rem;
+      }
     }
   }
 
