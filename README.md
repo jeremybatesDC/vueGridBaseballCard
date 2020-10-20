@@ -2,6 +2,8 @@
 
 ## To Do
 
+wrap select menu in a label and style that and that's where to add after element
+
 refactor data soi -- not sure i need/want the data-attr since i \*may need a class anyway
 
 re-style slider containers

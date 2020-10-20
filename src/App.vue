@@ -72,6 +72,24 @@
           Card Back
         </button>
         <span class="showOnlyForSelectedTab">
+          <label class="select__label">
+            <select>
+              <option>1 year</option>
+              <option>2 years</option>
+              <option>3 years</option>
+              <option>4 years</option>
+              <option selected>5 years</option>
+            </select>
+          </label>
+          <label class="select__label">
+            <select>
+              <option>1 stat</option>
+              <option>2 stats</option>
+              <option>3 stats</option>
+              <option>4 stats</option>
+              <option selected>5 stats</option>
+            </select>
+          </label>
           <label
             class="colorPicker__label colorPicker__label--back colorPicker__label--textOverlap"
           >
