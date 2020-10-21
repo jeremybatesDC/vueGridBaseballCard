@@ -78,9 +78,9 @@
               <button
                 type="button"
                 class="step__button"
+                :data-u-cant-click-me="numOfYears < 1"
                 data-minus-field="numOfYears"
                 @click="minus1"
-                :disabled="numOfYears < 1"
               >
                 -
               </button>
@@ -95,9 +95,9 @@
               <button
                 type="button"
                 class="step__button"
+                :data-u-cant-click-me="numOfYears > 4"
                 data-add-field="numOfYears"
                 @click="add1"
-                :disabled="numOfYears > 4"
               >
                 +
               </button>
@@ -109,9 +109,9 @@
               <button
                 type="button"
                 class="step__button"
+                :data-u-cant-click-me="numOfStats < 1"
                 data-minus-field="numOfStats"
                 @click="minus1"
-                :disabled="numOfStats < 1"
               >
                 -
               </button>
@@ -123,12 +123,13 @@
                 max="5"
               />
               <output>{{ numOfStats }}</output>
+
               <button
                 type="button"
                 class="step__button"
+                :data-u-cant-click-me="numOfStats > 4"
                 data-add-field="numOfStats"
                 @click="add1"
-                :disabled="numOfStats > 4"
               >
                 +
               </button>

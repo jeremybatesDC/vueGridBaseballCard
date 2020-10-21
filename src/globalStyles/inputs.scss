@@ -428,11 +428,11 @@ select {
     pointer-events: none;
   }
   &__button {
+    //display: flex;
     font-size: 1.6rem;
-    width: 3.6rem;
-    height: 3.6rem;
+    width: var(--touch-target-large);
+    height: var(--touch-target-large);
     background: rgba(255, 255, 255, 0.5);
-    border-radius: 50%;
   }
 }
 
@@ -537,4 +537,11 @@ select {
       }
     }
   }
+}
+
+// but i need to disable the ENTER functionality too right?? so...
+[data-u-cant-click-me="true"] {
+  // pointer events none allows zoom
+  // pointer-events: none;
+  color: red;
 }

@@ -2,11 +2,11 @@
 
 ## To Do
 
-touchaction maniuplation working to prevent zoom on pressing stepper buttons...
+ointer events none is allowing zoom -- so search for it
 
-the stepper buttons can be as big as they are with large plus min icons but the background can be smaller so the legend can show better...
+better validate number of rows / cols because disabling the button allows zoom and might be bad practice -- maybe just add check in handler? But visually there should be some disabled class right? uCantClickMe
 
-wrap select menu in a label and style that and that's where to add after element
+the stepper buttons can be as big as they are with large plus min icons but the background can be smaller so the legend can show better... But putting the span in that button introduces yucky complexuty of more flex properties PLUS event.target uncertaintly (could use current target i guess right?), and it just seems to have fewer fail points in general... but maybe can reconsider
 
 refactor data soi -- not sure i need/want the data-attr since i \*may need a class anyway
 

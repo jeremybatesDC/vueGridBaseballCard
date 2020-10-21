@@ -102,8 +102,10 @@ textarea {
 
 button {
   font-family: inherit;
+  font-size: inherit;
   border: none;
   background: none;
+  padding: 0;
   box-shadow: none;
   touch-action: manipulation;
 }
