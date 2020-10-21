@@ -399,6 +399,7 @@ select {
     position: relative;
     height: var(--touch-target-large);
     //margin-right: 2rem;
+    color: #fff;
     * {
       font-size: 1.6rem;
     }
@@ -419,20 +420,21 @@ select {
     flex-grow: 1;
     align-items: center;
   }
-  // this is hidden
-  input[type="number"] {
-    font-size: 1.6rem;
-  }
-  output {
-    font-size: 1.6rem;
-    pointer-events: none;
-  }
+
+  //&__output {
+  //  pointer-events: none;
+  //}
   &__button {
     //display: flex;
     font-size: 1.6rem;
+    color: inherit;
     width: var(--touch-target-large);
     height: var(--touch-target-large);
-    background: rgba(255, 255, 255, 0.5);
+    //background: rgba(255, 255, 255, 0.5);
+  }
+  // this is hidden
+  input[type="number"] {
+    //font-size: 1.6rem;
   }
 }
 

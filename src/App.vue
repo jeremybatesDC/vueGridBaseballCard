@@ -73,7 +73,9 @@
         </button>
         <span class="showOnlyForSelectedTab">
           <fieldset class="step__fieldset">
-            <label for="hiddenNumInput" class="step__label">Years</label>
+            <label for="hiddenNumInput" class="step__label"
+              >{{ numOfYears }} Years</label
+            >
             <div class="step__wrapper--inner">
               <button
                 type="button"
@@ -82,7 +84,18 @@
                 data-minus-field="numOfYears"
                 @click="minus1year"
               >
-                -
+                <svg
+                  viewBox="0 0 32 32"
+                  width="16"
+                  height="16"
+                  fill="none"
+                  stroke="currentcolor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="4"
+                >
+                  <use xlink:href="#iconminus"></use>
+                </svg>
               </button>
               <input
                 id="hiddenYearsNumInput"
@@ -91,7 +104,7 @@
                 min="0"
                 max="5"
               />
-              <output>{{ numOfYears }}</output>
+              <!--<output class="step__output">{{ numOfYears }}</output>-->
               <button
                 type="button"
                 class="step__button"
@@ -99,12 +112,25 @@
                 data-add-field="numOfYears"
                 @click="add1year"
               >
-                +
+                <svg
+                  viewBox="0 0 32 32"
+                  width="16"
+                  height="16"
+                  fill="none"
+                  stroke="currentcolor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="4"
+                >
+                  <use xlink:href="#iconplus"></use>
+                </svg>
               </button>
             </div>
           </fieldset>
           <fieldset class="step__fieldset">
-            <label for="hiddenStatsNumInput" class="step__label">Stats</label>
+            <label for="hiddenStatsNumInput" class="step__label">
+              {{ numOfStats }} Stats</label
+            >
             <div class="step__wrapper--inner">
               <button
                 type="button"
@@ -113,7 +139,18 @@
                 data-minus-field="numOfStats"
                 @click="minus1stat"
               >
-                -
+                <svg
+                  viewBox="0 0 32 32"
+                  width="16"
+                  height="16"
+                  fill="none"
+                  stroke="currentcolor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="4"
+                >
+                  <use xlink:href="#iconminus"></use>
+                </svg>
               </button>
               <input
                 id="hiddenStatsNumInput"
@@ -122,7 +159,7 @@
                 min="0"
                 max="5"
               />
-              <output>{{ numOfStats }}</output>
+              <!--<output class="step__output"></output>-->
 
               <button
                 type="button"
@@ -131,7 +168,18 @@
                 data-add-field="numOfStats"
                 @click="add1stat"
               >
-                +
+                <svg
+                  viewBox="0 0 32 32"
+                  width="16"
+                  height="16"
+                  fill="none"
+                  stroke="currentcolor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="4"
+                >
+                  <use xlink:href="#iconplus"></use>
+                </svg>
               </button>
             </div>
           </fieldset>
