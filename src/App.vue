@@ -80,7 +80,7 @@
                 class="step__button"
                 :data-u-cant-click-me="numOfYears < 1"
                 data-minus-field="numOfYears"
-                @click="minus1"
+                @click="minus1year"
               >
                 -
               </button>
@@ -97,7 +97,7 @@
                 class="step__button"
                 :data-u-cant-click-me="numOfYears > 4"
                 data-add-field="numOfYears"
-                @click="add1"
+                @click="add1year"
               >
                 +
               </button>
@@ -111,7 +111,7 @@
                 class="step__button"
                 :data-u-cant-click-me="numOfStats < 1"
                 data-minus-field="numOfStats"
-                @click="minus1"
+                @click="minus1stat"
               >
                 -
               </button>
@@ -129,7 +129,7 @@
                 class="step__button"
                 :data-u-cant-click-me="numOfStats > 4"
                 data-add-field="numOfStats"
-                @click="add1"
+                @click="add1stat"
               >
                 +
               </button>
@@ -155,10 +155,8 @@
         role="tabpanel"
         aria-labelledby="triggerBack"
         hidden
-        :data-years="numOfYears"
-        :data-stats="numOfStats"
       >
-        <CardBack />
+        <CardBack :data-years="numOfYears" :data-stats="numOfStats" />
       </div>
     </div>
   </main>
@@ -225,6 +223,11 @@ export default {
       frontshowing: true,
       bgcf: "#ffffff",
       bgcb: "#9a8b7c",
+      minYears: 0,
+
+      maxYears: 5,
+      minStats: 0,
+      maxStats: 5,
       numOfYears: 5,
       numOfStats: 5,
     };
@@ -242,13 +245,25 @@ export default {
         .getElementById(e.target.getAttribute("aria-controls"))
         .removeAttribute("hidden");
     },
-    add1(e) {
-      return (this[e.target.dataset.addField] =
-        this[e.target.dataset.addField] + 1);
+    add1year(e) {
+      if (this.numOfYears < this.maxYears) {
+        return (this.numOfYears += 1);
+      }
     },
-    minus1(e) {
-      return (this[e.target.dataset.minusField] =
-        this[e.target.dataset.minusField] - 1);
+    minus1year(e) {
+      if (this.numOfYears > this.minYears) {
+        return (this.numOfYears -= 1);
+      }
+    },
+    add1stat(e) {
+      if (this.numOfStats < this.maxStats) {
+        return (this.numOfStats += 1);
+      }
+    },
+    minus1stat(e) {
+      if (this.numOfStats > this.minStats) {
+        return (this.numOfStats -= 1);
+      }
     },
   },
   computed: {
