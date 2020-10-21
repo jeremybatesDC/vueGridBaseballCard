@@ -76,30 +76,30 @@ select {
     position: absolute;
   }
 }
-
-.select__label {
-  display: flex;
-  position: relative;
-  background-color: #fff;
-  padding-right: 1.6rem;
-  padding-left: 1.6rem;
-  margin-right: 2rem;
-  height: var(--touch-target-large);
-  &:after {
-    content: "";
-    position: absolute;
-    top: 50%;
-    right: 0.8rem;
-    width: 0;
-    height: 0;
-    border-left: 1em solid transparent;
-    border-right: 1em solid transparent;
-
-    border-top: 2em solid #f00;
-    transform: translateY(-50%);
-    z-index: 1;
-  }
-}
+//
+//.select__label {
+//  display: flex;
+//  position: relative;
+//  background-color: #fff;
+//  padding-right: 1.6rem;
+//  padding-left: 1.6rem;
+//  margin-right: 2rem;
+//  height: var(--touch-target-large);
+//  &:after {
+//    content: "";
+//    position: absolute;
+//    top: 50%;
+//    right: 0.8rem;
+//    width: 0;
+//    height: 0;
+//    border-left: 1em solid transparent;
+//    border-right: 1em solid transparent;
+//
+//    border-top: 2em solid #f00;
+//    transform: translateY(-50%);
+//    z-index: 1;
+//  }
+//}
 
 .rangeUI {
   &__label {
@@ -370,6 +370,9 @@ select {
       font-variation-settings: var(--text-squeeze);
       text-align: center;
     }
+    //* {
+    //  font-size: 1.6rem;
+    //}
   }
   &__icon {
     font-size: 6rem;
@@ -383,6 +386,53 @@ select {
     text-align: center;
     font-style: normal;
     z-index: -1;
+  }
+}
+
+.step {
+  &__fieldset {
+    font-size: 1.6rem;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    //flex-direction: column;
+    position: relative;
+    height: var(--touch-target-large);
+    //margin-right: 2rem;
+    * {
+      font-size: 1.6rem;
+    }
+  }
+
+  &__label {
+    font-size: 1.6rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    text-transform: uppercase;
+    pointer-events: none;
+  }
+  &__wrapper--inner {
+    display: flex;
+    flex-grow: 1;
+    align-items: center;
+  }
+  // this is hidden
+  input[type="number"] {
+    font-size: 1.6rem;
+  }
+  output {
+    font-size: 1.6rem;
+    pointer-events: none;
+  }
+  &__button {
+    font-size: 1.6rem;
+    width: 3.6rem;
+    height: 3.6rem;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
   }
 }
 

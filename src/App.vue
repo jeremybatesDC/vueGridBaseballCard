@@ -72,24 +72,68 @@
           Card Back
         </button>
         <span class="showOnlyForSelectedTab">
-          <label class="select__label">
-            <select>
-              <option>1 year</option>
-              <option>2 years</option>
-              <option>3 years</option>
-              <option>4 years</option>
-              <option selected>5 years</option>
-            </select>
-          </label>
-          <label class="select__label">
-            <select>
-              <option>1 stat</option>
-              <option>2 stats</option>
-              <option>3 stats</option>
-              <option>4 stats</option>
-              <option selected>5 stats</option>
-            </select>
-          </label>
+          <fieldset class="step__fieldset">
+            <label for="hiddenNumInput" class="step__label">Years</label>
+            <div class="step__wrapper--inner">
+              <button
+                type="button"
+                class="step__button"
+                data-minus-field="numOfYears"
+                @click="minus1"
+                :disabled="numOfYears < 1"
+              >
+                -
+              </button>
+              <input
+                id="hiddenYearsNumInput"
+                type="number"
+                class="hidden--visually"
+                min="0"
+                max="5"
+              />
+              <output>{{ numOfYears }}</output>
+              <button
+                type="button"
+                class="step__button"
+                data-add-field="numOfYears"
+                @click="add1"
+                :disabled="numOfYears > 4"
+              >
+                +
+              </button>
+            </div>
+          </fieldset>
+          <fieldset class="step__fieldset">
+            <label for="hiddenStatsNumInput" class="step__label">Stats</label>
+            <div class="step__wrapper--inner">
+              <button
+                type="button"
+                class="step__button"
+                data-minus-field="numOfStats"
+                @click="minus1"
+                :disabled="numOfStats < 1"
+              >
+                -
+              </button>
+              <input
+                id="hiddenStatsNumInput"
+                type="number"
+                class="hidden--visually"
+                min="0"
+                max="5"
+              />
+              <output>{{ numOfStats }}</output>
+              <button
+                type="button"
+                class="step__button"
+                data-add-field="numOfStats"
+                @click="add1"
+                :disabled="numOfStats > 4"
+              >
+                +
+              </button>
+            </div>
+          </fieldset>
           <label
             class="colorPicker__label colorPicker__label--back colorPicker__label--textOverlap"
           >
@@ -176,10 +220,10 @@ export default {
   data() {
     return {
       frontshowing: true,
-      cardBackgroundColor: "#ffffff",
-      cardBackgroundColorBack: "#9a8b7c",
       bgcf: "#ffffff",
       bgcb: "#9a8b7c",
+      numOfYears: 5,
+      numOfStats: 5,
     };
   },
   methods: {
@@ -194,6 +238,14 @@ export default {
       document
         .getElementById(e.target.getAttribute("aria-controls"))
         .removeAttribute("hidden");
+    },
+    add1(e) {
+      return (this[e.target.dataset.addField] =
+        this[e.target.dataset.addField] + 1);
+    },
+    minus1(e) {
+      return (this[e.target.dataset.minusField] =
+        this[e.target.dataset.minusField] - 1);
     },
   },
   computed: {
@@ -331,7 +383,7 @@ legend {
   align-items: center;
   //flex-shrink: 0;
   // after flex-grow 1 OR width 100% here, there is some gap thatS letting a tap click through and zoom on iOS... grrr
-  flex-grow: 1;
+  //flex-grow: 1;
   //width: 100%;
   background-color: royalblue;
   [aria-selected="true"] + & {

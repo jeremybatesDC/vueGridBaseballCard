@@ -2,6 +2,10 @@
 
 ## To Do
 
+touchaction maniuplation working to prevent zoom on pressing stepper buttons...
+
+the stepper buttons can be as big as they are with large plus min icons but the background can be smaller so the legend can show better...
+
 wrap select menu in a label and style that and that's where to add after element
 
 refactor data soi -- not sure i need/want the data-attr since i \*may need a class anyway
