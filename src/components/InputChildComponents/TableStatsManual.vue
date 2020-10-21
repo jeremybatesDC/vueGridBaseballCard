@@ -4,7 +4,7 @@
       <table class="stats__table">
         <!--<caption>Career Stats</caption>-->
         <thead>
-          <tr>
+          <tr data-row="0">
             <th scope="col" data-col="0">
               <label>
                 <input type="text" v-model.trim="fields.year" maxlength="9" />
@@ -15,6 +15,7 @@
                 <input
                   type="text"
                   v-model.trim="fields.homeCity"
+                  data-col="1"
                   maxlength="9"
                 />
               </label>
@@ -47,7 +48,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
+          <tr data-row="1">
             <!-- making first col a TH scope row -->
             <th scope="row" data-col="0">
               <input
@@ -56,7 +57,6 @@
                 v-model="seasons.yr0.year"
                 size="4"
                 maxlength="4"
-                data-col="0"
               />
             </th>
             <td data-col="1">
@@ -66,10 +66,9 @@
                 v-model.trim="seasons.yr0.homeCity"
                 size="4"
                 maxlength="4"
-                data-col="1"
               />
             </td>
-            <td>
+            <td data-col="2">
               <input
                 type="tel"
                 inputmode="decimal"
@@ -80,7 +79,7 @@
               />
             </td>
 
-            <td>
+            <td data-col="3">
               <input
                 type="tel"
                 inputmode="decimal"
@@ -90,7 +89,7 @@
                 placeholder="0"
               />
             </td>
-            <td>
+            <td data-col="4">
               <input
                 type="tel"
                 inputmode="decimal"
@@ -100,7 +99,7 @@
                 placeholder="0"
               />
             </td>
-            <td>
+            <td data-col="5">
               <input
                 type="tel"
                 inputmode="decimal"
@@ -110,7 +109,7 @@
                 placeholder="0"
               />
             </td>
-            <td>
+            <td data-col="6">
               <input
                 type="tel"
                 inputmode="decimal"
@@ -121,15 +120,15 @@
               />
             </td>
           </tr>
-          <tr>
+          <tr data-row="2">
             <th scope="row" data-col="0">
               <input
                 type="tel"
                 inputmode="decimal"
                 v-model="seasons.yr1.year"
+                data-col="0"
                 size="4"
                 maxlength="4"
-                data-col="0"
               />
             </th>
             <td data-col="1">
@@ -137,12 +136,12 @@
                 type="tel"
                 inputmode="decimal"
                 v-model.trim="seasons.yr1.homeCity"
+                data-col="1"
                 size="4"
                 maxlength="4"
-                data-col="1"
               />
             </td>
-            <td>
+            <td data-col="2">
               <input
                 type="tel"
                 inputmode="decimal"
@@ -153,7 +152,7 @@
               />
             </td>
 
-            <td>
+            <td data-col="3">
               <input
                 type="tel"
                 inputmode="decimal"
@@ -163,7 +162,7 @@
                 placeholder="0"
               />
             </td>
-            <td>
+            <td data-col="4">
               <input
                 type="tel"
                 inputmode="decimal"
@@ -173,7 +172,7 @@
                 placeholder="0"
               />
             </td>
-            <td>
+            <td data-col="5">
               <input
                 type="tel"
                 inputmode="decimal"
@@ -183,7 +182,7 @@
                 placeholder="0"
               />
             </td>
-            <td>
+            <td data-col="6">
               <input
                 type="tel"
                 inputmode="decimal"
@@ -194,15 +193,15 @@
               />
             </td>
           </tr>
-          <tr>
+          <tr data-row="3">
             <th scope="row" data-col="0">
               <input
                 type="tel"
                 inputmode="decimal"
                 v-model="seasons.yr2.year"
+                data-col="0"
                 size="4"
                 maxlength="4"
-                data-col="0"
               />
             </th>
             <td data-col="1">
@@ -210,12 +209,12 @@
                 type="tel"
                 inputmode="decimal"
                 v-model.trim="seasons.yr2.homeCity"
+                data-col="1"
                 size="4"
                 maxlength="4"
-                data-col="1"
               />
             </td>
-            <td>
+            <td data-col="2">
               <input
                 type="tel"
                 inputmode="decimal"
@@ -226,7 +225,7 @@
               />
             </td>
 
-            <td>
+            <td data-col="3">
               <input
                 type="tel"
                 inputmode="decimal"
@@ -236,7 +235,7 @@
                 placeholder="0"
               />
             </td>
-            <td>
+            <td data-col="4">
               <input
                 type="tel"
                 inputmode="decimal"
@@ -246,7 +245,7 @@
                 placeholder="0"
               />
             </td>
-            <td>
+            <td data-col="5">
               <input
                 type="tel"
                 inputmode="decimal"
@@ -256,7 +255,7 @@
                 placeholder="0"
               />
             </td>
-            <td>
+            <td data-col="6">
               <input
                 type="tel"
                 inputmode="decimal"
@@ -267,15 +266,15 @@
               />
             </td>
           </tr>
-          <tr>
+          <tr data-row="4">
             <th scope="row" data-col="0">
               <input
                 type="tel"
                 inputmode="decimal"
                 v-model="seasons.yr3.year"
+                data-col="0"
                 size="4"
                 maxlength="4"
-                data-col="0"
               />
             </th>
             <td data-col="1">
@@ -283,12 +282,12 @@
                 type="tel"
                 inputmode="decimal"
                 v-model.trim="seasons.yr3.homeCity"
+                data-col="1"
                 size="4"
                 maxlength="4"
-                data-col="1"
               />
             </td>
-            <td>
+            <td data-col="2">
               <input
                 type="tel"
                 inputmode="decimal"
@@ -299,7 +298,7 @@
               />
             </td>
 
-            <td>
+            <td data-col="3">
               <input
                 type="tel"
                 inputmode="decimal"
@@ -309,7 +308,7 @@
                 placeholder="0"
               />
             </td>
-            <td>
+            <td data-col="4">
               <input
                 type="tel"
                 inputmode="decimal"
@@ -319,7 +318,7 @@
                 placeholder="0"
               />
             </td>
-            <td>
+            <td data-col="5">
               <input
                 type="tel"
                 inputmode="decimal"
@@ -329,7 +328,7 @@
                 placeholder="0"
               />
             </td>
-            <td>
+            <td data-col="6">
               <input
                 type="tel"
                 inputmode="decimal"
@@ -340,15 +339,15 @@
               />
             </td>
           </tr>
-          <tr>
+          <tr data-row="5">
             <th scope="row" data-col="0">
               <input
                 type="tel"
                 inputmode="decimal"
                 v-model="seasons.yr4.year"
+                data-col="0"
                 size="4"
                 maxlength="4"
-                data-col="0"
               />
             </th>
             <td data-col="1">
@@ -356,12 +355,12 @@
                 type="tel"
                 inputmode="decimal"
                 v-model.trim="seasons.yr4.homeCity"
+                data-col="1"
                 size="4"
                 maxlength="4"
-                data-col="1"
               />
             </td>
-            <td>
+            <td data-col="2">
               <input
                 type="tel"
                 inputmode="decimal"
@@ -372,7 +371,7 @@
               />
             </td>
 
-            <td>
+            <td data-col="3">
               <input
                 type="tel"
                 inputmode="decimal"
@@ -382,7 +381,7 @@
                 placeholder="0"
               />
             </td>
-            <td>
+            <td data-col="4">
               <input
                 type="tel"
                 inputmode="decimal"
@@ -392,7 +391,7 @@
                 placeholder="0"
               />
             </td>
-            <td>
+            <td data-col="5">
               <input
                 type="tel"
                 inputmode="decimal"
@@ -402,7 +401,7 @@
                 placeholder="0"
               />
             </td>
-            <td>
+            <td data-col="6">
               <input
                 type="tel"
                 inputmode="decimal"
@@ -415,31 +414,31 @@
           </tr>
         </tbody>
         <tfoot>
-          <tr>
-            <th scope="row" data-col="0" colspan="2">TOTALS</th>
-            <!--<td data-col="1"></td>-->
+          <tr data-row="6">
+            <th scope="row" data-col="0">TOTALS</th>
+            <td data-col="1">&nbsp;</td>
             <!-- a bit too imperative but it is good that we are not doing a v-if in a v-for-->
-            <td scope="col">
+            <td scope="col" data-col="2">
               <output class="tfoot__output--totals">{{
                 tabulate("sum", "stat0")
               }}</output>
             </td>
-            <td scope="col">
+            <td scope="col" data-col="3">
               <output class="tfoot__output--totals">{{
                 tabulate("sum", "stat1")
               }}</output>
             </td>
-            <td scope="col">
+            <td scope="col" data-col="4">
               <output class="tfoot__output--totals">{{
                 tabulate("avg", "stat2")
               }}</output>
             </td>
-            <td scope="col">
+            <td scope="col" data-col="5">
               <output class="tfoot__output--totals">{{
                 tabulate("sum", "stat3")
               }}</output>
             </td>
-            <td scope="col">
+            <td scope="col" data-col="6">
               <output class="tfoot__output--totals">{{
                 tabulate("sum", "stat4")
               }}</output>
@@ -714,6 +713,87 @@ tfoot {
   }
   output {
     font-variant-numeric: lining-nums tabular-nums;
+  }
+}
+
+[data-stats="0"] {
+  [data-col="2"],
+  [data-col="3"],
+  [data-col="4"],
+  [data-col="5"],
+  [data-col="6"] {
+    display: none;
+  }
+}
+
+[data-stats="1"] {
+  [data-col="3"],
+  [data-col="4"],
+  [data-col="5"],
+  [data-col="6"] {
+    display: none;
+  }
+}
+[data-stats="2"] {
+  [data-col="4"],
+  [data-col="5"],
+  [data-col="6"] {
+    display: none;
+  }
+}
+
+[data-stats="3"] {
+  [data-col="5"],
+  [data-col="6"] {
+    display: none;
+  }
+}
+
+[data-stats="4"] {
+  [data-col="6"] {
+    display: none;
+  }
+}
+
+[data-years="0"] {
+  [data-row="1"],
+  [data-row="2"],
+  [data-row="3"],
+  [data-row="4"],
+  [data-row="5"],
+  [data-row="6"] {
+    display: none;
+  }
+}
+
+[data-years="1"] {
+  [data-row="2"],
+  [data-row="3"],
+  [data-row="4"],
+  [data-row="5"],
+  [data-row="6"] {
+    display: none;
+  }
+}
+
+[data-years="2"] {
+  [data-row="3"],
+  [data-row="4"],
+  [data-row="5"] {
+    display: none;
+  }
+}
+
+[data-years="3"] {
+  [data-row="4"],
+  [data-row="5"] {
+    display: none;
+  }
+}
+
+[data-years="4"] {
+  [data-row="5"] {
+    display: none;
   }
 }
 </style>

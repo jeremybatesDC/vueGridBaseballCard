@@ -154,6 +154,8 @@
         role="tabpanel"
         aria-labelledby="triggerBack"
         hidden
+        :data-years="numOfYears"
+        :data-stats="numOfStats"
       >
         <CardBack />
       </div>
