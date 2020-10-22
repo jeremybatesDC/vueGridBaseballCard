@@ -2,6 +2,16 @@
 
 ## To Do
 
+deharshify the stepper -- think transparent grey. Maybe pull it in 2 px on each side
+the border shouldnT go to the top Because it splits the continutiy the broader tab needs
+-- so when refactoring siwtch this back to psedo elenents so i can control the height? I'm not unhappy with the design so far. Also, fonts -- make them better.
+
+focus states on stepper buttons need customization b/c shape is weird
+
+if stats are 0 then no years, right?
+
+should start with fewer than 5 stats and/or fewer than 5 yrs. Very good designed thqt way since it all fits -- but it'll show user there's more and entice rather than overwhelm (which it definitely has done)
+
 ointer events none is allowing zoom -- so search for it
 
 better validate number of rows / cols because disabling the button allows zoom and might be bad practice -- maybe just add check in handler? But visually there should be some disabled class right? uCantClickMe

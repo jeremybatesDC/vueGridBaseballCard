@@ -162,11 +162,11 @@ select {
 
     &--front {
       color: var(--calcColorFront);
-      margin-left: 1rem;
+      //margin-left: 1rem;
     }
     &--back {
       color: var(--calcColorBack);
-      margin-right: 1rem;
+      //margin-right: 1rem;
     }
     span {
       position: absolute;
@@ -391,6 +391,9 @@ select {
 
 .step {
   &__fieldset {
+    * {
+      font-size: 1.6rem;
+    }
     font-size: 1.6rem;
     display: flex;
     justify-content: center;
@@ -398,10 +401,13 @@ select {
     //flex-direction: column;
     position: relative;
     height: var(--touch-target-large);
-    //margin-right: 2rem;
+    padding: 0.2rem 0;
+    //margin-right: 0.8rem;
+
+    border-left: 1px solid #fff;
     color: #fff;
-    * {
-      font-size: 1.6rem;
+    &:not(:first-child) {
+      border-right: 1px solid #fff;
     }
   }
 
@@ -409,9 +415,11 @@ select {
     font-size: 1.6rem;
     position: absolute;
     top: 0;
-    left: 0;
+    left: 0rem;
+    padding: 0.4rem 0 0.4rem 0;
     width: 100%;
     text-align: center;
+    background-color: royalblue;
     text-transform: uppercase;
     pointer-events: none;
   }
@@ -426,11 +434,26 @@ select {
   //}
   &__button {
     //display: flex;
+    position: relative;
     font-size: 1.6rem;
     color: inherit;
-    width: var(--touch-target-large);
-    height: var(--touch-target-large);
+    width: var(--min-touch-target);
+    height: var(--min-touch-target);
+    padding-top: 2rem;
+    //border: 2px solid #fff;
     //background: rgba(255, 255, 255, 0.5);
+    //box-shadow: 1px 0 #fff;
+    &:first-child {
+      &:after {
+        content: "";
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        width: 1px;
+        height: 2rem;
+        background-color: #fff;
+      }
+    }
   }
   // this is hidden
   input[type="number"] {

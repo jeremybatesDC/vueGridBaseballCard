@@ -74,7 +74,7 @@
         <span class="showOnlyForSelectedTab">
           <fieldset class="step__fieldset">
             <label for="hiddenNumInput" class="step__label"
-              >{{ numOfYears }} Years</label
+              >Years: {{ numOfYears }}</label
             >
             <div class="step__wrapper--inner">
               <button
@@ -86,8 +86,8 @@
               >
                 <svg
                   viewBox="0 0 32 32"
-                  width="16"
-                  height="16"
+                  width="12"
+                  height="12"
                   fill="none"
                   stroke="currentcolor"
                   stroke-linecap="round"
@@ -114,8 +114,8 @@
               >
                 <svg
                   viewBox="0 0 32 32"
-                  width="16"
-                  height="16"
+                  width="12"
+                  height="12"
                   fill="none"
                   stroke="currentcolor"
                   stroke-linecap="round"
@@ -129,8 +129,8 @@
           </fieldset>
           <fieldset class="step__fieldset">
             <label for="hiddenStatsNumInput" class="step__label">
-              {{ numOfStats }} Stats</label
-            >
+              Stats: {{ numOfStats }}
+            </label>
             <div class="step__wrapper--inner">
               <button
                 type="button"
@@ -141,8 +141,8 @@
               >
                 <svg
                   viewBox="0 0 32 32"
-                  width="16"
-                  height="16"
+                  width="12"
+                  height="12"
                   fill="none"
                   stroke="currentcolor"
                   stroke-linecap="round"
@@ -170,8 +170,8 @@
               >
                 <svg
                   viewBox="0 0 32 32"
-                  width="16"
-                  height="16"
+                  width="12"
+                  height="12"
                   fill="none"
                   stroke="currentcolor"
                   stroke-linecap="round"
