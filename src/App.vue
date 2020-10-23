@@ -74,7 +74,7 @@
         <span class="showOnlyForSelectedTab">
           <fieldset class="step__fieldset">
             <label for="hiddenNumInput" class="step__label"
-              >Years: {{ numOfYears }}</label
+              >Years: <span>{{ numOfYears }}</span></label
             >
             <div class="step__wrapper--inner">
               <button
@@ -129,7 +129,7 @@
           </fieldset>
           <fieldset class="step__fieldset">
             <label for="hiddenStatsNumInput" class="step__label">
-              Stats: {{ numOfStats }}
+              Stats: <span>{{ numOfStats }}</span>
             </label>
             <div class="step__wrapper--inner">
               <button

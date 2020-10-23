@@ -15,8 +15,7 @@ input {
     //-webkit-appearance: none;
     font-size: 1.6rem; // prevents ios zoom
     display: flex;
-    width: var(--touch-target-large);
-    height: var(--touch-target-large);
+
     //border-radius: 50%;
     //border: 1px solid transparent;
     border: none;
@@ -151,13 +150,12 @@ select {
     font-size: 1.6rem;
     font-variation-settings: var(--text-short-wide);
     //flex-direction: column;
-    width: var(--touch-target-large);
-    height: var(--touch-target-large);
+    width: var(--min-touch-target);
+    height: var(--min-touch-target);
     //background-color: var(--backgroundcolorback);
     align-items: center;
     text-align: center;
     text-transform: uppercase;
-    width: var(--touch-target-large);
     position: relative;
 
     &--front {
@@ -168,12 +166,13 @@ select {
       color: var(--calcColorBack);
       //margin-right: 1rem;
     }
+
     span {
       position: absolute;
       left: 0;
       top: 50%;
       // width 100% was contributing to CLS i think
-      width: var(--touch-target-large);
+      width: var(--min-touch-target);
       line-height: 0.9;
       padding: 0;
       color: inherit;
@@ -183,6 +182,8 @@ select {
   }
 
   &__input {
+    width: var(--min-touch-target);
+    height: var(--min-touch-target);
     background-color: inherit;
   }
   // arbitarary right now
@@ -368,7 +369,7 @@ select {
 
     span {
       font-variation-settings: var(--text-squeeze);
-      text-align: center;
+      //text-align: center;
     }
     //* {
     //  font-size: 1.6rem;
@@ -399,29 +400,35 @@ select {
     justify-content: center;
     text-align: center;
     //flex-direction: column;
+    //background-color: rgba(200, 200, 200, 0.1);
     position: relative;
     height: var(--touch-target-large);
     padding: 0.2rem 0;
     //margin-right: 0.8rem;
 
-    border-left: 1px solid #fff;
+    //border-left: 1px solid #fff;
     color: #fff;
     &:not(:first-child) {
-      border-right: 1px solid #fff;
+      //border-right: 1px solid #fff;
     }
   }
 
   &__label {
     font-size: 1.6rem;
+    font-variation-settings: var(--text-thin-wide);
     position: absolute;
     top: 0;
     left: 0rem;
-    padding: 0.4rem 0 0.4rem 0;
+    padding: 0.6rem 0 0.4rem 0;
     width: 100%;
     text-align: center;
-    background-color: royalblue;
+    color: rgba(255, 255, 255, 0.6666);
+    //background-color: royalblue;
     text-transform: uppercase;
     pointer-events: none;
+    span {
+      color: #fff;
+    }
   }
   &__wrapper--inner {
     display: flex;
@@ -448,11 +455,14 @@ select {
         content: "";
         position: absolute;
         right: 0;
-        bottom: 0;
+        bottom: 0.8rem;
         width: 1px;
-        height: 2rem;
-        background-color: #fff;
+        height: 1.2rem;
+        background-color: rgba(200, 200, 200, 0.25);
       }
+    }
+    svg {
+      stroke: rgba(255, 255, 255, 0.75);
     }
   }
   // this is hidden
@@ -568,5 +578,7 @@ select {
 [data-u-cant-click-me="true"] {
   // pointer events none allows zoom
   // pointer-events: none;
-  color: red;
+  svg {
+    stroke: rgba(200, 200, 200, 0.5);
+  }
 }

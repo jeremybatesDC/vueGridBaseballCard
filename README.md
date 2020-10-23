@@ -2,9 +2,9 @@
 
 ## To Do
 
-deharshify the stepper -- think transparent grey. Maybe pull it in 2 px on each side
-the border shouldnT go to the top Because it splits the continutiy the broader tab needs
--- so when refactoring siwtch this back to psedo elenents so i can control the height? I'm not unhappy with the design so far. Also, fonts -- make them better.
+improve colorpicker a tad more on iOS - the issue i think is border on input type color --
+
+consider moving L2 controls beneath card.
 
 focus states on stepper buttons need customization b/c shape is weird
 
@@ -12,11 +12,9 @@ if stats are 0 then no years, right?
 
 should start with fewer than 5 stats and/or fewer than 5 yrs. Very good designed thqt way since it all fits -- but it'll show user there's more and entice rather than overwhelm (which it definitely has done)
 
-ointer events none is allowing zoom -- so search for it
+pointer events none MIGHT be allowing zoom -- so search for it
 
 better validate number of rows / cols because disabling the button allows zoom and might be bad practice -- maybe just add check in handler? But visually there should be some disabled class right? uCantClickMe
-
-the stepper buttons can be as big as they are with large plus min icons but the background can be smaller so the legend can show better... But putting the span in that button introduces yucky complexuty of more flex properties PLUS event.target uncertaintly (could use current target i guess right?), and it just seems to have fewer fail points in general... but maybe can reconsider
 
 refactor data soi -- not sure i need/want the data-attr since i \*may need a class anyway
 
@@ -251,9 +249,7 @@ can i offer a 48px touch target (off to the side perhaps) while maintaining tigh
 the way to make a mask is via computed and watchers, set/get. No need for a mask plugin.
 and, after considering it, i donT think i need a table plugin. If I can properly tag columns then doing math on them shouldnT take any special code really. It would just be a formula, and probably use the Computed method
 
-Is this still tru after cavnas? The (canvas) encoding is definitely faster than before (worker), Feels fast to me, albeit on powerful devices. Note: worker can't use canvas, but it can still handle reader blobs. I just don't think the overall result will be less UI thread work.
-
-gets too slow with huge photos (does the same happen after you change photos 100times even with small images? is it a pure memory issue?)
+the stepper buttons can be as big as they are with large plus min icons but the background can be smaller so the legend can show better... But putting the span in that button introduces yucky complexuty of more flex properties PLUS event.target uncertaintly (could use current target i guess right?), and it just seems to have fewer fail points in general... but maybe can reconsider
 
 ## App
 
