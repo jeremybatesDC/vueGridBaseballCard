@@ -12,61 +12,39 @@
             v-model="asideText"
             spellcheck="false"
           ></textarea>
-          <div data-soi hidden>
-            <div class="row row--grow space-between row--textControls">
-              <label class="rangeUI__label">
-                <span
-                  >Weight: <output :value="textLineB.fontWght"></output
-                ></span>
+          <div data-soi class="soi--textSlider" hidden>
+            <label class="rangeUI__label">
+              <span>Weight: <output :value="textLineB.fontWght"></output></span>
 
-                <input
-                  class="rangeUI__input"
-                  v-model.number="textLineB.fontWght"
-                  type="range"
-                  min="150"
-                  max="800"
-                />
-              </label>
-              <label class="rangeUI__label">
-                <span
-                  >Width: <output :value="textLineB.fontWidth"></output
-                ></span>
-                <input
-                  class="rangeUI__input"
-                  v-model.number="textLineB.fontWidth"
-                  type="range"
-                  min="35"
-                  max="100"
-                />
-              </label>
-            </div>
-            <div class="row row--grow space-between row--textControls">
-              <label class="rangeUI__label">
-                <span
-                  >Slant: <output :value="textLineB.fontSlant"></output
-                ></span>
-                <input
-                  class="rangeUI__input"
-                  v-model.number="textLineB.fontSlant"
-                  type="range"
-                  min="-10"
-                  max="0"
-                />
-              </label>
-              <label class="rangeUI__label">
-                <span
-                  >Grade: <output :value="textLineB.fontGrade"></output
-                ></span>
-                <input
-                  class="rangeUI__input"
-                  v-model.number="textLineB.fontGrade"
-                  type="range"
-                  min="0"
-                  max="1"
-                  step=".1"
-                />
-              </label>
-            </div>
+              <input
+                class="rangeUI__input"
+                v-model.number="textLineB.fontWght"
+                type="range"
+                min="100"
+                max="900"
+              />
+            </label>
+            <label class="rangeUI__label">
+              <span>Width: <output :value="textLineB.fontWidth"></output></span>
+              <input
+                class="rangeUI__input"
+                v-model.number="textLineB.fontWidth"
+                type="range"
+                min="75"
+                max="150"
+              />
+            </label>
+
+            <label class="rangeUI__label">
+              <span>Slant: <output :value="textLineB.fontSlant"></output></span>
+              <input
+                class="rangeUI__input"
+                v-model.number="textLineB.fontSlant"
+                type="range"
+                min="-10"
+                max="0"
+              />
+            </label>
           </div>
         </span>
       </span>
@@ -83,8 +61,7 @@ export default {
         "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.",
       textLineB: {
         fontWght: 200,
-        fontWidth: 50,
-        fontGrade: 0.5,
+        fontWidth: 90,
         fontSlant: 0,
       },
     };
@@ -94,7 +71,6 @@ export default {
       return {
         "--fontwght": this.textLineB.fontWght,
         "--fontwidth": this.textLineB.fontWidth,
-        "--fontgrade": this.textLineB.fontGrade,
         "--fontslant": this.textLineB.fontSlant,
       };
     },
@@ -225,8 +201,7 @@ export default {
   text-overflow: ellipsis;
   font-size: 1.6rem;
   font-variation-settings: "wght" var(--fontwght), "wdth" var(--fontwidth),
-    "opsz" 33, "GRAD" var(--fontgrade), "slnt" var(--fontslant), "YTLC" 500,
-    "YTUC" 500, "YTAS" 500;
+    "slnt" var(--fontslant);
   line-height: 0.8;
 }
 </style>

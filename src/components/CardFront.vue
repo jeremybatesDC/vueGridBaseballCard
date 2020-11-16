@@ -1,26 +1,10 @@
 <template>
   <div
     class="cardFront__wrapper--outermost"
-    :style="[
-      cssColorContrastProps,
-      cssCardDesignProps,
-      cssLogoProps,
-      cssBorderInnerProps,
-    ]"
+    :style="[cssCardDesignProps, cssLogoProps, cssBorderInnerProps]"
   >
     <div class="cardFront__controls controls--l2">
       <div class="row space-around height--100">
-        <label
-          class="colorPicker__label colorPicker__label--textOverlap align-self-center"
-        >
-          <span>Color</span>
-          <input
-            class="colorPicker__input"
-            type="color"
-            v-model="cardDesign.cardBackgroundColor"
-          />
-        </label>
-
         <fieldset class="radioBtns__fieldset">
           <legend class="radioBtns__legend text-left">Layout</legend>
           <div class="radioBtns__wrapper--inner">
@@ -86,6 +70,16 @@
       class="card__container--front"
       :class="[cardDesign.cardLayout, cardDesign.playerImageBleedOrBoxed]"
     >
+      <!--<svg width="360" height="504">
+        <rect
+          x="0"
+          y="0"
+          width="100%"
+          height="100%"
+          filter="url(#roughpaper)"
+          fill="none"
+        ></rect>
+      </svg>-->
       <div class="text__line--first row">
         <h2 :style="cssTextLine1Props" class="cf__h2">
           <input
@@ -97,75 +91,60 @@
             spellcheck="false"
           />
 
-          <div data-soi hidden>
-            <div class="row row--grow space-between row--textControls">
-              <label class="rangeUI__label">
-                <span
-                  >Weight: <output :value="cardText.textLine1.fontWght"></output
-                ></span>
+          <div data-soi class="soi--textSlider" hidden>
+            <label class="rangeUI__label">
+              <span
+                >Weight: <output :value="cardText.textLine1.fontWght"></output
+              ></span>
 
-                <input
-                  class="rangeUI__input"
-                  v-model.number="cardText.textLine1.fontWght"
-                  type="range"
-                  min="150"
-                  max="800"
-                />
-              </label>
-              <label class="rangeUI__label">
-                <span
-                  >Width: <output :value="cardText.textLine1.fontWidth"></output
-                ></span>
-                <input
-                  class="rangeUI__input"
-                  v-model.number="cardText.textLine1.fontWidth"
-                  type="range"
-                  min="35"
-                  max="100"
-                />
-              </label>
-            </div>
-            <div class="row row--grow space-between row--textControls">
-              <label class="rangeUI__label">
-                <span
-                  >Slant: <output :value="cardText.textLine1.fontSlant"></output
-                ></span>
-                <input
-                  class="rangeUI__input"
-                  v-model.number="cardText.textLine1.fontSlant"
-                  type="range"
-                  min="-10"
-                  max="0"
-                />
-              </label>
-              <label class="rangeUI__label">
-                <span
-                  >Grade: <output :value="cardText.textLine1.fontGrade"></output
-                ></span>
-                <input
-                  class="rangeUI__input"
-                  v-model.number="cardText.textLine1.fontGrade"
-                  type="range"
-                  min="0"
-                  max="1"
-                  step=".1"
-                />
-              </label>
-            </div>
+              <input
+                class="rangeUI__input"
+                v-model.number="cardText.textLine1.fontWght"
+                type="range"
+                min="100"
+                max="900"
+              />
+            </label>
+            <label class="rangeUI__label">
+              <span
+                >Width: <output :value="cardText.textLine1.fontWidth"></output
+              ></span>
+              <input
+                class="rangeUI__input"
+                v-model.number="cardText.textLine1.fontWidth"
+                type="range"
+                min="75"
+                max="150"
+              />
+            </label>
+
+            <label class="rangeUI__label">
+              <span
+                >Slant: <output :value="cardText.textLine1.fontSlant"></output
+              ></span>
+              <input
+                class="rangeUI__input"
+                v-model.number="cardText.textLine1.fontSlant"
+                type="range"
+                min="-10"
+                max="0"
+              />
+            </label>
           </div>
         </h2>
       </div>
       <div
-        :class="`row--middle--forDesign row ${cardDesign.logo.position} ${cardDesign.playerImageFilterEffect}`"
+        :class="`row--middle--forDesign row ${cardDesign.logoPosition} ${cardDesign.playerImageFilterEffect}`"
       >
         <figure class="figure--player">
           <label class="figure--player__label" for="inputTriggerFocusUI_0">
             <!--  width="320"  height="408"-->
+            <canvas id="canvasPlayer" class="image--player"></canvas>
             <img
               loading="lazy"
-              class="image--player"
+              class="image--player imagePlaceholder"
               :src="images.playerPic"
-              alt
+              alt="This default player looks great!"
             />
           </label>
         </figure>
@@ -174,15 +153,14 @@
         <!-- using css filter drop shadow could work -->
         <figure
           class="figure--logo"
-          v-show="cardDesign.logo.position !== 'hideLogo'"
+          v-show="cardDesign.logoPosition !== 'hideLogo'"
         >
+          <canvas id="canvasLogo" class="image--logo"> </canvas>
           <img
             loading="lazy"
-            class="image--logo"
+            class="image--logo imagePlaceholder"
             :src="images.logoPic"
-            alt
-            width="72"
-            height="72"
+            alt="This default logo looks terrific!"
           />
         </figure>
       </div>
@@ -196,61 +174,45 @@
             maxlength="48"
             spellcheck="false"
           />
-          <div data-soi hidden>
-            <div class="row row--grow space-between row--textControls">
-              <label class="rangeUI__label">
-                <span
-                  >Weight: <output :value="cardText.textLine2.fontWght"></output
-                ></span>
+          <div data-soi class="soi--textSlider" hidden>
+            <label class="rangeUI__label">
+              <span
+                >Weight: <output :value="cardText.textLine2.fontWght"></output
+              ></span>
 
-                <input
-                  class="rangeUI__input"
-                  v-model.number="cardText.textLine2.fontWght"
-                  type="range"
-                  min="150"
-                  max="800"
-                />
-              </label>
-              <label class="rangeUI__label">
-                <span
-                  >Width: <output :value="cardText.textLine2.fontWidth"></output
-                ></span>
-                <input
-                  class="rangeUI__input"
-                  v-model.number="cardText.textLine2.fontWidth"
-                  type="range"
-                  min="35"
-                  max="100"
-                />
-              </label>
-            </div>
-            <div class="row row--grow space-between row--textControls">
-              <label class="rangeUI__label">
-                <span
-                  >Slant: <output :value="cardText.textLine2.fontSlant"></output
-                ></span>
-                <input
-                  class="rangeUI__input"
-                  v-model.number="cardText.textLine2.fontSlant"
-                  type="range"
-                  min="-10"
-                  max="0"
-                />
-              </label>
-              <label class="rangeUI__label">
-                <span
-                  >Grade: <output :value="cardText.textLine2.fontGrade"></output
-                ></span>
-                <input
-                  class="rangeUI__input"
-                  v-model.number="cardText.textLine2.fontGrade"
-                  type="range"
-                  min="0"
-                  max="1"
-                  step=".1"
-                />
-              </label>
-            </div>
+              <input
+                class="rangeUI__input"
+                v-model.number="cardText.textLine2.fontWght"
+                type="range"
+                min="100"
+                max="900"
+              />
+            </label>
+            <label class="rangeUI__label">
+              <span
+                >Width: <output :value="cardText.textLine2.fontWidth"></output
+              ></span>
+              <input
+                class="rangeUI__input"
+                v-model.number="cardText.textLine2.fontWidth"
+                type="range"
+                min="75"
+                max="150"
+              />
+            </label>
+
+            <label class="rangeUI__label">
+              <span
+                >Slant: <output :value="cardText.textLine2.fontSlant"></output
+              ></span>
+              <input
+                class="rangeUI__input"
+                v-model.number="cardText.textLine2.fontSlant"
+                type="range"
+                min="-10"
+                max="0"
+              />
+            </label>
           </div>
         </h1>
         <h3 :style="cssTextPlayerPositionProps" class="cf__h3">
@@ -262,71 +224,48 @@
             maxlength="48"
             spellcheck="false"
           />
-          <div data-soi hidden>
-            <div class="row row--grow space-between row--textControls">
-              <label class="rangeUI__label">
-                <span
-                  >Weight:
-                  <output :value="cardText.textPlayerPosition.fontWght"></output
-                ></span>
+          <div data-soi class="soi--textSlider" hidden>
+            <label class="rangeUI__label">
+              <span
+                >Weight:
+                <output :value="cardText.textPlayerPosition.fontWght"></output
+              ></span>
 
-                <input
-                  class="rangeUI__input"
-                  v-model.number="cardText.textPlayerPosition.fontWght"
-                  type="range"
-                  min="150"
-                  max="800"
-                />
-              </label>
-              <label class="rangeUI__label">
-                <span
-                  >Width:
-                  <output
-                    :value="cardText.textPlayerPosition.fontWidth"
-                  ></output
-                ></span>
-                <input
-                  class="rangeUI__input"
-                  v-model.number="cardText.textPlayerPosition.fontWidth"
-                  type="range"
-                  min="35"
-                  max="100"
-                />
-              </label>
-            </div>
-            <div class="row row--grow space-between row--textControls">
-              <label class="rangeUI__label">
-                <span
-                  >Slant:
-                  <output
-                    :value="cardText.textPlayerPosition.fontSlant"
-                  ></output
-                ></span>
-                <input
-                  class="rangeUI__input"
-                  v-model.number="cardText.textPlayerPosition.fontSlant"
-                  type="range"
-                  min="-10"
-                  max="0"
-                />
-              </label>
-              <label class="rangeUI__label">
-                <span
-                  >Grade:
-                  <output
-                    :value="cardText.textPlayerPosition.fontGrade"
-                  ></output
-                ></span>
-                <input
-                  class="rangeUI__input"
-                  v-model.number="cardText.textPlayerPosition.fontGrade"
-                  type="range"
-                  min="0"
-                  max="1"
-                  step=".1"
-                />
-              </label>
-            </div>
+              <input
+                class="rangeUI__input"
+                v-model.number="cardText.textPlayerPosition.fontWght"
+                type="range"
+                min="100"
+                max="900"
+              />
+            </label>
+            <label class="rangeUI__label">
+              <span
+                >Width:
+                <output :value="cardText.textPlayerPosition.fontWidth"></output
+              ></span>
+              <input
+                class="rangeUI__input"
+                v-model.number="cardText.textPlayerPosition.fontWidth"
+                type="range"
+                min="75"
+                max="150"
+              />
+            </label>
+
+            <label class="rangeUI__label">
+              <span
+                >Slant:
+                <output :value="cardText.textPlayerPosition.fontSlant"></output
+              ></span>
+              <input
+                class="rangeUI__input"
+                v-model.number="cardText.textPlayerPosition.fontSlant"
+                type="range"
+                min="-10"
+                max="0"
+              />
+            </label>
           </div>
         </h3>
       </div>
@@ -338,79 +277,31 @@
 
       <!-- QuasiModal (heh)-->
       <div class="playerImage__controls" data-soi>
-        <div class="col flex-start">
+        <div class="col">
           <div class="row row--full-width">
-            <form class="filePicker__form">
-              <fieldset class="filePicker__fieldset">
-                <!--<legend class="filePicker__legend text-left">
-                  Player Image
-                </legend>-->
-                <div class="filePicker__wrapper">
-                  <input
-                    id="playerPic"
-                    ref="playerPic"
-                    name="playerPic"
-                    class="hidden--visually filePicker__input"
-                    type="file"
-                    accept="image/*"
-                    @input="encodeImage"
-                  />
-                  <label
-                    for="playerPic"
-                    class="filePicker__label"
-                    aria-label="Upload Image"
-                  >
-                    <svg
-                      viewBox="0 0 32 32"
-                      width="32"
-                      height="32"
-                      fill="none"
-                      stroke="currentcolor"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                    >
-                      <use xlink:href="#iconportraitadd"></use>
-                    </svg>
+            <input
+              id="playerPic"
+              ref="playerPic"
+              name="playerPic"
+              data-which-canvas="canvasPlayer"
+              data-canvas-width="640"
+              class="hidden--visually filePicker__input"
+              type="file"
+              accept="image/*"
+              @input="encodeImage"
+            />
 
-                    <span>Upload Pic</span>
-                  </label>
-                </div>
-              </fieldset>
-              <fieldset class="filePicker__fieldset">
-                <!--<legend class="filePicker__legend text-right">Logo</legend>-->
-                <div class="filePicker__wrapper">
-                  <input
-                    id="logoPic"
-                    ref="logoPic"
-                    name="logoPic"
-                    class="hidden--visually filePicker__input"
-                    type="file"
-                    accept="image/*"
-                    @input="encodeImage"
-                  />
-
-                  <label
-                    for="logoPic"
-                    class="filePicker__label"
-                    aria-label="Upload Logo Image"
-                  >
-                    <span>Upload Logo</span>
-                    <svg
-                      viewBox="0 0 32 32"
-                      width="32"
-                      height="32"
-                      fill="none"
-                      stroke="currentcolor"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                    >
-                      <use xlink:href="#iconphotoadd"></use></svg
-                  ></label>
-                </div>
-              </fieldset>
-            </form>
+            <input
+              id="logoPic"
+              ref="logoPic"
+              name="logoPic"
+              data-which-canvas="canvasLogo"
+              data-canvas-width="144"
+              class="hidden--visually filePicker__input"
+              type="file"
+              accept="image/*"
+              @input="encodeImage"
+            />
           </div>
           <div class="row space-between row--full-width">
             <fieldset class="radioBtns__fieldset">
@@ -474,7 +365,7 @@
                   <input
                     type="radio"
                     class="radioBtns__input hidden--visually"
-                    v-model="cardDesign.logo.position"
+                    v-model="cardDesign.logoPosition"
                     value="topLeft"
                     aria-label="Top Left"
                   />
@@ -494,7 +385,7 @@
                   <input
                     type="radio"
                     class="radioBtns__input hidden--visually"
-                    v-model="cardDesign.logo.position"
+                    v-model="cardDesign.logoPosition"
                     value="topRight"
                     aria-label="Top Right"
                   />
@@ -514,7 +405,7 @@
                   <input
                     type="radio"
                     class="radioBtns__input hidden--visually"
-                    v-model="cardDesign.logo.position"
+                    v-model="cardDesign.logoPosition"
                     value="bottomLeft"
                     aria-label="Bottom Left"
                   />
@@ -534,7 +425,7 @@
                   <input
                     type="radio"
                     class="radioBtns__input hidden--visually"
-                    v-model="cardDesign.logo.position"
+                    v-model="cardDesign.logoPosition"
                     value="bottomRight"
                     aria-label="Bottom Right"
                   />
@@ -554,7 +445,7 @@
                   <input
                     type="radio"
                     class="radioBtns__input hidden--visually"
-                    v-model="cardDesign.logo.position"
+                    v-model="cardDesign.logoPosition"
                     value="hideLogo"
                     aria-label="Bottom Right"
                   />
@@ -584,42 +475,35 @@
 //import opts from "/json/default-settings.json";
 //import TextSlider from "./TextSlider.vue";
 
+// remember to try inline worker
+//const webWorkerEncode = new Worker("./workers/web-worker-encode.js", {
+//  type: "module",
+//});
+
+//import { onMounted, onUpdated } from "vue";
+
+const webWorkerIDB = new Worker("./workers/web-worker-idb.js", {
+  type: "module",
+});
+
+// needs context -- how does a function called in a life-cycle hook within setup acces the data?
+async function setFunc() {}
+
+async function loadInitalPlaceHolderImages() {
+  console.log(
+    "ok how load inital images? I can solve this cleanly. I guess just draw a canvas right? I can draw it on setup."
+  );
+}
+
 export default {
-  setup: function () {
-    const webWorkerEncode = new Worker("./workers/web-worker-encode.js", {
-      type: "module",
-    });
-
-    async function encodeImage(event) {
-      let theField = event.target.id;
-      let filesProp = event.target.files;
-      let usrfile = filesProp[0];
-      //validateImage();
-      let insertImgFunc = (strng, theField) => {
-        this.images[theField] = strng;
-      };
-      // can i use optional chaining here?
-      if (filesProp && usrfile) {
-        console.log(usrfile);
-
-        webWorkerEncode.postMessage(usrfile);
-        this.$emit("input", usrfile);
-        webWorkerEncode.onmessage = function (theMessage) {
-          insertImgFunc(theMessage.data, theField);
-        };
-      }
-    }
-    return {
-      encodeImage,
-      webWorkerEncode,
-      //webWorkerFetch,
-    };
-  },
+  //setup() {
+  //
+  //},
   data() {
     return {
       images: {
-        playerPic: "/images/playerDefault.jpg",
-        logoPic: "/images/logoDefault.svg",
+        playerPic: "/images/LeroyColorGood.webp",
+        logoPic: "/images/logo.svg",
       },
       cardDesign: {
         playerImageBleedOrBoxed: "relative",
@@ -631,59 +515,35 @@ export default {
         playerImageFilterEffect: "noFilterEffect",
         borderInnerCurve: 0,
         borderInnerWidth: 3,
+        logoPosition: "bottomRight",
+
         logo: {
-          borderRadius: 50,
           position: "bottomRight",
         },
       },
-
       cardText: {
         textLine1: {
-          teamName: "Mudville Mountain Lions",
+          teamName: "Mudville Madcats",
           fontWght: 600,
-          fontWidth: 90,
-          fontGrade: 1,
+          fontWidth: 125,
           fontSlant: 0,
         },
         textLine2: {
-          playerName: "Casey Charleston",
+          playerName: "Leroy Casey",
           fontWght: 200,
-          fontWidth: 50,
-          fontGrade: 0.5,
+          fontWidth: 100,
           fontSlant: 0,
         },
         textPlayerPosition: {
           playerPosition: "Dad, Pitcher",
           fontWght: 200,
-          fontWidth: 50,
-          fontGrade: 0.5,
+          fontWidth: 100,
           fontSlant: -5,
         },
       },
     };
   },
   computed: {
-    cssColorContrastProps() {
-      let redVal = 0;
-      let greenVal = 0;
-      let blueVal = 0;
-      function hexToDesiredColorSpace(hex) {
-        redVal = parseInt("0x" + hex[1] + hex[2]);
-        greenVal = parseInt("0x" + hex[3] + hex[4]);
-        blueVal = parseInt("0x" + hex[5] + hex[6]);
-        return `rgb(${redVal},${greenVal},${blueVal})`;
-      }
-
-      return {
-        "--backgroundcolorback": hexToDesiredColorSpace(
-          this.cardDesign.cardBackgroundColor
-        ),
-
-        "--red": redVal,
-        "--green": greenVal,
-        "--blue": blueVal,
-      };
-    },
     cssCardDesignProps() {
       return {
         "--cardbackgroundcolor": this.cardDesign.cardBackgroundColor,
@@ -698,7 +558,6 @@ export default {
       return {
         "--fontwght": this.cardText.textLine1.fontWght,
         "--fontwidth": this.cardText.textLine1.fontWidth,
-        "--fontgrade": this.cardText.textLine1.fontGrade,
         "--fontslant": this.cardText.textLine1.fontSlant,
       };
     },
@@ -706,7 +565,6 @@ export default {
       return {
         "--fontwght": this.cardText.textLine2.fontWght,
         "--fontwidth": this.cardText.textLine2.fontWidth,
-        "--fontgrade": this.cardText.textLine2.fontGrade,
         "--fontslant": this.cardText.textLine2.fontSlant,
       };
     },
@@ -714,14 +572,12 @@ export default {
       return {
         "--fontwght": this.cardText.textPlayerPosition.fontWght,
         "--fontwidth": this.cardText.textPlayerPosition.fontWidth,
-        "--fontgrade": this.cardText.textPlayerPosition.fontGrade,
         "--fontslant": this.cardText.textPlayerPosition.fontSlant,
       };
     },
     cssLogoProps() {
       return {
-        "--logoposition": this.cardDesign.logo.position,
-        "--logoborderradius": `${this.cardDesign.logo.borderRadius}%`,
+        "--logoposition": this.cardDesign.logoPosition,
       };
     },
     cssBorderInnerProps() {
@@ -731,13 +587,72 @@ export default {
       };
     },
   },
+  methods: {
+    async encodeImage(event) {
+      // maybe i should be using refs maybe here not IDs
+      const input = event.target;
+      const targetCanvas = document.getElementById(input.dataset.whichCanvas);
+      const ctx = targetCanvas.getContext("2d");
+      const reader = new FileReader();
+      const image = new Image();
+      const userFile = input.files[0];
+      // need print resolution, and 2x really seems to address quality issues
+      // can i use optional chaining // nullish coalscing or whatever i mean to say here?
+      if (input.files && userFile) {
+        reader.readAsDataURL(userFile);
+      }
+      reader.onload = async (event) => {
+        image.src = event.target.result;
+      };
+      image.onload = async (event) => {
+        const oc = document.createElement("canvas");
+        const octx = oc.getContext("2d");
+        targetCanvas.width = input.dataset.canvasWidth;
+        targetCanvas.height = targetCanvas.width * (image.height / image.width);
+        oc.width = targetCanvas.width;
+        oc.height = targetCanvas.height;
+        octx.drawImage(image, 0, 0, oc.width, oc.height);
+        ctx.drawImage(oc, 0, 0, oc.width, oc.height, 0, 0, oc.width, oc.height);
+
+        // refactor
+        targetCanvas.nextElementSibling.setAttribute("hidden", "true");
+      };
+    },
+
+    saveDataLocally(whatToSave) {
+      // should this just set, as opposed to sending to worker to
+      // can i destructure? stringfiy? Spelling this out a 3rd time seems crazy to me
+      webWorkerIDB.postMessage({
+        cardText: {
+          textLine1: {
+            fontWght: this.cardText.textLine1.fontWght,
+            fontWidth: this.cardText.textLine1.fontWidth,
+            fontSlant: this.cardText.textLine1.fontSlant,
+          },
+        },
+      });
+      webWorkerIDB.onmessage = (event) => {
+        console.log("received message is: ", event.data);
+      };
+    },
+    //legacyEncode(){
+    //      validateImage();
+
+    //        webWorkerEncode.postMessage(usrfile);
+    //        this.$emit("input", usrfile);
+    //        webWorkerEncode.onmessage = (theMessage) => {
+    //          insertImgFunc(theMessage.data, theField);
+    //        };
+    //}
+  },
 
   created() {
     // might not even want to use watch for desired data flow -- still learning/thinking
+
     this.$watch(
       "cardText",
       () => {
-        console.log("yo");
+        console.log("cardTextWatchHandler");
       },
       {
         deep: true,
@@ -755,48 +670,38 @@ export default {
     this.$watch(
       "images",
       () => {
-        console.log("um");
+        this.saveDataLocally(this.$data);
       },
       {
         deep: true,
       }
     );
   },
+  mounted() {
+    // need a ref
+    // this.encodeImage(HMMMM);
+    console.log(
+      "here i want to encode images currently in model... at present am only doing that via clik input handlers, which then need event targets yo see where Im going with this"
+    );
+  },
 };
 </script>
 
 <style lang="scss">
-.cardFront__wrapper--outermost {
-  --r: calc(var(--red) * 0.2126);
-  --g: calc(var(--green) * 0.7152);
-  --b: calc(var(--blue) * 0.0722);
-  --sum: calc(var(--r) + var(--g) + var(--b));
-  --perceived-lightness: calc(var(--sum) / 255);
-  --border-alpha: calc(
-    (var(--perceived-lightness) - var(--border-threshold)) * 100
-  );
-  --calcColor: hsl(
-    0,
-    0%,
-    calc(
-      (var(--perceived-lightness) - var(--contrast-threshold-for-card)) *
-        -10000000%
-    )
-  );
-}
-
 .card__container--front {
   position: relative;
   display: flex;
   flex-direction: column;
-  width: 36rem;
+  width: 100%;
+  max-width: 32.8rem;
   //yes, hard height here because
   height: 50.4rem;
   margin: 0 auto;
-  padding: 0 1.6rem;
-  color: var(--calcColor);
-  background-color: var(--cardbackgroundcolor);
-  border: 1px solid rgba(0, 0, 0, 0.3333);
+  //padding: 0 1.6rem;
+  color: var(--calcColorFront);
+  background-color: var(--bgcf);
+  box-shadow: -1.6rem 0 var(--bgcf), 1.6rem 0 var(--bgcf);
+  //border: 1px solid rgba(0, 0, 0, 0.3333);
   // may need this again...
   //overflow: hidden;
   z-index: 0;
@@ -804,10 +709,15 @@ export default {
 
 .cardFront__controls {
   position: relative;
-  .colorPicker__label--textOverlap {
-    span {
-      color: var(--calcColor);
-    }
+
+  .filePicker__label {
+    flex-grow: 0;
+    width: var(--min-touch-target);
+    height: var(--min-touch-target);
+  }
+  // i donT like this but...
+  .rangeUI__label {
+    margin-left: 1.6rem;
   }
 }
 
@@ -819,7 +729,7 @@ export default {
   justify-content: space-between;
   input {
     &[type="text"] {
-      height: var(--min-touch-target-height);
+      height: var(--min-touch-target);
     }
   }
   .row--middle--forDesign {
@@ -902,7 +812,7 @@ export default {
   flex-grow: 1;
   border-width: var(--borderinnerwidth);
   border-style: solid;
-  border-color: var(--calcColor);
+  border-color: var(--calcColorFront);
   border-radius: var(--borderinnercurve);
 
   &.topLeft {
@@ -938,9 +848,13 @@ export default {
 .cf__h1,
 .cf__h2,
 .cf__h3 {
-  color: var(--color);
-  font-variation-settings: "wght" var(--fontwght), "wdth" var(--fontwidth),
-    "GRAD" var(--fontgrade), "slnt" var(--fontslant);
+  input {
+    &[type="text"] {
+      font-variation-settings: "wght" var(--fontwght), "wdth" var(--fontwidth),
+        "slnt" var(--fontslant);
+    }
+  }
+
   &:focus-within {
     [data-soi] {
       visibility: visible;
@@ -948,6 +862,9 @@ export default {
   }
 }
 
+.cf__h1 {
+  font-size: 2.2rem;
+}
 .cf__h2 {
   font-size: 1.8rem;
   display: flex;
@@ -969,24 +886,39 @@ export default {
   bottom: 0;
   left: 0;
   display: flex;
-  border-radius: var(--borderinnercurve);
+  border-radius: calc(var(--borderinnercurve) - var(--borderinnerwidth));
+  overflow: hidden;
   //.static & {
   //  border-radius: 0;
   //  z-index: -1;
   //}
-  .figure--player__label {
-    flex-grow: 1;
-  }
+}
+.figure--player__label {
+  flex-grow: 1;
+  position: relative;
+  overflow: hidden;
+  //&::before {
+  //  content: "yo";
+  //  position: absolute;
+  //  z-index: -1;
+  //}
 }
 
 .image--player {
-  background-color: #fff;
-  // depending on layout might want to make object-position managable yarh
-  object-position: 0 50%;
-  width: 100%;
-  // donT think i need this height value but
-  height: 100%;
+  //background-color: var(--cardbackgroundcolor);
+  max-width: 100%;
+  min-height: 100%;
+  object-fit: cover;
+  object-position: center;
   border-radius: calc(var(--borderinnercurve) - var(--borderinnerwidth));
+  -webkit-tap-highlight-color: transparent;
+  // there is a way to make this accessible
+  //&:before {
+  //  content: "Add Image";
+  //  position: absolute;
+  //  top: 0;
+  //  left: 0;
+  //}
 }
 
 .playerImage__fieldset {
@@ -995,35 +927,56 @@ export default {
 
 .figure--logo {
   position: absolute;
-  display: flex;
   pointer-events: none;
+  width: 7.2rem;
+  height: 7.2rem;
 }
 
 .image--logo {
+  // background-image isn't going to work considering i wonT take away form user ability to have transparent logo image.
+  width: 7.2rem;
+  height: 7.2rem;
+  object-fit: cover;
+  object-position: center;
   border-radius: var(--logoborderradius);
+  -webkit-tap-highlight-color: transparent;
+
   .topLeft & {
     transform: translate(
-      calc(var(--borderinnercurve) / -3.6666),
-      calc(var(--borderinnercurve) / -3.6666)
+      calc(var(--borderinnercurve) / -3.5),
+      calc(var(--borderinnercurve) / -3.5)
     );
   }
   .topRight & {
     transform: translate(
-      calc(var(--borderinnercurve) / 3.6666),
-      calc(var(--borderinnercurve) / -3.6666)
+      calc(var(--borderinnercurve) / 3.5),
+      calc(var(--borderinnercurve) / -3.5)
     );
   }
   .bottomLeft & {
     transform: translate(
-      calc(var(--borderinnercurve) / -3.6666),
-      calc(var(--borderinnercurve) / 3.6666)
+      calc(var(--borderinnercurve) / -3.5),
+      calc(var(--borderinnercurve) / 3.5)
     );
   }
   .bottomRight & {
     transform: translate(
-      calc(var(--borderinnercurve) / 3.6666),
-      calc(var(--borderinnercurve) / 3.6666)
+      calc(var(--borderinnercurve) / 3.5),
+      calc(var(--borderinnercurve) / 3.5)
     );
+  }
+}
+
+.imagePlaceholder {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+
+  &.image--logo {
+    box-shadow: inset 0 0 0 1.6rem var(--calcColorFront);
   }
 }
 </style>

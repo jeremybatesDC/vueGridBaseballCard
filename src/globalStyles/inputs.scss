@@ -15,8 +15,7 @@ input {
     //-webkit-appearance: none;
     font-size: 1.6rem; // prevents ios zoom
     display: flex;
-    width: var(--min-touch-target);
-    height: var(--min-touch-target);
+
     //border-radius: 50%;
     //border: 1px solid transparent;
     border: none;
@@ -27,11 +26,11 @@ input {
     display: flex;
     -webkit-appearance: none;
     background-color: #888888;
-    height: var(--min-touch-target-height);
+    height: var(--min-touch-target);
     border-radius: var(--min-touch-target-half);
-    &:focus {
-      //outline: none;
-    }
+    //&:focus {
+    //outline: none;
+    //}
     &::-webkit-slider-thumb {
       //position: relative;
       -webkit-appearance: none;
@@ -60,16 +59,62 @@ textarea {
   }
 }
 
+select {
+  font-family: inherit;
+  font-size: 1.6rem;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  position: relative;
+
+  border-radius: 0;
+  box-shadow: none;
+  border: none;
+  &:after {
+    content: "yo";
+    position: absolute;
+  }
+}
+//
+//.select__label {
+//  display: flex;
+//  position: relative;
+//  background-color: #fff;
+//  padding-right: 1.6rem;
+//  padding-left: 1.6rem;
+//  margin-right: 2rem;
+//  height: var(--touch-target-large);
+//  &:after {
+//    content: "";
+//    position: absolute;
+//    top: 50%;
+//    right: 0.8rem;
+//    width: 0;
+//    height: 0;
+//    border-left: 1em solid transparent;
+//    border-right: 1em solid transparent;
+//
+//    border-top: 2em solid #f00;
+//    transform: translateY(-50%);
+//    z-index: 1;
+//  }
+//}
+
 .rangeUI {
   &__label {
     font-size: 1.6rem;
     display: flex;
     flex-direction: column;
-
+    .controls--l2 & {
+      flex-grow: 1;
+      flex-basis: 33.3333%;
+      max-width: 20rem;
+    }
     span {
       display: flex;
+      line-height: 0.8;
       text-transform: uppercase;
-      font-variation-settings: var(--text-short-wide);
+      font-variation-settings: var(--text-narrow);
       //padding-bottom: 0.4rem;
     }
     //output {
@@ -103,53 +148,49 @@ textarea {
   &__label {
     display: flex;
     font-size: 1.6rem;
+    font-variation-settings: var(--text-short-wide);
     //flex-direction: column;
-    //width: var(--min-touch-target);
+    width: var(--min-touch-target);
     height: var(--min-touch-target);
-    background-color: var(--backgroundcolorback);
+    //background-color: var(--backgroundcolorback);
     align-items: center;
     text-align: center;
     text-transform: uppercase;
-    span {
-      //font-size: 1.6rem;
-      //padding: 0 0 0.4rem 0;
-      font-variation-settings: var(--text-short-wide);
-    }
-    //&--textAbove {
-    //  width: var(--min-touch-target);
-    //  flex-direction: column;
-    //  span {
-    //    padding: 0;
-    //  }
-    //}
-    &--textOverlap {
-      width: var(--min-touch-target);
-      position: relative;
-      span {
-        position: absolute;
-        left: 0;
-        top: 50%;
-        // width 100% was contributing to CLS i think
-        width: var(--min-touch-target);
-        line-height: 1;
-        padding: 0;
+    position: relative;
 
-        transform: translateY(-50%);
-        font-variation-settings: var(--text-squeeze);
-      }
+    &--front {
+      color: var(--calcColorFront);
+      //margin-left: 1rem;
     }
+    &--back {
+      color: var(--calcColorBack);
+      //margin-right: 1rem;
+    }
+
+    span {
+      position: absolute;
+      left: 0;
+      top: 50%;
+      // width 100% was contributing to CLS i think
+      width: var(--min-touch-target);
+      line-height: 0.9;
+      padding: 0;
+      color: inherit;
+      transform: translateY(-50%);
+      font-variation-settings: var(--text-squeeze);
+    }
+  }
+
+  &__input {
+    width: var(--min-touch-target);
+    height: var(--min-touch-target);
+    background-color: inherit;
   }
   // arbitarary right now
 
   //&__helperText {
   //  max-width: 32ch;
   //}
-}
-
-.controls--l2 {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
 }
 
 .radioBtns {
@@ -165,12 +206,16 @@ textarea {
       background-color: transparent;
     }
     .playerImage__controls & {
+      max-width: var(--touch-target-large);
       padding-top: 0.4rem;
       text-align: center;
+      overflow: hidden;
     }
   }
   &__legend {
-    font-variation-settings: var(--text-short-wide);
+    line-height: 0.8;
+
+    font-variation-settings: var(--text-narrow);
     .playerImage__controls & {
       // unfortch display contents here makes this click throguh able... and closes the quasi modal
       // display: contents;
@@ -178,6 +223,7 @@ textarea {
       padding-top: 0.4rem;
       background-color: var(--background-for-overlay-controls);
       width: 100%;
+
       text-align: center;
     }
 
@@ -190,16 +236,24 @@ textarea {
         padding-top: 0.4rem;
       }
     }
+    &--each {
+      display: flex;
+      &:last-of-type {
+        flex-direction: row-reverse;
+      }
+    }
   }
   &__label {
     display: inline-flex;
     width: var(--min-touch-target);
     height: var(--min-touch-target);
-    // cheat
+    padding: 0;
     .controls--l2 & {
       font-size: 1.6rem;
+      padding: 0;
     }
 
+    //cheat
     &.radioBtns__label.radioBtns__label {
       padding: 0;
     }
@@ -211,6 +265,8 @@ textarea {
     }
 
     .playerImage__controls & {
+      width: var(--touch-target-large);
+      height: var(--touch-target-large);
       box-shadow: 0 -1px rgba(0, 0, 0, 0.1);
     }
   }
@@ -221,10 +277,7 @@ textarea {
       justify-content: center;
       align-items: center;
       text-transform: uppercase;
-      font-variation-settings: var(--text-short-wide);
-      [role="tablist"] & {
-        font-variation-settings: var(--text-big-bold);
-      }
+      font-variation-settings: var(--text-narrower);
     }
     &:checked {
       + span {
@@ -244,23 +297,16 @@ textarea {
     height: var(--min-touch-target);
     //padding: 0 6.4rem;
     //background-color: var(--background-for-overlay-controls);
-    .playerImage__controls & {
-      margin-bottom: calc(2 * var(--min-touch-target));
-    }
   }
   &__wrapper {
     display: flex;
     flex-grow: 1;
     position: relative;
     //padding: 0 0.8rem;
-    //width: var(--min-touch-target);
     //border: 1px solid #000;
     overflow: hidden;
     align-items: center;
     text-align: center;
-    //&:not(:first-of-type) {
-    //  margin-left: var(--touch-target-spacing);
-    //}
   }
 
   &__fieldset {
@@ -272,9 +318,6 @@ textarea {
     border: none;
     &:not(:first-of-type) {
       box-shadow: -1px 0 #666666;
-    }
-    .playerImage__controls & {
-      padding: 0;
     }
 
     // refactor in v2
@@ -312,26 +355,24 @@ textarea {
   }
   &__label {
     display: flex;
-    flex-direction: column;
-    flex-grow: 1;
-    min-width: var(--min-touch-target);
-    height: var(--min-touch-target);
+    flex-direction: row;
+    //flex-grow: 1;
+    min-width: var(--touch-target-large);
+    height: var(--touch-target-large);
+    margin-left: 2rem;
     text-transform: uppercase;
     justify-content: center;
     align-items: center;
-    color: #000;
+    color: #fff;
+    //box-shadow: -1px 0 #fff, 1px 0 #fff;
     cursor: pointer;
+
     span {
-      font-variation-settings: var(--text-short-wide);
+      font-variation-settings: var(--text-squeeze);
+      //text-align: center;
     }
-    //&--fullTargetTransparent {
-    //  position: absolute;
-    //  top: 0;
-    //  right: 0;
-    //  bottom: 0;
-    //  left: 0;
-    //  width: 100%;
-    //  height: 100%;
+    //* {
+    //  font-size: 1.6rem;
     //}
   }
   &__icon {
@@ -349,14 +390,96 @@ textarea {
   }
 }
 
+.step {
+  &__fieldset {
+    * {
+      font-size: 1.6rem;
+    }
+    font-size: 1.6rem;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    //flex-direction: column;
+    //background-color: rgba(200, 200, 200, 0.1);
+    position: relative;
+    height: var(--touch-target-large);
+    padding: 0.2rem 0;
+    //margin-right: 0.8rem;
+
+    //border-left: 1px solid #fff;
+    color: #fff;
+    &:not(:first-child) {
+      //border-right: 1px solid #fff;
+    }
+  }
+
+  &__label {
+    font-size: 1.6rem;
+    font-variation-settings: var(--text-thin-wide);
+    position: absolute;
+    top: 0;
+    left: 0rem;
+    padding: 0.6rem 0 0.4rem 0;
+    width: 100%;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.6666);
+    //background-color: royalblue;
+    text-transform: uppercase;
+    pointer-events: none;
+    span {
+      color: #fff;
+    }
+  }
+  &__wrapper--inner {
+    display: flex;
+    flex-grow: 1;
+    align-items: center;
+  }
+
+  //&__output {
+  //  pointer-events: none;
+  //}
+  &__button {
+    //display: flex;
+    position: relative;
+    font-size: 1.6rem;
+    color: inherit;
+    width: var(--min-touch-target);
+    height: var(--min-touch-target);
+    padding-top: 2rem;
+    //border: 2px solid #fff;
+    //background: rgba(255, 255, 255, 0.5);
+    //box-shadow: 1px 0 #fff;
+    &:first-child {
+      &:after {
+        content: "";
+        position: absolute;
+        right: 0;
+        bottom: 0.8rem;
+        width: 1px;
+        height: 1.2rem;
+        background-color: rgba(200, 200, 200, 0.25);
+      }
+    }
+    svg {
+      stroke: rgba(255, 255, 255, 0.75);
+    }
+  }
+  // this is hidden
+  input[type="number"] {
+    //font-size: 1.6rem;
+  }
+}
+
 [data-soi] {
   position: absolute;
   display: flex;
   flex-wrap: wrap;
   //flex-direction: column;
-  width: 100%;
+  //width: 100%;
   top: 100%;
   left: 0;
+  right: 0;
   //background: rgba(0, 0, 0, 0.5);
   //width: 100%;
   padding: 0;
@@ -364,26 +487,25 @@ textarea {
   overflow: visible;
   z-index: 2;
   background-color: rgba(0, 0, 0, 0.6666);
+
   label {
     display: flex;
     flex-wrap: wrap;
     //flex-basis: 50%;
     //width: 50%;
     font-size: 1.6rem;
-    padding: 1.6rem;
+    //padding: 1.6rem;
     //color: #fff;
     // keep padding on LABEL so thereS no gap in focus targets that will close quasi modal
     &.rangeUI__label {
       color: #fff;
-      width: 50%;
-      padding: 0;
-      &:first-of-type {
-        padding-left: 2rem;
-        padding-right: 1rem;
+      width: 100%;
+      padding: 0.8rem 1.6rem;
+      &:first-child {
+        padding-top: 1.6rem;
       }
       &:last-of-type {
-        padding-left: 1rem;
-        padding-right: 2rem;
+        padding-bottom: 1.6rem;
       }
     }
   }
@@ -392,31 +514,15 @@ textarea {
 
   &.playerImage__controls {
     top: 0;
+    left: var(--imgEditControlsOffset);
+    right: var(--imgEditControlsOffset);
     padding-top: 0;
     flex-wrap: nowrap;
     background-color: transparent;
-    .filePicker__label {
-      flex-grow: 1;
-      padding: 0 1.6rem;
-    }
   }
 
   .card-back & {
     top: var(--min-touch-target);
-  }
-  .row--textControls {
-    &:first-of-type {
-      .rangeUI__label {
-        padding-top: 0.8rem;
-        padding-bottom: 0.4rem;
-      }
-    }
-    &:last-of-type {
-      .rangeUI__label {
-        padding-top: 0.4rem;
-        padding-bottom: 0.8rem;
-      }
-    }
   }
 }
 
@@ -465,5 +571,14 @@ textarea {
         }
       }
     }
+  }
+}
+
+// but i need to disable the ENTER functionality too right?? so...
+[data-u-cant-click-me="true"] {
+  // pointer events none allows zoom
+  // pointer-events: none;
+  svg {
+    stroke: rgba(200, 200, 200, 0.5);
   }
 }

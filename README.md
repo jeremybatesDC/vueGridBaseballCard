@@ -2,6 +2,188 @@
 
 ## To Do
 
+enroll in apple developemnt program
+ios build failed could not find xcode project -- hmmmm
+
+for iOS i've installed AltStore and trusted developer and am running AltServer on machine connected to same wifi. Offers sideloading
+
+need to create an ipa file -- i think i can do this... 
+
+keystore purpleMonkey 
+
+for app: ionic, as resistant as i am based on the arguably better practices of nativescript.
+but losing many hours to nativescript setup, whereas with ionic i got a running app instance from my phone in like 2 mins. So...
+
+need:
+- ios App development / Store certificate and a provisioning profile
+- android keystore file, key alias and key password
+
+the player image is missing from recent vercel deployments... 
+
+
+
+improve colorpicker a tad more on iOS - the issue i think is border on input type color --
+
+consider moving L2 controls beneath card.
+
+focus states on stepper buttons need customization b/c shape is weird
+
+if stats are 0 then no years, right?
+
+should start with fewer than 5 stats and/or fewer than 5 yrs. Very good designed thqt way since it all fits -- but it'll show user there's more and entice rather than overwhelm (which it definitely has done)
+
+pointer events none MIGHT be allowing zoom -- so search for it
+
+better validate number of rows / cols because disabling the button allows zoom and might be bad practice -- maybe just add check in handler? But visually there should be some disabled class right? uCantClickMe
+
+refactor data soi -- not sure i need/want the data-attr since i \*may need a class anyway
+
+re-style slider containers
+
+continue polishing input font variation settings
+
+wtaf happened to yarn? i reinstalled but basically it vanished and re-adding it to path did nothing because it was gone... i think... oof.
+
+max-width of app on desktop and stuff... not sure what best to do
+
+add pic images dont get tabbed
+
+focus styles on the cardfront/cardback buttons
+
+slight gap in image editing fielset legends
+
+work on filters -- for instances, faded doesnt do anything i don't think on a photo user uploads -- seems broken...
+and 1920 -- is that accurate? Can I offer at least 2 decacde filters? Maybe using more svgs than css filters, although...
+
+if overlay color picker with same texture it'll match: if top were 44 and L2 60 -- that saves lkike 18px and we're halfway there... But can't quite get all the way there, user may have to scroll anyway and effort to achieve questionable benefit for subset of users with tiny screens who resent scrolling? Not a good use of time... Scrolling is good and fine... Maybe sticky could be cool...
+
+on iphone 5, for instance, any way we can ensure the bottommost text row shows? We're short like 48 px
+
+nov 6 demo 2 (if people are in good mood after election)
+
+be wary of current color on placeholder logo until you're ready to offer that deature to user (might not want to default to it since a user's logo may already have its own border) -- would be a good feature but v2? I really like the effect though. If...
+
+16px margins on card front seem a hair thin...
+
+PUT SERVICE WORKER BACK AFTER DEV -- really want env var here
+
+implement indexxedbd
+
+paige image: hat logo is now an O but that goes with nothing.
+
+it doesn't clash with the ficition team and b) for any copyright whatever, despite the fact athat image itself is in common domain
+
+consider touch target 44 like var(--touchtarget) for small screens, and 4.8 at min something like 414... BE careful though because trying to keep card dimensions unaffected -- this would be for L1 & L2
+
+meditate on how card back horizontal can truly show horizontal.
+
+- table spacing like for city -- tighten that, natch
+
+if possible on non-tiny screens, lower interaction cost of discovering image filters/ logo position... maybe they always should be visible on non-tiny scrrens, but might need to speararte them because maybe there is an appropraite UI to tie to clicking the image (as opposed to nothing)
+
+consider max-width 399 because that's more the idea
+
+web tap highlight annoying when touching image div, at least when image is absent
+
+with such little CSS (less than 4kb compressed, which is what matters for this particualr decision), it \*might be best for build to INLINE css on html page... save a request and kep index less than 14
+
+orientation portrait on back has wonkey text slider positioning for aside career highightlights text sliders
+
+where possible CONSIDER (re)flattening data -- it's going to save cycles at some point maybe
+
+finish adjusting font parameters for Anybody. For instance, the max or min values allowed on range inputs are based on roboto not Anybody, which has wider values...
+
+ok so in composition API, the data object isn't so broken out... ahhh... i missed that bit... Or did it just get moved to one of their reputposables?
+https://v3.vuejs.org/guide/composition-api-introduction.html#standalone-computed-properties
+
+Tabs: must retain tab state in model (not hash) -- AND, 'aria-selected' and 'disabled' will need to be tied into this modal no big deal really :disabled=""
+
+    // removed async attr - reasoning us that user would expect nothing else to be prioritzed over their desired action of switching tabs ( i think )
+    // could use a ref here maybe for the wrapper perhaps
+    // then could query that ref
+    // also, *use model here, right?*
+    // :hidden :aria-selected
+
+test tab-throughs.
+
+or maybe 1 year with "Add Seasons" option... hmmm or maybe X over 5 column inisinal layout so user can obvi remove some... dunno...
+
+UI for sum or average on a given field and then how to display difference in stat table so itS clear that 3 seasons of 1 hr each doesn't equal 3 total, but 1 avg. Why set up for mistakes?
+
+stats table 5x5: type number isT great for iOS. Maybe even Select:
+Years:
+0: hide stats entirely
+0: Rookie card!
+1
+2
+3
+4
+5 --> default
+
+verify card front/back being size . Hard to tell until L2s are restored and are same height front and back
+
+ensure name atteibutes for radios unless clashes wiht v-model -- do thye clash / have to match? I'd prefer they matched but is that just actually shadowing?
+
+Per updated vue docs: mabe this addresses the issues i had with loops (specifically inputt ype ranges weren't initializing with proper value until one is interacted with... Maybe this:)
+key usage on
+
+```
+<template v-for>
+```
+
+and non-v-for nodes has changed
+
+---
+
+i think the image buttons on the front l1 controls work because they are labels and the actual input in inside component.
+that's opposed to colorpicker, which an input element and tied into the component until pass props (which is straightforward)
+
+after making front and back same size effectively using outline and box-shadow,
+need to adjust image filter and logo poistion controls
+orientation icons
+
+adjust spacing for vertical orientation
+
+tap highlight select transparent in tabs -- i see quick flash
+
+on cardback L2 controls, show number of years and number of column options (standard spreadsheet type input ) [ input ] x [input ]
+
+could give more control over table type (like # of columns, # of years)
+
+if used methods watchers computeed maybe instaed of input event for encode, that might be cleaner and easier to trigger on load... hmmm, can i feed an initital value?
+
+the copy for front/back labels ins't quite right. But I had to had to had to better indicate the meaning of BACK when it has such a specific web meaning already...
+
+hover over footer total should give disabled cursor or pointer -- NOT misleading symbol indicating edit
+
+choose default color with more contrast against background so it's more instantly clear that the colorpicker is for card background color
+
+then, touching on the actual logo could give you logo only options, and the player image could give playerimage only settings...
+but is that realistic? A sticking point is the filter... it kinda neds to apply to both player image and logo otherwise come on...
+
+the logo/border curve alignment is fiddly still -- TRY a before/after square element. Easier than try to align curves
+
+the cleanest way to treat the default images MIGHT be just to treat them as data. Does the canvas ever become empty? I don't thnik so...
+
+slight gap if you look really close, especially on mobile. Probably bordrer related
+
+finish refactoring tabulation. Nearly certain i can get a single pass function. I'm not sure whther the current setup adds of saves the brower work. I think it adds.
+
+re-punch up cardback after removing grad. Text too thin
+
+either remove/repalace grad or just rename it "extraboldness" for now...
+
+create exact same schema in json, data() and indexdb
+
+would ismplest thing be to super throttle a watch function and re-save? I think maybe so let's try
+using handlers thiugh also seems fiddly.
+
+pass data via props into cardFront and cardBack from App based on whether local data exists yet or not. Makes sense at the App level to me.
+although, thinking this through, user may have doen side front bu tnot back.
+Ah, but back would always at least have the name and position, right?
+
+logo image should be made small on encode
+
 paw is good for logo and logo button
 
 avoid watching sliders so much potential for making cpu fan explode
@@ -22,20 +204,35 @@ review readme in v4 for additional ideas i may have added at some poeint
 
 bettwe click outside to close like underneath on desktop? it doesn't take up full height...
 
-PUT SERVICE WORKER BACK AFTER DEV -- really want env var here
-
 touch indicator at least on initial load for logo image
 emphasize those image upload buttons more. Thumbprint icon? in v2 i could try to graduate them.
 
-can i tree shake vue? Vite says it's optimizable and i do think the entire thing is loading... hmmm
-
 after editing career highlights, sometimes hard ot click table stats without triggering career highlights again
-
-logo image could match upload logo icon for more of a visual hint! plus it's super digitized8
 
 ---
 
 ### Notes
+
+The Anybody font is a HUGE win. Credit goes to etceteratype and to the github commit's of sursly (https://github.com/sursly). Saved 881kb and now my overall proj is down to like 230 kb before images, or down to 120kbb bortli before images...
+
+dimensions of card: 2.5 x 3.5 in: 6.4 cm by 8.9 cm
+
+so 320 x 448px but adjusted up to
+but i went with doing 360 x 504. I think because everything dived niceley vertically
+
+cat paw logo could be over the outline of astate... or, for instance, the outline of brooklyn
+
+i think i'm doing too much work with computed AND watch -- harnessing one way, then behaving accordingly, is prob better
+
+actually i don't think i want to use provide/inject for everthing. There could be a master object MAYBE that front and back emit to. But data can be split between front and back, and if anything I need to decouple them more so chunking them apart for asyn purposes would be simpler (yes, can load back async -- but, if a returning user's data is frontshowing: false, then load back right away, and front AYSNC. I think thatS achievable. Card Front and back really shouldnT share anything. Even the name should AT MOST maybe auto-inherit, but not sync. If it syncs then i have to think about which line on the cardfront is actually NAME and also possibly provide author with ability to decouple the fields. So if it's just really that one field, maybe inject is perfect for that one field...
+So state can/should live in front/back. Myabe... I need to keep mulling this.
+
+can i go an inject on mounted?
+
+tree shake vue? i think must only look at vue code coverage after build.VUE ooks like Vite optimizes the fuck out of vue.
+and my code coverage is pretty good indeed. Fun to explore that
+
+the wider the range input is, the less it looks like a toggle. Achieving this now. should border curve basically be a toggle? it almost looks like a broken toggle if it's not allowed to grow wide
 
     //reason that iM ok here with less than 44px is that when they are next to each other, focus UI makes it less of a huge deal if user taps the adjascent box. Not ideal but also still clickable
 
@@ -72,11 +269,11 @@ can i offer a 48px touch target (off to the side perhaps) while maintaining tigh
 the way to make a mask is via computed and watchers, set/get. No need for a mask plugin.
 and, after considering it, i donT think i need a table plugin. If I can properly tag columns then doing math on them shouldnT take any special code really. It would just be a formula, and probably use the Computed method
 
-so really it's just an upload button... I want it to match the logo image icon. And since image player icon can't be a mountain, and logo image prob shouldn't be a person, then need to generalize morereplace filepicker player image upload button with an icon of a picture that feautures a person not a mountian: something like: https://iconmonstr.com/picture-4-svg/
+the stepper buttons can be as big as they are with large plus min icons but the background can be smaller so the legend can show better... But putting the span in that button introduces yucky complexuty of more flex properties PLUS event.target uncertaintly (could use current target i guess right?), and it just seems to have fewer fail points in general... but maybe can reconsider
 
 ## App
 
-gets too slow with huge photos (does the same happen after you change photos 100times even with small images? is it a pure memory issue?)
+Vue-Nativescript, a port of React Native, has a ton of stars and MIGHT make it easier than {N}-Vue
 
 Nativescript-Vue is the way to go... everything just seems to be between versions right now. I starred 8 repos though
 
@@ -90,9 +287,24 @@ i stupidly removed previous xcode when installing beta xcode. Nativescript appea
 
 -- i already have an apple dev account it seems -- upgrading xcode now... The vue3 feature of making it "easier to target native" seems to have evaporated
 
-### 2nd release
+### Next release
 
-tabs the Vue way: https://codepen.io/team/Vue/pen/jOPjZOe
+new cpntent bnutton to prompt user to refresh -- best preactice PWA pattern at this point
+
+worker pass reader blob to canvas? measure worker times for the blob/reader, as long as that wouldn't actually make it slower
+
+consider down keys in table colummns
+
+vanilla js animate spring transitions -- i could image spending 16 hours on this, with a really smooth, natural and enjoyable result.
+https://joshwcomeau.com/animation/a-friendly-introduction-to-spring-physics/
+
+handle crop/zoom just with object position/fit (OBJECT FIT NONE MAYbe)
+
+if features expland, consider adding Pica or an even more proven canvas image resizer that addresses the many image quality issues that arise when doing this for first time yourself
+but what about zoom/crop? since my mom already asked for that fnctionality, and i was thinking about it, maybe there is a single solution.
+https://github.com/blueimp/JavaScript-Load-Image -- only problem is that the file is huge (176kb unpacked)
+Pica is also enormous
+
 ASIDE & FOOTER!
 textareas content strategy/testing:
 a) maxlength?
@@ -302,10 +514,6 @@ indicate whether a field can have its font manipulated
 - Calculations and column stat type -- have user define what kind of stat it is (to make calculation in footer proedictable and logical -- if user wants to add up all the miles per hour, fine, but that can be an override of a sensible defualt)
 
 --> in addition to preventing jumps by taking up space (the focus UI needs this), CONSIDER a simple ANIMATION to show that a field is opening up to be edited and then is closing back down.
-
-- TABS: on screens that are wide enough, consider splitting front/back buttons to sides ( for thumbs holding a phone in landscape, for instance). Goal here is to have user se 100% all content needed without having to scroll
-  --> make sure tab state is saved locally
-  --> use hashes so BACK works as user expects
 
 icon for logo placement can be just one def with a single class applied to determine fill.
 
