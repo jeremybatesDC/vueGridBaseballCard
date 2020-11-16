@@ -2,6 +2,26 @@
 
 ## To Do
 
+enroll in apple developemnt program
+ios build failed could not find xcode project -- hmmmm
+
+for iOS i've installed AltStore and trusted developer and am running AltServer on machine connected to same wifi. Offers sideloading
+
+need to create an ipa file -- i think i can do this... 
+
+keystore purpleMonkey 
+
+for app: ionic, as resistant as i am based on the arguably better practices of nativescript.
+but losing many hours to nativescript setup, whereas with ionic i got a running app instance from my phone in like 2 mins. So...
+
+need:
+- ios App development / Store certificate and a provisioning profile
+- android keystore file, key alias and key password
+
+the player image is missing from recent vercel deployments... 
+
+
+
 improve colorpicker a tad more on iOS - the issue i think is border on input type color --
 
 consider moving L2 controls beneath card.
